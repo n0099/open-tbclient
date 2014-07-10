@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    public static List<t> a(String str) {
+    public static List<t> a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -27,6 +27,7 @@ public class s {
                 tVar.a = optString;
                 tVar.b = optString4;
                 tVar.c = optString3;
+                tVar.e = str2;
                 linkedList.add(tVar);
             }
             return linkedList;

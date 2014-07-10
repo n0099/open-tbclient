@@ -1,44 +1,17 @@
 package com.baidu.android.defense.a;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public final class d {
-    private static d b = null;
-    private ExecutorService a = Executors.newFixedThreadPool(3, new com.baidu.android.moplus.util.c("Defense_DownloadThreadPool"));
-
-    private d() {
+public final class d extends a {
+    public d(Context context, c cVar) {
+        super(context, cVar);
     }
 
-    public static synchronized d a() {
-        d dVar;
-        synchronized (d.class) {
-            if (b == null) {
-                b = new d();
-            }
-            dVar = b;
-        }
-        return dVar;
-    }
-
-    public static synchronized void b() {
-        synchronized (d.class) {
-            if (b != null) {
-                b.c();
-                b = null;
-            }
-        }
-    }
-
-    private void c() {
-        try {
-            this.a.shutdown();
-        } catch (SecurityException e) {
-        }
-        this.a = null;
-    }
-
-    public void a(c cVar) {
-        this.a.submit(cVar);
+    @Override // com.baidu.android.defense.a.a
+    protected void a() {
+        Intent intent = new Intent("action_appinstall");
+        intent.putExtra("file_path", this.c);
+        this.a.sendBroadcast(intent);
     }
 }

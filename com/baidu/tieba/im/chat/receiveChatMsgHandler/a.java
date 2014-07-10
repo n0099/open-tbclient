@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
@@ -80,11 +80,12 @@ public abstract class a {
                     if (optInt2 > 0) {
                         optInt += optInt2;
                     }
-                    int optInt3 = jSONObject.optInt("fans");
-                    int optInt4 = jSONObject.optInt("atme");
-                    if (optInt >= 0 && optInt3 >= 0 && optInt4 >= 0) {
+                    int optInt3 = jSONObject.optInt("atme");
+                    if (jSONObject.optInt("feed") > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2012118));
+                    }
+                    if (optInt >= 0 && optInt3 >= 0) {
                         if (TbadkApplication.m252getInst().getMsgFrequency() <= 0) {
-                            optInt4 = 0;
                             optInt3 = 0;
                             optInt = 0;
                         }
@@ -94,16 +95,12 @@ public abstract class a {
                         if (!TbadkApplication.m252getInst().isMsgReplymeOn()) {
                             optInt = 0;
                         }
-                        if (!TbadkApplication.m252getInst().isMsgAtmeOn()) {
-                            optInt4 = 0;
-                        }
-                        int i = TbadkApplication.m252getInst().isMsgFansOn() ? optInt3 : 0;
+                        int i = TbadkApplication.m252getInst().isMsgAtmeOn() ? optInt3 : 0;
                         if (currentAccount != null && currentAccount.length() > 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.a().a(optInt, optInt4, i, com.baidu.tbadk.coreExtra.messageCenter.a.a().n(), com.baidu.tbadk.coreExtra.messageCenter.a.a().p());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.a().a(optInt, i, com.baidu.tbadk.coreExtra.messageCenter.a.a().m(), com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
                         }
                     }
                 } catch (Exception e) {
-                    BdLog.e("ChatMsgHelper", "parseContent error ", e.getMessage());
                 }
             }
         }

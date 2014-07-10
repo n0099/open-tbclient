@@ -1,39 +1,31 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tbadk.core.b.a {
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new ak(context).a(i)));
+class ab extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context) {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            a(context, 1);
-        } else {
-            a(context, 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+                return;
+            }
+            this.a.Q = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
+            this.a.a(false);
         }
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new ak(context).b(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public Class<?> a() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public String b() {
-        return MainTabActivity.class.getName();
     }
 }

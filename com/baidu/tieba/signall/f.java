@@ -3,11 +3,11 @@ package com.baidu.tieba.signall;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class f {
     private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
-    private an a = null;
+    private aq a = null;
 
     public String a(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
@@ -15,7 +15,7 @@ public class f {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.a = new an(b);
+        this.a = new aq(b);
         this.a.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, str2);
         this.a.a("forum_ids", str);
         this.a.a().a().b = true;

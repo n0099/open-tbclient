@@ -7,7 +7,7 @@ import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,10 +16,10 @@ import java.io.FileWriter;
 public class TiebaActiveService extends Service {
     private static final int ACTIVE_FAIL = 1;
     private static final int ACTIVE_SUCC = 2;
-    private n mActiveTask = null;
+    private p mActiveTask = null;
     private int mHaveRetry = 0;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new m(this);
+    private Runnable mRunnable = new o(this);
 
     private String getChannelByShare() {
         return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
@@ -34,7 +34,7 @@ public class TiebaActiveService extends Service {
     private String getChannelyFile() {
         String str = null;
         try {
-            File d = x.d(TbConfig.CHANNEL_FILE);
+            File d = z.d(TbConfig.CHANNEL_FILE);
             if (d != null) {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
                 str = bufferedReader.readLine();
@@ -43,7 +43,7 @@ public class TiebaActiveService extends Service {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getFromByFile", e.getMessage());
+            BdLog.e(e.getMessage());
             TiebaStatic.file(e, "TiebaActiveService.getChannelyFile");
         }
         return str;
@@ -52,7 +52,7 @@ public class TiebaActiveService extends Service {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = x.f(TbConfig.CHANNEL_FILE);
+                File f = z.f(TbConfig.CHANNEL_FILE);
                 if (f != null) {
                     FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);
@@ -60,7 +60,7 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "saveFromToFile", e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
             }
         }
@@ -84,9 +84,8 @@ public class TiebaActiveService extends Service {
                 saveChannelToFile(channelByShare);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getActiveState", e.getMessage());
+            BdLog.e(e.getMessage());
         }
-        BdLog.i(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -120,7 +119,7 @@ public class TiebaActiveService extends Service {
         if (this.mActiveTask != null) {
             this.mActiveTask.cancel();
         }
-        this.mActiveTask = new n(this, null);
+        this.mActiveTask = new p(this, null);
         this.mActiveTask.execute(new String[0]);
     }
 }

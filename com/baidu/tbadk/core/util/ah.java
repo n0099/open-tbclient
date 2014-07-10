@@ -1,21 +1,43 @@
 package com.baidu.tbadk.core.util;
-
-import android.view.ViewGroup;
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements com.baidu.tbadk.imageManager.d {
-    private final /* synthetic */ ListView a;
+public class ah {
+    private static ah f;
+    private long a = 0;
+    private long b = 0;
+    private String c = "";
+    private String d = "";
+    private final long e = 120000;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ListView listView) {
-        this.a = listView;
+    public static ah a() {
+        if (f == null) {
+            synchronized (ah.class) {
+                if (f == null) {
+                    f = new ah();
+                }
+            }
+        }
+        return f;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str != null) {
-            br.a((ViewGroup) this.a, false, (bt) new ai(this, str));
+    public String b() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 120000) {
+            this.a = currentTimeMillis;
+            this.c = UtilHelper.getIpFromDomain("tieba.baidu.com");
         }
+        return this.c;
+    }
+
+    public String a(String str) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.b > 120000) {
+            this.b = currentTimeMillis;
+            int indexOf = str.indexOf("hiphotos.baidu.com");
+            if (indexOf > 0) {
+                return UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            }
+            return "";
+        }
+        return this.d;
     }
 }

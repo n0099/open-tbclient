@@ -1,11 +1,12 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.bf;
 import java.util.LinkedList;
 import org.json.JSONObject;
-import tbclient.FrsPage.App;
+import tbclient.App;
 /* loaded from: classes.dex */
-public class b extends n {
+public class b extends m {
     private int c;
     private int d;
     private String e;
@@ -67,7 +68,7 @@ public class b extends n {
         return this.k;
     }
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.m
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -80,15 +81,20 @@ public class b extends n {
                 this.i = jSONObject.optString("p_name", "");
                 this.j = jSONObject.optString("p_url", "");
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.n, com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.e);
+    @Override // com.baidu.tbadk.core.data.m, com.baidu.tbadk.core.util.bg
+    public LinkedList<bf> getImages() {
+        LinkedList<bf> linkedList = new LinkedList<>();
+        if (this.e != null) {
+            bf bfVar = new bf();
+            bfVar.a = this.e;
+            bfVar.d = 10;
+            linkedList.add(bfVar);
+        }
         return linkedList;
     }
 

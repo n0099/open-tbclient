@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SubscribeLiveGroup.DataReq;
 import protobuf.SubscribeLiveGroup.SubscribeLiveGroupReqIdl;
@@ -10,7 +9,7 @@ public class RequestSubscribeLiveGroupMessage extends TbSocketMessage {
     private int mSubscribe;
 
     public RequestSubscribeLiveGroupMessage() {
-        super(MessageTypes.CMD_SUBSCRIBE_LIVE_GROUP);
+        super(107105);
         this.mGroupId = 0;
         this.mSubscribe = 0;
     }

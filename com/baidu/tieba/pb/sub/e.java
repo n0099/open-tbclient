@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.pb.main.az;
+import com.baidu.tieba.pb.main.bc;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.widget.ListView.e {
@@ -44,7 +44,7 @@ public class e extends com.baidu.adp.widget.ListView.e {
         this.g = i;
         this.d.setVisibility(8);
         if (i > 0) {
-            az.a(this.a, this.b, i);
+            bc.a(this.a, this.b, i);
             this.c.setVisibility(0);
         } else {
             this.b.setText(this.a.getText(y.load_more));
@@ -56,7 +56,7 @@ public class e extends com.baidu.adp.widget.ListView.e {
     public void d() {
         this.d.setVisibility(8);
         if (this.g > 0) {
-            az.a(this.a, this.b, this.g);
+            bc.a(this.a, this.b, this.g);
             this.c.setVisibility(0);
         } else {
             this.b.setText(this.a.getText(y.load_more));

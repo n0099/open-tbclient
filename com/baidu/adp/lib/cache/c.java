@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.f a;
+    protected final com.baidu.adp.base.i a;
     protected String b;
     protected h c;
     protected g d;
@@ -29,8 +29,8 @@ public abstract class c<T> {
 
     protected abstract boolean b(String str);
 
-    public c(com.baidu.adp.base.f fVar) {
-        this.a = fVar;
+    public c(com.baidu.adp.base.i iVar) {
+        this.a = iVar;
     }
 
     public void a(f fVar, String str) {
@@ -48,7 +48,7 @@ public abstract class c<T> {
             return a(this.a.a(), str);
         } catch (Throwable th) {
             this.a.a(th);
-            BdLog.e(getClass(), str, th);
+            BdLog.e(th);
             return null;
         }
     }
@@ -71,7 +71,7 @@ public abstract class c<T> {
             }
         } catch (Throwable th) {
             this.a.a(th);
-            BdLog.e(getClass(), "failed to insert " + mVar.a + " to db.", th);
+            BdLog.e(th);
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class c<T> {
             return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
             this.a.a(th);
-            BdLog.e(getClass(), "failed to delete " + str + " from db.", th);
+            BdLog.e(th);
             return 0;
         }
     }
@@ -137,7 +137,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.a(th);
-                    BdLog.e(getClass(), "performEvict", th);
+                    BdLog.e(th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.d.d();
@@ -167,7 +167,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.a(th);
-                    BdLog.e(getClass(), "performPump", th);
+                    BdLog.e(th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.c.d();
@@ -206,7 +206,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.f d() {
+    public com.baidu.adp.base.i d() {
         return this.a;
     }
 }

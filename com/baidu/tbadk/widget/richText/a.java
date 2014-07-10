@@ -1,6 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -131,7 +132,9 @@ public class a {
             if (i == size - 1 && cVar.a() == 1 && this.a) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.b));
             } else if (cVar.a() == 8) {
-                sb.append("[图片]");
+                sb.append(this.f.getString(y.pic_str));
+            } else if (cVar.a() == 512) {
+                sb.append(this.f.getString(y.voice_str));
             } else {
                 sb.append(cVar2);
             }

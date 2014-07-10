@@ -9,17 +9,16 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
 public class BlackMembersListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private i a;
     private com.baidu.tieba.im.model.y b;
-    private final com.baidu.adp.framework.listener.b c = new a(this, MessageTypes.CMD_LIVE_BLACK_MEMBERS_LIST);
-    private final com.baidu.adp.framework.listener.b d = new b(this, MessageTypes.CMD_LIVE_GROUP_OWNER_GAG);
+    private final com.baidu.adp.framework.listener.b c = new a(this, 107009);
+    private final com.baidu.adp.framework.listener.b d = new b(this, 107109);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.d.class, BlackMembersListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.e.class, BlackMembersListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -94,13 +93,13 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
         if (!e.b()) {
             e.c(true);
             textView.setText(com.baidu.tieba.y.done);
-            be.g(textView, TbadkApplication.m252getInst().getSkinType());
+            bk.g(textView, TbadkApplication.m252getInst().getSkinType());
             e.notifyDataSetChanged();
             return;
         }
         e.c(false);
         textView.setText(com.baidu.tieba.y.edit);
-        be.i(textView, TbadkApplication.m252getInst().getSkinType());
+        bk.i(textView, TbadkApplication.m252getInst().getSkinType());
         e.notifyDataSetChanged();
     }
 
@@ -133,7 +132,7 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
         g();
     }
 

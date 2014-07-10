@@ -1,24 +1,21 @@
 package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements DialogInterface.OnClickListener {
-    final /* synthetic */ bm a;
+class bp implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bm bmVar) {
-        this.a = bmVar;
+    public bp(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            this.a.t();
+            com.baidu.tbadk.core.util.bj.a(this.a);
         } else if (i == 1) {
-            com.baidu.tbadk.core.util.bd.a(this.a.getActivity());
-        } else if (i == 2) {
-            com.baidu.tbadk.core.util.bd.c(this.a.getActivity());
+            com.baidu.tbadk.core.util.bj.c(this.a);
         }
     }
 }

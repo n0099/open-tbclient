@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryHotLiveGroups.DataReq;
 import protobuf.QueryHotLiveGroups.QueryHotLiveGroupsReqIdl;
@@ -13,7 +12,7 @@ public class RequestHotLiveListMessage extends TbSocketMessage {
     private int width;
 
     public RequestHotLiveListMessage() {
-        super(MessageTypes.CMD_REQUEST_LIVE_LIST_ALL);
+        super(107003);
     }
 
     public int getType() {

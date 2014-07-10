@@ -11,10 +11,10 @@ public class at implements com.baidu.tbadk.imageManager.d {
 
     @Override // com.baidu.tbadk.imageManager.d
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        ag agVar;
+        ah ahVar;
         if (aVar != null) {
-            agVar = this.a.l;
-            agVar.setHeaderBackground(aVar.j());
+            ahVar = this.a.m;
+            ahVar.setHeaderImage(aVar);
         }
     }
 }

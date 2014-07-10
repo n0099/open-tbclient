@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements Serializable {
+public class GroupInfoData extends com.baidu.tbadk.core.util.a implements bg, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
     private int authorIsMeizhi;
@@ -146,14 +148,20 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements Serial
         this.isMemGroup = z;
     }
 
-    public String toString() {
-        return "GroupInfoData [isManager=" + this.isGroupManager + ", groupId=" + this.groupId + ", forumId=" + this.forumId + ", name=" + this.name + ", intro=" + this.intro + ", portrait=" + this.portrait + ", maxMemberNum=" + this.maxMemberNum + ", memberNum=" + this.memberNum + ", authorId=" + this.authorId + ", authorName=" + this.authorName + "]";
-    }
-
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
+        return linkedList;
+    }
+
+    @Override // com.baidu.tbadk.core.util.bg
+    public LinkedList<bf> getImages() {
+        LinkedList<bf> linkedList = new LinkedList<>();
+        bf bfVar = new bf();
+        bfVar.a = this.portrait;
+        bfVar.d = 10;
+        linkedList.add(bfVar);
         return linkedList;
     }
 }

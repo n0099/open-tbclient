@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.c {
+public class a extends com.baidu.adp.base.f {
     private View a;
     private TextView b;
     private ImageView c;

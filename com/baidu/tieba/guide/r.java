@@ -1,21 +1,29 @@
 package com.baidu.tieba.guide;
 
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 /* loaded from: classes.dex */
-class r implements t {
-    final /* synthetic */ q a;
+public class r extends FragmentPagerAdapter {
+    private final com.baidu.tbadk.core.d[] a;
+    private final int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar) {
-        this.a = qVar;
+    public r(FragmentManager fragmentManager) {
+        super(fragmentManager);
+        this.a = new com.baidu.tbadk.core.d[]{new j(), new m()};
+        this.b = this.a.length;
     }
 
-    @Override // com.baidu.tieba.guide.t
-    public void a() {
-        p pVar;
-        View view;
-        pVar = this.a.a;
-        view = pVar.c;
-        view.setVisibility(8);
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        if (i < 0 || i >= this.b) {
+            return null;
+        }
+        return this.a[i];
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.b;
     }
 }

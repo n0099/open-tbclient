@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.base.c {
+public class u extends com.baidu.adp.base.f {
     private int a;
     private NavigationBar b;
     private View c;
@@ -259,7 +259,7 @@ public class u extends com.baidu.adp.base.c {
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.c);
-        be.b(this.c, i);
+        bk.b(this.c, i);
         this.b.c(i);
         if (i == 1) {
             this.c.setBackgroundResource(com.baidu.tieba.s.group_info_bg_1);

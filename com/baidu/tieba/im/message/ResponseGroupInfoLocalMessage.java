@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.data.MemberData;
@@ -20,7 +19,7 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<f> {
     private f selfData;
 
     public ResponseGroupInfoLocalMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL);
+        super(2001102);
         this.mResData = null;
         this.selfData = null;
     }

@@ -1,32 +1,35 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements l {
-    final /* synthetic */ r a;
+class u implements b {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(r rVar) {
-        this.a = rVar;
+    public u(t tVar) {
+        this.a = tVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.websocketBase.l
-    public void a(boolean z) {
+    @Override // com.baidu.tbadk.coreExtra.websocketBase.b
+    public void a() {
+        q qVar;
+        q qVar2;
+        q qVar3;
         List list;
-        f.a().a(z ? 2 : 1);
-        if (z) {
-            this.a.f = a.a().d();
-            list = this.a.f;
-            if (list != null) {
-                this.a.b("change ip to reconnect with DNS' failed.");
-                return;
-            } else {
-                a.a().a(new v(this));
-                return;
-            }
+        q qVar4;
+        q qVar5;
+        qVar = this.a.a;
+        qVar.c = 0;
+        qVar2 = this.a.a;
+        qVar2.f = a.a().d();
+        qVar3 = this.a.a;
+        list = qVar3.f;
+        if (list != null) {
+            qVar5 = this.a.a;
+            qVar5.b("change ip to reconnect with DNS' failed.");
+            return;
         }
-        this.a.g = false;
-        this.a.d();
+        qVar4 = this.a.a;
+        qVar4.g = false;
     }
 }

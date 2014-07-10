@@ -66,26 +66,33 @@ public final class i {
     }
 
     public static boolean a(Class<?> cls) {
-        com.baidu.tbadk.tbplugin.a.c cVar = (com.baidu.tbadk.tbplugin.a.c) a(cls, com.baidu.tbadk.tbplugin.a.c.class);
-        return cVar != null && FileUtils.getFile(d(), new StringBuilder().append(cVar).append(".xml").toString()).exists();
+        try {
+            com.baidu.tbadk.tbplugin.a.c cVar = (com.baidu.tbadk.tbplugin.a.c) a(cls, com.baidu.tbadk.tbplugin.a.c.class);
+            if (cVar != null) {
+                if (FileUtils.getFile(d(), cVar + ".xml").exists()) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Throwable th) {
+            BdLog.detailException(th);
+            return false;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2) {
-        com.baidu.adp.lib.stats.h.a().a(context, "plugin", "install", 1, "failed", str2, str);
-        BdLog.d("Plugin install failed: " + str + ": " + str2);
+        com.baidu.adp.lib.stats.d.b().a(context, "plugin", "install", 1, "failed", str2, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str) {
-        com.baidu.adp.lib.stats.h.a().a(context, "plugin", "load", 1, "failed", str);
-        BdLog.d("Plugin load failed: " + str);
+        com.baidu.adp.lib.stats.d.b().a(context, "plugin", "load", 1, "failed", str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(Context context, String str) {
-        com.baidu.adp.lib.stats.h.a().a(context, "plugin", "general", 1, "failed", str);
-        BdLog.d("Plugin general failed: " + str);
+        com.baidu.adp.lib.stats.d.b().a(context, "plugin", "general", 1, "failed", str);
     }
 
     static PluginsConfig h() {

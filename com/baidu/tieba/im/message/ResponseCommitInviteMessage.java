@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.CommitInviteMsg.CommitInviteMsgResIdl;
 import protobuf.CommitInviteMsg.DataRes;
@@ -10,7 +9,7 @@ public class ResponseCommitInviteMessage extends SocketResponsedMessage {
     private DataRes mResData;
 
     public ResponseCommitInviteMessage() {
-        super(MessageTypes.CMD_COMMIT_INVITE);
+        super(205002);
     }
 
     public ResponseCommitInviteMessage(int i) {

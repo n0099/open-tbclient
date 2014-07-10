@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
@@ -50,13 +50,13 @@ public class l implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.l) {
-            com.baidu.tieba.im.data.l lVar = (com.baidu.tieba.im.data.l) obj;
-            this.o.setTag(lVar.c());
-            this.e.setText(lVar.d());
-            this.f.setText(String.valueOf(lVar.h()) + "/" + lVar.g());
-            this.g.setText(lVar.e());
-            String f = lVar.f();
+        if (obj instanceof com.baidu.tieba.im.data.j) {
+            com.baidu.tieba.im.data.j jVar = (com.baidu.tieba.im.data.j) obj;
+            this.o.setTag(jVar.c());
+            this.e.setText(jVar.d());
+            this.f.setText(String.valueOf(jVar.h()) + "/" + jVar.g());
+            this.g.setText(jVar.e());
+            String f = jVar.f();
             this.d.setTag(null);
             this.d.setDefaultResource(u.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -64,17 +64,18 @@ public class l implements a {
             if (!TextUtils.isEmpty(f)) {
                 this.d.setTag(f);
             }
-            if (lVar.m()) {
-                be.a(this.e, s.im_group_vip_text, 1);
+            this.d.a(f, 10, false);
+            if (jVar.m()) {
+                bk.a(this.e, s.im_group_vip_text, 1);
             } else {
                 this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                 this.b.getLayoutMode().a(this.e);
             }
-            a(this.k, lVar.i(), lVar.m());
-            String b = b(lVar.j());
+            a(this.k, jVar.i(), jVar.m());
+            String b = b(jVar.j());
             this.m.setText(b);
             this.n.setText(b);
-            if (lVar.a()) {
+            if (jVar.a()) {
                 this.p.setVisibility(0);
                 this.m.setVisibility(0);
                 this.n.setVisibility(8);
@@ -83,12 +84,12 @@ public class l implements a {
                 this.m.setVisibility(8);
                 this.n.setVisibility(0);
             }
-            if (lVar.k()) {
+            if (jVar.k()) {
                 this.q.setVisibility(0);
             } else {
                 this.q.setVisibility(8);
             }
-            if (lVar.l()) {
+            if (jVar.l()) {
                 this.r.setVisibility(0);
             } else {
                 this.r.setVisibility(8);
@@ -109,9 +110,9 @@ public class l implements a {
 
     private void a(ImageView[] imageViewArr, int i, boolean z) {
         if (z) {
-            be.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
-            be.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
-            be.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
+            bk.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
+            bk.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
+            bk.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
         } else {
             this.b.getLayoutMode().a(imageViewArr[1]);
             this.b.getLayoutMode().a(imageViewArr[2]);

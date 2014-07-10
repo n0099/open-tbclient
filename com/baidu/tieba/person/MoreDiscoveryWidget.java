@@ -49,7 +49,7 @@ public class MoreDiscoveryWidget extends FrameLayout {
         if (this.e instanceof BaseActivity) {
             ((BaseActivity) this.e).getLayoutMode().a((View) this);
         } else if (this.e instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) getContext()).a().a((View) this);
+            ((BaseFragmentActivity) getContext()).c().a((View) this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);

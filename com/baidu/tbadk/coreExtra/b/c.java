@@ -8,11 +8,12 @@ public class c {
     private String B;
     private String C;
     private String D;
-    private String q;
+    private String E;
+    private String H;
     private String r;
     private String s;
     private String t;
-    private String w;
+    private String u;
     private String x;
     private String y;
     private String z;
@@ -30,12 +31,13 @@ public class c {
     private int l = 0;
     private int m = 0;
     private int n = 0;
-    private boolean o = true;
+    private int o = 0;
     private boolean p = true;
-    private HashMap<String, String> u = new HashMap<>();
+    private boolean q = true;
     private HashMap<String, String> v = new HashMap<>();
-    private String E = null;
+    private HashMap<String, String> w = new HashMap<>();
     private String F = null;
+    private String G = null;
 
     public void a() {
         HashMap<String, String> s = s();
@@ -110,19 +112,19 @@ public class c {
     }
 
     public String j() {
-        return this.C;
-    }
-
-    public void a(String str) {
-        this.C = str;
-    }
-
-    public String k() {
         return this.D;
     }
 
-    public void b(String str) {
+    public void a(String str) {
         this.D = str;
+    }
+
+    public String k() {
+        return this.E;
+    }
+
+    public void b(String str) {
+        this.E = str;
     }
 
     public int l() {
@@ -134,35 +136,35 @@ public class c {
     }
 
     public boolean m() {
-        return this.o;
+        return this.p;
     }
 
     public void a(boolean z) {
-        this.o = z;
-    }
-
-    public void b(boolean z) {
         this.p = z;
     }
 
+    public void b(boolean z) {
+        this.q = z;
+    }
+
     public String n() {
-        return this.q;
+        return this.r;
     }
 
     public void c(String str) {
-        this.q = str;
+        this.r = str;
     }
 
     public String o() {
-        return this.w;
+        return this.x;
     }
 
     public void d(String str) {
-        this.w = str;
+        this.x = str;
     }
 
     public void e(String str) {
-        this.x = str;
+        this.y = str;
     }
 
     public int p() {
@@ -174,27 +176,27 @@ public class c {
     }
 
     public void f(String str) {
-        this.y = str;
+        this.z = str;
     }
 
     public String q() {
-        return this.A;
-    }
-
-    public void g(String str) {
-        this.A = str;
-    }
-
-    public String r() {
         return this.B;
     }
 
-    public void h(String str) {
+    public void g(String str) {
         this.B = str;
     }
 
+    public String r() {
+        return this.C;
+    }
+
+    public void h(String str) {
+        this.C = str;
+    }
+
     public HashMap<String, String> s() {
-        return this.u;
+        return this.v;
     }
 
     public int t() {
@@ -222,11 +224,11 @@ public class c {
     }
 
     public void i(String str) {
-        this.r = str;
+        this.s = str;
     }
 
     public void j(String str) {
-        this.s = str;
+        this.t = str;
     }
 
     public int w() {
@@ -238,23 +240,23 @@ public class c {
     }
 
     public String x() {
-        return this.t;
+        return this.u;
     }
 
     public void k(String str) {
-        this.t = str;
+        this.u = str;
     }
 
     public HashMap<String, String> y() {
-        return this.v;
+        return this.w;
     }
 
     public String z() {
-        return this.z;
+        return this.A;
     }
 
     public void l(String str) {
-        this.z = str;
+        this.A = str;
     }
 
     public int A() {
@@ -274,10 +276,18 @@ public class c {
     }
 
     public void m(String str) {
-        this.E = str;
+        this.F = str;
     }
 
     public void n(String str) {
-        this.F = str;
+        this.G = str;
+    }
+
+    public void o(int i) {
+        this.o = i;
+    }
+
+    public void o(String str) {
+        this.H = str;
     }
 }

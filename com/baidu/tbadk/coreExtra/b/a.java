@@ -1,13 +1,13 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.h;
 /* loaded from: classes.dex */
 public class a {
     private b a;
-    private e b;
+    private h b;
 
-    public a(e eVar) {
-        this.b = eVar;
+    public a(h hVar) {
+        this.b = hVar;
     }
 
     public void a(boolean z, String str, String str2) {

@@ -4,11 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.s;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class AccessTokenManager {
     private static AccessTokenManager _instance = new AccessTokenManager();
-    private com.baidu.adp.framework.listener.b accessTokenListener = new a(this, MessageTypes.CMD_GET_ACCESS_TOKEN);
+    private com.baidu.adp.framework.listener.b accessTokenListener = new a(this, 107201);
 
     public static AccessTokenManager getInstance() {
         return _instance;
@@ -23,20 +22,23 @@ public class AccessTokenManager {
         MessageManager.getInstance().registerListener(this.accessTokenListener);
     }
 
+    public void asyncLoadAccessToken(String str) {
+        if (com.baidu.adp.lib.util.j.b()) {
+            com.baidu.adp.lib.f.d.a().a(new b(this, str));
+        } else {
+            getAccesssTokenInBackground(str);
+        }
+    }
+
     public boolean getAccesssTokenInBackground(String str) {
-        if (com.baidu.adp.lib.util.j.b(str)) {
+        if (com.baidu.adp.lib.util.i.b(str)) {
             return false;
         }
         AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(str);
         if (parseBDUSS != null) {
             str = parseBDUSS.mBduss;
         }
-        String a = getTokenCache().a(str);
-        if (a != null) {
-            onAccessTokenLoaded(str, a);
-        } else {
-            updateAccessTokenFromServer(str);
-        }
+        getTokenCache().a(str, new c(this));
         return true;
     }
 
@@ -48,7 +50,8 @@ public class AccessTokenManager {
         MessageManager.getInstance().dispatchResponsedMessageToUI(accessTokenUpdatedMessage);
     }
 
-    private void updateAccessTokenFromServer(String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateAccessTokenFromServer(String str) {
         RequestGetAccessTokenMessage requestGetAccessTokenMessage = new RequestGetAccessTokenMessage();
         requestGetAccessTokenMessage.setBduss(str);
         MessageManager.getInstance().sendMessageFromBackground(requestGetAccessTokenMessage);

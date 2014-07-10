@@ -1,79 +1,128 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.os.Process;
-import android.os.SystemClock;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.IntentFilter;
+import android.os.Environment;
+import android.text.TextUtils;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class a implements Runnable {
-    final /* synthetic */ g a;
+public final class a {
+    private static a a = null;
+    private BroadcastReceiver b;
+    private Context c;
+    private HashMap d = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(g gVar) {
-        this.a = gVar;
+    private a(Context context) {
+        this.b = null;
+        this.c = null;
+        this.c = context.getApplicationContext();
+        d();
+        this.b = new g(this);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+        intentFilter.addDataScheme("file");
+        intentFilter.addCategory("android.intent.category.DEFAULT");
+        IntentFilter intentFilter2 = new IntentFilter();
+        intentFilter2.addAction("com.baidu.moplus.systemmonitor.pathdeleted");
+        intentFilter2.addAction("com.baidu.moplus.systemmonitor.pathrefresh");
+        this.c.registerReceiver(this.b, intentFilter);
+        this.c.registerReceiver(this.b, intentFilter2);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        Context context2;
-        Context context3;
-        Context context4;
-        Context context5;
-        Context context6;
-        Context context7;
-        Context context8;
-        Context context9;
-        Context context10;
-        Context context11;
-        Context context12;
-        Context context13;
-        Context context14;
-        Context context15;
-        Context context16;
-        Process.setThreadPriority(10);
-        context = this.a.c;
-        long i = com.baidu.android.systemmonitor.util.e.i(context);
-        com.baidu.android.systemmonitor.devicestatistic.a.d dVar = new com.baidu.android.systemmonitor.devicestatistic.a.d(System.currentTimeMillis());
-        context2 = this.a.c;
-        if (com.baidu.android.systemmonitor.util.b.q(context2) == 1) {
-            context16 = this.a.c;
-            dVar.a = com.baidu.android.systemmonitor.util.b.k(context16);
+    public static synchronized a a(Context context) {
+        a aVar;
+        synchronized (a.class) {
+            if (a == null) {
+                a = new a(context);
+            }
+            aVar = a;
         }
-        context3 = this.a.c;
-        dVar.b = com.baidu.android.systemmonitor.util.b.l(context3);
-        context4 = this.a.c;
-        if (com.baidu.android.systemmonitor.util.b.s(context4) == 1) {
-            g gVar = this.a;
-            context15 = this.a.c;
-            gVar.a(context15, i, dVar);
+        return aVar;
+    }
+
+    public static void a() {
+        if (a != null) {
+            a.f();
+            a = null;
         }
-        context5 = this.a.c;
-        if (com.baidu.android.systemmonitor.util.b.r(context5) == 1) {
-            g gVar2 = this.a;
-            context14 = this.a.c;
-            gVar2.b(context14, i, dVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str) {
+        h hVar;
+        if (TextUtils.isEmpty(str) || this.d == null || (hVar = (h) this.d.remove(str)) == null) {
+            return;
         }
-        dVar.g = com.baidu.android.systemmonitor.util.b.c() + "@" + com.baidu.android.systemmonitor.util.b.b();
-        dVar.h = com.baidu.android.systemmonitor.util.b.e() + "@" + com.baidu.android.systemmonitor.util.b.f();
-        context6 = this.a.c;
-        dVar.i = com.baidu.android.systemmonitor.util.b.f(context6);
-        context7 = this.a.c;
-        dVar.j = com.baidu.android.systemmonitor.util.b.g(context7);
-        context8 = this.a.c;
-        dVar.k = com.baidu.android.systemmonitor.util.b.i(context8);
-        context9 = this.a.c;
-        dVar.l = com.baidu.android.systemmonitor.util.b.h(context9);
-        context10 = this.a.c;
-        dVar.m = com.baidu.android.systemmonitor.util.b.j(context10);
-        this.a.a(dVar);
-        context11 = this.a.c;
-        com.baidu.android.systemmonitor.util.e.b(context11, System.currentTimeMillis());
-        g gVar3 = this.a;
-        context12 = this.a.c;
-        gVar3.b(context12);
-        g gVar4 = this.a;
-        context13 = this.a.c;
-        gVar4.a(context13, SystemClock.elapsedRealtime());
+        hVar.stopWatching();
+    }
+
+    private boolean b(String str) {
+        return new File(str).exists();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            if (this.d == null) {
+                this.d = new HashMap();
+            }
+            Iterator it = com.baidu.android.a.i.a(this.c).a().iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                if (b(str)) {
+                    this.d.put(str, new h(str, this.c));
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            if (this.d == null) {
+                this.d = new HashMap();
+            }
+            Iterator it = com.baidu.android.a.i.a(this.c).a().iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                if (this.d.containsKey(str)) {
+                    if (!b(str)) {
+                        a(str);
+                    }
+                } else if (b(str)) {
+                    this.d.put(str, new h(str, this.c));
+                }
+            }
+        }
+    }
+
+    private void f() {
+        if (this.b != null) {
+            this.c.unregisterReceiver(this.b);
+        }
+        this.b = null;
+        c();
+    }
+
+    public void b() {
+        if (this.d == null || this.d.size() == 0) {
+            return;
+        }
+        for (h hVar : this.d.values()) {
+            hVar.startWatching();
+        }
+    }
+
+    public void c() {
+        if (this.d != null && this.d.size() != 0) {
+            for (h hVar : this.d.values()) {
+                hVar.startWatching();
+            }
+        }
+        this.d = null;
     }
 }

@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -48,6 +46,7 @@ public class TbConfig {
     public static final int FONT_SIZE_SMALL = 3;
     public static final String FROM_FILE = "from.dat";
     public static final String GET_IP_LIST = "c/s/getipinfo";
+    public static final String GET_USER_LOCATION = "c/u/user/getuserlocation";
     public static final String GROUP_HEAD_FILE = "tieba_group_image";
     public static final int HEAD_IMG_SIZE = 960;
     public static final String IMAGE_CACHE_DIR_NAME = "images";
@@ -65,6 +64,7 @@ public class TbConfig {
     public static final String LOG_ERROR_FILE = "log_error.log";
     public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync2.js";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
+    public static final int MAX_ACTIVITY_STACK_SIZE = 20;
     public static final int MAX_ASYNC_IMAGE_LOADER_NUM = 5;
     public static final int MAX_CASH_FRIEND_PHOTO_NUM = 500;
     public static final int MAX_CASH_PB_PHOTO_NUM = 500;
@@ -75,6 +75,7 @@ public class TbConfig {
     public static final int MAX_PERSON_INFO_ICON_NUM = 4;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
     public static final int MAX_PRELOAD_PIC_NUM = 13;
+    public static final int MAX_SDRAM_PHOTO_NUM = 50;
     public static final int MAX_SDRAM_PIC_NUM = 13;
     public static final int MAX_TSHOW_ICON_NUM = 2;
     public static final String MSG_DEFAULT_NODISTURB_END_TIME = "09:00";
@@ -118,7 +119,9 @@ public class TbConfig {
     public static final int READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI = 2000;
     public static final int READ_IMAGE_CACHE_TIMEOUT_WIFI = 300;
     public static final String REGISTER_ADDRESS = "c/m/register";
+    public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SETTINGFILE = "settings";
+    public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
     public static final String ST_PARAM_TAB_MSG_CREATE_CHAT = "2";
     public static final String ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK = "1";
@@ -126,7 +129,7 @@ public class TbConfig {
     public static final String ST_TYPE_CLIENT_SHARE = "client_share";
     public static final String ST_TYPE_ENTER_FORE = "enter_fore";
     public static final String ST_TYPE_EYESHIELD_MODE = "eyeshield";
-    public static final String ST_TYPE_LOGIN = "login";
+    public static final String ST_TYPE_LOGIN = "old_login";
     public static final String ST_TYPE_OPEN = "open";
     public static final String ST_TYPE_PCHAT = "pchat";
     public static final String ST_TYPE_REG = "reg";
@@ -162,6 +165,7 @@ public class TbConfig {
     public static final int VIEW_IMAGE_QUALITY_HIGH_VALUE = 80;
     public static final int VIEW_IMAGE_QUALITY_LOW = 2;
     public static final int VIEW_IMAGE_QUALITY_LOW_VALUE = 45;
+    public static final String VOICE_CACHE_DIR_NAME = "voice";
     public static final int VOICE_CHUNK_UPLOAD_SIZE = 30720;
     public static final String VOICE_DATA = "c/p/voice";
     public static final int WEBP_FAILURE_MAX = 5;
@@ -253,12 +257,11 @@ public class TbConfig {
 
     public static int initPbImageSize(Context context) {
         int i = PB_IMAGE_NEW_MAX_WIDTH;
-        int a = k.a(context, 427.0f);
+        int a = com.baidu.adp.lib.util.j.a(context, 427.0f);
         if (a <= 640) {
             i = a;
         }
         BIG_IMAGE_SIZE = (int) (i * i * 1.6f * 2.0f);
-        BdLog.d("BIG_IMAGE_SIZE = " + BIG_IMAGE_SIZE);
         return BIG_IMAGE_SIZE;
     }
 
@@ -271,7 +274,6 @@ public class TbConfig {
         if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * 0.28d) {
             BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.28d);
         }
-        BdLog.d("BIG_IMAGE_MAX_USED_MEMORY = " + BIG_IMAGE_MAX_USED_MEMORY);
     }
 
     public static int getBigImageMaxUsedMemory() {
@@ -381,7 +383,7 @@ public class TbConfig {
     }
 
     public static void initBigImageWidth(Context context) {
-        int sqrt = (int) Math.sqrt(k.b(context) * k.c(context));
+        int sqrt = (int) Math.sqrt(com.baidu.adp.lib.util.j.b(context) * com.baidu.adp.lib.util.j.c(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }

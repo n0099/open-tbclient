@@ -38,7 +38,7 @@ public class ErrorData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -49,14 +49,11 @@ public class ErrorData implements Serializable {
                 this.error_msg = jSONObject.optString("error_msg");
                 this.error_data = jSONObject.optString("error_data");
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        BdLog.v(getClass().getName(), "logPrint", "error_code = " + String.valueOf(this.error_code));
-        BdLog.v(getClass().getName(), "logPrint", "error_msg = " + this.error_msg);
-        BdLog.v(getClass().getName(), "logPrint", "error_data = " + this.error_data);
     }
 }

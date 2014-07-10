@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.v;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -41,7 +40,7 @@ final class l extends Handler {
     }
 
     private void a(byte[] bArr, int i, int i2) {
-        long currentTimeMillis = System.currentTimeMillis();
+        System.currentTimeMillis();
         Result result = null;
         byte[] bArr2 = new byte[bArr.length];
         for (int i3 = 0; i3 < i2; i3++) {
@@ -60,7 +59,7 @@ final class l extends Handler {
         }
         Handler b = this.a.b();
         if (result != null) {
-            BdLog.d(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            System.currentTimeMillis();
             if (b != null) {
                 Message obtain = Message.obtain(b, v.decode_succeeded, result);
                 Bundle bundle = new Bundle();

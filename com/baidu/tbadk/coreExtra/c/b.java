@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.c;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ab;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
@@ -32,19 +32,19 @@ public class b extends Thread {
         super.run();
         try {
             if (this.a == 3) {
-                if (this.c != null && (a = z.a()) != null) {
+                if (this.c != null && (a = ab.a()) != null) {
                     int size = a.size();
                     for (int i = 0; i < size; i++) {
                         this.c.put(a.get(i), 1);
                     }
                 }
             } else if (this.a == 2) {
-                z.b(this.b);
+                ab.b(this.b);
             } else if (this.a == 1) {
-                z.a(this.b);
+                ab.a(this.b);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "run", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

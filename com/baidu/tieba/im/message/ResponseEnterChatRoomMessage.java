@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.ChatRoomTopicData;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.squareup.wire.Wire;
@@ -17,15 +16,11 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
     private RandChatRoomData randChatRoomData;
 
     public ResponseEnterChatRoomMessage() {
-        super(MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM);
+        super(106101);
     }
 
     public RandChatRoomData getRandChatRoomData() {
         return this.randChatRoomData;
-    }
-
-    public void setRandChatRoomData(RandChatRoomData randChatRoomData) {
-        this.randChatRoomData = randChatRoomData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +30,7 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
         setError(enterChatroomResIdl.error.errorno.intValue());
         setErrorString(enterChatroomResIdl.error.usermsg);
         if (getError() == 0) {
-            setRandChatRoomData(new RandChatRoomData());
+            this.randChatRoomData = new RandChatRoomData();
             DataRes dataRes = enterChatroomResIdl.data;
             if (dataRes != null) {
                 getRandChatRoomData().a(dataRes.groupId.intValue());

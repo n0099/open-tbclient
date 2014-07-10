@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.coreExtra.view.ab {
+public class x implements com.baidu.tbadk.coreExtra.view.ad {
     final /* synthetic */ HotLiveListAdapter a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class x implements com.baidu.tbadk.coreExtra.view.ab {
         this.a = hotLiveListAdapter;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ab
+    @Override // com.baidu.tbadk.coreExtra.view.ad
     public void onClick(LiveBroadcastCard liveBroadcastCard) {
         HotLiveListActivity hotLiveListActivity;
         HotLiveListActivity hotLiveListActivity2;
@@ -26,15 +26,15 @@ public class x implements com.baidu.tbadk.coreExtra.view.ab {
             hotLiveListActivity = this.a.a;
             if (hotLiveListActivity != null) {
                 hotLiveListActivity2 = this.a.a;
-                if (hotLiveListActivity2.e().c() == 2) {
+                if (hotLiveListActivity2.g().c() == 2) {
                     MessageManager messageManager = MessageManager.getInstance();
                     hotLiveListActivity4 = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aa(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
+                    messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.af(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
                     return;
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
                 hotLiveListActivity3 = this.a.a;
-                messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(hotLiveListActivity3, liveCardData.getGroupId())));
+                messageManager2.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(hotLiveListActivity3, liveCardData.getGroupId())));
             }
         }
     }

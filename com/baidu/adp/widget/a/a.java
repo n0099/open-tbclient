@@ -144,7 +144,7 @@ public class a {
         if (this.e == null) {
             return 0;
         }
-        return this.e.getHeight() * this.e.getWidth() * 2;
+        return this.e.getHeight() * this.e.getRowBytes();
     }
 
     public boolean g() {

@@ -2,8 +2,9 @@ package com.baidu.tieba.im.randchat;
 
 import android.view.View;
 import com.baidu.tieba.im.randchat.WaitingTipView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements View.OnClickListener {
+public class v implements View.OnClickListener {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -10,6 +10,6 @@ class c implements com.baidu.tbadk.editortool.c {
 
     @Override // com.baidu.tbadk.editortool.c
     public void a(com.baidu.tbadk.editortool.a aVar) {
-        com.baidu.tbadk.editortool.ac.a().b();
+        com.baidu.tbadk.editortool.ab.a().b();
     }
 }

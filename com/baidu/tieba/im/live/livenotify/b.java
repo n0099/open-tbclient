@@ -22,7 +22,7 @@ class b extends CustomMessageListener {
         com.baidu.tieba.im.a aVar;
         sVar = this.a.b;
         sVar.a(false);
-        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage) && 2003167 == customResponsedMessage.getCmd()) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage) && 2001167 == customResponsedMessage.getCmd()) {
             aVar = this.a.c;
             o.b(aVar);
         }

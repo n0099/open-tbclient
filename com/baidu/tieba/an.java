@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.AccountData;
 public class an implements CustomMessageTask.CustomRunnable<AccountData> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        if (com.baidu.adp.lib.util.k.c()) {
+        if (com.baidu.adp.lib.util.j.b()) {
             ai.a(customMessage.getData(), TbadkApplication.m252getInst());
             return null;
         } else if (ai.c() != null) {

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -44,11 +45,11 @@ public class CreateBarSuccessActivity extends BaseActivity {
     }
 
     private void b() {
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.a = (LinearLayout) findViewById(v.container);
+        this.b = (NavigationBar) findViewById(v.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.a(getString(y.create_bar));
-        this.d = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.d = (TextView) findViewById(v.text);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

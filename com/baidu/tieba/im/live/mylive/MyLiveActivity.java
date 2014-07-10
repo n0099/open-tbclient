@@ -9,20 +9,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ad;
-import com.baidu.tbadk.core.atomData.am;
+import com.baidu.tbadk.core.atomData.ai;
+import com.baidu.tbadk.core.atomData.ar;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.v;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-    private k c;
+    private l c;
     private boolean d = false;
     private boolean e = false;
     private LiveCardData f = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(am.class, MyLiveActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ar.class, MyLiveActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,30 +32,23 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
     }
 
     private void a(Bundle bundle) {
-        this.c = new k(this);
-        this.c.a();
+        this.c = new l(this);
+        this.c.c();
+    }
+
+    public l g() {
+        return this.c;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
-        this.c.e(i);
+        this.c.d(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.c.b()) {
-            String string = getString(y.members_edit);
-            String string2 = getString(y.group_create_step_done_tip);
-            String charSequence = this.c.b().getText().toString();
-            if (charSequence != null) {
-                if (charSequence.equals(string)) {
-                    this.c.b().setText(string2);
-                    this.c.a(true);
-                } else if (charSequence.equals(string2)) {
-                    this.c.b().setText(string);
-                    this.c.a(false);
-                }
-            }
+        if (view == this.c.d()) {
+            this.c.b();
         }
     }
 
@@ -64,11 +56,11 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if (!this.e) {
             this.d = true;
-            if (i == v.mylive_activity_radio_mylive) {
+            if (i == v.mylive_activity_radio_mymark) {
                 this.c.b(0);
                 this.c.c(0);
                 this.c.a(0);
-            } else if (i == v.mylive_activity_radio_mymark) {
+            } else if (i == v.mylive_activity_radio_mylive) {
                 this.c.b(1);
                 this.c.c(1);
                 this.c.a(1);
@@ -82,7 +74,6 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
         if (!this.d) {
             this.e = true;
             this.c.b(i);
-            this.c.d(i);
             this.c.a(i);
             this.e = false;
         }
@@ -98,7 +89,7 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
 
     public void a(LiveCardData liveCardData) {
         this.f = liveCardData;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ad(this, liveCardData.getGroupId())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ai(this, liveCardData.getGroupId())));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

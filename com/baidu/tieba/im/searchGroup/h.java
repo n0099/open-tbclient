@@ -16,7 +16,7 @@ public class h implements View.OnFocusChangeListener {
         SearchGroupActivity searchGroupActivity;
         if (!z) {
             searchGroupActivity = this.a.b;
-            com.baidu.adp.lib.util.k.a(searchGroupActivity, view);
+            com.baidu.adp.lib.util.j.a(searchGroupActivity, view);
         }
     }
 }

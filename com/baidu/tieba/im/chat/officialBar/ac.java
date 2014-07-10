@@ -1,24 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class ac implements Runnable {
-    final /* synthetic */ ab a;
+class ac extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ OfficialBarChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.a = abVar;
+    public ac(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
+        this.b = officialBarChatActivity;
+        this.c = userData;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        OfficialBarHistoryActivity officialBarHistoryActivity;
-        ag agVar;
-        OfficialBarHistoryActivity officialBarHistoryActivity2;
-        officialBarHistoryActivity = this.a.a;
-        agVar = officialBarHistoryActivity.b;
-        if (!agVar.a()) {
-            officialBarHistoryActivity2 = this.a.a;
-            officialBarHistoryActivity2.e();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(bd.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getUserId())));
     }
 }

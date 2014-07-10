@@ -1,9 +1,12 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
+import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b {
+public class b implements bg {
     private int a;
     private String b;
     private String c;
@@ -138,8 +141,18 @@ public class b {
                     this.k = false;
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.util.bg
+    public LinkedList<bf> getImages() {
+        LinkedList<bf> linkedList = new LinkedList<>();
+        bf bfVar = new bf();
+        bfVar.a = this.c;
+        bfVar.d = 10;
+        linkedList.add(bfVar);
+        return linkedList;
     }
 }

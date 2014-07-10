@@ -6,27 +6,25 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.model.bw;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends BaseActivity implements View.OnClickListener {
-    protected bw a;
+    protected bv a;
     private g b;
-    private com.baidu.adp.framework.listener.b c = new d(this, MessageTypes.CMD_REQUEST_SEARCH_GROUP);
+    private com.baidu.adp.framework.listener.b c = new d(this, 103007);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.a = new bw();
+        this.a = new bv();
         registerListener(this.c);
     }
 
@@ -44,14 +42,14 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         b();
@@ -92,14 +90,14 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
         BaseGroupData item;
         if (this.b != null && this.b.a() != null && this.b.a().a(i) && (item = this.b.a().getItem(i)) != null) {
             TiebaStatic.eventStat(this, "search_group_item", "click", 1, new Object[0]);
-            sendMessage(new CustomMessage(2010011, new q(this, item.getGroupId(), 0)));
+            sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.v(this, item.getGroupId(), 0)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ag.a(this.b.a, this.b.a().a(), 0, -1);
+            aj.a(this.b.a, this.b.a().a(), 0, -1);
         }
     }
 }

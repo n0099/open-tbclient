@@ -11,7 +11,7 @@ class l extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         this.a.a(aVar);
     }
 

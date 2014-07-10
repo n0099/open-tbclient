@@ -14,8 +14,8 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ax;
-import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.bv;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.data.PersonChangeData;
@@ -24,10 +24,10 @@ import com.baidu.tieba.person.PersonChangeActivity;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
     private w a;
-    private com.baidu.tieba.person.t c;
+    private com.baidu.tieba.person.o c;
     private MoreModel b = null;
     private v d = null;
-    private com.baidu.tbadk.editortool.ab e = null;
+    private com.baidu.tbadk.editortool.aa e = null;
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData) {
         Intent intent = new Intent(activity, MoreActivity.class);
@@ -36,7 +36,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     }
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2017004, new q());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015004, new q());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -47,7 +47,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         this.a = new w(this, a());
         a(bundle);
         c();
-        this.e = new com.baidu.tbadk.editortool.ab(this);
+        this.e = new com.baidu.tbadk.editortool.aa(this);
     }
 
     private p a() {
@@ -60,7 +60,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         d();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
@@ -145,7 +145,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData == null) {
-            this.c = new com.baidu.tieba.person.t(this);
+            this.c = new com.baidu.tieba.person.o(this);
             this.c.a(TbadkApplication.getCurrentAccount());
             this.c.setLoadDataCallBack(new t(this));
             this.c.a(true, true);
@@ -187,16 +187,16 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         AntiData antiData = new AntiData();
         antiData.setIfpost(1);
         if (antiData != null && antiData.getIfpost() == 0) {
-            com.baidu.adp.lib.util.k.a((Context) this, antiData.getForbid_info());
+            com.baidu.adp.lib.util.j.a((Context) this, antiData.getForbid_info());
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bv(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
     public void f() {
         String str;
-        String str2 = com.baidu.tieba.data.d.f;
+        String str2 = com.baidu.tieba.data.e.f;
         if (str2.indexOf("?") < 0) {
             str2 = String.valueOf(str2) + "?";
         } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
@@ -223,7 +223,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.account.a.b() <= 0) {
             LoginActivity.a(this, 1, getString(com.baidu.tieba.y.login_manage_account), 11003);
         } else {
-            sendMessage(new CustomMessage(2017006, new com.baidu.tbadk.core.frameworkData.a(this)));
+            sendMessage(new CustomMessage(2015006, new com.baidu.tbadk.core.frameworkData.a(this)));
         }
     }
 
@@ -244,6 +244,6 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     }
 
     public void m() {
-        sendMessage(new CustomMessage(2003001, new ax(this)));
+        sendMessage(new CustomMessage(2002001, new bk(this)));
     }
 }

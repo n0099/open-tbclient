@@ -1,50 +1,124 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.im.message.RequestMembersMessage;
+import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.base.b {
-    @Override // com.baidu.adp.base.b
+public class ac extends com.baidu.adp.base.e {
+    private long a;
+    private int b;
+    private int c;
+    private int d;
+    private boolean e;
+    private List<Long> f;
+    private boolean g;
+    private RequestMembersMessage h;
+
+    public void a(RequestMembersMessage requestMembersMessage) {
+        this.h = requestMembersMessage;
+    }
+
+    public int a() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public boolean b() {
+        return this.g;
+    }
+
+    public void a(boolean z) {
+        this.g = z;
+    }
+
+    public List<Long> c() {
+        return this.f;
+    }
+
+    public void a(List<Long> list) {
+        this.f = list;
+    }
+
+    public void b(boolean z) {
+        this.e = z;
+    }
+
+    public int d() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public void c(int i) {
+        this.c += i;
+    }
+
+    public int e() {
+        return this.d;
+    }
+
+    public void d(int i) {
+        this.d = i;
+    }
+
+    public long f() {
+        return this.a;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
-    private RequestGetMaskInfoMessage b(int i) {
-        RequestGetMaskInfoMessage requestGetMaskInfoMessage = new RequestGetMaskInfoMessage();
-        requestGetMaskInfoMessage.setMaskType(i);
-        return requestGetMaskInfoMessage;
+    public void a(Intent intent) {
+        this.a = intent.getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L);
     }
 
-    private RequestUpdateMaskInfoMessage b(int i, boolean z) {
-        RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
-        requestUpdateMaskInfoMessage.setMask(z);
-        requestUpdateMaskInfoMessage.setMaskType(i);
-        requestUpdateMaskInfoMessage.setList("");
-        return requestUpdateMaskInfoMessage;
+    public void a(Bundle bundle) {
+        this.a = bundle.getLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L);
+        this.c = bundle.getInt("start_position", 0);
+        this.d = bundle.getInt("len_position", 0);
     }
 
-    public void a(int i) {
-        super.sendMessage(b(i));
+    private RequestMembersMessage b(long j, int i, int i2, int i3) {
+        RequestMembersMessage requestMembersMessage = new RequestMembersMessage();
+        requestMembersMessage.setGroupId(j);
+        requestMembersMessage.setOffset(i);
+        requestMembersMessage.setRn(i2);
+        requestMembersMessage.setOrderType(i3);
+        return requestMembersMessage;
     }
 
-    public void a(int i, boolean z) {
-        super.sendMessage(b(i, z));
+    private RequestRemoveMembersMessage b(long j, String str) {
+        RequestRemoveMembersMessage requestRemoveMembersMessage = new RequestRemoveMembersMessage();
+        requestRemoveMembersMessage.setGroupId(j);
+        requestRemoveMembersMessage.setUserIds(str);
+        return requestRemoveMembersMessage;
     }
 
-    public void a(MessageListener<?> messageListener) {
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_GET_MASK_INFO, messageListener);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_MASK_INFO, messageListener);
+    public void a(long j, int i, int i2, int i3) {
+        super.sendMessage(b(j, i, i2, i3));
     }
 
-    public void b(MessageListener<?> messageListener) {
-        MessageManager.getInstance().unRegisterListener(messageListener);
+    public void a(long j, String str) {
+        super.sendMessage(b(j, str));
     }
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
+    public void b(Bundle bundle) {
+        bundle.putLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.a);
+        bundle.putInt("start_position", this.c);
+        bundle.putInt("len_position", this.d);
     }
 }

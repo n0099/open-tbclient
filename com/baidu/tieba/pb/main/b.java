@@ -4,21 +4,21 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/page";
-    private com.baidu.tbadk.core.util.an b = null;
+    private com.baidu.tbadk.core.util.aq b = null;
 
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.ag agVar, boolean z5) {
+    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.ak akVar, boolean z5) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new com.baidu.tbadk.core.util.an(a);
+        this.b = new com.baidu.tbadk.core.util.aq(a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        int b = com.baidu.adp.lib.util.k.b(com.baidu.tieba.ai.c().d());
-        int c = com.baidu.adp.lib.util.k.c(com.baidu.tieba.ai.c().d());
+        int b = com.baidu.adp.lib.util.j.b(com.baidu.tieba.ai.c().d());
+        int c = com.baidu.adp.lib.util.j.c(com.baidu.tieba.ai.c().d());
         float f = com.baidu.tieba.ai.c().d().getResources().getDisplayMetrics().density;
         int i6 = 1;
-        if (com.baidu.tbadk.core.util.bh.a().d().equals("80")) {
+        if (com.baidu.tbadk.core.util.bn.a().d().equals("80")) {
             i6 = 2;
         }
         this.b.a("scr_w", String.valueOf(b));
@@ -38,8 +38,8 @@ public class b {
             this.b.a("msg_click", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             this.b.a("message_id", String.valueOf(j));
         }
-        if (agVar != null) {
-            agVar.a(this.b);
+        if (akVar != null) {
+            akVar.a(this.b);
         }
         if (z5) {
             this.b.a("banner", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);

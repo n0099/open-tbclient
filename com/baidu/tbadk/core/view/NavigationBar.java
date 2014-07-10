@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -95,7 +96,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        setPadding(com.baidu.adp.lib.util.k.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_left)), com.baidu.adp.lib.util.k.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_top)), com.baidu.adp.lib.util.k.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_right)), com.baidu.adp.lib.util.k.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_bottom)));
+        setPadding(com.baidu.adp.lib.util.j.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_left)), com.baidu.adp.lib.util.j.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_top)), com.baidu.adp.lib.util.j.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_right)), com.baidu.adp.lib.util.j.a(this.g, getResources().getDimension(com.baidu.tieba.t.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -161,6 +162,19 @@ public class NavigationBar extends RelativeLayout {
             textView.setOnClickListener(onClickListener);
         }
         return textView;
+    }
+
+    public Button b(ControlAlign controlAlign, String str) {
+        Button button = (Button) b(com.baidu.tieba.w.widget_nb_item_stepbtn);
+        button.setText(str);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(com.baidu.tieba.t.navi_btn_margin_right);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            button.setLayoutParams(layoutParams);
+        }
+        b(controlAlign).addView(button);
+        return button;
     }
 
     public void setSystemClickable(boolean z) {
@@ -235,8 +249,8 @@ public class NavigationBar extends RelativeLayout {
             baseActivity.getLayoutMode().a((View) this);
         } else if (this.g instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.g;
-            baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a((View) this);
+            baseFragmentActivity.c().a(i == 1);
+            baseFragmentActivity.c().a((View) this);
         }
     }
 }

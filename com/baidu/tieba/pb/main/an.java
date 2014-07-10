@@ -1,18 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements DialogInterface.OnClickListener {
+public class an implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ PbActivity a;
+    private final /* synthetic */ MarkData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(PbActivity pbActivity) {
+    public an(PbActivity pbActivity, MarkData markData) {
         this.a = pbActivity;
+        this.b = markData;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        Intent intent = new Intent();
+        intent.putExtra("mark", this.b);
+        this.a.setResult(-1, intent);
+        this.a.w();
     }
 }

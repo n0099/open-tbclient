@@ -1,30 +1,32 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bt;
-import com.baidu.tbadk.core.view.HeadImageView;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class f implements bt {
-    final /* synthetic */ e a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+public class f extends com.baidu.tieba.data.a {
+    private ArrayList<w> a = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = eVar;
-        this.b = str;
-        this.c = aVar;
+    public ArrayList<w> d() {
+        return this.a;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if ((view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.setImageBitmap(this.c.h());
-            headImageView.invalidate();
-            return false;
+    public void a(ArrayList<w> arrayList) {
+        this.a = arrayList;
+        a((String) null);
+    }
+
+    @Override // com.baidu.tieba.data.a
+    protected void a(JSONObject jSONObject) {
+        ArrayList<w> arrayList = new ArrayList<>();
+        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                w wVar = new w();
+                wVar.a(optJSONArray.getJSONObject(i));
+                arrayList.add(wVar);
+            }
         }
-        return false;
+        a(arrayList);
     }
 }

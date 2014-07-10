@@ -14,8 +14,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class ApplyJoinGroupActivity extends BaseActivity {
@@ -36,14 +35,14 @@ public class ApplyJoinGroupActivity extends BaseActivity {
     String o;
     int p;
     private NavigationBar q = null;
-    private com.baidu.adp.framework.listener.b r = new a(this, MessageTypes.CMD_JOIN_GROUP);
+    private com.baidu.adp.framework.listener.b r = new a(this, 103110);
 
     static {
         d();
     }
 
     private static void d() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010014, new b());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008014, new b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -100,7 +99,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         registerListener(this.r);
@@ -156,7 +155,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
         this.q.c(i);
-        be.f(this.f, 0);
+        bk.f(this.f, 0);
     }
 
     private boolean g() {
@@ -171,7 +170,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
             this.m = intent.getIntExtra("canJoinCount", 0);
             this.n = intent.getLongExtra("inviteUserId", 0L);
             this.o = intent.getStringExtra("defaultUserMsg");
-            this.p = intent.getIntExtra("joinType", com.baidu.tbadk.core.atomData.b.a);
+            this.p = intent.getIntExtra("joinType", com.baidu.tbadk.core.atomData.c.a);
         }
         if (this.o == null) {
             this.o = "";

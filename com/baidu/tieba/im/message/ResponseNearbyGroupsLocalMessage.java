@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.NearbyGroupsData;
+import com.baidu.tieba.im.data.h;
 import com.baidu.tieba.im.data.j;
-import com.baidu.tieba.im.data.l;
 import com.squareup.wire.Wire;
 import java.util.List;
 import protobuf.GroupInfo;
@@ -15,7 +14,7 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
     private NearbyGroupsData nearbyGroups;
 
     public ResponseNearbyGroupsLocalMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUP_BY_LOCATION_LOCAL);
+        super(2001115);
     }
 
     public NearbyGroupsData getNearbyGroups() {
@@ -39,35 +38,35 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
             if (list != null) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     Business business = list.get(i2);
-                    j jVar = new j();
-                    jVar.a(business.business);
-                    nearbyGroupsData.add(jVar);
+                    h hVar = new h();
+                    hVar.a(business.business);
+                    nearbyGroupsData.add(hVar);
                     List<GroupInfo> list2 = business.groups;
                     if (list2 != null) {
                         int size = list2.size();
                         for (int i3 = 0; i3 < size; i3++) {
                             GroupInfo groupInfo = list2.get(i3);
-                            l lVar = new l();
-                            lVar.d(groupInfo.authorId.intValue());
-                            lVar.f(groupInfo.authorName);
-                            lVar.h(groupInfo.business);
-                            lVar.f(groupInfo.distance.intValue());
-                            lVar.b(String.valueOf(groupInfo.forumId));
-                            lVar.e(groupInfo.grade.intValue());
-                            lVar.a(String.valueOf(groupInfo.groupId));
-                            lVar.d(groupInfo.intro);
-                            lVar.j(String.valueOf(groupInfo.lat));
-                            lVar.i(String.valueOf(groupInfo.lng));
-                            lVar.b(groupInfo.maxMemberNum.intValue());
-                            lVar.c(groupInfo.memberNum.intValue());
-                            lVar.c(groupInfo.name);
-                            lVar.e(groupInfo.portrait);
-                            lVar.g(groupInfo.position);
-                            lVar.a(groupInfo.authorIsMeizhi.intValue() == 1);
-                            lVar.b(groupInfo.isNewlyCreate.intValue() != 0);
-                            lVar.c(groupInfo.isRecentlyReply.intValue() != 0);
-                            lVar.d(groupInfo.isMemberGroup.intValue() == 1);
-                            nearbyGroupsData.add(lVar);
+                            j jVar = new j();
+                            jVar.d(groupInfo.authorId.intValue());
+                            jVar.f(groupInfo.authorName);
+                            jVar.h(groupInfo.business);
+                            jVar.f(groupInfo.distance.intValue());
+                            jVar.b(String.valueOf(groupInfo.forumId));
+                            jVar.e(groupInfo.grade.intValue());
+                            jVar.a(String.valueOf(groupInfo.groupId));
+                            jVar.d(groupInfo.intro);
+                            jVar.j(String.valueOf(groupInfo.lat));
+                            jVar.i(String.valueOf(groupInfo.lng));
+                            jVar.b(groupInfo.maxMemberNum.intValue());
+                            jVar.c(groupInfo.memberNum.intValue());
+                            jVar.c(groupInfo.name);
+                            jVar.e(groupInfo.portrait);
+                            jVar.g(groupInfo.position);
+                            jVar.a(groupInfo.authorIsMeizhi.intValue() == 1);
+                            jVar.b(groupInfo.isNewlyCreate.intValue() != 0);
+                            jVar.c(groupInfo.isRecentlyReply.intValue() != 0);
+                            jVar.d(groupInfo.isMemberGroup.intValue() == 1);
+                            nearbyGroupsData.add(jVar);
                         }
                     }
                 }

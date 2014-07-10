@@ -10,14 +10,12 @@ import android.widget.AbsListView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ac;
-import com.baidu.tbadk.core.atomData.ad;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.core.atomData.ah;
+import com.baidu.tbadk.core.atomData.ai;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
@@ -30,7 +28,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> c;
     private com.baidu.tieba.im.a<Boolean> d;
     private Runnable e;
-    private ab f;
+    private aa f;
     private UpdatesItemData h;
     private o i;
     private boolean g = false;
@@ -38,7 +36,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
     private CustomMessageListener k = new b(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ac.class, LiveNotifyActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ah.class, LiveNotifyActivity.class);
     }
 
     public static void a(Context context) {
@@ -56,16 +54,16 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
         this.i = new o();
         this.b = new s(this);
         c();
-        this.f = new ab(this);
-        this.f.d(true);
-        registerListener(MessageTypes.CMD_LIVE_NOTIFY_LOCAL, this.k);
+        this.f = new aa(this);
+        this.f.b(true);
+        registerListener(2001167, this.k);
         this.b.a(true);
         o.b(this.c);
-        registerListener(MessageTypes.CMD_DELETE_GROUP_MSG, this.j);
+        registerListener(202004, this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
@@ -73,7 +71,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         a = false;
@@ -160,13 +158,12 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
         if (!UtilHelper.isNetOk()) {
             showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String e = com.baidu.tieba.im.pushNotify.p.a().e();
+            String e = com.baidu.tieba.im.pushNotify.q.a().e();
             if (!TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(e)) {
                 this.b.a(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
                 requestDelSystemMessage.setGroupId(Integer.parseInt(e));
                 requestDelSystemMessage.setMsgIds(str);
-                BdLog.d("del group info request: " + str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
         }
@@ -183,7 +180,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !b() && updatesItemData.getLiveCardData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ad(this, updatesItemData.getLiveCardData().getGroupId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ai(this, updatesItemData.getLiveCardData().getGroupId())));
         }
     }
 
@@ -232,7 +229,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
         }
     }
 
-    public ab a() {
+    public aa a() {
         return this.f;
     }
 

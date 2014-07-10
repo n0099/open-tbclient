@@ -12,7 +12,7 @@ public class ShowNewUserGuideResponseMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
-        if (i != 1007020 || jSONObject == null) {
+        if (i != 1001520 || jSONObject == null) {
             this.isJump = 0;
         } else if (getError() == 0) {
             try {

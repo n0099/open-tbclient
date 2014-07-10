@@ -16,8 +16,8 @@ public class o implements View.OnClickListener {
     public void onClick(View view) {
         ImageView imageView;
         this.a.g();
-        this.a.R();
-        imageView = this.a.u;
+        this.a.S();
+        imageView = this.a.v;
         imageView.postDelayed(new p(this), 100L);
     }
 }

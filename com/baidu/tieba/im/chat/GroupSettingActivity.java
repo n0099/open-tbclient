@@ -12,18 +12,17 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private com.baidu.tieba.im.model.by c;
+    private com.baidu.tieba.im.model.bx c;
     private com.baidu.tieba.im.a<Boolean> e;
     private bq a = null;
     private bn b = null;
-    private com.baidu.tieba.im.model.bu d = null;
-    private final com.baidu.adp.framework.listener.b f = new bf(this, 0);
+    private com.baidu.tieba.im.model.bt d = null;
+    private com.baidu.adp.framework.listener.b f = new bf(this, 0);
     private final DialogInterface.OnClickListener g = new bg(this);
-    private final com.baidu.adp.framework.listener.b h = new bh(this, 0);
+    private com.baidu.adp.framework.listener.b h = new bh(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,7 +30,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
         super.onCreate(bundle);
         this.a = new bq(this);
         this.b = new bn(this);
-        this.c = new com.baidu.tieba.im.model.by();
+        this.c = new com.baidu.tieba.im.model.bx();
         this.b.setUniqueId(getUniqueId());
         this.c.setUniqueId(getUniqueId());
         a();
@@ -45,11 +44,11 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     }
 
     private void b() {
-        registerListener(MessageTypes.CMD_REPORT_GROUP, this.h);
-        registerListener(MessageTypes.CMD_UPDATE_GROUP, this.f);
-        registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.f);
-        registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.f);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.f);
+        registerListener(103103, this.h);
+        registerListener(103102, this.f);
+        registerListener(103112, this.f);
+        registerListener(103104, this.f);
+        registerListener(2001141, this.f);
     }
 
     public void a() {

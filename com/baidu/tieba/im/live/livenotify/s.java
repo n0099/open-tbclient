@@ -12,7 +12,7 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.c {
+public class s extends com.baidu.adp.base.f {
     private View a;
     private View b;
     private LiveNotifyActivity c;
@@ -56,7 +56,7 @@ public class s extends com.baidu.adp.base.c {
         a(false);
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
         if (this.e != null) {

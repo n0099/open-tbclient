@@ -69,7 +69,7 @@ public class BannerView extends RelativeLayout {
         setVisibility(8);
         if (!TextUtils.isEmpty(str)) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(getContext()) * this.i) + 0.5d);
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.j.b(getContext()) * this.i) + 0.5d);
             setLayoutParams(layoutParams);
             setImageUrl(str);
         }
@@ -83,7 +83,7 @@ public class BannerView extends RelativeLayout {
         if (this.g == null) {
             this.g = new com.baidu.tbadk.core.util.b(this.f);
             this.g.a(720, 100);
-            this.g.d(true);
+            this.g.b(true);
         }
         this.g.b(str, new b(this));
     }

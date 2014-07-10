@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
 import protobuf.GroupPermission;
@@ -11,15 +10,11 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
     private GroupPermData groupPermData;
 
     public ResponseUserPermissionMessage() {
-        super(MessageTypes.CMD_GET_USER_PERMISSION);
+        super(103008);
     }
 
     public GroupPermData getGroupPermData() {
         return this.groupPermData;
-    }
-
-    public void setGroupPermData(GroupPermData groupPermData) {
-        this.groupPermData = groupPermData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +36,7 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
             groupPermData.setCanCreateNormalNum(groupPermission.canCreateNormalNum.intValue());
             groupPermData.setCanCreateOfficialNum(groupPermission.canCreateOfficialNum.intValue());
             groupPermData.setCanCreatePersonalNum(groupPermission.canCreatePersonalNum.intValue());
-            setGroupPermData(groupPermData);
+            this.groupPermData = groupPermData;
         }
     }
 }

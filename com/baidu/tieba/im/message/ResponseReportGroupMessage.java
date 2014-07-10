@@ -1,13 +1,12 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.ReportGroup.ReportGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseReportGroupMessage extends SocketResponsedMessage {
     public ResponseReportGroupMessage() {
-        super(MessageTypes.CMD_REPORT_GROUP);
+        super(103103);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

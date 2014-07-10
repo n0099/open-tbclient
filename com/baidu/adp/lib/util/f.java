@@ -70,7 +70,7 @@ public class f {
                 }
             }
             if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.h.a().a("so", "load_" + str + ".so", "", "", -9101, sb.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.d.b().a("so", "load_" + str + ".so", "", "", -9101, sb.toString(), new Object[0]);
             }
         }
         return z;

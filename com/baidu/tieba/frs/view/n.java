@@ -18,7 +18,7 @@ public class n implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.a.y;
+        activity = this.a.z;
         str = this.a.R;
         ForumListActivity.a(activity, str, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
     }

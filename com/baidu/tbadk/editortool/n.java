@@ -1,6 +1,10 @@
 package com.baidu.tbadk.editortool;
 
 import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
@@ -13,6 +17,32 @@ public class n implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.k.a(this.a.getContext(), com.baidu.tieba.y.emotion_cant_show);
+        TextView textView;
+        int i;
+        String str;
+        g gVar;
+        textView = this.a.j;
+        if (textView != null) {
+            gVar = this.a.a;
+            gVar.setNewViewVisible(false);
+        }
+        TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
+        TbadkApplication.m252getInst().setFaceShopNew(false);
+        i = this.a.l;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_write_shop";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_shop";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_shop";
+                break;
+            default:
+                str = "";
+                break;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this.a.getContext(), str)));
     }
 }

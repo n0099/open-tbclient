@@ -1,0 +1,229 @@
+package com.baidu.tieba.addresslist.a;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
+import java.util.List;
+/* loaded from: classes.dex */
+public class a extends BaseAdapter {
+    private Context a;
+    private com.baidu.tbadk.core.c b;
+    private LayoutInflater c;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> d;
+    private int e;
+    private int f;
+    private int g;
+    private int h;
+    private int i;
+
+    public a(Context context, com.baidu.tbadk.core.c cVar) {
+        this.a = context;
+        this.b = cVar;
+        this.c = LayoutInflater.from(this.a);
+        this.f = this.a.getResources().getColor(s.cp_cont_b);
+        this.g = this.a.getResources().getColor(s.cp_cont_b_1);
+        this.h = this.a.getResources().getColor(s.cp_cont_c);
+        this.i = this.a.getResources().getColor(s.cp_cont_c_1);
+    }
+
+    public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
+        this.d = list;
+        notifyDataSetChanged();
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.d == null) {
+            return 3;
+        }
+        return this.d.size() + 3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public com.baidu.tbadk.coreExtra.relationship.b getItem(int i) {
+        if (i < 3 || i >= getCount()) {
+            return null;
+        }
+        return this.d.get(i - 3);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 6;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        com.baidu.tbadk.coreExtra.relationship.b item = getItem(i);
+        if (i == 0) {
+            return 0;
+        }
+        if (i == 1) {
+            return 5;
+        }
+        if (i != 2) {
+            if (item == null) {
+                return 4;
+            }
+            return (!TextUtils.isEmpty(item.f()) && TextUtils.isEmpty(item.b()) && TextUtils.isEmpty(item.d())) ? 2 : 3;
+        }
+        return 1;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        b bVar;
+        c cVar;
+        d dVar;
+        d dVar2;
+        d dVar3;
+        if (getItemViewType(i) == 4) {
+            return null;
+        }
+        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
+        if (getItemViewType(i) == 0) {
+            if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
+                view = this.c.inflate(w.addresslist_header_new_friends, (ViewGroup) null);
+                d dVar4 = new d(this, null);
+                dVar4.a = (ImageView) view.findViewById(v.addresslist_new_friend_icon);
+                dVar4.b = (TextView) view.findViewById(v.addresslist_new_friend_text);
+                dVar4.c = view.findViewById(v.addresslist_new_friend_divider);
+                view.setTag(dVar4);
+                dVar3 = dVar4;
+            } else {
+                dVar3 = (d) view.getTag();
+            }
+            dVar3.a.setImageResource(z ? u.icon_new_friend_1 : u.icon_new_friend);
+            dVar3.b.setTextColor(z ? this.g : this.f);
+            dVar3.c.setBackgroundResource(z ? s.cp_bg_line_b_1 : s.cp_bg_line_b);
+            view.setBackgroundResource(z ? u.addresslist_item_bg_1 : u.addresslist_item_bg);
+            a((TextView) view.findViewById(v.addresslist_new_friend_message), this.e);
+            return view;
+        } else if (getItemViewType(i) == 5) {
+            if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
+                view = this.c.inflate(w.addresslist_header_new_friends, (ViewGroup) null);
+                d dVar5 = new d(this, null);
+                dVar5.a = (ImageView) view.findViewById(v.addresslist_new_friend_icon);
+                dVar5.b = (TextView) view.findViewById(v.addresslist_new_friend_text);
+                dVar5.c = view.findViewById(v.addresslist_new_friend_divider);
+                view.setTag(dVar5);
+                dVar2 = dVar5;
+            } else {
+                dVar2 = (d) view.getTag();
+            }
+            dVar2.a.setImageResource(z ? u.icon_add_friend_1 : u.icon_add_friend);
+            dVar2.b.setTextColor(z ? this.g : this.f);
+            dVar2.b.setText(this.a.getResources().getString(y.add_friend));
+            dVar2.c.setBackgroundResource(z ? s.cp_bg_line_b_1 : s.cp_bg_line_b);
+            view.setBackgroundResource(z ? u.addresslist_item_bg_1 : u.addresslist_item_bg);
+            ((TextView) view.findViewById(v.addresslist_new_friend_message)).setVisibility(8);
+            return view;
+        } else if (getItemViewType(i) == 1) {
+            if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
+                view = this.c.inflate(w.addresslist_header_my_groups, (ViewGroup) null);
+                d dVar6 = new d(this, null);
+                dVar6.a = (ImageView) view.findViewById(v.addresslist_my_groups_icon);
+                dVar6.b = (TextView) view.findViewById(v.addresslist_my_groups_text);
+                view.setTag(dVar6);
+                dVar = dVar6;
+            } else {
+                dVar = (d) view.getTag();
+            }
+            dVar.a.setImageResource(z ? u.icon_me_group_1 : u.icon_me_group);
+            dVar.b.setTextColor(z ? this.g : this.f);
+            view.setBackgroundResource(z ? u.addresslist_item_bg_1 : u.addresslist_item_bg);
+            return view;
+        } else {
+            com.baidu.tbadk.coreExtra.relationship.b item = getItem(i);
+            if (getItemViewType(i) == 2) {
+                if (view == null || view.getTag() == null || !(view.getTag() instanceof c)) {
+                    view = this.c.inflate(w.addresslist_group_item, (ViewGroup) null);
+                    c cVar2 = new c(this, null);
+                    cVar2.a = (TextView) view.findViewById(v.addresslist_group_item_key);
+                    cVar2.b = view.findViewById(v.addresslist_group_item_divider);
+                    view.setTag(cVar2);
+                    cVar = cVar2;
+                } else {
+                    cVar = (c) view.getTag();
+                }
+                if (item.f() != null) {
+                    cVar.a.setText(item.f());
+                }
+                cVar.a.setTextColor(z ? this.i : this.h);
+                cVar.b.setBackgroundResource(z ? s.cp_bg_line_b_1 : s.cp_bg_line_b);
+                return view;
+            } else if (getItemViewType(i) == 3) {
+                if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
+                    b bVar2 = new b(this, null);
+                    view = this.c.inflate(w.addresslist_child_item, (ViewGroup) null);
+                    bVar2.a = (HeadImageView) view.findViewById(v.addresslist_child_item_icon);
+                    bVar2.b = (TextView) view.findViewById(v.addresslist_child_item_name);
+                    bVar2.c = view.findViewById(v.addresslist_child_item_divider);
+                    view.setTag(bVar2);
+                    bVar = bVar2;
+                } else {
+                    bVar = (b) view.getTag();
+                }
+                if (item.b() != null) {
+                    bVar.b.setText(item.b());
+                    bVar.a.a(item.d(), 12, false);
+                }
+                bVar.b.setTextColor(z ? this.g : this.f);
+                bVar.c.setBackgroundResource(z ? s.cp_bg_line_b_1 : s.cp_bg_line_b);
+                view.setBackgroundResource(z ? u.addresslist_item_bg_1 : u.addresslist_item_bg);
+                return view;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    private void a(TextView textView, int i) {
+        int i2;
+        int i3;
+        if (i <= 0) {
+            textView.setVisibility(8);
+            return;
+        }
+        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
+        textView.setVisibility(0);
+        textView.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(z ? s.top_msg_num_night : s.top_msg_num_day));
+        if (i < 10) {
+            textView.setText(String.valueOf(i));
+            i2 = u.icon_news_head_prompt_one;
+            i3 = u.icon_news_head_prompt_one_1;
+        } else if (i < 100) {
+            textView.setText(String.valueOf(i));
+            i2 = u.icon_news_head_prompt_two;
+            i3 = u.icon_news_head_prompt_two_1;
+        } else {
+            textView.setText("   ");
+            i2 = u.icon_news_head_prompt_more;
+            i3 = u.icon_news_head_prompt_more_1;
+        }
+        textView.setBackgroundResource(z ? i3 : i2);
+    }
+}

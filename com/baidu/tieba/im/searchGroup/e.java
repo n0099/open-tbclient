@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -19,10 +19,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
     private Activity a;
-    private ab b;
+    private aa b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public ab a() {
+    public aa a() {
         return this.b;
     }
 
@@ -33,8 +33,8 @@ public class e extends BaseAdapter {
 
     public e(Activity activity) {
         this.a = activity;
-        this.b = new ab(activity);
-        this.b.d(true);
+        this.b = new aa(activity);
+        this.b.b(true);
     }
 
     public boolean a(int i) {

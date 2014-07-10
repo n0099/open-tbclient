@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -103,7 +103,7 @@ public class ProtocolActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        be.c(this.b, i);
-        be.b(this.a, i);
+        bk.c(this.b, i);
+        bk.b(this.a, i);
     }
 }

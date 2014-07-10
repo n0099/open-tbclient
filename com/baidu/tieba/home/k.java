@@ -6,42 +6,42 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.ai;
-import com.baidu.tieba.data.x;
+import com.baidu.tieba.data.z;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<x, Integer, String> {
+public class k extends BdAsyncTask<z, Integer, String> {
     final /* synthetic */ e a;
-    private an b = null;
-    private x c;
+    private aq b = null;
+    private z c;
 
-    public k(e eVar, x xVar) {
+    public k(e eVar, z zVar) {
         this.a = eVar;
         this.c = null;
-        this.c = xVar;
+        this.c = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public String doInBackground(x... xVarArr) {
-        x xVar = this.c;
-        if (xVar != null) {
+    public String doInBackground(z... zVarArr) {
+        z zVar = this.c;
+        if (zVar != null) {
             try {
-                if (xVar.a() != null && xVar.b() != null) {
-                    this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
-                    this.b.a("fid", xVar.a());
-                    this.b.a("kw", xVar.b());
+                if (zVar.a() != null && zVar.b() != null) {
+                    this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
+                    this.b.a("fid", zVar.a());
+                    this.b.a("kw", zVar.b());
                     this.b.a().a().a = true;
                     this.b.i();
                     return null;
                 }
                 return null;
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+                BdLog.e(e.getMessage());
                 return null;
             }
         }
@@ -55,7 +55,7 @@ public class k extends BdAsyncTask<x, Integer, String> {
     public void onPostExecute(String str) {
         BaseFragmentActivity baseFragmentActivity;
         BaseFragmentActivity baseFragmentActivity2;
-        q qVar;
+        p pVar;
         super.onPostExecute(str);
         this.a.c = null;
         if (this.b != null) {
@@ -63,9 +63,9 @@ public class k extends BdAsyncTask<x, Integer, String> {
                 baseFragmentActivity2 = this.a.h;
                 baseFragmentActivity2.a(this.a.getString(y.success));
                 ai.c().e(true);
-                qVar = this.a.b;
-                qVar.b();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2005004, this.c.a()));
+                pVar = this.a.b;
+                pVar.b();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.c.a()));
                 return;
             }
             baseFragmentActivity = this.a.h;

@@ -1,13 +1,12 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.SubscribeLiveGroup.SubscribeLiveGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseSubscribeLiveGroupMessage extends SocketResponsedMessage {
     public ResponseSubscribeLiveGroupMessage() {
-        super(MessageTypes.CMD_SUBSCRIBE_LIVE_GROUP);
+        super(107105);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

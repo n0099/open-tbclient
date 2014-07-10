@@ -1,11 +1,11 @@
 package com.baidu.tieba.forumdetail;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.model.be;
+import com.baidu.tieba.model.bf;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements be {
+public class i implements bf {
     final /* synthetic */ ItemFootNavView a;
     private final /* synthetic */ BaseActivity b;
     private final /* synthetic */ boolean c;
@@ -17,14 +17,14 @@ public class i implements be {
         this.c = z;
     }
 
-    @Override // com.baidu.tieba.model.be
+    @Override // com.baidu.tieba.model.bf
     public void a(String str, long j) {
         this.b.showToast(this.b.getString(y.unlike_success));
         this.a.b(false);
         this.a.a(this.c);
     }
 
-    @Override // com.baidu.tieba.model.be
+    @Override // com.baidu.tieba.model.bf
     public void b(String str, long j) {
         this.b.showToast(this.b.getString(y.unlike_failure));
     }

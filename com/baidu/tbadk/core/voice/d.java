@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.voice;
 import android.media.AudioTrack;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
@@ -29,7 +28,6 @@ public class d implements Runnable {
             audioTrack2 = this.a.b;
             if (audioTrack2.getPlayState() == 3) {
                 int a = this.a.a() + 0;
-                BdLog.d(getClass(), "TestVoice2", "elapsedTime=" + a);
                 i = this.a.i;
                 if (a != i) {
                     this.a.i = a;

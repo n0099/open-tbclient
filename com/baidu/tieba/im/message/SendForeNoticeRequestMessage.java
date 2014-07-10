@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SendForenoticeMsg.DataReq;
 import protobuf.SendForenoticeMsg.SendForenoticeMsgReqIdl;
@@ -10,7 +9,7 @@ public class SendForeNoticeRequestMessage extends TbSocketMessage {
     private int gid;
 
     public SendForeNoticeRequestMessage(int i, String str) {
-        super(MessageTypes.CMD_SEND_FORE_NOTICE);
+        super(107107);
         setGid(i);
         setContent(str);
     }

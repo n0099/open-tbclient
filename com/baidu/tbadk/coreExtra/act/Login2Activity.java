@@ -21,12 +21,12 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bi;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class Login2Activity extends BaseActivity {
     private com.baidu.tbadk.core.data.i N = null;
     private ai O = null;
     InputMethodManager b = null;
-    com.baidu.tbadk.coreExtra.view.q c = null;
+    com.baidu.tbadk.coreExtra.view.s c = null;
     private AccountData P = null;
     private String Q = null;
 
@@ -111,7 +111,7 @@ public class Login2Activity extends BaseActivity {
             a(com.baidu.tieba.v.mobile_login);
         }
         ShowSoftKeyPadDelay(this.o, 150);
-        new bb(TbConfig.ST_TYPE_LOGIN).start();
+        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_LOGIN, null, 1, new Object[0]);
     }
 
     @Override // android.app.Activity
@@ -133,7 +133,7 @@ public class Login2Activity extends BaseActivity {
             o();
             System.gc();
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "onDestroy", e.getMessage());
+            BdLog.e(e.getMessage());
         }
         if (this.c != null) {
             this.c.b();
@@ -142,7 +142,7 @@ public class Login2Activity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         if (this.c == null || !this.c.c()) {
             ShowSoftKeyPadDelay(this.o, 150);
@@ -183,8 +183,6 @@ public class Login2Activity extends BaseActivity {
             intent.putExtra("BDUSS", TbadkApplication.getCurrentBduss());
             setResult(-1, intent);
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
                 intExtra = 1;
@@ -247,8 +245,8 @@ public class Login2Activity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.c(i);
-        be.a(this.I, i);
-        be.c(this.a, i);
+        bk.a(this.I, i);
+        bk.c(this.a, i);
         if (i == 1) {
             this.H.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
         } else {
@@ -293,9 +291,9 @@ public class Login2Activity extends BaseActivity {
         String editable2 = this.p.getText().toString();
         String editable3 = this.q.getText().toString();
         if (this.B.getVisibility() == 8) {
-            z = bg.c(editable) || bg.c(editable2);
+            z = bm.c(editable) || bm.c(editable2);
         } else {
-            z = bg.c(editable) || bg.c(editable2) || bg.c(editable3);
+            z = bm.c(editable) || bm.c(editable2) || bm.c(editable3);
         }
         if (!z) {
             this.r.setEnabled(true);
@@ -424,9 +422,9 @@ public class Login2Activity extends BaseActivity {
     public void g() {
         if (this.M == null) {
             String editable = this.o.getText().toString();
-            this.g = bg.b(this.p.getText().toString().getBytes());
+            this.g = bm.b(this.p.getText().toString().getBytes());
             if (editable.length() > 0 && this.g.length() > 0) {
-                if (!this.m || !bg.c(this.q.getText().toString())) {
+                if (!this.m || !bm.c(this.q.getText().toString())) {
                     l();
                     StringBuffer stringBuffer = new StringBuffer(30);
                     stringBuffer.append(TbConfig.SERVER_ADDRESS);
@@ -480,7 +478,7 @@ public class Login2Activity extends BaseActivity {
             return;
         }
         if (this.c == null) {
-            this.c = new com.baidu.tbadk.coreExtra.view.q(this);
+            this.c = new com.baidu.tbadk.coreExtra.view.s(this);
             this.c.a(new ag(this));
         }
         this.c.e();
@@ -625,9 +623,9 @@ public class Login2Activity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         o();
-        aw awVar = new aw(this);
-        awVar.setRequestCode(22002);
-        awVar.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, awVar));
+        bi biVar = new bi(this);
+        biVar.setRequestCode(22002);
+        biVar.setIntentAction(IntentAction.ActivityForResult);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, biVar));
     }
 }

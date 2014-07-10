@@ -7,7 +7,6 @@ public class a {
     private String d = "";
     private int e = -1;
     private String f = "web";
-    private String g = "";
 
     public void a() {
         this.a = "";
@@ -15,8 +14,6 @@ public class a {
         this.d = "";
         this.e = -1;
         this.b = 0L;
-        this.f = "";
-        this.g = "";
     }
 
     public void a(int i) {
@@ -43,11 +40,7 @@ public class a {
         this.f = str;
     }
 
-    public void e(String str) {
-        this.g = str;
-    }
-
     public String toString() {
-        return "{cmd:" + this.a + ",time:" + this.b + ",cmdpackage:" + this.c + ",execpackage:" + this.d + ",status:" + this.e + ",from:" + this.f + ",mSearchId:" + this.g + "}";
+        return "{cmd:" + this.a + ",time:" + this.b + ",cmdpackage:" + this.c + ",execpackage:" + this.d + ",status:" + this.e + ",from:" + this.f + "}";
     }
 }

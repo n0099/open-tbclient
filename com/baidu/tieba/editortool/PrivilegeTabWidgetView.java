@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class PrivilegeTabWidgetView extends LinearLayout {
     private PrivilegeTabHorizonScrollView a;
     private ImageView b;
-    private com.baidu.tbadk.editortool.x c;
+    private com.baidu.tbadk.editortool.w c;
 
     public PrivilegeTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -30,10 +30,10 @@ public class PrivilegeTabWidgetView extends LinearLayout {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.privilege_tab_widget, (ViewGroup) this, true);
         this.a = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.v.privilege_tab_scroll_view);
         this.b = (ImageView) findViewById(com.baidu.tieba.v.privilege_tab_delete);
-        this.b.setOnClickListener(new am(this));
+        this.b.setOnClickListener(new ao(this));
     }
 
-    public void setDatas(ArrayList<ag> arrayList) {
+    public void setDatas(ArrayList<ai> arrayList) {
         this.a.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
@@ -42,16 +42,16 @@ public class PrivilegeTabWidgetView extends LinearLayout {
         }
     }
 
-    public void a(ai aiVar) {
-        this.a.a(aiVar);
+    public void a(ak akVar) {
+        this.a.a(akVar);
     }
 
     public void setCurrentTab(int i) {
         this.a.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(an anVar) {
-        this.a.setOnTabSelectedListener(anVar);
+    public void setOnTabSelectedListener(ap apVar) {
+        this.a.setOnTabSelectedListener(apVar);
     }
 
     public void a() {
@@ -76,7 +76,7 @@ public class PrivilegeTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setOnDataSelected(com.baidu.tbadk.editortool.x xVar) {
-        this.c = xVar;
+    public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
+        this.c = wVar;
     }
 }

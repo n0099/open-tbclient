@@ -15,10 +15,10 @@ class bi implements com.baidu.tieba.im.a<Boolean> {
         bq bqVar2;
         if (bool == null || !bool.equals(true)) {
             bqVar = this.a.a;
-            bqVar.r().b();
+            bqVar.r().d();
             return;
         }
         bqVar2 = this.a.a;
-        bqVar2.r().a();
+        bqVar2.r().c();
     }
 }

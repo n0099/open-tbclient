@@ -1,141 +1,104 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
-import com.baidu.kirin.KirinConfig;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import java.net.InetSocketAddress;
-import java.net.Socket;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import java.util.List;
 /* loaded from: classes.dex */
 public class q {
-    private static /* synthetic */ int[] c;
-    private boolean a = false;
-    private int b = 0;
+    private static q a = null;
+    private int b;
+    private int c = 0;
+    private boolean d = false;
+    private boolean e = false;
+    private List<String> f = null;
+    private boolean g = false;
+    private final com.baidu.adp.lib.webSocket.l h = new r(this);
 
-    static /* synthetic */ int[] c() {
-        int[] iArr = c;
-        if (iArr == null) {
-            iArr = new int[UtilHelper.NetworkStateInfo.valuesCustom().length];
-            try {
-                iArr[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 4;
-            } catch (NoSuchFieldError e) {
+    public static synchronized q a() {
+        q qVar;
+        synchronized (q.class) {
+            if (a == null) {
+                synchronized (q.class) {
+                    if (a == null) {
+                        a = new q();
+                    }
+                }
             }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 3;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.UNAVAIL.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 2;
-            } catch (NoSuchFieldError e4) {
-            }
-            c = iArr;
+            qVar = a;
         }
-        return iArr;
+        return qVar;
     }
 
-    public void a(String str) {
+    public void b() {
+        com.baidu.adp.lib.webSocket.m.a().a(this.h);
+    }
+
+    public static String a(String str) {
         int lastIndexOf;
-        Exception e;
-        String str2;
-        int i;
-        int i2;
-        String str3 = null;
-        int i3 = 0;
-        this.a = false;
-        this.b = 0;
-        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+        if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
-                str2 = str.substring(5, lastIndexOf);
-            } catch (Exception e2) {
-                e = e2;
-                str2 = null;
+                return str.substring(5, lastIndexOf);
+            } catch (Exception e) {
+                return null;
             }
-            try {
-                str3 = str.substring(lastIndexOf + 1);
-            } catch (Exception e3) {
-                e = e3;
-                BdLog.e(e.getMessage());
-                if (TextUtils.isEmpty(str2)) {
-                }
+        }
+        return null;
+    }
+
+    private String c() {
+        if (this.f == null || this.c <= -1 || this.c >= this.f.size()) {
+            return null;
+        }
+        return a.a().d().get(this.c);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        String c = c();
+        if (c == null) {
+            if (!a.a().f()) {
+                a.a().a(new s(this, str));
+            }
+            com.baidu.adp.framework.client.socket.l.a(com.baidu.tbadk.k.a);
+            BdSocketLinkService.setAvailable(false);
+            d();
+        } else if (a(c) == null) {
+            d();
+        } else {
+            this.g = false;
+            BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
+            com.baidu.adp.framework.client.socket.l.a(c);
+            BdSocketLinkService.init();
+            BdSocketLinkService.startService(true, str);
+            this.d = true;
+            this.c++;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        NoNetworkView.a();
+        this.e = false;
+        this.c = 0;
+        this.g = false;
+        this.d = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        if (!this.g) {
+            this.g = true;
+            if (this.d) {
+                this.d = false;
+                f.a().a(com.baidu.tbadk.k.a);
+            }
+            f.a().b();
+            if (!this.e) {
+                new j("www.baidu.com", new t(this));
+                this.e = true;
                 return;
             }
-            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i4 = 0;
-                int i5 = 0;
-                while (i4 < 3) {
-                    Socket socket = new Socket();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                        try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
-                            if (socket.isConnected()) {
-                                int i6 = i3 + 1;
-                                int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.a = true;
-                                i = i6;
-                                i2 = currentTimeMillis2;
-                            } else {
-                                i = i3;
-                                i2 = i5;
-                            }
-                            try {
-                                socket.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.getMessage());
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e5) {
-                                BdLog.e(e5.getMessage());
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e6) {
-                        i = i3;
-                        i2 = i5;
-                        BdLog.e(e6.getMessage());
-                        try {
-                            socket.close();
-                        } catch (Exception e7) {
-                            BdLog.e(e7.getMessage());
-                        }
-                    }
-                    i4++;
-                    i5 = i2;
-                    i3 = i;
-                }
-                if (this.a && i3 > 0) {
-                    this.b = i5 / i3;
-                }
-            }
-        }
-    }
-
-    public boolean a() {
-        return this.a;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    private int d() {
-        switch (c()[UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()).ordinal()]) {
-            case 2:
-                return KirinConfig.CONNECT_TIME_OUT;
-            case 3:
-                return TbConfig.BIG_IMAGE_MIN_CAPACITY;
-            case 4:
-            default:
-                return KirinConfig.READ_TIME_OUT;
+            b("change ip to reconnect with DNS' failed.");
         }
     }
 }

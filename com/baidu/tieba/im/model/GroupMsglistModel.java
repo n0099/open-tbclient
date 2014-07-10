@@ -2,7 +2,6 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupDraftMessage;
@@ -17,8 +16,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     public GroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.b = 20;
-        this.c = new o(this, 0);
-        m();
+        this.c = new m(this, 0);
+        l();
     }
 
     @Override // com.baidu.tieba.im.model.CommonGroupMsglistModel, com.baidu.tieba.im.model.MsglistModel
@@ -28,7 +27,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean g_() {
+    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
         if (this.a == null) {
             return false;
         }
@@ -37,7 +36,9 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         cVar.a = null;
         cVar.b = null;
         cVar.d = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
-        super.sendMessage(new LoadGroupHistoryMessage(cVar));
+        LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(cVar);
+        loadGroupHistoryMessage.setCallback(bvVar);
+        super.sendMessage(loadGroupHistoryMessage);
         return true;
     }
 
@@ -85,10 +86,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         return true;
     }
 
-    private void m() {
-        MessageManager.getInstance().registerListener(2015005, this.c);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT_GROUP, this.c);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY_GROUP, this.c);
+    private void l() {
+        MessageManager.getInstance().registerListener(2013005, this.c);
+        MessageManager.getInstance().registerListener(2001146, this.c);
+        MessageManager.getInstance().registerListener(2001149, this.c);
     }
 
     protected void f() {
@@ -99,10 +100,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     protected ChatMessage g() {
         GroupChatMessage groupChatMessage = new GroupChatMessage();
         groupChatMessage.setBornTime(System.currentTimeMillis());
-        if (b() == null) {
+        if (c() == null) {
             return null;
         }
-        groupChatMessage.setGroupId(String.valueOf(b().getGroupId()));
+        groupChatMessage.setGroupId(String.valueOf(c().getGroupId()));
         return groupChatMessage;
     }
 }

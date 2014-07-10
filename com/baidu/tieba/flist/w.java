@@ -102,19 +102,19 @@ public class w {
             if (this.v == null) {
                 this.v = a(0, onItemClickListener);
             }
-            int a = (com.baidu.adp.lib.util.k.a((Context) this.w, 160.0f) - this.z.getWidth()) / 2;
+            int a = (com.baidu.adp.lib.util.j.a((Context) this.w, 160.0f) - this.z.getWidth()) / 2;
             if (this.u == null) {
-                this.u = new PopupWindow(this.v, com.baidu.adp.lib.util.k.a((Context) this.w, 160.0f), -2, true);
+                this.u = new PopupWindow(this.v, com.baidu.adp.lib.util.j.a((Context) this.w, 160.0f), -2, true);
                 this.u.setBackgroundDrawable(new ColorDrawable(17170445));
                 if (this.D > 6) {
-                    this.u.setHeight(com.baidu.adp.lib.util.k.a((Context) this.w, 272.0f));
+                    this.u.setHeight(com.baidu.adp.lib.util.j.a((Context) this.w, 272.0f));
                 }
             }
             this.u.setOutsideTouchable(true);
             this.u.setFocusable(true);
             this.v.setFocusable(true);
             this.v.setFocusableInTouchMode(true);
-            this.u.showAsDropDown(this.z, 0 - a, com.baidu.adp.lib.util.k.a((Context) this.w, 0.0f));
+            this.u.showAsDropDown(this.z, 0 - a, com.baidu.adp.lib.util.j.a((Context) this.w, 0.0f));
             this.v.setOnKeyListener(new x(this));
             this.v.setOnTouchListener(new y(this));
             this.u.setOnDismissListener(new z(this));
@@ -135,9 +135,9 @@ public class w {
 
     public void c() {
         if (this.d.getCurrentItem() == 0) {
-            this.i.c();
+            this.i.d();
         } else {
-            this.j.c();
+            this.j.d();
         }
         this.B.setVisibility(8);
     }

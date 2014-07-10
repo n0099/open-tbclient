@@ -14,7 +14,7 @@ class e extends com.baidu.tieba.im.b<Boolean> {
     public Boolean a() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
-        com.baidu.tieba.im.db.o d = com.baidu.tieba.im.db.o.d();
+        com.baidu.tieba.im.db.p d = com.baidu.tieba.im.db.p.d();
         personalTalkSettingActivity = this.b.a;
         j = personalTalkSettingActivity.c;
         return Boolean.valueOf(d.e(String.valueOf(j)));

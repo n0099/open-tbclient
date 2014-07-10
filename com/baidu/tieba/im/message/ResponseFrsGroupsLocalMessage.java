@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
@@ -16,7 +15,7 @@ public class ResponseFrsGroupsLocalMessage extends CustomResponsedMessage<Object
     private List<GroupInfoData> groups;
 
     public ResponseFrsGroupsLocalMessage() {
-        super(MessageTypes.CMD_CACHE_GROUPS_BY_FID);
+        super(2001201);
     }
 
     public List<GroupInfoData> getGroups() {

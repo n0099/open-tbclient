@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 /* loaded from: classes.dex */
-class m implements com.baidu.tbadk.core.dialog.c {
+class m implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ GroupLevelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class m implements com.baidu.tbadk.core.dialog.c {
         this.a = groupLevelActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c
+    @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.c();
     }

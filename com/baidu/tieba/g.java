@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
@@ -9,7 +8,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 class g extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FileDownloader a;
-    private com.baidu.tbadk.core.util.an b = null;
+    private com.baidu.tbadk.core.util.aq b = null;
     private volatile boolean c = false;
     private final String d;
     private final String e;
@@ -30,7 +29,7 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool = false;
         while (!this.c) {
             try {
-                this.b = new com.baidu.tbadk.core.util.an(this.d);
+                this.b = new com.baidu.tbadk.core.util.aq(this.d);
                 handler = this.a.handler;
                 bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
                 if (bool.booleanValue() || this.b.d() == -2) {
@@ -45,9 +44,9 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
             }
         }
         if (bool.booleanValue()) {
-            com.baidu.tbadk.core.util.x.j(this.e);
-            File d = com.baidu.tbadk.core.util.x.d(String.valueOf(this.e) + ".tmp");
-            if (d != null && (e = com.baidu.tbadk.core.util.x.e(this.e)) != null) {
+            com.baidu.tbadk.core.util.z.j(this.e);
+            File d = com.baidu.tbadk.core.util.z.d(String.valueOf(this.e) + ".tmp");
+            if (d != null && (e = com.baidu.tbadk.core.util.z.e(this.e)) != null) {
                 d.renameTo(e);
             }
         }
@@ -69,34 +68,21 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        NotificationManager notificationManager2;
+        int i;
         Handler handler;
         Handler handler2;
         super.onPostExecute(bool);
         this.a.mDowndingTask = null;
         if (bool.booleanValue()) {
-            notificationManager2 = this.a.mNotificationManager;
-            notificationManager2.cancel(10);
+            com.baidu.tbadk.core.util.bb.a(this.a.getBaseContext(), 10);
             handler = this.a.handler;
             handler2 = this.a.handler;
             handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
             return;
         }
-        notification = this.a.mNotify;
-        if (notification != null) {
-            notification2 = this.a.mNotify;
-            notification2.contentView.setTextViewText(v.info, this.a.getString(y.error_sd_error));
-            notification3 = this.a.mNotify;
-            notification3.flags = 16;
-            notificationManager = this.a.mNotificationManager;
-            notification4 = this.a.mNotify;
-            notificationManager.notify(10, notification4);
-        }
+        Context baseContext = this.a.getBaseContext();
+        i = this.a.progress;
+        com.baidu.tbadk.core.util.bb.a(baseContext, 10, (String) null, i, this.d, this.a.getString(y.error_sd_error), false);
         this.a.stopSelf();
     }
 }

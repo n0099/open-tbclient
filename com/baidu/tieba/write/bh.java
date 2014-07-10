@@ -1,33 +1,65 @@
 package com.baidu.tieba.write;
 
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.widget.ProgressBar;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity a;
+public class bh implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public bh(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.c;
-        editText = this.a.e;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.c;
-        editText2 = this.a.h;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean b;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.a.g;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.y;
+                    if (z2) {
+                        bitmap = this.a.q;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.q;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                b = this.a.b(str);
+                                if (b) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.a.setResult(0, new Intent());
+            }
+        } else {
+            this.a.setResult(0, new Intent());
+        }
+        this.a.finish();
     }
 }

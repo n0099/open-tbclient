@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.frameworkData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a {
@@ -11,6 +10,7 @@ public class a {
     public static final String DATAS = "datas";
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
+    public static final String FROM = "from";
     public static final String FRS_MANAGER = "frs_manager";
     public static final String GROUP_ID = "group_id";
     public static final String GROUP_NAME = "group_name";
@@ -103,8 +103,6 @@ public class a {
     public void startActivityForResult(int i) {
         if (this.mContext instanceof Activity) {
             ((Activity) this.mContext).startActivityForResult(this.mIntent, i);
-        } else {
-            BdLog.e("mContext invalid");
         }
     }
 

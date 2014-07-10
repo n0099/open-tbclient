@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
@@ -27,8 +27,8 @@ class a implements View.OnClickListener {
     private final LinearLayout i;
     private final ColumnLayout j;
     private final ColumnLayout k;
-    private c n;
-    private final com.baidu.tbadk.editortool.ab o;
+    private b n;
+    private int o;
 
     public a(View view) {
         this.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.top_line);
@@ -42,9 +42,7 @@ class a implements View.OnClickListener {
         this.k = (ColumnLayout) view.findViewById(com.baidu.tieba.v.item_footer);
         this.g = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_thread);
         this.h = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_child);
-        this.o = new com.baidu.tbadk.editortool.ab(view.getContext());
-        int a = com.baidu.adp.lib.util.k.a(view.getContext(), 42.0f);
-        this.o.a(a, a);
+        this.o = com.baidu.adp.lib.util.j.a(view.getContext(), 42.0f);
         if (this.i != null) {
             this.i.setOnClickListener(this);
         }
@@ -61,15 +59,15 @@ class a implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == com.baidu.tieba.v.forum_name) {
             if (view.getContext() instanceof BaseActivity) {
-                ((BaseActivity) view.getContext()).sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(view.getContext()).a((String) view.getTag(), "")));
+                ((BaseActivity) view.getContext()).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(view.getContext()).a((String) view.getTag(), "")));
             }
         } else if (this.n != null) {
             this.n.a(view);
         }
     }
 
-    public void a(c cVar) {
-        this.n = cVar;
+    public void a(b bVar) {
+        this.n = bVar;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00b6 */
@@ -103,7 +101,7 @@ class a implements View.OnClickListener {
                             String str7 = postList.user_name;
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.post_id);
-                            String a = bg.a(postList.create_time * 1000);
+                            String a = bm.a(postList.create_time * 1000);
                             String str8 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str7;
@@ -115,7 +113,7 @@ class a implements View.OnClickListener {
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.content[0].post_id);
                             strArr[2] = String.valueOf(postList.content[0].post_type);
-                            String a2 = bg.a(postList.create_time * 1000);
+                            String a2 = bm.a(postList.create_time * 1000);
                             String str10 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str9;
@@ -168,7 +166,7 @@ class a implements View.OnClickListener {
             this.e.setTag(str2);
             this.f.setText(str5);
             this.e.setOnClickListener(this);
-            b(str);
+            a(str);
             if (this.i != null) {
                 this.i.setTag(strArr);
             }
@@ -177,7 +175,7 @@ class a implements View.OnClickListener {
         }
     }
 
-    private void b(String str) {
+    private void a(String str) {
         if (m != null && !m.equals(str)) {
             l = null;
         }
@@ -186,15 +184,15 @@ class a implements View.OnClickListener {
             m = str;
             return;
         }
-        this.o.c(str, new b(this, str));
+        this.b.a(str, 12, this.o, this.o, false);
     }
 
     public void a(int i) {
-        be.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
-        be.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
-        be.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
-        be.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
-        be.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
+        bk.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
+        bk.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
+        bk.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
             this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c_1));

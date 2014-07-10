@@ -115,9 +115,7 @@ public class c {
             if (z) {
                 if (!TextUtils.isEmpty(bVar.g()) && this.a != null && !this.a.containsKey(bVar.g())) {
                     this.a.put(bVar.g(), bVar);
-                } else if (TextUtils.isEmpty(bVar.g())) {
-                    BdLog.e(String.valueOf(bVar.toString()) + " PLEASE SET ID!!!");
-                } else {
+                } else if (!TextUtils.isEmpty(bVar.g())) {
                     this.a.containsKey(bVar.g());
                 }
             }
@@ -145,7 +143,6 @@ public class c {
             }
             return identifier;
         }
-        BdLog.e(String.valueOf(i) + " cann't find name");
         return i;
     }
 
@@ -186,23 +183,17 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.l() != 0) {
+            if (bVar.k() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                int l = this.b ? bVar.l() : bVar.k();
-                String resourceTypeName = this.c.getResourceTypeName(l);
+                int k = this.b ? bVar.k() : bVar.j();
+                String resourceTypeName = this.c.getResourceTypeName(k);
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    int color = this.c.getColor(l);
-                    viewGroup.setBackgroundColor(color);
-                    BdLog.d("type:" + resourceTypeName + ",id:" + bVar.g() + ",name:" + bVar.j());
-                    if (color == 0) {
-                        BdLog.e("name = " + bVar.j() + " background color is missing");
-                    }
+                    viewGroup.setBackgroundColor(this.c.getColor(k));
                 } else {
-                    viewGroup.setBackgroundResource(l);
-                    BdLog.d("type:" + resourceTypeName + ",id:" + bVar.g() + ",name:" + bVar.j());
+                    viewGroup.setBackgroundResource(k);
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -213,32 +204,32 @@ public class c {
         int h;
         int a;
         int c;
-        int m;
-        int o;
+        int l;
+        int n;
         String str = "@" + view.getId();
         if (this.a != null && this.a.containsKey(str)) {
             b bVar = this.a.get(str);
             if (view instanceof TextView) {
-                if (bVar.p() != 0) {
+                if (bVar.o() != 0) {
                     Resources resources = this.c;
                     if (this.b) {
-                        o = bVar.p();
+                        n = bVar.o();
                     } else {
-                        o = bVar.o();
+                        n = bVar.n();
                     }
-                    ((TextView) view).setTextColor(resources.getColorStateList(o));
+                    ((TextView) view).setTextColor(resources.getColorStateList(n));
                 }
-                if (bVar.n() != 0) {
+                if (bVar.m() != 0) {
                     Resources resources2 = this.c;
                     if (this.b) {
-                        m = bVar.n();
+                        l = bVar.m();
                     } else {
-                        m = bVar.m();
+                        l = bVar.l();
                     }
-                    ((TextView) view).setHintTextColor(resources2.getColorStateList(m));
+                    ((TextView) view).setHintTextColor(resources2.getColorStateList(l));
                 }
-                if (bVar.s() != 0) {
-                    ((TextView) view).setTextAppearance(view.getContext(), this.b ? bVar.s() : bVar.t());
+                if (bVar.r() != 0) {
+                    ((TextView) view).setTextAppearance(view.getContext(), this.b ? bVar.r() : bVar.s());
                 }
                 if (bVar.d() != 0) {
                     Resources resources3 = this.c;
@@ -268,53 +259,47 @@ public class c {
                     ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, resources5.getDrawable(h), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.q() != 0) {
-                    Drawable drawable = this.c.getDrawable(this.b ? bVar.q() : bVar.r());
+                if (bVar.p() != 0) {
+                    Drawable drawable = this.c.getDrawable(this.b ? bVar.p() : bVar.q());
                     if (drawable != null) {
                         ((ImageView) view).setImageDrawable(drawable);
                     }
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.q() != 0) {
-                    Drawable drawable2 = this.c.getDrawable(this.b ? bVar.q() : bVar.r());
+                if (bVar.p() != 0) {
+                    Drawable drawable2 = this.c.getDrawable(this.b ? bVar.p() : bVar.q());
                     if (drawable2 != null) {
                         ((ImageView) view).setImageDrawable(drawable2);
                     }
                 }
-            } else if ((view instanceof ProgressBar) && bVar.v() != 0) {
-                Drawable drawable3 = this.c.getDrawable(this.b ? bVar.v() : bVar.u());
+            } else if ((view instanceof ProgressBar) && bVar.u() != 0) {
+                Drawable drawable3 = this.c.getDrawable(this.b ? bVar.u() : bVar.t());
                 if (drawable3 != null) {
                     ((ProgressBar) view).setProgressDrawable(drawable3);
                 }
             }
-            if (bVar.l() != 0) {
+            if (bVar.k() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                int l = this.b ? bVar.l() : bVar.k();
-                String resourceTypeName = this.c.getResourceTypeName(l);
+                int k = this.b ? bVar.k() : bVar.j();
+                String resourceTypeName = this.c.getResourceTypeName(k);
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(this.c.getColor(l));
-                    BdLog.d("type:" + resourceTypeName + ",id:" + bVar.g() + ",name:" + bVar.j());
+                    view.setBackgroundColor(this.c.getColor(k));
                 } else {
-                    view.setBackgroundResource(l);
-                    BdLog.d("type:" + resourceTypeName + ",id:" + bVar.g() + ",name:" + bVar.j());
+                    view.setBackgroundResource(k);
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
         }
     }
 
-    public boolean a() {
-        return this.b;
-    }
-
     public void a(boolean z) {
         this.b = z;
     }
 
-    public void b() {
+    public void a() {
         if (this.a != null) {
             this.a.clear();
             this.a = null;

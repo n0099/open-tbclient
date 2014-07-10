@@ -46,29 +46,14 @@ public class BdNetUtil {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x008a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0002 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.adp.lib.util.BdNetUtil$NetworkStateInfo] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Exception] */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
-    public static NetworkStateInfo a() {
+    public static NetworkStateInfo getStatusInfo() {
         NetworkStateInfo networkStateInfo;
-        ?? e = NetworkStateInfo.UNAVAIL;
+        NetworkStateInfo networkStateInfo2 = NetworkStateInfo.UNAVAIL;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
-                try {
-                    e = "NetWorkCore";
-                    BdLog.i("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
-                } catch (Exception e2) {
-                    e = e2;
-                }
             } else if (activeNetworkInfo.getType() == 1) {
-                BdLog.i("NetWorkCore", "NetworkStateInfo", NetworkChangeReceiver.WIFI_STRING);
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) BdBaseApplication.getInst().getApp().getSystemService("phone")).getNetworkType()) {
@@ -78,7 +63,6 @@ public class BdNetUtil {
                     case 4:
                     case 7:
                     case 11:
-                        BdLog.i("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -91,42 +75,41 @@ public class BdNetUtil {
                     case 13:
                     case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                     case 15:
-                        BdLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        BdLog.i("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }
             }
             return networkStateInfo;
-        } catch (Exception e3) {
-            return e;
+        } catch (Exception e) {
+            return networkStateInfo2;
         }
     }
 
-    public static NetTpyeEnmu b() {
-        NetTpyeEnmu netTpyeEnmu;
-        NetTpyeEnmu netTpyeEnmu2 = NetTpyeEnmu.UNAVAIL;
+    public static NetTpyeEnmu getNetType() {
+        NetTpyeEnmu netTpyeEnmu = NetTpyeEnmu.UNAVAIL;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (!activeNetworkInfo.isAvailable()) {
-                netTpyeEnmu = NetTpyeEnmu.UNAVAIL;
-            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
-                netTpyeEnmu = NetTpyeEnmu.WIFI;
-            } else {
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null && defaultHost.length() > 0) {
-                    netTpyeEnmu = NetTpyeEnmu.WAP;
-                } else {
-                    netTpyeEnmu = NetTpyeEnmu.NET;
-                }
+            boolean z = false;
+            if (activeNetworkInfo != null) {
+                z = activeNetworkInfo.isAvailable();
             }
-            return netTpyeEnmu;
+            if (!z) {
+                return NetTpyeEnmu.UNAVAIL;
+            }
+            if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
+                return NetTpyeEnmu.WIFI;
+            }
+            String defaultHost = Proxy.getDefaultHost();
+            if (defaultHost != null && defaultHost.length() > 0) {
+                return NetTpyeEnmu.WAP;
+            }
+            return NetTpyeEnmu.NET;
         } catch (Exception e) {
             e.printStackTrace();
-            return netTpyeEnmu2;
+            return netTpyeEnmu;
         }
     }
 }

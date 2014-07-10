@@ -2,6 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -30,10 +31,10 @@ public class cq {
     private NoNetworkView y;
     private NavigationBar z;
     private LinearLayout d = null;
-    private dq e = null;
+    private dr e = null;
     private SlidingMenu f = null;
     private WaterFallView g = null;
-    private com.baidu.tieba.view.aa h = null;
+    private com.baidu.tieba.view.ab h = null;
     private ProgressBar i = null;
     private View j = null;
     private ImageView k = null;
@@ -53,12 +54,12 @@ public class cq {
 
     private void s() {
         this.b.setContentView(com.baidu.tieba.w.frs_image_activity);
-        this.e = new dq(this.b);
+        this.e = new dr(this.b);
         this.d = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.container);
         this.f = new SlidingMenu(this.b);
         this.f.setMode(1);
         this.f.setTouchModeAbove(1);
-        this.f.setBehindOffset(com.baidu.adp.lib.util.k.a((Context) this.b, 48.0f));
+        this.f.setBehindOffset(com.baidu.adp.lib.util.j.a((Context) this.b, 48.0f));
         this.f.setBehindScrollScale(0.5f);
         this.f.setFadeDegree(0.35f);
         this.f.attachToActivity(this.b, 1);
@@ -72,7 +73,7 @@ public class cq {
         this.l = this.z.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.nb_item_frs_more, (View.OnClickListener) null).findViewById(com.baidu.tieba.v.frs_top_more);
         this.l.setOnClickListener(this.c);
         this.g = (WaterFallView) this.b.findViewById(com.baidu.tieba.v.water_fall);
-        this.h = new com.baidu.tieba.view.aa(this.b);
+        this.h = new com.baidu.tieba.view.ab(this.b);
         this.g.setCustomHeaderView(this.h);
         this.i = (ProgressBar) this.b.findViewById(com.baidu.tieba.v.progress);
         this.e.a(this.c);
@@ -82,7 +83,6 @@ public class cq {
 
     private void t() {
         this.a = this.b.getLayoutInflater().inflate(com.baidu.tieba.w.frs_pop_more_window, (ViewGroup) null);
-        this.m = new com.baidu.tbadk.core.view.i(this.b, this.a, this.z, this.b.getResources().getDrawable(com.baidu.tieba.u.bg_pull_down_n), new cr(this));
         this.n = this.a.findViewById(com.baidu.tieba.v.frs_pop_more_window_all_threads_layout);
         this.n.setOnClickListener(this.c);
         this.r = (ImageView) this.a.findViewById(com.baidu.tieba.v.choose_all_threads);
@@ -95,6 +95,12 @@ public class cq {
         this.t.setVisibility(0);
         this.q = this.a.findViewById(com.baidu.tieba.v.frs_pop_more_window_add_shortcut_layout);
         this.q.setOnClickListener(this.c);
+        if ("M351".equals(Build.MODEL)) {
+            this.q.setVisibility(8);
+        } else {
+            this.q.setVisibility(0);
+        }
+        this.m = new com.baidu.tbadk.core.view.i(this.b, this.a, this.z, this.b.getResources().getDrawable(com.baidu.tieba.u.bg_pull_down_n), new cr(this));
     }
 
     public void a() {
@@ -166,8 +172,8 @@ public class cq {
         }
     }
 
-    public void a(com.baidu.tieba.frs.view.q qVar) {
-        this.g.setOnScrollListener(qVar);
+    public void a(com.baidu.tieba.frs.view.r rVar) {
+        this.g.setOnScrollListener(rVar);
     }
 
     public void a(SlidingMenu.OnClosedListener onClosedListener) {
@@ -178,7 +184,7 @@ public class cq {
         this.f.setOnOpenedListener(onOpenedListener);
     }
 
-    public dq m() {
+    public dr m() {
         return this.e;
     }
 
@@ -213,13 +219,13 @@ public class cq {
         return create;
     }
 
-    public void a(de deVar, boolean z, boolean z2) {
-        this.e.a(deVar, z2);
+    public void a(df dfVar, boolean z, boolean z2) {
+        this.e.a(dfVar, z2);
         if (!z) {
             this.u.setVisibility(4);
             return;
         }
-        long a = deVar.a() + deVar.b();
+        long a = dfVar.a() + dfVar.b();
         boolean z3 = TbadkApplication.m252getInst().getSkinType() == 1;
         if (a > 0) {
             this.u.setVisibility(0);

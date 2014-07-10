@@ -23,10 +23,10 @@ class j extends com.baidu.adp.framework.listener.b {
         w wVar;
         w wVar2;
         boolean f;
-        com.baidu.tieba.im.model.l lVar;
-        com.baidu.tieba.im.model.l lVar2;
-        com.baidu.tieba.im.model.l lVar3;
-        com.baidu.tieba.im.model.l lVar4;
+        com.baidu.tieba.im.model.j jVar;
+        com.baidu.tieba.im.model.j jVar2;
+        com.baidu.tieba.im.model.j jVar3;
+        com.baidu.tieba.im.model.j jVar4;
         w wVar3;
         w wVar4;
         w wVar5;
@@ -74,12 +74,12 @@ class j extends com.baidu.adp.framework.listener.b {
                     return;
                 }
             }
-            lVar = this.a.c;
-            lVar2 = this.a.c;
-            lVar.a(lVar2.c() + 20);
-            lVar3 = this.a.c;
-            lVar4 = this.a.c;
-            lVar3.b(lVar4.d() + 1);
+            jVar = this.a.c;
+            jVar2 = this.a.c;
+            jVar.a(jVar2.c() + 20);
+            jVar3 = this.a.c;
+            jVar4 = this.a.c;
+            jVar3.b(jVar4.d() + 1);
             wVar3 = this.a.b;
             wVar3.c().b(false);
             wVar4 = this.a.b;

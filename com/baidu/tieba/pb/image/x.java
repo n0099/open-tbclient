@@ -11,17 +11,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tieba.data.ai;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tieba.data.am;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class x extends BaseAdapter {
-    private com.baidu.tieba.data.t b;
+    private com.baidu.tieba.data.v b;
     private Context c;
     private boolean f;
     private int j;
-    private com.baidu.tieba.data.v a = null;
+    private com.baidu.tieba.data.x a = null;
     private boolean d = true;
     private int e = 0;
     private int h = 0;
@@ -29,13 +29,13 @@ public class x extends BaseAdapter {
     private View.OnClickListener k = null;
     private ArrayList<ProgressBar> g = new ArrayList<>();
 
-    public x(Context context, com.baidu.tieba.data.t tVar) {
+    public x(Context context, com.baidu.tieba.data.v vVar) {
         this.b = null;
         this.c = null;
         this.j = 0;
         this.c = context;
-        this.b = tVar;
-        this.j = com.baidu.adp.lib.util.k.b(this.c);
+        this.b = vVar;
+        this.j = com.baidu.adp.lib.util.j.b(this.c);
     }
 
     public void a() {
@@ -47,7 +47,7 @@ public class x extends BaseAdapter {
                     try {
                         this.g.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        BdLog.e(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -76,12 +76,12 @@ public class x extends BaseAdapter {
         return (this.a.a().size() / 10) + 1;
     }
 
-    public com.baidu.tieba.data.t e() {
+    public com.baidu.tieba.data.v e() {
         return this.b;
     }
 
-    public void a(com.baidu.tieba.data.v vVar) {
-        this.a = vVar;
+    public void a(com.baidu.tieba.data.x xVar) {
+        this.a = xVar;
     }
 
     public void a(boolean z) {
@@ -188,17 +188,17 @@ public class x extends BaseAdapter {
             aaVar.a.setGravity(3);
             aaVar.a.setMovementMethod(LinkMovementMethod.getInstance());
             aaVar.a.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            ai aiVar = this.a.a().get(i - 1);
+            am amVar = this.a.a().get(i - 1);
             aaVar.c.setVisibility(0);
             aaVar.b.setVisibility(0);
-            aaVar.b.setText(aiVar.o().getUserName());
-            aaVar.b.setOnClickListener(new y(this, aiVar.o().getUserId(), aiVar.o().getUserName()));
-            aaVar.c.setText(bg.a(aiVar.n()));
+            aaVar.b.setText(amVar.o().getUserName());
+            aaVar.b.setOnClickListener(new y(this, amVar.o().getUserId(), amVar.o().getUserName()));
+            aaVar.c.setText(bm.a(amVar.n()));
             aaVar.d.removeAllViews();
-            ArrayList<com.baidu.tieba.data.f> r = aiVar.r();
+            ArrayList<com.baidu.tieba.data.g> s = amVar.s();
             com.baidu.tieba.util.j jVar = new com.baidu.tieba.util.j(this.c);
             jVar.a(-13421773);
-            jVar.a(aaVar.a, aaVar.d, r, false);
+            jVar.a(aaVar.a, aaVar.d, s, false);
             aaVar.d.setVisibility(8);
             aaVar.a.setTextSize(2, 13.0f);
             b(aaVar);
@@ -224,11 +224,11 @@ public class x extends BaseAdapter {
                 }
             }
         } else if (itemViewType == 2) {
-            ArrayList<com.baidu.tieba.data.f> r2 = this.b.a().r();
+            ArrayList<com.baidu.tieba.data.g> s2 = this.b.a().s();
             com.baidu.tieba.util.j jVar2 = new com.baidu.tieba.util.j(this.c);
             aaVar.i.setMovementMethod(LinkMovementMethod.getInstance());
             jVar2.a(true);
-            jVar2.a(aaVar.i, aaVar.l, r2, false);
+            jVar2.a(aaVar.i, aaVar.l, s2, false);
             aaVar.i.setTextSize(2, 13.0f);
             if (aaVar.i.getText().toString().trim().length() == 0) {
                 aaVar.i.setVisibility(8);
@@ -269,30 +269,30 @@ public class x extends BaseAdapter {
     private void a(aa aaVar) {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                aaVar.i.setTextColor(be.a(1));
-                aaVar.k.setTextColor(be.b(1));
-                aaVar.g.setBackgroundColor(be.d(1));
+                aaVar.i.setTextColor(bk.a(1));
+                aaVar.k.setTextColor(bk.b(1));
+                aaVar.g.setBackgroundColor(bk.d(1));
             } else {
                 aaVar.i.setTextColor(-13421773);
                 aaVar.k.setTextColor(-6710887);
                 aaVar.g.setBackgroundColor(-1);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "setHeaderSkin", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
     private void b(aa aaVar) {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                aaVar.a.setTextColor(be.a(1));
-                aaVar.c.setTextColor(be.b(1));
+                aaVar.a.setTextColor(bk.a(1));
+                aaVar.c.setTextColor(bk.b(1));
             } else {
                 aaVar.a.setTextColor(-13421773);
                 aaVar.c.setTextColor(-6710887);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "setNormalSkin", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -300,9 +300,9 @@ public class x extends BaseAdapter {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 if (z) {
-                    aaVar.e.setTextColor(be.a(1));
+                    aaVar.e.setTextColor(bk.a(1));
                 } else {
-                    aaVar.e.setTextColor(be.c(1));
+                    aaVar.e.setTextColor(bk.c(1));
                 }
             } else if (z) {
                 aaVar.e.setTextColor(-13421773);
@@ -310,7 +310,7 @@ public class x extends BaseAdapter {
                 aaVar.e.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.gray));
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "setPageSkin", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 

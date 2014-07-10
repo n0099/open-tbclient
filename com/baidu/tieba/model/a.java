@@ -2,23 +2,23 @@ package com.baidu.tieba.model;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.b {
-    protected com.baidu.adp.base.e a;
+public class a extends com.baidu.adp.base.e {
+    protected com.baidu.adp.base.h a;
     private b b;
     private Context c;
 
-    public a(Context context, com.baidu.adp.base.e eVar) {
+    public a(Context context, com.baidu.adp.base.h hVar) {
         this.a = null;
         this.c = context;
-        this.a = eVar;
+        this.a = hVar;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();

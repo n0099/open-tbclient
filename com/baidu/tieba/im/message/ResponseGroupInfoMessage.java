@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupActivityData;
@@ -22,7 +21,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     private f selfData;
 
     public ResponseGroupInfoMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID);
+        super(103004);
         this.mResData = null;
     }
 
@@ -135,7 +134,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         if (this.selfData != null) {
             String str = "";
             if (TbadkApplication.getCurrentAccountObj() != null) {

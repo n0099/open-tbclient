@@ -28,7 +28,7 @@ public class o implements AdapterView.OnItemClickListener {
         i2 = this.a.z;
         if (i2 == 0) {
             com.baidu.tieba.util.k.f(str);
-            this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(str, "tb_searchlist")));
+            this.a.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(this.a).a(str, "tb_searchlist")));
         } else if (str != null && str.length() > 0) {
             aVar = this.a.l;
             aVar.a(i);

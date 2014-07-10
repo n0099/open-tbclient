@@ -1,23 +1,62 @@
 package com.baidu.adp.lib.stats;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes.dex */
-class l extends BroadcastReceiver {
-    final /* synthetic */ h this$0;
+class l {
+    final /* synthetic */ k a;
+    private long b;
+    private boolean c;
+    private int d;
+    private long e;
+    private boolean f;
 
-    private l(h hVar) {
-        this.this$0 = hVar;
+    private l(k kVar) {
+        this.a = kVar;
+        this.c = false;
+        this.d = 0;
+        this.f = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(h hVar, l lVar) {
-        this(hVar);
+    public /* synthetic */ l(k kVar, l lVar) {
+        this(kVar);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        h.a(this.this$0);
+    public boolean a() {
+        return this.f;
+    }
+
+    public void a(boolean z) {
+        this.f = z;
+    }
+
+    public long b() {
+        return this.e;
+    }
+
+    public void a(long j) {
+        this.e = j;
+    }
+
+    public int c() {
+        return this.d;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public long d() {
+        return this.b;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public boolean e() {
+        return this.c;
+    }
+
+    public void b(boolean z) {
+        this.c = z;
     }
 }

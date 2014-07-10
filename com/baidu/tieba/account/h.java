@@ -2,7 +2,7 @@ package com.baidu.tieba.account;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 class h extends Thread {
     final /* synthetic */ AccountActivity a;
@@ -17,12 +17,12 @@ class h extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-        anVar.a().a().b = false;
-        anVar.a().a().c = false;
-        anVar.a("BDUSS", this.b);
-        anVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
-        anVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
-        anVar.i();
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
+        aqVar.a().a().b = false;
+        aqVar.a().a().c = false;
+        aqVar.a("BDUSS", this.b);
+        aqVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
+        aqVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
+        aqVar.i();
     }
 }

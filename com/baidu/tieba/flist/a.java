@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class a extends BaseAdapter {
     b a;
     Activity b;
-    private com.baidu.tieba.square.ab c;
+    private com.baidu.tieba.square.w c;
     private int d = 0;
 
     public a(Activity activity) {
@@ -44,10 +44,10 @@ public class a extends BaseAdapter {
             view = b();
         }
         if (this.c != null) {
-            com.baidu.tieba.square.ab abVar = this.c.e.get(i);
+            com.baidu.tieba.square.w wVar = this.c.e.get(i);
             this.a = (b) view.getTag();
-            if (abVar != null) {
-                a(this.a, abVar, view, i);
+            if (wVar != null) {
+                a(this.a, wVar, view, i);
             }
         }
         return view;
@@ -58,11 +58,11 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void a(com.baidu.tieba.square.ab abVar) {
-        this.c = abVar;
+    public void a(com.baidu.tieba.square.w wVar) {
+        this.c = wVar;
     }
 
-    public com.baidu.tieba.square.ab a() {
+    public com.baidu.tieba.square.w a() {
         return this.c;
     }
 
@@ -75,13 +75,13 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    private void a(b bVar, com.baidu.tieba.square.ab abVar, View view, int i) {
-        if (bVar != null && abVar != null) {
+    private void a(b bVar, com.baidu.tieba.square.w wVar, View view, int i) {
+        if (bVar != null && wVar != null) {
             bVar.b.setText("");
             if (i == 0) {
-                bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.y.forum_list_menu_all)) + abVar.b);
+                bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.y.forum_list_menu_all)) + wVar.b);
             } else {
-                bVar.b.setText(abVar.b);
+                bVar.b.setText(wVar.b);
             }
             if (i != this.d) {
                 bVar.a.setVisibility(4);

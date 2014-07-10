@@ -65,10 +65,6 @@ public class GroupLevelInfo implements Serializable {
         this.vipLevelInfos = list;
     }
 
-    public String toString() {
-        return "GroupLevelInfo [groupId=" + this.groupId + ", name=" + this.name + ", grade=" + this.grade + ", activeDay=" + this.activeDay + ", levelInfos=" + this.levelInfos + "]";
-    }
-
     /* loaded from: classes.dex */
     public class LevelInfo implements Serializable {
         private static final long serialVersionUID = -3336118486107034728L;
@@ -107,10 +103,6 @@ public class GroupLevelInfo implements Serializable {
 
         public void setMaxMemberNum(int i) {
             this.maxMemberNum = i;
-        }
-
-        public String toString() {
-            return "LevelInfo [grade=" + this.grade + ", intro=" + this.intro + ", thresholdDay=" + this.thresholdDay + ", maxMemberNum=" + this.maxMemberNum + "]";
         }
     }
 

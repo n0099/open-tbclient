@@ -26,24 +26,19 @@ public class p extends Handler {
         l lVar8;
         l lVar9;
         l lVar10;
-        boolean p;
         l lVar11;
-        boolean p2;
         l lVar12;
         l lVar13;
         l lVar14;
         l lVar15;
-        boolean p3;
         l lVar16;
-        boolean p4;
         l lVar17;
-        boolean p5;
+        boolean p;
         l lVar18;
         l lVar19;
-        boolean p6;
+        boolean p2;
         l lVar20;
         l lVar21;
-        boolean p7;
         l lVar22;
         if (message.obj instanceof al) {
             al alVar = (al) message.obj;
@@ -51,11 +46,6 @@ public class p extends Handler {
             if (lVar21 != null) {
                 lVar22 = this.a.n;
                 lVar22.a(alVar.a);
-                return;
-            }
-            p7 = this.a.p();
-            if (p7) {
-                BdLog.d("could not call onTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof af) {
             af afVar = (af) message.obj;
@@ -65,8 +55,8 @@ public class p extends Handler {
                 lVar20.b(afVar.a);
                 return;
             }
-            p6 = this.a.p();
-            if (p6) {
+            p2 = this.a.p();
+            if (p2) {
                 BdLog.d("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof t) {
@@ -77,18 +67,13 @@ public class p extends Handler {
                 lVar18.a(tVar.a);
                 return;
             }
-            p5 = this.a.p();
-            if (p5) {
+            p = this.a.p();
+            if (p) {
                 BdLog.d("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof ac) {
-            ac acVar = (ac) message.obj;
-            p4 = this.a.p();
-            if (p4) {
-                BdLog.d("WebSockets Ping received");
-            }
             ad adVar = new ad();
-            adVar.a = acVar.a;
+            adVar.a = ((ac) message.obj).a;
             this.a.c.a((Object) adVar);
         } else if (message.obj instanceof ad) {
             ad adVar2 = (ad) message.obj;
@@ -97,18 +82,10 @@ public class p extends Handler {
                 lVar16 = this.a.n;
                 lVar16.a();
             }
-            p3 = this.a.p();
-            if (p3) {
-                BdLog.d("WebSockets Pong received");
-            }
         } else if (message.obj instanceof v) {
             this.a.a(1, (String) null);
         } else if (message.obj instanceof aj) {
             aj ajVar = (aj) message.obj;
-            p = this.a.p();
-            if (p) {
-                BdLog.d("opening handshake received");
-            }
             if (ajVar.a) {
                 lVar11 = this.a.n;
                 if (lVar11 != null) {
@@ -123,10 +100,6 @@ public class p extends Handler {
                         return;
                     }
                     return;
-                }
-                p2 = this.a.p();
-                if (p2) {
-                    BdLog.d("could not call onOpen() .. handler already NULL");
                 }
                 this.a.a(6, "handler already NULL");
             }

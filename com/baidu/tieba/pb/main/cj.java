@@ -15,10 +15,10 @@ class cj implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bq bqVar;
+        bt btVar;
         FrameLayout frameLayout;
-        bqVar = this.a.a;
-        frameLayout = bqVar.n;
+        btVar = this.a.a;
+        frameLayout = btVar.l;
         frameLayout.removeView(this.b);
     }
 }

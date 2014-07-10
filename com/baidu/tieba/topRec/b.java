@@ -10,8 +10,8 @@ class b implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        l lVar;
-        lVar = this.a.c;
-        lVar.LoadData();
+        k kVar;
+        kVar = this.a.c;
+        kVar.LoadData();
     }
 }

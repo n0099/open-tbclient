@@ -3,7 +3,6 @@ package com.baidu.tieba.im.live.livelist;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.im.message.ResponseLiveGroupHistoryMessage;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -33,7 +32,6 @@ class af extends com.baidu.adp.framework.listener.b {
         com.baidu.tieba.im.model.z zVar5;
         ak akVar5;
         ak akVar6;
-        com.baidu.tbadk.editortool.ab abVar;
         ak akVar7;
         ak akVar8;
         ak akVar9;
@@ -56,10 +54,10 @@ class af extends com.baidu.adp.framework.listener.b {
                     return;
                 }
             }
-            com.baidu.tieba.im.data.h liveGroupHistoryData = responseLiveGroupHistoryMessage.getLiveGroupHistoryData();
+            com.baidu.tieba.im.data.f liveGroupHistoryData = responseLiveGroupHistoryMessage.getLiveGroupHistoryData();
             if (liveGroupHistoryData != null) {
                 LiveCardData a = liveGroupHistoryData.a();
-                List<com.baidu.tieba.im.data.i> b = liveGroupHistoryData.b();
+                List<com.baidu.tieba.im.data.g> b = liveGroupHistoryData.b();
                 akVar = this.a.a;
                 akVar.e().a(liveGroupHistoryData.c());
                 e = this.a.e();
@@ -69,9 +67,7 @@ class af extends com.baidu.adp.framework.listener.b {
                     akVar5 = this.a.a;
                     akVar5.a();
                     akVar6 = this.a.a;
-                    LiveBroadcastCard f = akVar6.f();
-                    abVar = this.a.c;
-                    f.a(a, abVar);
+                    akVar6.f().setData(a);
                     if (!liveGroupHistoryData.c()) {
                         if (b.size() == 0) {
                             akVar10 = this.a.a;

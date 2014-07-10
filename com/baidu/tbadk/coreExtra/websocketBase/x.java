@@ -1,83 +1,44 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
-import java.util.Map;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.adp.framework.client.socket.link.c {
-    final /* synthetic */ w a;
+public class x extends com.baidu.adp.framework.a.j {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(v vVar, int i) {
+        super(i);
+        this.a = vVar;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.c
-    public void a(byte[] bArr) {
-        com.baidu.adp.framework.client.socket.link.c cVar;
-        com.baidu.adp.framework.client.socket.link.c cVar2;
-        cVar = this.a.b;
-        if (cVar != null) {
-            cVar2 = this.a.b;
-            cVar2.a(bArr);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        int i;
+        int i2;
+        if (socketResponsedMessage instanceof ResponseOnlineMessage) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            int squencedId = (responseOnlineMessage.getOrginalMessage() == null || !(responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) ? 0 : ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
+            if (responseOnlineMessage.getError() == 0) {
+                this.a.f();
+                int cmd = socketResponsedMessage.getCmd();
+                StringBuilder sb = new StringBuilder("online succ. retry count-");
+                i = this.a.a;
+                com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd, squencedId, "online_succ", 0, sb.append(i).toString());
+                return socketResponsedMessage;
+            }
+            this.a.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+            int cmd2 = socketResponsedMessage.getCmd();
+            StringBuilder sb2 = new StringBuilder("online failed. count-");
+            i2 = this.a.a;
+            com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd2, 0, "online_failed", 0, sb2.append(i2).toString());
+            return null;
         }
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.c
-    public boolean a(int i, String str) {
-        com.baidu.adp.framework.client.socket.link.c cVar;
-        com.baidu.adp.framework.client.socket.link.c cVar2;
-        cVar = this.a.b;
-        if (cVar != null) {
-            cVar2 = this.a.b;
-            cVar2.a(i, str);
-            return false;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.c
-    public void a(Map<String, String> map) {
-        com.baidu.adp.framework.client.socket.link.c cVar;
-        UpdateClientInfoMessage e;
-        UpdateClientInfoMessage updateClientInfoMessage;
-        com.baidu.adp.framework.client.socket.link.c cVar2;
-        cVar = this.a.b;
-        if (cVar != null) {
-            cVar2 = this.a.b;
-            cVar2.a(map);
-        }
-        BdLog.i("start online");
-        com.baidu.adp.framework.client.socket.m.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-        w wVar = this.a;
-        e = this.a.e();
-        wVar.c = e;
-        MessageManager messageManager = MessageManager.getInstance();
-        updateClientInfoMessage = this.a.c;
-        messageManager.sendMessage(updateClientInfoMessage);
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.c
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
-        com.baidu.adp.framework.client.socket.link.c cVar;
-        com.baidu.adp.framework.client.socket.link.c cVar2;
-        cVar = this.a.b;
-        if (cVar != null) {
-            cVar2 = this.a.b;
-            cVar2.a(dVar);
-        }
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.c
-    public void a(String str) {
-        com.baidu.adp.framework.client.socket.link.c cVar;
-        com.baidu.adp.framework.client.socket.link.c cVar2;
-        cVar = this.a.b;
-        if (cVar != null) {
-            cVar2 = this.a.b;
-            cVar2.a(str);
-        }
+        this.a.a(socketResponsedMessage.getCmd(), -1, null);
+        return null;
     }
 }

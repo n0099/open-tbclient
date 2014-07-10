@@ -1,52 +1,23 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.os.Handler;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class ab extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ OfficialBarHistoryActivity a;
+class ab extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ OfficialBarChatActivity b;
+    private final /* synthetic */ UserData c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(OfficialBarHistoryActivity officialBarHistoryActivity) {
-        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_HISTORY);
-        this.a = officialBarHistoryActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
+        this.b = officialBarChatActivity;
+        this.c = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        RequestHistoryMessage requestHistoryMessage;
-        List list;
-        ag agVar;
-        List<ba> list2;
-        this.a.hideProgressBar();
-        this.a.f = false;
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getError() != 0) {
-            this.a.showToast(socketResponsedMessage.getErrorString());
-        } else if (socketResponsedMessage.getCmd() == 208002 && (socketResponsedMessage instanceof ResponseHistoryMessage)) {
-            ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
-            if (!responseHistoryMessage.getMsg().isEmpty() && (requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage()) != null) {
-                if (requestHistoryMessage.getRequestId() == 0) {
-                    this.a.e = responseHistoryMessage.getMsg();
-                } else {
-                    list = this.a.e;
-                    list.addAll(responseHistoryMessage.getMsg());
-                }
-                agVar = this.a.b;
-                list2 = this.a.e;
-                agVar.a(list2);
-                if (responseHistoryMessage.getMsg().size() != 0) {
-                    new Handler().post(new ac(this));
-                }
-            }
-        } else {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        bd.a().a(TbadkApplication.getCurrentAccount(), OfficialBarChatActivity.b, this.c);
+        return null;
     }
 }

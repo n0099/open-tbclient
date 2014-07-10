@@ -1,98 +1,119 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import java.util.ArrayList;
-import java.util.Date;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class bc extends BaseAdapter {
-    private Context a;
-    private FacePurchaseRecordsData b = null;
-    private com.baidu.tbadk.editortool.ab c;
+public class bc {
+    private final BaseActivity b;
+    private final LinearLayout c;
+    private final NavigationBar d;
+    private final NoNetworkView e;
+    private final BdListView f;
+    private final com.baidu.tbadk.core.view.q g;
+    private final TextView h;
+    private ay i;
+    private final Handler j;
+    private com.baidu.tbadk.editortool.aa k;
+    private final Runnable l = new bd(this);
+    AbsListView.OnScrollListener a = new be(this);
 
-    public bc(Context context) {
-        this.a = context;
-        this.c = new com.baidu.tbadk.editortool.ab(context);
-        this.c.a(context.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_purchase_cover_height));
+    public bc(BaseActivity baseActivity) {
+        this.b = baseActivity;
+        baseActivity.setContentView(com.baidu.tieba.w.face_purchase_records_layout);
+        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.v.purchase_record);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(baseActivity.getResources().getString(com.baidu.tieba.y.purchase_record));
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = (NoNetworkView) this.c.findViewById(com.baidu.tieba.v.view_no_network);
+        this.h = (TextView) this.c.findViewById(com.baidu.tieba.v.empty);
+        this.f = (BdListView) this.c.findViewById(com.baidu.tieba.v.purchase_record_list);
+        this.g = new com.baidu.tbadk.core.view.q(baseActivity);
+        this.f.setPullRefresh(this.g);
+        this.f.setOnScrollListener(this.a);
+        this.j = new Handler();
     }
 
     public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
-        this.b = facePurchaseRecordsData;
-        notifyDataSetChanged();
-    }
-
-    public com.baidu.tbadk.editortool.ab a() {
-        return this.c;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null || this.b.packList == null) {
-            return 0;
+        if (this.i == null) {
+            this.i = new ay(this.b);
+            this.f.setAdapter((ListAdapter) this.i);
         }
-        return this.b.packList.size();
+        this.k = this.i.a();
+        this.i.a(facePurchaseRecordsData);
+        if (facePurchaseRecordsData == null || facePurchaseRecordsData.packList == null || facePurchaseRecordsData.packList.size() == 0) {
+            c();
+        }
+        d();
+        b();
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.b == null || this.b.packList == null) {
-            return null;
-        }
-        ArrayList<FacePurchasePackageData> arrayList = this.b.packList;
-        if (i < 0 || i >= arrayList.size()) {
-            return null;
-        }
-        return arrayList.get(i);
+    public ay a() {
+        return this.i;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public void b() {
+        this.f.d();
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        if (view == null) {
-            view = b();
+    public void c() {
+        if (this.f != null) {
+            this.f.setEmptyView(this.h);
         }
-        bd bdVar = (bd) view.getTag();
-        if (this.a instanceof BaseActivity) {
-            ((BaseActivity) this.a).getLayoutMode().a(skinType == 1);
-            ((BaseActivity) this.a).getLayoutMode().a(view);
-        }
-        a(i, bdVar);
-        return view;
     }
 
-    private View b() {
-        LayoutInflater from = LayoutInflater.from(this.a);
-        bd bdVar = new bd(this, null);
-        View inflate = from.inflate(com.baidu.tieba.w.face_purchase_record_item, (ViewGroup) null);
-        bdVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.v.cover);
-        bdVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.title);
-        bdVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.time);
-        bdVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.price);
-        inflate.setTag(bdVar);
-        return inflate;
+    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.f.setOnItemClickListener(onItemClickListener);
     }
 
-    private void a(int i, bd bdVar) {
-        FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
-        if (facePurchasePackageData != null) {
-            bdVar.a.setTag(facePurchasePackageData.coverUrl);
-            bdVar.d.setText(facePurchasePackageData.price);
-            bdVar.b.setText(facePurchasePackageData.pname);
-            Date date = new Date();
-            date.setTime(facePurchasePackageData.puyTime * 1000);
-            bdVar.c.setText(com.baidu.tbadk.core.util.bg.d(date));
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.g.a(dVar);
+    }
+
+    public void d() {
+        if (this.j != null) {
+            this.j.removeCallbacks(this.l);
+            this.j.postDelayed(this.l, 90L);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        com.baidu.tbadk.core.util.aj.a(this.f, this.i.a(), 0, -1);
+    }
+
+    private void g() {
+        if (this.k != null) {
+            this.k.a();
+            this.k.d();
+        }
+    }
+
+    public void e() {
+        g();
+    }
+
+    public void a(com.baidu.tbadk.core.view.m mVar) {
+        this.e.a(mVar);
+    }
+
+    public void b(com.baidu.tbadk.core.view.m mVar) {
+        this.e.b(mVar);
+    }
+
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a((View) this.c);
+        this.d.c(i);
+        this.e.a(i);
+        this.g.a(i);
     }
 }

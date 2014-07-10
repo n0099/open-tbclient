@@ -1,39 +1,57 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends com.baidu.adp.base.e {
-    final /* synthetic */ bp a;
-    private final /* synthetic */ FacePackageData b;
+    private String d;
+    private int f;
+    private int g;
+    private float h;
+    private bs b = null;
+    private FaceShopData a = null;
+    private boolean e = false;
+    private int c = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bp bpVar, FacePackageData facePackageData) {
-        this.a = bpVar;
-        this.b = facePackageData;
+    public br() {
+        this.f = 0;
+        this.g = 0;
+        Context e = com.baidu.tieba.ai.c().e();
+        this.f = com.baidu.adp.lib.util.j.b(e);
+        this.g = com.baidu.adp.lib.util.j.c(e);
+        this.h = e.getResources().getDisplayMetrics().density;
+    }
+
+    public FaceShopData a() {
+        return this.a;
+    }
+
+    public boolean b() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        this.d = str;
+    }
+
+    public void a(int i) {
+        if (this.b == null) {
+            this.b = new bs(this, null);
+            this.b.setPriority(3);
+            this.b.execute(Integer.valueOf(i));
+        }
     }
 
     @Override // com.baidu.adp.base.e
-    public void a(Object obj) {
-        Context context;
-        Context context2;
-        Context context3;
-        if (obj == null || !(obj instanceof FacePackageDownloadData)) {
-            context = this.a.c;
-            UtilHelper.showToast(context, com.baidu.tieba.y.neterror);
-            return;
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.b != null) {
+            this.b.cancel();
+            return true;
         }
-        FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
-        if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
-            this.b.packUrl = facePackageDownloadData.packUrl;
-            g.a().a(String.valueOf(this.b.pid), this.b.pname, this.b.packUrl);
-        } else if (facePackageDownloadData.usermsg != null) {
-            context3 = this.a.c;
-            UtilHelper.showToast(context3, facePackageDownloadData.usermsg);
-        } else {
-            context2 = this.a.c;
-            UtilHelper.showToast(context2, com.baidu.tieba.y.neterror);
-        }
+        return true;
     }
 }

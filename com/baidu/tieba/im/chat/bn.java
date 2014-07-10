@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes.dex */
-public class bn extends com.baidu.adp.base.b {
+public class bn extends com.baidu.adp.base.e {
     private String a;
     private String b;
     private int c;
@@ -24,12 +24,12 @@ public class bn extends com.baidu.adp.base.b {
         b(i);
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
@@ -42,7 +42,7 @@ public class bn extends com.baidu.adp.base.b {
         this.b = str;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public void cancelMessage() {
         if (this.d != null) {
             this.d = null;

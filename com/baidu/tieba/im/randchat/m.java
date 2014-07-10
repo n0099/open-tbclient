@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.randchat;
 
 import android.util.Pair;
-import com.baidu.tieba.im.model.cb;
+import com.baidu.tieba.im.model.ca;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -17,13 +17,13 @@ public class m extends com.baidu.tbadk.coreExtra.c.c {
 
     @Override // com.baidu.tbadk.coreExtra.c.c
     public void a(long j) {
-        cb cbVar;
+        ca caVar;
         com.baidu.tbadk.coreExtra.c.c cVar;
-        cb cbVar2;
-        cbVar = this.a.b;
-        if (!cbVar.a().isEmpty()) {
-            cbVar2 = this.a.b;
-            Pair<WaitingTipView.Type, Object[]> removeFirst = cbVar2.a().removeFirst();
+        ca caVar2;
+        caVar = this.a.b;
+        if (!caVar.a().isEmpty()) {
+            caVar2 = this.a.b;
+            Pair<WaitingTipView.Type, Object[]> removeFirst = caVar2.a().removeFirst();
             if (removeFirst != null) {
                 this.a.b((WaitingTipView.Type) removeFirst.first, (Object[]) removeFirst.second);
                 return;

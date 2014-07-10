@@ -1,9 +1,15 @@
 package com.baidu.tbadk;
 
-import com.baidu.bdcvf.CertVerifier;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.an;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
-public class c implements CertVerifier.ResultListener {
+class c implements Handler.Callback {
     final /* synthetic */ TbadkApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +17,34 @@ public class c implements CertVerifier.ResultListener {
         this.a = tbadkApplication;
     }
 
-    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyOK() {
-        this.a.mIsOfficial = true;
-    }
-
-    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyFail(int i) {
-        this.a.mIsOfficial = false;
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 1:
+                TbadkApplication.setCurrentAccount(null, this.a.getContext());
+                String string = message.getData().getString("account");
+                if (string == null) {
+                    string = "";
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new an((Context) this.a, string, false, true)));
+                break;
+            case 4:
+                long nanoTime = (((System.nanoTime() - this.a.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
+                if (nanoTime > 0) {
+                    new bh(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
+                    TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
+                }
+                this.a.mStartTime = 0L;
+                break;
+            case 5:
+                if (Boolean.TRUE.equals(message.obj)) {
+                    this.a.notifyAppEnterBackground();
+                    break;
+                } else {
+                    this.a.notifyAppEnterForehead();
+                    break;
+                }
+        }
+        return false;
     }
 }

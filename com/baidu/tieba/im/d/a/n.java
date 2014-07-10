@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.d.a;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.officialBar.az;
+import com.baidu.tieba.im.chat.officialBar.bd;
 /* loaded from: classes.dex */
-public class n extends a {
+public class n extends b {
     public n() {
-        super(az.a(), MessageTypes.CMD_LOAD_DRAFT_OFFICIAL);
+        super(bd.a(), 2001154);
     }
 }

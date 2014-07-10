@@ -1,9 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnCancelListener {
+class ay implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +12,25 @@ public class ay implements DialogInterface.OnCancelListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.model.ar arVar;
-        com.baidu.tieba.model.ar arVar2;
-        this.a.destroyWaitingDialog();
-        arVar = this.a.E;
-        if (arVar != null) {
-            arVar2 = this.a.E;
-            arVar2.cancelLoadData();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        int n;
+        EditText editText;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        editorToolComponetContainer = this.a.A;
+        if (editorToolComponetContainer.o()) {
+            editorToolComponetContainer2 = this.a.A;
+            editorToolComponetContainer2.p();
+        }
+        n = this.a.n();
+        if (n >= 0) {
+            editText = this.a.h;
+            if (n < editText.getText().length()) {
+                editText2 = this.a.h;
+                editText2.setSelection(n);
+            }
         }
     }
 }

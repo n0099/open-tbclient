@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import protobuf.QueryHotLiveGroups.DataReq;
 import protobuf.QueryHotLiveGroups.QueryHotLiveGroupsReqIdl;
 /* loaded from: classes.dex */
@@ -13,7 +12,7 @@ public class RequestHotLiveListLocalMessage extends CustomMessage<Object> {
     private int width;
 
     public RequestHotLiveListLocalMessage() {
-        super(MessageTypes.CMD_CACHE_LIVE_HOT_LIST_ALL);
+        super(2001205);
     }
 
     public int getType() {

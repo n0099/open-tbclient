@@ -11,13 +11,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 /* loaded from: classes.dex */
 public class SingleSquareActivity extends BaseFragmentActivity {
-    private ak c;
+    private af c;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new aj());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010010, new ae());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -26,9 +25,9 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!f()) {
+        if (!h()) {
             FragmentManager supportFragmentManager = getSupportFragmentManager();
-            this.c = new ak();
+            this.c = new af();
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
             beginTransaction.add(16908290, this.c);
             beginTransaction.commitAllowingStateLoss();
@@ -42,7 +41,7 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -65,11 +64,11 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     protected void b(int i) {
     }
 
-    private boolean f() {
+    private boolean h() {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.r.a((Activity) this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aj(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ao(this, intent)));
             finish();
             return true;
         }
@@ -79,13 +78,13 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            e();
+            g();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    public void e() {
+    public void g() {
         if (!getIntent().getBooleanExtra("back_special", false)) {
             finish();
             return;

@@ -85,7 +85,7 @@ public class AdditionData implements Serializable {
                 this.alreadyCount = jSONObject.optInt("already_count", 0);
                 this.warnMsg = jSONObject.optString("warn_msg");
             } catch (Exception e) {
-                BdLog.e("AdditionData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

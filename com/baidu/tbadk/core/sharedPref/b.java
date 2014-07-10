@@ -6,7 +6,6 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -48,7 +47,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    BdLog.e("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    e.printStackTrace();
                     return z;
                 }
             }
@@ -58,6 +57,19 @@ public class b {
         return this.d.getBoolean(str, z);
     }
 
+    public boolean b(String str, boolean z) {
+        String c = c(str);
+        if (c != null) {
+            try {
+                return Boolean.parseBoolean(c);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return z;
+            }
+        }
+        return z;
+    }
+
     public int a(String str, int i) {
         if (b(str)) {
             String c = c(str);
@@ -65,7 +77,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    BdLog.e("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    e.printStackTrace();
                     return i;
                 }
             }
@@ -82,7 +94,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    BdLog.e("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    e.printStackTrace();
                     return j;
                 }
             }
@@ -101,13 +113,17 @@ public class b {
         return this.d.getString(str, str2);
     }
 
-    public void b(String str, boolean z) {
+    public void c(String str, boolean z) {
         if (b(str)) {
-            c(str, z);
+            e(str, z);
             return;
         }
         this.d = d();
         EditorHelper.putBoolean(this.d, str, z);
+    }
+
+    public void d(String str, boolean z) {
+        e(str, z);
     }
 
     public void b(String str, String str2) {
@@ -184,7 +200,7 @@ public class b {
         a(parse, contentValues);
     }
 
-    private void c(String str, boolean z) {
+    private void e(String str, boolean z) {
         Uri parse = Uri.parse(String.valueOf(c()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));

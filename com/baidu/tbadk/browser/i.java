@@ -17,11 +17,11 @@ public class i implements View.OnClickListener {
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         BaseWebView baseWebView3;
-        baseWebView = this.a.f;
+        baseWebView = this.a.mWebView;
         if (baseWebView != null) {
-            baseWebView2 = this.a.f;
+            baseWebView2 = this.a.mWebView;
             if (baseWebView2.canGoBack()) {
-                baseWebView3 = this.a.f;
+                baseWebView3 = this.a.mWebView;
                 baseWebView3.goBack();
             }
         }

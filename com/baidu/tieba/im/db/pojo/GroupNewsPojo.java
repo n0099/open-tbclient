@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.p;
@@ -66,6 +65,12 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "live_notify";
             } else if (str.equals("311")) {
                 str2 = "live_user_mute";
+            } else if (str.equals("401")) {
+                str2 = "apply_new_friend";
+            } else if (str.equals("402")) {
+                str2 = "passed_new_friend";
+            } else if (str.equals("405")) {
+                str2 = "delete_new_friend";
             }
             setCmd(str2);
             setContent(chatMessage.getContent());
@@ -90,32 +95,21 @@ public class GroupNewsPojo implements Serializable {
     }
 
     private void a() {
-        BdLog.d("begin");
+        UpdatesItemData a;
         if (!TextUtils.isEmpty(getCmd())) {
-            if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
-                UpdatesItemData a = p.a(this);
-                if (a != null) {
-                    String currentAccount = TbadkApplication.getCurrentAccount();
-                    if (!TextUtils.isEmpty(currentAccount)) {
-                        String authorId = a.getAuthorId();
-                        if (!TextUtils.isEmpty(authorId)) {
-                            BdLog.d("curUid:" + currentAccount + " uid:" + authorId);
-                            if (currentAccount.equals(authorId)) {
-                                setContent_status(2);
-                            } else {
-                                setContent_status(1);
-                            }
+            if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && (a = p.a(this)) != null) {
+                String currentAccount = TbadkApplication.getCurrentAccount();
+                if (!TextUtils.isEmpty(currentAccount)) {
+                    String authorId = a.getAuthorId();
+                    if (!TextUtils.isEmpty(authorId)) {
+                        if (currentAccount.equals(authorId)) {
+                            setContent_status(2);
                         } else {
-                            return;
+                            setContent_status(1);
                         }
-                    } else {
-                        return;
                     }
-                } else {
-                    return;
                 }
             }
-            BdLog.d("end");
         }
     }
 
@@ -198,10 +192,6 @@ public class GroupNewsPojo implements Serializable {
 
     public void setExt(String str) {
         this.ext = str;
-    }
-
-    public String toString() {
-        return "GroupNewsPojo [notice_id=" + this.notice_id + ", cmd=" + this.cmd + ", gid=" + this.gid + ", time=" + this.time + ", content=" + this.content + ", content_status=" + this.content_status + ", ext=" + this.ext + "]";
     }
 
     public ChatMessage getOriginalPushMsg() {

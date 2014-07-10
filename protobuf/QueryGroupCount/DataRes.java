@@ -4,10 +4,13 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
+    public static final String DEFAULT_POSITION = "";
     @ProtoField(tag = 3)
     public final Banner banner;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer localGroupCount;
+    @ProtoField(tag = 4, type = Message.Datatype.STRING)
+    public final String position;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer userGroupCount;
     public static final Integer DEFAULT_USERGROUPCOUNT = 0;
@@ -31,17 +34,25 @@ public final class DataRes extends Message {
                 this.localGroupCount = builder.localGroupCount;
             }
             this.banner = builder.banner;
-            return;
+            if (builder.position == null) {
+                this.position = "";
+                return;
+            } else {
+                this.position = builder.position;
+                return;
+            }
         }
         this.userGroupCount = builder.userGroupCount;
         this.localGroupCount = builder.localGroupCount;
         this.banner = builder.banner;
+        this.position = builder.position;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataRes> {
         public Banner banner;
         public Integer localGroupCount;
+        public String position;
         public Integer userGroupCount;
 
         public Builder(DataRes dataRes) {
@@ -50,6 +61,7 @@ public final class DataRes extends Message {
                 this.userGroupCount = dataRes.userGroupCount;
                 this.localGroupCount = dataRes.localGroupCount;
                 this.banner = dataRes.banner;
+                this.position = dataRes.position;
             }
         }
 

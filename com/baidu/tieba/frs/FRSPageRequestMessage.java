@@ -1,8 +1,6 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
@@ -28,7 +26,7 @@ public class FRSPageRequestMessage extends NetMessage {
     private int withGroup;
 
     public FRSPageRequestMessage() {
-        super(CmdConfig.FRS_HTTP_CMD, MessageTypes.CMD_FRS_PAGE);
+        super(1001703, 301001);
     }
 
     public boolean isNeedCache() {

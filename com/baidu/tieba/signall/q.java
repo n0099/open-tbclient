@@ -1,52 +1,73 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class q {
-    private int a;
-    private String b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private com.baidu.tieba.home.s h = new com.baidu.tieba.home.s();
+public class q extends com.baidu.adp.base.e {
+    private static q f = new q();
+    public boolean a;
+    private o c;
+    private a e;
+    private s b = null;
+    private r d = null;
 
-    public int a() {
-        return this.a;
+    public static q a() {
+        return f;
     }
 
-    public int b() {
-        return this.c;
+    private q() {
+        this.c = null;
+        this.c = new o();
     }
 
-    public int c() {
-        return this.f;
+    public void a(r rVar) {
+        this.d = rVar;
     }
 
-    public int d() {
-        return this.g;
+    public void a(a aVar) {
+        this.e = aVar;
     }
 
-    public com.baidu.tieba.home.s e() {
-        return this.h;
+    public a b() {
+        return this.e;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.h.a(jSONObject.optJSONObject("error"));
-                this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-                this.c = jSONObject.optInt("signed");
-                this.d = jSONObject.optInt("is_on");
-                this.e = jSONObject.optInt("is_filter");
-                this.f = jSONObject.optInt("sign_day_count");
-                this.g = jSONObject.optInt("cur_score");
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+    private String c() {
+        ArrayList<b> m = this.e.m();
+        int size = m.size();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            b bVar = m.get(i);
+            if (bVar.j()) {
+                if (!bVar.k()) {
+                    bVar.c(true);
+                }
             }
+            if (i > 0) {
+                sb.append(",");
+            }
+            sb.append(bVar.a());
         }
+        return sb.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.e
+    public boolean LoadData() {
+        if (this.b != null) {
+            return false;
+        }
+        String c = c();
+        this.b = new s(this);
+        this.b.execute(c);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.b != null) {
+            this.b.cancel();
+            return true;
+        }
+        return false;
     }
 }

@@ -8,15 +8,14 @@ import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EmotionTabHost extends LinearLayout implements u {
+public class EmotionTabHost extends LinearLayout implements t {
     private LayoutInflater a;
     private EmotionTabContentView b;
     private EmotionTabWidgetView c;
-    private ArrayList<af> d;
+    private ArrayList<ae> d;
     private int e;
     private String f;
     private int g;
@@ -31,7 +30,7 @@ public class EmotionTabHost extends LinearLayout implements u {
         this.f = null;
         this.g = -1;
         this.i = true;
-        this.j = new s(this, MessageTypes.CMD_EMOTIONS_GROUP_CHANGED);
+        this.j = new r(this, 2001120);
         a(context);
     }
 
@@ -42,7 +41,7 @@ public class EmotionTabHost extends LinearLayout implements u {
         this.f = null;
         this.g = -1;
         this.i = true;
-        this.j = new s(this, MessageTypes.CMD_EMOTIONS_GROUP_CHANGED);
+        this.j = new r(this, 2001120);
         a(context);
     }
 
@@ -67,16 +66,16 @@ public class EmotionTabHost extends LinearLayout implements u {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.d = ac.a().c();
+        this.d = ab.a().c();
         this.c.setDatas(this.d);
         int size = this.d.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            af afVar = this.d.get(i2);
-            if (this.f != null && this.f.equals(afVar.e())) {
+            ae aeVar = this.d.get(i2);
+            if (this.f != null && this.f.equals(aeVar.e())) {
                 i = i2;
             }
-            a(afVar);
+            a(aeVar);
         }
         setCurrentEmotionGroup(i);
     }
@@ -103,16 +102,16 @@ public class EmotionTabHost extends LinearLayout implements u {
         }
     }
 
-    private void a(af afVar) {
-        this.c.a(afVar);
+    private void a(ae aeVar) {
+        this.c.a(aeVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
         if (i >= 0 && i < this.d.size() && i != this.e) {
-            af afVar = this.d.get(i);
-            this.b.a(afVar);
+            ae aeVar = this.d.get(i);
+            this.b.a(aeVar);
             if (this.h) {
-                if (afVar.c() == EmotionGroupType.LOCAL) {
+                if (aeVar.c() == EmotionGroupType.LOCAL) {
                     this.c.setShowDelete(true);
                 } else {
                     this.c.setShowDelete(false);
@@ -120,7 +119,7 @@ public class EmotionTabHost extends LinearLayout implements u {
             }
             this.c.setCurrentTab(i);
             this.e = i;
-            this.f = afVar.e();
+            this.f = aeVar.e();
         }
     }
 
@@ -145,7 +144,7 @@ public class EmotionTabHost extends LinearLayout implements u {
         }
     }
 
-    @Override // com.baidu.tbadk.editortool.u
+    @Override // com.baidu.tbadk.editortool.t
     public void a(int i) {
         setCurrentEmotionGroup(i);
     }
@@ -155,8 +154,8 @@ public class EmotionTabHost extends LinearLayout implements u {
         this.b.a(i);
     }
 
-    public void setOnDataSelected(x xVar) {
-        this.b.setOnDataSelected(xVar);
-        this.c.setOnDataSelected(xVar);
+    public void setOnDataSelected(w wVar) {
+        this.b.setOnDataSelected(wVar);
+        this.c.setOnDataSelected(wVar);
     }
 }

@@ -177,7 +177,7 @@ public class BaseGroupData extends com.baidu.tbadk.core.util.a implements Serial
         this.groupType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);

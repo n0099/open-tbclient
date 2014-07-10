@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.log;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class j {
@@ -13,25 +12,25 @@ public class j {
             a.put(1001, "上线");
             a.put(1002, "GROUP_UPDATE");
             a.put(1003, "PING");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_MESSAGE_SYNC), "MESSAGE_SYNC");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_GROUP_CHAT_MSG), "GROUP_CHAT_MSG");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_COMMIT_PERSONAL_MSG), "CMD_COMMIT_PERSONAL_MSG");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_PUSH_NOTIFY), "PUSH_NOTIFY");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUPS_BYFID), "吧的群组列表界面网络请求");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID), "群资料页界面网络请求");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_MEMBERS_BY_ID), "根据群的ID获取群的成员列表");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REMOVE_MEMBERS), "移除群的成员");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUPLEVEL_BY_ID), "根据群的id获取群的等级信息");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_JOIN_GROUP), "加群申请");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_ADD_GROUP_USER), "往群增加成员");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_QUERY_GROUP_BY_UID), "进群页面接口");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_SEARCH_GROUP), "搜群");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_DELETE_GROUP_MSG), "删系统群消息");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_GET_USER_PERMISSION), "建群权限获取");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_ADD_GROUP), "添加群组");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_REPORT_GROUP), "举报群组");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_UPDATE_GROUP), "更新群组");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_PUSH_COUNT), "反推计数上传");
+            a.put(202003, "MESSAGE_SYNC");
+            a.put(202001, "GROUP_CHAT_MSG");
+            a.put(205001, "CMD_COMMIT_PERSONAL_MSG");
+            a.put(202006, "PUSH_NOTIFY");
+            a.put(103002, "吧的群组列表界面网络请求");
+            a.put(103004, "群资料页界面网络请求");
+            a.put(103005, "根据群的ID获取群的成员列表");
+            a.put(103112, "移除群的成员");
+            a.put(103006, "根据群的id获取群的等级信息");
+            a.put(103110, "加群申请");
+            a.put(103111, "往群增加成员");
+            a.put(103003, "进群页面接口");
+            a.put(103007, "搜群");
+            a.put(202004, "删系统群消息");
+            a.put(103008, "建群权限获取");
+            a.put(103101, "添加群组");
+            a.put(103103, "举报群组");
+            a.put(103102, "更新群组");
+            a.put(202101, "反推计数上传");
         }
     }
 

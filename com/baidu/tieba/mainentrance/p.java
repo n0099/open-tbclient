@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.aw;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.ao;
+import com.baidu.tieba.data.as;
 import com.baidu.tieba.model.BarSuggestModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class p implements AdapterView.OnItemClickListener {
                 cVar2 = this.a.p;
                 if (cVar2.getItemId(i) != -2) {
                     cVar3 = this.a.p;
-                    ao aoVar = (ao) cVar3.getItem(i);
-                    if (aoVar != null) {
-                        if (aoVar.a()) {
-                            this.a.sendMessage(new CustomMessage(2006001, new ar(this.a).a(aoVar.c(), null, "search_post")));
+                    as asVar = (as) cVar3.getItem(i);
+                    if (asVar != null) {
+                        if (asVar.a()) {
+                            this.a.sendMessage(new CustomMessage(2004001, new aw(this.a).a(asVar.c(), null, "search_post")));
                             return;
                         } else {
-                            this.a.sendMessage(new CustomMessage(2006001, new ar(this.a).a(aoVar.c(), aoVar.b(), "search_post")));
+                            this.a.sendMessage(new CustomMessage(2004001, new aw(this.a).a(asVar.c(), asVar.b(), "search_post")));
                             return;
                         }
                     }
@@ -89,6 +89,6 @@ public class p implements AdapterView.OnItemClickListener {
         }
         String str3 = ((BarSuggestModel.Forum) ((ListView) adapterView).getAdapter().getItem(i)).forum_name;
         TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-        this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(str3, "tb_searchlist", 1)));
+        this.a.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(this.a).a(str3, "tb_searchlist", 1)));
     }
 }

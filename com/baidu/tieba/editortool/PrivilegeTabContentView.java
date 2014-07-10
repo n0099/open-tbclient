@@ -23,7 +23,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     private int d;
     private IndicatorView e;
     private final Point f;
-    private com.baidu.tbadk.editortool.x g;
+    private com.baidu.tbadk.editortool.w g;
     private int h;
     private LayoutInflater i;
 
@@ -55,16 +55,16 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         this.e = (IndicatorView) findViewById(com.baidu.tieba.v.privilege_tab_indicator);
     }
 
-    public void a(ag agVar) {
+    public void a(ai aiVar) {
         int i;
         int i2 = 0;
-        if (agVar != null) {
-            int a = agVar.a();
+        if (aiVar != null) {
+            int a = aiVar.a();
             if (this.a.getChildCount() <= 0 || this.h != a) {
                 this.a.setAdapter(null);
                 this.h = a;
-                int e = agVar.e();
-                int f = agVar.f();
+                int e = aiVar.e();
+                int f = aiVar.f();
                 if (a != 0 && e != 0 && f != 0) {
                     int i3 = a / (e * f);
                     int i4 = a % (e * f) == 0 ? i3 : i3 + 1;
@@ -79,9 +79,9 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
                     for (int i5 = 0; i5 < i4; i5++) {
                         GridView gridView = new GridView(getContext());
                         gridView.setNumColumns(e);
-                        gridView.setVerticalSpacing(agVar.g());
+                        gridView.setVerticalSpacing(aiVar.g());
                         gridView.setGravity(17);
-                        gridView.setHorizontalSpacing(agVar.h());
+                        gridView.setHorizontalSpacing(aiVar.h());
                         gridView.setSelector(com.baidu.tieba.s.transparent);
                         gridView.setSelection(-1);
                         if (i5 < i4 - 1) {
@@ -89,10 +89,10 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
                         } else {
                             i = a - ((e * f) * (i4 - 1));
                         }
-                        gridView.setAdapter((ListAdapter) new ae(this, getContext(), i, i5 * e * f, agVar.d()));
+                        gridView.setAdapter((ListAdapter) new ag(this, getContext(), i, i5 * e * f, aiVar.d()));
                         arrayList.add(gridView);
                     }
-                    this.a.setAdapter(new af(this, arrayList));
+                    this.a.setAdapter(new ah(this, arrayList));
                     return;
                 }
                 return;
@@ -178,7 +178,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         }
     }
 
-    public void setOnDataSelected(com.baidu.tbadk.editortool.x xVar) {
-        this.g = xVar;
+    public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
+        this.g = wVar;
     }
 }

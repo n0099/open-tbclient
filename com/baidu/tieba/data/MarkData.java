@@ -104,16 +104,6 @@ public class MarkData implements Serializable {
     }
 
     public void logPrint() {
-        BdLog.v("MarkData", "logPrint", "mId = " + this.mId);
-        BdLog.v("MarkData", "logPrint", "mAccount = " + this.mAccount);
-        BdLog.v("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
-        BdLog.v("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
-        BdLog.v("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
-        BdLog.v("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
-        BdLog.v("MarkData", "logPrint", "mTitle = " + this.mTitle);
-        BdLog.v("MarkData", "logPrint", "mPostId = " + this.mPostId);
-        BdLog.v("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
-        BdLog.v("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
     }
 
     public void setAccount(String str) {
@@ -170,7 +160,7 @@ public class MarkData implements Serializable {
             }
             return jSONObject;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "toJson", e.toString());
+            BdLog.detailException(e);
             return null;
         }
     }
@@ -192,7 +182,7 @@ public class MarkData implements Serializable {
                 this.mSequence = false;
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "fromJson", e.toString());
+            BdLog.detailException(e);
         }
     }
 }

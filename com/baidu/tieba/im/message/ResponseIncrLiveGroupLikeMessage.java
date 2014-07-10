@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.IncrLiveGroupLike.IncrLiveGroupLikeResIdl;
 import protobuf.LiveGroupInfo;
@@ -11,7 +10,7 @@ public class ResponseIncrLiveGroupLikeMessage extends SocketResponsedMessage {
     public int mType;
 
     public ResponseIncrLiveGroupLikeMessage() {
-        super(MessageTypes.CMD_INCR_LIVE_GROUP_LIKE);
+        super(107108);
         this.mLiveGroupInfo = null;
     }
 

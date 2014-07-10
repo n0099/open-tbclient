@@ -8,11 +8,20 @@ import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
-    public static final List<GroupInfo> DEFAULT_GROUPS = Collections.emptyList();
+    @ProtoField(label = Message.Label.REPEATED, tag = 3)
+    public final List<GroupInfo> commonGroups;
+    @ProtoField(tag = 5, type = Message.Datatype.INT32)
+    public final Integer commongroupnum;
     @ProtoField(tag = 2)
     public final GroupPermission groupPerm;
+    @ProtoField(tag = 4, type = Message.Datatype.INT32)
+    public final Integer groupnum;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<GroupInfo> groups;
+    public static final List<GroupInfo> DEFAULT_GROUPS = Collections.emptyList();
+    public static final List<GroupInfo> DEFAULT_COMMONGROUPS = Collections.emptyList();
+    public static final Integer DEFAULT_GROUPNUM = 0;
+    public static final Integer DEFAULT_COMMONGROUPNUM = 0;
 
     /* synthetic */ DataRes(Builder builder, boolean z, DataRes dataRes) {
         this(builder, z);
@@ -27,15 +36,37 @@ public final class DataRes extends Message {
                 this.groups = immutableCopyOf(builder.groups);
             }
             this.groupPerm = builder.groupPerm;
-            return;
+            if (builder.commonGroups == null) {
+                this.commonGroups = DEFAULT_COMMONGROUPS;
+            } else {
+                this.commonGroups = immutableCopyOf(builder.commonGroups);
+            }
+            if (builder.groupnum == null) {
+                this.groupnum = DEFAULT_GROUPNUM;
+            } else {
+                this.groupnum = builder.groupnum;
+            }
+            if (builder.commongroupnum == null) {
+                this.commongroupnum = DEFAULT_COMMONGROUPNUM;
+                return;
+            } else {
+                this.commongroupnum = builder.commongroupnum;
+                return;
+            }
         }
         this.groups = immutableCopyOf(builder.groups);
         this.groupPerm = builder.groupPerm;
+        this.commonGroups = immutableCopyOf(builder.commonGroups);
+        this.groupnum = builder.groupnum;
+        this.commongroupnum = builder.commongroupnum;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataRes> {
+        public List<GroupInfo> commonGroups;
+        public Integer commongroupnum;
         public GroupPermission groupPerm;
+        public Integer groupnum;
         public List<GroupInfo> groups;
 
         public Builder(DataRes dataRes) {
@@ -43,6 +74,9 @@ public final class DataRes extends Message {
             if (dataRes != null) {
                 this.groups = DataRes.copyOf(dataRes.groups);
                 this.groupPerm = dataRes.groupPerm;
+                this.commonGroups = DataRes.copyOf(dataRes.commonGroups);
+                this.groupnum = dataRes.groupnum;
+                this.commongroupnum = dataRes.commongroupnum;
             }
         }
 

@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.adp.d;
 import com.baidu.adp.e;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
     FrameLayout a;
@@ -89,27 +88,25 @@ public class BdSwitchView extends FrameLayout {
         LayoutInflater.from(context).inflate(e.bd_switch_view, (ViewGroup) this, true);
         this.a = (FrameLayout) findViewById(d.layout);
         this.b = (ImageView) findViewById(d.switch_image);
-        d();
-        e();
+        f();
+        g();
         this.j = new a(this);
         setOnClickListener(new b(this));
-        f();
+        h();
     }
 
-    private void d() {
+    private void f() {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         layoutParams.width = this.a.getForeground().getIntrinsicWidth();
         this.a.setLayoutParams(layoutParams);
     }
 
-    private void e() {
+    private void g() {
         if (this.b != null && this.b.getBackground() != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = this.b.getBackground().getIntrinsicWidth();
             this.b.setLayoutParams(layoutParams);
-            return;
         }
-        BdLog.e("mSwitchImage is null or mSwitchImage.getBackground() is null");
     }
 
     @Override // android.view.View
@@ -120,7 +117,7 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    private void f() {
+    private void h() {
         float translateDis = getTranslateDis();
         if (!this.g) {
             this.h = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
@@ -141,8 +138,7 @@ public class BdSwitchView extends FrameLayout {
         return this.a.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(boolean z) {
+    private void a(boolean z, boolean z2) {
         if (!this.f) {
             if (this.d == SwitchState.ON) {
                 this.d = SwitchState.OFF;
@@ -167,20 +163,25 @@ public class BdSwitchView extends FrameLayout {
                     }
                 }
             }
-            if (this.c != null) {
+            if (this.c != null && z2) {
                 this.c.a(this, this.d);
             }
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(boolean z) {
+        a(z, true);
+    }
+
     public void setSwitchFrame(int i) {
         this.a.setForeground(getResources().getDrawable(i));
-        d();
+        f();
     }
 
     public void setSwitchImage(int i) {
         this.b.setBackgroundResource(i);
-        e();
+        g();
     }
 
     public void setSwitchStyle(SwitchStyle switchStyle) {
@@ -197,6 +198,18 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void a() {
+        if (this.d != SwitchState.ON) {
+            a(false, false);
+        }
+    }
+
+    public void b() {
+        if (this.d != SwitchState.OFF) {
+            a(false, false);
+        }
+    }
+
+    public void c() {
         a(false);
     }
 
@@ -206,7 +219,7 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    public void b() {
+    public void d() {
         b(false);
     }
 
@@ -216,7 +229,7 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    public boolean c() {
+    public boolean e() {
         return this.d == SwitchState.ON;
     }
 
@@ -232,7 +245,7 @@ public class BdSwitchView extends FrameLayout {
             z2 = !this.g;
             this.g = true;
             if (a((int) (-translateDis))) {
-                f();
+                h();
             } else {
                 z2 = false;
             }
@@ -241,7 +254,7 @@ public class BdSwitchView extends FrameLayout {
             boolean z3 = this.g;
             this.g = false;
             if (a(0)) {
-                f();
+                h();
                 z2 = z3;
             } else {
                 z2 = false;

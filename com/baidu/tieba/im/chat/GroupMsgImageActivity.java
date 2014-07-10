@@ -9,11 +9,12 @@ public class GroupMsgImageActivity extends AbsMsgImageActivity {
         w.b().a(str, buVar);
     }
 
-    public static void a(Context context, String str, long j, boolean z) {
+    public static void a(Context context, String str, long j, boolean z, String str2) {
         if (j != 0 && context != null) {
             Intent intent = new Intent(context, GroupMsgImageActivity.class);
             intent.putExtra("current_url", str);
             intent.putExtra("id", String.valueOf(j));
+            intent.putExtra("uniqueid", str2);
             intent.putExtra("isSingle", z);
             context.startActivity(intent);
         }

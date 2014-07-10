@@ -73,13 +73,13 @@ public class j extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        com.baidu.adp.lib.util.k.b();
+        com.baidu.adp.lib.util.j.a();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.e())) {
                 m.a("queue", socketMessage, 0, "sendMessage", l.u, "duplicate message be removed");
                 return;
             }
-            g gVar = new g(socketMessage, socketMessageTask.a(), socketMessageTask.getPriority(), socketMessageTask.b(), this, socketMessageTask.getTimeOut(), socketMessageTask.d(), socketMessageTask.getRetry());
+            g gVar = new g(socketMessage, socketMessageTask.a(), socketMessageTask.getPriority(), socketMessageTask.b(), this, socketMessageTask.getTimeOut(), socketMessageTask.d(), socketMessageTask.getRetry(), socketMessageTask.f());
             if (!BdSocketLinkService.isAvailable()) {
                 m.a("queue", socketMessage, 0, "sendMessage", l.t, "isManualBlock message be removed");
                 gVar.a(l.t);
@@ -261,7 +261,7 @@ public class j extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.h != null) {
             this.h.a();
         }
-        if (!com.baidu.adp.lib.util.k.d() || c.e(this.e) || c.e(this.d) || c.e(this.c) || !BdSocketLinkService.isAvailable()) {
+        if (!com.baidu.adp.lib.util.j.c() || c.e(this.e) || c.e(this.d) || c.e(this.c) || !BdSocketLinkService.isAvailable()) {
             a();
             return false;
         }

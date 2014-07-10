@@ -1,57 +1,42 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
+import android.os.Handler;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends com.baidu.adp.base.b {
-    private String d;
-    private int f;
-    private int g;
-    private float h;
-    private bw b = null;
-    private FaceShopData a = null;
-    private boolean e = false;
-    private int c = 0;
+public class bv implements AbsListView.OnScrollListener {
+    final /* synthetic */ bt a;
 
-    public bv() {
-        this.f = 0;
-        this.g = 0;
-        Context e = com.baidu.tieba.ai.c().e();
-        this.f = com.baidu.adp.lib.util.k.b(e);
-        this.g = com.baidu.adp.lib.util.k.c(e);
-        this.h = e.getResources().getDisplayMetrics().density;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bv(bt btVar) {
+        this.a = btVar;
     }
 
-    public FaceShopData a() {
-        return this.a;
-    }
-
-    public boolean b() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        this.d = str;
-    }
-
-    public void a(int i) {
-        if (this.b == null) {
-            this.b = new bw(this, null);
-            this.b.setPriority(3);
-            this.b.execute(Integer.valueOf(i));
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        Runnable runnable;
+        Handler handler4;
+        Runnable runnable2;
+        handler = this.a.l;
+        if (handler != null) {
+            handler4 = this.a.l;
+            runnable2 = this.a.o;
+            handler4.removeCallbacks(runnable2);
+        }
+        if (i == 0) {
+            handler2 = this.a.l;
+            if (handler2 != null) {
+                handler3 = this.a.l;
+                runnable = this.a.o;
+                handler3.postDelayed(runnable, 90L);
+            }
         }
     }
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
-            return true;
-        }
-        return true;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

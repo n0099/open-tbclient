@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.u;
@@ -13,7 +13,7 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.a<UpdatesItemData> {
+public class k extends com.baidu.adp.base.d<UpdatesItemData> {
     private LiveNotifyActivity b;
     private UpdatesItemData c;
     private View d;
@@ -66,7 +66,7 @@ public class k extends com.baidu.adp.base.a<UpdatesItemData> {
             this.f.setClickable(false);
             Date date = new Date();
             date.setTime(this.c.getTime());
-            this.i.setText(bg.e(date));
+            this.i.setText(bm.e(date));
             if (!TextUtils.isEmpty(this.c.getContent())) {
                 this.j.setText(this.c.getContent());
             } else {

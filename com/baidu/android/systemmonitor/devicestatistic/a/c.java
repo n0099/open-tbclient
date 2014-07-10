@@ -4,30 +4,22 @@ import android.database.Cursor;
 /* loaded from: classes.dex */
 public class c extends f {
     public long a;
-    public int b;
-    public long c;
 
     public c(long j) {
         super(j);
         this.a = 0L;
-        this.b = 0;
-        this.c = 0L;
-        this.o = 3;
+        this.o = 1;
     }
 
     public c(Cursor cursor) {
         super(cursor);
         this.a = 0L;
-        this.b = 0;
-        this.c = 0L;
-        this.o = 3;
+        this.o = 1;
         this.a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
-        this.b = cursor.getInt(cursor.getColumnIndex("netype"));
-        this.c = cursor.getLong(cursor.getColumnIndex("flow"));
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
     public String toString() {
-        return "NetworkEvent : startStamp" + this.n + " stopStamp =" + this.a + " netType = " + this.b + " netFlow=" + this.c;
+        return "PowerEvent : startStamp" + this.n + " stopStamp =" + this.a;
     }
 }

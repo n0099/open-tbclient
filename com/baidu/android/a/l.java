@@ -1,12 +1,17 @@
 package com.baidu.android.a;
 
 import android.content.Context;
+import android.text.TextUtils;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public final class l {
-    private static l b = null;
-    private ArrayList a = new ArrayList();
+    public static final String a = c();
+    private static l e = null;
+    public static final String b = a + "/xcloudboss?r=config/distribute";
+    private HashMap d = new HashMap();
+    public String c = a + "/xcloudboss?r=log/upload";
 
     private l(Context context) {
         b(context);
@@ -15,38 +20,42 @@ public final class l {
     public static synchronized l a(Context context) {
         l lVar;
         synchronized (l.class) {
-            if (b == null) {
-                b = new l(context);
+            if (e == null) {
+                e = new l(context);
             }
-            lVar = b;
+            lVar = e;
         }
         return lVar;
     }
 
     public static void b() {
-        if (b != null) {
-            b.c();
-            b = null;
+        if (e != null) {
+            e.d();
+            e = null;
         }
     }
 
     private void b(Context context) {
-        ArrayList a = h.a(context.getApplicationContext()).a(4);
-        if (a == null || a.size() == 0) {
+        ArrayList a2 = o.a(context.getApplicationContext()).a(0);
+        if (a2 == null || a2.size() == 0) {
             return;
         }
-        Iterator it = a.iterator();
+        Iterator it = a2.iterator();
         while (it.hasNext()) {
-            this.a.add(((e) it.next()).b());
+            k kVar = (k) it.next();
+            this.d.put(kVar.a(), kVar.b());
         }
     }
 
-    private void c() {
-        this.a.clear();
-        this.a = null;
+    private static String c() {
+        return com.baidu.android.systemmonitor.c.a.m() != null ? com.baidu.android.systemmonitor.c.a.m() : "http://m.baidu.com";
     }
 
-    public ArrayList a() {
-        return this.a;
+    private void d() {
+        this.d = null;
+    }
+
+    public String a() {
+        return (this.d == null || TextUtils.isEmpty((CharSequence) this.d.get("upload"))) ? this.c : (String) this.d.get("upload");
     }
 }

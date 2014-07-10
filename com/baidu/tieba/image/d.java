@@ -3,11 +3,11 @@ package com.baidu.tieba.image;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.w;
+import com.baidu.tbadk.core.atomData.ab;
 /* loaded from: classes.dex */
-class d implements CustomMessageTask.CustomRunnable<w> {
+class d implements CustomMessageTask.CustomRunnable<ab> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<w> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<ab> customMessage) {
         if (customMessage != null && customMessage.getData() != null && "data_valid".equals(customMessage.getData().getIntent().getStringExtra("is_data_valid"))) {
             customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImageViewerActivity.class);
             if ("start_activity_normal".equals(customMessage.getData().getIntent().getStringExtra("start_activity_type"))) {

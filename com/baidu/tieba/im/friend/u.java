@@ -1,26 +1,34 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tbadk.core.util.bt;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.util.bz;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ s a;
+class u implements bz {
+    final /* synthetic */ t a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(s sVar) {
-        this.a = sVar;
+    public u(t tVar, String str, com.baidu.adp.widget.a.a aVar) {
+        this.a = tVar;
+        this.b = str;
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.a.f;
-        if (viewGroup != null && str != null) {
-            viewGroup2 = this.a.f;
-            br.a(viewGroup2, false, (bt) new v(this, str, aVar));
+    @Override // com.baidu.tbadk.core.util.bz
+    public boolean a(View view) {
+        if (view instanceof HeadImageView) {
+            HeadImageView headImageView = (HeadImageView) view;
+            if (!(headImageView.getTag() instanceof com.baidu.tbadk.coreExtra.relationship.b) ? this.b.equals(headImageView.getTag()) : this.b.equals(((com.baidu.tbadk.coreExtra.relationship.b) headImageView.getTag()).d())) {
+                if (this.c != null) {
+                    headImageView.setImageBitmap(this.c.h());
+                } else {
+                    headImageView.setImageBitmap(com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.photo));
+                }
+                headImageView.invalidate();
+            }
         }
+        return false;
     }
 }

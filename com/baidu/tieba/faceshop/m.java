@@ -1,9 +1,11 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.tbadk.imageManager.d {
+public class m implements View.OnClickListener {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,18 +13,28 @@ public class m implements com.baidu.tbadk.imageManager.d {
         this.a = emotionImageActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        boolean z2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        String str;
         String str2;
-        TbImageView tbImageView;
-        z2 = this.a.q;
-        if (!z2 && aVar != null) {
-            str2 = this.a.h;
-            if (str2.equals(str)) {
-                tbImageView = this.a.c;
-                aVar.a(tbImageView);
-            }
+        i = this.a.r;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_forum_detail";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_detail";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_detail";
+                break;
+            default:
+                str = "emotion_image";
+                break;
         }
+        EmotionImageActivity emotionImageActivity = this.a;
+        str2 = this.a.f;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.n(emotionImageActivity, str2, false, str)));
     }
 }

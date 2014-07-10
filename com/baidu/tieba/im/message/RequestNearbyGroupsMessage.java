@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByLocation.DataReq;
 import protobuf.QueryGroupsByLocation.QueryGroupsByLocationReqIdl;
@@ -15,7 +14,7 @@ public class RequestNearbyGroupsMessage extends TbSocketMessage {
     private int width;
 
     public RequestNearbyGroupsMessage() {
-        super(MessageTypes.CMD_NEARBY_GROUP);
+        super(103009);
     }
 
     public int getWidth() {

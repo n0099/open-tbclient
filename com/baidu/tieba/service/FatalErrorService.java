@@ -10,7 +10,7 @@ public class FatalErrorService extends Service {
     private f mTask = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008003, new e());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new e());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

@@ -64,7 +64,6 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
 
     private List<ImageFileInfo> a(String str, Context context, Uri uri) {
         Cursor cursor;
-        String str2;
         ArrayList arrayList = new ArrayList();
         try {
             cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
@@ -72,8 +71,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                 try {
                 } catch (Exception e) {
                     e = e;
-                    str2 = this.a.a;
-                    BdLog.e(str2, "getAlbumData", "error = " + e.getMessage());
+                    BdLog.detailException(e);
                     com.baidu.adp.lib.f.a.a(cursor);
                     return arrayList;
                 }

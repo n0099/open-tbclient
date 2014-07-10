@@ -1,47 +1,94 @@
 package com.baidu.tieba.service;
 
+import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.ai;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p extends Handler {
-    long a = TbadkApplication.m252getInst().getMsgFrequency();
-    long b = 0;
-    final /* synthetic */ TiebaMessageService c;
+public class p extends BdAsyncTask<String, Integer, String> {
+    aq a;
+    final /* synthetic */ TiebaActiveService b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(TiebaMessageService tiebaMessageService) {
-        this.c = tiebaMessageService;
+    private p(TiebaActiveService tiebaActiveService) {
+        this.b = tiebaActiveService;
+        this.a = null;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(TiebaActiveService tiebaActiveService, p pVar) {
+        this(tiebaActiveService);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        String i;
+        try {
+            this.a = new aq("http://114.113.149.3:8086/partnersService");
+            this.a.a("apk", ai.c().d().getPackageName());
+            this.a.a("imei", TbadkApplication.m252getInst().getImei());
+            this.a.a("model", Build.MODEL);
+            this.a.a("edition", TbConfig.getVersion());
+            this.a.a("system", Build.VERSION.SDK);
+            this.a.a().a().a().f = false;
+            i = this.a.i();
+        } catch (Exception e) {
+            com.baidu.tbadk.core.sharedPref.b.a().b("active", 1);
+            BdLog.e(e.getMessage());
+        }
+        if (this.a.c()) {
+            return i;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.b.mActiveTask = null;
+        if (this.a != null) {
+            this.a.g();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
         int i;
         int i2;
         Handler handler;
-        if (message.what == 1) {
-            if (this.a > 0) {
-                this.b = 1800 / this.a;
-                i = this.c.mFlag;
-                if (i % this.b == 0) {
-                    this.c.getMsg(2);
-                } else {
-                    this.c.getMsg(1);
-                }
-                TiebaMessageService tiebaMessageService = this.c;
-                i2 = tiebaMessageService.mFlag;
-                tiebaMessageService.mFlag = i2 + 1;
-                handler = this.c.mHandler;
-                handler.sendEmptyMessageDelayed(1, this.a * 1000);
-                return;
-            }
-            this.c.stopSelf();
-        } else if (message.what == 3) {
-            if (this.a <= 0) {
-                this.c.stopSelf();
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        super.onPostExecute(str);
+        this.b.mActiveTask = null;
+        if (str == null) {
+            TiebaActiveService tiebaActiveService = this.b;
+            i = tiebaActiveService.mHaveRetry;
+            tiebaActiveService.mHaveRetry = i + 1;
+            i2 = this.b.mHaveRetry;
+            if (i2 < 10) {
+                handler = this.b.mHandler;
+                runnable = this.b.mRunnable;
+                handler.removeCallbacks(runnable);
+                handler2 = this.b.mHandler;
+                runnable2 = this.b.mRunnable;
+                handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
             } else {
-                this.c.getMsg(3);
+                com.baidu.tbadk.core.sharedPref.b.a().b("active", 1);
+                this.b.stopSelf();
             }
         }
+        com.baidu.tbadk.core.sharedPref.b.a().b("active", 2);
+        this.b.stopSelf();
     }
 }

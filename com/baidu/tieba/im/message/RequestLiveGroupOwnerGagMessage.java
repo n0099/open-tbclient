@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.LivegroupOwnerGag.DataReq;
 import protobuf.LivegroupOwnerGag.LivegroupOwnerGagReqIdl;
@@ -12,7 +11,7 @@ public class RequestLiveGroupOwnerGagMessage extends TbSocketMessage {
     private String userNames;
 
     public RequestLiveGroupOwnerGagMessage() {
-        super(MessageTypes.CMD_LIVE_GROUP_OWNER_GAG);
+        super(107109);
     }
 
     public int getGroupId() {

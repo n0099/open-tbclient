@@ -18,13 +18,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.InvokeOnAccountChangedMessageConfig;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.NetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bx;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.data.BannerData;
@@ -32,7 +31,7 @@ import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.more.AppsActivity;
-import com.baidu.tieba.pb.main.bn;
+import com.baidu.tieba.pb.main.bq;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.SDCardChangeReceiver;
 import com.baidu.tieba.service.SignAlertReceiver;
@@ -91,13 +90,13 @@ public class ai {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2007005, new am());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2005005, new am());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2007006, new an());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2005006, new an());
         customMessageTask2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2007007, new ap());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2005007, new ap());
         customMessageTask3.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
     }
@@ -110,7 +109,7 @@ public class ai {
         return this.B;
     }
 
-    private void U() {
+    private void R() {
         com.baidu.tbadk.tbplugin.m.a(TbadkApplication.m252getInst());
         new com.baidu.tbadk.plugins.a().a(e(), TbadkApplication.m252getInst().isMainProcess(false), TbadkApplication.m252getInst().getIsFirstUse(), new aq(this));
     }
@@ -119,14 +118,14 @@ public class ai {
         return f;
     }
 
-    private static void V() {
+    private static void S() {
         DatabaseManager.a(new as());
     }
 
     public void a(Application application) {
         if (application != null) {
             n.a();
-            V();
+            S();
             new av(null).execute(new String[0]);
             NetWorkCore.j();
             MessageManager messageManager = MessageManager.getInstance();
@@ -137,19 +136,20 @@ public class ai {
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 com.baidu.tbadk.core.sharedPref.b.a().b();
             }
-            X();
-            br.a(TbadkApplication.m252getInst());
+            U();
+            bx.a(TbadkApplication.m252getInst());
             TbConfig.initBigImageWidth(TbadkApplication.m252getInst());
             TbConfig.initFriendPhotoConfig(TbadkApplication.m252getInst());
             try {
                 Thread.setDefaultUncaughtExceptionHandler(new com.baidu.tieba.util.q());
             } catch (SecurityException e) {
-                BdLog.e(getClass().getName(), "onCreate", e.getMessage());
+                BdLog.e(e.getMessage());
             }
-            U();
+            R();
             this.b.postDelayed(new at(this, application), 2000L);
-            if (TbadkApplication.m252getInst().isMainProcess(true)) {
-                TiebaStatic.init(TbadkApplication.m252getInst());
+            boolean isMainProcess = TbadkApplication.m252getInst().isMainProcess(true);
+            TiebaStatic.init(TbadkApplication.m252getInst(), isMainProcess);
+            if (isMainProcess) {
                 if (TbadkApplication.m252getInst().getIsFirstUse()) {
                     com.baidu.adp.lib.a.f.a().b();
                     if (!TbadkApplication.m252getInst().getCapabilityOfWebp()) {
@@ -158,13 +158,11 @@ public class ai {
                         TiebaStatic.eventStat(d(), "LocalWebpSupport", "");
                     }
                 }
-                com.baidu.tbadk.imageManager.e.a().a(50, TbConfig.getBigImageMaxUsedMemory());
                 this.g = new HashMap<>();
                 com.baidu.tieba.util.k.n();
                 TbadkApplication.m252getInst().initFrsImageForums();
                 this.j = new com.baidu.tieba.util.p(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
                 this.k = new com.baidu.tieba.util.p(100);
-                com.baidu.tbadk.coreExtra.messageCenter.a.a().b();
                 v();
                 j();
                 k();
@@ -177,10 +175,10 @@ public class ai {
             } else {
                 TbadkApplication.m252getInst().mRemoteActivity = new ArrayList<>();
             }
-            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfig.DEAL_INTENT, new au(this));
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012000, new au(this));
             aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(aVar);
-            W();
+            T();
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 TbadkApplication.m252getInst().sendMessageForEnterBackground();
                 g();
@@ -188,12 +186,15 @@ public class ai {
             Hao123Plugin hao123Plugin = (Hao123Plugin) com.baidu.tbadk.tbplugin.m.a().b(Hao123Plugin.class);
             if (hao123Plugin != null) {
                 hao123Plugin.init();
+                if (TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
+                    hao123Plugin.openFloating(application);
+                }
             }
         }
     }
 
-    private void W() {
-        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfig.DEAL_YY_NOTIFICATION, new ak(this));
+    private void T() {
+        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012100, new ak(this));
         aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
     }
@@ -301,22 +302,22 @@ public class ai {
         }
     }
 
-    private void X() {
-        this.q = com.baidu.tbadk.f.a().a("image_quality", 0);
-        TbadkApplication.m252getInst().mViewImageQuality = com.baidu.tbadk.f.a().a("view_image_quality", 0);
-        this.r = com.baidu.tbadk.f.a().a("show_images", true);
-        this.h = com.baidu.tbadk.f.a().a("new_display_photo", 1);
-        TbadkApplication.m252getInst().setSkinTypeValue(com.baidu.tbadk.f.a().a("skin", 0));
-        this.l = com.baidu.tbadk.f.a().a("message_id", 0L);
-        this.u = com.baidu.tbadk.f.a().a("app_switcher", false);
-        this.y = com.baidu.tbadk.f.a().a("manage_mode", false);
-        this.s = com.baidu.tbadk.f.a().a("location_on", true);
-        this.t = com.baidu.tbadk.f.a().a("has_showed_del_ga_tip", false);
-        this.x = com.baidu.tbadk.f.a().a("new_vcode_webview_crash_count", 0);
-        this.z = com.baidu.tbadk.f.a().a("search_mode", true);
-        this.A = com.baidu.tbadk.f.a().a("search_mode_int", 0);
-        this.w = com.baidu.tbadk.f.a().a("perform_sample_count", 0);
-        boolean a = com.baidu.tbadk.f.a().a("bd_loc_switcher", true);
+    private void U() {
+        this.q = com.baidu.tbadk.i.a().a("image_quality", 0);
+        TbadkApplication.m252getInst().mViewImageQuality = com.baidu.tbadk.i.a().a("view_image_quality", 0);
+        this.r = com.baidu.tbadk.i.a().a("show_images", true);
+        this.h = com.baidu.tbadk.i.a().a("new_display_photo", 1);
+        TbadkApplication.m252getInst().setSkinTypeValue(com.baidu.tbadk.i.a().a("skin", 0));
+        this.l = com.baidu.tbadk.i.a().a("message_id", 0L);
+        this.u = com.baidu.tbadk.i.a().a("app_switcher", false);
+        this.y = com.baidu.tbadk.i.a().a("manage_mode", false);
+        this.s = com.baidu.tbadk.i.a().a("location_on", true);
+        this.t = com.baidu.tbadk.i.a().a("has_showed_del_ga_tip", false);
+        this.x = com.baidu.tbadk.i.a().a("new_vcode_webview_crash_count", 0);
+        this.z = com.baidu.tbadk.i.a().a("search_mode", true);
+        this.A = com.baidu.tbadk.i.a().a("search_mode_int", 0);
+        this.w = com.baidu.tbadk.i.a().a("perform_sample_count", 0);
+        boolean a = com.baidu.tbadk.i.a().a("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             a = false;
         }
@@ -327,17 +328,17 @@ public class ai {
         } else {
             com.baidu.tbadk.core.log.a.a(false);
         }
-        this.H = com.baidu.tbadk.f.a().a("has_show_mutiimage_tip", false);
+        this.H = com.baidu.tbadk.i.a().a("has_show_mutiimage_tip", false);
     }
 
     public void b(boolean z) {
         com.baidu.adp.lib.c.a.a().a(z);
-        com.baidu.tbadk.f.a().b("bd_loc_switcher", z);
+        com.baidu.tbadk.i.a().c("bd_loc_switcher", z);
     }
 
     public void c(boolean z) {
         this.z = z;
-        com.baidu.tbadk.f.a().b("search_mode", z);
+        com.baidu.tbadk.i.a().c("search_mode", z);
     }
 
     public boolean l() {
@@ -349,7 +350,7 @@ public class ai {
     }
 
     public void d(boolean z) {
-        com.baidu.tbadk.f.a().b("app_switcher", z);
+        com.baidu.tbadk.i.a().c("app_switcher", z);
         this.u = z;
     }
 
@@ -372,7 +373,7 @@ public class ai {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void a(AccountData accountData, Application application) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().d();
+        com.baidu.tbadk.coreExtra.messageCenter.a.a().c();
         if (accountData != null) {
             TiebaStatic.setUserInfo(accountData.getAccount(), accountData.getID(), TbadkApplication.getCurrentBduss());
         }
@@ -380,20 +381,25 @@ public class ai {
         if (accountData != null) {
             str = accountData.getAccount();
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2007002, new InvokeOnAccountChangedMessageConfig(application, str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005002, new InvokeOnAccountChangedMessageConfig(application, str)));
         o();
-        if (accountData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START_ONCE));
+        if (TbadkApplication.isLogin()) {
+            com.baidu.tieba.runing.a.a().b();
+        } else {
+            com.baidu.tieba.runing.a.a().d();
         }
-        bn.a().f();
+        bq.a().f();
+        if (accountData != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bh(application)));
+        }
     }
 
     public static void o() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2007001));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005001));
     }
 
     public static void p() {
-        com.baidu.tbadk.f.a().b("tdatabasecreatetime", new Date().getTime());
+        com.baidu.tbadk.i.a().b("tdatabasecreatetime", new Date().getTime());
     }
 
     public void e(boolean z) {
@@ -455,9 +461,7 @@ public class ai {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 int)] */
     public void b(int i) {
-        BdLog.i(getClass().getName(), "setMsgFrequence", new StringBuilder().append(i).toString());
         if (i == 0) {
             TbadkApplication.m252getInst().mMsgFrequency = i;
             com.baidu.tbadk.coreExtra.messageCenter.a.a().a(true);
@@ -469,72 +473,65 @@ public class ai {
     }
 
     public void i(boolean z) {
-        TbadkApplication.m252getInst().mMsgFansOn = z;
-        if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().d(0);
-        }
-    }
-
-    public void j(boolean z) {
         TbadkApplication.m252getInst().mMsgAtmeOn = z;
         if (!z) {
             com.baidu.tbadk.coreExtra.messageCenter.a.a().c(0);
         }
     }
 
-    public void k(boolean z) {
+    public void j(boolean z) {
         TbadkApplication.m252getInst().mMsgZanOn = z;
     }
 
-    public void l(boolean z) {
+    public void k(boolean z) {
         TbadkApplication.m252getInst().mMsgReplymeOn = z;
         if (!z) {
             com.baidu.tbadk.coreExtra.messageCenter.a.a().b(0);
         }
     }
 
-    public void m(boolean z) {
+    public void l(boolean z) {
         TbadkApplication.m252getInst().mMsgChatOn = z;
         if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.a().d(0);
         }
     }
 
     public boolean s() {
-        return com.baidu.tbadk.f.a().a("alert_sign_on", false);
+        return com.baidu.tbadk.i.a().a("alert_sign_on", false);
     }
 
-    public void n(boolean z) {
-        com.baidu.tbadk.f.a().b("alert_sign_on", z);
+    public void m(boolean z) {
+        com.baidu.tbadk.i.a().c("alert_sign_on", z);
         v();
     }
 
     public int t() {
-        int a = com.baidu.tbadk.f.a().a("alert_sign_hours", -1);
+        int a = com.baidu.tbadk.i.a().a("alert_sign_hours", -1);
         if (a == -1) {
-            Y();
-            return com.baidu.tbadk.f.a().a("alert_sign_hours", 12);
+            V();
+            return com.baidu.tbadk.i.a().a("alert_sign_hours", 12);
         }
         return a;
     }
 
-    private void Y() {
+    private void V() {
         Calendar calendar = Calendar.getInstance();
         a(calendar.get(11), calendar.get(12));
     }
 
     public int u() {
-        int a = com.baidu.tbadk.f.a().a("alert_sign_mins", -1);
+        int a = com.baidu.tbadk.i.a().a("alert_sign_mins", -1);
         if (a == -1) {
-            Y();
-            return com.baidu.tbadk.f.a().a("alert_sign_mins", 30);
+            V();
+            return com.baidu.tbadk.i.a().a("alert_sign_mins", 30);
         }
         return a;
     }
 
     public void a(int i, int i2) {
-        com.baidu.tbadk.f.a().b("alert_sign_hours", i);
-        com.baidu.tbadk.f.a().b("alert_sign_mins", i2);
+        com.baidu.tbadk.i.a().b("alert_sign_hours", i);
+        com.baidu.tbadk.i.a().b("alert_sign_mins", i2);
         v();
     }
 
@@ -555,23 +552,18 @@ public class ai {
                 calendar.set(6, calendar.get(6) + 1);
             }
             alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkApplication.m252getInst(), 0, w, 268435456));
-            if (BdLog.isDebugMode()) {
-                BdLog.d("sign-alert alarm set to :" + bg.a(calendar.getTime()));
-                return;
-            }
+            BdLog.isDebugMode();
             return;
         }
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkApplication.m252getInst(), 0, w, 536870912);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
-            if (BdLog.isDebugMode()) {
-                BdLog.d("sign-alert alarm cancelled.");
-            }
+            BdLog.isDebugMode();
         }
     }
 
     protected Intent w() {
-        Intent intent = new Intent(com.baidu.tieba.data.d.e());
+        Intent intent = new Intent(com.baidu.tieba.data.e.e());
         intent.setData(Uri.parse("tieba_sign://alert"));
         intent.setClass(TbadkApplication.m252getInst(), SignAlertReceiver.class);
         return intent;
@@ -584,13 +576,13 @@ public class ai {
     public void c(int i) {
         AppsActivity.a();
         TbadkApplication.m252getInst().setSkinTypeValue(i);
-        com.baidu.tbadk.f.a().b("skin", i);
+        com.baidu.tbadk.i.a().b("skin", i);
         i(i);
     }
 
     private void i(int i) {
         Intent intent = new Intent();
-        intent.setAction(com.baidu.tieba.data.d.c());
+        intent.setAction(com.baidu.tieba.data.e.c());
         intent.putExtra("skin_type", i);
         TbadkApplication.m252getInst().sendBroadcast(intent);
     }
@@ -601,7 +593,7 @@ public class ai {
 
     public void d(int i) {
         this.w = i;
-        com.baidu.tbadk.f.a().b("perform_sample_count", i);
+        com.baidu.tbadk.i.a().b("perform_sample_count", i);
     }
 
     public int z() {
@@ -610,18 +602,18 @@ public class ai {
 
     public void e(int i) {
         this.x = i;
-        com.baidu.tbadk.f.a().b("new_vcode_webview_crash_count", i);
+        com.baidu.tbadk.i.a().b("new_vcode_webview_crash_count", i);
     }
 
     public void A() {
-        int a = com.baidu.tbadk.f.a().a("bd_loc_crash_count", 0) + 1;
-        com.baidu.tbadk.f.a().b("bd_loc_crash_count", a);
+        int a = com.baidu.tbadk.i.a().a("bd_loc_crash_count", 0) + 1;
+        com.baidu.tbadk.i.a().b("bd_loc_crash_count", a);
         if (a > 3) {
             b(false);
         }
     }
 
-    public void o(boolean z) {
+    public void n(boolean z) {
         this.m = z;
     }
 
@@ -643,10 +635,10 @@ public class ai {
 
     public String D() {
         String d;
-        if (!com.baidu.tbadk.core.util.y.a("/package.last")) {
-            d = com.baidu.tbadk.f.a().b("active_version", "");
+        if (!com.baidu.tbadk.core.util.aa.a("/package.last")) {
+            d = com.baidu.tbadk.i.a().b("active_version", "");
         } else {
-            d = com.baidu.tbadk.core.util.y.d("/package.last");
+            d = com.baidu.tbadk.core.util.aa.d("/package.last");
         }
         if ("active_clear".equals(d)) {
             return null;
@@ -654,11 +646,11 @@ public class ai {
         return d;
     }
 
-    public void p(boolean z) {
+    public void o(boolean z) {
     }
 
     public boolean E() {
-        return com.baidu.tbadk.f.a().a("first_sync_image_quality", true);
+        return com.baidu.tbadk.i.a().a("first_sync_image_quality", true);
     }
 
     public void F() {
@@ -666,56 +658,44 @@ public class ai {
     }
 
     public void f(int i) {
-        com.baidu.tbadk.f.a().b("kn_vote_cd", i);
+        com.baidu.tbadk.i.a().b("kn_vote_cd", i);
     }
 
     public void j(String str) {
-        com.baidu.tbadk.f.a().a("socket_reconn_strategy", str);
+        com.baidu.tbadk.i.a().a("socket_reconn_strategy", str);
     }
 
     public void k(String str) {
-        com.baidu.tbadk.f.a().a("socket_heartbeat_strategy", str);
+        com.baidu.tbadk.i.a().a("socket_heartbeat_strategy", str);
     }
 
     public void l(String str) {
-        com.baidu.tbadk.f.a().a("socket_getmsg_strategy", str);
+        com.baidu.tbadk.i.a().a("socket_getmsg_strategy", str);
     }
 
     public void m(String str) {
         if (str == null) {
             str = "";
         }
-        com.baidu.tbadk.f.a().a("lcs_switch_strategy", str);
+        com.baidu.tbadk.i.a().a("lcs_switch_strategy", str);
     }
 
     public void G() {
-        String b = com.baidu.tbadk.f.a().b("lcs_switch_strategy", (String) null);
+        String b = com.baidu.tbadk.i.a().b("lcs_switch_strategy", (String) null);
         if (!TextUtils.isEmpty(b)) {
-            com.baidu.tieba.model.ae aeVar = new com.baidu.tieba.model.ae();
-            aeVar.a(b);
+            com.baidu.tieba.model.ad adVar = new com.baidu.tieba.model.ad();
+            adVar.a(b);
             com.baidu.tbadk.coreExtra.websocketBase.h a = com.baidu.tbadk.coreExtra.websocketBase.h.a();
-            a.a(aeVar.a() == 1);
-            a.d(aeVar.b());
-            a.a(aeVar.c() * 1000);
-            this.L = aeVar.e();
-            this.M = aeVar.f();
-            this.N = aeVar.g();
-            if (aeVar.d() != null) {
-                a.a(aeVar.d());
+            a.a(adVar.a() == 1);
+            a.d(adVar.b());
+            a.a(adVar.c() * 1000);
+            this.L = adVar.e();
+            this.M = adVar.f();
+            this.N = adVar.g();
+            if (adVar.d() != null) {
+                a.a(adVar.d());
             }
         }
-    }
-
-    public int H() {
-        return this.L;
-    }
-
-    public int I() {
-        return this.M;
-    }
-
-    public int J() {
-        return this.N;
     }
 
     public void a(int[] iArr) {
@@ -725,27 +705,27 @@ public class ai {
                 sb.append(i);
                 sb.append("|");
             }
-            com.baidu.tbadk.f.a().a("socket_time_out", sb.toString());
+            com.baidu.tbadk.i.a().a("socket_time_out", sb.toString());
             com.baidu.adp.framework.c.c.a().a(iArr[0], iArr[1], iArr[2]);
         }
     }
 
     public void g(int i) {
-        com.baidu.tbadk.f.a().b("kn_vote_max", i);
+        com.baidu.tbadk.i.a().b("kn_vote_max", i);
     }
 
     public void h(int i) {
-        com.baidu.tbadk.f.a().b("kn_vote_rate", i);
+        com.baidu.tbadk.i.a().b("kn_vote_rate", i);
     }
 
-    public com.baidu.adp.lib.cache.s<String> K() {
+    public com.baidu.adp.lib.cache.s<String> H() {
         if (this.v == null) {
             this.v = BdCacheService.c().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
         }
         return this.v;
     }
 
-    public void L() {
+    public void I() {
         try {
             TbadkApplication.m252getInst().startService(new Intent(TbadkApplication.m252getInst(), ClearTempService.class));
         } catch (Throwable th) {
@@ -753,27 +733,27 @@ public class ai {
         }
     }
 
-    public void M() {
+    public void J() {
         TbadkApplication.m252getInst().startService(new Intent(TbadkApplication.m252getInst(), TiebaSyncService.class));
     }
 
-    public void N() {
+    public void K() {
         TbadkApplication.m252getInst().stopService(new Intent(TbadkApplication.m252getInst(), TiebaSyncService.class));
     }
 
-    public void O() {
+    public void L() {
         TbadkApplication.m252getInst().startService(new Intent(TbadkApplication.m252getInst(), SyncLoginService.class));
     }
 
-    public void P() {
+    public void M() {
         TbadkApplication.m252getInst().startService(new Intent(TbadkApplication.m252getInst(), TiebaActiveService.class));
     }
 
-    public void Q() {
+    public void N() {
         TbadkApplication.m252getInst().stopService(new Intent(TbadkApplication.m252getInst(), TiebaActiveService.class));
     }
 
-    public void q(boolean z) {
+    public void p(boolean z) {
         this.d = z;
     }
 
@@ -781,16 +761,16 @@ public class ai {
         this.I = personChangeData;
     }
 
-    public PersonChangeData R() {
+    public PersonChangeData O() {
         return this.I;
     }
 
-    public void r(boolean z) {
+    public void q(boolean z) {
         this.H = z;
-        com.baidu.tbadk.f.a().b("has_show_mutiimage_tip", z);
+        com.baidu.tbadk.i.a().c("has_show_mutiimage_tip", z);
     }
 
-    public boolean S() {
+    public boolean P() {
         return this.H;
     }
 }

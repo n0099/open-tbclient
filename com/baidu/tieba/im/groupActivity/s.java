@@ -9,21 +9,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.c {
+public class s extends com.baidu.adp.base.f {
     private static TextView u;
     private GroupActivityActivity a;
     private HeadImageView b;
-    private ab c;
+    private aa c;
     private NavigationBar d;
     private View e;
     private TextView f;
@@ -48,7 +48,7 @@ public class s extends com.baidu.adp.base.c {
         this.v = new v(null);
         this.a = groupActivityActivity;
         groupActivityActivity.setContentView(w.im_group_activity_activity);
-        this.c = new ab(groupActivityActivity);
+        this.c = new aa(groupActivityActivity);
         a(groupActivityActivity);
         b(groupActivityActivity);
     }
@@ -113,16 +113,16 @@ public class s extends com.baidu.adp.base.c {
             }
             if (groupActivityData.getIsEnd() == 1) {
                 this.p.setVisibility(0);
-                be.c(this.r, com.baidu.tieba.u.icon_activity_time_n);
-                be.c(this.q, com.baidu.tieba.u.icon_activity_lbs_n);
-                be.a(this.k, com.baidu.tieba.s.group_activity_group_author, 1);
-                be.a(this.l, com.baidu.tieba.s.group_activity_group_author, 1);
+                bk.c(this.r, com.baidu.tieba.u.icon_activity_time_n);
+                bk.c(this.q, com.baidu.tieba.u.icon_activity_lbs_n);
+                bk.a(this.k, com.baidu.tieba.s.group_activity_group_author, 1);
+                bk.a(this.l, com.baidu.tieba.s.group_activity_group_author, 1);
             } else {
                 this.p.setVisibility(8);
-                be.c(this.r, com.baidu.tieba.u.icon_activity_time_s);
-                be.c(this.q, com.baidu.tieba.u.icon_activity_lbs_s);
-                be.a(this.k, com.baidu.tieba.s.group_activity_main_text, 1);
-                be.a(this.l, com.baidu.tieba.s.group_activity_main_text, 1);
+                bk.c(this.r, com.baidu.tieba.u.icon_activity_time_s);
+                bk.c(this.q, com.baidu.tieba.u.icon_activity_lbs_s);
+                bk.a(this.k, com.baidu.tieba.s.group_activity_main_text, 1);
+                bk.a(this.l, com.baidu.tieba.s.group_activity_main_text, 1);
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityContent())) {
                 this.m.setVisibility(8);
@@ -144,7 +144,7 @@ public class s extends com.baidu.adp.base.c {
                 sb.append("-");
                 sb.append(date2);
                 sb.append(" ");
-                sb.append(bg.a(year, month, date2));
+                sb.append(bm.a(year, month, date2));
                 sb.append(" ");
                 if (hours > 12) {
                     sb.append(this.a.getResources().getString(y.afternoon));
@@ -169,12 +169,12 @@ public class s extends com.baidu.adp.base.c {
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityArea())) {
                 this.n.setVisibility(8);
-                be.f(this.o, com.baidu.tieba.u.bg_activity_down);
+                bk.f(this.o, com.baidu.tieba.u.bg_activity_down);
                 return;
             }
             this.n.setVisibility(0);
             this.l.setText(groupActivityData.getgActivityArea());
-            be.f(this.o, com.baidu.tieba.u.bg_activity_middle);
+            bk.f(this.o, com.baidu.tieba.u.bg_activity_middle);
         }
     }
 

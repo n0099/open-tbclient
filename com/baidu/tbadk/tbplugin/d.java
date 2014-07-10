@@ -3,7 +3,6 @@ package com.baidu.tbadk.tbplugin;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,13 +57,13 @@ public class d {
             }
             i.a(obj.getClass(), "mClassLoader").set(obj, classLoader);
         } catch (IllegalAccessException e) {
-            BdLog.e("IllegalAccessException");
+            e.printStackTrace();
             this.d = false;
         } catch (IllegalArgumentException e2) {
-            BdLog.e("IllegalArgumentException");
+            e2.printStackTrace();
             this.d = false;
         } catch (Throwable th) {
-            BdLog.e("Throwable " + th.getMessage());
+            th.printStackTrace();
             this.d = false;
         }
     }

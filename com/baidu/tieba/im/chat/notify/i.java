@@ -1,23 +1,18 @@
 package com.baidu.tieba.im.chat.notify;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements CustomMessageTask.CustomRunnable<AccountData> {
-    final /* synthetic */ b a;
+class i implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.a = bVar;
+    public i(h hVar) {
+        this.a = hVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        this.a.j();
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r2) {
+        d dVar;
+        dVar = this.a.a;
+        dVar.i();
     }
 }

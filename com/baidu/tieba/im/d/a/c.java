@@ -3,8 +3,6 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -22,14 +20,12 @@ public abstract class c implements CustomMessageTask.CustomRunnable<com.baidu.ti
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.c> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.a == null) {
-            BdLog.e("message error");
             return a(this.b);
         }
         com.baidu.tieba.im.message.c data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
         LinkedList<ChatMessage> a = this.a.a(com.baidu.adp.lib.f.b.a(data.d, 0L), data.a, data.b, data.c);
         if (a == null) {
-            BdLog.e("read DB error");
             return a(this.b);
         }
         com.baidu.tieba.im.message.d dVar = new com.baidu.tieba.im.message.d();
@@ -41,7 +37,7 @@ public abstract class c implements CustomMessageTask.CustomRunnable<com.baidu.ti
         dVar.a = data.d;
         dVar.b = a;
         try {
-            loadHistoryResponsedMessage.decodeInBackGround(MessageTypes.CMD_LOAD_HISTORY, dVar);
+            loadHistoryResponsedMessage.decodeInBackGround(2001105, dVar);
         } catch (Exception e) {
             e.printStackTrace();
         }

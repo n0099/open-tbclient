@@ -20,15 +20,15 @@ class n implements DialogInterface.OnClickListener {
         FrsLiveListActivity frsLiveListActivity;
         FrsLiveListActivity frsLiveListActivity2;
         FrsLiveListActivity frsLiveListActivity3;
-        com.baidu.tieba.im.model.l lVar;
+        com.baidu.tieba.im.model.j jVar;
         FrsLiveListActivity frsLiveListActivity4;
         FrsLiveListActivity frsLiveListActivity5;
         FrsLiveListActivity frsLiveListActivity6;
-        com.baidu.tieba.im.model.l lVar2;
+        com.baidu.tieba.im.model.j jVar2;
         FrsLiveListActivity frsLiveListActivity7;
-        com.baidu.tieba.im.model.l lVar3;
+        com.baidu.tieba.im.model.j jVar3;
         FrsLiveListActivity frsLiveListActivity8;
-        com.baidu.tieba.im.model.l lVar4;
+        com.baidu.tieba.im.model.j jVar4;
         switch (i) {
             case 0:
                 frsLiveListActivity4 = this.a.a;
@@ -37,18 +37,18 @@ class n implements DialogInterface.OnClickListener {
                 switch (this.b) {
                     case 0:
                         frsLiveListActivity8 = this.a.a;
-                        lVar4 = frsLiveListActivity8.c;
-                        lVar4.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 1, 0);
+                        jVar4 = frsLiveListActivity8.c;
+                        jVar4.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 1, 0);
                         return;
                     case 1:
                         frsLiveListActivity7 = this.a.a;
-                        lVar3 = frsLiveListActivity7.c;
-                        lVar3.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 0, 1);
+                        jVar3 = frsLiveListActivity7.c;
+                        jVar3.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 0, 1);
                         return;
                     case 2:
                         frsLiveListActivity6 = this.a.a;
-                        lVar2 = frsLiveListActivity6.c;
-                        lVar2.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 0, 2);
+                        jVar2 = frsLiveListActivity6.c;
+                        jVar2.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 0, 2);
                         return;
                     default:
                         return;
@@ -60,8 +60,8 @@ class n implements DialogInterface.OnClickListener {
                 switch (this.b) {
                     case 0:
                         frsLiveListActivity3 = this.a.a;
-                        lVar = frsLiveListActivity3.c;
-                        lVar.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 2, 0);
+                        jVar = frsLiveListActivity3.c;
+                        jVar.a(String.valueOf(this.c.getForumId()), String.valueOf(this.c.getGroupId()), 2, 0);
                         return;
                     default:
                         return;

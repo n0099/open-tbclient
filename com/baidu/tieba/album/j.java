@@ -22,9 +22,9 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
 
     public j(AlbumActivity albumActivity) {
         this.b = albumActivity;
-        this.c = albumActivity.g();
+        this.c = albumActivity.i();
         this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.t.album_image_height);
-        this.d = com.baidu.adp.lib.util.k.b(this.b) / 2;
+        this.d = com.baidu.adp.lib.util.j.b(this.b) / 2;
     }
 
     public void a(List<a> list) {
@@ -79,7 +79,7 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
         if (item != null) {
             if (!TextUtils.isEmpty(item.b())) {
                 item.b();
-                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.k.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
+                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.j.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
             } else {
                 lVar.b.setText("");
             }
@@ -98,8 +98,8 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
         } else {
             lVar.b.setText("");
         }
-        this.b.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.b.a().a(view);
+        this.b.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.b.c().a(view);
         return view;
     }
 

@@ -8,19 +8,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
 public class bd implements View.OnClickListener {
     final /* synthetic */ az a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
+    private final /* synthetic */ com.baidu.tbadk.core.data.m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(az azVar, com.baidu.tbadk.core.data.n nVar) {
+    public bd(az azVar, com.baidu.tbadk.core.data.m mVar) {
         this.a = azVar;
-        this.b = nVar;
+        this.b = mVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
+        g gVar;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.b;
-        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(context, this.b.y().getUserId(), this.b.y().getName_show())));
+        String userId = this.b.y().getUserId();
+        String name_show = this.b.y().getName_show();
+        gVar = this.a.d;
+        messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(context, userId, name_show, gVar.g().getName())));
     }
 }

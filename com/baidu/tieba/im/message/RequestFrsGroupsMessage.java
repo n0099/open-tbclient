@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByFid.DataReq;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
@@ -14,7 +13,7 @@ public class RequestFrsGroupsMessage extends TbSocketMessage {
     private int width;
 
     public RequestFrsGroupsMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUPS_BYFID);
+        super(103002);
     }
 
     public int getWidth() {

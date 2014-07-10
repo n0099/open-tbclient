@@ -1,46 +1,60 @@
 package com.baidu.tieba.im.live;
 
 import android.os.Handler;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.y;
+import com.baidu.tieba.im.live.service.IRemoteCallback;
+import com.baidu.tieba.im.live.service.LiveStatusParcelable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements Runnable {
-    final /* synthetic */ b a;
+public class j extends IRemoteCallback.Stub {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(b bVar) {
-        this.a = bVar;
+    public j(d dVar) {
+        this.a = dVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLiveStatusChangeEvent(LiveStatusParcelable liveStatusParcelable) {
         Handler handler;
-        int i2;
-        int i3;
-        i = this.a.h;
-        if (i > 0) {
-            this.a.h = 0;
-            handler = this.a.v;
-            handler.postDelayed(this, 20000L);
-            i2 = this.a.i;
-            if (i2 < 2) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_no_stream_retry);
-                b bVar = this.a;
-                i3 = bVar.i;
-                bVar.i = i3 + 1;
-                this.a.p();
-                return;
-            }
-            UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_no_stream);
-            this.a.i = 0;
-            this.a.s();
-            return;
-        }
-        this.a.j = false;
-        this.a.h = 0;
-        this.a.i = 0;
+        Handler handler2;
+        handler = this.a.t;
+        handler2 = this.a.t;
+        handler.sendMessage(handler2.obtainMessage(1, liveStatusParcelable));
+    }
+
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLiveErrorEvent(String str) {
+        Handler handler;
+        Handler handler2;
+        handler = this.a.t;
+        handler2 = this.a.t;
+        handler.sendMessage(handler2.obtainMessage(2, str));
+    }
+
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLivePlayProgressUpdate(String str, int i, int i2) {
+        Handler handler;
+        Handler handler2;
+        handler = this.a.t;
+        handler2 = this.a.t;
+        handler.sendMessage(handler2.obtainMessage(3, i, i2, str));
+    }
+
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLiveRecordTimeUpdate(int i) {
+        Handler handler;
+        Handler handler2;
+        handler = this.a.t;
+        handler2 = this.a.t;
+        handler.sendMessage(handler2.obtainMessage(4, i, i));
+    }
+
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLivePlayWarning(int i) {
+        Handler handler;
+        Handler handler2;
+        handler = this.a.t;
+        handler2 = this.a.t;
+        handler.sendMessage(handler2.obtainMessage(5, i, i));
     }
 }

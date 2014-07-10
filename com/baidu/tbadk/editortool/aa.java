@@ -1,60 +1,38 @@
 package com.baidu.tbadk.editortool;
 
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import android.content.Context;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class aa extends e {
-    private static aa a = new aa();
-    private LinkedList<af> b;
-
-    @Override // com.baidu.tbadk.editortool.e
-    public int a() {
-        return 1;
+public class aa extends com.baidu.tbadk.core.util.b {
+    public aa(Context context) {
+        super(context);
     }
 
-    public static synchronized aa c() {
-        aa aaVar;
-        synchronized (aa.class) {
-            aaVar = a;
-        }
-        return aaVar;
-    }
-
-    public List<af> d() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tbadk.editortool.e
-    public void a(f fVar) {
-        if (this.b == null) {
-            this.b = new LinkedList<>();
-            if (TbFaceManager.a().b() > 0) {
-                z zVar = new z();
-                this.b.add(zVar);
-                if (fVar != null) {
-                    fVar.a(zVar);
-                    return;
-                }
-                return;
+    public com.baidu.adp.widget.a.a a(String str, String str2, String str3, boolean z, com.baidu.tbadk.imageManager.d dVar, boolean z2) {
+        String b = ab.a().b(str2, z);
+        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(b);
+        if (c == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("em_sharp_text", str2);
+            hashMap.put("em_load_gif", Boolean.valueOf(z));
+            if (str != null) {
+                hashMap.put("em_group_id", str);
             }
-            return;
-        }
-        Iterator<af> it = this.b.iterator();
-        while (it.hasNext()) {
-            af next = it.next();
-            if (fVar != null) {
-                fVar.a(next);
+            if (str3 != null) {
+                hashMap.put("em_img_url", str3);
             }
+            return a(b, dVar, 6, true, false, false, false, hashMap, z2);
         }
+        return c;
     }
 
-    @Override // com.baidu.tbadk.editortool.e
-    public void b() {
+    @Deprecated
+    public com.baidu.adp.widget.a.a a(String str, String str2, String str3, boolean z, com.baidu.tbadk.imageManager.d dVar) {
+        return a(str, str2, str3, z, dVar, false);
     }
 
-    public boolean e() {
-        return this.b == null || this.b.size() == 0;
+    @Deprecated
+    public com.baidu.adp.widget.a.a a(String str, boolean z, com.baidu.tbadk.imageManager.d dVar) {
+        return a((String) null, str, (String) null, z, dVar);
     }
 }

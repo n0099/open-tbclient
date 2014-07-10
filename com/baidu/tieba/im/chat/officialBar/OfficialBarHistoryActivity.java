@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
-    private ag b;
-    private ab c;
-    private ad d;
-    private List<ba> e;
+    private aj b;
+    private ae c;
+    private ag d;
+    private List<be> e;
     private int a = 0;
     private boolean f = false;
 
@@ -32,8 +32,8 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     }
 
     private void b() {
-        this.c = new ab(this);
-        this.d = new ad(this);
+        this.c = new ae(this);
+        this.d = new ag(this);
         MessageManager.getInstance().registerListener(this.c);
         MessageManager.getInstance().registerListener(this.d);
     }
@@ -44,7 +44,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     }
 
     private void d() {
-        this.b = new ag(this);
+        this.b = new aj(this);
         this.b.a(this);
     }
 
@@ -70,7 +70,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -83,7 +83,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
         if (!this.f) {
             e();
         }

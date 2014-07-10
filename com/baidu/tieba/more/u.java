@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.base.e {
+public class u extends com.baidu.adp.base.h {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class u extends com.baidu.adp.base.e {
         this.a = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         if (obj != null && (obj instanceof MoreModel.TaskType)) {
             if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {

@@ -2,7 +2,6 @@ package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class m implements com.baidu.adp.lib.d.c<TextView> {
     private final /* synthetic */ Context a;
@@ -16,8 +15,7 @@ class m implements com.baidu.adp.lib.d.c<TextView> {
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public TextView a() {
-        BdLog.d("pool make TextView");
-        return new com.baidu.tbadk.widget.m(this.a);
+        return new com.baidu.tbadk.widget.l(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

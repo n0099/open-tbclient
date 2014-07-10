@@ -1,86 +1,25 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    private static ab a;
+public class ab implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ z a;
+    private final /* synthetic */ GroupMsgData b;
 
-    private ab() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(z zVar, GroupMsgData groupMsgData) {
+        this.a = zVar;
+        this.b = groupMsgData;
     }
 
-    public static synchronized ab a() {
-        ab abVar;
-        synchronized (ab.class) {
-            if (a == null) {
-                a = new ab();
-            }
-            abVar = a;
-        }
-        return abVar;
-    }
-
-    public void a(LinkedHashMap<String, Long> linkedHashMap) {
-        if (linkedHashMap != null && linkedHashMap.size() != 0) {
-            for (Map.Entry<String, Long> entry : linkedHashMap.entrySet()) {
-                a(entry.getKey(), entry.getValue().longValue());
-            }
-        }
-    }
-
-    public void a(String str, long j) {
-        if (!TextUtils.isEmpty(str) && j > 0) {
-            com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(str, -1), j);
-            com.baidu.tbadk.f.a().b("tb_group_msg_" + str, j);
-        }
-    }
-
-    public long a(int i) {
-        return com.baidu.tbadk.f.a().a("tb_group_msg_" + i, -1L);
-    }
-
-    public long[] a(GroupMsgData groupMsgData) {
-        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            long j = 0;
-            long groupId = groupMsgData.getGroupInfo().getGroupId();
-            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-            while (true) {
-                long j2 = j;
-                if (!it.hasNext()) {
-                    return new long[]{groupId, j2};
-                }
-                ChatMessage next = it.next();
-                j = next.getMsgId() > j2 ? next.getMsgId() : j2;
-            }
-        } else {
-            return null;
-        }
-    }
-
-    public void b(GroupMsgData groupMsgData) {
-        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-            while (it.hasNext()) {
-                ChatMessage next = it.next();
-                if (TbadkApplication.m252getInst().getIsUseBaiduStatOn() && !TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "msgID:" + next.getMsgId());
-                }
-                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
-                }
-                CustomMessage customMessage = new CustomMessage(CmdConfig.DEAL_YY_NOTIFICATION);
-                customMessage.setData(new com.baidu.tbadk.core.data.k(next.getMsgId(), next.getLink(), next.getContent(), next.getStat()));
-                MessageManager.getInstance().sendMessage(customMessage);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<GroupNewsPojo> linkedList) {
+        b.a(this.b, false);
+        this.a.a(linkedList);
+        this.a.b(linkedList);
     }
 }

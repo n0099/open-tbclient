@@ -7,40 +7,39 @@ import android.widget.BaseAdapter;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tieba.data.q;
+import com.baidu.tieba.data.r;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private com.baidu.tieba.data.p a;
+    private q a;
     private Context b;
-    private com.baidu.tieba.view.k c;
-    private ab e;
-    private int f;
+    private com.baidu.tieba.view.l c;
+    private int e;
     private boolean d = false;
-    private int g = Constants.MEDIA_INFO;
+    private boolean f = false;
+    private float g = 0.4f;
     private boolean h = false;
-    private float i = 0.4f;
-    private boolean j = false;
 
-    public void a(com.baidu.tieba.data.p pVar) {
-        b(bh.a().b());
+    public void a(q qVar) {
+        b(bn.a().b());
         this.d = true;
-        this.a = pVar;
+        this.a = qVar;
     }
 
     public g(Context context) {
-        this.f = Constants.MEDIA_INFO;
+        this.e = Constants.MEDIA_INFO;
         this.b = context;
-        this.e = new ab(context);
-        this.f = com.baidu.adp.lib.util.k.b(context);
-        b(bh.a().b());
+        this.e = com.baidu.adp.lib.util.j.b(context);
+        b(bn.a().b());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<com.baidu.tieba.data.q> b;
+        ArrayList<r> b;
         if (!this.d) {
             return 1;
         }
@@ -55,7 +54,7 @@ public class g extends BaseAdapter {
         if (!this.d || this.a == null || this.a.b() == null) {
             return null;
         }
-        ArrayList<com.baidu.tieba.data.q> b = this.a.b();
+        ArrayList<r> b = this.a.b();
         if (i < 0 || b == null || i >= b.size()) {
             return null;
         }
@@ -68,31 +67,31 @@ public class g extends BaseAdapter {
     }
 
     public void a(boolean z) {
-        this.j = z;
+        this.h = z;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.data.q qVar;
+        r rVar;
         if (!this.d) {
             return a();
         }
         if (this.c == null) {
-            this.c = new com.baidu.tieba.view.k(this.b);
+            this.c = new com.baidu.tieba.view.l(this.b);
         }
-        this.c.a(this.f, this.h, this.i);
-        this.c.a(this.j);
+        this.c.a(this.e, this.f, this.g);
+        this.c.a(this.h);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
         a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(t.forumfeed_first_item_margin_top) : 0, 0, 0);
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        ArrayList<com.baidu.tieba.data.q> b = this.a.b();
-        if (b != null && (qVar = b.get(i)) != null) {
-            this.c.a(a, qVar);
+        ArrayList<r> b = this.a.b();
+        if (b != null && (rVar = b.get(i)) != null) {
+            this.c.a(a, rVar);
             this.c.a(skinType, a);
         }
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(skinType == 1);
-        baseFragmentActivity.a().a(a);
+        baseFragmentActivity.c().a(skinType == 1);
+        baseFragmentActivity.c().a(a);
         return a;
     }
 
@@ -103,11 +102,11 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        com.baidu.tieba.data.q qVar;
-        ArrayList<com.baidu.tbadk.core.data.j> k;
+        r rVar;
+        ArrayList<MediaData> k;
         if (this.d && this.a != null) {
-            ArrayList<com.baidu.tieba.data.q> b = this.a.b();
-            if (b == null || (qVar = b.get(i)) == null || (k = qVar.k()) == null) {
+            ArrayList<r> b = this.a.b();
+            if (b == null || (rVar = b.get(i)) == null || (k = rVar.k()) == null) {
                 return 2;
             }
             int size = k.size();
@@ -129,29 +128,6 @@ public class g extends BaseAdapter {
     }
 
     public void b(boolean z) {
-        this.h = z;
-        this.g = this.f;
-        if (this.h) {
-            if (this.g > 480) {
-                this.g = 480;
-            }
-            if (this.g > com.baidu.adp.lib.util.k.a(this.b, 320.0f)) {
-                this.g = com.baidu.adp.lib.util.k.a(this.b, 320.0f);
-            }
-            this.e.b("_small");
-        } else {
-            if (this.g > this.i * 480.0f) {
-                this.g = (int) (this.i * 480.0f);
-            }
-            if (this.g > com.baidu.adp.lib.util.k.a(this.b, 320.0f) * this.i) {
-                this.g = (int) (com.baidu.adp.lib.util.k.a(this.b, 320.0f) * this.i);
-            }
-            this.e.b("_mobile");
-        }
-        this.e.a(this.g, this.g);
-    }
-
-    public ab b() {
-        return this.e;
+        this.f = z;
     }
 }

@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ai;
+import com.baidu.tbadk.core.atomData.an;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
+public class c implements View.OnClickListener {
     final /* synthetic */ b a;
     private final /* synthetic */ Activity b;
     private final /* synthetic */ int c;
@@ -22,6 +23,6 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ai(this.b, this.c, this.d, 11003)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new an(this.b, this.c, this.d, 11003)));
     }
 }

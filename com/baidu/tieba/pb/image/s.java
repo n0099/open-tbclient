@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -28,20 +28,20 @@ public class s implements ViewPager.OnPageChangeListener {
     public void onPageSelected(int i) {
         int i2;
         TextView textView;
-        com.baidu.tieba.data.u uVar;
+        com.baidu.tieba.data.w wVar;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        com.baidu.tieba.data.u uVar2;
-        com.baidu.tieba.data.u uVar3;
+        com.baidu.tieba.data.w wVar2;
+        com.baidu.tieba.data.w wVar3;
         TextView textView2;
         String str;
         TextView textView3;
         LinearLayout linearLayout;
         TextView textView4;
-        com.baidu.tieba.data.u uVar4;
-        com.baidu.tieba.data.u uVar5;
+        com.baidu.tieba.data.w wVar4;
+        com.baidu.tieba.data.w wVar5;
         int i3;
         int i4;
         int i5;
@@ -56,12 +56,12 @@ public class s implements ViewPager.OnPageChangeListener {
         this.a.I = i;
         textView = this.a.h;
         textView.setText((CharSequence) null);
-        uVar = this.a.F;
-        if (uVar != null) {
-            uVar2 = this.a.F;
-            if (uVar2.j() > 0) {
-                uVar3 = this.a.F;
-                if (i != uVar3.j()) {
+        wVar = this.a.F;
+        if (wVar != null) {
+            wVar2 = this.a.F;
+            if (wVar2.j() > 0) {
+                wVar3 = this.a.F;
+                if (i != wVar3.j()) {
                     textView2 = this.a.g;
                     str = this.a.D;
                     textView2.setText(str);
@@ -71,10 +71,10 @@ public class s implements ViewPager.OnPageChangeListener {
                     linearLayout.setVisibility(0);
                     textView4 = this.a.h;
                     StringBuilder append = new StringBuilder(String.valueOf(String.valueOf(i + 1))).append("/");
-                    uVar4 = this.a.F;
-                    textView4.setText(append.append(String.valueOf(uVar4.j())).toString());
-                    uVar5 = this.a.F;
-                    LinkedList<com.baidu.tieba.data.t> g = uVar5.g();
+                    wVar4 = this.a.F;
+                    textView4.setText(append.append(String.valueOf(wVar4.j())).toString());
+                    wVar5 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.v> g = wVar5.g();
                     if (g != null) {
                         i3 = this.a.I;
                         if (i3 < g.size()) {
@@ -96,7 +96,7 @@ public class s implements ViewPager.OnPageChangeListener {
                     linearLayout2 = this.a.q;
                     linearLayout2.setVisibility(8);
                     baseViewPager = this.a.x;
-                    be.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
+                    bk.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
                     return;
                 }
             }

@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.base.c {
+public class w extends com.baidu.adp.base.f {
     private FrsLiveListActivity a;
     private o b;
     private ViewGroup c;
@@ -46,7 +46,7 @@ public class w extends com.baidu.adp.base.c {
     }
 
     public void a() {
-        this.e.c();
+        this.e.d();
     }
 
     public void b() {

@@ -1,13 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.EditText;
+import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements TextWatcher {
+public class f implements com.baidu.tbadk.core.view.o {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,45 +11,22 @@ public class f implements TextWatcher {
         this.a = atListActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        Button button;
-        Button button2;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        String editable2 = editable.toString();
-        if (editable2 != null) {
-            str = this.a.m;
-            if (!editable2.equals(str)) {
-                handler = this.a.h;
-                runnable = this.a.x;
-                handler.removeCallbacks(runnable);
-                handler2 = this.a.h;
-                runnable2 = this.a.x;
-                handler2.postDelayed(runnable2, 300L);
-            }
-            if (editable2.length() > 0) {
-                button2 = this.a.c;
-                button2.setVisibility(0);
+    @Override // com.baidu.tbadk.core.view.o
+    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+        AtSelectFriendList atSelectFriendList;
+        if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.b)) {
+            if (z) {
+                atSelectFriendList = this.a.e;
+                if (5 <= atSelectFriendList.getItemLength()) {
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.invite_friend_exceed_max_count), 5));
+                    tbCheckBox.setChecked(false);
+                    ((com.baidu.tbadk.coreExtra.relationship.b) obj).setChecked(false);
+                    return;
+                }
+                this.a.a((com.baidu.tbadk.coreExtra.relationship.b) obj);
                 return;
             }
-            button = this.a.c;
-            button.setVisibility(8);
+            this.a.b((com.baidu.tbadk.coreExtra.relationship.b) obj);
         }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        EditText editText;
-        AtListActivity atListActivity = this.a;
-        editText = this.a.b;
-        atListActivity.m = editText.getText().toString();
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

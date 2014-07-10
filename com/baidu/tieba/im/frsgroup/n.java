@@ -3,7 +3,6 @@ package com.baidu.tieba.im.frsgroup;
 import android.text.TextUtils;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.data.GroupLevelInfo;
 import com.baidu.tieba.im.message.ResponseGroupLevelMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
@@ -35,10 +34,7 @@ class n extends com.baidu.adp.framework.listener.b {
         oVar.a(false);
         if (socketResponsedMessage == null) {
             this.a.showToast(com.baidu.tieba.y.neterror);
-            return;
-        }
-        BdLog.d("msg:" + socketResponsedMessage.getCmd());
-        if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
+        } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
             ResponseGroupLevelMessage responseGroupLevelMessage = (ResponseGroupLevelMessage) socketResponsedMessage;
             if (responseGroupLevelMessage.getError() != 0) {
                 if (responseGroupLevelMessage.getError() > 0) {
@@ -71,7 +67,6 @@ class n extends com.baidu.adp.framework.listener.b {
                     oVar3.e().setText(intro);
                     oVar4 = this.a.b;
                     oVar4.a(grade, activeDay, thresholdDay);
-                    BdLog.d("isMemGroup:" + groupLevelInfo.isMemGroup() + " ahthor:" + groupLevelInfo.isGroupAuthor() + " canCreate:" + groupLevelInfo.isCanCreateMember() + " leftNum:" + groupLevelInfo.getLeftCreateMemGroup());
                     oVar5 = this.a.b;
                     oVar5.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
                     oVar6 = this.a.b;
@@ -94,7 +89,6 @@ class n extends com.baidu.adp.framework.listener.b {
             }
         } else if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
             ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
-            BdLog.d("get upgrade mem group msg:" + responseUpgradeMemberGroupMessage.getCmd() + " err:" + String.valueOf(responseUpgradeMemberGroupMessage.getError()));
             if (responseUpgradeMemberGroupMessage.getError() == 0) {
                 this.a.a();
             } else if (responseUpgradeMemberGroupMessage.getError() == 2230110) {

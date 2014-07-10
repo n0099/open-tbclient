@@ -21,9 +21,7 @@ public final class a implements Camera.AutoFocusCallback {
 
     public a(Context context, Camera camera) {
         this.d = camera;
-        String focusMode = camera.getParameters().getFocusMode();
-        this.c = a.contains(focusMode);
-        BdLog.i(getClass().getName(), "AutoFocusManager", "Current focus mode '" + focusMode + "'; use auto focus? " + this.c);
+        this.c = a.contains(camera.getParameters().getFocusMode());
         a();
     }
 
@@ -41,7 +39,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.autoFocus(this);
             } catch (RuntimeException e) {
-                BdLog.w(getClass().getName(), com.baidu.tbadk.core.frameworkData.a.START, "Unexpected exception while focusing" + e.toString());
+                BdLog.detailException(e);
             }
         }
     }
@@ -51,7 +49,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.cancelAutoFocus();
             } catch (RuntimeException e) {
-                BdLog.w(getClass().getName(), com.baidu.tbadk.core.frameworkData.a.STOP, "Unexpected exception while cancelling focusing" + e.toString());
+                BdLog.detailException(e);
             }
         }
         if (this.e != null) {

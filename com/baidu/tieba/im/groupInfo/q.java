@@ -19,15 +19,20 @@ public class q implements com.baidu.tieba.im.a<Boolean> {
         GroupInfoActivity groupInfoActivity;
         r rVar;
         GroupInfoActivity groupInfoActivity2;
-        com.baidu.tieba.im.model.m mVar;
+        r rVar2;
+        GroupInfoActivity groupInfoActivity3;
+        com.baidu.tieba.im.model.k kVar;
         if (bool == null) {
             bool = false;
         }
         groupInfoActivity = this.a.a;
         rVar = groupInfoActivity.f;
-        rVar.a(this.b.getData(), bool.booleanValue());
+        rVar.p();
         groupInfoActivity2 = this.a.a;
-        mVar = groupInfoActivity2.g;
-        mVar.a(bool.booleanValue() ? false : true);
+        rVar2 = groupInfoActivity2.f;
+        rVar2.a(this.b.getData(), bool.booleanValue());
+        groupInfoActivity3 = this.a.a;
+        kVar = groupInfoActivity3.g;
+        kVar.a(bool.booleanValue() ? false : true);
     }
 }

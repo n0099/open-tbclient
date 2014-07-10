@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.c {
+public class i extends com.baidu.adp.base.f {
     private BlackMembersListActivity a;
     private e b;
     private ViewGroup c;

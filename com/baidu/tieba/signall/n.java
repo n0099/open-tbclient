@@ -1,29 +1,31 @@
 package com.baidu.tieba.signall;
 
-import android.graphics.Camera;
-import android.graphics.Matrix;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class n extends Animation {
-    private Camera a = new Camera();
-    private View b;
+class n {
+    public HeadImageView a;
+    public LinearLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public FrameLayout f;
+    public TextView g;
+    public RelativeLayout h;
+    public ImageView i;
+    public ProgressBar j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    final /* synthetic */ k n;
 
-    public n(View view) {
-        this.b = view;
-    }
-
-    @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
-        int width = this.b.getWidth() / 2;
-        int height = this.b.getHeight() / 2;
-        Matrix matrix = transformation.getMatrix();
-        this.a.save();
-        this.a.translate(0.0f, 0.0f, (-150.0f) * (1.0f - f));
-        this.a.getMatrix(matrix);
-        this.a.restore();
-        matrix.preTranslate(-width, -height);
-        matrix.postTranslate(width, height);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(k kVar) {
+        this.n = kVar;
     }
 }

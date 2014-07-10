@@ -1,56 +1,92 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
+import android.os.Handler;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BaseAdapter implements com.baidu.tieba.view.t {
-    private ah a;
-    private ArrayList<au> b = new ArrayList<>();
+public class ag implements ar {
+    final /* synthetic */ af a;
 
-    public ag(Context context) {
-        this.a = null;
-        this.a = new ah(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(af afVar) {
+        this.a = afVar;
     }
 
-    public void a(ArrayList<au> arrayList) {
-        this.b = arrayList;
-        this.a.a(arrayList);
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return (this.b == null || this.b.size() <= 1) ? 0 : 1;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.a;
-    }
-
-    @Override // com.baidu.tieba.view.t
-    public void b() {
-        if (this.a != null) {
-            this.a.b();
+    @Override // com.baidu.tieba.square.ar
+    public void a(boolean z, String str, am amVar) {
+        au auVar;
+        boolean z2;
+        long j;
+        long j2;
+        aq aqVar;
+        long j3;
+        aq aqVar2;
+        aq aqVar3;
+        aq aqVar4;
+        BaseFragmentActivity baseFragmentActivity;
+        au auVar2;
+        au auVar3;
+        boolean z3;
+        au auVar4;
+        au auVar5;
+        aq aqVar5;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        auVar = this.a.c;
+        auVar.a(true, "");
+        if (z && amVar != null) {
+            auVar5 = this.a.c;
+            aqVar5 = this.a.d;
+            auVar5.a(aqVar5.e());
+            handler = this.a.i;
+            runnable = this.a.j;
+            handler.removeCallbacks(runnable);
+            handler2 = this.a.i;
+            runnable2 = this.a.j;
+            handler2.postDelayed(runnable2, 0L);
+            this.a.e = true;
+            this.a.i();
         }
-    }
-
-    @Override // com.baidu.tieba.view.t
-    public void a(View view, int i, int i2) {
-        if (this.a != null) {
-            this.a.a(this.a, 0, 0);
+        z2 = this.a.f;
+        if (z2) {
+            this.a.f = false;
+            auVar4 = this.a.c;
+            auVar4.d();
+        } else {
+            j = this.a.g;
+            if (j > -1) {
+                long currentTimeMillis = System.currentTimeMillis();
+                j2 = this.a.g;
+                aqVar = this.a.d;
+                long d = aqVar.d();
+                j3 = this.a.g;
+                long j4 = d - j3;
+                aqVar2 = this.a.d;
+                long b = aqVar2.b();
+                aqVar3 = this.a.d;
+                long c = aqVar3.c();
+                aqVar4 = this.a.d;
+                TiebaStatic.page("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - aqVar4.a());
+                this.a.g = -1L;
+            }
         }
+        if (!UtilHelper.isNetOk()) {
+            auVar3 = this.a.c;
+            auVar3.e();
+            z3 = this.a.e;
+            if (z3) {
+                return;
+            }
+            this.a.h();
+            return;
+        }
+        baseFragmentActivity = this.a.h;
+        baseFragmentActivity.a(str);
+        auVar2 = this.a.c;
+        auVar2.f();
     }
 }

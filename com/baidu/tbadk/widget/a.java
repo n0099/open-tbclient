@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class a extends ImageView {
     private boolean A;
     private int B;
-    private volatile h C;
+    private volatile g C;
     private Bitmap D;
     private int E;
     private volatile long F;
@@ -38,7 +38,6 @@ public class a extends ImageView {
     private int L;
     private boolean M;
     private Interpolator N;
-    private GestureDetector O;
     public volatile int a;
     private Matrix b;
     private int c;
@@ -102,7 +101,6 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, null));
         u();
     }
 
@@ -138,7 +136,6 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, null));
         u();
     }
 
@@ -174,13 +171,7 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, null));
         u();
-    }
-
-    @Override // android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return super.dispatchTouchEvent(motionEvent);
     }
 
     public int getImageType() {
@@ -213,7 +204,6 @@ public class a extends ImageView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.O.onTouchEvent(motionEvent);
         int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
         switch (action) {
             case 0:
@@ -280,6 +270,7 @@ public class a extends ImageView {
         return CompatibleUtile.getInstance().getSpacing(motionEvent);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (z) {
@@ -342,6 +333,7 @@ public class a extends ImageView {
         return ((BitmapDrawable) drawable).getBitmap();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         if (this.q != null) {
             this.q.a(this, p(), q());
@@ -350,11 +342,6 @@ public class a extends ImageView {
 
     public void setOnSizeChangedListener(f fVar) {
         this.q = fVar;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
     }
 
     public void c() {
@@ -391,6 +378,7 @@ public class a extends ImageView {
         this.D = bitmap;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -460,7 +448,6 @@ public class a extends ImageView {
 
     public void f() {
         if (this.x == 1) {
-            BdLog.d(getClass().getName(), "pause", (String) null);
             this.H = false;
             invalidate();
         }
@@ -478,7 +465,7 @@ public class a extends ImageView {
     }
 
     private void u() {
-        this.o = com.baidu.adp.lib.util.k.c(getContext()) * com.baidu.adp.lib.util.k.b(getContext()) * 2;
+        this.o = com.baidu.adp.lib.util.j.c(getContext()) * com.baidu.adp.lib.util.j.b(getContext()) * 2;
         if (this.o < 1690000) {
             this.o = 1690000;
         }
@@ -622,11 +609,11 @@ public class a extends ImageView {
             this.u.b();
         }
         if (this.M) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_black));
+            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_black));
         } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_d_1));
+            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_d_1));
         } else {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_d));
+            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_d));
         }
         this.x = 2;
         r();
@@ -692,10 +679,12 @@ public class a extends ImageView {
         return size > 1;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void w() {
         a(false, -1, -1);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, int i, int i2) {
         float f;
         float f2;
@@ -769,7 +758,7 @@ public class a extends ImageView {
                 scrollTo(scrollX, scrollY);
                 setImageMatrix(this.b);
             } catch (Exception e) {
-                BdLog.e("DragImageView", "resizeBitmap", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

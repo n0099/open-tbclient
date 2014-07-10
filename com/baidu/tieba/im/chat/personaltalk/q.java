@@ -59,18 +59,13 @@ public class q {
     }
 
     public void a(boolean z) {
-        this.b.b(z);
-    }
-
-    public void b(boolean z) {
         this.b.a(z);
     }
 
     public void a(k kVar) {
         if (kVar != null) {
-            a(kVar.d(), kVar.b().sex.intValue());
-            a(kVar.c());
-            b(kVar.a());
+            a(kVar.c(), kVar.b().sex.intValue());
+            a(kVar.a());
             a(kVar.b());
             b(kVar);
         }
@@ -106,7 +101,7 @@ public class q {
     public void b(k kVar) {
         String str;
         if (kVar != null && kVar.b() != null && (str = kVar.b().portrait) != null && str.length() > 0) {
-            kVar.f().c(str, new r(this));
+            kVar.d().c(str, new r(this));
         }
     }
 

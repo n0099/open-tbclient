@@ -1,29 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-class da implements com.baidu.tbadk.core.util.bt {
-    final /* synthetic */ cz a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+class da implements v {
+    final /* synthetic */ PersonalChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cz czVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = czVar;
-        this.b = str;
-        this.c = aVar;
+    public da(PersonalChatActivity personalChatActivity) {
+        this.a = personalChatActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
-            view.setTag(null);
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.f();
-            this.c.a(headImageView);
-            return false;
+    @Override // com.baidu.tieba.im.chat.v
+    public void a(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
         }
-        return false;
+    }
+
+    @Override // com.baidu.tieba.im.chat.v
+    public void a() {
     }
 }

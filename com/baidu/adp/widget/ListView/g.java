@@ -298,8 +298,7 @@ public class g extends BaseAdapter {
             try {
                 view3 = this.b.getView(i2, view, viewGroup);
             } catch (Exception e) {
-                e.printStackTrace();
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
                 view3 = null;
             }
             if (view3 == null) {
@@ -310,7 +309,7 @@ public class g extends BaseAdapter {
         try {
             view2 = this.d.get(i2 - i3).a;
         } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+            BdLog.detailException(e2);
             view2 = null;
         }
         if (view2 == null) {
@@ -322,7 +321,7 @@ public class g extends BaseAdapter {
     private View g() {
         TextView textView = new TextView(this.a);
         textView.setText("资源加载失败！");
-        int a = com.baidu.adp.lib.util.k.a(this.a, 15.0f);
+        int a = com.baidu.adp.lib.util.j.a(this.a, 15.0f);
         textView.setPadding(a, a, a, a);
         return textView;
     }

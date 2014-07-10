@@ -12,13 +12,13 @@ import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tieba.model.k a = null;
-    private m b = null;
+    private com.baidu.tieba.model.i a = null;
+    private h b = null;
     private int c = -1;
     private ArrayList<MarkData> d = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2017005, new j());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015005, new e());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -27,10 +27,10 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.k();
-        this.a.a(new k(this, this));
-        this.b = new m(this);
-        this.b.a(new l(this));
+        this.a = new com.baidu.tieba.model.i();
+        this.a.a(new f(this, this));
+        this.b = new h(this);
+        this.b.a(new g(this));
         b();
     }
 
@@ -81,12 +81,12 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
             MarkData markData = this.a.f().get(i);
             MarkData markData2 = this.d.get(i);
             int b = this.a.b();
-            int p = com.baidu.tbadk.coreExtra.messageCenter.a.a().p();
+            int o = com.baidu.tbadk.coreExtra.messageCenter.a.a().o();
             if (markData2.getNewCounts() > 0) {
-                if (p > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().f(p - 1);
+                if (o > 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(o - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().f(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
                 }
                 if (b > 0) {
                     this.a.a(b - 1);
@@ -96,14 +96,14 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
             }
             markData2.setNewCounts(0);
             if (markData != null) {
-                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
+                sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
         super.onItemClick(adapterView, view, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.b.a(this.d);
@@ -152,7 +152,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
         if (this.b != null && this.a != null && this.a.c()) {
             this.b.a(this.a.a());
             this.a.a((Boolean) false);

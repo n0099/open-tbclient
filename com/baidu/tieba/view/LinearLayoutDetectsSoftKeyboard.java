@@ -9,15 +9,15 @@ import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     Rect a;
-    private v b;
+    private w b;
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new Rect();
     }
 
-    public void setOnSoftKeyBoardShownListener(v vVar) {
-        this.b = vVar;
+    public void setOnSoftKeyBoardShownListener(w wVar) {
+        this.b = wVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

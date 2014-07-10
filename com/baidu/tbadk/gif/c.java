@@ -12,8 +12,8 @@ public class c extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str) {
-        super.a((c) aVar, str);
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        super.a((c) aVar, str, i);
         this.a.g();
         this.a.setGif(aVar);
     }

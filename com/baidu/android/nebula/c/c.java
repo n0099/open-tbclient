@@ -1,34 +1,24 @@
 package com.baidu.android.nebula.c;
 
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.android.common.logging.Log;
+import java.io.IOException;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c {
-    private c() {
+public class c implements Runnable {
+    final /* synthetic */ b a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b bVar) {
+        this.a = bVar;
     }
 
-    public static byte[] a(byte[] bArr) {
-        byte[] bArr2;
-        Exception e;
-        ByteArrayOutputStream byteArrayOutputStream;
+    @Override // java.lang.Runnable
+    public void run() {
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-            bArr2 = byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            bArr2 = null;
-            e = e2;
+            this.a.c();
+        } catch (IOException e) {
+            Log.e("HttpServer", "Serer Loop Excepiton :" + e);
         }
-        try {
-            byteArrayOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
-            return bArr2;
-        }
-        return bArr2;
+        this.a.d();
     }
 }

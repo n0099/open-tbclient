@@ -133,14 +133,14 @@ public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Ser
         this.ext = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());

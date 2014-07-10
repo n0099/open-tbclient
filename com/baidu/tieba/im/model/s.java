@@ -5,12 +5,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class s extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ r b;
+    final /* synthetic */ p b;
     private final /* synthetic */ LinkedList c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar, LinkedList linkedList) {
-        this.b = rVar;
+    public s(p pVar, LinkedList linkedList) {
+        this.b = pVar;
         this.c = linkedList;
     }
 

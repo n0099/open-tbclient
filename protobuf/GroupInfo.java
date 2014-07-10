@@ -26,7 +26,7 @@ public final class GroupInfo extends Message {
     public final String album;
     @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.INT32)
     public final Integer authorId;
-    @ProtoField(tag = 29, type = Message.Datatype.INT32)
+    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String authorName;
@@ -42,11 +42,11 @@ public final class GroupInfo extends Message {
     public final Integer flag;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.STRING)
+    @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
     @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
-    @ProtoField(tag = TbConfig.NOTIFY_LIVE_GROUP_END_EVENT, type = Message.Datatype.INT32)
+    @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer groupId;
@@ -64,7 +64,7 @@ public final class GroupInfo extends Message {
     public final Integer isNewlyCreate;
     @ProtoField(tag = 33, type = Message.Datatype.INT32)
     public final Integer isRecentlyReply;
-    @ProtoField(tag = TbConfig.NOTIFY_LIVE_NOTIFY, type = Message.Datatype.INT64)
+    @ProtoField(tag = 21, type = Message.Datatype.INT64)
     public final Long lastMsgId;
     @ProtoField(tag = TbConfig.MAX_PRELOAD_PHOTO_NUM, type = Message.Datatype.INT32)
     public final Integer lastMsgTime;

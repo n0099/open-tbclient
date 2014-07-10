@@ -25,24 +25,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
+public class k extends BaseAdapter implements AbsListView.OnScrollListener, aa {
     private a b;
     private Context c;
     private LayoutInflater d;
-    private volatile boolean e;
-    private com.baidu.tbadk.editortool.ab f;
-    private boolean j;
-    private TextView k;
+    private boolean h;
+    private TextView i;
     private ArrayList<b> a = new ArrayList<>();
-    private HashMap<String, aa> g = new HashMap<>();
-    private ColorDrawable h = new ColorDrawable(-13881543);
-    private ColorDrawable i = new ColorDrawable(-1775893);
+    private HashMap<String, z> e = new HashMap<>();
+    private ColorDrawable f = new ColorDrawable(-13881543);
+    private ColorDrawable g = new ColorDrawable(-1775893);
 
     public k(Context context, TextView textView) {
         this.c = context;
-        this.k = textView;
+        this.i = textView;
         this.d = (LayoutInflater) this.c.getSystemService("layout_inflater");
-        this.f = new com.baidu.tbadk.editortool.ab(this.c);
     }
 
     public void a(a aVar) {
@@ -82,27 +79,27 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
     private View a(int i) {
         if (i == 0) {
             View inflate = this.d.inflate(com.baidu.tieba.w.signallforum_item, (ViewGroup) null);
-            o oVar = new o(this);
-            oVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_avatar);
-            oVar.a.setIsRound(false);
-            oVar.a.setGifIconSupport(false);
-            oVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_name);
-            oVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level);
-            oVar.e = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_exp);
-            oVar.f = (FrameLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_res_container);
-            oVar.g = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_days);
-            oVar.h = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_container);
-            oVar.i = (ImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_icon);
-            oVar.j = (ProgressBar) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_progress);
-            oVar.k = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_text);
-            oVar.l = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_error);
-            oVar.b = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level_container);
-            oVar.m = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_increaseexp);
-            inflate.setTag(oVar);
+            n nVar = new n(this);
+            nVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_avatar);
+            nVar.a.setIsRound(false);
+            nVar.a.setGifIconSupport(false);
+            nVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_name);
+            nVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level);
+            nVar.e = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_exp);
+            nVar.f = (FrameLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_res_container);
+            nVar.g = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_days);
+            nVar.h = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_container);
+            nVar.i = (ImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_icon);
+            nVar.j = (ProgressBar) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_progress);
+            nVar.k = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_text);
+            nVar.l = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_error);
+            nVar.b = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level_container);
+            nVar.m = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_increaseexp);
+            inflate.setTag(nVar);
             return inflate;
         }
         View view = new View(this.c);
-        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.a(this.c, 1.0f)));
+        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.j.a(this.c, 1.0f)));
         return view;
     }
 
@@ -110,87 +107,83 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
         BaseActivity baseActivity = (BaseActivity) this.c;
         baseActivity.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         baseActivity.getLayoutMode().a(view);
-        o oVar = (o) view.getTag();
+        n nVar = (n) view.getTag();
         b bVar = (b) getItem(i);
-        oVar.c.setText(bVar.b());
-        oVar.d.setText(new StringBuilder(String.valueOf(bVar.f())).toString());
-        oVar.d.setBackgroundResource(com.baidu.tbadk.core.util.g.b(bVar.f()));
-        oVar.e.setText(String.valueOf(bVar.g()) + "/" + bVar.h());
-        oVar.m.clearAnimation();
-        oVar.f.clearAnimation();
+        nVar.c.setText(bVar.b());
+        nVar.d.setText(new StringBuilder(String.valueOf(bVar.f())).toString());
+        nVar.d.setBackgroundResource(com.baidu.tbadk.core.util.h.b(bVar.f()));
+        nVar.e.setText(String.valueOf(bVar.g()) + "/" + bVar.h());
+        nVar.m.clearAnimation();
+        nVar.f.clearAnimation();
         if (bVar.i()) {
-            oVar.b.setVisibility(0);
-            oVar.l.setVisibility(8);
-            oVar.g.setVisibility(0);
-            oVar.h.setVisibility(8);
-            oVar.g.setText(String.format(this.c.getString(com.baidu.tieba.y.signallforum_days), Integer.valueOf(bVar.e())));
+            nVar.b.setVisibility(0);
+            nVar.l.setVisibility(8);
+            nVar.g.setVisibility(0);
+            nVar.h.setVisibility(8);
+            nVar.g.setText(String.format(this.c.getString(com.baidu.tieba.y.signallforum_days), Integer.valueOf(bVar.e())));
             if (bVar.o()) {
-                oVar.e.setText(this.c.getString(com.baidu.tieba.y.signallforum_uplevel));
-                oVar.m.setVisibility(8);
+                nVar.e.setText(this.c.getString(com.baidu.tieba.y.signallforum_uplevel));
+                nVar.m.setVisibility(8);
             } else {
-                oVar.e.setText(String.valueOf(bVar.g()) + "/" + bVar.h());
-                oVar.m.setVisibility(0);
+                nVar.e.setText(String.valueOf(bVar.g()) + "/" + bVar.h());
+                nVar.m.setVisibility(0);
             }
             int m = bVar.m();
             if (m > 0) {
-                oVar.m.setVisibility(0);
-                oVar.m.setText("+" + m);
+                nVar.m.setVisibility(0);
+                nVar.m.setText("+" + m);
             } else {
-                oVar.m.setVisibility(8);
+                nVar.m.setVisibility(8);
             }
             if (!bVar.l()) {
-                n nVar = new n(oVar.f);
-                nVar.setDuration(800L);
-                nVar.setFillAfter(true);
-                nVar.setInterpolator(new DecelerateInterpolator());
-                oVar.f.startAnimation(nVar);
+                m mVar = new m(nVar.f);
+                mVar.setDuration(800L);
+                mVar.setFillAfter(true);
+                mVar.setInterpolator(new DecelerateInterpolator());
+                nVar.f.startAnimation(mVar);
                 if (m > 0) {
                     AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                     alphaAnimation.setDuration(800L);
                     alphaAnimation.setFillAfter(true);
                     alphaAnimation.setInterpolator(new DecelerateInterpolator());
-                    oVar.m.startAnimation(alphaAnimation);
+                    nVar.m.startAnimation(alphaAnimation);
                 }
                 bVar.d(true);
             }
         } else if (bVar.j()) {
             String n = bVar.n();
             if (!TextUtils.isEmpty(n)) {
-                oVar.b.setVisibility(8);
-                oVar.l.setVisibility(0);
-                oVar.m.setVisibility(8);
-                oVar.l.setText(n);
+                nVar.b.setVisibility(8);
+                nVar.l.setVisibility(0);
+                nVar.m.setVisibility(8);
+                nVar.l.setText(n);
             } else {
-                oVar.b.setVisibility(0);
-                oVar.l.setVisibility(8);
-                oVar.m.setVisibility(8);
+                nVar.b.setVisibility(0);
+                nVar.l.setVisibility(8);
+                nVar.m.setVisibility(8);
             }
-            oVar.g.setVisibility(8);
-            oVar.h.setVisibility(0);
+            nVar.g.setVisibility(8);
+            nVar.h.setVisibility(0);
             if (bVar.k()) {
-                oVar.i.setVisibility(4);
-                oVar.j.setVisibility(0);
-                oVar.k.setText(com.baidu.tieba.y.signallforum_resigning);
+                nVar.i.setVisibility(4);
+                nVar.j.setVisibility(0);
+                nVar.k.setText(com.baidu.tieba.y.signallforum_resigning);
             } else {
-                oVar.i.setVisibility(0);
-                oVar.j.setVisibility(4);
-                oVar.k.setText(com.baidu.tieba.y.signallforum_resign);
+                nVar.i.setVisibility(0);
+                nVar.j.setVisibility(4);
+                nVar.k.setText(com.baidu.tieba.y.signallforum_resign);
             }
-            oVar.h.setOnClickListener(new l(this, bVar, oVar));
+            nVar.h.setOnClickListener(new l(this, bVar, nVar));
         } else {
-            oVar.g.setVisibility(8);
-            oVar.h.setVisibility(8);
-            oVar.m.setVisibility(8);
-            oVar.b.setVisibility(0);
-            oVar.l.setVisibility(8);
+            nVar.g.setVisibility(8);
+            nVar.h.setVisibility(8);
+            nVar.m.setVisibility(8);
+            nVar.b.setVisibility(0);
+            nVar.l.setVisibility(8);
         }
         String c = bVar.c();
-        oVar.a.setTag(c);
-        if (this.f.d(c) != null) {
-            oVar.a.invalidate();
-        } else if (!this.e) {
-            this.f.b(bVar.c(), new m(this, view2));
-        }
+        nVar.a.setTag(c);
+        nVar.a.a(c, 10, false);
     }
 
     @Override // android.widget.Adapter
@@ -199,9 +192,9 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
         View a = view == null ? a(itemViewType) : view;
         if (itemViewType == 1) {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                a.setBackgroundDrawable(this.h);
+                a.setBackgroundDrawable(this.f);
             } else {
-                a.setBackgroundDrawable(this.i);
+                a.setBackgroundDrawable(this.g);
             }
         } else {
             a(a, viewGroup, i);
@@ -212,33 +205,30 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            this.e = false;
             notifyDataSetChanged();
-            return;
         }
-        this.e = true;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    @Override // com.baidu.tieba.signall.ab
+    @Override // com.baidu.tieba.signall.aa
     public void a(SignData signData) {
         String forumId = signData.getForumId();
         synchronized (this) {
-            this.g.remove(forumId);
+            this.e.remove(forumId);
         }
         a(forumId, true, signData, null);
     }
 
-    @Override // com.baidu.tieba.signall.ab
+    @Override // com.baidu.tieba.signall.aa
     public void a(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.util.k.a(this.c, str2);
+            com.baidu.adp.lib.util.j.a(this.c, str2);
         }
         synchronized (this) {
-            this.g.remove(str);
+            this.e.remove(str);
         }
         a(str, false, null, str2);
     }
@@ -263,11 +253,11 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
                     }
                     int size2 = this.b.j().size();
                     int size3 = this.b.l().size();
-                    this.k.setText(this.c.getString(com.baidu.tieba.y.signallforum_res, Integer.valueOf(size3), Integer.valueOf(size2 - size3)));
+                    this.i.setText(this.c.getString(com.baidu.tieba.y.signallforum_res, Integer.valueOf(size3), Integer.valueOf(size2 - size3)));
                 } else {
                     bVar.a(str2);
                 }
-                if (!this.j) {
+                if (!this.h) {
                     notifyDataSetChanged();
                     return;
                 }
@@ -277,18 +267,12 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
     }
 
     public void a() {
-        this.j = true;
+        this.h = true;
         synchronized (this) {
-            for (Map.Entry<String, aa> entry : this.g.entrySet()) {
+            for (Map.Entry<String, z> entry : this.e.entrySet()) {
                 entry.getValue().a();
             }
-            this.g.clear();
-        }
-    }
-
-    public void b() {
-        if (this.f != null) {
-            this.f.d();
+            this.e.clear();
         }
     }
 }

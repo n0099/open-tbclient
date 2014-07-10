@@ -1,8 +1,8 @@
 package com.baidu.android.systemmonitor.a;
 
 import android.content.Context;
-import com.baidu.android.a.g;
-import com.baidu.android.a.s;
+import com.baidu.android.a.j;
+import com.baidu.android.a.n;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -21,18 +21,18 @@ public class d implements Runnable {
         Context context3;
         ArrayList arrayList = new ArrayList();
         context = this.a.b;
-        if (s.a(context).b()) {
-            arrayList.add(g.CHARGE_EVENT);
-            arrayList.add(g.POWER_EVENT);
-            arrayList.add(g.STORE_INFORMATION);
+        if (j.a(context).b()) {
+            arrayList.add(n.CHARGE_EVENT);
+            arrayList.add(n.POWER_EVENT);
+            arrayList.add(n.STORE_INFORMATION);
         }
         context2 = this.a.b;
-        if (s.a(context2).c()) {
-            arrayList.add(g.NETWORK_EVENT);
+        if (j.a(context2).c()) {
+            arrayList.add(n.NETWORK_EVENT);
         }
         context3 = this.a.b;
-        if (s.a(context3).d()) {
-            arrayList.add(g.APKDOWNLOAD_EVENT);
+        if (j.a(context3).d()) {
+            arrayList.add(n.APKDOWNLOAD_EVENT);
         }
         if (arrayList.size() > 0) {
             this.a.a(arrayList);

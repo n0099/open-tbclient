@@ -23,7 +23,7 @@ public class d extends HttpMessageListener {
         e eVar3;
         a aVar;
         e eVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1004001) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 String errorString = httpResponsedMessage.getErrorString();

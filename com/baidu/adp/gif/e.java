@@ -1,7 +1,6 @@
 package com.baidu.adp.gif;
 
 import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
     public static final String[] a = {"ZTE-T U880", "U880"};
@@ -20,8 +19,6 @@ public class e {
     }
 
     public static boolean a() {
-        String str = Build.MODEL;
-        BdLog.d("NSGifCompat", "shouldUseNSGif", "model: " + str);
-        return a(str) && b() && NSGif.a;
+        return a(Build.MODEL) && b() && NSGif.a;
     }
 }

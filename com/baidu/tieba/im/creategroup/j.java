@@ -52,9 +52,9 @@ class j extends com.baidu.adp.framework.listener.b {
             groupUpdateMessage.setPortrait(requestAddGroupMessage.getPortrait());
             groupUpdateMessage.setLastMsgId(0L);
             groupUpdateMessage.setAuthorId(String.valueOf(addGroupInfo.getAuthorId()));
-            List<GroupUpdateMessage> l = com.baidu.tieba.im.pushNotify.a.f().l();
-            if (l != null) {
-                Iterator<GroupUpdateMessage> it = l.iterator();
+            List<GroupUpdateMessage> o = com.baidu.tieba.im.pushNotify.a.i().o();
+            if (o != null) {
+                Iterator<GroupUpdateMessage> it = o.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -65,12 +65,12 @@ class j extends com.baidu.adp.framework.listener.b {
                     }
                 }
                 if (!z) {
-                    l.add(groupUpdateMessage);
+                    o.add(groupUpdateMessage);
                 }
             } else {
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(groupUpdateMessage);
-                com.baidu.tieba.im.pushNotify.a.f().a(linkedList);
+                com.baidu.tieba.im.pushNotify.a.i().a(linkedList);
             }
             a(addGroupInfo);
         }

@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.chat;
+
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class ct implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ PersonalChatActivity a;
+class ct extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ cs b;
+    private final /* synthetic */ LinkedList c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+    public ct(cs csVar, LinkedList linkedList) {
+        this.b = csVar;
+        this.c = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                this.a.d.L();
-            } else {
-                this.a.d.M();
-            }
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        return com.baidu.tieba.im.db.p.d().a(this.c);
     }
 }

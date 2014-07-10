@@ -1,25 +1,31 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ItemHeaderView a;
+public class j implements View.OnClickListener {
+    final /* synthetic */ ItemHotThreadView a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ItemHeaderView itemHeaderView) {
-        this.a = itemHeaderView;
+    public j(ItemHotThreadView itemHotThreadView, String str) {
+        this.a = itemHotThreadView;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (aVar != null) {
-            headImageView = this.a.b;
-            headImageView.setImageBitmap(aVar.h());
-            headImageView2 = this.a.b;
-            headImageView2.invalidate();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        context = this.a.a;
+        TiebaStatic.eventStat(context, "detail_hot_thread", "click", 1, new Object[0]);
+        MessageManager messageManager = MessageManager.getInstance();
+        context2 = this.a.a;
+        messageManager.sendMessage(new CustomMessage(2004001, new aw(context2).a(this.b, "", "")));
     }
 }

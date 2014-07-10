@@ -1,7 +1,7 @@
 package com.baidu.tieba.more;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,14 +35,15 @@ public class r implements p {
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkApplication.getCurrentAccount();
-                                                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2010015, currentAccount));
+                                                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
                                                 com.baidu.tieba.util.k.h(currentAccount);
                                                 TbadkApplication.setCurrentAccount(null, this.a);
                                                 TbadkApplication.m252getInst().onUserChanged();
-                                                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
                                                 com.baidu.tbadk.core.b.b.a(this.a, 11, false);
                                                 return;
                                             } else if (i == 11) {
+                                                com.baidu.tbadk.i.a().c("is_exit_app_not_start_websocket", true);
+                                                BdSocketLinkService.close("exit app");
                                                 com.baidu.tbadk.core.b.b.a(this.a, 12, false);
                                                 return;
                                             } else {

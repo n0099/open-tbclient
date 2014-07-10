@@ -18,16 +18,15 @@ import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.util.bo;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.bu;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.barcode.result.ZxingResult;
 import com.baidu.tieba.s;
@@ -66,7 +65,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     private Handler n = new Handler();
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.f.class, CaptureActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.g.class, CaptureActivity.class);
     }
 
     public ViewfinderView a() {
@@ -100,7 +99,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     }
 
     public boolean e() {
-        if (x.a()) {
+        if (z.a()) {
             return true;
         }
         showToast(getString(y.voice_error_sdcard));
@@ -111,7 +110,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.StartService(i, intent.getData(), bh.a().e(), com.baidu.adp.lib.util.k.b(this));
+            TiebaPrepareImageService.StartService(i, intent.getData(), bn.a().e(), com.baidu.adp.lib.util.j.b(this));
         }
     }
 
@@ -137,7 +136,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         }
         TiebaStatic.eventStat(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            bk.a().a((Context) this, new String[]{str}, true, (bo) new d(this));
+            bq.a().a((Context) this, new String[]{str}, true, (bu) new d(this));
             return;
         }
         com.baidu.tbadk.coreExtra.c.a.a(this, new e(this), str);
@@ -164,7 +163,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a = new com.baidu.tieba.barcode.a.e(getApplication());
@@ -240,9 +239,6 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (surfaceHolder == null) {
-            BdLog.e(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
-        }
         if (!this.e) {
             this.e = true;
             this.n.postDelayed(new f(this, surfaceHolder), 1L);
@@ -305,22 +301,20 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
-        if (this.a.a()) {
-            BdLog.w(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
-            return;
-        }
-        try {
-            this.a.a(surfaceHolder);
-            if (this.b == null) {
-                this.b = new CaptureActivityHandler(this, null, null, null, this.a);
+        if (!this.a.a()) {
+            try {
+                this.a.a(surfaceHolder);
+                if (this.b == null) {
+                    this.b = new CaptureActivityHandler(this, null, null, null, this.a);
+                }
+                a((Bitmap) null, (Result) null);
+            } catch (IOException e) {
+                e.printStackTrace();
+                h();
+            } catch (RuntimeException e2) {
+                e2.printStackTrace();
+                h();
             }
-            a((Bitmap) null, (Result) null);
-        } catch (IOException e) {
-            BdLog.w(getClass().getName(), "initCamera", e.toString());
-            h();
-        } catch (RuntimeException e2) {
-            BdLog.w(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
-            h();
         }
     }
 

@@ -1,9 +1,6 @@
 package com.baidu.tieba.mention;
-
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements DialogInterface.OnClickListener {
+class ad implements q {
     final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +8,18 @@ public class ad implements DialogInterface.OnClickListener {
         this.a = acVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        PostActivity postActivity;
-        postActivity = this.a.b;
-        postActivity.c();
+    @Override // com.baidu.tieba.mention.q
+    public void a(String str) {
+        com.baidu.tieba.util.k.d(str);
+    }
+
+    @Override // com.baidu.tieba.mention.q
+    public String a() {
+        return com.baidu.tieba.util.k.e();
+    }
+
+    @Override // com.baidu.tieba.mention.q
+    public void b() {
+        com.baidu.tieba.util.k.d();
     }
 }

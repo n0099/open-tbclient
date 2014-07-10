@@ -1,33 +1,55 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.data.MetaData;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.core.util.bt {
-    final /* synthetic */ c a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+public class d implements TextWatcher {
+    final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = cVar;
-        this.b = str;
-        this.c = aVar;
+    public d(AtListActivity atListActivity) {
+        this.a = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if ((view instanceof ImageView) && view.getTag() != null) {
-            Object tag = view.getTag();
-            if (tag instanceof MetaData) {
-                ImageView imageView = (ImageView) view;
-                MetaData metaData = (MetaData) tag;
-                if (this.b != null && this.b.equals(metaData.getPortrait()) && this.c != null) {
-                    this.c.a(imageView);
-                }
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        String str;
+        Button button;
+        Button button2;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        String a = com.baidu.adp.lib.util.i.a(editable, null);
+        if (a != null) {
+            str = this.a.j;
+            if (!a.equals(str)) {
+                handler = this.a.h;
+                runnable = this.a.v;
+                handler.removeCallbacks(runnable);
+                handler2 = this.a.h;
+                runnable2 = this.a.v;
+                handler2.postDelayed(runnable2, 300L);
             }
+            if (a.length() > 0) {
+                button2 = this.a.c;
+                button2.setVisibility(0);
+                return;
+            }
+            button = this.a.c;
+            button.setVisibility(8);
         }
-        return false;
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.j = com.baidu.adp.lib.util.i.a(charSequence, null);
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

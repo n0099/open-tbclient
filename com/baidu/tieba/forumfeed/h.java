@@ -34,11 +34,18 @@ public class h {
 
     public static void a(BaseFragmentActivity baseFragmentActivity, View view, int i) {
         i iVar = (i) view.getTag();
-        baseFragmentActivity.a().a(i == 1);
-        baseFragmentActivity.a().a(view);
+        baseFragmentActivity.c().a(i == 1);
+        baseFragmentActivity.c().a(view);
         if (iVar != null) {
             iVar.b.b(i);
             iVar.c.a(i);
+        }
+    }
+
+    public static void a(View view) {
+        i iVar;
+        if (view != null && view.getTag() != null && (iVar = (i) view.getTag()) != null && iVar.b != null) {
+            iVar.b.d();
         }
     }
 }

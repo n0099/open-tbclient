@@ -26,40 +26,43 @@ public class b extends com.baidu.adp.framework.listener.b {
         int i2;
         String str;
         String str2;
+        String str3;
         e eVar4;
         e eVar5;
         e eVar6;
         e eVar7;
         if (socketResponsedMessage.getError() != 0) {
-            eVar5 = this.a.h;
+            eVar5 = this.a.i;
             if (eVar5 != null) {
-                eVar6 = this.a.h;
-                eVar6.f();
+                eVar6 = this.a.i;
+                eVar6.b();
                 if (socketResponsedMessage.getError() > 0 && !TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                    eVar7 = this.a.h;
-                    eVar7.c(socketResponsedMessage.getErrorString());
+                    eVar7 = this.a.i;
+                    eVar7.a(socketResponsedMessage.getErrorString());
                 }
             }
         } else if (socketResponsedMessage instanceof ResponseQueryGroupCountMessage) {
             ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage;
             this.a.d = responseQueryGroupCountMessage.getUserGroupCount();
             this.a.e = responseQueryGroupCountMessage.getLocalGroupCount();
-            this.a.f = responseQueryGroupCountMessage.getPicUrl();
-            this.a.g = responseQueryGroupCountMessage.getLink();
+            this.a.f = responseQueryGroupCountMessage.getGeographicLocation();
+            this.a.g = responseQueryGroupCountMessage.getPicUrl();
+            this.a.h = responseQueryGroupCountMessage.getLink();
             a.a = false;
-            eVar = this.a.h;
+            eVar = this.a.i;
             if (eVar != null) {
-                eVar4 = this.a.h;
-                eVar4.f();
+                eVar4 = this.a.i;
+                eVar4.b();
             }
-            eVar2 = this.a.h;
+            eVar2 = this.a.i;
             if (eVar2 != null) {
-                eVar3 = this.a.h;
+                eVar3 = this.a.i;
                 i = this.a.d;
                 i2 = this.a.e;
-                str = this.a.g;
-                str2 = this.a.f;
-                eVar3.a(i, i2, str, str2);
+                str = this.a.h;
+                str2 = this.a.g;
+                str3 = this.a.f;
+                eVar3.a(i, i2, str, str2, str3);
             }
         }
     }

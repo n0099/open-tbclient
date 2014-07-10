@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.DelGroup.DelGroupResIdl;
 /* loaded from: classes.dex */
@@ -12,12 +11,8 @@ public class ResponseDismissGroupMessage extends SocketResponsedMessage {
         return this.groupId;
     }
 
-    public void setGroupId(long j) {
-        this.groupId = j;
-    }
-
     public ResponseDismissGroupMessage() {
-        super(MessageTypes.CMD_DISSMISS_GROUP);
+        super(103104);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +22,7 @@ public class ResponseDismissGroupMessage extends SocketResponsedMessage {
         setError(delGroupResIdl.error.errorno.intValue());
         setErrorString(delGroupResIdl.error.usermsg);
         if (getError() == 0) {
-            setGroupId(delGroupResIdl.data.groupId.intValue());
+            this.groupId = delGroupResIdl.data.groupId.intValue();
         }
     }
 }

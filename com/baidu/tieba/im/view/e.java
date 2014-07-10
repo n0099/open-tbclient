@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.text.MessageFormat;
@@ -62,12 +61,12 @@ public class e extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.chatterbox_edit_dialog);
-        this.b = (Button) findViewById(v.chatterbox_edit_confirm);
-        this.c = (Button) findViewById(v.chatterbox_edit_cancel);
+        this.b = (Button) findViewById(com.baidu.tieba.v.chatterbox_edit_confirm);
+        this.c = (Button) findViewById(com.baidu.tieba.v.chatterbox_edit_cancel);
         this.c.setOnClickListener(this);
         this.b.setOnClickListener(this);
-        this.d = (TextView) findViewById(v.size_tip);
-        this.e = (EditText) findViewById(v.chat_editText);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.size_tip);
+        this.e = (EditText) findViewById(com.baidu.tieba.v.chat_editText);
         this.d.setText(MessageFormat.format(this.a.getResources().getString(y.chat_custom_default_text), "0"));
         this.e.addTextChangedListener(new g(this));
     }

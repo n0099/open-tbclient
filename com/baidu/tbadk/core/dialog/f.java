@@ -1,10 +1,25 @@
 package com.baidu.tbadk.core.dialog;
 
-import com.baidu.tieba.z;
+import android.view.View;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f {
-    public static final int a = z.dialog_ani_b2t;
-    public static final int b = z.dialog_ani_t2b;
-    public static final int c = z.dialog_ani_l2r;
-    public static final int d = z.dialog_ani_r2l;
+public class f implements View.OnClickListener {
+    final /* synthetic */ e a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ TextView c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(e eVar, int i, TextView textView) {
+        this.a = eVar;
+        this.b = i;
+        this.c = textView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        h hVar;
+        hVar = this.a.c;
+        hVar.a(this.a, this.b, this.c);
+    }
 }

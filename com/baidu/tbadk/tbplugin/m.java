@@ -2,7 +2,9 @@ package com.baidu.tbadk.tbplugin;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 import java.io.File;
 import java.io.IOException;
@@ -101,16 +103,8 @@ public class m implements n, r {
         }
         com.baidu.tbadk.tbplugin.a.c cVar = (com.baidu.tbadk.tbplugin.a.c) i.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbadk.tbplugin.a.c.class);
         if (cVar != null) {
-            if (b(cVar.a())) {
-                p = (P) this.g.get(cVar.a());
-                if (p == null) {
-                    BdLog.e("Plugin not found object is null: " + cls.getName());
-                }
-            } else {
-                p = null;
-            }
+            p = !b(cVar.a()) ? null : (P) this.g.get(cVar.a());
         } else {
-            BdLog.e("Plugin not found name is null: " + cls.getName());
             p = null;
         }
         return p;
@@ -234,13 +228,11 @@ public class m implements n, r {
 
     @Override // com.baidu.tbadk.tbplugin.n
     public void l() {
-        BdLog.d("PluginSyncService bound");
         this.p.a(this);
     }
 
     @Override // com.baidu.tbadk.tbplugin.n
     public void m() {
-        BdLog.d("PluginSyncService unbound");
     }
 
     @Override // com.baidu.tbadk.tbplugin.r
@@ -316,5 +308,41 @@ public class m implements n, r {
     public void q() {
         this.o.b();
         j();
+    }
+
+    public <P> String d(Class<P> cls) {
+        return ((com.baidu.tbadk.tbplugin.a.c) i.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbadk.tbplugin.a.c.class)).a();
+    }
+
+    public <P> boolean e(Class<P> cls) {
+        return e(d(cls));
+    }
+
+    public boolean e(String str) {
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(currentAccount)) {
+            currentAccount = com.baidu.tbadk.core.account.a.c().getID();
+        }
+        if ("BdSocialShareSdk".equals(str)) {
+            return com.baidu.tbadk.i.a().a("is_share_forbidden_" + currentAccount, false);
+        }
+        if ("motusdk".equals(str)) {
+            return com.baidu.tbadk.i.a().b("is_motu_forbidden_" + currentAccount, false);
+        }
+        if ("browser".equals(str)) {
+            return com.baidu.tbadk.i.a().a("is_browser_forbidden_" + currentAccount, false);
+        }
+        return false;
+    }
+
+    public void a(String str, boolean z) {
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if ("BdSocialShareSdk".equals(str)) {
+            com.baidu.tbadk.i.a().c("is_share_forbidden_" + currentAccount, z);
+        } else if ("motusdk".equals(str)) {
+            com.baidu.tbadk.i.a().d("is_motu_forbidden_" + currentAccount, z);
+        } else if ("browser".equals(str)) {
+            com.baidu.tbadk.i.a().c("is_browser_forbidden_" + currentAccount, z);
+        }
     }
 }

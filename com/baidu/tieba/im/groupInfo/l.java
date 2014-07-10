@@ -19,58 +19,58 @@ class l extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.m mVar;
+        com.baidu.tieba.im.model.k kVar;
         r rVar;
-        com.baidu.tieba.im.model.m mVar2;
-        com.baidu.tieba.im.model.m mVar3;
-        com.baidu.tieba.im.model.m mVar4;
-        com.baidu.tieba.im.model.m mVar5;
-        com.baidu.tieba.im.model.m mVar6;
-        com.baidu.tieba.im.model.m mVar7;
-        com.baidu.tieba.im.model.m mVar8;
-        com.baidu.tieba.im.model.m mVar9;
-        com.baidu.tieba.im.model.m mVar10;
-        com.baidu.tieba.im.model.m mVar11;
+        com.baidu.tieba.im.model.k kVar2;
+        com.baidu.tieba.im.model.k kVar3;
+        com.baidu.tieba.im.model.k kVar4;
+        com.baidu.tieba.im.model.k kVar5;
+        com.baidu.tieba.im.model.k kVar6;
+        com.baidu.tieba.im.model.k kVar7;
+        com.baidu.tieba.im.model.k kVar8;
+        com.baidu.tieba.im.model.k kVar9;
+        com.baidu.tieba.im.model.k kVar10;
+        com.baidu.tieba.im.model.k kVar11;
         r rVar2;
         if (customResponsedMessage == null) {
             rVar2 = this.a.f;
             rVar2.p();
             this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (customResponsedMessage.getCmd() == 2003102) {
+        } else if (customResponsedMessage.getCmd() == 2001102) {
             if (!(customResponsedMessage instanceof ResponseGroupInfoLocalMessage)) {
-                mVar9 = this.a.g;
-                mVar10 = this.a.g;
-                long d = mVar10.d();
-                mVar11 = this.a.g;
-                mVar9.a(d, mVar11.e());
+                kVar9 = this.a.g;
+                kVar10 = this.a.g;
+                long d = kVar10.d();
+                kVar11 = this.a.g;
+                kVar9.a(d, kVar11.e());
                 return;
             }
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = (ResponseGroupInfoLocalMessage) customResponsedMessage;
             if (responseGroupInfoLocalMessage.getOrginalMessage() != null) {
                 long groupId = ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId();
-                mVar8 = this.a.g;
-                if (groupId != mVar8.d()) {
+                kVar8 = this.a.g;
+                if (groupId != kVar8.d()) {
                     return;
                 }
             }
             if (responseGroupInfoLocalMessage.getError() != 0) {
-                mVar5 = this.a.g;
-                mVar6 = this.a.g;
-                long d2 = mVar6.d();
-                mVar7 = this.a.g;
-                mVar5.a(d2, mVar7.e());
+                kVar5 = this.a.g;
+                kVar6 = this.a.g;
+                long d2 = kVar6.d();
+                kVar7 = this.a.g;
+                kVar5.a(d2, kVar7.e());
                 return;
             }
             this.a.f();
-            mVar = this.a.g;
-            mVar.a(responseGroupInfoLocalMessage.getData());
+            kVar = this.a.g;
+            kVar.a(responseGroupInfoLocalMessage.getData());
             rVar = this.a.f;
             rVar.a(responseGroupInfoLocalMessage.getData());
-            mVar2 = this.a.g;
-            mVar3 = this.a.g;
-            long d3 = mVar3.d();
-            mVar4 = this.a.g;
-            mVar2.a(d3, mVar4.e());
+            kVar2 = this.a.g;
+            kVar3 = this.a.g;
+            long d3 = kVar3.d();
+            kVar4 = this.a.g;
+            kVar2.a(d3, kVar4.e());
         }
     }
 }

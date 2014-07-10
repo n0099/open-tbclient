@@ -1,21 +1,30 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
+    private String a;
+    private String b;
+    private String c;
     private boolean d;
-    private boolean e;
-    private int g;
-    private int h;
-    private String i;
-    private com.baidu.tieba.square.au c = new com.baidu.tieba.square.au();
-    private long f = 0;
-    private y a = new y();
-    private an b = new an();
+    private ArrayList<m> e = new ArrayList<>();
 
-    public boolean a() {
+    public String a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public ArrayList<m> c() {
+        return this.e;
+    }
+
+    public boolean d() {
         return this.d;
     }
 
@@ -23,95 +32,22 @@ public class n {
         this.d = z;
     }
 
-    public n() {
-        this.e = true;
-        this.e = false;
-    }
-
-    public an b() {
-        return this.b;
-    }
-
-    public int c() {
-        return this.g;
-    }
-
-    public int d() {
-        return this.h;
-    }
-
-    public String e() {
-        return this.i;
-    }
-
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.e = false;
-            return;
-        }
-        try {
-            a(new JSONObject(str));
-            this.e = true;
-        } catch (Exception e) {
-            this.e = false;
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
     public void a(JSONObject jSONObject) {
         try {
-            this.g = jSONObject.optInt("msign_valid");
-            this.h = jSONObject.optInt("msign_level");
-            this.i = jSONObject.optString("msign_text");
-            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("new_recommend");
-            JSONObject optJSONObject = jSONObject.optJSONObject("banner");
-            this.a.a(this.h);
-            this.a.a(optJSONArray);
-            this.b.a(optJSONArray2);
-            this.f = jSONObject.optLong("time");
-            b(optJSONObject);
-        } catch (Exception e) {
-            this.e = false;
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    private void b(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.c.a(jSONObject.optString("pic_url", ""));
-                this.c.b(jSONObject.optString("link", ""));
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "BannerData", e.toString());
+            this.b = jSONObject.optString("publish_time");
+            this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
+            this.c = jSONObject.optString("update_time");
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    m mVar = new m();
+                    mVar.a(optJSONArray.getJSONObject(i));
+                    this.e.add(mVar);
+                }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
-
-    public com.baidu.tieba.square.au f() {
-        return this.c;
-    }
-
-    public y g() {
-        return this.a;
-    }
-
-    public void b(boolean z) {
-        this.e = z;
-    }
-
-    public boolean h() {
-        return this.e;
-    }
-
-    public boolean i() {
-        return System.currentTimeMillis() / d.e.longValue() == (this.f * 1000) / d.e.longValue();
-    }
-
-    public boolean j() {
-        if (this.a != null) {
-            return this.a.b();
-        }
-        return false;
     }
 }

@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
@@ -49,8 +49,8 @@ public class FragmentTabWidget extends LinearLayout {
         this.f = new Paint(6);
         this.f.setAntiAlias(true);
         this.f.setStyle(Paint.Style.FILL);
-        this.g = k.a(getContext(), 1.0f);
-        this.h = k.a(getContext(), 3.0f);
+        this.g = j.a(getContext(), 1.0f);
+        this.h = j.a(getContext(), 3.0f);
         setWillNotDraw(false);
     }
 

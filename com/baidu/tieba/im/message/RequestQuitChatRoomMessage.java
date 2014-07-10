@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QuitChatroom.DataReq;
 import protobuf.QuitChatroom.QuitChatroomReqIdl;
@@ -14,7 +12,7 @@ public class RequestQuitChatRoomMessage extends TbSocketMessage {
     private int mTag;
 
     public RequestQuitChatRoomMessage(int i, int i2, int i3) {
-        super(MessageTypes.CMD_QUIT_CHAT_ROOM);
+        super(106102);
         this.mGroupId = i;
         this.mNeedFreeze = i2;
         this.mTag = i3;
@@ -38,7 +36,6 @@ public class RequestQuitChatRoomMessage extends TbSocketMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

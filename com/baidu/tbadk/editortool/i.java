@@ -16,33 +16,33 @@ public class i implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        x xVar;
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        af afVar5;
-        af afVar6;
-        x xVar2;
+        w wVar;
+        ae aeVar;
+        ae aeVar2;
+        ae aeVar3;
+        ae aeVar4;
+        ae aeVar5;
+        ae aeVar6;
+        w wVar2;
         adapterView.setSelection(-1);
         int i2 = this.b + i;
-        xVar = this.a.p;
-        if (xVar != null) {
+        wVar = this.a.p;
+        if (wVar != null) {
             com.baidu.tbadk.coreExtra.data.d dVar = new com.baidu.tbadk.coreExtra.data.d();
-            afVar = this.a.b;
-            dVar.a(afVar.a(i2));
-            afVar2 = this.a.b;
-            dVar.a(afVar2.c());
-            afVar3 = this.a.b;
-            dVar.b(afVar3.f());
-            afVar4 = this.a.b;
-            dVar.c(afVar4.e());
-            afVar5 = this.a.b;
-            dVar.a(afVar5.g());
-            afVar6 = this.a.b;
-            dVar.b(afVar6.h());
-            xVar2 = this.a.p;
-            xVar2.a(20, dVar);
+            aeVar = this.a.b;
+            dVar.a(aeVar.a(i2));
+            aeVar2 = this.a.b;
+            dVar.a(aeVar2.c());
+            aeVar3 = this.a.b;
+            dVar.b(aeVar3.f());
+            aeVar4 = this.a.b;
+            dVar.c(aeVar4.e());
+            aeVar5 = this.a.b;
+            dVar.a(aeVar5.g());
+            aeVar6 = this.a.b;
+            dVar.b(aeVar6.h());
+            wVar2 = this.a.p;
+            wVar2.a(20, dVar);
         }
     }
 }

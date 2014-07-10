@@ -1,36 +1,50 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.model.MoreModel;
+import android.view.View;
+import android.widget.Scroller;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends BaseActivity.LoadDataCallBack {
-    final /* synthetic */ SystemHelpSettingActivity a;
+public class ae implements Runnable {
+    final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
-        super();
-        this.a = systemHelpSettingActivity;
+    public ae(ad adVar) {
+        this.a = adVar;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
-    public void callback(Object... objArr) {
-        an anVar;
-        an anVar2;
-        Object obj = objArr[0];
-        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
-            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.a.closeLoadingDialog();
-                anVar2 = this.a.a;
-                anVar2.e().setTip("");
-                this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_cache_success);
-            } else if (obj == MoreModel.TaskType.DO_IM_CLEAR) {
-                this.a.closeLoadingDialog();
-                this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);
-            } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                anVar = this.a.a;
-                anVar.e().setTip((String) objArr[1]);
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        Scroller scroller;
+        boolean z;
+        View view;
+        Scroller scroller2;
+        View view2;
+        View view3;
+        View view4;
+        View view5;
+        View view6;
+        View view7;
+        scroller = this.a.b;
+        if (scroller.computeScrollOffset()) {
+            scroller2 = this.a.b;
+            int currX = scroller2.getCurrX();
+            view2 = this.a.a;
+            view3 = this.a.a;
+            int paddingLeft = view3.getPaddingLeft();
+            view4 = this.a.a;
+            int paddingRight = view4.getPaddingRight();
+            view5 = this.a.a;
+            view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
+            view6 = this.a.a;
+            view6.invalidate();
+            view7 = this.a.a;
+            view7.post(this);
+            return;
+        }
+        z = this.a.f;
+        if (!z) {
+            view = this.a.a;
+            view.setVisibility(8);
         }
     }
 }

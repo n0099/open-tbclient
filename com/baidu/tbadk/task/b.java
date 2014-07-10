@@ -5,10 +5,10 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 public class b extends SocketMessageTask {
     public b(int i) {
         super(i);
-        f();
+        g();
     }
 
-    private void f() {
+    private void g() {
         a(true);
     }
 }

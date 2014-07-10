@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
@@ -19,16 +18,16 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
         super.c();
     }
 
-    protected void a(Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
-        b = String.valueOf(userData.getUserId());
         a(userData);
         ((CommonPersonalMsglistModel) this.e).a(userData);
     }
 
-    protected void a(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(Bundle bundle) {
         UserData userData = (UserData) bundle.getSerializable("user");
-        b = String.valueOf(userData.getUserId());
         a(userData);
         ((CommonPersonalMsglistModel) this.e).a(userData);
     }
@@ -38,19 +37,8 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean k() {
-        if (this.e instanceof CommonPersonalMsglistModel) {
-            UserData c = ((CommonPersonalMsglistModel) this.e).c();
-            if (c == null) {
-                BdLog.e("error:user or forum is null");
-                return false;
-            } else if (c.getUserIdLong() == 0) {
-                BdLog.e("error:uid invalid," + c.getUserId());
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return false;
+        UserData c;
+        return (!(this.e instanceof CommonPersonalMsglistModel) || (c = ((CommonPersonalMsglistModel) this.e).c()) == null || c.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,12 +51,10 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
     public void l() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.IS_ACCEPT_NOTIFY, true);
-        if (this.e == null) {
-            BdLog.e("mListModel is null");
-            return;
+        if (this.e != null) {
+            this.e.a(booleanExtra);
+            a(intent);
         }
-        this.e.a(booleanExtra);
-        a(intent);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
@@ -98,7 +84,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                     if (jSONArray.length() > 0) {
                         jSONObject = jSONArray.getJSONObject(0);
                         if (jSONObject == null) {
-                            sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.i(this, jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
+                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.l(this, jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                             return;
                         }
                         return;

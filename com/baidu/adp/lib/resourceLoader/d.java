@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.asyncTask.l;
-import com.baidu.adp.lib.stats.s;
+import com.baidu.adp.lib.stats.o;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -46,8 +46,15 @@ public class d {
         }
     }
 
+    public void a(String str, int i) {
+        e a = a(b(str, i));
+        if (a != null) {
+            a.cancel();
+        }
+    }
+
     public <T> void a(String str, int i, c<T> cVar) {
-        e<T> a = a(a(str, i));
+        e<T> a = a(b(str, i));
         if (a != null) {
             a.a(cVar);
         }
@@ -69,7 +76,6 @@ public class d {
     public <T> void a(int i, c<T> cVar) {
         LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(-1000);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
-            BdLog.d("pageId-" + i);
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
                 BdAsyncTask<?, ?, ?> next = it.next();
@@ -83,7 +89,6 @@ public class d {
     public void b(int i) {
         LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(-1000);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
-            BdLog.d("pageId-" + i);
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
                 BdAsyncTask<?, ?, ?> next = it.next();
@@ -97,7 +102,7 @@ public class d {
     public boolean c(int i) {
         h<?> hVar = this.b.get(i);
         if (hVar == null) {
-            BdLog.w("Can't find the ResourceLoaderProc with type " + i);
+            BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
         }
         return hVar.a();
@@ -109,10 +114,10 @@ public class d {
         }
         h<?> hVar = this.b.get(i);
         if (hVar == null) {
-            BdLog.w("Can't find the ResourceLoaderProc with type " + i);
+            BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
         }
-        return hVar.a(a(str, i), objArr);
+        return hVar.a(b(str, i), str, objArr);
     }
 
     public <T> Object a(String str, int i, c<T> cVar, int i2) {
@@ -123,42 +128,43 @@ public class d {
     /* JADX WARN: Multi-variable type inference failed */
     public <T> Object a(String str, int i, c<T> cVar, int i2, int i3, int i4, Object... objArr) {
         if (TextUtils.isEmpty(str)) {
-            BdLog.w("resKey can not be null");
+            BdLog.e("resKey can not be null");
             return null;
         }
         h<?> hVar = this.b.get(i);
         if (hVar == null) {
-            BdLog.w("Can't find the ResourceLoaderProc with type " + i);
+            BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
         }
-        String a = a(str, i);
+        String b = b(str, i);
         try {
-            Object a2 = hVar.a(a, objArr);
-            if (a2 != null) {
+            Object a = hVar.a(b, str, objArr);
+            if (a != null) {
                 if (cVar != 0) {
-                    cVar.a(a2, str);
-                    return a2;
+                    cVar.a(a, str, 1);
+                    return a;
                 }
-                return a2;
+                return a;
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        e<T> a3 = a(a);
-        if (a3 != null && a3.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            a3.a(cVar, i4);
+        e<T> a2 = a(b);
+        if (a2 != null && a2.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            a2.a(cVar, i4);
         } else {
-            boolean a4 = BdResourceLoaderNetHelperStatic.a();
-            s sVar = null;
-            if (a4) {
-                sVar = f.a();
-                sVar.a();
+            boolean a3 = BdResourceLoaderNetHelperStatic.a();
+            o oVar = null;
+            if (a3) {
+                oVar = f.a();
+                oVar.a();
             }
-            e eVar = new e(this, str, i, i2, i3, i4, cVar, sVar, objArr);
-            BdLog.d("create task");
-            eVar.setKey(a);
+            e eVar = new e(this, str, i, i2, i3, i4, cVar, oVar, objArr);
+            eVar.setKey(b);
             eVar.setTag(-1000);
-            if (a4) {
+            if (hVar.c() == 0) {
+            }
+            if (a3) {
                 if (hVar.b() == null) {
                     eVar.setParallel(e);
                 } else {
@@ -176,7 +182,7 @@ public class d {
         BdAsyncTask<?, ?, ?> searchTask;
         if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null) {
             if (!(searchTask instanceof e)) {
-                BdLog.w("BdAsyncTask has encountered repeat key");
+                BdLog.e("BdAsyncTask has encountered repeat key");
                 return null;
             }
             try {
@@ -190,7 +196,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str, int i) {
+    public String b(String str, int i) {
         if (str == null) {
             str = "";
         }

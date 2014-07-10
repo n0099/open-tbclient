@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
@@ -25,7 +24,6 @@ class d implements View.OnClickListener {
                 requestJoinGroupMessage.setUserMsg(this.a.b.getText().toString());
                 requestJoinGroupMessage.setJoinType(this.a.p);
                 requestJoinGroupMessage.setInviteUserId(this.a.n);
-                BdLog.d("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
                 this.a.f.setEnabled(false);
                 this.a.sendMessage(requestJoinGroupMessage);
             } else if (view.equals(this.a.e)) {

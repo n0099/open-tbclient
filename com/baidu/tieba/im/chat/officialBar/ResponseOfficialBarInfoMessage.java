@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.QueryForumDetail.QueryForumDetailResIdl;
@@ -13,20 +12,12 @@ public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
         return this.portrait;
     }
 
-    private void setPortrait(String str) {
-        this.portrait = str;
-    }
-
     public String getAuthen() {
         return this.authen;
     }
 
-    public void setAuthen(String str) {
-        this.authen = str;
-    }
-
     public ResponseOfficialBarInfoMessage() {
-        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_INFO);
+        super(208001);
         this.portrait = null;
         this.authen = null;
     }
@@ -37,7 +28,7 @@ public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
         QueryForumDetailResIdl queryForumDetailResIdl = (QueryForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryForumDetailResIdl.class);
         setError(queryForumDetailResIdl.error.errorno.intValue());
         setErrorString(queryForumDetailResIdl.error.usermsg);
-        setPortrait(queryForumDetailResIdl.data.portrait);
-        setAuthen(queryForumDetailResIdl.data.authen);
+        this.portrait = queryForumDetailResIdl.data.portrait;
+        this.authen = queryForumDetailResIdl.data.authen;
     }
 }

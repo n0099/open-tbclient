@@ -1,26 +1,21 @@
 package com.baidu.tbadk.core.util;
 
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
-import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar extends TimerTask {
-    final /* synthetic */ NetWorkCoreByBdHttp a;
-
-    private ar(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.a = netWorkCoreByBdHttp;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ar(NetWorkCoreByBdHttp netWorkCoreByBdHttp, ar arVar) {
-        this(netWorkCoreByBdHttp);
-    }
-
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
+public class ar extends Handler {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
         try {
-            this.a.b();
+            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
+            if (netWorkCore != null) {
+                netWorkCore.b();
+            }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "initNetWorkCore", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.e;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class q extends Thread {
     private String a;
@@ -20,10 +20,10 @@ public class q extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        anVar.a("obj", this.a);
-        anVar.a("obj_tp", this.b);
-        anVar.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.c);
-        anVar.i();
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        aqVar.a("obj", this.a);
+        aqVar.a("obj_tp", this.b);
+        aqVar.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.c);
+        aqVar.i();
     }
 }

@@ -1,113 +1,162 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
+import com.baidu.tieba.person.post.PersonPostModel;
 import com.baidu.tieba.view.PbListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class l implements f {
-    final /* synthetic */ k a;
+public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener {
+    private View c;
+    private BdListView d;
+    private h e;
+    private ProgressBar f;
+    private com.baidu.tbadk.core.view.q h;
+    private PbListView i;
+    private View j;
+    private int l;
+    private boolean g = false;
+    EnterGuideCenterView b = null;
+    private boolean k = false;
+    private boolean m = true;
+    private g n = new m(this);
+    private com.baidu.adp.framework.listener.b o = new n(this, 303002);
+    private HttpMessageListener p = new o(this, 1001503);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.a = kVar;
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        a(this.o);
+        a(this.p);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x005e, code lost:
-        if (r7.getErrorString().equals("") != false) goto L40;
-     */
-    @Override // com.baidu.tieba.person.post.f
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(PersonPostModel personPostModel, boolean z) {
-        ProgressBar progressBar;
-        TextView textView;
-        TextView textView2;
-        BdListView bdListView;
-        TextView textView3;
-        TextView textView4;
-        TextView textView5;
-        PbListView pbListView;
-        BdListView bdListView2;
-        View view;
-        PbListView pbListView2;
-        View view2;
-        BdListView bdListView3;
-        TextView textView6;
-        boolean z2;
-        TextView textView7;
-        if (this.a.isAdded()) {
-            progressBar = this.a.e;
-            progressBar.setVisibility(8);
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textView7 = this.a.g;
-                textView7.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
-            } else {
-                textView = this.a.g;
-                textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.c = layoutInflater.inflate(com.baidu.tieba.w.person_reply_fragment, viewGroup, false);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.v.listview_reply);
+        this.b = (EnterGuideCenterView) this.c.findViewById(com.baidu.tieba.v.reply_guid_center_root);
+        this.b.setTipTextByString(getArguments().getString("key_empty_view_text"));
+        this.f = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.person_post_progress);
+        return this.c;
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void onViewCreated(View view, Bundle bundle) {
+        this.h = new com.baidu.tbadk.core.view.q(getActivity());
+        this.d.setPullRefresh(this.h);
+        this.h.a(new p(this));
+        this.d.setOnScrollListener(this);
+        this.i = new PbListView(getActivity());
+        this.d.setNextPage(this.i);
+        this.j = this.i.b().findViewById(com.baidu.tieba.v.pb_more_view);
+        this.j.setVisibility(8);
+    }
+
+    public static int a(List<PersonPostModel.PostList> list) {
+        if (list == null) {
+            return 0;
+        }
+        int size = list.size();
+        int i = 0;
+        for (int i2 = 0; i2 < size; i2++) {
+            i += list.get(i2).content.length;
+        }
+        return i;
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onStart() {
+        super.onStart();
+        if (this.b != null) {
+            this.b.b();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onStop() {
+        super.onStop();
+        if (this.b != null) {
+            this.b.c();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+        a();
+        this.e.notifyDataSetChanged();
+        c(TbadkApplication.m252getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.e != null) {
+            this.e.a();
+        }
+    }
+
+    private void f() {
+        this.e = new h(getActivity(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"));
+        this.e.a(this.n);
+        this.e.a(true);
+        this.d.setAdapter((ListAdapter) this.e);
+    }
+
+    public void a() {
+        if (!this.g) {
+            f();
+            this.g = true;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d
+    public void c(int i) {
+        super.c(i);
+        if (isAdded()) {
+            if (this.j != null) {
+                TextView textView = (TextView) this.j.findViewById(com.baidu.tieba.v.pb_more_text);
+                if (i == 1) {
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
+                } else {
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
+                }
             }
-            if (personPostModel != null) {
-                if (k.a(personPostModel.post_list) == 0) {
-                    z2 = this.a.m;
-                    if (z2) {
-                        if (personPostModel.getErrorString() != null) {
-                            if (personPostModel.getErrorString() != null) {
-                            }
-                        }
-                    }
+            if (this.b != null) {
+                if (i == 1) {
+                    this.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d_1);
+                } else {
+                    this.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d);
                 }
-                if (personPostModel.getErrorString() != null && !personPostModel.getErrorString().equals("")) {
-                    if (k.a(personPostModel.post_list) == 0) {
-                        bdListView3 = this.a.c;
-                        textView6 = this.a.g;
-                        bdListView3.setEmptyView(textView6);
-                    }
-                    if (personPostModel.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.k.a((Context) this.a.getActivity(), personPostModel.getErrorString());
-                    }
-                }
-                textView5 = this.a.g;
-                textView5.setVisibility(8);
-                if (k.a(personPostModel.post_list) < 20) {
-                    if (!UtilHelper.isNetOk()) {
-                        view = this.a.j;
-                        view.setVisibility(8);
-                    } else {
-                        this.a.k = false;
-                        pbListView2 = this.a.i;
-                        pbListView2.a(this.a.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
-                        view2 = this.a.j;
-                        view2.setVisibility(0);
-                    }
-                }
-                pbListView = this.a.i;
-                pbListView.e();
-                bdListView2 = this.a.c;
-                bdListView2.c();
-                if (z) {
-                    this.a.k = true;
-                    this.a.l = 0;
-                    this.a.m = false;
-                    return;
-                }
-                return;
             }
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textView4 = this.a.g;
-                textView4.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
-            } else {
-                textView2 = this.a.g;
-                textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
+            if (this.i != null) {
+                this.i.d(i);
             }
-            bdListView = this.a.c;
-            textView3 = this.a.g;
-            bdListView.setEmptyView(textView3);
+            this.h.a(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        if (this.k && i3 > 2 && this.l != i3 && i + i2 == i3) {
+            this.l = i3;
+            this.e.a(false);
+            this.j.setVisibility(0);
+            this.i.d();
         }
     }
 }

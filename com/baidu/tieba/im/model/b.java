@@ -3,17 +3,17 @@ package com.baidu.tieba.im.model;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.b {
+public class b extends com.baidu.adp.base.e {
     private RequestGetMaskInfoMessage a;
     private RequestUpdateMaskInfoMessage b;
     private int c = 2;
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         super.cancelMessage();
         return false;

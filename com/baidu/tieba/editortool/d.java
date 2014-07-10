@@ -2,9 +2,8 @@ package com.baidu.tieba.editortool;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends CustomMessageListener {
+class d extends CustomMessageListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

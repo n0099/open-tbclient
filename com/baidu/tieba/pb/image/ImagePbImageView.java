@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.image;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -28,7 +29,9 @@ public class ImagePbImageView extends ImageView {
     private com.baidu.adp.widget.a.a l;
     private SoftReference<com.baidu.adp.widget.a.a> m;
     private int n;
-    private Handler o;
+    private int o;
+    @SuppressLint({"HandlerLeak"})
+    private Handler p;
 
     public void setScale(int i) {
         this.b = i;
@@ -46,13 +49,13 @@ public class ImagePbImageView extends ImageView {
 
     public void a() {
         this.n = 10;
-        this.o.sendMessageDelayed(this.o.obtainMessage(1), 20L);
+        this.p.sendMessageDelayed(this.p.obtainMessage(1), 20L);
         invalidate();
     }
 
     public void b() {
         this.n = 0;
-        this.o.removeMessages(1);
+        this.p.removeMessages(1);
     }
 
     public void setFirst(boolean z) {
@@ -70,13 +73,14 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ab(this);
+        this.o = 10;
+        this.p = new ab(this);
         c();
     }
 
@@ -90,13 +94,14 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ab(this);
+        this.o = 10;
+        this.p = new ab(this);
         c();
     }
 
@@ -110,13 +115,14 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ab(this);
+        this.o = 10;
+        this.p = new ab(this);
         c();
     }
 
@@ -128,44 +134,45 @@ public class ImagePbImageView extends ImageView {
     protected void onDraw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         super.onDraw(canvas);
-        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(String.valueOf((String) getTag()) + "_big");
-        if (c == null) {
+        Object a = com.baidu.adp.lib.resourceLoader.d.a().a((String) getTag(), this.o, new Object[0]);
+        com.baidu.adp.widget.a.a aVar2 = (a == null || !(a instanceof com.baidu.adp.widget.a.a)) ? null : (com.baidu.adp.widget.a.a) a;
+        if (aVar2 == null) {
             this.g = false;
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 if (this.m == null) {
-                    this.l = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_default_1), false, null);
+                    this.l = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
                 }
                 aVar = this.m.get();
             } else {
                 if (this.k == null) {
-                    this.j = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_default), false, null);
+                    this.j = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.image_default), false, null);
                     this.k = new SoftReference<>(this.j);
                 }
                 aVar = this.k.get();
             }
         } else {
             this.g = true;
-            aVar = c;
+            aVar = aVar2;
         }
         if (aVar != null) {
             this.d.setAlpha(MotionEventCompat.ACTION_MASK);
             if (this.n >= 0) {
                 this.d.setAlpha(255 - ((this.n * MotionEventCompat.ACTION_MASK) / 10));
             }
-            int a = com.baidu.adp.lib.util.k.a(getContext(), 8.0f);
-            int c2 = aVar.c();
+            int a2 = com.baidu.adp.lib.util.j.a(getContext(), 8.0f);
+            int c = aVar.c();
             int d = aVar.d();
-            int width = getWidth() - a;
+            int width = getWidth() - a2;
             int height = getHeight();
             this.c.reset();
             if (this.g && this.a) {
-                float min = Math.min(width / c2, height / d);
-                c2 = (int) (c2 * min);
+                float min = Math.min(width / c, height / d);
+                c = (int) (c * min);
                 d = (int) (d * min);
                 this.c.setScale(min, min);
             }
-            float f = ((width + a) - c2) >> 1;
+            float f = ((width + a2) - c) >> 1;
             float f2 = 0.0f;
             if (!this.g || this.b == 0) {
                 f2 = (height - d) >> 1;
@@ -173,12 +180,12 @@ public class ImagePbImageView extends ImageView {
             this.c.postTranslate(f, f2);
             aVar.a(canvas, this.c, this.d);
             if (this.g && TbadkApplication.m252getInst().getSkinType() == 1) {
-                this.f.set(f, f2, c2 + f, d + f2);
+                this.f.set(f, f2, c + f, d + f2);
                 canvas.drawRect(this.f, this.e);
             }
             if (this.h && this.i != null && this.g) {
                 this.c.reset();
-                this.c.postTranslate((width + a) - this.i.getWidth(), (height - this.i.getHeight()) >> 1);
+                this.c.postTranslate((width + a2) - this.i.getWidth(), (height - this.i.getHeight()) >> 1);
                 canvas.drawBitmap(this.i, this.c, this.d);
             }
         }

@@ -32,17 +32,17 @@ public class c extends CustomMessageListener {
         MyLiveListAdapter myLiveListAdapter4;
         if (customResponsedMessage == null) {
             this.a.a(y.neterror);
-            this.a.j();
+            this.a.k();
         } else if (!(customResponsedMessage instanceof ResponseMyLiveListLocalMessage)) {
             this.a.a(y.neterror);
-            this.a.j();
+            this.a.k();
         } else {
             ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = (ResponseMyLiveListLocalMessage) customResponsedMessage;
             Message<?> orginalMessage = responseMyLiveListLocalMessage.getOrginalMessage();
             if (orginalMessage == null) {
-                this.a.j();
+                this.a.k();
             } else if (!(orginalMessage instanceof RequestMyLiveListLocalMessage)) {
-                this.a.j();
+                this.a.k();
             } else {
                 int type = ((RequestMyLiveListLocalMessage) orginalMessage).getType();
                 i = this.a.i;
@@ -53,6 +53,7 @@ public class c extends CustomMessageListener {
                         list = responseMyLiveListLocalMessage.getHotLiveListData().b();
                     }
                     if (list != null && !list.isEmpty()) {
+                        this.a.l();
                         myLiveListAdapter = this.a.h;
                         myLiveListAdapter.c(true);
                         myLiveListAdapter2 = this.a.h;
@@ -63,9 +64,10 @@ public class c extends CustomMessageListener {
                         myLiveListAdapter4.notifyDataSetChanged();
                         return;
                     }
+                    this.a.m();
                     return;
                 }
-                this.a.j();
+                this.a.k();
             }
         }
     }

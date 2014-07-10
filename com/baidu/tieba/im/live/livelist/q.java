@@ -15,9 +15,9 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         s sVar;
         s sVar2;
-        sVar = this.a.h;
+        sVar = this.a.g;
         if (sVar != null) {
-            sVar2 = this.a.h;
+            sVar2 = this.a.g;
             sVar2.a(view);
         }
     }

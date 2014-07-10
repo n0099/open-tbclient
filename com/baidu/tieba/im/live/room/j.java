@@ -1,51 +1,29 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.RequestLiveGroupOwnerGagMessage;
-import com.baidu.tieba.im.message.ResponseLiveGroupOwnerGagMessage;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.framework.listener.b {
+public class j implements DialogInterface.OnClickListener {
     final /* synthetic */ LiveRoomChatActivity a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
+    private final /* synthetic */ boolean f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(LiveRoomChatActivity liveRoomChatActivity, int i) {
-        super(i);
+    public j(LiveRoomChatActivity liveRoomChatActivity, String str, String str2, String str3, String str4, boolean z) {
         this.a = liveRoomChatActivity;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = str4;
+        this.f = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.a.hideProgressBar();
-        if (!(socketResponsedMessage instanceof ResponseLiveGroupOwnerGagMessage)) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-            return;
-        }
-        ResponseLiveGroupOwnerGagMessage responseLiveGroupOwnerGagMessage = (ResponseLiveGroupOwnerGagMessage) socketResponsedMessage;
-        if (responseLiveGroupOwnerGagMessage.hasError()) {
-            if (responseLiveGroupOwnerGagMessage.getError() > 0 && !TextUtils.isEmpty(responseLiveGroupOwnerGagMessage.getErrorString())) {
-                this.a.showToast(responseLiveGroupOwnerGagMessage.getErrorString());
-                return;
-            } else {
-                this.a.showToast(com.baidu.tieba.y.neterror);
-                return;
-            }
-        }
-        Message<?> orginalMessage = responseLiveGroupOwnerGagMessage.getOrginalMessage();
-        if (orginalMessage instanceof RequestLiveGroupOwnerGagMessage) {
-            RequestLiveGroupOwnerGagMessage requestLiveGroupOwnerGagMessage = (RequestLiveGroupOwnerGagMessage) orginalMessage;
-            if (requestLiveGroupOwnerGagMessage.getType() == 1) {
-                String userNames = requestLiveGroupOwnerGagMessage.getUserNames();
-                if (!TextUtils.isEmpty(userNames)) {
-                    this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.y.live_chat_room_mute_success));
-                } else {
-                    this.a.showToast(com.baidu.tieba.y.live_chat_room_mute_success);
-                }
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.a.a(this.b, this.c, this.d, this.e, this.f);
     }
 }

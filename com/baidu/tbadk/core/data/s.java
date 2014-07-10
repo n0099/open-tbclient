@@ -1,17 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.WorldCupLottery;
+import tbclient.FrsPage.WorldCupNews;
 /* loaded from: classes.dex */
 public class s {
     String a;
+    String b;
 
     public String a() {
         return this.a;
     }
 
-    public void a(WorldCupLottery worldCupLottery) {
-        if (worldCupLottery != null) {
-            this.a = worldCupLottery.url;
+    public String b() {
+        return this.b;
+    }
+
+    public void a(WorldCupNews worldCupNews) {
+        if (worldCupNews != null) {
+            this.a = worldCupNews.url;
+            this.b = worldCupNews.title;
         }
     }
 }

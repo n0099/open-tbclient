@@ -54,7 +54,7 @@ public class f {
     }
 
     public boolean c(String str) {
-        com.baidu.adp.lib.cache.t<byte[]> b;
+        com.baidu.adp.lib.cache.u<byte[]> b;
         if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
             return false;
         }

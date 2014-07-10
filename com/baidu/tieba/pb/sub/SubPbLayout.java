@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.ai;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.data.am;
 import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -23,7 +23,7 @@ public class SubPbLayout extends ViewGroup {
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
     private b d;
-    private ai e;
+    private am e;
     private View f;
     private Queue<d> g;
     private View h;
@@ -58,8 +58,8 @@ public class SubPbLayout extends ViewGroup {
         this.d = bVar;
     }
 
-    public void a(ai aiVar, View view) {
-        this.e = aiVar;
+    public void a(am amVar, View view) {
+        this.e = amVar;
         requestLayout();
         this.f = view;
     }
@@ -72,14 +72,13 @@ public class SubPbLayout extends ViewGroup {
             return;
         }
         int i3 = i & 1073741823;
-        ArrayList<ai> i4 = this.e.i();
+        ArrayList<am> i4 = this.e.i();
         int size = i4.size();
         int i5 = 0;
         int i6 = 0;
         while (i5 < size) {
             View childAt = getChildAt(i5);
             if (childAt == null || childAt.equals(this.h)) {
-                BdLog.d("SubPbLayout", "onMeasure", "Item View Created for position: " + i5);
                 childAt = this.d.b();
                 this.g.offer(new d(i5, childAt, null));
             }
@@ -105,13 +104,13 @@ public class SubPbLayout extends ViewGroup {
                 sparseArray.put(com.baidu.tieba.v.tag_photo_username, i4.get(i5).o().getUserName());
                 sparseArray.put(com.baidu.tieba.v.tag_clip_board, i4.get(i5));
             }
-            this.d.a((c) sparseArray.get(com.baidu.tieba.v.tag_holder), i4.get(i5), this.e.s() > i4.size() || i4.size() - i5 > 1, i5 == 0);
+            this.d.a((c) sparseArray.get(com.baidu.tieba.v.tag_holder), i4.get(i5), this.e.t() > i4.size() || i4.size() - i5 > 1, i5 == 0);
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i5++;
             i6 += view.getMeasuredHeight();
         }
-        if (i4 != null && this.e.s() > i4.size()) {
-            a(getContext(), (TextView) this.h.findViewById(com.baidu.tieba.v.sub_pb_more_text), this.e.s() - i4.size());
+        if (i4 != null && this.e.t() > i4.size()) {
+            a(getContext(), (TextView) this.h.findViewById(com.baidu.tieba.v.sub_pb_more_text), this.e.t() - i4.size());
             this.h.setOnClickListener(this.a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
@@ -137,7 +136,6 @@ public class SubPbLayout extends ViewGroup {
             for (int i6 = 0; i6 < size; i6++) {
                 d poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    BdLog.d("SubPbLayout", "onLayout", "add to position: " + poll.a);
                     addViewInLayout(poll.b, poll.a, this.i, true);
                 }
             }
@@ -173,7 +171,7 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = com.baidu.tieba.ai.c().d().getString(y.sub_pb_load_more);
+        String string = ai.c().d().getString(y.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));

@@ -1,55 +1,43 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.View;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.base.c {
-    private BaseActivity a;
-    private View b;
-    private BdListView c;
-    private NavigationBar d;
-    private ae e;
-    private View f;
+public class ag extends CustomMessageListener {
+    final /* synthetic */ OfficialBarHistoryActivity a;
 
-    public ag(BaseActivity baseActivity) {
-        super(baseActivity);
-        this.a = baseActivity;
-        b();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag(OfficialBarHistoryActivity officialBarHistoryActivity) {
+        super(2001156);
+        this.a = officialBarHistoryActivity;
     }
 
-    private void b() {
-        this.b = View.inflate(this.a, com.baidu.tieba.w.official_bar_history_activity, null);
-        this.a.setContentView(this.b);
-        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.d.a(com.baidu.tieba.y.officical_bar_info_history);
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.v.bar_history_list);
-        this.e = new ae(this.a);
-        this.c.setAdapter((ListAdapter) this.e);
-        this.f = View.inflate(this.a, com.baidu.tieba.w.official_bar_history_item_occupy, null);
-        this.c.addHeaderView(this.f);
-        this.c.addFooterView(this.f);
-    }
-
-    public void a(List<ba> list) {
-        this.e.a(list);
-    }
-
-    public void a(int i) {
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.b);
-        this.d.c(i);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.x xVar) {
-        this.c.setOnSrollToBottomListener(xVar);
-    }
-
-    public boolean a() {
-        return this.e.getCount() != 0 && this.c.getLastVisiblePosition() < this.e.getCount() + (-1);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        aj ajVar;
+        List<be> list2;
+        List list3;
+        this.a.hideProgressBar();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001156 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
+            ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
+            if (!responseLocalHistoryMessage.getData().isEmpty()) {
+                list = this.a.e;
+                if (list != null) {
+                    list3 = this.a.e;
+                    if (!list3.isEmpty()) {
+                        return;
+                    }
+                }
+                this.a.e = responseLocalHistoryMessage.getData();
+                ajVar = this.a.b;
+                list2 = this.a.e;
+                ajVar.a(list2);
+            }
+        }
     }
 }

@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -335,7 +334,6 @@ public class bb {
                 }
             }
         } catch (Exception e) {
-            BdLog.e("error = " + e.getMessage());
         }
         return arrayList;
     }
@@ -364,6 +362,6 @@ public class bb {
         if (str == null) {
             return null;
         }
-        return com.baidu.tbadk.core.util.bk.a(context, str);
+        return com.baidu.tbadk.core.util.bq.a(context, str);
     }
 }

@@ -1,28 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tbadk.imageManager.d {
+public class ax extends BdAsyncTask<Void, Integer, Void> {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ SpannableStringBuilder b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
+    public ax(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = spannableStringBuilder;
-        this.c = i;
-        this.d = emotionGroupType;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar == null) {
-            return;
-        }
-        this.a.a(this.b, this.c, aVar, this.d);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.a.E;
+        com.baidu.tbadk.core.util.z.c(new File(append.append(str).toString()));
+        return null;
     }
 }

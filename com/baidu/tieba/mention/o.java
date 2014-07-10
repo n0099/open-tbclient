@@ -1,33 +1,16 @@
 package com.baidu.tieba.mention;
-
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ n a;
+public class o implements com.baidu.adp.widget.ListView.x {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.a = nVar;
+    public o(l lVar) {
+        this.a = lVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        m mVar;
-        BdListView bdListView;
-        m mVar2;
-        BdListView bdListView2;
-        mVar = this.a.a;
-        bdListView = mVar.e;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && aVar != null) {
-                aVar.a(imageView);
-            }
-            mVar2 = this.a.a;
-            bdListView2 = mVar2.e;
-            imageView = (ImageView) bdListView2.findViewWithTag(str);
-        }
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
+        this.a.g();
     }
 }

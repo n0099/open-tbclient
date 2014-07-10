@@ -17,7 +17,7 @@ class h extends com.baidu.tieba.im.b<Integer> {
     /* renamed from: b */
     public Integer a() {
         if (!this.c) {
-            w.a = com.baidu.tieba.im.db.o.d().a();
+            w.a = com.baidu.tieba.im.db.p.d().a();
             com.baidu.tieba.im.db.b.a().b();
         }
         return 0;

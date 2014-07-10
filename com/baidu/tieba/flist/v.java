@@ -75,7 +75,7 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            BdLog.d("ForumListDetailModel", "ForumListTask", e.getMessage());
+            BdLog.detailException(e);
             return null;
         }
     }

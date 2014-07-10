@@ -22,8 +22,8 @@ public class h extends PagerAdapter {
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
         this.a = albumActivity;
         this.b = eVar;
-        this.d = com.baidu.adp.lib.util.k.b(this.a);
-        this.e = com.baidu.adp.lib.util.k.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.t.album_bottom_height));
+        this.d = com.baidu.adp.lib.util.j.b(this.a);
+        this.e = com.baidu.adp.lib.util.j.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.t.album_bottom_height));
     }
 
     public void a(List<ImageFileInfo> list) {

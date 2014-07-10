@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,8 +17,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
     private static a n;
     private StringBuffer e;
-    private static final String c = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOG_DIR_NAME;
-    private static final String d = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOGBAK_DIR_NAME;
+    private static final String c = z.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOG_DIR_NAME;
+    private static final String d = z.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOGBAK_DIR_NAME;
     private static boolean o = false;
     private static boolean r = false;
     private final AtomicBoolean a = new AtomicBoolean(false);
@@ -95,7 +95,7 @@ public class a {
         try {
             b(UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()));
         } catch (Exception e) {
-            BdLog.e("BdLogger", "初始化日志组建失败 ", e);
+            BdLog.e(e);
         }
     }
 
@@ -103,7 +103,7 @@ public class a {
         try {
             this.e = new StringBuffer();
         } catch (Exception e) {
-            BdLog.e("BdLogger", "初始化日志组建失败 ", e);
+            BdLog.e(e);
         }
     }
 
@@ -116,7 +116,7 @@ public class a {
                 this.q.execute(new String[0]);
             }
         } catch (Exception e) {
-            BdLog.e("BdLogger", "network", e);
+            BdLog.e(e);
         }
     }
 
@@ -126,7 +126,7 @@ public class a {
                 this.e.append(str);
                 b(false);
             } catch (Exception e) {
-                BdLog.e("BdLogger", "hashTableToMemoryList error ", e);
+                BdLog.e(e);
             }
         }
     }
@@ -168,7 +168,7 @@ public class a {
     }
 
     private boolean e(String str) {
-        if (x.h(TbConfig.TMP_LOG_DIR_NAME, str) > 102400) {
+        if (z.h(TbConfig.TMP_LOG_DIR_NAME, str) > 102400) {
             if (this.l == UtilHelper.NetworkStateInfo.WIFI) {
                 this.p = new f(this, String.valueOf(c) + "/" + str);
                 this.p.execute(new String[0]);
@@ -190,7 +190,7 @@ public class a {
                 this.h = new File(String.valueOf(c) + "/" + c(e));
             }
             if (!this.h.exists()) {
-                x.l(c);
+                z.l(c);
                 this.h.createNewFile();
                 if (this.l != UtilHelper.NetworkStateInfo.WIFI) {
                     g(c);
@@ -208,7 +208,7 @@ public class a {
             this.g = 0;
         } catch (Exception e2) {
             this.g++;
-            BdLog.e("BdLogger", "write() ", e2);
+            BdLog.e(e2);
         } finally {
             i();
         }
@@ -228,7 +228,7 @@ public class a {
                 this.h = null;
             }
         } catch (Exception e) {
-            BdLog.e("BdLogger", "close() error  ", e);
+            BdLog.e(e);
         }
     }
 
@@ -239,8 +239,8 @@ public class a {
                 long j2 = 0;
                 for (File file : listFiles) {
                     if (file.isFile()) {
-                        long b = x.b(file);
-                        if (x.c(file)) {
+                        long b = z.b(file);
+                        if (z.c(file)) {
                             j2 += b;
                             if (j2 >= j && j > 0) {
                                 return;
@@ -252,13 +252,13 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            BdLog.e("BdLogger", "check file error ", e);
+            BdLog.e(e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str) {
-        if (x.a(str, true) > 26214400) {
+        if (z.a(str, true) > 26214400) {
             a(str, 10485760L);
         }
     }

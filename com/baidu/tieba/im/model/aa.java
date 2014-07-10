@@ -25,14 +25,14 @@ public class aa extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() == 2015007) {
+            if (customResponsedMessage.getCmd() == 2013007) {
                 List<ChatMessage> a = this.a.a((ResponsedMessage<?>) customResponsedMessage);
                 if (a != null) {
                     a(a);
                 }
-            } else if (customResponsedMessage.getCmd() == 2003146) {
+            } else if (customResponsedMessage.getCmd() == 2001146) {
                 this.a.b(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2003149) {
+            } else if (customResponsedMessage.getCmd() == 2001149) {
                 this.a.a(customResponsedMessage);
             }
         }

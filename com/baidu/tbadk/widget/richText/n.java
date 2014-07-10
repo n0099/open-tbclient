@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -17,10 +16,10 @@ public class n implements ViewGroup.OnHierarchyChangeListener {
         this.a = tbRichTextView;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x004e  */
     /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0022  */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x001c  */
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -38,7 +37,6 @@ public class n implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.d.b bVar10;
         com.baidu.adp.lib.d.b bVar11;
         com.baidu.adp.lib.d.b bVar12;
-        BdLog.d("pool return child");
         if (view2 instanceof GifView) {
             bVar11 = this.a.f;
             if (bVar11 != null) {

@@ -59,16 +59,12 @@ public class c {
         String a2 = a(str);
         if (a()) {
             File file = new File(a2);
-            if (!file.exists() && !file.mkdirs()) {
-                BdLog.e("FileHelper", "checkDir", "error fulldirObj.mkdirs:" + a2);
-                return false;
-            }
-            return true;
+            return file.exists() || file.mkdirs();
         }
         return false;
     }
 
-    private static String g(String str) {
+    private static String f(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
             return null;
@@ -77,16 +73,14 @@ public class c {
     }
 
     public static boolean b(String str, String str2) {
-        String g = g(a(str, str2));
-        File file = new File(g);
+        File file = new File(f(a(str, str2)));
         if (!file.exists()) {
             try {
                 if (!file.mkdirs()) {
-                    BdLog.e("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs:" + g);
                     return false;
                 }
             } catch (Exception e) {
-                BdLog.e("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs error:" + e.getMessage() + " " + g);
+                BdLog.e(e.getMessage());
                 return false;
             }
         }
@@ -98,7 +92,7 @@ public class c {
             try {
                 return new File(a(str, str2));
             } catch (SecurityException e) {
-                BdLog.e("FileHelper", "GetFile", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return null;
             }
         }
@@ -106,54 +100,28 @@ public class c {
     }
 
     public static File d(String str, String str2) {
-        File file = null;
-        if (!c(str)) {
-            BdLog.e("FileHelper", "CreateFile", "error checkDir");
-        } else {
-            try {
-                if (!b(str, str2)) {
-                    BdLog.e("FileHelper", "CreateFile", "error checkAndMkdirs");
-                } else {
-                    File c = c(str, str2);
-                    if (c.exists() && !c.delete()) {
-                        BdLog.e("FileHelper", "CreateFile", "error file.delete");
-                    } else if (c.createNewFile()) {
-                        file = c;
-                    } else {
-                        BdLog.e("FileHelper", "CreateFile", "error createNewFile" + str + str2);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e("FileHelper", "CreateFile", "error = " + e.getMessage() + " input:" + str + str2);
-            }
-        }
-        return file;
-    }
-
-    public static File e(String str, String str2) {
         if (c(str)) {
             try {
-                File c = c(str, str2);
-                if (c.exists()) {
-                    return c;
-                }
-                if (c.createNewFile()) {
-                    return c;
+                if (b(str, str2)) {
+                    File c = c(str, str2);
+                    if (!c.exists() || c.delete()) {
+                        if (c.createNewFile()) {
+                            return c;
+                        }
+                        return null;
+                    }
+                    return null;
                 }
                 return null;
             } catch (Exception e) {
-                BdLog.e("FileHelper", "CreateFile", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return null;
             }
         }
         return null;
     }
 
-    public static File d(String str) {
-        return e(null, str);
-    }
-
-    public static boolean f(String str, String str2) {
+    public static boolean e(String str, String str2) {
         if (c(str)) {
             File c = c(str, str2);
             try {
@@ -162,29 +130,29 @@ public class c {
                 }
                 return false;
             } catch (Exception e) {
-                BdLog.e("FileHelper", "DelFile", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return false;
             }
         }
         return false;
     }
 
-    public static boolean e(String str) {
-        return f(null, str);
+    public static boolean d(String str) {
+        return e(null, str);
     }
 
     public static void a(OutputStream outputStream) {
         outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
     }
 
-    public static void f(String str) {
+    public static void e(String str) {
         try {
             File file = new File(str);
             if (!file.exists()) {
                 file.mkdir();
             }
         } catch (Exception e) {
-            BdLog.e("BdFileHelper", "makeRootDirectory", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

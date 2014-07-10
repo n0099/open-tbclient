@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends BaseActivity {
     private ProgressBar a = null;
-    private bl b = null;
+    private cq b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
@@ -56,7 +55,7 @@ public class PersonImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tbadk.core.util.be.d(i));
+            this.c.setBackgroundColor(com.baidu.tbadk.core.util.bk.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
@@ -70,7 +69,7 @@ public class PersonImageActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.c.a();
@@ -106,13 +105,13 @@ public class PersonImageActivity extends BaseActivity {
     }
 
     private void a() {
-        this.d = new bh(this);
-        this.e = new bi(this);
-        this.f = new bj(this);
-        this.g = new bk(this);
+        this.d = new cm(this);
+        this.e = new cn(this);
+        this.f = new co(this);
+        this.g = new cp(this);
         this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         this.c = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
-        this.c.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
+        this.c.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.c.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.c.setItemOnclickListener(this.d);
         this.c.setItemOnLongClickListener(this.e);
@@ -125,11 +124,9 @@ public class PersonImageActivity extends BaseActivity {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            BdLog.d(" have savedInstanceState");
             this.h = bundle.getString("curImgUrl");
             return;
         }
-        BdLog.d(" not have savedInstanceState");
         Intent intent = getIntent();
         if (intent != null) {
             this.h = intent.getStringExtra("curImgUrl");

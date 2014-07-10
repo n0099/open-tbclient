@@ -11,7 +11,7 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.c {
+public class t extends com.baidu.adp.base.f {
     private View a;
     private View b;
     private UpdatesActivity c;
@@ -55,7 +55,7 @@ public class t extends com.baidu.adp.base.c {
         a(false);
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
         if (this.e != null) {
@@ -65,24 +65,28 @@ public class t extends com.baidu.adp.base.c {
         this.c = null;
     }
 
-    public void b() {
+    public h b() {
+        return this.e;
+    }
+
+    public void c() {
         this.g.setVisibility(8);
         this.b.setVisibility(8);
         this.h.setVisibility(0);
         this.k.setVisibility(0);
-        d();
+        e();
     }
 
-    public void c() {
+    public void d() {
         this.g.setVisibility(0);
         this.b.setVisibility(0);
         this.h.setVisibility(8);
         this.k.setVisibility(8);
         a(0);
-        d();
+        e();
     }
 
-    public void d() {
+    public void e() {
         if (this.e != null) {
             this.e.notifyDataSetChanged();
         }
@@ -113,23 +117,23 @@ public class t extends com.baidu.adp.base.c {
         this.j.c(i);
     }
 
-    public View e() {
+    public View f() {
         return this.b;
     }
 
-    public BdListView f() {
+    public BdListView g() {
         return this.d;
     }
 
-    public Button g() {
+    public Button h() {
         return this.g;
     }
 
-    public Button h() {
+    public Button i() {
         return this.h;
     }
 
-    public Button i() {
+    public Button j() {
         return this.i;
     }
 }

@@ -8,7 +8,7 @@ public class cb {
         try {
             com.baidu.tbadk.motu_gallery.v.a(activity, 12002, null);
         } catch (Exception e) {
-            BdLog.e("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.android.systemmonitor.security;
 
-import com.baidu.android.nebula.a.k;
-import com.baidu.android.nebula.a.l;
+import com.baidu.android.common.security.AESUtil;
+import com.baidu.android.common.security.Base64;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -19,7 +19,7 @@ public final class a {
             str2 = c("bdsystemmonitor_2013@mic");
         } catch (NoSuchAlgorithmException e) {
         }
-        return URLEncoder.encode(k.a(l.a("2013010111143000", str2.substring(str2.length() / 2), str.getBytes()), "utf-8"), "utf-8");
+        return URLEncoder.encode(Base64.encode(AESUtil.encrypt("2013010111143000", str2.substring(str2.length() / 2), str.getBytes()), "utf-8"), "utf-8");
     }
 
     public static String b(String str) {
@@ -31,10 +31,10 @@ public final class a {
         String substring = str2.substring(str2.length() / 2);
         byte[] bArr = null;
         try {
-            bArr = k.a(URLDecoder.decode(str, "utf-8").getBytes());
+            bArr = Base64.decode(URLDecoder.decode(str, "utf-8").getBytes());
         } catch (Exception e2) {
         }
-        return new String(l.b("2013010111143000", substring, bArr));
+        return new String(AESUtil.decrypt("2013010111143000", substring, bArr));
     }
 
     private static String c(String str) {

@@ -1,94 +1,35 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.io.File;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class bd {
-    public static void a(Activity activity) {
-        try {
-            if (!x.a()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(x.b());
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(x.b());
-                }
-            } else {
-                File f = x.f("camera.jpg");
-                if (f != null) {
-                    Uri fromFile = Uri.fromFile(f);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                } else if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e("WriteUtil", "takePhoto", "error = " + e.getMessage());
-        }
+public class bd extends BdAsyncTask<String, String, String> {
+    final /* synthetic */ bc a;
+    private final String b;
+    private final String c;
+    private final boolean d;
+    private final boolean e;
+    private final boolean f;
+
+    public bd(bc bcVar, String str, String str2, boolean z, boolean z2, boolean z3) {
+        this.a = bcVar;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
+        this.e = z2;
+        this.f = z3;
+        setParallel(bi.a);
     }
 
-    public static void a(Activity activity, String str) {
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
         try {
-            if (!x.a()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(x.b());
-                    return;
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(x.b());
-                    return;
-                } else {
-                    return;
-                }
-            }
-            boolean z = false;
-            if (x.a(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Uri fromFile = Uri.fromFile(file);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e("WriteUtil", "takePhoto", "error = " + e.getMessage());
+            this.a.a(this.b, this.c, this.d, this.e, this.f);
+        } catch (Throwable th) {
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
         }
-    }
-
-    public static void b(Activity activity) {
-        c(activity);
-    }
-
-    public static void c(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            BdLog.e("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
-        }
+        return null;
     }
 }

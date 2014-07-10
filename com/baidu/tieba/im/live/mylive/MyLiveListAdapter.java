@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tbadk.coreExtra.view.ae;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.coreExtra.view.ag;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
@@ -25,9 +25,9 @@ public class MyLiveListAdapter extends BaseAdapter {
     private MyLiveActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private ab d;
+    private aa d;
     private boolean e;
-    private ae h;
+    private ag h;
     private boolean f = false;
     private String g = "";
     private ArrayList<LiveCardData> i = new ArrayList<>();
@@ -59,7 +59,7 @@ public class MyLiveListAdapter extends BaseAdapter {
 
     public void a(List<LiveCardData> list) {
         this.i.addAll(list);
-        b();
+        c();
     }
 
     public void a(LiveCardData liveCardData) {
@@ -87,12 +87,16 @@ public class MyLiveListAdapter extends BaseAdapter {
         this.b = BOTTOM_TYPE.LINE;
     }
 
-    public MyLiveListAdapter(MyLiveActivity myLiveActivity, ae aeVar) {
+    public MyLiveListAdapter(MyLiveActivity myLiveActivity, ag agVar) {
         this.h = null;
         this.a = myLiveActivity;
-        this.d = new ab(myLiveActivity);
-        this.d.d(true);
-        this.h = aeVar;
+        this.d = new aa(myLiveActivity);
+        this.d.b(true);
+        this.h = agVar;
+    }
+
+    public boolean b() {
+        return this.c;
     }
 
     public void c(boolean z) {
@@ -179,7 +183,7 @@ public class MyLiveListAdapter extends BaseAdapter {
             jVar.a.setVisibility(8);
             jVar.b.setVisibility(0);
             LiveCardData liveCardData = (LiveCardData) getItem(i);
-            jVar.b.a(liveCardData, this.d);
+            jVar.b.setData(liveCardData);
             jVar.b.setCardClickListener(new i(this, liveCardData));
             if (this.f) {
                 jVar.b.setClickable(false);
@@ -195,11 +199,11 @@ public class MyLiveListAdapter extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.a().a(view);
+        this.a.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.a.c().a(view);
     }
 
-    private void b() {
+    private void c() {
         HashSet hashSet = new HashSet();
         Iterator<LiveCardData> it = this.i.iterator();
         while (it.hasNext()) {

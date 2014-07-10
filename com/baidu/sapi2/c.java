@@ -14,8 +14,8 @@ public class c extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        if (message.what == 1 && this.a.r != null) {
-            this.a.r.onTimeout((String) message.obj);
+        if (message.what == 1) {
+            this.a.h();
         }
     }
 }

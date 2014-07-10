@@ -11,7 +11,7 @@ public class o implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        x playView;
+        y playView;
         playView = this.a.getPlayView();
         if (playView != null) {
             this.a.startPlay(playView);

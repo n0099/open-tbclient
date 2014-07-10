@@ -12,6 +12,6 @@ public class x implements CustomMessageTask.CustomRunnable {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2011002, com.baidu.tieba.util.k.h());
+        return new CustomResponsedMessage<>(2009002, com.baidu.tieba.util.k.h());
     }
 }

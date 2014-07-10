@@ -8,44 +8,41 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
-import com.baidu.adp.lib.stats.s;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.stats.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bn;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.adp.widget.a.a> {
-    public abstract int c();
-
     public abstract int d();
 
-    public abstract boolean e();
+    public abstract int e();
 
     public abstract boolean f();
 
     public abstract boolean g();
 
+    public abstract boolean h();
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.resourceLoader.h
     /* renamed from: b */
-    public com.baidu.adp.widget.a.a a(String str, Object... objArr) {
+    public com.baidu.adp.widget.a.a a(String str, String str2, Object... objArr) {
         return com.baidu.tbadk.imageManager.e.a().c(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.resourceLoader.h
     /* renamed from: b */
-    public com.baidu.adp.widget.a.a a(String str, com.baidu.adp.lib.resourceLoader.a aVar, Object... objArr) {
-        com.baidu.adp.widget.a.a aVar2 = null;
-        s a = ac.a();
+    public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.resourceLoader.a aVar, Object... objArr) {
+        o a = ae.a();
         a.a();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c a2 = a(bg.f(str));
+        com.baidu.adp.lib.Disk.ops.c a2 = a(bm.f(str2));
         if (a2 == null) {
             return null;
         }
@@ -60,7 +57,7 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
         }
         boolean a3 = BdResourceLoaderNetHelperStatic.a();
         if (!com.baidu.adp.lib.Disk.d.a().b(a2)) {
-            ac.a(a, str, false, a.b(), a3);
+            ae.a(a, str2, false, a.b(), a3);
             return null;
         }
         int i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
@@ -71,20 +68,15 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
             try {
                 bArr.wait(i);
             } catch (InterruptedException e) {
-                BdLog.d("wait exception. class is " + e.getClass().getName() + e.getMessage());
             }
         }
-        if (a2.g()) {
-            aVar2 = a(a2, str);
+        com.baidu.adp.widget.a.a a4 = a2.g() ? a(a2, str2) : null;
+        if (a4 != null) {
+            ae.a(a, str2, true, a.b(), a3);
         } else {
-            BdLog.d("local failed");
+            ae.a(a, str2, false, a.b(), a3);
         }
-        if (aVar2 != null) {
-            ac.a(a, str, true, a.b(), a3);
-        } else {
-            ac.a(a, str, false, a.b(), a3);
-        }
-        return aVar2;
+        return a4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,15 +91,14 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        BdLog.d("begin from remote");
-        s a = ac.a();
+        o a = ae.a();
         a.a();
-        int c = i == 0 ? c() : i;
-        int d = i2 == 0 ? d() : i2;
-        int a2 = c == 0 ? k.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : c;
-        int a3 = d == 0 ? k.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : d;
-        boolean e = e();
-        String a4 = e ? str : a(str, a2, a3);
+        int d = i == 0 ? d() : i;
+        int e = i2 == 0 ? e() : i2;
+        int a2 = d == 0 ? com.baidu.adp.lib.util.j.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : d;
+        int a3 = e == 0 ? com.baidu.adp.lib.util.j.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : e;
+        boolean f = f();
+        String a4 = f ? str : a(str, a2, a3);
         if (!(TbadkApplication.m252getInst().getCapabilityOfWebp() && com.baidu.adp.lib.a.f.a().b("webp_enable") == 1) || a4.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = a4.lastIndexOf(".jpg")) <= 0) {
             z = false;
             str3 = a4;
@@ -115,42 +106,42 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
             str3 = String.valueOf(a4.substring(0, lastIndexOf)) + ".webp" + a4.substring(lastIndexOf + 4, a4.length());
             z = true;
         }
-        com.baidu.tbadk.core.util.a.e eVar = new com.baidu.tbadk.core.util.a.e();
+        com.baidu.tbadk.core.util.httpNet.i iVar = new com.baidu.tbadk.core.util.httpNet.i();
         if (aVar != null) {
-            aVar.a = eVar;
+            aVar.a = iVar;
         }
-        byte[] a5 = eVar.a(str3, !e);
-        if (!eVar.b()) {
-            if (!eVar.c().a) {
-                ac.a(a, str, false, str3, e, Boolean.valueOf(z), eVar.f, "NetworkError", a.b());
+        byte[] a5 = iVar.a(str3, !f);
+        if (!iVar.b()) {
+            if (!iVar.c().a) {
+                ae.a(a, str, false, str3, f, Boolean.valueOf(z), iVar.f, "NetworkError", a.b());
             }
             return null;
         } else if (a5 == null) {
-            ac.a(a, str, false, str3, e, Boolean.valueOf(z), eVar.f, "ByteIsNull", a.b());
+            ae.a(a, str, false, str3, f, Boolean.valueOf(z), iVar.f, "ByteIsNull", a.b());
             return null;
         } else {
             if (a5.length > 1) {
-                ac.a(a, str, true, str3, e, Boolean.valueOf(z), eVar.f, "", a.b());
+                ae.a(a, str, true, str3, f, Boolean.valueOf(z), iVar.f, "", a.b());
             } else {
-                ac.a(a, str, false, str3, e, Boolean.valueOf(z), eVar.f, "bytes<1", a.b());
+                ae.a(a, str, false, str3, f, Boolean.valueOf(z), iVar.f, "bytes<1", a.b());
             }
-            s a6 = ac.a();
+            o a6 = ae.a();
             a6.a();
             com.baidu.tbadk.imageManager.e.a().c(TbConfig.getPbImageSize() + a5.length);
             Rect rect = new Rect();
-            Bitmap a7 = a(a5, rect);
+            StringBuilder sb = new StringBuilder(100);
+            Bitmap a7 = a(a5, rect, sb);
             if (z && a7 == null) {
-                BdLog.e("Webp decoding failed: " + str);
-                TiebaStatic.imgError(eVar.a, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str);
+                TiebaStatic.imgError(iVar.a, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str);
                 TbadkApplication.m252getInst().incWebpFailureCount();
-                byte[] a8 = eVar.a(a4, !e);
-                if (a8 == null || !eVar.b()) {
-                    bArr = a8;
+                bArr = iVar.a(a4, !f);
+                if (bArr == null || !iVar.b()) {
                     z2 = false;
                 } else {
-                    a7 = a(a8, rect);
-                    bArr = a8;
+                    StringBuilder sb2 = new StringBuilder(100);
                     z2 = false;
+                    a7 = a(bArr, rect, sb2);
+                    sb = sb2;
                 }
             } else {
                 bArr = a5;
@@ -158,24 +149,24 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
             }
             if (bArr == null || a7 == null) {
                 if (bArr == null) {
-                    ac.a(a6, str, str3, false, e, z2, 0, "TmpIsNull", a6.b());
+                    ae.a(a6, str, str3, false, f, z2, 0, "TmpIsNull", a6.b(), sb.toString());
                 } else {
-                    ac.a(a6, str, str3, false, e, z2, bArr.length, "ConvertError", a6.b());
+                    ae.a(a6, str, str3, false, f, z2, bArr.length, "ConvertError", a6.b(), sb.toString());
                 }
                 return null;
             }
-            boolean z3 = eVar.d || k.a(bArr);
-            Bitmap a9 = a(a7, a2, a3);
-            if (a9 == null) {
-                ac.a(a6, str, str3, false, e, z2, bArr.length, "ResizeError", a6.b());
+            boolean z3 = iVar.d || com.baidu.adp.lib.util.j.a(bArr);
+            Bitmap a8 = a(a7, a2, a3);
+            if (a8 == null) {
+                ae.a(a6, str, str3, false, f, z2, bArr.length, "ResizeError", a6.b(), sb.toString());
                 return null;
             }
-            ac.a(a6, str, str3, true, e, z2, bArr.length, "", a6.b());
-            if (!a(a9)) {
+            ae.a(a6, str, str3, true, f, z2, bArr.length, "", a6.b(), sb.toString());
+            if (!a(a8)) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar2 = new com.baidu.adp.widget.a.a(a9, z3, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bg.f(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.widget.a.a aVar2 = new com.baidu.adp.widget.a.a(a8, z3, str, rect);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bm.f(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.b(true);
             cVar.a(bArr);
@@ -207,18 +198,18 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
         if (!str.startsWith(TbConfig.IMAGE_ADDRESS)) {
             sb.append(TbConfig.IMAGE_ADDRESS);
             sb.append("src=");
-            sb.append(bg.d(str));
+            sb.append(bm.d(str));
             sb.append("&width=");
             sb.append(String.valueOf(i));
             sb.append("&height=");
             sb.append(String.valueOf(i2));
             sb.append("&imgtype=0");
-            sb.append("&qulity=" + bh.a().d());
+            sb.append("&qulity=" + bn.a().d());
             sb.append("&first_gif=1");
-            if (f()) {
+            if (g()) {
                 sb.append("&ispv=1");
             }
-            if (g()) {
+            if (h()) {
                 sb.append("&no_prefix=1");
             }
             return sb.toString();
@@ -235,17 +226,15 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
             return null;
         }
         cVar.b(cVar.b());
-        Bitmap u = cVar.u();
-        if (u != null) {
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(u, cVar.t(), str);
-            BdLog.d("from local. data returned.");
-            return aVar;
+        Bitmap w = cVar.w();
+        if (w != null) {
+            return new com.baidu.adp.widget.a.a(w, cVar.v(), str);
         }
         return null;
     }
 
-    protected Bitmap a(byte[] bArr, Rect rect) {
-        return com.baidu.tbadk.core.util.g.a(bArr);
+    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+        return com.baidu.tbadk.core.util.h.a(bArr, sb);
     }
 
     protected boolean a(Bitmap bitmap) {
@@ -257,9 +246,8 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            BdLog.e(getClass().getName(), "doInBackground", "image_too_big:" + String.valueOf(String.valueOf(bitmap.getWidth()) + "*" + String.valueOf(bitmap.getHeight())));
-            com.baidu.tbadk.imageManager.e.a().c(com.baidu.tbadk.core.util.g.a(bitmap) * 2);
-            return com.baidu.tbadk.core.util.g.a(bitmap, i, i2, true);
+            com.baidu.tbadk.imageManager.e.a().c(com.baidu.tbadk.core.util.h.a(bitmap) * 2);
+            return com.baidu.tbadk.core.util.h.a(bitmap, i, i2, true);
         }
         return bitmap;
     }
@@ -267,5 +255,10 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.h<com.baidu.
     @Override // com.baidu.adp.lib.resourceLoader.h
     public BdAsyncTaskParallel b() {
         return null;
+    }
+
+    @Override // com.baidu.adp.lib.resourceLoader.h
+    public int c() {
+        return 1;
     }
 }

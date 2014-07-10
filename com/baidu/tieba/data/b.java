@@ -1,23 +1,37 @@
 package com.baidu.tieba.data;
 
-import tbclient.FrsPage.Group;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private int a = 0;
-    private int b = 0;
+    private int a;
+    private String b;
+    private String c;
+    private String d;
 
-    public int a() {
-        return this.a;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.b = jSONObject.optString("icon_url");
+            this.c = jSONObject.optString("icon_link");
+            this.d = jSONObject.optString("content");
+            this.a = jSONObject.optInt("tail_type");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public int b() {
+    public String a() {
         return this.b;
     }
 
-    public void a(Group group) {
-        if (group != null) {
-            this.a = group.group_count.intValue();
-            this.b = group.hide_recommend_group.intValue();
-        }
+    public String b() {
+        return this.c;
+    }
+
+    public String c() {
+        return this.d;
+    }
+
+    public int d() {
+        return this.a;
     }
 }

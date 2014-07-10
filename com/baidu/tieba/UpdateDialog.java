@@ -30,7 +30,7 @@ public class UpdateDialog extends BaseActivity {
             intent.putExtra("tieba_apk_data", versionData);
             intent.putExtra("other_apk_data", combineDownload);
             context.startActivity(intent);
-            ai.c().o(true);
+            ai.c().n(true);
             ai.c().a(combineDownload);
         }
     }
@@ -113,8 +113,8 @@ public class UpdateDialog extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2, boolean z3) {
-        if (!com.baidu.tbadk.core.util.x.a()) {
-            showToast(com.baidu.tbadk.core.util.x.b());
+        if (!com.baidu.tbadk.core.util.z.a()) {
+            showToast(com.baidu.tbadk.core.util.z.b());
             return;
         }
         this.b = z;

@@ -1,52 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ MainTabActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        MainTabActivity mainTabActivity;
-        mainTabActivity = this.a.F;
-        ImageView imageView = new ImageView(mainTabActivity);
-        imageView.setBackgroundResource(com.baidu.tieba.u.sign_all_tip);
-        return imageView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.F;
-        mainTabActivity2 = this.a.F;
-        return -((int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds54) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density));
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.F;
-        mainTabActivity2 = this.a.F;
-        return (int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds64) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density);
+public class m implements CustomMessageTask.CustomRunnable<Void> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+        if (customMessage == null) {
+            return null;
+        }
+        TbadkApplication.m252getInst().setFriendFeedNew(true);
+        return new CustomResponsedMessage<>(2012118);
     }
 }

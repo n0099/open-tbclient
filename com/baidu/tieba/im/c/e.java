@@ -3,10 +3,8 @@ package com.baidu.tieba.im.c;
 import android.os.Handler;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,26 +21,24 @@ public class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
     @Override // com.baidu.tieba.im.a
     public void a(com.baidu.tieba.im.db.e eVar) {
         int i;
-        MessageSyncMessage l;
+        MessageSyncMessage m;
         long j;
         long j2;
         int i2;
         int i3;
-        int i4;
         Handler handler;
         Handler handler2;
         Handler handler3;
         Handler handler4;
         if (com.baidu.tieba.im.i.a() > 10) {
-            BdLog.i("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
-            handler3 = this.a.l;
-            handler4 = this.a.l;
+            handler3 = this.a.m;
+            handler4 = this.a.m;
             handler3.sendMessageDelayed(handler4.obtainMessage(2), 2000L);
         } else if (com.baidu.tieba.im.b.e.d()) {
             this.a.e = false;
             MessageManager messageManager = MessageManager.getInstance();
-            i = this.a.k;
-            LinkedList<? extends Message> findMessage = messageManager.findMessage(MessageTypes.CMD_MESSAGE_SYNC, i);
+            i = this.a.l;
+            LinkedList<? extends Message> findMessage = messageManager.findMessage(202003, i);
             if (findMessage != null && findMessage.size() > 0) {
                 this.a.e = true;
                 return;
@@ -58,22 +54,17 @@ public class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
                             b bVar = this.a;
                             i3 = bVar.g;
                             bVar.g = i3 + 1;
-                            StringBuilder sb = new StringBuilder("----background pull skip. no pull count ");
-                            i4 = this.a.g;
-                            BdLog.i(sb.append(i4).toString());
                             return;
                         }
                     }
                 }
             }
-            BdLog.i("----real pull msg.");
             this.a.g = 0;
-            l = this.a.l();
-            MessageManager.getInstance().sendMessage(l);
+            m = this.a.m();
+            MessageManager.getInstance().sendMessage(m);
         } else {
-            BdLog.i("----pull message, but cache is initing... ");
-            handler = this.a.l;
-            handler2 = this.a.l;
+            handler = this.a.m;
+            handler2 = this.a.m;
             handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
         }
     }

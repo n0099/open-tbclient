@@ -5,9 +5,10 @@ import android.graphics.Rect;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.g;
+import com.baidu.tbadk.core.util.bl;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.h;
+import com.baidu.tbadk.core.util.httpNet.i;
 /* loaded from: classes.dex */
 public class c extends a {
     static {
@@ -29,17 +30,17 @@ public class c extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
     public Object a(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (eVar.g) {
-            String f = bg.f(str);
+            String f = bm.f(str);
             if (bVar.f != null) {
                 f = String.valueOf(f) + bVar.f;
             }
             String a = bVar.a(str);
-            synchronized (g.a) {
+            synchronized (h.a) {
                 if (f != null) {
-                    int e = bf.a().e(f);
+                    int e = bl.a().e(f);
                     if (e > 0) {
                         com.baidu.tbadk.imageManager.e.a().c(e);
-                        eVar.i = bf.a().a(f, a);
+                        eVar.i = bl.a().a(f, a);
                         eVar.e = eVar.i.h();
                     }
                 }
@@ -75,40 +76,40 @@ public class c extends a {
             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_URL_IS_NULL, "", "");
             return null;
         }
-        String f = bg.f(str);
+        String f = bm.f(str);
         if (bVar.f != null) {
             f = String.valueOf(f) + bVar.f;
         }
-        eVar.a = new com.baidu.tbadk.core.util.a.e();
-        byte[] a = eVar.a.a(str);
-        if (a == null || !eVar.a.b()) {
+        eVar.a = new i();
+        byte[] b = eVar.a.b(str);
+        if (b == null || !eVar.a.b()) {
             return null;
         }
         if (eVar.n) {
             return null;
         }
-        String a2 = bVar.a(str);
-        com.baidu.tbadk.imageManager.e.a().c(TbConfig.getPbImageSize() + a.length);
+        String a = bVar.a(str);
+        com.baidu.tbadk.imageManager.e.a().c(TbConfig.getPbImageSize() + b.length);
         Rect rect = new Rect();
-        eVar.e = g.a(a, rect);
-        eVar.j = a;
+        eVar.e = h.a(b, rect, (StringBuilder) null);
+        eVar.j = b;
         if (eVar.n) {
             return null;
         }
         if (eVar.e.getNinePatchChunk() == null || !NinePatch.isNinePatchChunk(eVar.e.getNinePatchChunk())) {
             return null;
         }
-        eVar.i = new com.baidu.adp.widget.a.a(eVar.e, false, a2, rect);
+        eVar.i = new com.baidu.adp.widget.a.a(eVar.e, false, a, rect);
         if (eVar.i == null || eVar.i.h() == null || eVar.i.m() == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.a().b(a2, eVar.i);
+        com.baidu.tbadk.imageManager.e.a().b(a, eVar.i);
         dVar.a(eVar);
         if (eVar.n) {
             return null;
         }
         eVar.k = f;
-        eVar.l = a2;
+        eVar.l = a;
         eVar.f = false;
         return eVar.i;
     }

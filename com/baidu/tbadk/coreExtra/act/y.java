@@ -19,13 +19,13 @@ public class y implements View.OnClickListener {
         EditText editText3;
         Login2Activity login2Activity = this.a;
         editText = this.a.o;
-        com.baidu.adp.lib.util.k.a(login2Activity, editText);
+        com.baidu.adp.lib.util.j.a(login2Activity, editText);
         Login2Activity login2Activity2 = this.a;
         editText2 = this.a.p;
-        com.baidu.adp.lib.util.k.a(login2Activity2, editText2);
+        com.baidu.adp.lib.util.j.a(login2Activity2, editText2);
         Login2Activity login2Activity3 = this.a;
         editText3 = this.a.q;
-        com.baidu.adp.lib.util.k.a(login2Activity3, editText3);
+        com.baidu.adp.lib.util.j.a(login2Activity3, editText3);
         this.a.finish();
     }
 }

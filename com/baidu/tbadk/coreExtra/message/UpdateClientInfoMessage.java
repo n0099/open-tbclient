@@ -30,7 +30,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
                 this.lng = b.a(TbadkApplication.m252getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
-            BdLog.e(UpdateClientInfoMessage.class.getName(), "ctor()", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -82,7 +82,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         try {
             return new Gson().toJson(this.device);
         } catch (Exception e) {
-            BdLog.e(UpdateClientInfoMessage.class.getName(), "getDevice", e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }

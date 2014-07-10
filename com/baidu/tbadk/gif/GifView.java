@@ -12,14 +12,14 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.newwidget.a.g;
+import com.baidu.adp.base.j;
+import com.baidu.adp.newwidget.a.h;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.u;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class GifView extends ImageView implements View.OnClickListener, g, Runnable {
+public class GifView extends ImageView implements View.OnClickListener, h, Runnable {
     public static Bitmap a;
     private int A;
     private boolean B;
@@ -107,8 +107,7 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
                 int i6 = i5 / 4;
                 int i7 = ((i5 - i6) / 2) + paddingLeft;
                 int i8 = ((paddingBottom - i6) / 2) + paddingTop;
-                this.t.set(i7, i8, i7 + i6, i8 + i6);
-                BdLog.d("GifView", "onSizeChanged", "w:" + i5 + "h:" + paddingBottom + "dw:" + i6 + "dh:" + i6);
+                this.t.set(i7, i8, i7 + i6, i6 + i8);
             }
             int intrinsicWidth = this.k.getIntrinsicWidth();
             int intrinsicHeight = this.k.getIntrinsicHeight();
@@ -137,9 +136,7 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v0 com.baidu.adp.widget.a.a)] */
     public void setGif(com.baidu.adp.widget.a.a aVar) {
-        BdLog.d("GifView", "setGif", new StringBuilder().append(aVar).toString());
         this.j = false;
         this.l = false;
         this.q = false;
@@ -158,7 +155,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
             }
         } else if (aVar.b() == null) {
             if (!aVar.a()) {
-                BdLog.d("GifView", "setGif", "static");
                 this.h = true;
                 aVar.a(this);
                 this.l = false;
@@ -201,7 +197,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         if (this.d != null && (cVar = this.d.get()) != null) {
             this.x.removeMessages(1);
             this.x.sendEmptyMessageDelayed(1, cVar.b(this.f));
-            BdLog.d("GifView", "resume", "resumed");
         }
     }
 
@@ -212,7 +207,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
             cVar.a(0);
             cVar.a(this.e, null);
             invalidate();
-            BdLog.d("GifView", com.baidu.tbadk.core.frameworkData.a.STOP, "stopped");
         }
     }
 
@@ -225,7 +219,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
             cVar.a(0);
             this.x.removeMessages(1);
             this.x.sendEmptyMessageDelayed(1, cVar.b(this.f));
-            BdLog.d("GifView", "play", "played");
         }
     }
 
@@ -250,7 +243,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        BdLog.d("GifView", "onWindowVisibilityChanged", "changed = " + i);
         if (!this.h) {
             if (i == 4 || i == 8) {
                 c();
@@ -340,13 +332,6 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         return this.d.get();
     }
 
-    @Override // android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        BdLog.d("GifView", "onLayout", this + ": onLayout");
-        BdLog.d("GifView", "onLayout", "width=" + i3 + " height=" + i4);
-    }
-
     public void g() {
         this.l = false;
         removeCallbacks(this);
@@ -388,15 +373,15 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
             this.z = null;
             return;
         }
-        boolean c = ab.c();
+        boolean c = aa.c();
         Context context = getContext();
-        if (context == null || !(context instanceof com.baidu.adp.base.g)) {
+        if (context == null || !(context instanceof j)) {
             i = 0;
             z = false;
         } else {
-            com.baidu.adp.base.g gVar = (com.baidu.adp.base.g) context;
-            int uniqueId = gVar.getUniqueId();
-            z = gVar.isScroll();
+            j jVar = (j) context;
+            int uniqueId = jVar.getUniqueId();
+            z = jVar.isScroll();
             i = uniqueId;
         }
         if (!(aVar == this.z && this.C == i)) {
@@ -430,7 +415,7 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         }
     }
 
-    @Override // com.baidu.adp.newwidget.a.g
+    @Override // com.baidu.adp.newwidget.a.h
     public void b() {
         a(this.z);
     }
@@ -448,7 +433,7 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.z != null) {
-            boolean c = ab.c();
+            boolean c = aa.c();
             String str = c ? this.z.d : this.z.c;
             com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.resourceLoader.d.a().a(this.z.b, this.A, this.z.e, this.z.b, Boolean.valueOf(c), str);
             if (aVar != null) {

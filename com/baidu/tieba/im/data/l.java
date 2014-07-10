@@ -1,43 +1,21 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.af;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class l extends k implements af {
+public class l {
     private String a;
     private String b;
-    private String c;
-    private String d;
+    private int c;
+    private int d;
     private String e;
     private int f;
-    private int g;
-    private int h;
+    private long g;
+    private long h;
     private String i;
-    private int j;
-    private String k;
-    private String l;
-    private String m;
-    private String n;
-    private int o;
-    private boolean p;
-    private boolean q;
-    private boolean r;
-    private boolean s;
+    private List<l> j = new ArrayList();
 
-    public l() {
-        a(1);
-    }
-
-    public boolean a() {
-        return this.p;
-    }
-
-    public void a(boolean z) {
-        this.p = z;
-    }
-
-    public String c() {
+    public String a() {
         return this.a;
     }
 
@@ -49,134 +27,51 @@ public class l extends k implements af {
         this.b = str;
     }
 
-    public String d() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public String e() {
-        return this.d;
-    }
-
-    public void d(String str) {
-        this.d = str;
-    }
-
-    public String f() {
-        return this.e;
-    }
-
-    public void e(String str) {
-        this.e = str;
-    }
-
-    public int g() {
-        return this.f;
+    public void a(int i) {
+        this.c = i;
     }
 
     public void b(int i) {
-        this.f = i;
+        this.d = i;
     }
 
-    public int h() {
-        return this.g;
+    public String b() {
+        return this.e;
+    }
+
+    public void c(String str) {
+        this.e = str;
+    }
+
+    public int c() {
+        return this.f;
     }
 
     public void c(int i) {
-        this.g = i;
+        this.f = i;
     }
 
-    public void d(int i) {
-        this.h = i;
+    public void a(long j) {
+        this.g = j;
     }
 
-    public void f(String str) {
+    public void b(long j) {
+        this.h = j;
+    }
+
+    public String d() {
+        return this.i;
+    }
+
+    public void d(String str) {
         this.i = str;
     }
 
-    public int i() {
+    public List<l> e() {
         return this.j;
     }
 
-    public void e(int i) {
-        this.j = i;
-    }
-
-    public void g(String str) {
-        this.k = str;
-    }
-
-    public void h(String str) {
-        this.l = str;
-    }
-
-    public void i(String str) {
-        this.m = str;
-    }
-
-    public void j(String str) {
-        this.n = str;
-    }
-
-    public int j() {
-        return this.o;
-    }
-
-    public void f(int i) {
-        this.o = i;
-    }
-
-    public boolean k() {
-        return this.q;
-    }
-
-    public void b(boolean z) {
-        this.q = z;
-    }
-
-    public boolean l() {
-        return this.r;
-    }
-
-    public void c(boolean z) {
-        this.r = z;
-    }
-
-    @Override // com.baidu.tbadk.core.util.af
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.e);
-        return linkedList;
-    }
-
-    @Override // com.baidu.tbadk.core.util.af
-    public LinkedList<String> getPhotoUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.util.af
-    public LinkedList<String> getForumPhotoUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.util.af
-    public boolean isSupportImageSize() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.af
-    public LinkedList<ab> getImagesWithEmotions() {
-        return null;
-    }
-
-    public boolean m() {
-        return this.s;
-    }
-
-    public void d(boolean z) {
-        this.s = z;
+    public void a(List<l> list) {
+        this.j = list;
     }
 }

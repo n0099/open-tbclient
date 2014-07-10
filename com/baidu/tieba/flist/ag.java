@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.base.b {
+public class ag extends com.baidu.adp.base.e {
     private String a;
     private ah b = null;
     private String c;
@@ -30,7 +30,7 @@ public class ag extends com.baidu.adp.base.b {
         bundle.putString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         if (this.a == null) {
             return false;
@@ -42,7 +42,7 @@ public class ag extends com.baidu.adp.base.b {
         return true;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();
@@ -52,9 +52,9 @@ public class ag extends com.baidu.adp.base.b {
     }
 
     public ForumRankData a() {
-        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquarelist");
-        anVar.a("list_id", this.a);
-        anVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(anVar.i(), (Class<Object>) ForumRankData.class);
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquarelist");
+        aqVar.a("list_id", this.a);
+        aqVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(aqVar.i(), (Class<Object>) ForumRankData.class);
     }
 }

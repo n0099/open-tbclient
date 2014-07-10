@@ -20,6 +20,6 @@ public class aj extends com.baidu.tieba.im.b<Boolean> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
     }
 }

@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class GroupListAdapter extends BaseAdapter {
     private FrsGroupActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private com.baidu.tbadk.editortool.ab d;
+    private com.baidu.tbadk.editortool.aa d;
     private ArrayList<GroupInfoData> e = new ArrayList<>();
 
     /* loaded from: classes.dex */
@@ -63,8 +63,8 @@ public class GroupListAdapter extends BaseAdapter {
 
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
         this.a = frsGroupActivity;
-        this.d = new com.baidu.tbadk.editortool.ab(frsGroupActivity);
-        this.d.d(true);
+        this.d = new com.baidu.tbadk.editortool.aa(frsGroupActivity);
+        this.d.b(true);
     }
 
     public void b(boolean z) {
@@ -183,18 +183,18 @@ public class GroupListAdapter extends BaseAdapter {
         a(pVar.k, groupInfoData.getGrade());
         a(view);
         if (groupInfoData.isMemGroup()) {
-            be.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
-            be.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            be.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            be.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            bk.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
+            bk.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            bk.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            bk.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
             return view;
         }
         return view;
     }
 
     private void a(View view) {
-        this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.a().a(view);
+        this.a.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.a.c().a(view);
     }
 
     private void a(ImageView[] imageViewArr, int i) {
@@ -223,7 +223,7 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    public com.baidu.tbadk.editortool.ab b() {
+    public com.baidu.tbadk.editortool.aa b() {
         return this.d;
     }
 

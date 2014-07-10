@@ -2,18 +2,22 @@ package com.baidu.tieba.im.chat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends TalkableActivity {
-    public static boolean a;
-    public static String b = "";
+public abstract class MsglistActivity extends TalkableActivity implements bv {
+    protected abstract boolean a(bv bvVar);
 
     protected abstract boolean c(Bundle bundle);
 
     protected abstract void o();
 
-    protected abstract boolean p();
+    @Override // com.baidu.tieba.im.chat.bv
+    public void f_() {
+        p();
+    }
+
+    public void p() {
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -25,14 +29,13 @@ public abstract class MsglistActivity extends TalkableActivity {
             } else {
                 o();
                 r();
-                if (p()) {
+                if (a((bv) this)) {
                     q();
                     m();
-                    cy.a = com.baidu.tbadk.editortool.ab.b();
+                    de.a = com.baidu.tbadk.editortool.aa.b();
                 }
             }
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
@@ -41,19 +44,17 @@ public abstract class MsglistActivity extends TalkableActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         try {
-            BdLog.i("----onNewIntent start-----");
             setIntent(intent);
             if (!c(null)) {
                 finish();
             } else {
                 o();
                 r();
-                if (p()) {
+                if (a((bv) this)) {
                     q();
                 }
             }
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
@@ -67,7 +68,7 @@ public abstract class MsglistActivity extends TalkableActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
@@ -79,9 +80,9 @@ public abstract class MsglistActivity extends TalkableActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     public void c() {
         if (TbadkApplication.m252getInst().isHeadsetModeOn()) {
-            this.d.K();
+            this.d.L();
         } else {
-            this.d.J();
+            this.d.K();
         }
     }
 
@@ -92,7 +93,6 @@ public abstract class MsglistActivity extends TalkableActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        BdLog.d("----ondestroy---");
         super.onDestroy();
         n();
     }

@@ -884,7 +884,7 @@ public final class f extends Service {
                     case 24:
                         f.this.a(message);
                         break;
-                    case 25:
+                    case f.U /* 25 */:
                         f.this.m160for(message);
                         break;
                     case f.H /* 26 */:

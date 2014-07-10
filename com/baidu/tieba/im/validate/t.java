@@ -12,7 +12,7 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.c {
+public class t extends com.baidu.adp.base.f {
     private View a;
     private ImageView b;
     private ValidateActivity c;
@@ -42,7 +42,7 @@ public class t extends com.baidu.adp.base.c {
         a(false);
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
         if (this.e != null) {

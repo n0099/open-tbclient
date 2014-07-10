@@ -1,30 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.model.bj;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class au implements DialogInterface.OnClickListener {
-    final /* synthetic */ at a;
-    private final /* synthetic */ ImMessageCenterShowItemData b;
+class au implements Runnable {
+    final /* synthetic */ OfficialBarTipActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.a = atVar;
-        this.b = imMessageCenterShowItemData;
+    public au(OfficialBarTipActivity officialBarTipActivity) {
+        this.a = officialBarTipActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        OfficialBarTipActivity officialBarTipActivity;
-        bj bjVar;
-        OfficialBarTipActivity officialBarTipActivity2;
-        com.baidu.tieba.im.a<Void> aVar;
-        officialBarTipActivity = this.a.a;
-        bjVar = officialBarTipActivity.a;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.b;
-        officialBarTipActivity2 = this.a.a;
-        aVar = officialBarTipActivity2.d;
-        bjVar.a(imMessageCenterShowItemData, aVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        bb bbVar;
+        bb bbVar2;
+        bbVar = this.a.c;
+        BdListView a = bbVar.a();
+        bbVar2 = this.a.c;
+        com.baidu.tbadk.core.util.aj.a(a, bbVar2.b().a(), 0, -1);
     }
 }

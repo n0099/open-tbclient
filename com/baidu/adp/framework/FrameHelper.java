@@ -23,13 +23,13 @@ public class FrameHelper {
     }
 
     public static TYPE a(int i) {
-        if (i >= 0 && i < 1001000) {
+        if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
-        if (i >= 1001000 && i < 2002000) {
+        if (i >= 1000000 && i < 2000000) {
             return TYPE.HTTP;
         }
-        if (i >= 2002000 && i < 3003000) {
+        if (i >= 2000000 && i < 3000000) {
             return TYPE.CUSTOM;
         }
         BdLog.e("cmd invalid:cmd=" + i);
@@ -37,15 +37,15 @@ public class FrameHelper {
     }
 
     public static boolean b(int i) {
-        return i >= 1001000 && i < 2002000;
+        return i >= 1000000 && i < 2000000;
     }
 
     public static boolean c(int i) {
-        return i >= 0 && i < 1001000;
+        return i >= 0 && i < 1000000;
     }
 
     public static boolean d(int i) {
-        return i >= 2002000 && i < 3003000;
+        return i >= 2000000 && i < 3000000;
     }
 
     public static <T extends c> int a(LinkedList<T> linkedList, int i) {

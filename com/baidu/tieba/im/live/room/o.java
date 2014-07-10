@@ -1,39 +1,56 @@
 package com.baidu.tieba.im.live.room;
-
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-class o implements com.baidu.tieba.im.a<Boolean> {
+class o implements Runnable {
     final /* synthetic */ LiveRoomChatActivity a;
-    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(LiveRoomChatActivity liveRoomChatActivity, GroupData groupData) {
+    public o(LiveRoomChatActivity liveRoomChatActivity) {
         this.a = liveRoomChatActivity;
-        this.b = groupData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        com.baidu.tieba.im.chat.g gVar;
-        com.baidu.tieba.im.chat.g gVar2;
-        com.baidu.tieba.im.chat.g gVar3;
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                gVar3 = this.a.d;
-                gVar3.L();
-            } else {
-                gVar = this.a.d;
-                gVar.M();
-            }
-            if (this.a.x() != null && this.b != null) {
-                String name = this.b.getName();
-                if (!TextUtils.isEmpty(name)) {
-                    gVar2 = this.a.d;
-                    gVar2.a(name, true);
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        LiveRoomChatView z;
+        LiveRoomChatActivity liveRoomChatActivity;
+        LiveRoomChatView z2;
+        LiveRoomChatActivity liveRoomChatActivity2;
+        LiveRoomChatView z3;
+        LiveRoomChatActivity liveRoomChatActivity3;
+        LiveRoomChatView z4;
+        LiveRoomChatActivity liveRoomChatActivity4;
+        i = this.a.B;
+        switch (i) {
+            case -3:
+                if (this.a.o != null && this.a.o.isShowing()) {
+                    liveRoomChatActivity4 = this.a.y;
+                    com.baidu.adp.lib.util.j.b(liveRoomChatActivity4, this.a.o.a());
+                    return;
                 }
-            }
+                z3 = this.a.z();
+                if (z3 != null) {
+                    liveRoomChatActivity3 = this.a.y;
+                    z4 = this.a.z();
+                    com.baidu.adp.lib.util.j.b(liveRoomChatActivity3, z4.ab());
+                    return;
+                }
+                return;
+            case -2:
+                if (this.a.o != null && this.a.o.isShowing()) {
+                    liveRoomChatActivity2 = this.a.y;
+                    com.baidu.adp.lib.util.j.a(liveRoomChatActivity2, this.a.o.a());
+                    return;
+                }
+                z = this.a.z();
+                if (z != null) {
+                    liveRoomChatActivity = this.a.y;
+                    z2 = this.a.z();
+                    com.baidu.adp.lib.util.j.a(liveRoomChatActivity, z2.ab());
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 }

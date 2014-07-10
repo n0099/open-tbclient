@@ -105,15 +105,11 @@ public class b {
         this.a = str;
     }
 
-    public String j() {
-        return this.b;
-    }
-
     public void c(String str) {
         this.b = str;
     }
 
-    public int k() {
+    public int j() {
         return this.c;
     }
 
@@ -121,7 +117,7 @@ public class b {
         this.c = i;
     }
 
-    public int l() {
+    public int k() {
         return this.d;
     }
 
@@ -129,7 +125,7 @@ public class b {
         this.d = i;
     }
 
-    public int m() {
+    public int l() {
         return this.g;
     }
 
@@ -137,7 +133,7 @@ public class b {
         this.g = i;
     }
 
-    public int n() {
+    public int m() {
         return this.h;
     }
 
@@ -145,7 +141,7 @@ public class b {
         this.h = i;
     }
 
-    public int o() {
+    public int n() {
         return this.e;
     }
 
@@ -153,7 +149,7 @@ public class b {
         this.e = i;
     }
 
-    public int p() {
+    public int o() {
         return this.f;
     }
 
@@ -161,11 +157,11 @@ public class b {
         this.f = i;
     }
 
-    public int q() {
+    public int p() {
         return this.j;
     }
 
-    public int r() {
+    public int q() {
         return this.i;
     }
 
@@ -177,7 +173,7 @@ public class b {
         this.j = i;
     }
 
-    public int s() {
+    public int r() {
         return this.l;
     }
 
@@ -185,7 +181,7 @@ public class b {
         this.l = i;
     }
 
-    public int t() {
+    public int s() {
         return this.k;
     }
 
@@ -193,7 +189,7 @@ public class b {
         this.k = i;
     }
 
-    public int u() {
+    public int t() {
         return this.u;
     }
 
@@ -201,7 +197,7 @@ public class b {
         this.u = i;
     }
 
-    public int v() {
+    public int u() {
         return this.v;
     }
 

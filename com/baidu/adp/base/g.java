@@ -1,13 +1,22 @@
 package com.baidu.adp.base;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Activity;
+import android.view.View;
 /* loaded from: classes.dex */
-public interface g {
-    int getUniqueId();
+class g implements Runnable {
+    final /* synthetic */ f a;
+    private View b;
 
-    boolean isScroll();
+    public g(f fVar, View view) {
+        this.a = fVar;
+        this.b = null;
+        this.b = view;
+    }
 
-    void onPreLoad(BdListView bdListView);
-
-    void setIsScroll(boolean z);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.a.mContext != null && (this.a.mContext instanceof Activity) && !((Activity) this.a.mContext).isFinishing()) {
+            this.a.ShowSoftKeyPad(this.b);
+        }
+    }
 }

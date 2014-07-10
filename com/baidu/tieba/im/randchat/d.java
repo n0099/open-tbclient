@@ -1,9 +1,6 @@
 package com.baidu.tieba.im.randchat;
-
-import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.imageManager.d {
+class d implements com.baidu.tbadk.widget.k {
     final /* synthetic */ RingLayoutView a;
     private final /* synthetic */ e b;
 
@@ -13,14 +10,14 @@ class d implements com.baidu.tbadk.imageManager.d {
         this.b = eVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        View findViewWithTag;
-        if (aVar != null && (findViewWithTag = this.a.findViewWithTag(str)) != null && (findViewWithTag instanceof HeadImageView)) {
-            ((HeadImageView) findViewWithTag).setImageBitmap(aVar.h());
-            if (this.b != null) {
-                this.b.a(str);
-            }
+    @Override // com.baidu.tbadk.widget.k
+    public void a(String str, boolean z) {
+        if (this.b != null) {
+            this.b.a(str);
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.k
+    public void a() {
     }
 }

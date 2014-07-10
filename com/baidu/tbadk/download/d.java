@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.y;
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +22,7 @@ import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
     final /* synthetic */ b a;
-    private an b = new an();
+    private aq b = new aq();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
@@ -61,7 +61,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         this.a.e();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=4, 350=4, 351=4, 352=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [350=4, 352=4, 353=4, 354=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -84,13 +84,13 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         }
         if (!file.exists()) {
             this.b.a(downloadDataArr[0].getUrl());
-            an anVar = this.b;
+            aq aqVar = this.b;
             String str = String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp";
             handler = this.a.f;
-            if (!Boolean.valueOf(anVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, KirinConfig.CONNECT_TIME_OUT)).booleanValue()) {
+            if (!Boolean.valueOf(aqVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, KirinConfig.CONNECT_TIME_OUT)).booleanValue()) {
                 return 3;
             }
-            File d = x.d(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
+            File d = z.d(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
             if (d == null) {
                 return 1;
             }
@@ -102,7 +102,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             }
         }
         try {
-            if (!bg.c(downloadDataArr[0].getCheck())) {
+            if (!bm.c(downloadDataArr[0].getCheck())) {
                 try {
                     fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                 } catch (FileNotFoundException e2) {
@@ -134,7 +134,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     }
                     throw th;
                 }
-                if (!bg.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
+                if (!bm.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
                     i = 4;
                     if (fileInputStream != null) {
                         try {
@@ -173,38 +173,32 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData6;
         DownloadData downloadData7;
         DownloadData downloadData8;
-        DownloadData downloadData9;
         List list;
         List list2;
+        DownloadData downloadData9;
         DownloadData downloadData10;
         DownloadData downloadData11;
         DownloadData downloadData12;
         DownloadData downloadData13;
         DownloadData downloadData14;
         DownloadData downloadData15;
-        DownloadData downloadData16;
-        DownloadData downloadData17;
         super.onPostExecute(num);
-        BdLog.d("download:result_code::" + num);
         if (num.intValue() == 0) {
-            downloadData10 = b.b;
-            if (downloadData10.getCallback() != null) {
-                downloadData16 = b.b;
-                a callback = downloadData16.getCallback();
-                downloadData17 = b.b;
-                callback.a(downloadData17);
-            }
-            downloadData11 = b.b;
-            downloadData11.setStatus(0);
-            StringBuilder sb = new StringBuilder("download_file:success:");
-            downloadData12 = b.b;
-            BdLog.d(sb.append(downloadData12.getPath()).toString());
-            downloadData13 = b.b;
-            if (downloadData13.getCallback() != null) {
+            downloadData9 = b.b;
+            if (downloadData9.getCallback() != null) {
                 downloadData14 = b.b;
-                a callback2 = downloadData14.getCallback();
+                a callback = downloadData14.getCallback();
                 downloadData15 = b.b;
-                callback2.b(downloadData15);
+                callback.a(downloadData15);
+            }
+            downloadData10 = b.b;
+            downloadData10.setStatus(0);
+            downloadData11 = b.b;
+            if (downloadData11.getCallback() != null) {
+                downloadData12 = b.b;
+                a callback2 = downloadData12.getCallback();
+                downloadData13 = b.b;
+                callback2.b(downloadData13);
             }
         } else {
             switch (num.intValue()) {
@@ -228,23 +222,20 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             downloadData.setStatusMsg(string);
             downloadData2 = b.b;
             if (downloadData2.getCallback() != null) {
+                downloadData7 = b.b;
+                a callback3 = downloadData7.getCallback();
                 downloadData8 = b.b;
-                a callback3 = downloadData8.getCallback();
-                downloadData9 = b.b;
-                callback3.a(downloadData9, num.intValue(), string);
+                callback3.a(downloadData8, num.intValue(), string);
             }
             downloadData3 = b.b;
             downloadData3.setStatus(2);
             downloadData4 = b.b;
             if (downloadData4.getCallback() != null) {
+                downloadData5 = b.b;
+                a callback4 = downloadData5.getCallback();
                 downloadData6 = b.b;
-                a callback4 = downloadData6.getCallback();
-                downloadData7 = b.b;
-                callback4.b(downloadData7);
+                callback4.b(downloadData6);
             }
-            StringBuilder sb2 = new StringBuilder("download_file:fail:");
-            downloadData5 = b.b;
-            BdLog.d(sb2.append(downloadData5.getPath()).toString());
         }
         b.b = null;
         list = b.c;

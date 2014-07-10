@@ -15,7 +15,7 @@ public class a {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                BdLog.e("adp_util_close", "error on close the inputstream.", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -25,7 +25,7 @@ public class a {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                BdLog.e("adp_util_close", "error on close the Closeable.", th.getMessage());
+                BdLog.e(th.getMessage());
             }
         }
     }
@@ -35,7 +35,7 @@ public class a {
             try {
                 outputStream.close();
             } catch (IOException e) {
-                BdLog.e("adp_util_close", "error on close the outputstream.", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -45,7 +45,7 @@ public class a {
             try {
                 cursor.close();
             } catch (Exception e) {
-                BdLog.e("adp_util_close", "error on close android.database.Cursor.", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -55,7 +55,7 @@ public class a {
             try {
                 sQLiteDatabase.close();
             } catch (Exception e) {
-                BdLog.e("adp_util_close", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
             try {
                 httpURLConnection.disconnect();
             } catch (Exception e) {
-                BdLog.e("adp_util_close", "error on close HttpURLConnection.", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

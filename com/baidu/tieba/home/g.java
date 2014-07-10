@@ -1,4 +1,6 @@
 package com.baidu.tieba.home;
+
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class g implements Runnable {
     final /* synthetic */ f a;
@@ -11,9 +13,10 @@ class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         e eVar;
-        q qVar;
+        p pVar;
+        BdLog.d("OnLoadForumDataCallback, startPullRefresh after load from db");
         eVar = this.a.a;
-        qVar = eVar.b;
-        qVar.b();
+        pVar = eVar.b;
+        pVar.b();
     }
 }

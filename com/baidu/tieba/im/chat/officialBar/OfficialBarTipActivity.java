@@ -8,16 +8,16 @@ import android.widget.AbsListView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bj;
+import com.baidu.tieba.im.model.bi;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity implements AbsListView.OnScrollListener {
-    private bj a;
-    private ax b;
-    private Handler c;
-    private final com.baidu.tieba.im.a<Void> d = new ap(this);
-    private Runnable e = new aq(this);
-    private CustomMessageListener f = new ar(this, 0);
+    public static boolean a = false;
+    private bi b;
+    private bb c;
+    private Handler d;
+    private final com.baidu.tieba.im.a<Void> e = new at(this);
+    private Runnable f = new au(this);
+    private CustomMessageListener g = new av(this, 0);
 
     public static void a(Context context) {
         if (context != null) {
@@ -30,29 +30,32 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
         super.onCreate(bundle);
         b();
         c();
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_MSG_ARRIVED, this.f);
+        MessageManager.getInstance().registerListener(2001140, this.g);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
+        a = true;
         a();
     }
 
     private void a() {
         showLoadingDialog(getString(com.baidu.tieba.y.loading), null);
-        this.a.a(this.d);
+        this.b.a(this.e);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.f);
+        a = false;
+        MessageManager.getInstance().unRegisterListener(this.g);
+        com.baidu.tieba.im.model.p.a(false);
     }
 
     private void b() {
-        this.a = new bj();
-        this.c = new Handler();
+        this.b = new bi();
+        this.d = new Handler();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -62,49 +65,51 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            if (this.c != null) {
-                this.c.removeCallbacks(this.e);
-                this.c.postDelayed(this.e, 90L);
+            if (this.d != null) {
+                this.d.removeCallbacks(this.f);
+                this.d.postDelayed(this.f, 90L);
             }
-        } else if (this.c != null) {
-            this.c.removeCallbacks(this.e);
+        } else if (this.d != null) {
+            this.d.removeCallbacks(this.f);
         }
     }
 
     private void c() {
-        this.b = new ax(this);
-        this.b.a().setOnScrollListener(this);
-        this.b.a().setOnItemClickListener(new as(this));
-        this.b.a().setOnItemLongClickListener(new at(this));
+        this.c = new bb(this);
+        this.c.a().setOnScrollListener(this);
+        this.c.a().setOnItemClickListener(new aw(this));
+        this.c.a().setOnItemLongClickListener(new ax(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.b.a(i);
+        this.c.a(i);
     }
 
     @Override // android.app.Activity
     public void onStart() {
         super.onStart();
-        this.b.c().a();
+        a = true;
+        this.c.c().a();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.b.c().b();
+        a = false;
+        this.c.c().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        this.b.c().b(z ? 0 : 8);
+        this.c.c().b(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.c != null) {
-            this.c.removeCallbacks(this.e);
-            this.c.postDelayed(this.e, 0L);
+        if (this.d != null) {
+            this.d.removeCallbacks(this.f);
+            this.d.postDelayed(this.f, 0L);
         }
     }
 }

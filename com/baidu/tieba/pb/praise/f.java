@@ -1,120 +1,104 @@
 package com.baidu.tieba.pb.praise;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import java.util.ArrayList;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    private String a;
-    private String b;
-    private String c;
-    private boolean d;
-    private int e;
-    private int f;
-    private int g;
-    private List<a> h;
-    private h i;
-    private HttpMessageListener j;
+public class f extends HttpMessageListener {
+    final /* synthetic */ e a;
 
-    public f() {
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new g(this, CmdConfig.PRAISE_LIST_HTTP_CMD);
-        this.a = "";
-        this.b = "";
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i) {
+        super(i);
+        this.a = eVar;
     }
 
-    public f(String str, String str2, String str3, boolean z, h hVar) {
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new g(this, CmdConfig.PRAISE_LIST_HTTP_CMD);
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.i = hVar;
-        this.d = z;
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.PRAISE_LIST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/zan/getuserlist");
-        tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.j);
-    }
-
-    public String a() {
-        return this.a;
-    }
-
-    public boolean b() {
-        return this.d;
-    }
-
-    public void a(Bundle bundle, String str) {
-        bundle.putBoolean(str, this.d);
-    }
-
-    public void b(Bundle bundle, String str) {
-        bundle.putString(str, this.a);
-    }
-
-    public void c(Bundle bundle, String str) {
-        bundle.putString(str, this.b);
-    }
-
-    public void d(Bundle bundle, String str) {
-        bundle.putString(str, this.c);
-    }
-
-    public void e(Bundle bundle, String str) {
-        bundle.putInt(str, this.f);
-    }
-
-    public void c() {
-        MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.j);
-        messageManager.unRegisterTask(CmdConfig.PRAISE_LIST_HTTP_CMD);
-    }
-
-    public String d() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public a b(int i) {
-        if (i <= -1 || i >= this.h.size()) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        g gVar;
+        g gVar2;
+        g gVar3;
+        g gVar4;
+        g gVar5;
+        g gVar6;
+        List list;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        g gVar7;
+        g gVar8;
+        int i5;
+        List<a> list2;
+        int i6;
+        int i7;
+        List list3;
+        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
+            gVar = this.a.i;
+            if (gVar != null) {
+                gVar2 = this.a.i;
+                gVar2.a(null);
+                return;
+            }
+            return;
         }
-        return this.h.get(i);
-    }
-
-    public void e() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfig.PRAISE_LIST_HTTP_CMD);
-        httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.POST_ID, new StringBuilder(String.valueOf(this.b)).toString());
-        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.e)).toString());
-        httpMessage.addParam("res_num", "20");
-        httpMessage.setTag(CmdConfig.PRAISE_LIST_HTTP_CMD);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        int statusCode = httpResponsedMessage.getStatusCode();
+        int error = httpResponsedMessage.getError();
+        if (statusCode != 200 || error != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
+            gVar3 = this.a.i;
+            if (gVar3 != null) {
+                gVar4 = this.a.i;
+                gVar4.a(null);
+                return;
+            }
+            return;
+        }
+        PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
+        if (praiseListResponsedMessage.getError() != 0) {
+            gVar5 = this.a.i;
+            if (gVar5 != null) {
+                gVar6 = this.a.i;
+                gVar6.a(praiseListResponsedMessage.getErrMsg());
+                return;
+            }
+            return;
+        }
+        List<a> list4 = praiseListResponsedMessage.getmZanItemDataList();
+        if (list4 != null) {
+            for (a aVar : list4) {
+                list3 = this.a.h;
+                list3.add(aVar);
+            }
+        }
+        e eVar = this.a;
+        list = this.a.h;
+        eVar.g = list.size();
+        this.a.f = praiseListResponsedMessage.getTotalNum();
+        e eVar2 = this.a;
+        i = eVar2.e;
+        eVar2.e = i + 1;
+        int i8 = 1001;
+        i2 = this.a.e;
+        if (i2 > 5) {
+            i8 = 1003;
+        }
+        i3 = this.a.g;
+        i4 = this.a.f;
+        if (i3 >= i4) {
+            i8 = 1002;
+        }
+        gVar7 = this.a.i;
+        if (gVar7 != null) {
+            gVar8 = this.a.i;
+            i5 = this.a.f;
+            list2 = this.a.h;
+            i6 = this.a.f;
+            i7 = this.a.g;
+            gVar8.a(i5, list2, i8, i6 - i7);
+        }
     }
 }

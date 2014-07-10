@@ -1,7 +1,9 @@
 package com.baidu.tieba.editortool;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements com.baidu.tieba.voice.e {
+public class l implements View.OnClickListener {
     final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,17 +11,34 @@ public class l implements com.baidu.tieba.voice.e {
         this.a = editorToolComponetContainer;
     }
 
-    @Override // com.baidu.tieba.voice.e
-    public void a() {
-        com.baidu.tbadk.editortool.x xVar;
-        xVar = this.a.t;
-        xVar.a(14, null);
-    }
-
-    @Override // com.baidu.tieba.voice.e
-    public void b() {
-        com.baidu.tbadk.editortool.x xVar;
-        xVar = this.a.t;
-        xVar.a(15, null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortool.w wVar;
+        com.baidu.tbadk.editortool.w wVar2;
+        com.baidu.tbadk.editortool.w wVar3;
+        com.baidu.tbadk.editortool.w wVar4;
+        com.baidu.tbadk.editortool.w wVar5;
+        com.baidu.tbadk.editortool.w wVar6;
+        if (view == this.a.b.getmFace()) {
+            wVar6 = this.a.y;
+            wVar6.a(2, null);
+        } else if (view == this.a.b.getmImage() || view == this.a.b.getmIVImage()) {
+            this.a.b.setmImagetype(2);
+            wVar = this.a.y;
+            wVar.a(23, null);
+        } else if (view == this.a.b.getmCamera() || view == this.a.b.getmIVCamera()) {
+            this.a.b.setmImagetype(1);
+            wVar2 = this.a.y;
+            wVar2.a(22, null);
+        } else if (view == this.a.b.getmAt()) {
+            wVar5 = this.a.y;
+            wVar5.a(0, null);
+        } else if (view == this.a.b.getmPrivilege()) {
+            wVar4 = this.a.y;
+            wVar4.a(44, null);
+        } else if (view == this.a.b.getBaobao()) {
+            wVar3 = this.a.y;
+            wVar3.a(48, null);
+        }
     }
 }

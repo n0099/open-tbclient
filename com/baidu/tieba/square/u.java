@@ -2,76 +2,31 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.util.bq;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends BaseAdapter implements com.baidu.tieba.view.t {
-    private y a = null;
-    private ArrayList<au> b = new ArrayList<>();
-    private v c;
+public class u implements View.OnClickListener {
+    final /* synthetic */ t a;
+    private final /* synthetic */ ap b;
+    private final /* synthetic */ int c;
 
-    public u(Context context) {
-        this.c = null;
-        this.c = new v(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(t tVar, ap apVar, int i) {
+        this.a = tVar;
+        this.b = apVar;
+        this.c = i;
     }
 
-    public void a(ArrayList<au> arrayList) {
-        this.b = arrayList;
-        this.c.a(arrayList);
-        this.a = this.c.getPagerAdapter();
-        notifyDataSetChanged();
-    }
-
-    public void a() {
-        if (this.c != null) {
-            this.c.a();
-        }
-    }
-
-    public void c() {
-        if (this.c != null) {
-            this.c.b();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return (this.b != null ? this.b.size() + 0 : 0) > 0 ? 1 : 0;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.c;
-    }
-
-    @Override // com.baidu.tieba.view.t
-    public void b() {
-        if (this.a != null) {
-            this.a.b();
-        }
-    }
-
-    @Override // com.baidu.tieba.view.t
-    public void a(View view, int i, int i2) {
-        if (this.a != null) {
-            this.a.a(this.c, 0, 0);
-        }
-    }
-
-    public void a(int i) {
-        if (this.c != null) {
-            this.c.a(i);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String b = this.b.b();
+        String a = af.a("carousel_recommend", String.valueOf(this.c));
+        bq a2 = bq.a();
+        context = this.a.f;
+        String[] strArr = new String[3];
+        strArr[0] = b;
+        strArr[2] = a;
+        a2.a(context, strArr);
     }
 }

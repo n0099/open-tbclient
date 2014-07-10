@@ -4,10 +4,11 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    com.baidu.tbadk.core.util.an a;
+    aq a;
     final /* synthetic */ Login2Activity b;
     private volatile boolean c;
 
@@ -50,8 +51,8 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.a = new com.baidu.tbadk.core.util.an(str);
-        return com.baidu.tbadk.core.util.g.a(this.a.h());
+        this.a = new aq(str);
+        return com.baidu.tbadk.core.util.h.a(this.a.h());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

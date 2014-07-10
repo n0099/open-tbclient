@@ -1,21 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements com.baidu.tbadk.core.dialog.g {
-    final /* synthetic */ bm a;
+public class bo implements DialogInterface.OnCancelListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bm bmVar) {
-        this.a = bmVar;
+    public bo(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.g
-    public void a(com.baidu.tbadk.core.dialog.d dVar, int i, View view) {
-        if (i == 0) {
-            this.a.o();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        bw bwVar;
+        bw bwVar2;
+        this.a.destroyWaitingDialog();
+        bwVar = this.a.x;
+        if (bwVar != null) {
+            bwVar2 = this.a.x;
+            bwVar2.cancel();
         }
-        dVar.c();
     }
 }

@@ -1,137 +1,76 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import android.widget.ProgressBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class f extends BdAsyncTask<ForumData, Integer, String> {
-    final /* synthetic */ EditBarActivity a;
-    private com.baidu.tbadk.core.util.an b;
-    private ForumData c;
-
-    private f(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
-        this.b = null;
-    }
+class f extends BaseActivity.LoadDataCallBack {
+    final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(EditBarActivity editBarActivity, f fVar) {
-        this(editBarActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(EditMarkActivity editMarkActivity, BaseActivity baseActivity) {
+        super();
+        this.a = editMarkActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(ForumData... forumDataArr) {
-        String str;
-        this.c = forumDataArr[0];
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        boolean booleanValue;
+        h hVar;
+        com.baidu.tieba.model.i iVar;
+        h hVar2;
+        h hVar3;
+        com.baidu.tieba.model.i iVar2;
+        com.baidu.tieba.model.i iVar3;
+        h hVar4;
+        h hVar5;
+        h hVar6;
+        h hVar7;
+        com.baidu.tieba.model.i iVar4;
+        com.baidu.tieba.model.i iVar5;
         try {
-            if (this.c != null && this.c.getId() != null && this.c.getName() != null) {
-                this.a.m = this.c.getName();
-                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
-                this.b.a("fid", this.c.getId());
-                com.baidu.tbadk.core.util.an anVar = this.b;
-                str = this.a.m;
-                anVar.a("kw", str);
-                this.b.a("favo_type", String.valueOf(this.c.getFavo_type()));
-                this.b.a().a().a = true;
-                this.b.i();
-                return null;
+            if (((Integer) objArr[0]).intValue() == 0) {
+                hVar6 = this.a.b;
+                hVar6.j();
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
+                }
+                hVar7 = this.a.b;
+                iVar4 = this.a.a;
+                hVar7.a(r1, iVar4, ((Boolean) objArr[2]).booleanValue());
+                EditMarkActivity editMarkActivity = this.a;
+                iVar5 = this.a.a;
+                editMarkActivity.d = iVar5.f();
+            } else if (((Integer) objArr[0]).intValue() == 3) {
+                hVar4 = this.a.b;
+                hVar4.j();
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
+                }
+                hVar5 = this.a.b;
+                hVar5.a(r1, (com.baidu.tieba.model.i) null, false);
+            } else if (((Integer) objArr[0]).intValue() == 1) {
+                boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                r1 = objArr[2] != null ? (String) objArr[2] : null;
+                booleanValue = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
+                hVar2 = this.a.b;
+                hVar2.a(booleanValue2, r1, booleanValue);
+                if (booleanValue2) {
+                    hVar3 = this.a.b;
+                    iVar2 = this.a.a;
+                    hVar3.a(iVar2.a());
+                    iVar3 = this.a.a;
+                    iVar3.a((Boolean) true);
+                }
+            } else if (((Integer) objArr[0]).intValue() == 2) {
+                booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                String str = objArr[2] != null ? (String) objArr[2] : null;
+                hVar = this.a.b;
+                iVar = this.a.a;
+                hVar.a(booleanValue, str, iVar.f());
             }
-            return null;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+            BdLog.d(e.getMessage());
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        com.baidu.tieba.model.d dVar;
-        com.baidu.tieba.model.d dVar2;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        String str2;
-        g gVar;
-        g gVar2;
-        com.baidu.tieba.model.d dVar3;
-        super.onPostExecute(str);
-        this.a.n = null;
-        progressBar = this.a.j;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            if (this.b.a().b().b()) {
-                dVar = this.a.a;
-                ArrayList<ForumData> b = dVar.b();
-                dVar2 = this.a.a;
-                int a = dVar2.a();
-                i = this.a.l;
-                if (i < a) {
-                    dVar3 = this.a.a;
-                    dVar3.a(a - 1);
-                }
-                if (b != null) {
-                    i2 = this.a.l;
-                    if (i2 >= 0) {
-                        i3 = this.a.l;
-                        if (i3 < b.size()) {
-                            i4 = this.a.l;
-                            b.remove(i4);
-                            com.baidu.tieba.ai c = com.baidu.tieba.ai.c();
-                            str2 = this.a.m;
-                            c.f(str2);
-                            gVar = this.a.i;
-                            if (gVar != null) {
-                                this.a.a(true);
-                                gVar2 = this.a.i;
-                                gVar2.notifyDataSetChanged();
-                            }
-                        }
-                    }
-                }
-                this.a.showToast(this.a.getString(com.baidu.tieba.y.success));
-                if (this.c != null && !TextUtils.isEmpty(this.c.getId())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2005004, this.c.getId()));
-                    return;
-                }
-                return;
-            }
-            this.a.showToast(this.b.f());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.a.j;
-        progressBar.setVisibility(0);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
-        }
-        progressBar = this.a.j;
-        progressBar.setVisibility(8);
-        this.a.n = null;
-        super.cancel(true);
     }
 }

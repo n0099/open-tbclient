@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
     private static final long serialVersionUID = 1;
-    private ArrayList<ao> datas;
+    private ArrayList<as> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -20,7 +20,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<ao> getData() {
+    public ArrayList<as> getData() {
         return this.datas;
     }
 
@@ -48,7 +48,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            BdLog.detailException(e);
         }
     }
 
@@ -60,9 +60,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    ao aoVar = new ao();
-                    aoVar.a(optJSONObject2);
-                    this.datas.add(aoVar);
+                    as asVar = new as();
+                    asVar.a(optJSONObject2);
+                    this.datas.add(asVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");
@@ -70,7 +70,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                BdLog.e("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                BdLog.detailException(e);
             }
         }
     }

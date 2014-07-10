@@ -1,49 +1,50 @@
 package com.baidu.tbadk.core.voice.a;
 
-import android.content.Context;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.y;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.z;
+import java.io.File;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.lib.e.a<d> {
-    final /* synthetic */ a a;
-    private final /* synthetic */ c b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, c cVar) {
-        this.a = aVar;
-        this.b = cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.e.a
-    public void a(d dVar, String str, com.baidu.adp.lib.e.e eVar) {
-        Context context;
-        LinkedList linkedList;
-        super.a((b) dVar, str, eVar);
-        if (dVar != null) {
-            this.b.a(dVar.b, dVar.a, dVar.c, dVar.d);
+public class b {
+    public static a a(String str) {
+        a aVar = new a();
+        if (str == null) {
+            aVar.c = 6;
+            aVar.d = a.a(aVar.c);
+        } else if (!z.a(String.valueOf(z.d()) + "voice")) {
+            aVar.c = 7;
+            aVar.d = a.a(aVar.c);
         } else {
-            c cVar = this.b;
-            context = this.a.b;
-            cVar.a(null, null, 1, context.getString(y.voice_cache_error_internal));
+            String a = bm.a(z.i(str));
+            if (a == null) {
+                aVar.c = 5;
+                aVar.d = a.a(aVar.c);
+            } else {
+                String a2 = z.a(a, 1, true);
+                if (z.g(str, a2)) {
+                    aVar.b = a2;
+                    aVar.a = a;
+                } else {
+                    aVar.c = 1;
+                    aVar.d = a.a(aVar.c);
+                }
+            }
         }
-        linkedList = this.a.a;
-        linkedList.remove(str);
+        return aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.e.a
-    public void c(String str, com.baidu.adp.lib.e.e eVar) {
-        LinkedList linkedList;
-        an anVar;
-        super.c(str, eVar);
-        if (eVar != null && (anVar = (an) eVar.a("network")) != null) {
-            anVar.g();
+    public static boolean a(String str, String str2) {
+        return z.g(str, z.a(str2, 1, true));
+    }
+
+    public static synchronized void a() {
+        synchronized (b.class) {
+            File file = new File(String.valueOf(z.d()) + "voice");
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                for (File file2 : listFiles) {
+                    file2.delete();
+                }
+            }
         }
-        linkedList = this.a.a;
-        linkedList.remove(str);
     }
 }

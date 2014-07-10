@@ -12,6 +12,6 @@ class p implements CustomMessageTask.CustomRunnable<InvokeLiveNotifyActivityIsOp
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2010018, Boolean.valueOf(LiveNotifyActivity.a));
+        return new CustomResponsedMessage<>(2008018, Boolean.valueOf(LiveNotifyActivity.a));
     }
 }

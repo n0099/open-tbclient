@@ -13,10 +13,10 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.util.o;
 /* loaded from: classes.dex */
 public abstract class d extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
@@ -63,7 +63,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
                 this.c.a(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                k.a((Context) getActivity(), str);
+                j.a((Context) getActivity(), str);
             }
         }
     }
@@ -75,7 +75,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
                 this.c.a(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                k.a((Context) getActivity(), i);
+                j.a((Context) getActivity(), i);
             }
         }
     }
@@ -93,7 +93,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         super.onResume();
         if (d_()) {
             b(TbadkApplication.m252getInst().getSkinType());
-            bi.a(getClass().getName());
+            bo.a(getClass().getName());
             if (this.d) {
                 e();
             }
@@ -197,6 +197,13 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             messageListener.setTag(this.b);
         }
         MessageManager.getInstance().registerListener(messageListener);
+    }
+
+    public void a(int i, MessageListener<?> messageListener) {
+        if (messageListener != null && messageListener.getTag() == 0) {
+            messageListener.setTag(this.b);
+        }
+        MessageManager.getInstance().registerListener(i, messageListener);
     }
 
     public int d() {

@@ -32,7 +32,7 @@ class b extends CustomMessageListener {
                 str = this.a.j;
                 if (url.equals(str)) {
                     if (playProgressChangedMessage.getDuration() != playerBar.getMax()) {
-                        int n = com.baidu.tieba.im.live.b.b().n();
+                        int n = com.baidu.tieba.im.live.d.b().n();
                         liveRoomReplayPlayer2 = this.a.e;
                         liveRoomReplayPlayer2.getPlayerDur().setText(StringUtils.translateSecondsToString(n));
                         playerBar.setMax(playProgressChangedMessage.getDuration());

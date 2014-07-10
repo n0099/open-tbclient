@@ -27,7 +27,7 @@ class d extends CustomMessageListener {
         LiveRoomReplayPlayer liveRoomReplayPlayer3;
         LiveRoomReplayPlayer liveRoomReplayPlayer4;
         int i;
-        if (customResponsedMessage.getCmd() == 2003161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null && LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(data.groupId)) {
+        if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null && LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(data.groupId)) {
             str = this.a.j;
             if (str.equals(data.url)) {
                 switch (data.status) {

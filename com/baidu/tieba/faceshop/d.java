@@ -17,7 +17,7 @@ public class d {
     }
 
     public int a(String str, InputStream inputStream) {
-        com.baidu.tbadk.editortool.v a2 = com.baidu.tbadk.editortool.v.a();
+        com.baidu.tbadk.editortool.u a2 = com.baidu.tbadk.editortool.u.a();
         List<String> a3 = e.a(str, inputStream);
         int i = 0;
         for (int i2 = 0; i2 < a3.size(); i2++) {
@@ -36,36 +36,36 @@ public class d {
             DatabaseManager.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
         } catch (Throwable th) {
-            BdLog.e("BigEmotionsDBManager", "addToMyEmotion", th.getMessage());
+            BdLog.detailException(th);
             DatabaseManager.a(th, "EmotionsDBManager.deleteMyEmotion");
             return false;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [99=4] */
     public MyEmotionGroupData a(String str, String str2) {
         Cursor cursor;
         MyEmotionGroupData myEmotionGroupData = null;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
                 cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            try {
-                if (cursor.moveToNext()) {
-                    myEmotionGroupData = a(cursor);
+                try {
+                    if (cursor.moveToNext()) {
+                        myEmotionGroupData = a(cursor);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        BdLog.detailException(th);
+                        DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
+                        return myEmotionGroupData;
+                    } finally {
+                        com.baidu.adp.lib.util.m.a(cursor);
+                    }
                 }
             } catch (Throwable th2) {
                 th = th2;
-                try {
-                    BdLog.e("BigEmotionsDBManager", "getMyEmotion", th.getMessage());
-                    DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
-                    return myEmotionGroupData;
-                } finally {
-                    com.baidu.tbadk.core.util.m.a(cursor);
-                }
+                cursor = null;
             }
         }
         return myEmotionGroupData;
@@ -82,10 +82,10 @@ public class d {
                 }
             } catch (Throwable th) {
                 try {
-                    BdLog.e("BigEmotionsDBManager", "listMyEmotions", th.getMessage());
+                    BdLog.detailException(th);
                     DatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                 } finally {
-                    com.baidu.tbadk.core.util.m.a(cursor);
+                    com.baidu.adp.lib.util.m.a(cursor);
                 }
             }
         }

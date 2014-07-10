@@ -3,7 +3,6 @@ package com.baidu.tieba.person;
 import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -12,6 +11,98 @@ public class PersonPostListData implements Serializable {
     public List<PostList> post_list = new ArrayList();
     @SerializedName("hide_post")
     public int hide_post = 0;
+
+    /* loaded from: classes.dex */
+    public class Abs implements Serializable {
+        @SerializedName("type")
+        public int type = 0;
+        @SerializedName("text")
+        public String text = "";
+        @SerializedName("src")
+        public String src = "";
+        @SerializedName("un")
+        public String un = "";
+        @SerializedName("link")
+        public String link = "";
+    }
+
+    /* loaded from: classes.dex */
+    public class AnchorInfo implements Serializable {
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PORTRAIT)
+        public String portrait = "";
+        @SerializedName("name")
+        public String name = "";
+        @SerializedName("start_time")
+        public long start_time = 0;
+        @SerializedName("status")
+        public int status = 0;
+        @SerializedName("author_id")
+        public int author_id = 0;
+        @SerializedName("author_name")
+        public String author_name = "";
+        @SerializedName("listeners")
+        public int listeners = 0;
+        @SerializedName("likers")
+        public int likers = 0;
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.GROUP_ID)
+        public int group_id = 0;
+        @SerializedName("intro")
+        public String intro = "";
+        @SerializedName("publisherPortrait")
+        public String publisherPortrait = "";
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME)
+        public String publisher_name = "";
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID)
+        public int publisher_id = 0;
+    }
+
+    /* loaded from: classes.dex */
+    public class Content implements Serializable {
+        @SerializedName("post_content")
+        public Abs[] post_content = new Abs[0];
+        @SerializedName("create_time")
+        public long create_time = 0;
+    }
+
+    /* loaded from: classes.dex */
+    public class LbsInfo implements Serializable {
+        @SerializedName("lat")
+        public String lat = "";
+        @SerializedName("lon")
+        public String lon = "";
+        @SerializedName("town")
+        public String town = "";
+    }
+
+    /* loaded from: classes.dex */
+    public class Media implements Serializable {
+        @SerializedName("type")
+        public int type = 0;
+        @SerializedName("small_pic")
+        public String small_pic = "";
+        @SerializedName("big_pic")
+        public String big_pic = "";
+        @SerializedName("water_pic")
+        public String water_pic = "";
+        @SerializedName("vsrc")
+        public String video_url = "";
+        @SerializedName("vpic")
+        public String pic_url = "";
+    }
+
+    /* loaded from: classes.dex */
+    public class Quote implements Serializable {
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
+        public long post_id = 0;
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
+        public String user_name = "";
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
+        public long user_id = 0;
+        @SerializedName("ip")
+        public long ip = 0;
+        @SerializedName("content")
+        public String content = "";
+    }
 
     /* loaded from: classes.dex */
     public class PostList extends com.baidu.tbadk.core.util.a implements Serializable {
@@ -51,11 +142,7 @@ public class PersonPostListData implements Serializable {
         @SerializedName("is_post_deleted")
         public int is_post_deleted = 0;
 
-        public String toString() {
-            return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs) + ", content='" + this.content + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", anchor_info=" + this.anchor_info.toString() + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
-        }
-
-        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
         public LinkedList<String> getImageUrl() {
             Media[] mediaArr;
             LinkedList<String> linkedList = new LinkedList<>();
@@ -71,125 +158,5 @@ public class PersonPostListData implements Serializable {
             }
             return linkedList;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public class Content implements Serializable {
-        @SerializedName("post_content")
-        public Abs[] post_content = new Abs[0];
-        @SerializedName("create_time")
-        public long create_time = 0;
-
-        public String toString() {
-            return "Content{post_content=" + Arrays.toString(this.post_content) + ", create_time=" + this.create_time + '}';
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class Abs implements Serializable {
-        @SerializedName("type")
-        public int type = 0;
-        @SerializedName("text")
-        public String text = "";
-        @SerializedName("src")
-        public String src = "";
-        @SerializedName("un")
-        public String un = "";
-        @SerializedName("link")
-        public String link = "";
-
-        public String toString() {
-            return "PostContent{type=" + this.type + ", text='" + this.text + "', src='" + this.src + "', un='" + this.un + "', link='" + this.link + "'}";
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class Quote implements Serializable {
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
-        public long post_id = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
-        public String user_name = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
-        public long user_id = 0;
-        @SerializedName("ip")
-        public long ip = 0;
-        @SerializedName("content")
-        public String content = "";
-
-        public String toString() {
-            return "Quote{post_id=" + this.post_id + ", user_name='" + this.user_name + "', user_id=" + this.user_id + ", ip=" + this.ip + ", content='" + this.content + "'}";
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class Media implements Serializable {
-        @SerializedName("type")
-        public int type = 0;
-        @SerializedName("small_pic")
-        public String small_pic = "";
-        @SerializedName("big_pic")
-        public String big_pic = "";
-        @SerializedName("water_pic")
-        public String water_pic = "";
-        @SerializedName("vsrc")
-        public String video_url = "";
-        @SerializedName("vpic")
-        public String pic_url = "";
-
-        public String toString() {
-            return "Media{type=" + this.type + ", small_pic='" + this.small_pic + "', big_pic='" + this.big_pic + "', water_pic='" + this.water_pic + "'}";
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class AnchorInfo implements Serializable {
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PORTRAIT)
-        public String portrait = "";
-        @SerializedName("name")
-        public String name = "";
-        @SerializedName("start_time")
-        public long start_time = 0;
-        @SerializedName("status")
-        public int status = 0;
-        @SerializedName("author_id")
-        public int author_id = 0;
-        @SerializedName("author_name")
-        public String author_name = "";
-        @SerializedName("listeners")
-        public int listeners = 0;
-        @SerializedName("likers")
-        public int likers = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.GROUP_ID)
-        public int group_id = 0;
-        @SerializedName("intro")
-        public String intro = "";
-        @SerializedName("publisherPortrait")
-        public String publisherPortrait = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME)
-        public String publisher_name = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID)
-        public int publisher_id = 0;
-
-        public String toString() {
-            return "anchor_info{portrait=" + this.portrait + ", name='" + this.name + "', start_time='" + this.start_time + "', status='" + this.status + "', author_id='" + this.author_id + "', author_name='" + this.author_name + "', listeners='" + this.listeners + "', likers='" + this.likers + "', group_id='" + this.group_id + "', intro='" + this.intro + "', publisherPortrait='" + this.publisherPortrait + "', publisher_name='" + this.publisher_name + "', publisher_id='" + this.publisher_id + "'}";
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class LbsInfo implements Serializable {
-        @SerializedName("lat")
-        public String lat = "";
-        @SerializedName("lon")
-        public String lon = "";
-        @SerializedName("town")
-        public String town = "";
-
-        public String toString() {
-            return "LbsInfo{lat='" + this.lat + "', lon='" + this.lon + "', town='" + this.town + "'}";
-        }
-    }
-
-    public String toString() {
-        return "PersonPostThreadModel{post_list=" + this.post_list + ", hide_post=" + this.hide_post + '}';
     }
 }

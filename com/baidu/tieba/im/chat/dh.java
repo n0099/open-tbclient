@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ TalkableActivity a;
-
-    private dh(TalkableActivity talkableActivity) {
-        this.a = talkableActivity;
-    }
+public class dh implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ View a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ dh(TalkableActivity talkableActivity, dh dhVar) {
-        this(talkableActivity);
+    public dh(View view) {
+        this.a = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tbadk.core.util.bx.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bz) new di(this, str, aVar));
+        }
     }
 }

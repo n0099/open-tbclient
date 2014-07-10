@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.bm;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,48 +24,48 @@ public class w extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        com.baidu.tieba.data.u uVar;
-        com.baidu.tieba.data.u uVar2;
-        com.baidu.tieba.data.u uVar3;
+        com.baidu.tieba.data.w wVar;
+        com.baidu.tieba.data.w wVar2;
+        com.baidu.tieba.data.w wVar3;
         int i;
-        com.baidu.tieba.data.u uVar4;
+        com.baidu.tieba.data.w wVar4;
         int i2;
-        com.baidu.tieba.data.u uVar5;
+        com.baidu.tieba.data.w wVar5;
         String f;
         try {
-            uVar = this.a.F;
-            if (uVar != null) {
-                uVar2 = this.a.F;
-                if (uVar2.g() != null) {
-                    uVar3 = this.a.F;
-                    LinkedList<com.baidu.tieba.data.t> g = uVar3.g();
+            wVar = this.a.F;
+            if (wVar != null) {
+                wVar2 = this.a.F;
+                if (wVar2.g() != null) {
+                    wVar3 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.v> g = wVar3.g();
                     i = this.a.I;
                     if (g.get(i) == null) {
                         return null;
                     }
-                    uVar4 = this.a.F;
-                    LinkedList<com.baidu.tieba.data.t> g2 = uVar4.g();
+                    wVar4 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.v> g2 = wVar4.g();
                     i2 = this.a.I;
                     String str = String.valueOf(g2.get(i2).b()) + "_big";
                     if (str != null && str.length() > 0) {
-                        uVar5 = this.a.F;
-                        if (uVar5 != null) {
-                            if (bg.f(str) != null) {
+                        wVar5 = this.a.F;
+                        if (wVar5 != null) {
+                            if (bm.f(str) != null) {
                                 String str2 = String.valueOf(f) + ".jpg";
                                 int i3 = 0;
-                                while (com.baidu.tbadk.core.util.x.b(str2) && i3 < 10000) {
+                                while (com.baidu.tbadk.core.util.z.b(str2) && i3 < 10000) {
                                     i3++;
                                     str2 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                                 }
                                 com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(str);
                                 if (c != null) {
-                                    str2 = com.baidu.tbadk.core.util.x.a((String) null, str2, c.h(), 80);
+                                    str2 = com.baidu.tbadk.core.util.z.a((String) null, str2, c.h(), 80);
                                 }
                                 if (str2 != null) {
-                                    new al(this.a).a(str2);
+                                    new ao(this.a).a(str2);
                                     return this.a.getString(com.baidu.tieba.y.save_image_to_album);
                                 }
-                                return com.baidu.tbadk.core.util.x.b();
+                                return com.baidu.tbadk.core.util.z.b();
                             }
                             return this.a.getString(com.baidu.tieba.y.save_error);
                         }
@@ -76,7 +76,7 @@ public class w extends BdAsyncTask<String, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            BdLog.e("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            BdLog.e(e.getMessage());
             return this.a.getString(com.baidu.tieba.y.save_error);
         }
     }

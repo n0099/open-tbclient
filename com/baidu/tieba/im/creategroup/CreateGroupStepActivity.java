@@ -11,9 +11,8 @@ import android.view.View;
 import android.widget.CompoundButton;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bj;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
 import com.baidu.tieba.y;
@@ -50,7 +49,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
     }
 
     private void c() {
-        registerListener(MessageTypes.CMD_ADD_GROUP, this.f);
+        registerListener(103101, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,10 +113,10 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    bd.b(this);
+                    bj.b(this);
                     return;
                 case 12010:
-                    bd.a(this);
+                    bj.a(this);
                     return;
                 default:
                     return;
@@ -154,7 +153,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         if (view == this.a.c()) {
             d();
         } else if (view == this.a.e()) {
-            int a = com.baidu.adp.lib.util.k.a((Context) TbadkApplication.m252getInst().getApp(), 0.0f);
+            int a = com.baidu.adp.lib.util.j.a((Context) TbadkApplication.m252getInst().getApp(), 0.0f);
             if (!this.a.I()) {
                 String C = this.a.C();
                 if (!TextUtils.isEmpty(C)) {

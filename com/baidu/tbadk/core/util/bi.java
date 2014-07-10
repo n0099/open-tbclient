@@ -1,54 +1,50 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
-import java.util.HashMap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-public class bi {
-    private static String a;
-    private static String b;
-    private static final HashMap<String, String> c = new HashMap<>();
+public class bi extends BdAsyncTask<String, String, String> {
+    public static final BdAsyncTaskParallel a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
+    private e b;
 
-    public static void a(String str) {
-        b = str;
-        if (TextUtils.isEmpty(str)) {
-            a = str;
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
-            str = str.substring(lastIndexOf + 1, str.length());
-        }
-        String str2 = "";
-        if (c != null) {
-            str2 = c.get(str);
-        }
-        if (str2 == null) {
-            str2 = b(str);
-            if (c != null) {
-                c.put(str, str2);
+    public bi(e eVar) {
+        this.b = null;
+        this.b = eVar;
+        setParallel(a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        try {
+            if (!this.b.p) {
+                if (this.b.d == 4) {
+                    if (this.b.k != null) {
+                        bl.a().a(this.b.k, this.b.j);
+                    }
+                } else if (this.b.d == 5) {
+                    com.baidu.tbadk.core.a.a.b(this.b.l, this.b.e);
+                } else if (this.b.d == 7) {
+                    bl.a().b(this.b.k, this.b.j);
+                } else if (this.b.k != null) {
+                    com.baidu.adp.lib.cache.s<String> A = com.baidu.tbadk.core.a.b.a().A();
+                    if (A != null && this.b.h) {
+                        A.a(this.b.l, "gif", 315532800000L);
+                    }
+                    bl.a().a(this.b.k, this.b.j);
+                }
+            }
+        } catch (Throwable th) {
+            try {
+                TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "cache img err: " + th.toString(), this.b.m);
+            } finally {
+                this.b.j = null;
+                this.b.m = null;
             }
         }
-        if (str2 != null) {
-            a = String.valueOf(str2) + System.currentTimeMillis();
-        }
-    }
-
-    private static String b(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            int length = str.length();
-            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
-                return str.substring(0, length - 8);
-            }
-            return str;
-        }
-        return str;
-    }
-
-    public static String a() {
-        return a;
-    }
-
-    public static String b() {
-        return b;
+        return null;
     }
 }

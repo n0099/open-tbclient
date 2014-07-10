@@ -1,11 +1,13 @@
 package com.baidu.sapi2.utils;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.sapi2.SapiAccount;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -21,7 +23,7 @@ public class SapiUtils {
     public static final int d = 3;
 
     public static boolean isValidAccount(SapiAccount sapiAccount) {
-        return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.app) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
+        return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
     }
 
     public static boolean isValidUsername(String str) {
@@ -29,6 +31,14 @@ public class SapiUtils {
             return false;
         }
         return true;
+    }
+
+    public static String getClientId(Context context) {
+        try {
+            return DeviceId.getDeviceID(context);
+        } catch (Throwable th) {
+            return "123456789";
+        }
     }
 
     public static String getLocalIpAddress() {
@@ -71,6 +81,26 @@ public class SapiUtils {
             return false;
         }
         return Pattern.compile("^(1)\\d{10}$").matcher(str).matches();
+    }
+
+    public static boolean isSimReady(Context context) {
+        if (context == null || context.checkCallingOrSelfPermission("android.permission.SEND_SMS") != 0) {
+            return false;
+        }
+        switch (((TelephonyManager) context.getSystemService("phone")).getSimState()) {
+            case 0:
+                return false;
+            case 1:
+                return false;
+            case 2:
+            case 3:
+            case 4:
+                return false;
+            case 5:
+                return true;
+            default:
+                return false;
+        }
     }
 
     public static boolean hasActiveNetwork(Context context) {
@@ -143,5 +173,46 @@ public class SapiUtils {
         } catch (Throwable th) {
             return false;
         }
+    }
+
+    public static String getAppName(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getAppName(Context context, String str) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            return packageManager.getPackageInfo(str, 0).applicationInfo.loadLabel(packageManager).toString();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (Throwable th) {
+            L.e(th);
+            return "0";
+        }
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (context == null) {
+            throw new IllegalArgumentException("Context can't be null");
+        }
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
+    }
+
+    public static int px2dip(Context context, float f) {
+        if (context == null) {
+            throw new IllegalArgumentException("Context can't be null");
+        }
+        return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 }

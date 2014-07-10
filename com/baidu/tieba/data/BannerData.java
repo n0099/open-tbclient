@@ -19,7 +19,7 @@ public class BannerData extends com.baidu.tbadk.core.data.d implements Serializa
                 this.mUrl = jSONObject.optString("message_url", null);
                 this.mResultUrl = jSONObject.optString("dest_url", null);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
         }
     }

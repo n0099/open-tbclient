@@ -11,31 +11,31 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.ac;
-import com.baidu.tieba.data.an;
-import com.baidu.tieba.data.x;
-import com.baidu.tieba.data.y;
+import com.baidu.tieba.data.aa;
+import com.baidu.tieba.data.ae;
+import com.baidu.tieba.data.ar;
+import com.baidu.tieba.data.z;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
     private BaseFragmentActivity a;
-    private com.baidu.tieba.data.n g;
+    private com.baidu.tieba.data.o g;
     private boolean h;
     private boolean i;
-    private ab j;
-    private View.OnClickListener k;
-    private View.OnLongClickListener l;
-    private BannerView m;
-    private y b = null;
-    private an c = null;
+    private View.OnClickListener j;
+    private View.OnLongClickListener k;
+    private BannerView l;
+    private aa b = null;
+    private ar c = null;
     private int d = 0;
     private int e = 0;
     private int f = 0;
-    private View.OnClickListener n = new n(this);
+    private View.OnClickListener m = new n(this);
 
     public void a(boolean z) {
         this.i = z;
@@ -44,22 +44,21 @@ public class m extends BaseAdapter {
     public m(BaseFragmentActivity baseFragmentActivity) {
         this.a = null;
         this.a = baseFragmentActivity;
-        this.j = new ab(this.a);
         a();
     }
 
     public void a() {
-        this.e = com.baidu.adp.lib.util.k.a((Context) this.a, 8.0f);
-        this.d = com.baidu.adp.lib.util.k.a((Context) this.a, 10.0f);
-        this.f = com.baidu.adp.lib.util.k.a((Context) this.a, 12.0f);
+        this.e = com.baidu.adp.lib.util.j.a((Context) this.a, 8.0f);
+        this.d = com.baidu.adp.lib.util.j.a((Context) this.a, 10.0f);
+        this.f = com.baidu.adp.lib.util.j.a((Context) this.a, 12.0f);
     }
 
-    public void a(y yVar) {
-        this.b = yVar;
+    public void a(aa aaVar) {
+        this.b = aaVar;
     }
 
-    public void a(an anVar) {
-        this.c = anVar;
+    public void a(ar arVar) {
+        this.c = arVar;
     }
 
     @Override // android.widget.Adapter
@@ -152,15 +151,15 @@ public class m extends BaseAdapter {
             } else {
                 view.setVisibility(8);
             }
-            view.setOnClickListener(this.n);
+            view.setOnClickListener(this.m);
             a(view);
         } else if (itemViewType == 2) {
-            if (this.m == null) {
+            if (this.l == null) {
                 view = LayoutInflater.from(this.a).inflate(w.home_like_item_banner, (ViewGroup) null);
-                this.m = (BannerView) view.findViewById(com.baidu.tieba.v.home_like_banner_view);
+                this.l = (BannerView) view.findViewById(v.home_like_banner_view);
             }
-            this.m.a("enter_bar_bck", "");
-            this.m.b(this.g.f().a(), this.g.f().b());
+            this.l.a("enter_bar_bck", "");
+            this.l.b(this.g.f().a(), this.g.f().b());
         } else if (itemViewType == 0) {
             if (this.h) {
                 i--;
@@ -170,23 +169,23 @@ public class m extends BaseAdapter {
             }
             int skinType = TbadkApplication.m252getInst().getSkinType();
             if (view == null) {
-                view = a((t) null);
+                view = a((s) null);
             }
-            t tVar = 0 == 0 ? (t) view.getTag() : null;
-            if (tVar != null && this.b != null && this.b.a() != null) {
-                this.a.a().a(skinType == 1);
-                this.a.a().a(view);
-                b(skinType, tVar);
-                a(i, tVar);
+            s sVar = 0 == 0 ? (s) view.getTag() : null;
+            if (sVar != null && this.b != null && this.b.a() != null) {
+                this.a.c().a(skinType == 1);
+                this.a.c().a(view);
+                b(skinType, sVar);
+                a(i, sVar);
                 if (i >= 0) {
                     if (i * 2 < this.b.a().size()) {
-                        a(this.b.a().get(i * 2), tVar);
+                        a(this.b.a().get(i * 2), sVar);
                     }
                     if ((i * 2) + 1 < this.b.a().size()) {
-                        tVar.f.b.setVisibility(0);
-                        a(this.b.a().get((i * 2) + 1), tVar.f);
+                        sVar.f.b.setVisibility(0);
+                        a(this.b.a().get((i * 2) + 1), sVar.f);
                     } else {
-                        tVar.f.b.setVisibility(4);
+                        sVar.f.b.setVisibility(4);
                     }
                 }
             }
@@ -207,20 +206,20 @@ public class m extends BaseAdapter {
             }
             int b = (i - 1) - ((b() + 1) / 2);
             int skinType2 = TbadkApplication.m252getInst().getSkinType();
-            view = a((u) null);
-            u uVar = 0 == 0 ? (u) view.getTag() : null;
-            if (uVar != null && this.c != null && this.c.a() != null) {
-                this.a.a().a(skinType2 == 1);
-                this.a.a().a(view);
+            view = a((t) null);
+            t tVar = 0 == 0 ? (t) view.getTag() : null;
+            if (tVar != null && this.c != null && this.c.a() != null) {
+                this.a.c().a(skinType2 == 1);
+                this.a.c().a(view);
                 if (b >= 0) {
                     if (b * 2 < this.c.a().size()) {
-                        a(this.c.a().get(b * 2), uVar);
+                        a(this.c.a().get(b * 2), tVar);
                     }
                     if ((b * 2) + 1 < this.c.a().size()) {
-                        uVar.f.b.setVisibility(0);
-                        a(this.c.a().get((b * 2) + 1), uVar.f);
+                        tVar.f.b.setVisibility(0);
+                        a(this.c.a().get((b * 2) + 1), tVar.f);
                     } else {
-                        uVar.f.b.setVisibility(4);
+                        tVar.f.b.setVisibility(4);
                     }
                 }
             }
@@ -229,55 +228,55 @@ public class m extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.a().a(view);
+        this.a.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.a.c().a(view);
     }
 
-    private void a(int i, t tVar) {
+    private void a(int i, s sVar) {
         if (i == 0) {
-            tVar.a.setPadding(this.d, this.f, this.d, 0);
+            sVar.a.setPadding(this.d, this.e, this.d, 0);
         } else {
-            tVar.a.setPadding(this.d, this.e, this.d, 0);
+            sVar.a.setPadding(this.d, this.e, this.d, 0);
         }
     }
 
-    private View a(t tVar) {
+    private View a(s sVar) {
         View inflate = LayoutInflater.from(this.a).inflate(w.home_like_item, (ViewGroup) null);
-        t tVar2 = new t();
-        tVar2.a = (LinearLayout) inflate;
-        tVar2.e = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_icon_sign1);
-        tVar2.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.item_left);
-        tVar2.b.setOnClickListener(this.k);
-        tVar2.b.setOnLongClickListener(this.l);
-        tVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.v.home_lv_like_forum1);
-        tVar2.d = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_lv_like_grade1);
-        tVar2.f = new t();
-        tVar2.f.e = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_icon_sign2);
-        tVar2.f.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.item_right);
-        tVar2.f.b.setOnClickListener(this.k);
-        tVar2.f.b.setOnLongClickListener(this.l);
-        tVar2.f.c = (TextView) inflate.findViewById(com.baidu.tieba.v.home_lv_like_forum2);
-        tVar2.f.d = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_lv_like_grade2);
-        inflate.setTag(tVar2);
+        s sVar2 = new s();
+        sVar2.a = (LinearLayout) inflate;
+        sVar2.e = (TextView) inflate.findViewById(v.forum_icon_sign1);
+        sVar2.b = (RelativeLayout) inflate.findViewById(v.item_left);
+        sVar2.b.setOnClickListener(this.j);
+        sVar2.b.setOnLongClickListener(this.k);
+        sVar2.c = (TextView) inflate.findViewById(v.home_lv_like_forum1);
+        sVar2.d = (TextView) inflate.findViewById(v.forum_lv_like_grade1);
+        sVar2.f = new s();
+        sVar2.f.e = (TextView) inflate.findViewById(v.forum_icon_sign2);
+        sVar2.f.b = (RelativeLayout) inflate.findViewById(v.item_right);
+        sVar2.f.b.setOnClickListener(this.j);
+        sVar2.f.b.setOnLongClickListener(this.k);
+        sVar2.f.c = (TextView) inflate.findViewById(v.home_lv_like_forum2);
+        sVar2.f.d = (TextView) inflate.findViewById(v.forum_lv_like_grade2);
+        inflate.setTag(sVar2);
         return inflate;
     }
 
-    private View a(u uVar) {
+    private View a(t tVar) {
         View inflate = LayoutInflater.from(this.a).inflate(w.home_recommend_item, (ViewGroup) null);
-        u uVar2 = new u();
-        uVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.home_recommend_container);
-        uVar2.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.recommend_item_left);
-        uVar2.b.setOnClickListener(this.k);
-        uVar2.d = (TextView) inflate.findViewById(com.baidu.tieba.v.left_bar_name);
-        uVar2.e = (TextView) inflate.findViewById(com.baidu.tieba.v.left_focus_num);
-        uVar2.c = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.left_bar_pic);
-        uVar2.f = new u();
-        uVar2.f.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.recommend_item_right);
-        uVar2.f.b.setOnClickListener(this.k);
-        uVar2.f.d = (TextView) inflate.findViewById(com.baidu.tieba.v.right_bar_name);
-        uVar2.f.e = (TextView) inflate.findViewById(com.baidu.tieba.v.right_focus_num);
-        uVar2.f.c = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.right_bar_pic);
-        inflate.setTag(uVar2);
+        t tVar2 = new t();
+        tVar2.a = (LinearLayout) inflate.findViewById(v.home_recommend_container);
+        tVar2.b = (RelativeLayout) inflate.findViewById(v.recommend_item_left);
+        tVar2.b.setOnClickListener(this.j);
+        tVar2.d = (TextView) inflate.findViewById(v.left_bar_name);
+        tVar2.e = (TextView) inflate.findViewById(v.left_focus_num);
+        tVar2.c = (HeadImageView) inflate.findViewById(v.left_bar_pic);
+        tVar2.f = new t();
+        tVar2.f.b = (RelativeLayout) inflate.findViewById(v.recommend_item_right);
+        tVar2.f.b.setOnClickListener(this.j);
+        tVar2.f.d = (TextView) inflate.findViewById(v.right_bar_name);
+        tVar2.f.e = (TextView) inflate.findViewById(v.right_focus_num);
+        tVar2.f.c = (HeadImageView) inflate.findViewById(v.right_bar_pic);
+        inflate.setTag(tVar2);
         return inflate;
     }
 
@@ -285,70 +284,70 @@ public class m extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private void b(int i, t tVar) {
-        if (tVar != null && tVar.b(i)) {
+    private void b(int i, s sVar) {
+        if (sVar != null && sVar.b(i)) {
             if (i == 1) {
-                be.e(tVar.b, com.baidu.tieba.u.home_like_item_bg_1);
-                be.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg_1);
+                bk.e(sVar.b, com.baidu.tieba.u.home_like_item_bg_1);
+                bk.e(sVar.f.b, com.baidu.tieba.u.home_like_item_bg_1);
                 return;
             }
-            be.e(tVar.b, com.baidu.tieba.u.home_like_item_bg);
-            be.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg);
+            bk.e(sVar.b, com.baidu.tieba.u.home_like_item_bg);
+            bk.e(sVar.f.b, com.baidu.tieba.u.home_like_item_bg);
         }
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.k = onClickListener;
+        this.j = onClickListener;
     }
 
     public void a(View.OnLongClickListener onLongClickListener) {
-        this.l = onLongClickListener;
+        this.k = onLongClickListener;
     }
 
-    private void a(x xVar, t tVar) {
-        if (xVar != null && tVar != null) {
-            int d = xVar.d();
-            tVar.b.setTag(xVar);
-            tVar.c.setText(xVar.b());
-            if (xVar.c() == 0) {
-                tVar.e.setVisibility(8);
+    private void a(z zVar, s sVar) {
+        if (zVar != null && sVar != null) {
+            int d = zVar.d();
+            sVar.b.setTag(zVar);
+            sVar.c.setText(zVar.b());
+            if (zVar.c() == 0) {
+                sVar.e.setVisibility(8);
             } else {
-                tVar.e.setVisibility(0);
+                sVar.e.setVisibility(0);
             }
             if (d == 0) {
-                tVar.d.setVisibility(4);
+                sVar.d.setVisibility(4);
                 return;
             }
-            tVar.d.setVisibility(0);
-            tVar.d.setBackgroundResource(com.baidu.tbadk.core.util.g.b(d));
-            tVar.d.setText(String.valueOf(xVar.d()));
+            sVar.d.setVisibility(0);
+            sVar.d.setBackgroundResource(com.baidu.tbadk.core.util.h.b(d));
+            sVar.d.setText(String.valueOf(zVar.d()));
         }
     }
 
-    private void a(ac acVar, u uVar) {
-        if (acVar != null && uVar != null) {
-            uVar.b.setTag(acVar);
-            uVar.d.setText(acVar.a());
-            uVar.e.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.y.enter_forum_recommend_focus)) + String.valueOf(acVar.b()));
-            if (!TextUtils.isEmpty(acVar.c())) {
-                uVar.c.setTag(acVar.c());
-                this.j.b(acVar.c(), new o(this, uVar));
+    private void a(ae aeVar, t tVar) {
+        if (aeVar != null && tVar != null) {
+            tVar.b.setTag(aeVar);
+            tVar.d.setText(aeVar.a());
+            tVar.e.setText(String.valueOf(this.a.getResources().getString(y.enter_forum_recommend_focus)) + String.valueOf(aeVar.b()));
+            if (!TextUtils.isEmpty(aeVar.c())) {
+                tVar.c.setTag(aeVar.c());
+                tVar.c.a(aeVar.c(), 10, false);
             }
         }
     }
 
-    public void a(com.baidu.tieba.data.n nVar) {
-        this.g = nVar;
-        if (this.m != null) {
-            this.m.b();
+    public void a(com.baidu.tieba.data.o oVar) {
+        this.g = oVar;
+        if (this.l != null) {
+            this.l.b();
         }
-        if (nVar.f() != null && nVar.f().a() != null) {
+        if (oVar.f() != null && oVar.f().a() != null) {
             this.h = true;
         } else {
             this.h = false;
         }
-        a(nVar.g());
-        a(nVar.b());
+        a(oVar.g());
+        a(oVar.b());
         notifyDataSetChanged();
     }
 }

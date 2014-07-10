@@ -1,30 +1,84 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.tbadk.data.IconData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aj implements com.baidu.adp.widget.s {
-    final /* synthetic */ ai a;
-    private final /* synthetic */ IconData b;
-    private final /* synthetic */ com.baidu.tbadk.editortool.ab c;
-    private final /* synthetic */ Context d;
+public class aj {
+    private String a = "";
+    private String b = "";
+    private String c = "";
+    private long d = System.currentTimeMillis();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar, IconData iconData, com.baidu.tbadk.editortool.ab abVar, Context context) {
-        this.a = aiVar;
-        this.b = iconData;
-        this.c = abVar;
-        this.d = context;
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof aj)) {
+            return false;
+        }
+        aj ajVar = (aj) obj;
+        return (this.a == null || ajVar.a == null || !this.a.equals(ajVar.a)) ? false : true;
     }
 
-    @Override // com.baidu.adp.widget.s
-    public Drawable a(com.baidu.adp.widget.r rVar) {
-        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(this.b.getIcon());
-        if (c == null) {
-            this.c.b(this.b.getIcon(), new ak(this, rVar, this.d));
+    public boolean a(JSONObject jSONObject) {
+        try {
+            String string = jSONObject.getString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+            String string2 = jSONObject.getString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
+            String string3 = jSONObject.getString("thread_name");
+            long j = jSONObject.getLong("thread_time");
+            if (!TextUtils.isEmpty(string)) {
+                this.c = string;
+            }
+            if (!TextUtils.isEmpty(string2)) {
+                this.a = string2;
+            }
+            if (!TextUtils.isEmpty(string3)) {
+                this.b = string3;
+            }
+            if (j > 2000) {
+                this.d = j;
+            }
+            return true;
+        } catch (JSONException e) {
+            return false;
         }
-        return this.a.a(c);
+    }
+
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, this.c);
+            jSONObject.put(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, this.a);
+            jSONObject.put("thread_time", this.d);
+            jSONObject.put("thread_name", this.b);
+        } catch (JSONException e) {
+        }
+        return jSONObject;
+    }
+
+    public String b() {
+        return this.a;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public long e() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public void c(String str) {
+        this.c = str;
     }
 }

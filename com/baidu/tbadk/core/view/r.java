@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tbadk.core.util.bt;
+import com.baidu.tbadk.core.util.bx;
+import com.baidu.tbadk.core.util.bz;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements com.baidu.tbadk.imageManager.d {
@@ -16,7 +16,7 @@ public class r implements com.baidu.tbadk.imageManager.d {
     @Override // com.baidu.tbadk.imageManager.d
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         if (aVar != null && str != null) {
-            br.a((ViewGroup) this.a, false, (bt) new s(this, str));
+            bx.a((ViewGroup) this.a, false, (bz) new s(this, str));
         }
     }
 }

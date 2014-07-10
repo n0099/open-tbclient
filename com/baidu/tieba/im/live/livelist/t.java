@@ -13,11 +13,9 @@ import java.util.List;
 public class t extends BaseAdapter {
     private FrsLiveListActivity a;
     private List<LiveCardData> b = new ArrayList();
-    private com.baidu.tbadk.editortool.ab c;
 
-    public t(FrsLiveListActivity frsLiveListActivity, com.baidu.tbadk.editortool.ab abVar) {
+    public t(FrsLiveListActivity frsLiveListActivity) {
         this.a = frsLiveListActivity;
-        this.c = abVar;
     }
 
     public void a(List<LiveCardData> list) {
@@ -96,7 +94,7 @@ public class t extends BaseAdapter {
             LiveCardData liveCardData = (LiveCardData) getItem(i);
             if (liveCardData != null) {
                 vVar2.a.setStatisticsKey("forum_live_list");
-                vVar2.a.a(liveCardData, this.c);
+                vVar2.a.setData(liveCardData);
                 return view;
             }
             return view;

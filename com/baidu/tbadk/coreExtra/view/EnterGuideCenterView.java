@@ -1,24 +1,31 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
 public class EnterGuideCenterView extends RelativeLayout {
     private ImageView a;
-    private TextView b;
-    private int c;
+    private Bitmap b;
+    private TextView c;
+    private int d;
+    private int e;
+    private int f;
 
     public EnterGuideCenterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = null;
         this.b = null;
-        this.c = -1;
+        this.c = null;
+        this.d = -1;
+        this.e = com.baidu.tieba.u.pic_go_ba;
+        this.f = com.baidu.tieba.u.pic_go_ba_1;
         a(context);
     }
 
@@ -26,7 +33,10 @@ public class EnterGuideCenterView extends RelativeLayout {
         super(context, attributeSet);
         this.a = null;
         this.b = null;
-        this.c = -1;
+        this.c = null;
+        this.d = -1;
+        this.e = com.baidu.tieba.u.pic_go_ba;
+        this.f = com.baidu.tieba.u.pic_go_ba_1;
         a(context);
     }
 
@@ -34,31 +44,45 @@ public class EnterGuideCenterView extends RelativeLayout {
         super(context);
         this.a = null;
         this.b = null;
-        this.c = -1;
+        this.c = null;
+        this.d = -1;
+        this.e = com.baidu.tieba.u.pic_go_ba;
+        this.f = com.baidu.tieba.u.pic_go_ba_1;
         a(context);
     }
 
     public void a(Context context) {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.enter_forum_guide_center, this);
         this.a = (ImageView) findViewById(com.baidu.tieba.v.img_bg_center);
-        this.b = (TextView) findViewById(com.baidu.tieba.v.tip_center);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.tip_center);
+    }
+
+    public void setTipTextByString(String str) {
+        if (this.c != null) {
+            this.c.setText(str);
+        }
+    }
+
+    public void a(int i, int i2) {
+        this.e = i;
+        this.f = i2;
     }
 
     public void setTipText(int i) {
-        if (this.b != null) {
-            this.b.setText(i);
+        if (this.c != null) {
+            this.c.setText(i);
         }
     }
 
     private void setSkinType(int i) {
-        this.c = i;
+        this.d = i;
     }
 
     private int getSkinType() {
-        return this.c;
+        return this.d;
     }
 
-    private boolean b(int i) {
+    private boolean c(int i) {
         if (i == getSkinType()) {
             return false;
         }
@@ -67,16 +91,29 @@ public class EnterGuideCenterView extends RelativeLayout {
     }
 
     public void a(int i) {
-        if (b(i)) {
-            be.a(this, i);
+        if (c(i)) {
+            bk.a(this, i);
             if (i == 1) {
-                this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba_1);
-                this.b.setTextColor(-8815226);
-                return;
+                this.b = com.baidu.tbadk.core.util.h.b(getContext(), this.f);
+                this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.forumfeed_tip1_text_1));
+            } else {
+                this.b = com.baidu.tbadk.core.util.h.b(getContext(), this.e);
+                this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.forumfeed_tip1_text));
             }
-            this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba);
-            this.b.setTextColor(-5065030);
+            if (this.b != null) {
+                this.a.setImageBitmap(this.b);
+            }
         }
+    }
+
+    public void b(int i) {
+        if (i == 0) {
+            b();
+            setVisibility(0);
+            return;
+        }
+        setVisibility(8);
+        c();
     }
 
     public void a() {
@@ -88,7 +125,13 @@ public class EnterGuideCenterView extends RelativeLayout {
     }
 
     public void c() {
-        this.c = -1;
-        this.a.setBackgroundDrawable(null);
+        this.d = -1;
+        this.a.setImageDrawable(null);
+        if (this.b != null) {
+            if (!this.b.isRecycled()) {
+                this.b.recycle();
+            }
+            this.b = null;
+        }
     }
 }

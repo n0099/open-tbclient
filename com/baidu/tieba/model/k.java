@@ -1,247 +1,140 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
-    private boolean h;
-    private m b = null;
-    private n c = null;
-    private l d = null;
-    private int f = 0;
-    private int g = 0;
-    protected BaseActivity.LoadDataCallBack a = null;
-    private ArrayList<MarkData> e = new ArrayList<>();
+public class k extends BdAsyncTask<Boolean, String, i> {
+    final /* synthetic */ i b;
+    private int e;
+    private com.baidu.tieba.data.av f;
+    private com.baidu.tbadk.core.util.aq c = null;
+    private String d = null;
+    Boolean a = false;
 
-    public k() {
-        this.h = false;
-        this.h = true;
+    public k(i iVar, int i) {
+        this.b = iVar;
+        this.e = 0;
+        this.f = null;
+        this.e = i;
+        this.f = new com.baidu.tieba.data.av();
     }
 
-    public int a() {
-        if (this.e == null) {
-            return 0;
-        }
-        return this.e.size();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
     }
 
-    public int b() {
-        return this.g;
-    }
-
-    public void a(int i) {
-        this.g = i;
-    }
-
-    public boolean c() {
-        return this.f >= 20;
-    }
-
-    public void d() {
-        this.g = 0;
-        this.f = 0;
-        this.h = true;
-    }
-
-    public boolean e() {
-        return this.h;
-    }
-
-    public ArrayList<MarkData> f() {
-        return this.e;
-    }
-
-    public void a(ArrayList<MarkData> arrayList) {
-        this.e = arrayList;
-    }
-
-    public void b(ArrayList<MarkData> arrayList) {
-        if (this.e != null && arrayList != null) {
-            this.e.addAll(arrayList);
-            m();
-        }
-    }
-
-    public void a(MarkData markData) {
-        this.e.add(markData);
-    }
-
-    public int g() {
-        if (this.e == null) {
-            return 0;
-        }
-        return this.e.size();
-    }
-
-    public int h() {
-        return this.f;
-    }
-
-    public void i() {
-        ArrayList<MarkData> l = com.baidu.tieba.util.k.l();
-        if (l != null) {
-            a(l);
-        }
-    }
-
-    public String a(int i, int i2) {
-        JSONArray jSONArray;
-        int i3;
-        if (this.e == null) {
-            return null;
-        }
-        if (i >= this.e.size()) {
-            i2 -= (i - this.e.size()) - 1;
-            i = this.e.size() - 1;
-        }
-        JSONArray jSONArray2 = new JSONArray();
-        int i4 = 0;
-        int i5 = i;
-        while (true) {
-            if (i5 < 0) {
-                jSONArray = jSONArray2;
-                break;
-            } else if (i5 <= i - i2) {
-                jSONArray = jSONArray2;
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public i doInBackground(Boolean... boolArr) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        this.a = boolArr[0];
+        i iVar = new i();
+        if (this.a.booleanValue()) {
+            com.baidu.adp.lib.cache.s<String> o = com.baidu.tbadk.core.a.b.a().o();
+            if (o != null) {
+                publishProgress(o.a(TbadkApplication.getCurrentAccount()));
+            }
+            arrayList = this.b.e;
+            if (arrayList == null) {
+                this.b.e = new ArrayList();
             } else {
-                try {
-                    JSONObject json = this.e.get(i5).toJson();
-                    if (json == null || i4 < 0) {
-                        i3 = i4;
-                    } else {
-                        i3 = i4 + 1;
-                        jSONArray2.put(i4, json);
-                    }
-                    i5--;
-                    i4 = i3;
-                } catch (Exception e) {
-                    BdLog.e(getClass().getName(), "toJson", e.toString());
-                    jSONArray = null;
-                }
+                arrayList2 = this.b.e;
+                arrayList2.clear();
+            }
+            this.b.f = 0;
+        }
+        this.c = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/post/threadstore");
+        this.c.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
+        this.c.a("offset", String.valueOf(this.e));
+        this.c.a("rn", String.valueOf(20));
+        this.d = this.c.i();
+        this.f.a(this.d);
+        if (this.c.a().b().b()) {
+            iVar.a(this.d);
+            if (this.e == 0 && this.a.booleanValue()) {
+                a(this.d);
             }
         }
-        if (jSONArray == null) {
-            return null;
-        }
-        return jSONArray.toString();
+        return iVar;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
+    private void a(String str) {
+        com.baidu.adp.lib.cache.s<String> o;
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && (o = com.baidu.tbadk.core.a.b.a().o()) != null) {
+            o.a(currentAccount, str, 604800000L);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> b(String str) {
-        JSONObject jSONObject;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(String... strArr) {
+        ArrayList<MarkData> b;
+        super.onProgressUpdate(strArr);
+        String str = strArr[0];
         ArrayList<MarkData> arrayList = new ArrayList<>();
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-            arrayList = null;
-        }
-        if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                MarkData markData = new MarkData();
-                markData.paserJson(optJSONArray.getJSONObject(i));
-                arrayList.add(markData);
+        if (str != null) {
+            b = this.b.b(str);
+            if (this.a.booleanValue()) {
+                this.b.a(b);
+            } else {
+                this.b.b(b);
             }
-            return arrayList;
+        } else {
+            this.b.a(arrayList);
         }
-        return null;
+        this.b.a.callback(0, null, true);
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MarkData markData = new MarkData();
-                    markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.e.add(markData);
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(Boolean bool) {
-        if (this.b != null) {
-            this.b.cancel();
-        }
-        this.b = new m(this, a());
-        this.b.setPriority(3);
-        this.b.execute(bool);
-    }
-
-    public void j() {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
         if (this.c != null) {
-            this.c.cancel();
+            this.c.g();
         }
-        this.c = new n(this, null);
-        this.c.setPriority(2);
-        this.c.execute(new k[0]);
+        this.b.b = null;
     }
 
-    public boolean b(int i) {
-        if (this.d != null) {
-            this.d.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(i iVar) {
+        this.b.b = null;
+        this.b.f = iVar.g();
+        ArrayList<MarkData> f = iVar.f();
+        if (this.a.booleanValue()) {
+            this.b.a(f);
+        } else {
+            this.b.b(f);
         }
-        if (i >= this.e.size() || this.e.get(i) == null || this.e.get(i).getId() == null) {
-            return false;
-        }
-        this.d = new l(this, this.e.get(i).getId(), i);
-        this.d.setPriority(2);
-        this.d.execute(new Boolean[0]);
-        return true;
-    }
-
-    public int k() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("uploac_mark_offset", 399);
-    }
-
-    public void c(int i) {
-        com.baidu.tbadk.core.sharedPref.b.a().b("uploac_mark_offset", i);
-    }
-
-    public void l() {
-        if (this.b != null) {
-            this.b.cancel();
-        }
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        if (this.d != null) {
-            this.d.cancel();
-        }
-    }
-
-    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.a = loadDataCallBack;
-    }
-
-    private void m() {
-        if (this.e != null) {
-            HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.e.iterator();
-            while (it.hasNext()) {
-                if (!hashSet.add(it.next().getId())) {
-                    it.remove();
-                }
+        Iterator<MarkData> it = f.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            if (it.next().getNewCounts() > 0) {
+                int i2 = i + 1;
+                this.b.a(i2);
+                i = i2;
             }
         }
+        if (this.b.a != null) {
+            if (this.c.a().b().b()) {
+                this.b.a.callback(0, this.f.b(), false);
+            } else {
+                this.b.a.callback(3, this.c.f());
+            }
+        }
+        this.b.h = false;
     }
 }

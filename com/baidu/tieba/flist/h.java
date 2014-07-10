@@ -19,7 +19,7 @@ class h implements AdapterView.OnItemClickListener {
         this.a.c.u.dismiss();
         this.a.t = i;
         this.a.c.d();
-        ArrayList<com.baidu.tieba.square.ab> arrayList = this.a.c.y.a().e;
+        ArrayList<com.baidu.tieba.square.w> arrayList = this.a.c.y.a().e;
         this.a.a(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.forumdetail;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bm;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,15 +27,15 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     public ForumDetailData doInBackground(String... strArr) {
         String str;
         str = b.a;
-        an anVar = new an(str);
-        anVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        anVar.a("need_good_thread", this.b);
-        String i = anVar.i();
-        if (anVar.a().b().b()) {
+        aq aqVar = new aq(str);
+        aqVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        aqVar.a("need_good_thread", this.b);
+        String i = aqVar.i();
+        if (aqVar.a().b().b()) {
             try {
                 return (ForumDetailData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForumDetailData.class);
             } catch (Exception e) {
-                BdLog.e("ForumDetailModel", "doInBackground", e.getMessage());
+                BdLog.detailException(e);
                 ForumDetailData forumDetailData = new ForumDetailData();
                 forumDetailData.errorNo = -1000;
                 forumDetailData.errorMsg = "网络异常";
@@ -43,8 +43,8 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
             }
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
-        forumDetailData2.errorNo = anVar.d();
-        forumDetailData2.errorMsg = anVar.f();
+        forumDetailData2.errorNo = aqVar.d();
+        forumDetailData2.errorMsg = aqVar.f();
         return forumDetailData2;
     }
 
@@ -56,7 +56,7 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         super.onPostExecute(forumDetailData);
         d dVar = this.c.get();
         if (dVar != null) {
-            if (bg.c(forumDetailData.errorMsg)) {
+            if (bm.c(forumDetailData.errorMsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

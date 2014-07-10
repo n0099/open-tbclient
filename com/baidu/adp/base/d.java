@@ -1,22 +1,25 @@
 package com.baidu.adp.base;
 
-import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-class d implements Runnable {
-    final /* synthetic */ c a;
-    private View b;
+public class d<T> extends f {
+    protected View a;
 
-    public d(c cVar, View view) {
-        this.a = cVar;
-        this.b = null;
-        this.b = view;
+    public d(Context context, int i) {
+        super(context);
+        this.a = null;
+        this.a = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+        this.a.setTag(this);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.a.mContext != null && (this.a.mContext instanceof Activity) && !((Activity) this.a.mContext).isFinishing()) {
-            this.a.ShowSoftKeyPad(this.b);
-        }
+    public View a() {
+        return this.a;
+    }
+
+    public View a(int i) {
+        return this.a.findViewById(i);
     }
 }

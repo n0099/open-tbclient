@@ -6,7 +6,7 @@ import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
     public j() {
-        super(2015007);
+        super(2013007);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements bm {
-    @Override // com.baidu.tbadk.core.util.bm
+public class o implements bs {
+    @Override // com.baidu.tbadk.core.util.bs
     public boolean a(Context context, String[] strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
@@ -24,12 +24,12 @@ public class o implements bm {
             if (a <= 0) {
                 return false;
             }
-            com.baidu.tbadk.core.atomData.q qVar = new com.baidu.tbadk.core.atomData.q(context, a, 0);
+            com.baidu.tbadk.core.atomData.v vVar = new com.baidu.tbadk.core.atomData.v(context, a, 0);
             if (context instanceof BaseActivity) {
-                ((BaseActivity) context).sendMessage(new CustomMessage(2010011, qVar));
+                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, vVar));
                 return true;
             } else if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).a(new CustomMessage(2010011, qVar));
+                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, vVar));
                 return true;
             }
         }

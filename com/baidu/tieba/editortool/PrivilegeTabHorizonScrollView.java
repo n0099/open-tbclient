@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
-    private ad a;
+    private af a;
     private int b;
-    private List<ag> c;
-    private an d;
+    private List<ai> c;
+    private ap d;
     private LinearLayout.LayoutParams e;
     private int f;
     private int g;
@@ -47,7 +47,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         removeAllViews();
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.a = new ad(getContext());
+        this.a = new af(getContext());
         this.a.setOrientation(0);
         this.a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.a.setBaselineAligned(false);
@@ -60,16 +60,16 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
         this.i.setLayoutParams(layoutParams);
-        be.f(this.i, com.baidu.tieba.u.bg_expression_bar_n);
+        bk.f(this.i, com.baidu.tieba.u.bg_expression_bar_n);
         this.a.addView(this.i);
     }
 
-    public void setDatas(List<ag> list) {
+    public void setDatas(List<ai> list) {
         this.c = list;
     }
 
-    private TbImageView b(ai aiVar) {
-        if (aiVar == null) {
+    private TbImageView b(ak akVar) {
+        if (akVar == null) {
             return null;
         }
         LinearLayout linearLayout = new LinearLayout(getContext());
@@ -83,14 +83,14 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         tbImageView.setPadding(this.g, this.f, this.g, this.f);
         linearLayout.setClickable(true);
         linearLayout.setFocusable(true);
-        be.c((ImageView) tbImageView, aiVar.b);
-        linearLayout.setOnClickListener(new aj(this, this.a.getChildCount() - 1, null));
+        bk.c((ImageView) tbImageView, akVar.b);
+        linearLayout.setOnClickListener(new al(this, this.a.getChildCount() - 1, null));
         this.a.addView(linearLayout, this.a.getChildCount() - 1, this.e);
         return tbImageView;
     }
 
-    public void a(ai aiVar) {
-        b(aiVar);
+    public void a(ak akVar) {
+        b(akVar);
         invalidate();
     }
 
@@ -104,7 +104,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
             this.b = i;
             LinearLayout linearLayout2 = (LinearLayout) this.a.getChildAt(this.b);
             linearLayout2.setSelected(true);
-            be.c((ImageView) ((TbImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
+            bk.c((ImageView) ((TbImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
         }
     }
 
@@ -131,9 +131,9 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.b) {
-                            be.c((ImageView) tbImageView, this.c.get(i2).c().a);
+                            bk.c((ImageView) tbImageView, this.c.get(i2).c().a);
                         } else {
-                            be.c((ImageView) tbImageView, this.c.get(i2).c().b);
+                            bk.c((ImageView) tbImageView, this.c.get(i2).c().b);
                         }
                     }
                 } else {
@@ -143,7 +143,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setOnTabSelectedListener(an anVar) {
-        this.d = anVar;
+    public void setOnTabSelectedListener(ap apVar) {
+        this.d = apVar;
     }
 }

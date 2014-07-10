@@ -12,6 +12,6 @@ class l implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFrag
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2010002, new com.baidu.tieba.im.chat.notify.b());
+        return new CustomResponsedMessage<>(2008002, new com.baidu.tieba.im.chat.notify.d());
     }
 }

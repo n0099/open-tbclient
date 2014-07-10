@@ -10,23 +10,23 @@ import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class PrivilegeTabHost extends LinearLayout implements an {
+public class PrivilegeTabHost extends LinearLayout implements ap {
     private LayoutInflater a;
     private PrivilegeTabContentView b;
     private PrivilegeTabWidgetView c;
     private ProgressBar d;
-    private ArrayList<ag> e;
+    private ArrayList<ai> e;
     private int f;
     private int g;
     private Context h;
-    private al i;
+    private an i;
 
     public PrivilegeTabHost(Context context) {
         super(context);
         this.e = new ArrayList<>();
         this.f = -1;
         this.g = -1;
-        this.i = new ak(this);
+        this.i = new am(this);
         a(context);
     }
 
@@ -35,7 +35,7 @@ public class PrivilegeTabHost extends LinearLayout implements an {
         this.e = new ArrayList<>();
         this.f = -1;
         this.g = -1;
-        this.i = new ak(this);
+        this.i = new am(this);
         a(context);
     }
 
@@ -72,7 +72,7 @@ public class PrivilegeTabHost extends LinearLayout implements an {
             b(this.g);
         }
         if (i != 8 && i != 4) {
-            Iterator<ag> it = this.e.iterator();
+            Iterator<ai> it = this.e.iterator();
             while (it.hasNext()) {
                 it.next().a(this.h);
             }
@@ -80,8 +80,8 @@ public class PrivilegeTabHost extends LinearLayout implements an {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ai aiVar) {
-        this.c.a(aiVar);
+    public void a(ak akVar) {
+        this.c.a(akVar);
     }
 
     public void setCurrentTab(int i) {
@@ -93,7 +93,7 @@ public class PrivilegeTabHost extends LinearLayout implements an {
         }
     }
 
-    @Override // com.baidu.tieba.editortool.an
+    @Override // com.baidu.tieba.editortool.ap
     public void a(int i) {
         setCurrentTab(i);
     }
@@ -113,19 +113,19 @@ public class PrivilegeTabHost extends LinearLayout implements an {
         this.b.a(i);
     }
 
-    public void setOnDataSelected(com.baidu.tbadk.editortool.x xVar) {
-        Iterator<ag> it = this.e.iterator();
+    public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
+        Iterator<ai> it = this.e.iterator();
         while (it.hasNext()) {
-            it.next().a(xVar);
+            it.next().a(wVar);
         }
-        this.b.setOnDataSelected(xVar);
-        this.c.setOnDataSelected(xVar);
+        this.b.setOnDataSelected(wVar);
+        this.c.setOnDataSelected(wVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Iterator<ag> it = this.e.iterator();
+        Iterator<ai> it = this.e.iterator();
         while (it.hasNext()) {
             it.next().b();
         }

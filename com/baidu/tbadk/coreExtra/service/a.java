@@ -6,12 +6,12 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aj;
+import com.baidu.tbadk.core.atomData.ao;
+import com.baidu.tbadk.core.atomData.bn;
 import com.baidu.tbadk.core.f;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends BdAsyncTask<String, Integer, String> {
@@ -30,7 +30,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
         super.onPreExecute();
         String string = this.b.getExtras().getString("privateGid");
         if (!TextUtils.isEmpty(string)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SEND_PV_TJ, string));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2012110, string));
         }
     }
 
@@ -51,21 +51,22 @@ public class a extends BdAsyncTask<String, Integer, String> {
         String string = this.b.getExtras().getString("stat");
         String stringExtra = this.b.getStringExtra("link");
         long j = this.b.getExtras().getLong("message_id");
+        long j2 = this.b.getExtras().getLong("task_id");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-            TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
+            TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j2 + ";link:" + stringExtra + ";uid:" + TbadkApplication.getCurrentAccount());
             TiebaStatic.pushMsg(j, 2, stringExtra, string);
         }
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TbadkApplication.m252getInst().getApp().getSystemService("activity")).getRunningTasks(500)) {
+        List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkApplication.m252getInst().getApp().getSystemService("activity")).getRunningTasks(500);
+        String a = bn.a();
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
-                BdLog.d("see noti goto maintab app active");
                 if (5 == this.b.getIntExtra("class", -1)) {
-                    BdLog.d("see noti goto maintab");
                     if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(com.baidu.tbadk.core.b.b.b())) {
-                        BdLog.d("see noti goto maintab new");
                         this.b.putExtra("class", 11);
                     }
-                } else if (10 == this.b.getIntExtra("class", -1)) {
-                    this.b.putExtra("class", 12);
+                    if (a != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(a)) {
+                        this.b.putExtra("class", 21);
+                    }
                 }
                 str2 = DealIntentService.ACTION_ON_POST_EXSIT;
                 return str2;
@@ -74,7 +75,6 @@ public class a extends BdAsyncTask<String, Integer, String> {
         if (this.b.getExtras().getBoolean("is_notify", false)) {
             a(i);
         }
-        BdLog.d("see noti goto maintab app not active");
         str = DealIntentService.ACTION_ON_POST_START;
         return str;
     }
@@ -91,11 +91,11 @@ public class a extends BdAsyncTask<String, Integer, String> {
             if (!str.equals(str2)) {
                 str3 = DealIntentService.ACTION_ON_POST_START;
                 if (str.equals(str3)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj(this.a, this.b)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao(this.a, this.b)));
                 }
             } else {
                 this.b.addFlags(268435456);
-                CustomMessage customMessage = new CustomMessage(CmdConfig.DEAL_INTENT);
+                CustomMessage customMessage = new CustomMessage(2012000);
                 customMessage.setData(this.b);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
@@ -114,8 +114,6 @@ public class a extends BdAsyncTask<String, Integer, String> {
             case 6:
             case 7:
             case 8:
-            case 9:
-            case 10:
             default:
                 return;
         }

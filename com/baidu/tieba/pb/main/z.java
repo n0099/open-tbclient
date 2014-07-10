@@ -11,17 +11,17 @@ class z implements com.baidu.tbadk.core.view.m {
     @Override // com.baidu.tbadk.core.view.m
     public void a(boolean z) {
         boolean z2;
-        bj bjVar;
-        bj bjVar2;
-        bq bqVar;
-        z2 = this.a.e;
+        bm bmVar;
+        bm bmVar2;
+        bt btVar;
+        z2 = this.a.f;
         if (!z2 && z) {
-            bjVar = this.a.x;
-            if (!bjVar.o()) {
-                bjVar2 = this.a.x;
-                if (bjVar2.t()) {
-                    bqVar = this.a.D;
-                    bqVar.t();
+            bmVar = this.a.x;
+            if (!bmVar.p()) {
+                bmVar2 = this.a.x;
+                if (bmVar2.v()) {
+                    btVar = this.a.D;
+                    btVar.u();
                 }
             }
         }

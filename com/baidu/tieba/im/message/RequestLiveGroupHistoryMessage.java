@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryLiveGroupHistory.DataReq;
 import protobuf.QueryLiveGroupHistory.QueryLiveGroupHistoryReqIdl;
@@ -11,7 +10,7 @@ public class RequestLiveGroupHistoryMessage extends TbSocketMessage {
     private int rn;
 
     public RequestLiveGroupHistoryMessage() {
-        super(MessageTypes.CMD_LIVE_GROUP_HISTORY);
+        super(107005);
     }
 
     public long getGroupId() {

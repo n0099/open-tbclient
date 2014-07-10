@@ -40,6 +40,9 @@ public abstract class ResponsedMessage<T> implements b<T> {
         this.mOrginalMessage = message;
     }
 
-    public void processInBackGround(int i, T t) {
+    public void beforeDispatchInBackGround(int i, T t) {
+    }
+
+    public void afterDispatchInBackGround(int i, T t) {
     }
 }

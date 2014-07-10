@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class cx implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ cw a;
+class cx extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ PersonalChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cw cwVar) {
-        this.a = cwVar;
+    public cx(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.c = userData;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        String a;
-        if (aVar != null) {
-            cw cwVar = this.a;
-            a = this.a.a(str, aVar.l());
-            cwVar.a(a);
-            return;
-        }
-        this.a.a(this.a.b.getString(com.baidu.tieba.y.save_error));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getUserId())));
     }
 }

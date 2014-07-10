@@ -3,7 +3,7 @@ package com.baidu.tieba.im.randchat;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestQuitChatRoomMessage;
@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseUpdateChatroomTopicMessage;
-import com.baidu.tieba.im.model.cb;
+import com.baidu.tieba.im.model.ca;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -29,14 +29,14 @@ class p extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        cb cbVar;
-        cb cbVar2;
+        ca caVar;
+        ca caVar2;
         f fVar;
-        cb cbVar3;
-        cb cbVar4;
+        ca caVar3;
+        ca caVar4;
         WaitingTipView.Type type;
         f fVar2;
-        cb cbVar5;
+        ca caVar5;
         f fVar3;
         f fVar4;
         this.a.closeLoadingDialog();
@@ -54,8 +54,8 @@ class p extends com.baidu.adp.framework.listener.b {
                     }
                     fVar2 = this.a.a;
                     com.baidu.tieba.im.view.h chatterboxView = fVar2.b().getChatterboxView();
-                    cbVar5 = this.a.b;
-                    chatterboxView.setTitle(cbVar5.h());
+                    caVar5 = this.a.b;
+                    chatterboxView.setTitle(caVar5.h());
                     fVar3 = this.a.a;
                     fVar3.b().getLoadingView().setVisibility(8);
                     return;
@@ -78,8 +78,8 @@ class p extends com.baidu.adp.framework.listener.b {
                         this.a.showToast(y.neterror);
                     }
                 }
-                cbVar4 = this.a.b;
-                com.baidu.tieba.im.e.i.a(String.valueOf(cbVar4.f().d()));
+                caVar4 = this.a.b;
+                com.baidu.tieba.im.e.i.a(String.valueOf(caVar4.f().d()));
                 this.a.finish();
             }
         } else if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 106101) {
@@ -102,22 +102,22 @@ class p extends com.baidu.adp.framework.listener.b {
             RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-            imMessageCenterPojo.setPulled_msgId(bv.b(randChatRoomData.k()));
+            imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
             imMessageCenterPojo.setCustomGroupType(3);
             imMessageCenterPojo.setGroup_name("聊天室");
             imMessageCenterPojo.setIs_delete(0);
             imMessageCenterPojo.setIs_hidden(1);
             com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
             this.a.a(randChatRoomData, false);
-            cbVar3 = this.a.b;
-            cbVar3.b(randChatRoomData);
+            caVar3 = this.a.b;
+            caVar3.b(randChatRoomData);
             this.a.i();
             this.a.j();
         } else if (socketResponsedMessage.getCmd() == 106001 && (socketResponsedMessage instanceof ResponseChatRoomInfoMessage)) {
-            cbVar = this.a.b;
-            RandChatRoomData f = cbVar.f();
-            cbVar2 = this.a.b;
-            f.b(cbVar2.a((ResponseChatRoomInfoMessage) socketResponsedMessage));
+            caVar = this.a.b;
+            RandChatRoomData f = caVar.f();
+            caVar2 = this.a.b;
+            f.b(caVar2.a((ResponseChatRoomInfoMessage) socketResponsedMessage));
             fVar = this.a.a;
             fVar.b().c();
             this.a.j();

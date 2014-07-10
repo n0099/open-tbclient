@@ -11,13 +11,15 @@ import android.os.RemoteException;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.bd;
 import com.baidu.tbadk.core.service.PluginDownloadService;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
+import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
@@ -33,11 +35,15 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     private NavigationBar g;
     private Messenger h;
     private String j;
-    private ab k;
-    private PluginsConfig.PluginConfig l;
-    private boolean m;
-    private ServiceConnection i = new h(this, null);
-    private final Messenger n = new Messenger(new i(this, null));
+    private PluginsConfig.PluginConfig k;
+    private boolean l;
+    private int m;
+    private ServiceConnection i = new f(this, null);
+    private final Messenger n = new Messenger(new g(this, null));
+
+    static {
+        TbadkApplication.m252getInst().RegisterIntent(bd.class, PluginDetailActivity.class);
+    }
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PluginDetailActivity.class);
@@ -47,7 +53,7 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
 
     @Override // com.baidu.tbadk.tbplugin.k
     public void onFinish(int i, String str) {
-        runOnUiThread(new e(this, i, str));
+        runOnUiThread(new d(this, i, str));
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
@@ -69,22 +75,20 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
         this.e = (TextView) findViewById(v.size);
         this.f = (TextView) findViewById(v.enable);
         this.f.setOnClickListener(this);
-        this.k = new ab(this);
         this.j = getIntent().getStringExtra("name");
-        this.l = com.baidu.tbadk.tbplugin.m.a().d(this.j);
+        this.k = com.baidu.tbadk.tbplugin.m.a().d(this.j);
         a((ServiceConnection) null);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.l != null) {
-            this.a.setTag(this.l.icon);
-            this.k.a(this.l.icon, false, (com.baidu.tbadk.imageManager.d) new f(this), true);
-            this.b.setText(this.l.description);
+        if (this.k != null) {
+            this.a.a(this.k.icon, 10, false);
+            this.b.setText(this.k.description);
             a();
-            this.d.setText(this.l.newest.changelog);
-            this.e.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.l.newest.size / 1024) + "KB");
+            this.d.setText(this.k.newest.changelog);
+            this.e.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.k.newest.size / 1024) + "KB");
             this.f.setOnClickListener(this);
         }
     }
@@ -94,17 +98,27 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
             this.c.setText(y.plugin_enabled);
             this.f.setText(y.plugin_update);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_g));
+            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
+            this.m = 1;
         } else if (com.baidu.tbadk.tbplugin.m.a().b(this.j)) {
-            this.c.setText(y.plugin_enabled);
-            this.f.setText(y.plugin_enabled);
-            this.f.setEnabled(false);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_d));
+            this.f.setEnabled(true);
+            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
+            Boolean valueOf = Boolean.valueOf(com.baidu.tbadk.tbplugin.m.a().e(this.j));
+            if (valueOf.booleanValue()) {
+                this.c.setText(y.plugin_unenabled);
+                this.f.setText(y.plugin_enable);
+                this.m = 2;
+            } else if (!valueOf.booleanValue()) {
+                this.c.setText(y.plugin_enabled);
+                this.f.setText(y.plugin_unenable);
+                this.m = 3;
+            }
         } else {
             this.c.setText(y.plugin_disabled);
             this.f.setText(y.plugin_enable);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_g));
+            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
+            this.m = 0;
         }
     }
 
@@ -120,29 +134,42 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.f) {
-            if (UtilHelper.getNetStatusInfo(this) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-                showToast(y.neterror);
-                return;
+            if (this.m == 0 || this.m == 1) {
+                b();
+            } else if (this.m == 3) {
+                com.baidu.tbadk.tbplugin.m.a().a(this.j, true);
+                a();
+            } else if (this.m == 2) {
+                com.baidu.tbadk.tbplugin.m.a().a(this.j, false);
+                a();
             }
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_d));
-            this.f.setEnabled(false);
-            if (this.h != null) {
-                Message obtain = Message.obtain((Handler) null, 3);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("download_data", a(this.l));
-                if (obtain != null) {
-                    obtain.setData(bundle);
-                    try {
-                        this.h.send(obtain);
-                        return;
-                    } catch (RemoteException e) {
-                        return;
-                    }
-                }
-                return;
-            }
-            a(new g(this, this));
         }
+    }
+
+    private void b() {
+        if (UtilHelper.getNetStatusInfo(this) == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            showToast(y.neterror);
+            return;
+        }
+        this.f.setTextColor(getResources().getColor(s.cp_cont_d));
+        this.f.setEnabled(false);
+        if (this.h != null) {
+            Message obtain = Message.obtain((Handler) null, 3);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("download_data", a(this.k));
+            if (obtain != null) {
+                obtain.setData(bundle);
+                try {
+                    this.h.send(obtain);
+                    return;
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            return;
+        }
+        a(new e(this, this));
     }
 
     private void a(ServiceConnection serviceConnection) {
@@ -154,7 +181,7 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
         }
     }
 
-    private void b() {
+    private void c() {
         if (this.h != null) {
             try {
                 this.h.send(Message.obtain((Handler) null, 2));
@@ -168,7 +195,7 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        b();
+        c();
     }
 
     public DownloadData a(PluginsConfig.PluginConfig pluginConfig) {

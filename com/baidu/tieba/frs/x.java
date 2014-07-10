@@ -13,7 +13,7 @@ class x extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2014111) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
             FrsActivity.b = true;
             FrsActivity.c = true;
         }

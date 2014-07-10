@@ -22,15 +22,15 @@ public class d implements Runnable {
         Context context6;
         long currentTimeMillis = System.currentTimeMillis();
         context = this.a.mContext;
-        com.baidu.android.systemmonitor.freqstatistic.c a = com.baidu.android.systemmonitor.freqstatistic.c.a(context);
+        com.baidu.android.systemmonitor.freqstatistic.e a = com.baidu.android.systemmonitor.freqstatistic.e.a(context);
         context2 = this.a.mContext;
-        if (a.b(com.baidu.android.systemmonitor.util.e.h(context2))) {
+        if (a.b(com.baidu.android.systemmonitor.c.b.h(context2))) {
             context3 = this.a.mContext;
-            if (com.baidu.android.systemmonitor.util.b.a(context3)) {
+            if (com.baidu.android.systemmonitor.c.d.a(context3)) {
                 context5 = this.a.mContext;
                 com.baidu.android.systemmonitor.a.a.a(context5).e();
                 context6 = this.a.mContext;
-                com.baidu.android.systemmonitor.util.e.a(context6, currentTimeMillis);
+                com.baidu.android.systemmonitor.c.b.a(context6, currentTimeMillis);
             }
             Intent intent = new Intent("com.baidu.freqstatistic.summaryresults");
             context4 = this.a.mContext;

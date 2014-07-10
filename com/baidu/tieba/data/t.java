@@ -1,110 +1,113 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class t {
-    private ai e;
-    private ArrayList<f> f;
-    private Context n;
-    private String a = null;
-    private String b = null;
+    private int a = 0;
+    private int b = 0;
     private String c = null;
     private String d = null;
+    private int e = 0;
+    private int f = 0;
     private int g = 0;
     private int h = 0;
-    private String i = null;
-    private String j = null;
-    private String k = null;
-    private String l = null;
-    private int m = -1;
+    private int i = 0;
+    private int j = 0;
+    private long k = 0;
+    private long l = 0;
+    private boolean m = false;
+    private long n = 0;
+    private String o = null;
+    private au p = new au();
 
-    public t(Context context) {
-        this.e = null;
-        this.f = null;
-        this.n = null;
-        this.n = context;
-        this.e = new ai();
-        this.f = new ArrayList<>();
-    }
-
-    public ai a() {
-        return this.e;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
+    public int a() {
         return this.a;
     }
 
-    public String d() {
-        return this.i;
+    public String b() {
+        return this.c;
     }
 
-    public String e() {
-        return this.k;
-    }
-
-    public int f() {
-        return this.g;
-    }
-
-    public int g() {
-        return this.h;
-    }
-
-    public int h() {
-        return this.m;
-    }
-
-    public String i() {
-        return this.l;
-    }
-
-    public String j() {
+    public String c() {
         return this.d;
     }
 
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        try {
-            this.i = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
-            this.k = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-            this.l = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
-            this.j = jSONObject.optString("comment_amount");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
-            this.m = jSONObject.optInt("index", -1);
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.a = optJSONObject.optString("id");
-                this.b = optJSONObject.optString("url");
-                this.g = optJSONObject.optInt("width", 0);
-                this.h = optJSONObject.optInt("height", 0);
-                this.c = optJSONObject.optString("cdn_src", "");
-                if (this.c == null || this.c.length() == 0) {
-                    this.c = this.b;
+    public int d() {
+        return this.g;
+    }
+
+    public int e() {
+        return this.h;
+    }
+
+    public int f() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public long g() {
+        return this.k;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public int h() {
+        return this.e;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int i() {
+        return this.f;
+    }
+
+    public boolean j() {
+        return this.m;
+    }
+
+    public long k() {
+        return this.n;
+    }
+
+    public String l() {
+        return this.o;
+    }
+
+    public void a(StarInfo starInfo) {
+        if (starInfo != null) {
+            this.a = starInfo.has_frs_star.intValue();
+            if (this.a == 1) {
+                this.c = starInfo.top;
+                this.d = starInfo.head;
+                Fans fans = starInfo.fans;
+                this.e = fans.is_get.intValue();
+                this.f = fans.num.intValue();
+                this.b = fans.open.intValue();
+                this.k = fans.left_time.intValue();
+                this.l = this.k;
+                Size size = starInfo.top_size;
+                this.g = size.width.intValue();
+                this.h = size.height.intValue();
+                Size size2 = starInfo.head_size;
+                this.i = size2.width.intValue();
+                this.j = size2.height.intValue();
+            }
+            this.m = starInfo.trade != null;
+            if (this.m) {
+                if (starInfo.trade.time != null) {
+                    this.n = starInfo.trade.time.intValue();
                 }
-                this.d = optJSONObject.optString("big_cdn_src", null);
+                this.o = starInfo.trade.url;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("descr");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    f fVar = new f();
-                    fVar.a(optJSONArray.optJSONObject(i));
-                    this.f.add(fVar);
-                }
-            }
-            this.e.a(this.f);
-            if (this.n != null) {
-                this.e.b(this.n);
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

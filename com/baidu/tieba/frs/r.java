@@ -24,20 +24,20 @@ class r implements AbsListView.OnScrollListener {
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         ct ctVar5;
         if (i == 0) {
-            ctVar4 = this.a.w;
-            onItemLongClickListener = this.a.am;
+            ctVar4 = this.a.v;
+            onItemLongClickListener = this.a.aq;
             ctVar4.a(onItemLongClickListener);
-            ctVar5 = this.a.w;
+            ctVar5 = this.a.v;
             ctVar5.e(false);
-            this.a.T = false;
+            this.a.S = false;
             return;
         }
-        ctVar = this.a.w;
+        ctVar = this.a.v;
         ctVar.a((AdapterView.OnItemLongClickListener) null);
-        ctVar2 = this.a.w;
+        ctVar2 = this.a.v;
         ctVar2.e(true);
-        this.a.T = true;
-        ctVar3 = this.a.w;
-        ctVar3.U();
+        this.a.S = true;
+        ctVar3 = this.a.v;
+        ctVar3.T();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.topRec;
 /* loaded from: classes.dex */
-class a implements n {
+class a implements m {
     final /* synthetic */ TopRecActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,11 +8,11 @@ class a implements n {
         this.a = topRecActivity;
     }
 
-    @Override // com.baidu.tieba.topRec.n
+    @Override // com.baidu.tieba.topRec.m
     public void a(Boolean bool, TRForumListData tRForumListData, int i, String str) {
-        h hVar;
-        h hVar2;
-        h hVar3;
+        g gVar;
+        g gVar2;
+        g gVar3;
         e eVar;
         e eVar2;
         if (bool.booleanValue() && i == 0) {
@@ -25,11 +25,11 @@ class a implements n {
         } else {
             this.a.showToast(str);
         }
-        hVar = this.a.a;
-        hVar.a(false);
-        hVar2 = this.a.a;
-        hVar2.c();
-        hVar3 = this.a.a;
-        hVar3.f();
+        gVar = this.a.a;
+        gVar.a(false);
+        gVar2 = this.a.a;
+        gVar2.c();
+        gVar3 = this.a.a;
+        gVar3.f();
     }
 }

@@ -10,6 +10,7 @@ public class a {
             new com.baidu.tbadk.tbplugin.a(context, DQSdkPlugin.class, z2, new c(this)).a();
             new com.baidu.tbadk.tbplugin.a(context, Hao123Plugin.class, z2, new d(this)).a();
             new com.baidu.tbadk.tbplugin.a(context, BatSdkDelegate.class, z2, new e(this, hVar)).a();
+            new com.baidu.tbadk.tbplugin.a(context, BaobaoSdkDelegate.class, z2, new f(this, hVar)).a();
             if (!z2 && hVar != null) {
                 hVar.a();
                 return;

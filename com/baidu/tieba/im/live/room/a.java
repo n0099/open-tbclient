@@ -19,51 +19,51 @@ class a extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        e eVar;
-        e eVar2;
-        e eVar3;
-        e eVar4;
+        d dVar;
+        d dVar2;
+        d dVar3;
+        d dVar4;
         int i;
-        f fVar;
-        e eVar5;
-        e eVar6;
-        e eVar7;
-        e eVar8;
-        e eVar9;
-        f fVar2;
+        e eVar;
+        d dVar5;
+        d dVar6;
+        d dVar7;
+        d dVar8;
+        d dVar9;
+        e eVar2;
         this.a.hideProgressBar();
         if (socketResponsedMessage == null) {
             this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107006 && (socketResponsedMessage instanceof ResponseLiveGroupLikeListMessage)) {
-            eVar = this.a.c;
-            eVar.g();
+            dVar = this.a.c;
+            dVar.g();
             ResponseLiveGroupLikeListMessage responseLiveGroupLikeListMessage = (ResponseLiveGroupLikeListMessage) socketResponsedMessage;
             if (responseLiveGroupLikeListMessage.hasError()) {
-                eVar9 = this.a.c;
-                if (eVar9.h()) {
-                    fVar2 = this.a.b;
-                    fVar2.a();
+                dVar9 = this.a.c;
+                if (dVar9.h()) {
+                    eVar2 = this.a.b;
+                    eVar2.a();
                 } else if (!TextUtils.isEmpty(responseLiveGroupLikeListMessage.getErrorString())) {
                     this.a.showToast(responseLiveGroupLikeListMessage.getErrorString());
                 }
             } else {
-                eVar2 = this.a.c;
-                if (eVar2.h()) {
-                    eVar7 = this.a.c;
-                    eVar7.b().clear();
+                dVar2 = this.a.c;
+                if (dVar2.h()) {
+                    dVar7 = this.a.c;
+                    dVar7.b().clear();
                 }
                 if (responseLiveGroupLikeListMessage.getLiveList() != null && responseLiveGroupLikeListMessage.getLiveList().size() > 0) {
                     for (LikeUserInfo likeUserInfo : responseLiveGroupLikeListMessage.getLiveList()) {
-                        eVar6 = this.a.c;
-                        eVar6.b().add(likeUserInfo);
+                        dVar6 = this.a.c;
+                        dVar6.b().add(likeUserInfo);
                     }
                 }
-                eVar3 = this.a.c;
-                int size = eVar3.b().size();
+                dVar3 = this.a.c;
+                int size = dVar3.b().size();
                 int likers = responseLiveGroupLikeListMessage.getLikers();
                 int i2 = 1001;
-                eVar4 = this.a.c;
-                int a = eVar4.a();
+                dVar4 = this.a.c;
+                int a = dVar4.a();
                 i = LiveGroupLikeListActivity.a;
                 if (a > i) {
                     i2 = 1003;
@@ -71,12 +71,12 @@ class a extends com.baidu.adp.framework.listener.b {
                 if (size >= likers) {
                     i2 = 1002;
                 }
-                fVar = this.a.b;
-                eVar5 = this.a.c;
-                fVar.a(likers, eVar5.b(), i2, likers - size);
+                eVar = this.a.b;
+                dVar5 = this.a.c;
+                eVar.a(likers, dVar5.b(), i2, likers - size);
             }
-            eVar8 = this.a.c;
-            eVar8.a(responseLiveGroupLikeListMessage.getHasMore());
+            dVar8 = this.a.c;
+            dVar8.a(responseLiveGroupLikeListMessage.getHasMore());
         }
     }
 }

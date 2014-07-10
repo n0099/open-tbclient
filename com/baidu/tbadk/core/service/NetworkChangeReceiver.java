@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.message.NetWorkChangeMessage;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
@@ -30,14 +30,14 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(WIFI_STRING)) {
                     if (this.NETWORK_STATUS != 1) {
                         if (this.NETWORK_STATUS != -1) {
-                            bh.a().b(true);
+                            bn.a().b(true);
                             MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(1));
                         }
                         this.NETWORK_STATUS = 1;
                     }
                 } else if (this.NETWORK_STATUS != 2) {
                     if (this.NETWORK_STATUS != -1) {
-                        bh.a().b(false);
+                        bn.a().b(false);
                         MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(2));
                     }
                     this.NETWORK_STATUS = 2;
@@ -48,7 +48,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             }
             CompatibleUtile.dealWebView();
         } catch (Throwable th) {
-            BdLog.e("NetworkChangeReceiver", "onReceiver", th.getMessage());
+            BdLog.e(th.getMessage());
         }
     }
 }

@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
+public class l implements Comparator<ImMessageCenterShowItemData> {
+    final /* synthetic */ a a;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(int i) {
-        super(i);
+    public l(a aVar) {
+        this.a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
+    @Override // java.util.Comparator
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010016) {
-            a.f().d();
-            a.f().b((ImMessageCenterShowItemData) null);
-            a.f().d((ImMessageCenterShowItemData) null);
-            a.f().c((ImMessageCenterShowItemData) null);
-            a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
-            BdSocketLinkService.startService(true, "clear cache");
+    public int compare(ImMessageCenterShowItemData imMessageCenterShowItemData, ImMessageCenterShowItemData imMessageCenterShowItemData2) {
+        if (imMessageCenterShowItemData.getServerTime() < imMessageCenterShowItemData2.getServerTime()) {
+            return 1;
         }
+        if (imMessageCenterShowItemData.getServerTime() > imMessageCenterShowItemData2.getServerTime()) {
+            return -1;
+        }
+        return 0;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba.im.chat.personaltalk;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
@@ -36,7 +35,7 @@ public class l extends com.baidu.adp.framework.listener.b {
         PersonalTalkSettingActivity personalTalkSettingActivity5;
         if (socketResponsedMessage != null) {
             switch (socketResponsedMessage.getCmd()) {
-                case MessageTypes.CMD_UPDATE_MASK_INFO /* 104102 */:
+                case 104102:
                     if (socketResponsedMessage instanceof ResponsedMessage) {
                         personalTalkSettingActivity4 = this.a.h;
                         personalTalkSettingActivity4.closeLoadingDialog();
@@ -64,7 +63,7 @@ public class l extends com.baidu.adp.framework.listener.b {
                         return;
                     }
                     return;
-                case MessageTypes.CMD_QUERY_USER_INFO /* 205003 */:
+                case 205003:
                     if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
                         personalTalkSettingActivity2 = this.a.h;
                         personalTalkSettingActivity2.hideProgressBar();

@@ -1,23 +1,55 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
+import android.os.Parcelable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class ar implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class ar extends PagerAdapter {
+    public List<View> a;
+    final /* synthetic */ ao b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ar(ao aoVar, List<View> list) {
+        this.b = aoVar;
+        this.a = list;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.t = true;
-            return false;
-        }
-        return false;
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView(this.a.get(i));
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void finishUpdate(View view) {
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.a.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(View view, int i) {
+        ((ViewPager) view).addView(this.a.get(i), 0);
+        return this.a.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Parcelable saveState() {
+        return null;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void startUpdate(View view) {
     }
 }

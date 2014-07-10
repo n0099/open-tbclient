@@ -78,7 +78,7 @@ public class e {
                 return null;
             }
         } else {
-            return com.baidu.tbadk.core.util.g.a(imageFileInfo.getFilePath());
+            return com.baidu.tbadk.core.util.h.a(imageFileInfo.getFilePath());
         }
     }
 }

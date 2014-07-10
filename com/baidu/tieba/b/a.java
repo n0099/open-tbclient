@@ -1,78 +1,75 @@
 package com.baidu.tieba.b;
 
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
+import com.baidu.adp.lib.stats.o;
+import com.baidu.kirin.KirinConfig;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private GestureDetector a = new GestureDetector(this);
-    private b b;
-    private View c;
+public class a {
+    public String a;
+    private final int c = 10;
+    private final int d = KirinConfig.CONNECT_TIME_OUT;
+    private o b = new o("dbg");
 
-    public a(b bVar) {
-        this.b = bVar;
+    public a(String str) {
+        this.a = null;
+        this.a = str;
+        b.a(str);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.c = view;
-        if (this.a != null) {
-            return this.a.onTouchEvent(motionEvent);
+    public void a() {
+        this.b.a();
+    }
+
+    public void a(boolean z, boolean z2, int i, String str, long j) {
+        if (this.b != null && BdResourceLoaderNetHelperStatic.a()) {
+            e b = b.b(this.a);
+            long b2 = this.b.b();
+            if (z) {
+                b.b.b++;
+                if (z2) {
+                    b.b.a += b2;
+                    b.b.d += j;
+                } else {
+                    b.b.c++;
+                }
+            } else {
+                b.c.b++;
+                if (z2) {
+                    b.c.a += b2;
+                    b.c.d += j;
+                } else {
+                    b.c.c++;
+                }
+            }
+            this.b = null;
+            b.a(b, 10);
+            if (this.a == "frsStat") {
+                if (!z2 || b2 > 3000) {
+                    o oVar = new o("dbg");
+                    oVar.a("act", "frs");
+                    oVar.a("result", z2 ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                    oVar.a("isHttp", z ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                    oVar.a("timeCost", String.valueOf(b2));
+                    oVar.a("errCode", String.valueOf(i));
+                    oVar.a("errMsg", str);
+                    oVar.a("down", String.valueOf(j));
+                    com.baidu.adp.lib.stats.d.b().a("frs", oVar);
+                }
+            }
         }
-        return true;
     }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
-        if (this.b != null) {
-            return this.b.a(this.c, motionEvent);
+    public void b() {
+        if (this.b != null && BdResourceLoaderNetHelperStatic.a()) {
+            e b = b.b(this.a);
+            long b2 = this.b.b();
+            if (b2 > 3000) {
+                d dVar = b.d;
+                dVar.a = b2 + dVar.a;
+                b.d.b++;
+                b.a(b, 10);
+            }
         }
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.b != null) {
-            return this.b.b(this.c, motionEvent);
-        }
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.b != null) {
-            return this.b.c(this.c, motionEvent);
-        }
-        return false;
     }
 }

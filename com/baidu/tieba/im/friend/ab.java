@@ -1,32 +1,22 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements m {
-    final /* synthetic */ y a;
+public class ab implements AbsListView.OnScrollListener {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.a = yVar;
+    public ab(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // com.baidu.tieba.im.friend.m
-    public void a(View view, Object obj) {
-        BdListView bdListView;
-        if (obj != null) {
-            if (obj instanceof com.baidu.tbadk.core.view.p) {
-                ((com.baidu.tbadk.core.view.p) obj).setChecked(false);
-            }
-            bdListView = this.a.e;
-            View findViewWithTag = bdListView.findViewWithTag(obj);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
-                ((TbCheckBox) findViewWithTag).setChecked(false);
-            } else if (obj instanceof com.baidu.tieba.im.data.e) {
-                this.a.b((com.baidu.tieba.im.data.e) obj);
-            }
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.b();
     }
 }

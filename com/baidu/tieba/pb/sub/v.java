@@ -1,19 +1,17 @@
 package com.baidu.tieba.pb.sub;
-
-import com.baidu.tbadk.editortool.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements x {
+public class v implements com.baidu.tbadk.editortool.w {
     final /* synthetic */ m a;
-    private final /* synthetic */ x b;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(m mVar, x xVar) {
+    public v(m mVar, com.baidu.tbadk.editortool.w wVar) {
         this.a = mVar;
-        this.b = xVar;
+        this.b = wVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.x
+    @Override // com.baidu.tbadk.editortool.w
     public void a(int i, Object obj) {
         if (i == 0) {
             this.b.a(26, obj);

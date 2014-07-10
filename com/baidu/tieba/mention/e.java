@@ -1,37 +1,33 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bb;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    final /* synthetic */ c a;
+public class e {
+    TextView a;
+    ProgressBar b;
+    d c;
+    HeadImageView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    View h;
+    TextView i;
+    TextView j;
+    TextView k;
+    LinearLayout l;
+    final /* synthetic */ c m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.a = cVar;
+    private e(c cVar) {
+        this.m = cVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        imageView = this.a.i;
-        if (view == imageView && TbadkApplication.isLogin()) {
-            baseFragmentActivity = this.a.m;
-            TiebaStatic.eventStat(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
-            new bb(TbConfig.ST_TYPE_PCHAT, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT).start();
-            MessageManager messageManager = MessageManager.getInstance();
-            baseFragmentActivity2 = this.a.m;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(baseFragmentActivity2, 12011, false)));
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ e(c cVar, e eVar) {
+        this(cVar);
     }
 }

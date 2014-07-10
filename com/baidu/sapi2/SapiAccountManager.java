@@ -18,8 +18,8 @@ public final class SapiAccountManager {
     public static final String SESSION_PTOKEN = "ptoken";
     public static final String SESSION_STOKEN = "stoken";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 25;
-    public static final String VERSION_NAME = "6.4.11";
+    public static final int VERSION_CODE = 29;
+    public static final String VERSION_NAME = "6.5.2";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static d c;
@@ -44,7 +44,7 @@ public final class SapiAccountManager {
     private SapiAccountManager() {
     }
 
-    public synchronized void init(SapiConfiguration sapiConfiguration) {
+    public synchronized void init(final SapiConfiguration sapiConfiguration) {
         if (sapiConfiguration == null) {
             throw new IllegalArgumentException(getClass().getSimpleName() + " initialized failed: SapiConfiguration can't be null");
         }
@@ -54,10 +54,19 @@ public final class SapiAccountManager {
             d = new SapiAccountService(sapiConfiguration.context);
             SapiCache.a(sapiConfiguration.context);
             com.baidu.sapi2.share.b.c();
-            com.baidu.sapi2.utils.a.a.a().a(sapiConfiguration.context);
-            com.baidu.sapi2.utils.d.a(sapiConfiguration.context);
+            new Thread(new Runnable() { // from class: com.baidu.sapi2.SapiAccountManager.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (!TextUtils.isEmpty(sapiConfiguration.deviceLoginSignKey)) {
+                        SapiAccountManager.d.i();
+                    }
+                    SapiAccountManager.c.b(SapiAccountManager.VERSION_NAME);
+                    SapiAccountManager.c.a(sapiConfiguration.loginShareStrategy);
+                    com.baidu.sapi2.utils.b.a(sapiConfiguration.context);
+                }
+            }).start();
         } else {
-            L.w("Try to reinitialize SapiAccountManager which had already been initialized before", new Object[0]);
+            L.w("Try to reinitialize " + getClass().getSimpleName() + " which had already been initialized before", new Object[0]);
         }
     }
 
@@ -76,6 +85,7 @@ public final class SapiAccountManager {
         return c.d() != null;
     }
 
+    @Deprecated
     public void login(Intent intent) {
         b();
         if (intent == null) {
@@ -90,6 +100,7 @@ public final class SapiAccountManager {
         com.baidu.sapi2.share.b.a().b();
     }
 
+    @Deprecated
     public void fillUsername(Activity activity, Class cls, int i) {
         b();
         activity.startActivityForResult(new Intent(activity, cls), i);
@@ -116,15 +127,12 @@ public final class SapiAccountManager {
 
     public boolean validate(SapiAccount sapiAccount) {
         b();
-        if (sapiAccount == null) {
+        if (!SapiUtils.isValidAccount(sapiAccount)) {
             return false;
         }
-        sapiAccount.app = com.baidu.sapi2.utils.c.a(b.context);
-        if (SapiUtils.isValidAccount(sapiAccount)) {
-            com.baidu.sapi2.share.b.a().a(sapiAccount);
-            return true;
-        }
-        return false;
+        sapiAccount.app = SapiUtils.getAppName(b.context);
+        com.baidu.sapi2.share.b.a().a(sapiAccount);
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -133,8 +141,10 @@ public final class SapiAccountManager {
         List<SapiAccount> e2 = c.e();
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : e2) {
-            if (!TextUtils.isEmpty(sapiAccount.displayname) && !TextUtils.isEmpty(sapiAccount.uid) && !TextUtils.isEmpty(sapiAccount.bduss)) {
+            if (SapiUtils.isValidAccount(sapiAccount)) {
                 arrayList.add(sapiAccount);
+            } else {
+                c.d(sapiAccount);
             }
         }
         Collections.reverse(arrayList);

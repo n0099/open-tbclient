@@ -1,24 +1,38 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.os.Build;
+import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.tbadk.core.frameworkData.a {
-    public ai(Context context, int i, String str, int i2) {
+    public ai(Context context, int i) {
         super(context);
-        getIntent().putExtra("has_exit_dialog", false);
-        getIntent().putExtra("locate_type", i);
-        getIntent().putExtra("info", str);
-        setRequestCode(i2);
+        setIntentAction(IntentAction.ActivityForResult);
+        GroupData groupData = new GroupData();
+        groupData.setGroupId(i);
+        getIntent().putExtra("gid", i);
+        getIntent().putExtra("group", groupData);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, "");
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public ai(Context context, String str, boolean z, boolean z2) {
+    public ai(Context context, int i, String str) {
         super(context);
-        getIntent().putExtra("account", str);
-        getIntent().putExtra("has_exit_dialog", z);
-        if (z2) {
-            getIntent().setFlags(268435456);
+        GroupData groupData = new GroupData();
+        groupData.setGroupId(i);
+        getIntent().putExtra("gid", i);
+        getIntent().putExtra("group", groupData);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, str);
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.a
+    public boolean isValid() {
+        if (Build.VERSION.SDK_INT >= 9) {
+            return true;
         }
+        UtilHelper.showToast(getContext(), getContext().getString(com.baidu.tieba.y.live_error_system_not_support));
+        return false;
     }
 }

@@ -8,12 +8,11 @@ import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
 import com.baidu.tbadk.core.atomData.ap;
-import com.baidu.tbadk.core.atomData.bb;
-import com.baidu.tbadk.core.atomData.bc;
-import com.baidu.tbadk.core.atomData.m;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.bo;
+import com.baidu.tbadk.core.atomData.bp;
+import com.baidu.tbadk.core.atomData.r;
 import com.baidu.tieba.hao123.IHao123ServerService;
 /* loaded from: classes.dex */
 public class Hao123ServerService extends Service {
@@ -27,19 +26,19 @@ public class Hao123ServerService extends Service {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2005000, new m(Hao123ServerService.this).a((String) message.obj, "from_hao123", true, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new r(Hao123ServerService.this).a((String) message.obj, "from_hao123", true, false)));
             } else if (message.what == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ap(Hao123ServerService.this, ap.d)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new au(Hao123ServerService.this, au.d)));
             } else if (message.what == 2) {
                 if (TbadkApplication.isLogin()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2017002, new bc(Hao123ServerService.this, "from_hao123", true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new bp(Hao123ServerService.this, "from_hao123", true)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ap(Hao123ServerService.this, ap.d)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new au(Hao123ServerService.this, au.d)));
                 }
             } else if (message.what == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new ak(Hao123ServerService.this).a(1)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new ap(Hao123ServerService.this).a(1)));
             } else if (message.what == 4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bb(Hao123ServerService.this, "from_hao123", true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2010010, new bo(Hao123ServerService.this, "from_hao123", true)));
             } else if (message.what == 5) {
                 TbadkApplication.m252getInst().setTiebaHelperOpen(((Boolean) message.obj).booleanValue());
             }

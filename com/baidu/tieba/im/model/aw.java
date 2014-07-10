@@ -1,35 +1,25 @@
 package com.baidu.tieba.im.model;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<Void, Void, Bitmap> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+public class aw extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ CommonGroupChatMessage c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(MsglistModel msglistModel, String str, String str2) {
-        this.a = msglistModel;
-        this.b = str;
-        this.c = str2;
+    public aw(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = commonGroupChatMessage;
+        this.d = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Void... voidArr) {
-        return BitmapFactory.decodeFile(this.b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        this.a.a(this.c, new com.baidu.adp.widget.a.a(bitmap, false));
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.getGroupId(), this.d, false));
     }
 }

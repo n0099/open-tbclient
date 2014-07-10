@@ -4,11 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bs;
 /* loaded from: classes.dex */
-class b implements bm {
-    @Override // com.baidu.tbadk.core.util.bm
+class b implements bs {
+    @Override // com.baidu.tbadk.core.util.bs
     public boolean a(Context context, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 1 ? strArr[1] : null;
@@ -18,17 +17,17 @@ class b implements bm {
         } else if (str.startsWith("web:")) {
             a.a(context, a.a(str.replaceFirst("web:", ""), str3));
         } else if (str.startsWith("topic:")) {
-            TbWebViewActivity.a(context, str.substring(6), str2);
+            TbWebViewActivity.startActivityWithCookie(context, str.substring(6), str2);
         } else if (str.startsWith("zb:")) {
-            TbWebViewActivity.b(context, context.getString(com.baidu.tieba.y.kn_zhibo), str.substring(3));
+            TbWebViewActivity.startActivity(context, context.getString(com.baidu.tieba.y.kn_zhibo), str.substring(3));
         } else if (str.startsWith("jctj:")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(context, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2010020, new com.baidu.tbadk.core.atomData.i(context, null)));
         } else if (!str.startsWith("list:")) {
             return false;
         } else {
             String substring = str.substring(5);
             if (!TextUtils.isEmpty(substring)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.l(context, substring, str3)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.p(context, substring, str3)));
             }
         }
         return true;

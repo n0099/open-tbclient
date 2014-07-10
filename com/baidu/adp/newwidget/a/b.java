@@ -10,9 +10,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
-public abstract class b extends ImageView implements g {
+public abstract class b extends ImageView implements h {
     protected e a;
     protected a b;
     protected boolean c;
@@ -78,10 +77,10 @@ public abstract class b extends ImageView implements g {
     private void a(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.adp.g.BDImageView);
-            this.a.a = obtainStyledAttributes.getDimensionPixelSize(0, k.a(getContext(), 4.0f));
+            this.a.a = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.j.a(getContext(), 4.0f));
             this.a.b = obtainStyledAttributes.getBoolean(1, false);
             this.a.c = obtainStyledAttributes.getBoolean(2, false);
-            this.a.d = obtainStyledAttributes.getDimensionPixelSize(3, k.a(getContext(), 1.0f));
+            this.a.d = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.j.a(getContext(), 1.0f));
             this.a.e = obtainStyledAttributes.getColor(4, 637534208);
             this.a.g = obtainStyledAttributes.getBoolean(5, false);
             this.a.h = obtainStyledAttributes.getBoolean(6, true);
@@ -96,8 +95,8 @@ public abstract class b extends ImageView implements g {
             this.q = obtainStyledAttributes.getBoolean(11, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.a.a = k.a(getContext(), 4.0f);
-            this.a.d = k.a(getContext(), 1.0f);
+            this.a.a = com.baidu.adp.lib.util.j.a(getContext(), 4.0f);
+            this.a.d = com.baidu.adp.lib.util.j.a(getContext(), 1.0f);
             this.a.e = 637534208;
             if (this.a.i == null) {
                 this.a.i = getResources().getDrawable(com.baidu.adp.c.icon_gif);

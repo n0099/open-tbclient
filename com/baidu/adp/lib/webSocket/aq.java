@@ -6,7 +6,6 @@ import android.os.Message;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import java.net.SocketException;
 import java.util.Random;
 import org.apache.http.NameValuePair;
@@ -28,9 +27,6 @@ public class aq extends Handler {
         this.d = gVar;
         this.e = amVar;
         this.f = new c(amVar.b() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        if (e()) {
-            BdLog.d("created");
-        }
     }
 
     public boolean a(Object obj) {
@@ -134,14 +130,14 @@ public class aq extends Handler {
     }
 
     private boolean a(ab abVar) {
-        byte[] s = abVar.a.s();
-        if (s == null) {
+        byte[] t = abVar.a.t();
+        if (t == null) {
             return false;
         }
-        if (s.length > this.e.c()) {
+        if (t.length > this.e.c()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(2, true, s);
+        a(2, true, t);
         return true;
     }
 
@@ -241,14 +237,10 @@ public class aq extends Handler {
                 }
             }
         } catch (SocketException e) {
-            if (e()) {
-                BdLog.d("run() : SocketException (" + e.toString() + ")");
-            }
             d(new w(e));
         } catch (Exception e2) {
             if (e()) {
                 e2.printStackTrace();
-                BdLog.i("----WebSocketWriter.handleMessage error. e:" + e2.getMessage());
             }
             d(new y(e2));
         }
@@ -262,10 +254,7 @@ public class aq extends Handler {
         try {
             this.d.a();
         } catch (Exception e2) {
-            BdLog.e("error:" + e2.getMessage());
-        }
-        if (e()) {
-            BdLog.d("ended");
+            e2.printStackTrace();
         }
     }
 

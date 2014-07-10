@@ -12,6 +12,6 @@ class n implements CustomMessageTask.CustomRunnable<InvokeValidateActivityIsOpen
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2010004, Boolean.valueOf(ValidateActivity.a));
+        return new CustomResponsedMessage<>(2008004, Boolean.valueOf(ValidateActivity.a));
     }
 }

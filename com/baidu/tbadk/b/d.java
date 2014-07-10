@@ -1,7 +1,7 @@
 package com.baidu.tbadk.b;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class d extends Thread {
     private int a;
@@ -22,12 +22,12 @@ public class d extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        anVar.a("img_num", String.valueOf(this.a));
-        anVar.a("img_total", String.valueOf(this.b));
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        aqVar.a("img_num", String.valueOf(this.a));
+        aqVar.a("img_total", String.valueOf(this.b));
         if (this.c != null) {
-            anVar.a("img_type", this.c);
+            aqVar.a("img_type", this.c);
         }
-        anVar.i();
+        aqVar.i();
     }
 }

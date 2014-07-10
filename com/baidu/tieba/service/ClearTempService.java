@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -55,16 +55,14 @@ public class ClearTempService extends Service {
                     if (file2.isDirectory()) {
                         deleteCache(file2, false);
                     } else if (length > 0 && i < length) {
-                        if (!file2.delete()) {
-                            BdLog.e(getClass().getName(), "run", "list[i].delete error");
-                        }
-                    } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
-                        BdLog.e(getClass().getName(), "run", "list[i].delete error");
+                        file2.delete();
+                    } else if (time - listFiles[i].lastModified() > 259200000) {
+                        file2.delete();
                     }
                 }
             }
         } catch (Throwable th) {
-            BdLog.e(ClearTempService.class, "deleteCache", th);
+            BdLog.e(th.getMessage());
             if (!z) {
                 deleteImageCacheByName();
             }
@@ -72,7 +70,7 @@ public class ClearTempService extends Service {
     }
 
     private void deleteImageCacheByName() {
-        String str = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = z.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {
@@ -88,13 +86,13 @@ public class ClearTempService extends Service {
             long time = new Date().getTime();
             if (listFiles != null) {
                 for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
-                    if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                        BdLog.e(getClass().getName(), "run", "list[i].delete error");
+                    if (time - listFiles[i].lastModified() > 259200000) {
+                        listFiles[i].delete();
                     }
                 }
             }
         } catch (Throwable th) {
-            BdLog.e(ClearTempService.class, "deleteCache", th);
+            BdLog.e(th.getMessage());
         }
     }
 }

@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.c {
+public class d extends com.baidu.adp.base.f {
     protected ImageView a;
     protected TextView b;
     private BaseActivity c;
@@ -57,7 +57,7 @@ public class d extends com.baidu.adp.base.c {
         this.h = (TbSettingTextTipView) this.c.findViewById(com.baidu.tieba.v.about_guide);
         this.j = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !bg.c(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !bm.c(TbConfig.getSubVersion())) {
             version = String.valueOf(version) + "." + TbConfig.getSubVersion();
         }
         this.f.setText(String.valueOf(this.c.getString(com.baidu.tieba.y.setting_version_text)) + " " + version);

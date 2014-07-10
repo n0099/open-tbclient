@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.live.room;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseIncrLiveGroupLikeMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
+import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 /* loaded from: classes.dex */
-class ae extends com.baidu.adp.framework.listener.b {
+class ae extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,26 +19,99 @@ class ae extends com.baidu.adp.framework.listener.b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LiveChatRoomEventData parseFromEventContent;
         LiveRoomChatView z;
         LiveRoomChatView z2;
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107108 && (socketResponsedMessage instanceof ResponseIncrLiveGroupLikeMessage)) {
-            ResponseIncrLiveGroupLikeMessage responseIncrLiveGroupLikeMessage = (ResponseIncrLiveGroupLikeMessage) socketResponsedMessage;
-            if (responseIncrLiveGroupLikeMessage.mLiveGroupInfo != null && this.a.x().b != null && this.a.x().b.groupId.equals(responseIncrLiveGroupLikeMessage.mLiveGroupInfo.groupId)) {
-                if (responseIncrLiveGroupLikeMessage.hasError()) {
-                    if (!TextUtils.isEmpty(responseIncrLiveGroupLikeMessage.getErrorString())) {
-                        this.a.showToast(responseIncrLiveGroupLikeMessage.getErrorString());
+        LiveRoomChatView z3;
+        LiveRoomChatView z4;
+        LiveRoomChatView z5;
+        LiveRoomChatView z6;
+        LiveRoomChatView z7;
+        LiveRoomChatView z8;
+        LiveRoomChatView z9;
+        LiveRoomChatView z10;
+        LiveRoomChatView z11;
+        LiveRoomChatView z12;
+        LiveRoomChatView z13;
+        LiveRoomChatView z14;
+        LiveRoomChatView z15;
+        if (customResponsedMessage.getCmd() == 2001166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
+            String data = ((LiveChatRoomEventResponseMessage) customResponsedMessage).getData();
+            if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null) {
+                String str = parseFromEventContent.mEventId;
+                if (this.a.x().b != null && parseFromEventContent.mGroupId == this.a.x().b.groupId.intValue()) {
+                    if ("302".equals(parseFromEventContent.mEventId)) {
+                        if (parseFromEventContent.mListeners != this.a.x().h) {
+                            this.a.x().h = parseFromEventContent.mListeners;
+                            z15 = this.a.z();
+                            z15.S().setUserCount(this.a.x().h);
+                        }
+                        this.a.x().i = parseFromEventContent.mLikers;
+                        this.a.x().d = parseFromEventContent.mLikeUserList;
+                        z14 = this.a.z();
+                        z14.a(this.a.x().d, this.a.x().i, this.a.x().g);
+                    } else if ("306".equals(parseFromEventContent.mEventId)) {
+                        if (!TextUtils.isEmpty(parseFromEventContent.mPortrait) && !parseFromEventContent.mPortrait.equals(this.a.x().m)) {
+                            this.a.x().m = parseFromEventContent.mPortrait;
+                            z13 = this.a.z();
+                            z13.g(this.a.x().m);
+                        }
+                        if (!TextUtils.isEmpty(parseFromEventContent.mName) && !parseFromEventContent.mName.equals(this.a.x().j)) {
+                            this.a.x().j = parseFromEventContent.mName;
+                            z12 = this.a.z();
+                            z12.d(this.a.x().j);
+                            if (!LiveRoomChatActivity.b) {
+                                this.a.b(com.baidu.tieba.y.live_room_notify);
+                            }
+                        }
+                        if (!TextUtils.isEmpty(parseFromEventContent.mIntro) && !parseFromEventContent.mIntro.equals(this.a.x().k)) {
+                            this.a.x().k = parseFromEventContent.mIntro;
+                            z11 = this.a.z();
+                            z11.S().setNoteText(this.a.x().k);
+                        }
+                    } else if ("310".equals(parseFromEventContent.mEventId)) {
+                        if (this.a.x().b != null && this.a.x().b.groupId.intValue() == parseFromEventContent.mGroupId && !this.a.x().r) {
+                            com.baidu.tieba.im.live.d.b().s();
+                            this.a.showToast(com.baidu.tieba.y.live_group_is_dismiss, false);
+                            z10 = this.a.z();
+                            z10.d(6);
+                            this.a.finish();
+                        }
+                    } else if ("307".equals(parseFromEventContent.mEventId)) {
+                        if (this.a.x().r || this.a.x().b == null) {
+                            return;
+                        }
+                        this.a.b(this.a.x().b.streamId, String.valueOf(this.a.x().b.groupId), String.valueOf(this.a.x().b.deviceId), this.a.x().b.playUrl, true);
+                        z9 = this.a.z();
+                        z9.d(3);
+                    } else if ("308".equals(parseFromEventContent.mEventId)) {
+                        z7 = this.a.z();
+                        if (z7.U() != 5 && !this.a.x().r && this.a.x().b != null) {
+                            z8 = this.a.z();
+                            z8.d(5);
+                        }
+                    } else if ("318".equals(parseFromEventContent.mEventId)) {
+                        z5 = this.a.z();
+                        if (z5.U() != 3 && !this.a.x().r && this.a.x().b != null) {
+                            z6 = this.a.z();
+                            z6.d(3);
+                        }
+                    } else if ("309".equals(parseFromEventContent.mEventId)) {
+                        z3 = this.a.z();
+                        if (z3.U() != 6) {
+                            com.baidu.tieba.im.live.d.b().s();
+                            z4 = this.a.z();
+                            z4.d(6);
+                        }
+                    } else if ("304".equals(parseFromEventContent.mEventId)) {
+                        z = this.a.z();
+                        if (z.U() != 1 && !this.a.x().r) {
+                            z2 = this.a.z();
+                            z2.d(1);
+                        }
                     }
-                    this.a.x().g = responseIncrLiveGroupLikeMessage.mType != 1 ? 2 : 1;
-                    z2 = this.a.z();
-                    z2.a(this.a.x().d, this.a.x().i, this.a.x().g);
-                    return;
                 }
-                this.a.x().g = responseIncrLiveGroupLikeMessage.mType != 1 ? 2 : 1;
-                z = this.a.z();
-                z.a(this.a.x().d, this.a.x().i, this.a.x().g);
             }
         }
     }

@@ -16,11 +16,11 @@ public class t implements com.baidu.tbadk.coreExtra.view.j {
         TextView textView;
         TextView textView2;
         if (z) {
-            textView2 = this.a.ab;
+            textView2 = this.a.aa;
             textView2.setVisibility(0);
             return;
         }
-        textView = this.a.ab;
+        textView = this.a.aa;
         textView.setVisibility(8);
     }
 }

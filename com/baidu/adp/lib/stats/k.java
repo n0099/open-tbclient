@@ -1,57 +1,80 @@
 package com.baidu.adp.lib.stats;
 
-import android.os.Handler;
-import com.baidu.adp.gif.NSGif;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.voice.Amrnb;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.kirin.KirinConfig;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ h a;
-    private boolean b;
+public class k {
+    private static k c;
+    private HashMap<String, l> a = new HashMap<>();
+    private HashMap<String, m> b = new HashMap<>();
 
-    public k(h hVar, boolean z) {
-        this.a = hVar;
-        this.b = false;
-        this.b = z;
+    public static k a() {
+        if (c == null) {
+            synchronized (BdStatSwitchData.class) {
+                if (c == null) {
+                    c = new k();
+                }
+            }
+        }
+        return c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(Object... objArr) {
-        String j;
-        String j2;
-        if (this.b) {
-            this.a.i();
-            j2 = this.a.j();
-            this.a.h();
-            return j2;
-        }
-        j = this.a.j();
-        return j;
+    public k() {
+        m mVar = new m(this, null);
+        mVar.a(KirinConfig.CONNECT_TIME_OUT);
+        mVar.b(120000);
+        mVar.c(500);
+        this.b.put("net", mVar);
+        this.b.put("op", mVar);
+        this.b.put("stat", mVar);
+        m mVar2 = new m(this, null);
+        mVar2.a(60000);
+        mVar2.b(120000);
+        mVar2.c(100);
+        this.b.put("file", mVar2);
+        this.b.put("db", mVar2);
+        this.b.put("img", mVar2);
+        this.b.put("voice", mVar2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        Handler handler;
-        Handler handler2;
-        super.onPostExecute(str);
-        this.a.b(str);
-        handler = this.a.w;
-        handler2 = this.a.w;
-        handler.sendMessageDelayed(handler2.obtainMessage(2), 10000L);
-        try {
-            Class.forName(Amrnb.class.getName());
-        } catch (Exception e) {
+    public boolean a(String str) {
+        m mVar = this.b.get(str);
+        if (mVar == null) {
+            return false;
         }
-        try {
-            Class.forName(NSGif.class.getName());
-        } catch (Exception e2) {
+        l lVar = this.a.get(str);
+        long currentTimeMillis = System.currentTimeMillis();
+        if (lVar == null) {
+            lVar = new l(this, null);
+            lVar.b(false);
+            lVar.a(false);
+            lVar.b(currentTimeMillis);
+            this.a.put(str, lVar);
+        }
+        if (lVar.a()) {
+            return true;
+        }
+        if (lVar.e()) {
+            lVar.a(lVar.c() + 1);
+            if (currentTimeMillis - lVar.b() < mVar.b()) {
+                if (lVar.c() >= mVar.c()) {
+                    lVar.a(true);
+                    d.b().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
+                    return true;
+                }
+                return false;
+            }
+            lVar.b(false);
+            lVar.a(0);
+            lVar.b(currentTimeMillis);
+            return false;
+        } else if (currentTimeMillis - lVar.d() < mVar.a()) {
+            lVar.b(true);
+            lVar.a(currentTimeMillis);
+            return false;
+        } else {
+            lVar.b(currentTimeMillis);
+            return false;
         }
     }
 }

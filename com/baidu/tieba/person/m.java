@@ -1,251 +1,231 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.data.MarkData;
-import java.util.ArrayList;
+import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.tieba.data.PersonChangeData;
+import com.baidu.tieba.more.MoreActivity;
 /* loaded from: classes.dex */
-public class m {
-    EditMarkActivity a;
-    private BdListView c;
-    private com.baidu.tbadk.core.view.q d;
-    private LinearLayout e;
-    private o f;
-    private TextView g;
-    private LinearLayout h;
-    private ProgressBar i;
-    private NavigationBar l;
-    private Dialog j = null;
-    DialogInterface.OnClickListener b = null;
-    private boolean k = false;
+public class m extends com.baidu.tbadk.core.d {
+    private static boolean e = false;
+    private static boolean f = false;
+    private BaseFragmentActivity b;
+    private q c;
+    private o d;
+    private final CustomMessageListener g;
 
-    public m(EditMarkActivity editMarkActivity) {
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.a = editMarkActivity;
-        editMarkActivity.setContentView(com.baidu.tieba.w.edit_mark_activity);
-        this.i = (ProgressBar) editMarkActivity.findViewById(com.baidu.tieba.v.progress);
-        this.h = (LinearLayout) editMarkActivity.findViewById(com.baidu.tieba.v.parent);
-        this.e = (LinearLayout) editMarkActivity.findViewById(com.baidu.tieba.v.no_data_container);
-        this.f = new o(editMarkActivity);
-        this.f.d(false);
-        this.f.b();
-        this.d = new com.baidu.tbadk.core.view.q(editMarkActivity);
-        this.d.a(editMarkActivity);
-        this.c = (BdListView) editMarkActivity.findViewById(com.baidu.tieba.v.list);
-        this.c.setAdapter((ListAdapter) this.f);
-        this.c.setPullRefresh(this.d);
-        this.c.setOnSrollToBottomListener(editMarkActivity);
-        this.c.setOnItemClickListener(editMarkActivity);
-        this.l = (NavigationBar) editMarkActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.l.a(editMarkActivity.getResources().getString(com.baidu.tieba.y.my_mark));
-        this.g = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(com.baidu.tieba.y.edit));
-        this.g.setOnClickListener(editMarkActivity);
-        this.g.setVisibility(4);
-        this.f.a(editMarkActivity);
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.b = (BaseFragmentActivity) activity;
     }
 
-    public TextView a() {
-        return this.g;
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return a(layoutInflater);
     }
 
-    public void a(DialogInterface.OnClickListener onClickListener) {
-        this.b = onClickListener;
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
     }
 
-    public void b() {
-        if (!this.f.c()) {
-            this.f.e(true);
-            this.g.setText(com.baidu.tieba.y.done);
-            com.baidu.tbadk.core.util.be.g(this.g, TbadkApplication.m252getInst().getSkinType());
-            this.f.notifyDataSetChanged();
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+        a();
+        f();
+        if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
+            this.c.f();
+            g();
+            com.baidu.tieba.util.k.b((Boolean) true);
             return;
         }
-        this.f.e(false);
-        this.g.setText(com.baidu.tieba.y.edit);
-        com.baidu.tbadk.core.util.be.i(this.g, TbadkApplication.m252getInst().getSkinType());
-        this.f.notifyDataSetChanged();
+        f = true;
+        this.c.e();
     }
 
-    public int c() {
-        return com.baidu.tieba.v.home_lv_markitem_delete;
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(com.baidu.tieba.w.more_discovery_activity, (ViewGroup) null);
     }
 
-    public void a(int i) {
-        if (i == 0) {
-            this.i.setVisibility(0);
-        }
-        this.f.b(true);
-        this.f.notifyDataSetChanged();
-    }
-
-    public void d() {
-        this.i.setVisibility(0);
-    }
-
-    public void e() {
-        this.i.setVisibility(8);
-    }
-
-    public void a(String str, com.baidu.tieba.model.k kVar, boolean z) {
-        this.f.b(true);
-        if (str != null) {
-            a(str);
-        }
-        if (kVar != null) {
-            if (kVar.h() == 0 && !z) {
-                kVar.g();
-            }
-            if (kVar.h() < 20) {
-                this.f.a(false);
-                this.f.c(!kVar.e());
-            } else {
-                this.f.a(true);
-                this.f.c(true);
-            }
-            this.f.a(kVar.f());
-            this.f.d(true);
-            this.f.b();
-            if (kVar.g() > 0) {
-                this.g.setVisibility(0);
-                this.e.setVisibility(8);
-                this.c.setVisibility(0);
-                this.f.notifyDataSetChanged();
-            } else if (kVar.g() == 0 && !z) {
-                this.g.setVisibility(4);
-                this.e.setVisibility(0);
-                this.c.setVisibility(8);
-            }
-        }
-        this.f.b(false);
-        this.i.setVisibility(8);
-        if (z && !k()) {
-            d();
-        }
-        if (k()) {
-            a(false);
-        }
-    }
-
-    public void a(String str) {
-        this.a.showToast(str);
+    public void a() {
+        this.c = new q(this.b, this);
     }
 
     public void f() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.syncing));
+        if (!UtilHelper.isNetOk()) {
+            f = true;
+        }
+        this.d = new o(this.b);
+        this.d.a(TbadkApplication.getCurrentAccount());
+        this.d.setLoadDataCallBack(new n(this));
     }
 
-    public void a(boolean z, String str, boolean z2) {
-        this.a.closeLoadingDialog();
-        if (z) {
-            this.f.b();
-        }
-        if (str != null) {
-            this.a.showToast(str);
-        }
-        if (z2) {
-            l();
-        }
-        this.f.notifyDataSetChanged();
+    private void g() {
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    public void g() {
-        this.i.setVisibility(0);
+    private void h() {
+        MessageManager.getInstance().unRegisterListener(this.g);
     }
 
-    public void a(boolean z, String str, ArrayList<MarkData> arrayList) {
-        if (z) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.y.del_mark_success));
-            this.f.a(arrayList);
-            this.f.d(true);
-            this.f.b();
-            if (arrayList.size() == 0) {
-                this.g.setText(com.baidu.tieba.y.edit);
-                this.g.setVisibility(4);
-                this.f.e(false);
-                this.e.setVisibility(0);
-                this.c.setVisibility(8);
+    private void i() {
+        if (this.c != null && this.d != null) {
+            this.c.a(this.d);
+            this.d.a(true, true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == com.baidu.tieba.v.user_info) {
+            if (f && this.d != null) {
+                if (TbadkApplication.isLogin()) {
+                    UserData a = this.d.a();
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(this.b, this.d.b(), a != null ? a.getName_show() : "")));
+                    this.d.b(true);
+                    return;
+                }
+                LoginActivity.a((Activity) this.b, (String) null, true, 11003);
+                this.d.b(true);
+            }
+        } else if (id == com.baidu.tieba.v.my_collection) {
+            if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
+                a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
+                this.d.a(true);
+                return;
+            }
+            LoginActivity.a((Activity) this.b, (String) null, true, 103);
+        } else if (id == com.baidu.tieba.v.member_benefits) {
+            com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_member_benifit", true);
+            if (!TbadkApplication.isLogin()) {
+                LoginActivity.a((Activity) this.b, (String) null, true, 104);
+                return;
+            }
+            com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_member_benifit", true);
+            TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+        } else if (id == com.baidu.tieba.v.face_store) {
+            TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
+            TbadkApplication.m252getInst().setFaceShopNew(false);
+            a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this.b, "faceshop_from_more")));
+        } else if (id == com.baidu.tieba.v.settings && this.d != null) {
+            PersonChangeData personChangeData = new PersonChangeData();
+            if (this.d.a() != null) {
+                personChangeData.setName(this.d.a().getName_show());
+                personChangeData.setIntro(this.d.a().getIntro());
+                personChangeData.setPortrait(this.d.a().getPortrait());
+                personChangeData.setSex(this.d.a().getSex());
+            }
+            MoreActivity.a(this.b, 101, personChangeData);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d
+    public void c(int i) {
+        super.c(i);
+        this.c.a(i);
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i2 == -1) {
+            if (i == 11003) {
+                if (TbadkApplication.getCurrentAccount() != null) {
+                    this.d.a(TbadkApplication.getCurrentAccount());
+                    this.d.b(TbadkApplication.getCurrentAccountName());
+                    g();
+                    i();
+                }
+            } else if (i == 103) {
+                a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
+            } else if (i == 104) {
+                TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+            }
+        }
+    }
+
+    private void a(PersonChangeData personChangeData) {
+        if (personChangeData != null) {
+            if (personChangeData != null && this.d.a() != null) {
+                this.d.a(personChangeData);
+                if (this.c != null) {
+                    this.c.b(this.d);
+                    if (personChangeData.getPhotoChanged()) {
+                        this.c.a();
+                        if (this.d.a() != null) {
+                            this.d.e().e(this.d.a().getPortrait());
+                        }
+                    }
+                }
+            }
+            com.baidu.tieba.ai.c().a((PersonChangeData) null);
+        }
+    }
+
+    public static void a(boolean z) {
+        e = z;
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+        if (this.c != null) {
+            this.c.b();
+            this.c.a(TbadkApplication.m252getInst().isFaceShopNew());
+        }
+        if (e) {
+            i();
+            e = false;
+        } else if (this.d.b() == null || this.d.b().length() <= 0) {
+            if (TbadkApplication.getCurrentAccount() != null) {
+                this.d.a(TbadkApplication.getCurrentAccount());
+                g();
+                i();
             }
         } else {
-            this.a.showToast(str);
-        }
-        this.f.notifyDataSetChanged();
-        this.i.setVisibility(8);
-    }
-
-    public void a(ArrayList<MarkData> arrayList) {
-        if (arrayList != null) {
-            this.f.a(arrayList);
-            this.f.b();
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    private void l() {
-        if (this.j == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(this.a.getString(com.baidu.tieba.y.sync_mark_fail));
-            builder.setMessage(this.a.getString(com.baidu.tieba.y.neterror));
-            if (this.b != null) {
-                builder.setPositiveButton(this.a.getString(com.baidu.tieba.y.retry_rightnow), this.b);
+            if (!this.d.f()) {
+                i();
             }
-            builder.setNegativeButton(this.a.getString(com.baidu.tieba.y.confirm), new n(this));
-            this.j = builder.create();
-            this.j.setCanceledOnTouchOutside(true);
+            PersonChangeData O = com.baidu.tieba.ai.c().O();
+            if (O != null) {
+                a(O);
+            }
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().o() != this.d.c()) {
+                this.d.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
+            }
+            if (this.c != null) {
+                this.c.c(this.d);
+            }
         }
-        this.j.show();
     }
 
-    public void b(int i) {
-        this.l.c(i);
-        this.a.getLayoutMode().a((View) this.h);
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onDestroy() {
         if (this.d != null) {
-            this.d.a(i);
+            if (this.d.b() != null && this.d.b().length() > 0) {
+                h();
+            }
+            this.d.g();
         }
-    }
-
-    public void h() {
-        this.f.b();
-        this.f.notifyDataSetChanged();
-    }
-
-    public void i() {
-        if (this.j != null) {
-            this.j.dismiss();
-            this.j = null;
-        }
-        if (this.i != null) {
-            this.i.setVisibility(8);
-        }
-        this.f.a();
-    }
-
-    public void j() {
         if (this.c != null) {
-            this.c.c();
+            this.c.g();
         }
-    }
-
-    public boolean k() {
-        return this.k;
-    }
-
-    public void a(boolean z) {
-        this.k = z;
+        super.onDestroy();
     }
 }

@@ -1,38 +1,36 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.QueryGroupCount.QueryGroupCountResIdl;
 /* loaded from: classes.dex */
 public class ResponseQueryGroupCountLocalMessage extends CustomResponsedMessage<Object> {
+    private String geographicLocation;
     private String link;
     private int localGroupCount;
     private String picUrl;
     private int userGroupCount;
 
     public ResponseQueryGroupCountLocalMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUP_COUNT_LOCAL);
+        super(2001114);
+        this.geographicLocation = "";
     }
 
     public ResponseQueryGroupCountLocalMessage(int i) {
         super(i);
+        this.geographicLocation = "";
+    }
+
+    public String getGeographicLocation() {
+        return this.geographicLocation;
     }
 
     public String getLink() {
         return this.link;
     }
 
-    public void setLink(String str) {
-        this.link = str;
-    }
-
     public String getPicUrl() {
         return this.picUrl;
-    }
-
-    public void setPicUrl(String str) {
-        this.picUrl = str;
     }
 
     public int getUserGroupCount() {
@@ -56,11 +54,12 @@ public class ResponseQueryGroupCountLocalMessage extends CustomResponsedMessage<
         setError(queryGroupCountResIdl.error.errorno.intValue());
         setErrorString(queryGroupCountResIdl.error.usermsg);
         if (getError() == 0) {
-            setLocalGroupCount(queryGroupCountResIdl.data.localGroupCount.intValue());
-            setUserGroupCount(queryGroupCountResIdl.data.userGroupCount.intValue());
+            this.localGroupCount = queryGroupCountResIdl.data.localGroupCount.intValue();
+            this.userGroupCount = queryGroupCountResIdl.data.userGroupCount.intValue();
+            this.geographicLocation = queryGroupCountResIdl.data.position;
             if (queryGroupCountResIdl.data.banner != null) {
-                setPicUrl(queryGroupCountResIdl.data.banner.picUrl);
-                setLink(queryGroupCountResIdl.data.banner.link);
+                this.picUrl = queryGroupCountResIdl.data.banner.picUrl;
+                this.link = queryGroupCountResIdl.data.banner.link;
             }
         }
     }

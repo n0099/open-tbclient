@@ -23,18 +23,18 @@ class q extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ah ahVar;
+        ag agVar;
         RequestMembersMessage requestMembersMessage;
-        com.baidu.tieba.im.model.ad adVar;
-        boolean i;
-        boolean i2;
-        com.baidu.tieba.im.model.ad adVar2;
-        com.baidu.tieba.im.model.ad adVar3;
-        com.baidu.tieba.im.model.ad adVar4;
-        boolean i3;
-        ahVar = this.a.b;
-        ad f = ahVar.f();
-        this.a.h();
+        com.baidu.tieba.im.model.ac acVar;
+        boolean h;
+        boolean h2;
+        com.baidu.tieba.im.model.ac acVar2;
+        com.baidu.tieba.im.model.ac acVar3;
+        com.baidu.tieba.im.model.ac acVar4;
+        boolean h3;
+        agVar = this.a.b;
+        ac f = agVar.f();
+        this.a.g();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseMembersMessage)) {
             this.a.showToast(com.baidu.tieba.y.neterror);
             return;
@@ -46,8 +46,8 @@ class q extends com.baidu.adp.framework.listener.b {
         } else {
             requestMembersMessage = (RequestMembersMessage) orginalMessage;
         }
-        adVar = this.a.c;
-        adVar.a(requestMembersMessage);
+        acVar = this.a.c;
+        acVar.a(requestMembersMessage);
         if (responseMembersMessage.getError() != 0) {
             if (responseMembersMessage.getError() > 0) {
                 if (!TextUtils.isEmpty(responseMembersMessage.getErrorString())) {
@@ -62,34 +62,33 @@ class q extends com.baidu.adp.framework.listener.b {
         MembersData membersData = responseMembersMessage.getMembersData();
         List<UserData> users = membersData.getUsers();
         if (users != null) {
-            i = this.a.i();
-            if (i) {
+            h = this.a.h();
+            if (h) {
                 this.a.a(membersData.getPermission());
             }
-            i2 = this.a.i();
-            if (i2) {
+            h2 = this.a.h();
+            if (h2) {
                 f.a(true);
             }
             int size = users.size();
-            adVar2 = this.a.c;
-            if (size != adVar2.e()) {
+            acVar2 = this.a.c;
+            if (size != acVar2.e()) {
                 f.b(false);
                 f.c(false);
-                i3 = this.a.i();
-                if (i3 && users.size() == 0) {
-                    this.a.j();
+                h3 = this.a.h();
+                if (h3 && users.size() == 0) {
+                    this.a.i();
                     return;
                 }
             } else {
                 f.c(true);
             }
-            adVar3 = this.a.c;
-            adVar3.c(users.size());
-            adVar4 = this.a.c;
-            adVar4.d(20);
+            acVar3 = this.a.c;
+            acVar3.c(users.size());
+            acVar4 = this.a.c;
+            acVar4.d(20);
             f.a(users);
             f.notifyDataSetChanged();
-            this.a.c();
         }
     }
 }

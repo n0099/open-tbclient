@@ -17,11 +17,11 @@ public class MultiImageView extends RelativeLayout {
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
-    private o e;
+    private q e;
     private ViewPager.OnPageChangeListener f;
     private ViewPager.OnPageChangeListener g;
     private com.baidu.tbadk.widget.f h;
-    private p i;
+    private r i;
     private com.baidu.tbadk.widget.e j;
     private int k;
     private boolean l;
@@ -98,10 +98,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void g() {
-        this.d = new ak(this);
-        this.f = new al(this);
-        this.h = new am(this);
-        this.j = new an(this);
+        this.d = new am(this);
+        this.f = new an(this);
+        this.h = new ao(this);
+        this.j = new ap(this);
     }
 
     public void a() {
@@ -110,14 +110,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof au) && ((au) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((au) childAt).d();
+                    if (childAt != null && (childAt instanceof av) && ((av) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((av) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof au)) {
-                ((au) findViewWithTag).a(this.n);
+            if (findViewWithTag != null && (findViewWithTag instanceof av)) {
+                ((av) findViewWithTag).a(this.n);
             }
             this.e.getCurrentView().e();
         }
@@ -134,21 +134,21 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof au)) {
-                    ((au) childAt).c();
+                if (childAt != null && (childAt instanceof av)) {
+                    ((av) childAt).c();
                 }
             }
         }
     }
 
     private void h() {
-        this.e = new o(getContext());
+        this.e = new q(getContext());
         this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.e.setOnPageChangeListener(this.f);
         addView(this.e);
         this.c = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.a(getContext(), 10.0f);
+        layoutParams.bottomMargin = com.baidu.adp.lib.util.j.a(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
         this.c.setOrientation(0);
@@ -170,7 +170,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.m) {
             this.c.setVisibility(8);
         }
-        this.i = new p(getContext(), null, this.j);
+        this.i = new r(getContext(), null, this.j);
         setAdapter(this.i);
     }
 
@@ -242,14 +242,14 @@ public class MultiImageView extends RelativeLayout {
             this.l = false;
         }
         PagerAdapter adapter = this.e.getAdapter();
-        if (adapter != null && (adapter instanceof p)) {
-            ((p) adapter).b(this.k);
+        if (adapter != null && (adapter instanceof r)) {
+            ((r) adapter).b(this.k);
         }
     }
 
-    private void setAdapter(p pVar) {
-        pVar.a(this.h);
-        this.e.setAdapter(pVar);
+    private void setAdapter(r rVar) {
+        rVar.a(this.h);
+        this.e.setAdapter(rVar);
     }
 
     public void a(int i, boolean z) {

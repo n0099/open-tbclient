@@ -4,13 +4,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.stats.r;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.stats.n;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.a.g;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.httpNet.h;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -57,15 +57,15 @@ public class a extends com.baidu.adp.framework.a.d {
             httpMessage.addHeader("Accept-Encoding", "gzip");
         }
         httpMessage.addHeader("Charset", "UTF-8");
-        httpMessage.addHeader("User-Agent", "BaiduTieba for Android " + TbConfig.getVersion());
+        httpMessage.addHeader("User-Agent", "bdtb for Android " + TbConfig.getVersion());
         if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkApplication.getCurrentAccount());
         }
-        String a = r.a();
+        String a = n.a();
         if (!TextUtils.isEmpty(a)) {
             httpMessage.addHeader("sid", a);
         }
-        String a2 = g.a();
+        String a2 = h.a();
         if (!TextUtils.isEmpty(a2)) {
             httpMessage.addHeader("net", a2);
         }
@@ -86,9 +86,9 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String from = TbadkApplication.getFrom();
         if (from != null && from.length() > 0) {
-            httpMessage.addParam("from", from);
+            httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.FROM, from);
         }
-        String a = g.a();
+        String a = h.a();
         if (a != null) {
             String c = com.baidu.tbadk.coreExtra.a.a.a().c();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(a)) {
@@ -133,11 +133,11 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", j.a(stringBuffer.toString()));
+        httpMessage.addParam("sign", i.a(stringBuffer.toString()));
     }
 
     private void c(HttpMessage httpMessage) {
-        ax a = aw.a();
+        ba a = az.a();
         if (a != null) {
             httpMessage.addParam("stTime", String.valueOf(a.b));
             httpMessage.addParam("stSize", String.valueOf(a.c));
@@ -145,7 +145,7 @@ public class a extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("stMode", String.valueOf(a.e));
             httpMessage.addParam("stMethod", String.valueOf(a.a));
         }
-        int a2 = aw.a(0);
+        int a2 = az.a(0);
         if (a2 == 0 && a != null) {
             a2 = a.d;
         }

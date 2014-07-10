@@ -1,27 +1,36 @@
 package com.baidu.tieba.mention;
 
+import android.view.View;
 import android.widget.ImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ g a;
-    private final /* synthetic */ ImageView b;
-    private final /* synthetic */ String c;
+public class h implements View.OnClickListener {
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar, ImageView imageView, String str) {
-        this.a = gVar;
-        this.b = imageView;
-        this.c = str;
+    public h(f fVar) {
+        this.a = fVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null) {
-            this.b.setTag(null);
-            aVar.a(this.b);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        imageView = this.a.i;
+        if (view == imageView && TbadkApplication.isLogin()) {
+            baseFragmentActivity = this.a.m;
+            TiebaStatic.eventStat(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
+            TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            MessageManager messageManager = MessageManager.getInstance();
+            baseFragmentActivity2 = this.a.m;
+            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.d(baseFragmentActivity2, 12011, false)));
         }
-        this.b.setTag(this.c);
-        this.b.setImageResource(com.baidu.tieba.u.photo);
     }
 }

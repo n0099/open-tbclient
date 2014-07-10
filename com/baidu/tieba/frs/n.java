@@ -12,9 +12,9 @@ class n implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an(this.b);
-        anVar.a().a().d = false;
-        anVar.a().a().c = false;
-        anVar.h();
+        com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq(this.b);
+        aqVar.a().a().d = false;
+        aqVar.a().a().c = false;
+        aqVar.h();
     }
 }

@@ -10,7 +10,6 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends ViewGroup {
@@ -117,7 +116,6 @@ public class i extends ViewGroup {
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                BdLog.d("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -166,22 +164,18 @@ public class i extends ViewGroup {
     private void b() {
         this.e.reset();
         this.e.addRect(this.a, Path.Direction.CW);
-        BdLog.d("MaskView", "resetOutPath", "target rect = " + this.a);
         this.e.addRect(this.b, Path.Direction.CW);
-        BdLog.d("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public void a(Rect rect) {
         this.a.set(rect);
         b();
-        BdLog.d("MaskView", "settargetRect", "target rect = " + this.a);
         invalidate();
     }
 
     public void b(Rect rect) {
         this.b.set(rect);
         b();
-        BdLog.d("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }

@@ -1,47 +1,38 @@
 package com.baidu.tieba.plugins;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-class h implements ServiceConnection {
-    final /* synthetic */ PluginDetailActivity b;
-
-    private h(PluginDetailActivity pluginDetailActivity) {
-        this.b = pluginDetailActivity;
-    }
+class h implements Runnable {
+    final /* synthetic */ PluginDownloadActivity a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(PluginDetailActivity pluginDetailActivity, h hVar) {
-        this(pluginDetailActivity);
+    public h(PluginDownloadActivity pluginDownloadActivity, int i) {
+        this.a = pluginDownloadActivity;
+        this.b = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(PluginDetailActivity pluginDetailActivity, h hVar, h hVar2) {
-        this(pluginDetailActivity);
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        BdLog.d("onServiceConnected");
-        PluginDetailActivity.a(this.b, new Messenger(iBinder));
-        Message obtain = Message.obtain(null, 1, null);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = PluginDetailActivity.e(this.b);
-                PluginDetailActivity.f(this.b).send(obtain);
-            } catch (RemoteException e) {
+    @Override // java.lang.Runnable
+    public void run() {
+        m mVar;
+        m mVar2;
+        if (this.b == 0) {
+            this.a.showToast(this.a.getString(y.plugin_installation_finished));
+            com.baidu.tbadk.tbplugin.m.a().q();
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
+                this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
             }
+            this.a.setResult(-1);
+            mVar2 = this.a.a;
+            mVar2.dismiss();
+            return;
         }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        BdLog.d("onServiceDisconnected");
-        PluginDetailActivity.a(this.b, (Messenger) null);
+        this.a.setResult(0);
+        this.a.showToast(this.a.getString(y.plugin_installation_failed));
+        mVar = this.a.a;
+        mVar.dismiss();
     }
 }

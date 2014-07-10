@@ -18,9 +18,9 @@ class bd implements com.baidu.tieba.im.a<Boolean> {
     public void a(Boolean bool) {
         if (bool != null) {
             if (bool.booleanValue()) {
-                this.a.d.L();
-            } else {
                 this.a.d.M();
+            } else {
+                this.a.d.N();
             }
             if (this.a.e != null && this.b != null) {
                 String name = this.b.getName();

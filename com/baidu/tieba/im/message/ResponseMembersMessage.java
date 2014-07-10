@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.im.data.MembersData;
@@ -19,15 +18,11 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
     private MembersData membersData;
 
     public ResponseMembersMessage() {
-        super(MessageTypes.CMD_REQUEST_MEMBERS_BY_ID);
+        super(103005);
     }
 
     public MembersData getMembersData() {
         return this.membersData;
-    }
-
-    public void setMembersData(MembersData membersData) {
-        this.membersData = membersData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +32,7 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
         setError(queryGroupUserListResIdl.error.errorno.intValue());
         setErrorString(queryGroupUserListResIdl.error.usermsg);
         if (getError() == 0) {
-            setMembersData(new MembersData());
+            this.membersData = new MembersData();
             getMembersData().setUsers(new ArrayList());
             if (queryGroupUserListResIdl.data.userList != null) {
                 for (UserInfo userInfo : queryGroupUserListResIdl.data.userList) {

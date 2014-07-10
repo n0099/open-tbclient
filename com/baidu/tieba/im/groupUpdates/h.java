@@ -3,7 +3,6 @@ package com.baidu.tieba.im.groupUpdates;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -19,10 +18,13 @@ public class h extends BaseAdapter {
         this.a = null;
     }
 
+    public List<UpdatesItemData> b() {
+        return this.b;
+    }
+
     public void a(List<UpdatesItemData> list) {
         if (list != null) {
             this.b = list;
-            BdLog.d("size:" + this.b.size());
             notifyDataSetChanged();
         }
     }

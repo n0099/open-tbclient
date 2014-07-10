@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupActivity.DataReq;
 import protobuf.DelGroupActivity.DelGroupActivityReqIdl;
@@ -10,7 +9,7 @@ public class RequestDelGroupActivityMessage extends TbSocketMessage {
     private int groupId;
 
     public RequestDelGroupActivityMessage() {
-        super(MessageTypes.CMD_DEL_GROUP_ACTIVITY);
+        super(103121);
     }
 
     public int getActivityId() {

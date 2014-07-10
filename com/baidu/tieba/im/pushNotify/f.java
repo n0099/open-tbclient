@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.pushNotify;
 
-import java.util.LinkedHashMap;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ LinkedHashMap b;
+public class f implements com.baidu.tieba.im.a<Boolean> {
+    private final /* synthetic */ ImMessageCenterPojo a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(LinkedHashMap linkedHashMap) {
-        this.b = linkedHashMap;
+    public f(ImMessageCenterPojo imMessageCenterPojo) {
+        this.a = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        return com.baidu.tieba.im.db.c.a().a(this.b);
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        com.baidu.tieba.im.db.i.a().a(this.a);
+        com.baidu.tieba.im.c.b.b().h();
     }
 }

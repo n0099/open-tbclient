@@ -1,33 +1,53 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-public class j {
-    TextView a;
-    ProgressBar b;
-    i c;
-    ImageView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    View h;
-    TextView i;
-    TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ g m;
+public class j extends FragmentPagerAdapter {
+    private com.baidu.tbadk.core.d[] a;
+    private int[] b;
+    private int c;
+    private CustomMessageListener d;
 
-    private j(g gVar) {
-        this.m = gVar;
+    public j(FragmentManager fragmentManager, boolean z) {
+        super(fragmentManager);
+        this.d = new k(this, 2008002);
+        if (!z) {
+            a();
+            return;
+        }
+        MessageManager.getInstance().registerListener(this.d);
+        boolean sendMessage = MessageManager.getInstance().sendMessage(new CustomMessage(2008002));
+        MessageManager.getInstance().unRegisterListener(this.d);
+        if (!sendMessage) {
+            a();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(g gVar, j jVar) {
-        this(gVar);
+    private void a() {
+        this.a = new com.baidu.tbadk.core.d[]{new ac(), new a()};
+        this.b = new int[]{1, 2};
+        this.c = this.a.length;
+    }
+
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        if (i < 0 || i >= this.c) {
+            return null;
+        }
+        return this.a[i];
+    }
+
+    public int a(int i) {
+        return this.b[i];
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.c;
     }
 }

@@ -1,216 +1,320 @@
 package com.baidu.tieba.im.model;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
-import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
-import com.baidu.tieba.im.message.RequestUserPermissionMessage;
-import java.util.HashMap;
-import java.util.Map;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+import com.baidu.tieba.im.data.MemberData;
+import com.baidu.tieba.im.message.ClearGroupInfoCacheMessage;
+import com.baidu.tieba.im.message.RequestGroupInfoLocalMessage;
+import com.baidu.tieba.im.message.RequestGroupInfoMessage;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.b {
-    private String a;
-    private boolean b;
+public class k extends com.baidu.adp.base.e {
+    private long a;
+    private int b;
     private int c;
-    private int d;
-    private int e;
-    private boolean f;
-    private int g;
-    private int h;
-    private GroupPermData i;
-    private final Map<String, Boolean> j = new HashMap();
-    private BaseFragmentActivity k;
+    private long d;
+    private String e;
+    private com.baidu.tieba.im.message.f f;
+    private RequestGroupInfoMessage g;
+    private RequestGroupInfoLocalMessage h;
+    private PhotoUrlData i;
+    private boolean j;
 
-    public k(BaseFragmentActivity baseFragmentActivity) {
-        this.k = baseFragmentActivity;
+    public void a(PhotoUrlData photoUrlData) {
+        this.i = photoUrlData;
     }
 
-    public void a(String str) {
-        this.j.put(str, true);
-    }
-
-    public boolean b(String str) {
-        Boolean bool = this.j.get(str);
-        return bool != null && bool.booleanValue();
-    }
-
-    public boolean a() {
-        return this.b;
-    }
-
-    public int b() {
-        return this.g;
-    }
-
-    public int c() {
-        return this.h;
-    }
-
-    public GroupPermData d() {
-        return this.i;
-    }
-
-    public void a(GroupPermData groupPermData) {
-        this.i = groupPermData;
-    }
-
-    public boolean e() {
-        return this.f;
-    }
-
-    public void a(boolean z) {
-        this.f = z;
-    }
-
-    public void f() {
-        this.i = null;
-    }
-
-    public void a(Activity activity) {
-        this.g = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
-        this.h = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
-    }
-
-    public int g() {
+    public int a() {
         return this.c;
     }
 
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public boolean h() {
-        return l() == 50;
-    }
-
-    public boolean i() {
-        return g() == 2;
-    }
-
-    public int j() {
-        return this.c;
-    }
-
-    public int k() {
+    public long b() {
         return this.d;
     }
 
-    public void b(int i) {
-        this.d = i;
-    }
-
-    public void c(int i) {
-        this.d += i;
-    }
-
-    public int l() {
+    public String c() {
         return this.e;
     }
 
-    public void d(int i) {
-        this.e = i;
-    }
-
-    public String m() {
+    public long d() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.b
+    public int e() {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
     public void a(Intent intent) {
-        this.a = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-        this.b = intent.getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND, true);
-        this.c = this.b ? 1 : 2;
+        this.a = intent.getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L);
+        this.b = intent.getIntExtra("activity_from", 0);
+        this.c = intent.getIntExtra("join_type", 0);
+        this.d = intent.getLongExtra("inviter_user_id", 0L);
+        this.e = intent.getStringExtra("default_invite_msg");
     }
 
     public void a(Bundle bundle) {
-        this.a = bundle.getString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-        this.b = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND);
-        this.c = bundle.getInt("card_type");
-        this.d = bundle.getInt("start_position");
-        this.e = bundle.getInt("end_position");
-        this.i = (GroupPermData) bundle.getSerializable("group_perm");
+        this.a = bundle.getLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L);
+        this.b = bundle.getInt("activity_from", 0);
+        this.c = bundle.getInt("join_type");
+        this.d = bundle.getLong("inviter_user_id");
+        this.e = bundle.getString("default_invite_msg");
     }
 
-    private RequestFrsGroupsMessage c(String str, int i, int i2, int i3, int i4, int i5) {
-        RequestFrsGroupsMessage requestFrsGroupsMessage = new RequestFrsGroupsMessage();
-        requestFrsGroupsMessage.setForumId(str);
-        requestFrsGroupsMessage.setType(String.valueOf(i));
-        requestFrsGroupsMessage.setOffset(String.valueOf(i2));
-        requestFrsGroupsMessage.setRn(String.valueOf(i3));
-        requestFrsGroupsMessage.setWidth(i4);
-        requestFrsGroupsMessage.setHeight(i5);
-        return requestFrsGroupsMessage;
-    }
-
-    private RequestFrsGroupsLocalMessage d(String str, int i, int i2, int i3, int i4, int i5) {
-        RequestFrsGroupsLocalMessage requestFrsGroupsLocalMessage = new RequestFrsGroupsLocalMessage();
-        requestFrsGroupsLocalMessage.setForumId(str);
-        requestFrsGroupsLocalMessage.setType(String.valueOf(i));
-        requestFrsGroupsLocalMessage.setOffset(String.valueOf(i2));
-        requestFrsGroupsLocalMessage.setRn(String.valueOf(i3));
-        requestFrsGroupsLocalMessage.setWidth(i4);
-        requestFrsGroupsLocalMessage.setHeight(i5);
-        return requestFrsGroupsLocalMessage;
-    }
-
-    public void a(String str, int i, int i2, int i3, int i4, int i5) {
-        this.k.a(c(str, i, i2, i3, i4, i5));
-    }
-
-    @Override // com.baidu.adp.base.b
-    public void registerListener(MessageListener<?> messageListener) {
-        this.k.a(messageListener);
-    }
-
-    public void a(MessageListener<?> messageListener) {
-        MessageManager.getInstance().unRegisterListener(messageListener);
-    }
-
-    public void b(String str, int i, int i2, int i3, int i4, int i5) {
-        this.k.a(d(str, i, i2, i3, i4, i5));
-    }
-
-    private RequestUserPermissionMessage d(String str) {
-        long j = 0;
-        try {
-            j = Long.parseLong(str);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+    private RequestGroupInfoMessage c(long j, int i) {
+        RequestGroupInfoMessage requestGroupInfoMessage = new RequestGroupInfoMessage();
+        requestGroupInfoMessage.setGroupId(j);
+        LocalViewSize.ImageSize c = LocalViewSize.a().c();
+        LocalViewSize.ImageSize d = LocalViewSize.a().d();
+        requestGroupInfoMessage.setBigHeight(d.height);
+        requestGroupInfoMessage.setBigWidth(d.width);
+        requestGroupInfoMessage.setSmallHeight(c.height);
+        requestGroupInfoMessage.setSmallWidth(c.width);
+        if (i == 4) {
+            requestGroupInfoMessage.setFrom("forumgroup_recommend");
+        } else if (i == 5) {
+            requestGroupInfoMessage.setFrom("forumgroup_hot");
+        } else if (i == 6) {
+            requestGroupInfoMessage.setFrom("forumgroup_official");
+        } else if (i == 3) {
+            requestGroupInfoMessage.setFrom("grouptalk");
+        } else if (i == 1) {
+            requestGroupInfoMessage.setFrom("usergroup");
+        } else if (i == 7) {
+            requestGroupInfoMessage.setFrom("invitetalk");
+        } else {
+            requestGroupInfoMessage.setFrom("");
         }
-        RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
-        requestUserPermissionMessage.setForumId(j);
-        return requestUserPermissionMessage;
+        return requestGroupInfoMessage;
     }
 
-    public void c(String str) {
-        this.k.a(d(str));
+    private RequestGroupInfoLocalMessage d(long j, int i) {
+        RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = new RequestGroupInfoLocalMessage();
+        requestGroupInfoLocalMessage.setGroupId(j);
+        LocalViewSize.ImageSize c = LocalViewSize.a().c();
+        LocalViewSize.ImageSize d = LocalViewSize.a().d();
+        requestGroupInfoLocalMessage.setBigHeight(d.height);
+        requestGroupInfoLocalMessage.setBigWidth(d.width);
+        requestGroupInfoLocalMessage.setSmallHeight(c.height);
+        requestGroupInfoLocalMessage.setSmallWidth(c.width);
+        if (i == 4) {
+            requestGroupInfoLocalMessage.setFrom("forumgroup_recommend");
+        } else if (i == 5) {
+            requestGroupInfoLocalMessage.setFrom("forumgroup_hot");
+        } else if (i == 6) {
+            requestGroupInfoLocalMessage.setFrom("forumgroup_official");
+        } else if (i == 3) {
+            requestGroupInfoLocalMessage.setFrom("grouptalk");
+        } else if (i == 1) {
+            requestGroupInfoLocalMessage.setFrom("usergroup");
+        } else if (i == 7) {
+            requestGroupInfoLocalMessage.setFrom("invitetalk");
+        } else {
+            requestGroupInfoLocalMessage.setFrom("");
+        }
+        return requestGroupInfoLocalMessage;
     }
 
-    public void b(MessageListener<?> messageListener) {
-        this.k.a(messageListener);
+    public void a(long j, int i) {
+        this.g = c(j, i);
+        super.sendMessage(this.g);
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void cancelMessage() {
+        super.cancelMessage();
     }
 
     public void b(Bundle bundle) {
-        bundle.putString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND, this.b);
-        bundle.putInt("card_type", this.c);
-        bundle.putInt("start_position", this.d);
-        bundle.putInt("end_position", this.e);
-        bundle.putSerializable("group_perm", this.i);
+        bundle.putLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.a);
+        bundle.putInt("activity_from", this.b);
+        bundle.putInt("join_type", this.c);
+        bundle.putLong("inviter_user_id", this.d);
+        bundle.putString("default_invite_msg", this.e);
+    }
+
+    public void a(com.baidu.tieba.im.message.f fVar) {
+        this.i = null;
+        this.f = fVar;
+    }
+
+    public com.baidu.tieba.im.message.f f() {
+        return this.f;
+    }
+
+    public ArrayList<String> g() {
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
+            return null;
+        }
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (PhotoUrlData photoUrlData : this.f.d()) {
+            if (photoUrlData != null) {
+                arrayList.add(photoUrlData.getBigurl());
+            }
+        }
+        return arrayList;
+    }
+
+    public String b(PhotoUrlData photoUrlData) {
+        String str;
+        String str2 = "";
+        if (photoUrlData == null) {
+            return null;
+        }
+        String picId = photoUrlData.getPicId();
+        if (TextUtils.isEmpty(picId)) {
+            return null;
+        }
+        this.i = photoUrlData;
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
+            return "";
+        }
+        int size = this.f.d().size();
+        List<PhotoUrlData> d = this.f.d();
+        int i = 1;
+        while (i < size) {
+            if (d.get(i) == null) {
+                str = str2;
+            } else if (d.get(i).getPicId().equals(picId)) {
+                str = str2;
+            } else {
+                str = String.valueOf(str2) + d.get(i).getPicId();
+                if (i != size - 1) {
+                    str = String.valueOf(str) + ",";
+                }
+            }
+            i++;
+            str2 = str;
+        }
+        return str2;
+    }
+
+    public String c(PhotoUrlData photoUrlData) {
+        if (photoUrlData == null) {
+            return null;
+        }
+        String picId = photoUrlData.getPicId();
+        if (TextUtils.isEmpty(picId)) {
+            return null;
+        }
+        this.i = photoUrlData;
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
+            return picId;
+        }
+        List<PhotoUrlData> d = this.f.d();
+        int size = d.size();
+        String str = "";
+        for (int i = 1; i < size; i++) {
+            if (d.get(i) != null) {
+                str = String.valueOf(str) + d.get(i).getPicId() + ",";
+            }
+        }
+        return String.valueOf(str) + picId;
+    }
+
+    public void h() {
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
+            for (PhotoUrlData photoUrlData : this.f.d()) {
+                if (photoUrlData != null && photoUrlData.getPicId().equals(this.i.getPicId())) {
+                    this.f.d().remove(photoUrlData);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void i() {
+        if (this.f != null && this.i != null) {
+            if (this.f.d() == null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(this.i);
+                this.f.b(arrayList);
+                return;
+            }
+            if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
+                this.f.d().remove(0);
+            }
+            PhotoUrlData photoUrlData = new PhotoUrlData();
+            photoUrlData.setBigurl(this.i.getBigurl());
+            photoUrlData.setPicId(this.i.getPicId());
+            photoUrlData.setSmallurl(this.i.getSmallurl());
+            this.f.d().add(photoUrlData);
+        }
+    }
+
+    public void j() {
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
+            Iterator<PhotoUrlData> it = this.f.d().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                PhotoUrlData next = it.next();
+                if (next != null && next.getPicId().equals(this.i.getPicId())) {
+                    this.f.d().remove(next);
+                    break;
+                }
+            }
+            if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
+                this.f.d().remove(0);
+            }
+            PhotoUrlData photoUrlData = new PhotoUrlData();
+            photoUrlData.setBigurl(this.i.getBigurl());
+            photoUrlData.setPicId(this.i.getPicId());
+            photoUrlData.setSmallurl(this.i.getSmallurl());
+            this.f.d().add(0, photoUrlData);
+        }
+    }
+
+    public void b(long j, int i) {
+        if (this.h == null) {
+            this.h = d(j, i);
+        }
+        super.sendMessage(this.h);
+    }
+
+    public boolean a(String str) {
+        if (str != null && this.f != null && this.f.c() != null && this.f.c().size() > 0) {
+            for (MemberData memberData : this.f.c()) {
+                if (str.equals(String.valueOf(memberData.getUserId()))) {
+                    this.f.c().remove(memberData);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Message<?> k() {
+        return this.g;
+    }
+
+    public boolean l() {
+        return this.j;
+    }
+
+    public void a(boolean z) {
+        this.j = z;
+    }
+
+    public void b(String str) {
+        ClearGroupInfoCacheMessage clearGroupInfoCacheMessage = new ClearGroupInfoCacheMessage();
+        clearGroupInfoCacheMessage.setData(str);
+        super.sendMessage(clearGroupInfoCacheMessage);
     }
 }

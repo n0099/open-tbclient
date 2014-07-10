@@ -3,7 +3,6 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseFrsGroupsLocalMessage;
 /* loaded from: classes.dex */
@@ -14,10 +13,10 @@ public class j implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         RequestFrsGroupsLocalMessage requestFrsGroupsLocalMessage = (RequestFrsGroupsLocalMessage) customMessage;
-        byte[] a = com.baidu.tbadk.core.a.b.a().f().a("pb_" + requestFrsGroupsLocalMessage.getType() + "_" + requestFrsGroupsLocalMessage.getForumId());
+        byte[] a = com.baidu.tbadk.core.a.b.a().h().a("pb_" + requestFrsGroupsLocalMessage.getType() + "_" + requestFrsGroupsLocalMessage.getForumId());
         ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = new ResponseFrsGroupsLocalMessage();
         try {
-            responseFrsGroupsLocalMessage.decodeInBackGround(MessageTypes.CMD_CACHE_GROUPS_BY_FID, a);
+            responseFrsGroupsLocalMessage.decodeInBackGround(2001201, a);
         } catch (Exception e) {
             e.printStackTrace();
         }

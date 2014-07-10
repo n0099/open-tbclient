@@ -3,8 +3,9 @@ package com.baidu.tieba.barcode;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p extends BroadcastReceiver {
+public final class p extends BroadcastReceiver {
     final /* synthetic */ n this$0;
 
     private p(n nVar) {
@@ -19,10 +20,10 @@ final class p extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-            if (intent.getIntExtra("plugged", -1) <= 0) {
-                this.this$0.a();
+            if (!(intent.getIntExtra("plugged", -1) <= 0)) {
+                this.this$0.e();
             } else {
-                n.a(this.this$0);
+                this.this$0.a();
             }
         }
     }

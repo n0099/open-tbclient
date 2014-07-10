@@ -16,7 +16,7 @@ public class d implements Runnable {
     public void run() {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
-        com.baidu.tbadk.widget.j jVar;
+        com.baidu.tbadk.widget.i iVar;
         EmotionTabHost emotionTabHost2;
         emotionTabHost = this.a.n;
         if (emotionTabHost.getVisibility() != 0) {
@@ -24,7 +24,7 @@ public class d implements Runnable {
             emotionTabHost2.setVisibility(0);
         }
         keyboardLayout = this.a.r;
-        jVar = this.a.T;
-        keyboardLayout.setOnkbdStateListener(jVar);
+        iVar = this.a.V;
+        keyboardLayout.setOnkbdStateListener(iVar);
     }
 }

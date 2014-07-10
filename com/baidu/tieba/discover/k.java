@@ -2,8 +2,8 @@ package com.baidu.tieba.discover;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bm;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,13 +23,13 @@ public class k extends BdAsyncTask<String, Object, n> {
     public n doInBackground(String... strArr) {
         String str;
         str = j.a;
-        an anVar = new an(str);
-        String i = anVar.i();
-        if (anVar.a().b().b()) {
+        aq aqVar = new aq(str);
+        String i = aqVar.i();
+        if (aqVar.a().b().b()) {
             try {
                 return DiscoverResponsedMessage.parseJson(new JSONObject(i));
             } catch (Exception e) {
-                BdLog.e("DicoverModel", "doInBackground", e.getMessage());
+                BdLog.detailException(e);
                 n nVar = new n();
                 nVar.a = -1000;
                 nVar.b = "网络异常";
@@ -37,8 +37,8 @@ public class k extends BdAsyncTask<String, Object, n> {
             }
         }
         n nVar2 = new n();
-        nVar2.a = anVar.d();
-        nVar2.b = anVar.f();
+        nVar2.a = aqVar.d();
+        nVar2.b = aqVar.f();
         return nVar2;
     }
 
@@ -50,7 +50,7 @@ public class k extends BdAsyncTask<String, Object, n> {
         super.onPostExecute(nVar);
         l lVar = this.a.get();
         if (lVar != null) {
-            if (bg.c(nVar.b)) {
+            if (bm.c(nVar.b)) {
                 lVar.a(nVar);
             } else {
                 lVar.b(nVar);

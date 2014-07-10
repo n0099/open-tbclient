@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
@@ -19,7 +18,7 @@ public class RequestAddGroupMessage extends TbSocketMessage {
     private String position;
 
     public RequestAddGroupMessage() {
-        super(MessageTypes.CMD_ADD_GROUP);
+        super(103101);
         this.page_from_dim = "";
     }
 

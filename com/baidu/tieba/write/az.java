@@ -1,8 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-class az implements com.baidu.tbadk.imageManager.a {
+class az implements View.OnFocusChangeListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,18 +14,67 @@ class az implements com.baidu.tbadk.imageManager.a {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.a
-    public ImageSpan a(String str) {
-        com.baidu.adp.widget.a.a b = com.baidu.tbadk.editortool.ac.a().b(str);
-        if (b == null) {
-            b = com.baidu.tbadk.editortool.ac.a().a((String) null, str);
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (r3 == r0) goto L22;
+     */
+    @Override // android.view.View.OnFocusChangeListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText2;
+        EditText editText3;
+        WriteData writeData;
+        EditText editText4;
+        WriteData writeData2;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditText editText5;
+        EditText editText6;
+        View view2;
+        TextView textView;
+        editText = this.a.e;
+        if (view != editText) {
+            view2 = this.a.o;
+            if (view != view2) {
+                textView = this.a.p;
+            }
         }
-        if (b == null) {
-            return null;
+        if (z) {
+            this.a.Z = true;
+            this.a.o();
+            writeEditorToolButtonContainer = this.a.z;
+            writeEditorToolButtonContainer.c();
+            editorToolComponetContainer = this.a.A;
+            editText2 = this.a.e;
+            editorToolComponetContainer.c(editText2);
         }
-        com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(b.h());
-        wVar.setBounds(0, 0, b.c() + 1, b.d());
-        wVar.setGravity(3);
-        return new ImageSpan(wVar, 0);
+        editText3 = this.a.h;
+        if (view == editText3) {
+            if (!z) {
+                writeData = this.a.a;
+                if (writeData.getType() == 0) {
+                    editText4 = this.a.h;
+                    editText4.setHint(com.baidu.tieba.y.content);
+                    return;
+                }
+                return;
+            }
+            this.a.Z = false;
+            writeData2 = this.a.a;
+            if (writeData2.getType() == 0) {
+                editText6 = this.a.h;
+                editText6.setHint((CharSequence) null);
+            }
+            this.a.o();
+            writeEditorToolButtonContainer2 = this.a.z;
+            writeEditorToolButtonContainer2.c();
+            editorToolComponetContainer2 = this.a.A;
+            editText5 = this.a.h;
+            editorToolComponetContainer2.c(editText5);
+        }
     }
 }

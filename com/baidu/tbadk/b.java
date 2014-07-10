@@ -1,30 +1,21 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import java.util.HashMap;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.message.http.ResponseLocationJsonHttpMessage;
 /* loaded from: classes.dex */
-class b implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    final /* synthetic */ TbadkApplication a;
-
+class b extends HttpMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(TbadkApplication tbadkApplication) {
-        this.a = tbadkApplication;
+    public b(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.frameworkData.a> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        HashMap hashMap;
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tbadk.core.frameworkData.a data = customMessage.getData();
-            hashMap = this.a.mActicyConfig;
-            Class<?> cls = (Class) hashMap.get(data.getClass());
-            if (cls != null) {
-                data.getIntent().setClass(customMessage.getData().getContext(), cls);
-                data.run();
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0 && (httpResponsedMessage instanceof ResponseLocationJsonHttpMessage)) {
+            TbadkApplication.m252getInst().setLocationShared(((ResponseLocationJsonHttpMessage) httpResponsedMessage).isLocationShared);
         }
-        return null;
     }
 }

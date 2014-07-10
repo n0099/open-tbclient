@@ -27,7 +27,7 @@ public class g {
 
     public static void a() {
         try {
-            a = com.baidu.adp.lib.stats.h.a().c();
+            a = com.baidu.adp.lib.stats.d.b().d();
         } catch (Exception e) {
             BdLog.d(e.getMessage());
         }

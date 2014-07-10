@@ -25,7 +25,7 @@ public class c implements Runnable {
                 atomicBoolean3 = this.a.a;
                 atomicBoolean3.set(false);
             } catch (Exception e) {
-                BdLog.e("BdLogger", "write error ", e);
+                BdLog.e(e);
                 atomicBoolean = this.a.a;
                 atomicBoolean.set(false);
             }

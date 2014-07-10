@@ -1,115 +1,121 @@
 package com.baidu.android.nebula.a;
 
-import android.content.Context;
-import android.os.Environment;
-import android.provider.Settings;
-import android.text.TextUtils;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.UUID;
-import org.apache.commons.io.IOUtils;
+import com.baidu.android.common.logging.Log;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public final class b {
-    private b() {
+public class b extends com.baidu.android.nebula.c.d {
+    private ByteBuffer a;
+    private StringBuilder b;
+    private d c;
+    private int d = -1;
+    private boolean e = false;
+
+    public static int a(String str) {
+        if (str.startsWith("GET")) {
+            return 0;
+        }
+        if (str.startsWith("POST")) {
+            return 1;
+        }
+        return str.startsWith("HEAD") ? 2 : 0;
     }
 
-    public static String a(Context context) {
-        a(context, "android.permission.WRITE_SETTINGS");
-        a(context, "android.permission.READ_PHONE_STATE");
-        a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-        g a = g.a(context);
-        String str = a.a;
-        boolean z = !a.b;
-        String c = c(context);
-        if (z) {
-            return c.a(("com.baidu" + c).getBytes(), true);
-        }
-        String str2 = null;
-        String string = Settings.System.getString(context.getContentResolver(), "com.baidu.deviceid");
-        if (TextUtils.isEmpty(string)) {
-            str2 = c.a(("com.baidu" + str + c).getBytes(), true);
-            string = Settings.System.getString(context.getContentResolver(), str2);
-            if (!TextUtils.isEmpty(string)) {
-                Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", string);
-                a(str, string);
-            }
-        }
-        if (TextUtils.isEmpty(string)) {
-            string = a(str);
-            if (!TextUtils.isEmpty(string)) {
-                Settings.System.putString(context.getContentResolver(), str2, string);
-                Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", string);
-            }
-        }
-        if (TextUtils.isEmpty(string)) {
-            String a2 = c.a((str + c + UUID.randomUUID().toString()).getBytes(), true);
-            Settings.System.putString(context.getContentResolver(), str2, a2);
-            Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", a2);
-            a(str, a2);
-            return a2;
-        }
-        return string;
-    }
-
-    private static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(Environment.getExternalStorageDirectory(), "baidu/.cuid")));
-            StringBuilder sb = new StringBuilder();
+    public static int a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
+        int i = 0;
+        if (byteBuffer != null && byteBuffer2 != null) {
             while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
+                if (byteBuffer.remaining() >= 4 && byteBuffer2.remaining() >= 4) {
+                    byteBuffer2.putInt(byteBuffer.getInt());
+                    i += 4;
+                } else if (byteBuffer.remaining() <= 0 || byteBuffer2.remaining() <= 0) {
                     break;
+                } else {
+                    byteBuffer2.put(byteBuffer.get());
+                    i++;
                 }
-                sb.append(readLine);
-                sb.append(IOUtils.LINE_SEPARATOR_WINDOWS);
             }
-            bufferedReader.close();
-            Object[] split = new String(l.b("30212102dicudiab", "30212102dicudiab", k.a(sb.toString().getBytes()))).split("=");
-            return (split != null && split.length == 2 && str.equals(split[0])) ? split[1] : "";
-        } catch (FileNotFoundException e) {
-            return "";
-        } catch (IOException e2) {
-            return "";
-        } catch (Exception e3) {
-            return "";
         }
+        return i;
     }
 
-    private static void a(Context context, String str) {
-        if (!(context.checkCallingOrSelfPermission(str) == 0)) {
-            throw new SecurityException("Permission Denial: requires permission " + str);
+    @Override // com.baidu.android.nebula.c.d
+    public int a(ByteBuffer byteBuffer) {
+        int remaining;
+        if (!this.e && (remaining = byteBuffer.remaining()) > 0) {
+            if (this.b == null) {
+                this.b = new StringBuilder();
+            }
+            this.b.append(new String(byteBuffer.array(), byteBuffer.position(), remaining));
+            return remaining;
         }
+        return 0;
     }
 
-    private static void a(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
-        try {
-            new File(file.getParent()).mkdirs();
-            FileWriter fileWriter = new FileWriter(file, false);
-            fileWriter.write(k.a(l.a("30212102dicudiab", "30212102dicudiab", (str + "=" + str2).getBytes()), "utf-8"));
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e) {
-        } catch (Exception e2) {
-        }
+    public d a() {
+        return this.c;
     }
 
-    public static String b(Context context) {
-        return g.a(context).a;
+    public void a(a aVar) {
+        this.a = ByteBuffer.wrap(aVar.toString().getBytes());
+        this.a.rewind();
     }
 
-    public static String c(Context context) {
-        String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
-        return TextUtils.isEmpty(string) ? "" : string;
+    @Override // com.baidu.android.nebula.c.d
+    public int b(ByteBuffer byteBuffer) {
+        if (this.e) {
+            return 0;
+        }
+        return a(this.a, byteBuffer);
+    }
+
+    @Override // com.baidu.android.nebula.c.d
+    public boolean b() {
+        int indexOf;
+        if (this.e) {
+            return true;
+        }
+        if (this.b == null) {
+            return false;
+        }
+        String sb = this.b.toString();
+        if (this.d == -1) {
+            this.d = a(sb);
+            if (this.d == -1) {
+                return false;
+            }
+        }
+        if (this.d == 0 || this.d == 2) {
+            if (sb.endsWith("\r\n\r\n")) {
+                this.c = new d(this.b.toString());
+                return true;
+            }
+        } else if (this.d == 1) {
+            if (this.c == null && (indexOf = sb.indexOf("\r\n\r\n")) != -1) {
+                String substring = sb.substring(0, indexOf + 1);
+                this.c = new d(substring);
+                this.b.delete(0, substring.getBytes().length);
+            }
+            if (this.c != null) {
+                try {
+                    if (this.b.length() >= Integer.parseInt(this.c.a("Content-Length"))) {
+                        this.c.a(this.b.toString().getBytes());
+                        this.b = new StringBuilder();
+                        return true;
+                    }
+                } catch (NumberFormatException e) {
+                    Log.e("HttpSession", "Content-Length Parse Error ：", e);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override // com.baidu.android.nebula.c.d
+    public boolean c() {
+        if (this.e) {
+            return true;
+        }
+        return (this.a == null || this.a.hasRemaining()) ? false : true;
     }
 }

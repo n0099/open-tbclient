@@ -1,15 +1,25 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.EnterChatroom.DataReq;
 import protobuf.EnterChatroom.EnterChatroomReqIdl;
 /* loaded from: classes.dex */
 public class RequestEnterChatRoomMessage extends TbSocketMessage {
+    private boolean isFromLYF;
     private long lastGroupId;
 
     public RequestEnterChatRoomMessage() {
-        super(MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM);
+        super(106101);
+        this.isFromLYF = false;
+    }
+
+    public RequestEnterChatRoomMessage(boolean z) {
+        super(106101);
+        this.isFromLYF = z;
+    }
+
+    public boolean isFromLYF() {
+        return this.isFromLYF;
     }
 
     public long getLastGroupId() {

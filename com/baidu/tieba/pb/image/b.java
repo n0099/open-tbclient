@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.image;
 
 import com.baidu.tbadk.core.view.BaseViewPager;
 /* loaded from: classes.dex */
-class b implements com.baidu.tbadk.imageManager.d {
+class b extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,13 @@ class b implements com.baidu.tbadk.imageManager.d {
         this.a = aVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         ImagePbActivity imagePbActivity;
         BaseViewPager baseViewPager;
-        if (aVar != null && !z) {
+        if (aVar != null && i != 1) {
             imagePbActivity = this.a.a;
             baseViewPager = imagePbActivity.x;
             ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);

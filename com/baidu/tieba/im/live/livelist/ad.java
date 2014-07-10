@@ -8,7 +8,7 @@ import android.widget.RadioGroup;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.base.c {
+public class ad extends com.baidu.adp.base.f {
     private HotLiveListActivity a;
     private View b;
     private NavigationBar c;
@@ -34,6 +34,10 @@ public class ad extends com.baidu.adp.base.c {
         a(hotLiveListActivity);
         b(hotLiveListActivity);
         c(hotLiveListActivity);
+    }
+
+    public z a() {
+        return this.m[this.k.getCurrentItem()];
     }
 
     private void a(HotLiveListActivity hotLiveListActivity) {
@@ -124,29 +128,29 @@ public class ad extends com.baidu.adp.base.c {
         }
     }
 
-    public void a() {
+    public void b() {
         this.d.setOnCheckedChangeListener(this.a);
     }
 
     public void d(int i) {
-        this.a.a().a(i == 1);
-        this.a.a().a(this.b);
+        this.a.c().a(i == 1);
+        this.a.c().a(this.b);
         this.c.c(i);
         if (this.p != null) {
             this.p.a(i);
         }
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
     }
 
-    public void b() {
+    public void c() {
         this.d.check(com.baidu.tieba.v.radio_living);
     }
 
-    public ViewPager c() {
+    public ViewPager d() {
         return this.k;
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
+class g implements AbsListView.OnScrollListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +10,11 @@ public class g implements View.OnClickListener {
         this.a = atListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.a.b;
-        editText.getText().clear();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

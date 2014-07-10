@@ -28,15 +28,15 @@ public class q implements AbsListView.OnScrollListener {
         Runnable runnable4;
         Runnable runnable5;
         Context context = this.a.getContext();
-        if (context != null && (context instanceof com.baidu.adp.base.g)) {
-            com.baidu.adp.base.g gVar = (com.baidu.adp.base.g) context;
+        if (context != null && (context instanceof com.baidu.adp.base.j)) {
+            com.baidu.adp.base.j jVar = (com.baidu.adp.base.j) context;
             if (i == 2) {
                 BdListView bdListView = this.a;
                 runnable5 = this.a.t;
                 bdListView.removeCallbacks(runnable5);
-                gVar.setIsScroll(true);
-            } else if (gVar.isScroll()) {
-                gVar.setIsScroll(false);
+                jVar.setIsScroll(true);
+            } else if (jVar.isScroll()) {
+                jVar.setIsScroll(false);
                 BdListView bdListView2 = this.a;
                 runnable3 = this.a.t;
                 bdListView2.removeCallbacks(runnable3);
@@ -61,7 +61,7 @@ public class q implements AbsListView.OnScrollListener {
             xVar = this.a.n;
             if (xVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
                 xVar2 = this.a.n;
-                xVar2.f_();
+                xVar2.g_();
             }
             zVar = this.a.l;
             if (zVar != null) {

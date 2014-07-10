@@ -1,31 +1,95 @@
 package com.baidu.tieba.im.live.room;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.view.LocateScrollView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements com.baidu.tieba.im.view.l {
-    final /* synthetic */ az a;
-    private final /* synthetic */ int b;
+public class ba extends com.baidu.adp.base.f {
+    private Button a;
+    private EditText b;
+    private LiveRoomEntranceActivity c;
+    private NavigationBar d;
+    private View e;
+    private ImageView f;
+    private LocateScrollView g;
+    private LiveRoomEntranceRelativeLayout h;
+    private LinearLayout i;
+    private Bitmap j;
+    private Bitmap k;
+    private com.baidu.tieba.im.view.k l;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(az azVar, int i) {
-        this.a = azVar;
-        this.b = i;
+    public void a() {
+        HidenSoftKeyPad(this.b);
     }
 
-    @Override // com.baidu.tieba.im.view.l
-    public void a(int i, int i2, int i3, int i4) {
-        LocateScrollView locateScrollView;
-        LocateScrollView locateScrollView2;
-        Button button;
-        if (i2 - i4 < 0) {
-            locateScrollView2 = this.a.i;
-            button = this.a.c;
-            locateScrollView2.a(button, this.b);
-            return;
+    public View b() {
+        return this.e;
+    }
+
+    public EditText c() {
+        return this.b;
+    }
+
+    public Button d() {
+        return this.a;
+    }
+
+    public ImageView e() {
+        return this.f;
+    }
+
+    public void a(int i) {
+        this.d.c(0);
+    }
+
+    public ba(LiveRoomEntranceActivity liveRoomEntranceActivity) {
+        super(liveRoomEntranceActivity);
+        this.c = liveRoomEntranceActivity;
+        liveRoomEntranceActivity.setContentView(com.baidu.tieba.w.activity_live_entrance);
+        this.d = (NavigationBar) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.lay_title_bar);
+        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, liveRoomEntranceActivity);
+        this.d.a(com.baidu.tieba.y.liveroom);
+        this.f = (ImageView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_spot);
+        this.a = (Button) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.btnEnter);
+        this.l = new bb(this, this.c.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds20));
+        this.g = (LocateScrollView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_scrollview);
+        this.g.setOnSizeChangeListener(this.l);
+        this.h = (LiveRoomEntranceRelativeLayout) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_layout);
+        this.j = com.baidu.tbadk.core.util.h.a(this.mContext, com.baidu.tieba.u.bg_live_room);
+        if (this.j != null) {
+            this.h.setBackgroundDrawable(new BitmapDrawable(this.c.getResources(), this.j));
         }
-        locateScrollView = this.a.i;
-        locateScrollView.a(null, 0);
+        this.i = (LinearLayout) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_anim_lay);
+        this.k = com.baidu.tbadk.core.util.h.b(this.mContext, com.baidu.tieba.u.live_room_enterance_anim_bg);
+        if (this.k != null) {
+            this.i.setBackgroundDrawable(new BitmapDrawable(this.c.getResources(), this.k));
+        }
+        this.b = (EditText) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.homenameedit);
+        this.a.setOnClickListener(liveRoomEntranceActivity);
+        this.b.addTextChangedListener(new bc(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void f() {
+        if (this.h != null) {
+            this.h.setBackgroundDrawable(null);
+        }
+        if (this.j != null && !this.j.isRecycled()) {
+            this.j.recycle();
+            this.j = null;
+        }
+        if (this.i != null) {
+            this.i.setBackgroundDrawable(null);
+        }
+        if (this.k != null && !this.k.isRecycled()) {
+            this.k.recycle();
+            this.k = null;
+        }
     }
 }

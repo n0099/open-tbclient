@@ -24,10 +24,10 @@ public class ab extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.p pVar;
+        com.baidu.tieba.im.model.n nVar;
         com.baidu.tieba.im.data.d hotLiveListData;
         List<LiveCardData> b;
-        com.baidu.tieba.im.model.p pVar2;
+        com.baidu.tieba.im.model.n nVar2;
         HotLiveListAdapter hotLiveListAdapter;
         HotLiveListAdapter hotLiveListAdapter2;
         HotLiveListAdapter hotLiveListAdapter3;
@@ -46,10 +46,10 @@ public class ab extends CustomMessageListener {
                 return;
             }
         }
-        pVar = this.a.c;
-        if (!pVar.b(this.a.b()) && (hotLiveListData = responseHotLiveListLocalMessage.getHotLiveListData()) != null && (b = hotLiveListData.b()) != null && !b.isEmpty()) {
-            pVar2 = this.a.c;
-            pVar2.c(this.a.b());
+        nVar = this.a.c;
+        if (!nVar.b(this.a.b()) && (hotLiveListData = responseHotLiveListLocalMessage.getHotLiveListData()) != null && (b = hotLiveListData.b()) != null && !b.isEmpty()) {
+            nVar2 = this.a.c;
+            nVar2.c(this.a.b());
             hotLiveListAdapter = this.a.i;
             hotLiveListAdapter.c(true);
             hotLiveListAdapter2 = this.a.i;

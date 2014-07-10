@@ -1,36 +1,33 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.ViewGroup;
+import android.view.View;
 import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tbadk.core.util.bt;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.bz;
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.imageManager.d {
+class z implements bz {
     final /* synthetic */ y a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar) {
+    public z(y yVar, String str, com.baidu.adp.widget.a.a aVar) {
         this.a = yVar;
+        this.b = str;
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        InviteFriendCandidateList inviteFriendCandidateList;
-        BdListView bdListView2;
-        if (aVar != null) {
-            bdListView = this.a.e;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(aVar.h());
-                bdListView2 = this.a.e;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
+    @Override // com.baidu.tbadk.core.util.bz
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && view.getTag() != null) {
+            Object tag = view.getTag();
+            if (tag instanceof com.baidu.tbadk.coreExtra.relationship.b) {
+                ImageView imageView = (ImageView) view;
+                com.baidu.tbadk.coreExtra.relationship.b bVar = (com.baidu.tbadk.coreExtra.relationship.b) tag;
+                if (this.b != null && this.b.equals(bVar.d())) {
+                    this.c.a(imageView);
+                }
             }
-            inviteFriendCandidateList = this.a.i;
-            br.a((ViewGroup) inviteFriendCandidateList, false, (bt) new aa(this, str, aVar));
         }
+        return false;
     }
 }

@@ -14,14 +14,14 @@ public class e implements g {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.g
-    public boolean a(WebView webView, String str) {
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         Context context;
         if (str != null) {
             try {
-                context = this.a.c;
+                context = this.a.mContext;
                 com.baidu.tbadk.browser.a.c(context, str);
             } catch (Exception e) {
-                BdLog.i(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                BdLog.e(e.toString());
             }
         }
         return true;

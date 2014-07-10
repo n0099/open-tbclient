@@ -1,11 +1,10 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public UpdateAttentionMessage(a aVar) {
-        super(MessageTypes.CMD_UPDATE_ATTENTION, aVar);
+        super(2001118, aVar);
     }
 
     public boolean isSucc() {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
-class b implements t {
+class b implements q {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,17 +8,17 @@ class b implements t {
         this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.mention.t
+    @Override // com.baidu.tieba.mention.q
     public void a(String str) {
         com.baidu.tieba.util.k.e(str);
     }
 
-    @Override // com.baidu.tieba.mention.t
+    @Override // com.baidu.tieba.mention.q
     public String a() {
         return com.baidu.tieba.util.k.g();
     }
 
-    @Override // com.baidu.tieba.mention.t
+    @Override // com.baidu.tieba.mention.q
     public void b() {
         com.baidu.tieba.util.k.f();
     }

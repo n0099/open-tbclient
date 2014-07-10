@@ -1,29 +1,44 @@
 package com.baidu.tieba.plugins;
 
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 /* loaded from: classes.dex */
-class f implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ PluginDetailActivity a;
+class f implements ServiceConnection {
+    final /* synthetic */ PluginDetailActivity b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(PluginDetailActivity pluginDetailActivity) {
-        this.a = pluginDetailActivity;
+    private f(PluginDetailActivity pluginDetailActivity) {
+        this.b = pluginDetailActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        PluginsConfig.PluginConfig pluginConfig;
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (aVar != null) {
-            pluginConfig = this.a.l;
-            if (str.equals(pluginConfig.icon)) {
-                headImageView = this.a.a;
-                headImageView.setTag(str);
-                headImageView2 = this.a.a;
-                headImageView2.invalidate();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(PluginDetailActivity pluginDetailActivity, f fVar) {
+        this(pluginDetailActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(PluginDetailActivity pluginDetailActivity, f fVar, f fVar2) {
+        this(pluginDetailActivity);
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        PluginDetailActivity.a(this.b, new Messenger(iBinder));
+        Message obtain = Message.obtain(null, 1, null);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = PluginDetailActivity.e(this.b);
+                PluginDetailActivity.f(this.b).send(obtain);
+            } catch (RemoteException e) {
             }
         }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        PluginDetailActivity.a(this.b, (Messenger) null);
     }
 }

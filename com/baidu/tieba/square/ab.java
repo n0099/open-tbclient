@@ -1,31 +1,56 @@
 package com.baidu.tieba.square;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ab {
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<ab> e;
+public class ab extends BaseAdapter implements com.baidu.tieba.view.u {
+    private ac a;
+    private ArrayList<ap> b = new ArrayList<>();
 
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("menu_type");
-        this.b = jSONObject.optString("menu_name");
-        this.c = jSONObject.optString("menu_id");
-        this.d = jSONObject.optString("default_logo_url", null);
-        this.d = this.d != null ? String.valueOf(this.d) + "?v=2" : null;
-        if (jSONObject.has("child_menu_list")) {
-            ArrayList<ab> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                ab abVar = new ab();
-                abVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(abVar);
-            }
-            this.e = arrayList;
+    public ab(Context context) {
+        this.a = null;
+        this.a = new ac(context);
+    }
+
+    public void a(ArrayList<ap> arrayList) {
+        this.b = arrayList;
+        this.a.a(arrayList);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.b == null || this.b.size() <= 1) ? 0 : 1;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.a;
+    }
+
+    @Override // com.baidu.tieba.view.u
+    public void b() {
+        if (this.a != null) {
+            this.a.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.u
+    public void a(View view, int i, int i2) {
+        if (this.a != null) {
+            this.a.a(this.a, 0, 0);
         }
     }
 }

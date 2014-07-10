@@ -25,6 +25,6 @@ public class g {
     }
 
     public boolean a() {
-        return this.b == 200 || this.b / 100 == 3;
+        return this.b == 200;
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ FatalErrorService a;
-    private an b;
+    private aq b;
 
     private f(FatalErrorService fatalErrorService) {
         this.a = fatalErrorService;
@@ -27,14 +27,14 @@ class f extends BdAsyncTask<String, Integer, String> {
         this(fatalErrorService);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=4, 155=4, 158=4, 159=8, 160=4, 164=4, 165=4, 168=4, 169=8, 170=4, 174=4, 175=4, 178=4, 179=8, 180=4] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x006a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x0094 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:158:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=4, 150=4, 153=4, 154=4, 158=4, 159=4, 162=4, 163=4, 167=4, 168=4, 171=4, 172=4] */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:156:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -47,7 +47,7 @@ class f extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = x.d(str);
+                File d = z.d(str);
                 if (d == null || d.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
@@ -75,14 +75,14 @@ class f extends BdAsyncTask<String, Integer, String> {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e) {
-                                        BdLog.e(getClass().getName(), "sendLogFile", e.getMessage());
+                                        BdLog.e(e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        BdLog.e(getClass().getName(), "sendLogFile", e2.getMessage());
+                                        BdLog.e(e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -90,13 +90,13 @@ class f extends BdAsyncTask<String, Integer, String> {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        BdLog.e(getClass().getName(), "sendLogFile", e3.getMessage());
+                                        BdLog.e(e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.j();
                             if (byteArrayOutputStream != null) {
@@ -112,21 +112,54 @@ class f extends BdAsyncTask<String, Integer, String> {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream = byteArrayOutputStream2;
-                                    BdLog.e(getClass().getName(), "sendLogFile", e.getMessage());
+                                    BdLog.e(e.getMessage());
                                     if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e5) {
+                                            BdLog.e(e5.getMessage());
+                                        }
                                     }
                                     if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (Exception e6) {
+                                            BdLog.e(e6.getMessage());
+                                        }
                                     }
                                     if (fileWriter == null) {
+                                        try {
+                                            fileWriter.close();
+                                            return;
+                                        } catch (Exception e7) {
+                                            BdLog.e(e7.getMessage());
+                                            return;
+                                        }
                                     }
+                                    return;
                                 } catch (Throwable th) {
                                     th = th;
                                     byteArrayOutputStream = byteArrayOutputStream2;
                                     if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e8) {
+                                            BdLog.e(e8.getMessage());
+                                        }
                                     }
                                     if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (Exception e9) {
+                                            BdLog.e(e9.getMessage());
+                                        }
                                     }
                                     if (fileWriter != null) {
+                                        try {
+                                            fileWriter.close();
+                                        } catch (Exception e10) {
+                                            BdLog.e(e10.getMessage());
+                                        }
                                     }
                                     throw th;
                                 }
@@ -147,64 +180,29 @@ class f extends BdAsyncTask<String, Integer, String> {
                                         } else {
                                             fileWriter = fileWriter3;
                                         }
-                                        if (!d.delete()) {
-                                            BdLog.e(getClass().getName(), "sendLogFile", "file.delete error");
-                                        }
-                                    } catch (Exception e5) {
-                                        e = e5;
+                                        d.delete();
+                                    } catch (Exception e11) {
+                                        e = e11;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
-                                        BdLog.e(getClass().getName(), "sendLogFile", e.getMessage());
+                                        BdLog.e(e.getMessage());
                                         if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception e6) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e6.getMessage());
-                                            }
                                         }
                                         if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e7) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e7.getMessage());
-                                            }
                                         }
                                         if (fileWriter == null) {
-                                            try {
-                                                fileWriter.close();
-                                                return;
-                                            } catch (Exception e8) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e8.getMessage());
-                                                return;
-                                            }
                                         }
-                                        return;
                                     } catch (Throwable th2) {
                                         th = th2;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
                                         if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception e9) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e9.getMessage());
-                                            }
                                         }
                                         if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e10) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e10.getMessage());
-                                            }
                                         }
                                         if (fileWriter != null) {
-                                            try {
-                                                fileWriter.close();
-                                            } catch (Exception e11) {
-                                                BdLog.e(getClass().getName(), "sendLogFile", e11.getMessage());
-                                            }
                                         }
                                         throw th;
                                     }
@@ -233,21 +231,21 @@ class f extends BdAsyncTask<String, Integer, String> {
                     try {
                         byteArrayOutputStream2.close();
                     } catch (Exception e15) {
-                        BdLog.e(getClass().getName(), "sendLogFile", e15.getMessage());
+                        BdLog.e(e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        BdLog.e(getClass().getName(), "sendLogFile", e16.getMessage());
+                        BdLog.e(e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        BdLog.e(getClass().getName(), "sendLogFile", e17.getMessage());
+                        BdLog.e(e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {
@@ -264,16 +262,15 @@ class f extends BdAsyncTask<String, Integer, String> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0051 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(File file) {
         BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
         try {
+            bufferedReader = new BufferedReader(new FileReader(file));
             try {
-                bufferedReader = new BufferedReader(new FileReader(file));
                 try {
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         if (readLine.startsWith("crash_type=")) {
@@ -284,27 +281,27 @@ class f extends BdAsyncTask<String, Integer, String> {
                         try {
                             bufferedReader.close();
                         } catch (Exception e) {
-                            BdLog.e(getClass().getName(), "countCrashType", e.toString());
+                            BdLog.e(e.toString());
                         }
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    BdLog.e(getClass().getName(), "countCrashType", e.toString());
+                    BdLog.e(e.toString());
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
                         } catch (Exception e3) {
-                            BdLog.e(getClass().getName(), "countCrashType", e3.toString());
+                            BdLog.e(e3.toString());
                         }
                     }
                 }
             } catch (Throwable th) {
                 th = th;
-                if (0 != 0) {
+                if (bufferedReader != null) {
                     try {
-                        bufferedReader2.close();
+                        bufferedReader.close();
                     } catch (Exception e4) {
-                        BdLog.e(getClass().getName(), "countCrashType", e4.toString());
+                        BdLog.e(e4.toString());
                     }
                 }
                 throw th;
@@ -314,7 +311,8 @@ class f extends BdAsyncTask<String, Integer, String> {
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            if (0 != 0) {
+            bufferedReader = null;
+            if (bufferedReader != null) {
             }
             throw th;
         }

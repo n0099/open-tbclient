@@ -13,6 +13,6 @@ public class CommonGroupMsglistView extends g {
 
     @Override // com.baidu.tieba.im.chat.g
     protected void d() {
-        this.i = true;
+        this.j = true;
     }
 }

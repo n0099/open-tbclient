@@ -29,7 +29,7 @@ public class i {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("LoginData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class i {
             }
             a(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
-            BdLog.e("LoginData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 

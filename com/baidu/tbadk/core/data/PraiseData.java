@@ -74,7 +74,7 @@ public class PraiseData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("MetaData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -102,13 +102,9 @@ public class PraiseData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                BdLog.e("Praise", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public String toString() {
-        return "PraiseData{num='" + this.num + "', isLike=" + this.isLike + ", user='" + this.users.size() + '}';
     }
 
     public void parserProtobuf(Zan zan) {

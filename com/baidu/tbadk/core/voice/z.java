@@ -1,9 +1,17 @@
 package com.baidu.tbadk.core.voice;
-
-import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
 public interface z {
-    x a(VoiceData.VoiceModel voiceModel);
+    void a(int i, String str);
 
-    VoiceManager d();
+    void a(String str);
+
+    void a(String str, int i);
+
+    void a(boolean z);
+
+    void b();
+
+    void b(int i);
+
+    void c(int i);
 }

@@ -1,24 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bq a;
+public class co implements com.baidu.tieba.c.b {
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(bq bqVar) {
-        this.a = bqVar;
+    public co(bt btVar) {
+        this.a = btVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        if (aVar != null && !TextUtils.isEmpty(str)) {
-            bdListView = this.a.o;
-            com.baidu.tbadk.core.util.br.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.bt) new cp(this, str, aVar));
-        }
+    @Override // com.baidu.tieba.c.b
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.a.k(false);
+        this.a.b(view);
+        this.a.k(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.c.b
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.c.b
+    public boolean c(View view, MotionEvent motionEvent) {
+        this.a.b();
+        this.a.ad();
+        return false;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import protobuf.QueryGroupsByFid.DataReq;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
 /* loaded from: classes.dex */
@@ -14,7 +13,7 @@ public class RequestFrsGroupsLocalMessage extends CustomMessage<Object> {
     private int width;
 
     public RequestFrsGroupsLocalMessage() {
-        super(MessageTypes.CMD_CACHE_GROUPS_BY_FID);
+        super(2001201);
     }
 
     public int getWidth() {

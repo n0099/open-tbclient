@@ -10,7 +10,7 @@ import android.view.ViewConfiguration;
 public class ChildViewPager extends ViewPager {
     private PointF a;
     private PointF b;
-    private e c;
+    private f c;
     private int d;
 
     public ChildViewPager(Context context, AttributeSet attributeSet) {
@@ -73,7 +73,7 @@ public class ChildViewPager extends ViewPager {
         }
     }
 
-    public void setOnSingleTouchListener(e eVar) {
-        this.c = eVar;
+    public void setOnSingleTouchListener(f fVar) {
+        this.c = fVar;
     }
 }

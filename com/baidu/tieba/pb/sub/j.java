@@ -9,9 +9,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortool.x;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.data.ap;
+import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.at;
 import com.baidu.tieba.editortool.PbEditor;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -60,9 +59,9 @@ public class j extends m {
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    public void a(x xVar) {
-        if (xVar != null) {
-            this.L.setOnActionListener(new l(this, xVar));
+    public void a(com.baidu.tbadk.editortool.w wVar) {
+        if (wVar != null) {
+            this.L.setOnActionListener(new l(this, wVar));
         }
     }
 
@@ -123,8 +122,8 @@ public class j extends m {
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected int a(ap apVar) {
-        int e = apVar.e() - (apVar.g() * apVar.f());
+    protected int a(at atVar) {
+        int e = atVar.e() - (atVar.g() * atVar.f());
         if (e < 0) {
             return 0;
         }
@@ -137,9 +136,9 @@ public class j extends m {
         int a;
         if ((this.e instanceof i) && (a = (iVar = (i) this.e).a(str)) > -1) {
             this.d.setSelection(a + 1);
-            ai aiVar = (ai) iVar.getItem(a);
-            if (aiVar != null) {
-                String userName = aiVar.o().getUserName();
+            am amVar = (am) iVar.getItem(a);
+            if (amVar != null) {
+                String userName = amVar.o().getUserName();
                 if (userName == null) {
                     userName = "";
                 }

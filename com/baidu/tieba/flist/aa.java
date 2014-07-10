@@ -5,10 +5,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class aa extends com.baidu.adp.base.e {
+class aa extends com.baidu.adp.base.h {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +17,7 @@ class aa extends com.baidu.adp.base.e {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         BdListView bdListView;
         r rVar;
@@ -37,10 +38,10 @@ class aa extends com.baidu.adp.base.e {
         TbImageView tbImageView3;
         BdListView bdListView4;
         TbImageView tbImageView4;
-        com.baidu.tbadk.core.util.af afVar;
+        ai aiVar;
         this.a.hideProgressBar();
         bdListView = this.a.a;
-        bdListView.c();
+        bdListView.d();
         if (obj != null && (obj instanceof ForumRankData)) {
             ForumRankData forumRankData = (ForumRankData) obj;
             if (forumRankData.error != null && forumRankData.error.errno == 0) {
@@ -49,8 +50,8 @@ class aa extends com.baidu.adp.base.e {
                     if (z) {
                         bdListView4 = this.a.a;
                         tbImageView4 = this.a.e;
-                        afVar = this.a.o;
-                        bdListView4.addHeaderView(tbImageView4, afVar, false);
+                        aiVar = this.a.o;
+                        bdListView4.addHeaderView(tbImageView4, aiVar, false);
                         this.a.m = false;
                     }
                     tbImageView = this.a.e;
@@ -60,7 +61,7 @@ class aa extends com.baidu.adp.base.e {
                     tbImageView3 = this.a.e;
                     ViewGroup.LayoutParams layoutParams = tbImageView3.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(this.a) * 15.0f) / 32.0f);
+                    layoutParams.height = (int) ((com.baidu.adp.lib.util.j.b(this.a) * 15.0f) / 32.0f);
                     this.a.l = forumRankData.pic_url;
                 }
                 rVar = this.a.c;

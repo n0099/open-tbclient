@@ -17,6 +17,7 @@ public class i extends PopupWindow {
     private g e;
     private View f;
     private int g;
+    private Activity h;
 
     public i(Activity activity, View view, View view2, Drawable drawable, h hVar) {
         super(activity);
@@ -44,24 +45,14 @@ public class i extends PopupWindow {
     }
 
     private void a(Activity activity, View view, Drawable drawable, h hVar) {
+        this.h = activity;
         this.f = view;
         this.e = new g(activity, this.f, hVar);
         setContentView(this.e);
         setOutsideTouchable(true);
         setFocusable(true);
-        this.f.measure(0, 0);
-        int measuredWidth = this.f.getMeasuredWidth();
-        int measuredHeight = this.f.getMeasuredHeight();
-        setWidth(measuredWidth);
-        this.c = measuredHeight + ((int) activity.getResources().getDimension(com.baidu.tieba.t.ds4));
-        setHeight(this.c);
         setBackgroundDrawable(drawable);
-        int[] e = com.baidu.adp.lib.util.k.e(activity);
-        if (e != null && e.length > 1 && e[1] > measuredWidth) {
-            this.a = e[1] - measuredWidth;
-        }
-        this.g = 0;
-        this.b = -(measuredWidth + this.g);
+        c();
     }
 
     public void a(BaseActivity baseActivity, int i, Drawable drawable, Drawable drawable2) {
@@ -69,7 +60,7 @@ public class i extends PopupWindow {
     }
 
     public void a(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable, Drawable drawable2) {
-        a(baseFragmentActivity.a(), i, drawable, drawable2);
+        a(baseFragmentActivity.c(), i, drawable, drawable2);
     }
 
     private void a(com.baidu.tbadk.core.c cVar, int i, Drawable drawable, Drawable drawable2) {
@@ -96,7 +87,7 @@ public class i extends PopupWindow {
     }
 
     public void a(Context context) {
-        int b = com.baidu.adp.lib.util.k.b(context);
+        int b = com.baidu.adp.lib.util.j.b(context);
         this.f.getLayoutParams().width = b;
         setWidth(b);
     }
@@ -117,5 +108,22 @@ public class i extends PopupWindow {
         setAnimationStyle(com.baidu.tieba.z.pop_window_anim);
         setFocusable(z);
         showAsDropDown(view, this.b, (-this.c) + ((this.c - view.getHeight()) / 2));
+    }
+
+    public void c() {
+        if (this.f != null && this.h != null) {
+            this.f.measure(0, 0);
+            int measuredWidth = this.f.getMeasuredWidth();
+            int measuredHeight = this.f.getMeasuredHeight();
+            setWidth(measuredWidth);
+            this.c = measuredHeight + ((int) this.h.getResources().getDimension(com.baidu.tieba.t.ds4));
+            setHeight(this.c);
+            int[] e = com.baidu.adp.lib.util.j.e(this.h);
+            if (e != null && e.length > 1 && e[1] > measuredWidth) {
+                this.a = e[1] - measuredWidth;
+            }
+            this.g = 0;
+            this.b = -(measuredWidth + this.g);
+        }
     }
 }

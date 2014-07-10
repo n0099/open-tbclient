@@ -1,21 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbConfig;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class as implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.ar> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.ar> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), PbActivity.class);
-            if (TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK.equals(customMessage.getData().getIntent().getStringExtra("is_start_for_result"))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, 0));
-            } else {
-                customMessage.getData().startActivity();
-            }
+class as implements Handler.Callback {
+    final /* synthetic */ PbActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public as(PbActivity pbActivity) {
+        this.a = pbActivity;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        bm bmVar;
+        switch (message.what) {
+            case 2:
+                bmVar = this.a.x;
+                if (!bmVar.B()) {
+                    return false;
+                }
+                this.a.A();
+                return false;
+            default:
+                return false;
         }
-        return null;
     }
 }

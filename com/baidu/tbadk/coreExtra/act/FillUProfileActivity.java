@@ -18,7 +18,7 @@ public class FillUProfileActivity extends BaseActivity {
     private SapiWebView a;
     private NavigationBar b;
     private String d;
-    private com.baidu.tbadk.coreExtra.view.q c = null;
+    private com.baidu.tbadk.coreExtra.view.s c = null;
     private final com.baidu.tbadk.core.account.g e = new p(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -72,7 +72,7 @@ public class FillUProfileActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountData accountData) {
         if (this.c == null) {
-            this.c = new com.baidu.tbadk.coreExtra.view.q(this);
+            this.c = new com.baidu.tbadk.coreExtra.view.s(this);
             this.c.a(new u(this));
         }
         this.c.e();

@@ -66,6 +66,16 @@ public class p {
         return this.a.size();
     }
 
+    public void a(List<UpdatesItemData> list) {
+        if (list != null) {
+            for (UpdatesItemData updatesItemData : list) {
+                if (updatesItemData.isSelected()) {
+                    this.a.add(updatesItemData);
+                }
+            }
+        }
+    }
+
     public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
         com.baidu.tieba.im.i.a(new s(), aVar);
     }

@@ -38,7 +38,7 @@ public class e implements View.OnClickListener {
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
             editText3 = this.a.k;
-            com.baidu.adp.lib.util.k.b(imagePbActivity, editText3);
+            com.baidu.adp.lib.util.j.b(imagePbActivity, editText3);
             button2 = this.a.m;
             button2.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
             return;
@@ -47,7 +47,7 @@ public class e implements View.OnClickListener {
         keyboardLayout.setOnkbdStateListener(null);
         ImagePbActivity imagePbActivity2 = this.a;
         editText = this.a.k;
-        com.baidu.adp.lib.util.k.a(imagePbActivity2, editText);
+        com.baidu.adp.lib.util.j.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
         button = this.a.m;
         button.setBackgroundResource(com.baidu.tieba.u.sub_pb_keyboard);

@@ -17,9 +17,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.v;
@@ -61,9 +60,10 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     private String A = null;
     private boolean B = false;
     private boolean C = false;
+    private boolean F = true;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.IMAGE_VIEWER_CUSTOM_CMD, new d());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010000, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -82,6 +82,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
                 this.l.setVisibility(8);
             }
             this.u = new a(this.c, this.z, this.y, a);
+            this.u.a(this.F);
             this.u.a(new e(this));
             this.u.a();
         }
@@ -101,7 +102,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(be.d(i));
+            this.m.setBackgroundColor(bk.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
@@ -117,7 +118,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         if (this.B) {
             this.t = new j(this, null);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(com.baidu.tieba.data.d.a());
+            intentFilter.addAction(com.baidu.tieba.data.e.a());
             registerReceiver(this.t, intentFilter);
         }
     }
@@ -128,7 +129,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         this.m.b();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.m.a();
@@ -183,7 +184,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(v.viewpager);
         this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
+        this.m.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.m.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.m.setOnPageChangeListener(this.p);
         this.m.setUrlData(this.c);
@@ -246,6 +247,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
             this.A = bundle.getString("pv_type");
             this.C = bundle.getBoolean("isCdn", false);
             this.E = bundle.getString("last_id");
+            this.F = bundle.getBoolean("reverse_mode", true);
         } else {
             Intent intent = getIntent();
             if (intent != null) {
@@ -260,6 +262,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
                 this.A = intent.getStringExtra("pv_type");
                 this.C = intent.getBooleanExtra("isCdn", false);
                 this.E = intent.getStringExtra("last_id");
+                this.F = intent.getBooleanExtra("reverse_mode", true);
             }
         }
         this.e = this.c.size();
@@ -282,6 +285,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         bundle.putString("fname", this.z);
         bundle.putString("pv_type", this.A);
         bundle.putBoolean("isCdn", false);
+        bundle.putBoolean("reverse_mode", this.F);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -325,7 +329,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = bg.e(str);
+        String e = bm.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

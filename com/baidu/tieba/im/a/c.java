@@ -26,34 +26,37 @@ public class c extends CustomMessageListener {
         int i2;
         String str;
         String str2;
+        String str3;
         e eVar3;
         e eVar4;
         e eVar5;
         if (customResponsedMessage.getError() != 0) {
-            eVar3 = this.a.h;
+            eVar3 = this.a.i;
             if (eVar3 != null) {
-                eVar4 = this.a.h;
-                eVar4.f();
+                eVar4 = this.a.i;
+                eVar4.b();
                 if (customResponsedMessage.getError() > 0 && !TextUtils.isEmpty(customResponsedMessage.getErrorString())) {
-                    eVar5 = this.a.h;
-                    eVar5.c(customResponsedMessage.getErrorString());
+                    eVar5 = this.a.i;
+                    eVar5.a(customResponsedMessage.getErrorString());
                 }
             }
         } else if (customResponsedMessage instanceof ResponseQueryGroupCountLocalMessage) {
             ResponseQueryGroupCountLocalMessage responseQueryGroupCountLocalMessage = (ResponseQueryGroupCountLocalMessage) customResponsedMessage;
             this.a.d = responseQueryGroupCountLocalMessage.getUserGroupCount();
             this.a.e = responseQueryGroupCountLocalMessage.getLocalGroupCount();
-            this.a.f = responseQueryGroupCountLocalMessage.getPicUrl();
-            this.a.g = responseQueryGroupCountLocalMessage.getLink();
+            this.a.f = responseQueryGroupCountLocalMessage.getGeographicLocation();
+            this.a.g = responseQueryGroupCountLocalMessage.getPicUrl();
+            this.a.h = responseQueryGroupCountLocalMessage.getLink();
             this.a.a();
-            eVar = this.a.h;
+            eVar = this.a.i;
             if (eVar != null) {
-                eVar2 = this.a.h;
+                eVar2 = this.a.i;
                 i = this.a.d;
                 i2 = this.a.e;
-                str = this.a.g;
-                str2 = this.a.f;
-                eVar2.a(i, i2, str, str2);
+                str = this.a.h;
+                str2 = this.a.g;
+                str3 = this.a.f;
+                eVar2.a(i, i2, str, str2, str3);
             }
         }
     }

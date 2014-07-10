@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
-import com.baidu.tieba.im.model.be;
+import com.baidu.tieba.im.model.bd;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
     final /* synthetic */ NearbyGroupsActivity a;
@@ -21,32 +21,32 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        be beVar;
+        bd bdVar;
+        bd bdVar2;
+        bd bdVar3;
         m mVar;
         m mVar2;
-        be beVar2;
-        be beVar3;
         m mVar3;
         boolean a;
-        be beVar4;
-        be beVar5;
+        bd bdVar4;
+        bd bdVar5;
         m mVar4;
-        beVar = this.a.c;
-        beVar.a(false);
+        bdVar = this.a.c;
+        bdVar.a(false);
         if (!(customResponsedMessage instanceof ResponseNearbyGroupsLocalMessage)) {
             mVar4 = this.a.b;
-            mVar4.e();
+            mVar4.f();
             return;
         }
-        if (customResponsedMessage.getCmd() == 2003115 && UtilHelper.isNetOk()) {
+        if (customResponsedMessage.getCmd() == 2001115 && UtilHelper.isNetOk()) {
             a = this.a.a(com.baidu.tieba.im.e.a().e());
             if (a) {
-                beVar5 = this.a.c;
-                beVar5.h();
+                bdVar5 = this.a.c;
+                bdVar5.h();
                 return;
             }
-            beVar4 = this.a.c;
-            beVar4.g();
+            bdVar4 = this.a.c;
+            bdVar4.g();
         }
         ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = (ResponseNearbyGroupsLocalMessage) customResponsedMessage;
         if (responseNearbyGroupsLocalMessage.getError() > 0) {
@@ -54,21 +54,17 @@ class d extends CustomMessageListener {
         } else {
             NearbyGroupsData nearbyGroups = responseNearbyGroupsLocalMessage.getNearbyGroups();
             if (nearbyGroups != null) {
-                beVar2 = this.a.c;
-                beVar2.b(nearbyGroups.getHasMore());
-                beVar3 = this.a.c;
-                beVar3.a(nearbyGroups.getGeo());
-            } else {
-                nearbyGroups = new NearbyGroupsData();
-            }
-            mVar = this.a.b;
-            mVar.a(nearbyGroups);
-            if (nearbyGroups != null && nearbyGroups.size() > 0) {
-                mVar2 = this.a.b;
-                mVar2.a();
+                bdVar2 = this.a.c;
+                bdVar2.b(nearbyGroups.getHasMore());
+                bdVar3 = this.a.c;
+                bdVar3.a(nearbyGroups.getGeo());
+                mVar = this.a.b;
+                mVar.a(nearbyGroups);
             }
         }
+        mVar2 = this.a.b;
+        mVar2.f();
         mVar3 = this.a.b;
-        mVar3.e();
+        mVar3.c();
     }
 }

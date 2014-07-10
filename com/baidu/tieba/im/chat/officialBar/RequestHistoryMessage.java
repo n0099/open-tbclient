@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryHistoryMsg.DataReq;
@@ -16,7 +15,7 @@ public class RequestHistoryMessage extends TbSocketMessage {
     private int width;
 
     public RequestHistoryMessage(int i, int i2, int i3) {
-        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_HISTORY);
+        super(208002);
         this.forum_id = 0;
         this.user_id = 0;
         this.id = 0;

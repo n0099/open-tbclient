@@ -51,9 +51,7 @@ public class e {
 
     public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null && this.c != null) {
-            if (BdLog.isDebugMode()) {
-                BdLog.d("image joined cache:" + aVar.k() + ", size:" + aVar.f());
-            }
+            BdLog.isDebugMode();
             this.c.a(str, aVar);
         }
     }

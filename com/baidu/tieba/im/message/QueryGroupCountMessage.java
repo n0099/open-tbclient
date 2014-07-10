@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupCount.DataReq;
 import protobuf.QueryGroupCount.QueryGroupCountReqIdl;
@@ -10,7 +9,7 @@ public class QueryGroupCountMessage extends TbSocketMessage {
     private String lng;
 
     public QueryGroupCountMessage() {
-        super(MessageTypes.CMD_QUERY_GROUP_COUNT);
+        super(103011);
     }
 
     public String getLng() {

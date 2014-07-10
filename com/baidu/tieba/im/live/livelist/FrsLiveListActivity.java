@@ -6,17 +6,16 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private com.baidu.tbadk.core.view.q a;
     private w b;
-    private com.baidu.tieba.im.model.l c;
-    private final com.baidu.adp.framework.listener.b d = new j(this, MessageTypes.CMD_REQUEST_LIVE_LIST_BY_FID);
-    private final com.baidu.adp.framework.listener.b e = new k(this, MessageTypes.CMD_LIVE_OPERATE_FRSLIVE_LIST);
+    private com.baidu.tieba.im.model.j c;
+    private final com.baidu.adp.framework.listener.b d = new j(this, 107001);
+    private final com.baidu.adp.framework.listener.b e = new k(this, 107110);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.o.class, FrsLiveListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.t.class, FrsLiveListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +52,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     }
 
     private void c() {
-        this.b.d().d();
+        this.b.d().e();
         this.c.a(this.c.a(), this.c.c(), 20, 2);
     }
 
@@ -61,7 +60,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     public void d() {
         this.c.a(0);
         this.c.b(0);
-        this.b.d().d();
+        this.b.d().e();
         this.c.a(this.c.a(), this.c.c(), 20, 2);
     }
 
@@ -71,7 +70,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.l();
+        this.c = new com.baidu.tieba.im.model.j();
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
@@ -110,7 +109,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
         g();
     }
 

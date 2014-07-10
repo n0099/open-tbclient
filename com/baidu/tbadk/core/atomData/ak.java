@@ -1,43 +1,12 @@
 package com.baidu.tbadk.core.atomData;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.tbadk.core.frameworkData.a {
-    public ak(Context context) {
+    public ak(Context context, int i, int i2, String str) {
         super(context);
-    }
-
-    public ak a(int i) {
-        return a(i, false);
-    }
-
-    public ak a(int i, boolean z) {
-        Intent intent = getIntent();
-        intent.setFlags(603979776);
-        if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
-        }
-        if (i >= 0) {
-            intent.putExtra("locate_type", i);
-        }
-        intent.putExtra("is_new_user", z);
-        intent.putExtra("close_dialog", true);
-        return this;
-    }
-
-    public ak b(int i, boolean z) {
-        Intent intent = getIntent();
-        intent.setFlags(603979776);
-        intent.putExtra("refresh_all", true);
-        if (i >= 0) {
-            intent.putExtra("locate_type", i);
-        }
-        if (z) {
-            intent.addFlags(268435456);
-        }
-        intent.putExtra("close_dialog", true);
-        return this;
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, i);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID, i2);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME, str);
     }
 }

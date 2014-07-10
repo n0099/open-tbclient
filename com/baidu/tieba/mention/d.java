@@ -1,26 +1,37 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bb;
 /* loaded from: classes.dex */
-public class d extends CustomMessageListener {
+class d implements View.OnClickListener {
     final /* synthetic */ c a;
+    private String b;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(c cVar, int i) {
-        super(i);
+    public d(c cVar) {
         this.a = cVar;
+        b(null);
+        a(null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2003124) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (this.b != null && this.b.length() > 0) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.a.a;
+            messageManager.sendMessage(new CustomMessage(2002003, new bb(context, this.b, this.c)));
         }
-        this.a.a(customResponsedMessage);
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

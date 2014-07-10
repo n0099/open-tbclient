@@ -30,7 +30,7 @@ public class g {
                 this.b = jSONObject.optInt("class_id", 0);
                 this.a = jSONObject.optString("class_name");
             } catch (Exception e) {
-                BdLog.e("GoodData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

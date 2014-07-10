@@ -1,48 +1,50 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ EditBarActivity a;
+public abstract class d extends FragmentPagerAdapter {
+    private int[] a;
+    private ArrayList<com.baidu.tbadk.core.d> b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
-    }
+    protected abstract com.baidu.tbadk.core.d a();
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        g gVar;
-        g gVar2;
-        TextView textView;
-        TextView textView2;
-        g gVar3;
-        g gVar4;
-        TextView textView3;
-        TextView textView4;
-        g gVar5;
-        gVar = this.a.i;
-        if (!gVar.a()) {
-            gVar4 = this.a.i;
-            gVar4.a(true);
-            textView3 = this.a.g;
-            textView3.setText(com.baidu.tieba.y.done);
-            textView4 = this.a.g;
-            com.baidu.tbadk.core.util.be.g(textView4, TbadkApplication.m252getInst().getSkinType());
-            gVar5 = this.a.i;
-            gVar5.notifyDataSetChanged();
+    public d(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity.getSupportFragmentManager());
+        this.b = new ArrayList<>();
+        Bundle bundle = new Bundle();
+        bundle.putInt("page_type", 0);
+        com.baidu.tbadk.core.d a = a();
+        a.setArguments(bundle);
+        this.b.add(a);
+        if (z) {
+            this.a = new int[1];
             return;
         }
-        gVar2 = this.a.i;
-        gVar2.a(false);
-        textView = this.a.g;
-        textView.setText(com.baidu.tieba.y.edit);
-        textView2 = this.a.g;
-        com.baidu.tbadk.core.util.be.i(textView2, TbadkApplication.m252getInst().getSkinType());
-        gVar3 = this.a.i;
-        gVar3.notifyDataSetChanged();
+        Bundle bundle2 = new Bundle();
+        bundle2.putInt("page_type", 1);
+        com.baidu.tbadk.core.d a2 = a();
+        a2.setArguments(bundle2);
+        this.b.add(a2);
+        this.a = new int[]{0, 1};
+    }
+
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        if (i >= this.a.length || i < 0) {
+            return null;
+        }
+        return this.b.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.a.length;
+    }
+
+    public int a(int i) {
+        return this.a[i];
     }
 }

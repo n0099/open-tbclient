@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupActivity.DataReq;
 import protobuf.QueryGroupActivity.QueryGroupActivityReqIdl;
@@ -10,7 +9,7 @@ public class RequestGetGroupActivityMessage extends TbSocketMessage {
     private int from;
 
     public RequestGetGroupActivityMessage() {
-        super(MessageTypes.CMD_GET_GROUP_ACTIVITY);
+        super(103015);
     }
 
     public int getFrom() {

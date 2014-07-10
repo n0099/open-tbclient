@@ -1,30 +1,21 @@
 package com.baidu.tieba.im.friend;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ i a;
+class j implements AbsListView.OnScrollListener {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.a = iVar;
+    public j(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (aVar != null) {
-            bdListView = this.a.d;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(aVar.h());
-                bdListView2 = this.a.d;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.c();
     }
 }

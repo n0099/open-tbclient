@@ -20,7 +20,7 @@ public class HotLiveListAdapter extends BaseAdapter {
     private HotLiveListActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private com.baidu.tbadk.editortool.ab d;
+    private com.baidu.tbadk.editortool.aa d;
     private boolean e;
     private ArrayList<LiveCardData> f = new ArrayList<>();
 
@@ -68,8 +68,8 @@ public class HotLiveListAdapter extends BaseAdapter {
 
     public HotLiveListAdapter(HotLiveListActivity hotLiveListActivity) {
         this.a = hotLiveListActivity;
-        this.d = new com.baidu.tbadk.editortool.ab(hotLiveListActivity);
-        this.d.d(true);
+        this.d = new com.baidu.tbadk.editortool.aa(hotLiveListActivity);
+        this.d.b(true);
     }
 
     public void c(boolean z) {
@@ -160,7 +160,7 @@ public class HotLiveListAdapter extends BaseAdapter {
         yVar.a.setVisibility(8);
         yVar.b.setVisibility(0);
         LiveCardData liveCardData = (LiveCardData) getItem(i);
-        yVar.b.a(liveCardData, this.d);
+        yVar.b.setData(liveCardData);
         a(yVar.b, liveCardData);
         a(view);
         return view;
@@ -172,8 +172,8 @@ public class HotLiveListAdapter extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.a().a(view);
+        this.a.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.a.c().a(view);
     }
 
     private void b() {

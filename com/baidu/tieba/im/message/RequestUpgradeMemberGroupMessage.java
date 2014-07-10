@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpgradeMemberGroup.DataReq;
 import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReqIdl;
@@ -11,7 +9,7 @@ public class RequestUpgradeMemberGroupMessage extends TbSocketMessage {
     private long groupId;
 
     public RequestUpgradeMemberGroupMessage() {
-        super(MessageTypes.CMD_UPGRADE_MEMBER_GROUP);
+        super(103105);
         this.flag = 1;
     }
 
@@ -41,7 +39,6 @@ public class RequestUpgradeMemberGroupMessage extends TbSocketMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.plugins;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.tbplugin.h;
 import com.baidu.tbadk.tbplugin.k;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,9 +16,6 @@ public class e implements k {
 
     @Override // com.baidu.tbadk.tbplugin.k
     public void onFinish(int i, String str) {
-        if (i != 0) {
-            BdLog.e("Installation Error: " + str);
-        }
         if (this.b != null) {
             this.b.a();
         }

@@ -56,7 +56,7 @@ public class IconData implements Serializable {
                 this.name = jSONObject.optString("name");
                 this.url = jSONObject.optString("url");
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error=" + e.toString());
+                BdLog.e(e.toString());
             }
         }
     }

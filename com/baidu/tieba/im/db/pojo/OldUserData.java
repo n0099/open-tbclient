@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.db.pojo;
 
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.a;
 import com.baidu.tbadk.data.IconData;
@@ -27,7 +27,7 @@ public class OldUserData extends a implements Serializable {
     public void setToUserData(UserData userData) {
         if (userData != null) {
             userData.setUserIdLong(Math.max(this.id, this.userId));
-            userData.setUserName((j.b(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+            userData.setUserName((i.b(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
             userData.setPortrait(this.portrait);
             userData.setSex(this.sex);
             userData.setPosition(this.position);
@@ -152,7 +152,7 @@ public class OldUserData extends a implements Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
@@ -184,9 +184,5 @@ public class OldUserData extends a implements Serializable {
         public boolean isController() {
             return getIsGroupManager() || getIsGroupOwner();
         }
-    }
-
-    public String toString() {
-        return "UserData{userId=" + this.userId + ", userName='" + this.userName + "', portrait='" + this.portrait + "', sex=" + this.sex + ", position='" + this.position + "', lng='" + this.lng + "', lat='" + this.lat + "', inTime=" + this.inTime + ", loginTime=" + this.loginTime + ", lastReplyTime=" + this.lastReplyTime + ", permission=" + this.permission + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
     }
 }

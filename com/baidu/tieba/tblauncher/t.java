@@ -1,36 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
+public class t implements DialogInterface.OnClickListener {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(MainTabActivity mainTabActivity, int i) {
-        super(i);
+    public t(MainTabActivity mainTabActivity) {
         this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TextView textView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003124) {
-            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
-                BdLog.e("transform error");
-            } else if (MainTabActivity.c) {
-                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme() + newsNotifyMessage.getMsgChat();
-                MainTabActivity mainTabActivity = this.a;
-                textView = this.a.B;
-                mainTabActivity.a(textView, msgReplyme);
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.core.b.b.a(this.a, 12, false);
     }
 }

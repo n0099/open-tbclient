@@ -1,32 +1,37 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tbadk.core.util.bk;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ ah a;
-    private final /* synthetic */ au b;
-    private final /* synthetic */ int c;
+class ai implements View.OnKeyListener {
+    final /* synthetic */ af a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar, au auVar, int i) {
-        this.a = ahVar;
-        this.b = auVar;
-        this.c = i;
+    public ai(af afVar) {
+        this.a = afVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String b = this.b.b();
-        String a = ak.a("forum_topics_recommend", String.valueOf(this.c));
-        bk a2 = bk.a();
-        context = this.a.a;
-        String[] strArr = new String[3];
-        strArr[0] = b;
-        strArr[2] = a;
-        a2.a(context, strArr);
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
+                    }
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
     }
 }

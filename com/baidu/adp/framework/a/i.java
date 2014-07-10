@@ -27,7 +27,7 @@ public class i {
 
     public void a(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
             if (fVar instanceof d) {
                 FrameHelper.a(this.a, (d) fVar);
             } else if (fVar instanceof k) {
@@ -42,7 +42,7 @@ public class i {
 
     public void b(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
             if (fVar instanceof d) {
                 this.a.remove(fVar);
             } else if (fVar instanceof k) {
@@ -57,7 +57,7 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
             if (gVar instanceof c) {
                 FrameHelper.a(this.d, (c) gVar);
             } else if (gVar instanceof j) {
@@ -72,7 +72,7 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
             if (gVar instanceof c) {
                 this.d.remove(gVar);
             } else if (gVar instanceof j) {
@@ -99,9 +99,9 @@ public class i {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0019 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [com.baidu.adp.framework.message.Message] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v6, types: [com.baidu.adp.framework.message.Message] */
     private <M extends Message<?>, T extends MessageTask, R extends f<M, T>> M a(LinkedList<R> linkedList, M m, T t) {
         ?? r0;
         if (linkedList == null) {
@@ -114,7 +114,7 @@ public class i {
             try {
                 r0 = linkedList.get(i).b(m2, t);
             } catch (Exception e) {
-                BdLog.e("rule error = " + e.getMessage());
+                BdLog.e(e);
                 r0 = m2;
             }
             i++;

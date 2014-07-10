@@ -20,7 +20,7 @@ public class r implements View.OnClickListener {
         if (editText.hasFocus()) {
             SquareSearchActivity squareSearchActivity = this.a;
             editText2 = this.a.c;
-            com.baidu.adp.lib.util.k.a(squareSearchActivity, editText2);
+            com.baidu.adp.lib.util.j.a(squareSearchActivity, editText2);
             this.a.closeActivity();
         }
     }

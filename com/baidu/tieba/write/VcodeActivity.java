@@ -20,18 +20,18 @@ public class VcodeActivity extends BaseActivity {
     private ImageView d = null;
     private EditText e = null;
     private ProgressBar f = null;
-    private af g = null;
-    private ae h = null;
+    private ab g = null;
+    private aa h = null;
     private InputMethodManager i = null;
     private DialogInterface.OnCancelListener j = null;
     private RelativeLayout k = null;
     private TextView l = null;
     protected NavigationBar a = null;
-    private final View.OnClickListener m = new aa(this);
-    private final View.OnClickListener n = new ab(this);
+    private final View.OnClickListener m = new w(this);
+    private final View.OnClickListener n = new x(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bg.class, VcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bu.class, VcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public class VcodeActivity extends BaseActivity {
     }
 
     private void a(Bundle bundle) {
-        this.j = new ac(this);
+        this.j = new y(this);
         if (bundle != null) {
             this.b = (WriteData) bundle.getSerializable("model");
         } else {
@@ -80,11 +80,11 @@ public class VcodeActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.be.a(this.k, i);
+        com.baidu.tbadk.core.util.bk.a(this.k, i);
         this.a.c(i);
-        com.baidu.tbadk.core.util.be.g(this.c, i);
+        com.baidu.tbadk.core.util.bk.g(this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tbadk.core.util.be.a(i);
+            i2 = com.baidu.tbadk.core.util.bk.a(i);
         } else {
             i2 = -12895429;
         }
@@ -100,7 +100,7 @@ public class VcodeActivity extends BaseActivity {
         this.e = (EditText) findViewById(com.baidu.tieba.v.input);
         this.d = (ImageView) findViewById(com.baidu.tieba.v.vcode_image);
         this.d.setImageBitmap(null);
-        this.d.setOnClickListener(new ad(this));
+        this.d.setOnClickListener(new z(this));
         this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
@@ -111,7 +111,7 @@ public class VcodeActivity extends BaseActivity {
         }
         this.f.setVisibility(0);
         this.d.setImageBitmap(null);
-        this.h = new ae(this, null);
+        this.h = new aa(this, null);
         this.h.setPriority(3);
         this.h.execute(str);
     }

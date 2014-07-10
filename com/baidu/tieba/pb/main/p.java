@@ -11,20 +11,20 @@ class p implements com.baidu.adp.widget.ListView.x {
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        bj bjVar;
-        bq bqVar;
-        bj bjVar2;
-        bq bqVar2;
-        bjVar = this.a.x;
-        if (bjVar.a(false)) {
-            bqVar2 = this.a.D;
-            bqVar2.v();
+    public void g_() {
+        bm bmVar;
+        bt btVar;
+        bm bmVar2;
+        bt btVar2;
+        bmVar = this.a.x;
+        if (bmVar.a(false)) {
+            btVar2 = this.a.D;
+            btVar2.w();
             TiebaStatic.eventStat(this.a, "pb_more", "pbclick", 1, new Object[0]);
             return;
         }
-        bqVar = this.a.D;
-        bjVar2 = this.a.x;
-        bqVar.c(bjVar2.q());
+        btVar = this.a.D;
+        bmVar2 = this.a.x;
+        btVar.c(bmVar2.r());
     }
 }

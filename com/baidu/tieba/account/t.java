@@ -6,7 +6,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
     final /* synthetic */ Register2Activity a;
@@ -106,6 +105,5 @@ class t implements View.OnClickListener {
             this.a.setResult(0);
         }
         this.a.finish();
-        BdLog.i("Register2Activity", "mButtonBack", "onClick");
     }
 }

@@ -1,80 +1,100 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.kirin.KirinConfig;
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class o {
-    private static o c;
-    private HashMap<String, p> a = new HashMap<>();
-    private HashMap<String, q> b = new HashMap<>();
+    private ArrayList<BasicNameValuePair> a;
+    private String b;
+    private StringBuilder c;
+    private long d;
 
-    public static o a() {
-        if (c == null) {
-            synchronized (BdStatSwitchData.class) {
-                if (c == null) {
-                    c = new o();
-                }
-            }
-        }
-        return c;
+    public o(String str) {
+        this.b = null;
+        this.c = new StringBuilder(100);
+        this.b = str;
     }
 
     public o() {
-        q qVar = new q(this, null);
-        qVar.a(KirinConfig.CONNECT_TIME_OUT);
-        qVar.b(120000);
-        qVar.c(500);
-        this.b.put("net", qVar);
-        this.b.put("op", qVar);
-        this.b.put("stat", qVar);
-        q qVar2 = new q(this, null);
-        qVar2.a(60000);
-        qVar2.b(120000);
-        qVar2.c(100);
-        this.b.put("file", qVar2);
-        this.b.put("db", qVar2);
-        this.b.put("img", qVar2);
-        this.b.put("voice", qVar2);
+        this.b = null;
+        this.c = new StringBuilder(100);
     }
 
-    public boolean a(String str) {
-        q qVar = this.b.get(str);
-        if (qVar == null) {
-            return false;
-        }
-        p pVar = this.a.get(str);
-        long currentTimeMillis = System.currentTimeMillis();
-        if (pVar == null) {
-            pVar = new p(this, null);
-            pVar.b(false);
-            pVar.a(false);
-            pVar.b(currentTimeMillis);
-            this.a.put(str, pVar);
-        }
-        if (pVar.a()) {
-            return true;
-        }
-        if (pVar.e()) {
-            pVar.a(pVar.c() + 1);
-            if (currentTimeMillis - pVar.b() < qVar.b()) {
-                if (pVar.c() >= qVar.c()) {
-                    pVar.a(true);
-                    h.a().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
-                    return true;
-                }
-                return false;
+    public void a(Object obj, Object obj2) {
+        if (obj != null && obj2 != null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
             }
-            pVar.b(false);
-            pVar.a(0);
-            pVar.b(currentTimeMillis);
-            return false;
-        } else if (currentTimeMillis - pVar.d() < qVar.a()) {
-            pVar.b(true);
-            pVar.a(currentTimeMillis);
-            return false;
-        } else {
-            pVar.b(currentTimeMillis);
-            return false;
+            this.a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
+    }
+
+    public String toString() {
+        if (this.a != null) {
+            Iterator<BasicNameValuePair> it = this.a.iterator();
+            while (it.hasNext()) {
+                BasicNameValuePair next = it.next();
+                if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
+                    if (this.c.length() > 0) {
+                        this.c.append('&');
+                    }
+                    this.c.append(next.getName());
+                    this.c.append('=');
+                    try {
+                        this.c.append(URLEncoder.encode(a(next.getValue()), "utf-8"));
+                    } catch (UnsupportedEncodingException e) {
+                        BdLog.e(e);
+                        this.c.append(a(next.getValue()));
+                    }
+                }
+            }
+        }
+        return this.c.toString();
+    }
+
+    public void a(Object... objArr) {
+        if (objArr != null) {
+            for (int i = 0; i < objArr.length / 2; i++) {
+                if ((i * 2) + 1 < objArr.length) {
+                    a(objArr[i * 2], objArr[(i * 2) + 1]);
+                }
+            }
+        }
+    }
+
+    public void a(String str, String str2) {
+        if (!TextUtils.isEmpty(str)) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (this.c.length() > 0) {
+                this.c.append('&');
+            }
+            this.c.append(str);
+            this.c.append("=");
+            try {
+                this.c.append(URLEncoder.encode(a(str2), "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                BdLog.e(e);
+                this.c.append(a(str2));
+            }
+        }
+    }
+
+    public void a() {
+        this.d = System.currentTimeMillis();
+    }
+
+    public long b() {
+        return System.currentTimeMillis() - this.d;
+    }
+
+    private String a(String str) {
+        return str.replace(" ", "_").replace("[", "(").replace("]", "").replace("&", "|");
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.view.View;
@@ -34,23 +35,22 @@ class q implements View.OnClickListener {
         ct ctVar9;
         ct ctVar10;
         ct ctVar11;
-        ct ctVar12;
         String str;
         ay ayVar;
         ay ayVar2;
-        ct ctVar13;
+        ct ctVar12;
         g gVar;
         String str2;
+        ct ctVar13;
         ct ctVar14;
-        ct ctVar15;
         boolean z;
+        ct ctVar15;
         ct ctVar16;
         ct ctVar17;
-        ct ctVar18;
         boolean z2;
+        ct ctVar18;
         ct ctVar19;
         ct ctVar20;
-        ct ctVar21;
         g gVar2;
         g gVar3;
         g gVar4;
@@ -58,14 +58,14 @@ class q implements View.OnClickListener {
         g gVar6;
         g gVar7;
         g gVar8;
+        ct ctVar21;
         ct ctVar22;
-        ct ctVar23;
         boolean z3;
-        ct ctVar24;
+        ct ctVar23;
         String str3;
         String str4;
+        ct ctVar24;
         ct ctVar25;
-        ct ctVar26;
         g gVar9;
         g gVar10;
         g gVar11;
@@ -73,114 +73,110 @@ class q implements View.OnClickListener {
         g gVar13;
         g gVar14;
         String str5;
+        ct ctVar26;
         ct ctVar27;
-        ct ctVar28;
         g gVar15;
         String str6;
         g gVar16;
         g gVar17;
+        Context context;
+        ct ctVar28;
         ct ctVar29;
-        ct ctVar30;
         String str7;
+        ct ctVar30;
         ct ctVar31;
         ct ctVar32;
-        ct ctVar33;
         UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.a);
-        ctVar = this.a.w;
-        if (view != ctVar.j()) {
-            ctVar2 = this.a.w;
+        ctVar = this.a.v;
+        if (view != ctVar.i()) {
+            ctVar2 = this.a.v;
             if (view != ctVar2.d()) {
-                ctVar3 = this.a.w;
-                if (view != ctVar3.i()) {
-                    ctVar4 = this.a.w;
-                    if (view != ctVar4.l()) {
-                        ctVar5 = this.a.w;
-                        if (view != ctVar5.k()) {
-                            ctVar6 = this.a.w;
-                            if (view == ctVar6.e()) {
-                                ctVar17 = this.a.w;
-                                ctVar17.b();
-                                ctVar18 = this.a.w;
-                                if (ctVar18.o().isMenuShowing()) {
-                                    ctVar19 = this.a.w;
-                                    ctVar19.o().toggle(true);
-                                }
-                                z2 = this.a.E;
-                                if (z2) {
-                                    this.a.E = false;
-                                    this.a.E();
-                                }
-                            } else {
-                                ctVar7 = this.a.w;
-                                if (view != ctVar7.f()) {
-                                    ctVar8 = this.a.w;
-                                    if (view != ctVar8.g()) {
-                                        ctVar9 = this.a.w;
-                                        if (view != ctVar9.h()) {
-                                            ctVar10 = this.a.w;
-                                            FrsHeaderView w = ctVar10.w();
-                                            ctVar11 = this.a.w;
-                                            com.baidu.tieba.frs.view.j x = ctVar11.x();
-                                            if ((w != null && w.b(view)) || (x != null && x.b(view))) {
-                                                com.baidu.tbadk.core.f.a(this.a.getParent(), "forum_fortune_click");
-                                                if (!TbadkApplication.isLogin()) {
-                                                    LoginActivity.a((Activity) this.a, (String) null, true, 18004);
-                                                } else {
-                                                    this.a.K();
-                                                }
-                                            }
-                                        } else {
-                                            TiebaStatic.eventStat(this.a, "frs_add_shortcut", "frsclick", 1, new Object[0]);
-                                            ctVar12 = this.a.w;
-                                            ctVar12.b();
-                                            FrsActivity frsActivity = this.a;
-                                            FrsActivity frsActivity2 = this.a;
-                                            str = this.a.n;
-                                            frsActivity.X = new ay(frsActivity2, str);
-                                            ayVar = this.a.X;
-                                            ayVar.setSelfExecute(true);
-                                            ayVar2 = this.a.X;
-                                            ayVar2.execute(new String[0]);
-                                        }
-                                    } else {
-                                        TiebaStatic.eventStat(this.a, "frs_image_threads", "frsclick", 1, new Object[0]);
-                                        ctVar13 = this.a.w;
-                                        ctVar13.b();
-                                        TbadkApplication m252getInst = TbadkApplication.m252getInst();
-                                        gVar = this.a.I;
-                                        m252getInst.addFrsImageForum(gVar.g().getName());
-                                        FrsActivity frsActivity3 = this.a;
-                                        com.baidu.tbadk.core.atomData.m mVar = new com.baidu.tbadk.core.atomData.m(this.a);
-                                        str2 = this.a.n;
-                                        frsActivity3.sendMessage(new CustomMessage(2005002, mVar.b(str2, null, 0)));
-                                        this.a.g();
-                                    }
-                                } else {
-                                    TiebaStatic.eventStat(this.a, "frs_good_threads", "frsclick", 1, new Object[0]);
-                                    ctVar14 = this.a.w;
-                                    ctVar14.b();
-                                    ctVar15 = this.a.w;
-                                    if (ctVar15.o().isMenuShowing()) {
-                                        ctVar16 = this.a.w;
-                                        ctVar16.o().toggle(true);
-                                    }
-                                    z = this.a.E;
-                                    if (!z) {
-                                        this.a.E = true;
-                                        this.a.E();
-                                    }
-                                }
+                ctVar3 = this.a.v;
+                if (view != ctVar3.k()) {
+                    ctVar4 = this.a.v;
+                    if (view != ctVar4.j()) {
+                        ctVar5 = this.a.v;
+                        if (view == ctVar5.e()) {
+                            ctVar16 = this.a.v;
+                            ctVar16.b();
+                            ctVar17 = this.a.v;
+                            if (ctVar17.n().isMenuShowing()) {
+                                ctVar18 = this.a.v;
+                                ctVar18.n().toggle(true);
+                            }
+                            z2 = this.a.D;
+                            if (z2) {
+                                this.a.D = false;
+                                this.a.E();
                             }
                         } else {
-                            TiebaStatic.eventStat(this.a, "frs_more", "frsclick", 1, new Object[0]);
-                            ctVar20 = this.a.w;
-                            ctVar20.Q();
-                            FrsActivity.b = false;
-                            ctVar21 = this.a.w;
-                            ctVar21.a(true);
+                            ctVar6 = this.a.v;
+                            if (view != ctVar6.f()) {
+                                ctVar7 = this.a.v;
+                                if (view != ctVar7.g()) {
+                                    ctVar8 = this.a.v;
+                                    if (view != ctVar8.h()) {
+                                        ctVar9 = this.a.v;
+                                        FrsHeaderView v = ctVar9.v();
+                                        ctVar10 = this.a.v;
+                                        com.baidu.tieba.frs.view.j w = ctVar10.w();
+                                        if ((v != null && v.b(view)) || (w != null && w.b(view))) {
+                                            com.baidu.tbadk.core.f.a(this.a.getParent(), "forum_fortune_click");
+                                            if (!TbadkApplication.isLogin()) {
+                                                LoginActivity.a((Activity) this.a, (String) null, true, 18004);
+                                            } else {
+                                                this.a.K();
+                                            }
+                                        }
+                                    } else {
+                                        TiebaStatic.eventStat(this.a, "frs_add_shortcut", "frsclick", 1, new Object[0]);
+                                        ctVar11 = this.a.v;
+                                        ctVar11.b();
+                                        FrsActivity frsActivity = this.a;
+                                        FrsActivity frsActivity2 = this.a;
+                                        str = this.a.m;
+                                        frsActivity.W = new ay(frsActivity2, str);
+                                        ayVar = this.a.W;
+                                        ayVar.setSelfExecute(true);
+                                        ayVar2 = this.a.W;
+                                        ayVar2.execute(new String[0]);
+                                    }
+                                } else {
+                                    TiebaStatic.eventStat(this.a, "frs_image_threads", "frsclick", 1, new Object[0]);
+                                    ctVar12 = this.a.v;
+                                    ctVar12.b();
+                                    TbadkApplication m252getInst = TbadkApplication.m252getInst();
+                                    gVar = this.a.H;
+                                    m252getInst.addFrsImageForum(gVar.g().getName());
+                                    FrsActivity frsActivity3 = this.a;
+                                    com.baidu.tbadk.core.atomData.r rVar = new com.baidu.tbadk.core.atomData.r(this.a);
+                                    str2 = this.a.m;
+                                    frsActivity3.sendMessage(new CustomMessage(2003002, rVar.b(str2, null, 0)));
+                                    this.a.h();
+                                }
+                            } else {
+                                TiebaStatic.eventStat(this.a, "frs_good_threads", "frsclick", 1, new Object[0]);
+                                ctVar13 = this.a.v;
+                                ctVar13.b();
+                                ctVar14 = this.a.v;
+                                if (ctVar14.n().isMenuShowing()) {
+                                    ctVar15 = this.a.v;
+                                    ctVar15.n().toggle(true);
+                                }
+                                z = this.a.D;
+                                if (!z) {
+                                    this.a.D = true;
+                                    this.a.E();
+                                }
+                            }
                         }
                     } else {
-                        this.a.closeActivity();
+                        TiebaStatic.eventStat(this.a, "frs_more", "frsclick", 1, new Object[0]);
+                        ctVar19 = this.a.v;
+                        ctVar19.P();
+                        FrsActivity.b = false;
+                        ctVar20 = this.a.v;
+                        ctVar20.a(true);
                     }
                 } else {
                     this.a.closeActivity();
@@ -197,106 +193,109 @@ class q implements View.OnClickListener {
         if (id == com.baidu.tieba.v.frs_bt_create) {
             this.a.D();
         } else if (id == com.baidu.tieba.v.btn_love) {
-            ctVar33 = this.a.w;
-            if (!ctVar33.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            ctVar32 = this.a.v;
+            if (!ctVar32.t() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 this.a.j();
             }
         } else if (id == com.baidu.tieba.v.btn_sign) {
-            ctVar31 = this.a.w;
-            if (!ctVar31.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                ctVar32 = this.a.w;
-                if (!ctVar32.H()) {
+            ctVar30 = this.a.v;
+            if (!ctVar30.t() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                ctVar31 = this.a.v;
+                if (!ctVar31.G()) {
                     this.a.l();
                 }
             }
         } else if (id == com.baidu.tieba.v.add_fan) {
-            ctVar30 = this.a.w;
-            if (!ctVar30.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            ctVar29 = this.a.v;
+            if (!ctVar29.t() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 f a = f.a();
-                str7 = this.a.n;
+                str7 = this.a.m;
                 a.b(str7);
                 this.a.i();
             }
         } else if (id == com.baidu.tieba.v.refresh_layout) {
             TiebaStatic.eventStat(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
-            ctVar29 = this.a.w;
-            ctVar29.S();
+            ctVar28 = this.a.v;
+            ctVar28.R();
         } else if (id == com.baidu.tieba.v.message_layout) {
             FrsActivity.c = false;
             FrsActivity.b = false;
-            this.a.f();
+            this.a.g();
             String currentAccount = TbadkApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
                 TiebaStatic.eventStat(this.a, "frs_message", "frsclick", 1, new Object[0]);
-                this.a.sendMessage(new CustomMessage(2017003, new com.baidu.tbadk.core.frameworkData.a(this.a)));
+                context = this.a.ad;
+                this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bn(context, true)));
             }
+        } else if (id == com.baidu.tieba.v.history_layout) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ax(this.a)));
         } else if (id == com.baidu.tieba.v.forum_manager_center) {
             String str8 = "";
-            gVar15 = this.a.I;
+            gVar15 = this.a.H;
             if (gVar15 != null) {
-                gVar16 = this.a.I;
+                gVar16 = this.a.H;
                 if (gVar16.g() != null) {
-                    gVar17 = this.a.I;
+                    gVar17 = this.a.H;
                     str8 = gVar17.g().getId();
                 }
             }
             StringBuilder sb = new StringBuilder("http://tieba.baidu.com/mo/q/bawuindex?fn=");
-            str6 = this.a.n;
+            str6 = this.a.m;
             com.baidu.tbadk.browser.a.a(this.a, sb.append(str6).append("&fid=").append(str8).toString());
         } else if (id == com.baidu.tieba.v.recommend_forum_item_layout) {
             dt dtVar = (dt) view.getTag();
             if (dtVar != null) {
                 String str9 = dtVar.a;
-                str5 = this.a.n;
+                str5 = this.a.m;
                 if (str9.equals(str5)) {
-                    ctVar27 = this.a.w;
-                    if (ctVar27.o().isMenuShowing()) {
-                        ctVar28 = this.a.w;
-                        ctVar28.o().toggle(true);
+                    ctVar26 = this.a.v;
+                    if (ctVar26.n().isMenuShowing()) {
+                        ctVar27 = this.a.v;
+                        ctVar27.n().toggle(true);
                         return;
                     }
                     return;
                 }
-                this.a.x = "sidebar";
-                this.a.y = dtVar.b;
+                this.a.w = "sidebar";
+                this.a.x = dtVar.b;
                 this.a.c(str9);
             }
         } else if (id == com.baidu.tieba.v.frs_header_groups) {
-            gVar9 = this.a.I;
+            gVar9 = this.a.H;
             if (gVar9 != null) {
-                gVar10 = this.a.I;
+                gVar10 = this.a.H;
                 if (gVar10.g() != null) {
-                    gVar11 = this.a.I;
-                    if (!com.baidu.adp.lib.util.j.b(gVar11.g().getId())) {
-                        gVar12 = this.a.I;
+                    gVar11 = this.a.H;
+                    if (!com.baidu.adp.lib.util.i.b(gVar11.g().getId())) {
+                        gVar12 = this.a.H;
                         if (gVar12.p() != null) {
                             TiebaStatic.eventStat(this.a, "im_e_glist_from_frs", "click", 1, new Object[0]);
                             FrsActivity frsActivity4 = this.a;
-                            gVar13 = this.a.I;
+                            gVar13 = this.a.H;
                             String id2 = gVar13.g().getId();
-                            gVar14 = this.a.I;
-                            this.a.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.n(frsActivity4, id2, gVar14.p().b() != 1)));
+                            gVar14 = this.a.H;
+                            this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.s(frsActivity4, id2, gVar14.p().b() != 1)));
                         }
                     }
                 }
             }
         } else if (id == com.baidu.tieba.v.btn_love_content) {
-            ctVar23 = this.a.w;
-            if (!ctVar23.u()) {
-                z3 = this.a.T;
+            ctVar22 = this.a.v;
+            if (!ctVar22.t()) {
+                z3 = this.a.S;
                 if (!z3) {
-                    ctVar24 = this.a.w;
-                    if (ctVar24 != null) {
-                        str3 = this.a.O;
+                    ctVar23 = this.a.v;
+                    if (ctVar23 != null) {
+                        str3 = this.a.N;
                         if (str3.equals("normal_page")) {
-                            ctVar26 = this.a.w;
-                            ctVar26.a(view);
+                            ctVar25 = this.a.v;
+                            ctVar25.a(view);
                             return;
                         }
-                        str4 = this.a.O;
+                        str4 = this.a.N;
                         if (str4.equals("frs_page")) {
-                            ctVar25 = this.a.w;
-                            ctVar25.b(view);
+                            ctVar24 = this.a.v;
+                            ctVar24.b(view);
                         }
                     }
                 }
@@ -305,29 +304,29 @@ class q implements View.OnClickListener {
             SharedPreferences.Editor edit = this.a.getSharedPreferences(TbConfig.SETTINGFILE, 0).edit();
             edit.putBoolean(FrsActivity.a, true);
             edit.commit();
-            ctVar22 = this.a.w;
-            ctVar22.R();
+            ctVar21 = this.a.v;
+            ctVar21.Q();
         } else if (id == com.baidu.tieba.v.nb_item_live_text_btn) {
             if (Build.VERSION.SDK_INT >= 9) {
-                gVar2 = this.a.I;
+                gVar2 = this.a.H;
                 if (gVar2 != null) {
-                    gVar3 = this.a.I;
+                    gVar3 = this.a.H;
                     if (gVar3.g() != null) {
-                        gVar4 = this.a.I;
+                        gVar4 = this.a.H;
                         if (gVar4.g().getAnchorPower() != null) {
-                            gVar5 = this.a.I;
+                            gVar5 = this.a.H;
                             if (gVar5.g().getAnchorPower().have_power.intValue() == 1) {
                                 com.baidu.tbadk.core.f.a(this.a.getBaseContext(), "start_live_bt");
                                 MessageManager messageManager = MessageManager.getInstance();
                                 FrsActivity frsActivity5 = this.a;
-                                gVar7 = this.a.I;
+                                gVar7 = this.a.H;
                                 int a2 = com.baidu.adp.lib.f.b.a(gVar7.g().getId(), 0);
-                                gVar8 = this.a.I;
-                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(frsActivity5, a2, gVar8.g().getName())));
+                                gVar8 = this.a.H;
+                                messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.aj(frsActivity5, a2, gVar8.g().getName())));
                                 return;
                             }
                             FrsActivity frsActivity6 = this.a;
-                            gVar6 = this.a.I;
+                            gVar6 = this.a.H;
                             frsActivity6.showToast(gVar6.g().getAnchorPower().anchor_message);
                             return;
                         }

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
@@ -29,13 +28,18 @@ public class LocalViewSize {
     }
 
     public ImageSize a(ImageSize imageSize, int i, int i2) {
-        if (i > imageSize.height || i2 > imageSize.width) {
-            return b(imageSize, i, i2);
+        if (i <= imageSize.height && i2 <= imageSize.width) {
+            ImageSize imageSize2 = new ImageSize();
+            if (i / i2 > imageSize.height / imageSize.width) {
+                imageSize2.height = imageSize.height;
+                imageSize2.width = (imageSize2.height * i2) / i;
+                return imageSize2;
+            }
+            imageSize2.width = imageSize.width;
+            imageSize2.height = (imageSize2.width * i) / i2;
+            return imageSize2;
         }
-        ImageSize imageSize2 = new ImageSize();
-        imageSize2.height = i;
-        imageSize2.width = i2;
-        return imageSize2;
+        return b(imageSize, i, i2);
     }
 
     private ImageSize b(ImageSize imageSize, int i, int i2) {
@@ -51,7 +55,7 @@ public class LocalViewSize {
     }
 
     public int b() {
-        int b = com.baidu.adp.lib.util.k.b(this.b);
+        int b = com.baidu.adp.lib.util.j.b(this.b);
         if (b >= 1080) {
             return 1080;
         }
@@ -60,8 +64,7 @@ public class LocalViewSize {
 
     public ImageSize c() {
         int i = 240;
-        int b = com.baidu.adp.lib.util.k.b(this.b);
-        BdLog.i("=======getEquipmentWidth:" + b);
+        int b = com.baidu.adp.lib.util.j.b(this.b);
         if (b < 240) {
             i = b / 3;
         } else if (b <= 320) {
@@ -79,8 +82,8 @@ public class LocalViewSize {
 
     public ImageSize d() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.k.c(this.b);
-        imageSize.width = com.baidu.adp.lib.util.k.b(this.b);
+        imageSize.height = com.baidu.adp.lib.util.j.c(this.b);
+        imageSize.width = com.baidu.adp.lib.util.j.b(this.b);
         return imageSize;
     }
 

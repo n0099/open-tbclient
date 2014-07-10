@@ -29,55 +29,54 @@ public class bt extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Bitmap doInBackground(Object... objArr) {
-        Bitmap c;
         boolean z;
         Object obj;
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            c = com.baidu.tbadk.core.util.x.c(null, TbConfig.IMAGE_RESIZED_FILE);
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            if (isCancelled() && c != null && !c.isRecycled()) {
-                c.recycle();
-                return null;
-            }
-            if (c != null) {
-                int a = com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f);
-                if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.a.v;
-                    if (z) {
-                        Bitmap b = com.baidu.tbadk.core.util.g.b(c, a);
-                        if (b != null) {
-                            if (b.equals(c)) {
-                                c = com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.core.util.g.c(c, 100));
-                            }
-                            Bitmap a2 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.k.a((Context) this.a, 5.0f), true);
-                            if (a2 != null) {
-                                obj = this.a.F;
-                                synchronized (obj) {
-                                    this.a.D = new HashMap();
-                                    this.a.E = new HashMap();
-                                    hashMap = this.a.D;
-                                    hashMap.put("normal", a2);
+            Bitmap c = com.baidu.tbadk.core.util.z.c(null, TbConfig.IMAGE_RESIZED_FILE);
+            try {
+                if (isCancelled() && c != null && !c.isRecycled()) {
+                    c.recycle();
+                    return null;
+                }
+                if (c != null) {
+                    int a = com.baidu.adp.lib.util.j.a((Context) this.a, 63.5f);
+                    if (Build.VERSION.SDK_INT >= 7) {
+                        z = this.a.v;
+                        if (z) {
+                            Bitmap b = com.baidu.tbadk.core.util.h.b(c, a);
+                            if (b != null) {
+                                if (b.equals(c)) {
+                                    c = com.baidu.tbadk.core.util.h.a(com.baidu.tbadk.core.util.h.c(c, 100));
                                 }
-                                return c;
+                                Bitmap a2 = com.baidu.tbadk.core.util.h.a(b, com.baidu.adp.lib.util.j.a((Context) this.a, 5.0f), true);
+                                if (a2 != null) {
+                                    obj = this.a.F;
+                                    synchronized (obj) {
+                                        this.a.D = new HashMap();
+                                        this.a.E = new HashMap();
+                                        hashMap = this.a.D;
+                                        hashMap.put("normal", a2);
+                                    }
+                                    return c;
+                                }
+                                return null;
                             }
                             return null;
                         }
-                        return null;
                     }
                 }
+                return c;
+            } catch (Exception e) {
+                bitmap = c;
+                e = e;
+                e.printStackTrace();
+                BdLog.e(e.toString());
+                return bitmap;
             }
-            return c;
         } catch (Exception e2) {
-            bitmap = c;
             e = e2;
-            e.printStackTrace();
-            BdLog.e(getClass().getName(), "GetImageTask", e.toString());
-            return bitmap;
         }
     }
 

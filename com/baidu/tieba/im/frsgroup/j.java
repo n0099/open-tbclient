@@ -17,7 +17,7 @@ class j implements View.OnClickListener {
         frsGroupActivity = this.a.b;
         if (frsGroupActivity != null) {
             frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.i();
+            frsGroupActivity2.k();
         }
     }
 }

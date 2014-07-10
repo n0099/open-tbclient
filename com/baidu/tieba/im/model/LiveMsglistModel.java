@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupDraftMessage;
@@ -75,7 +73,6 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
         this.p = this.c.isBanned.intValue() == 1;
         this.h = this.b.listeners.intValue();
         this.i = this.b.likers.intValue();
-        BdLog.d("get live group status: " + this.b.status);
         if (this.b.status.intValue() == 3 || this.b.status.intValue() == 4 || this.b.status.intValue() == 6 || this.b.status.intValue() == 5) {
             this.n = this.b.status.intValue();
         } else {
@@ -94,7 +91,7 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
         this.i = 0;
         this.r = false;
         this.x = new aa(this, 0);
-        m();
+        l();
     }
 
     public void a(Intent intent, Bundle bundle) {
@@ -115,7 +112,7 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean g_() {
+    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
         if (this.a == null) {
             return false;
         }
@@ -172,10 +169,10 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
         return true;
     }
 
-    private void m() {
-        MessageManager.getInstance().registerListener(2015007, this.x);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT_GROUP, this.x);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY_GROUP, this.x);
+    private void l() {
+        MessageManager.getInstance().registerListener(2013007, this.x);
+        MessageManager.getInstance().registerListener(2001146, this.x);
+        MessageManager.getInstance().registerListener(2001149, this.x);
     }
 
     protected void f() {
@@ -186,10 +183,10 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
     protected ChatMessage g() {
         GroupChatMessage groupChatMessage = new GroupChatMessage();
         groupChatMessage.setBornTime(System.currentTimeMillis());
-        if (b() == null) {
+        if (c() == null) {
             return null;
         }
-        groupChatMessage.setGroupId(String.valueOf(b().getGroupId()));
+        groupChatMessage.setGroupId(String.valueOf(c().getGroupId()));
         return groupChatMessage;
     }
 

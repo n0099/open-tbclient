@@ -1,6 +1,4 @@
 package com.baidu.adp.gif;
-
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class b implements a {
     private static a a;
@@ -35,7 +33,6 @@ public class b implements a {
         try {
             return this.c.a(str);
         } catch (Exception e) {
-            BdLog.d("GifFactory", "get", "failed to create native gif");
             return null;
         }
     }

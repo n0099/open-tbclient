@@ -1,21 +1,35 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ as b;
-    private final /* synthetic */ OfficialChatMessage c;
+public class av extends BdAsyncTask<Void, Void, Bitmap> {
+    final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(as asVar, OfficialChatMessage officialChatMessage) {
-        this.b = asVar;
-        this.c = officialChatMessage;
+    public av(MsglistModel msglistModel, String str, String str2) {
+        this.a = msglistModel;
+        this.b = str;
+        this.c = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 2));
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Void... voidArr) {
+        return BitmapFactory.decodeFile(this.b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        this.a.a(this.c, new com.baidu.adp.widget.a.a(bitmap, false));
     }
 }

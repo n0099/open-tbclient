@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.c {
+public class j extends com.baidu.adp.base.f {
     Handler a;
     private BrowseSettingActivity b;
     private RelativeLayout c;
@@ -150,13 +150,13 @@ public class j extends com.baidu.adp.base.c {
     private void s() {
         if (this.l == null) {
             SpannableString spannableString = new SpannableString(this.b.getString(com.baidu.tieba.y.view_image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
             SpannableString spannableString2 = new SpannableString(this.mContext.getString(com.baidu.tieba.y.view_image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 1, spannableString2.length(), 18);
+            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 1, spannableString2.length(), 18);
             SpannableString spannableString3 = new SpannableString(this.mContext.getString(com.baidu.tieba.y.view_image_quality_low_menu));
-            spannableString3.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 1, spannableString3.length(), 18);
+            spannableString3.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 1, spannableString3.length(), 18);
             SpannableString spannableString4 = new SpannableString(this.mContext.getString(com.baidu.tieba.y.view_image_quality_close_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 2, spannableString4.length(), 18);
+            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 2, spannableString4.length(), 18);
             this.l = new AlertDialog.Builder(this.b).setTitle(com.baidu.tieba.y.browser_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.q).create();
         }
     }
@@ -164,12 +164,12 @@ public class j extends com.baidu.adp.base.c {
     private void t() {
         if (this.k == null) {
             SpannableString spannableString = new SpannableString(this.b.getString(com.baidu.tieba.y.image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
             SpannableString spannableString2 = new SpannableString(this.b.getString(com.baidu.tieba.y.image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a((Context) this.b, 12.0f)), 1, spannableString2.length(), 18);
+            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a((Context) this.b, 12.0f)), 1, spannableString2.length(), 18);
             SpannableString spannableString3 = new SpannableString(this.b.getString(com.baidu.tieba.y.image_quality_mid_menu));
             SpannableString spannableString4 = new SpannableString(this.b.getString(com.baidu.tieba.y.image_quality_low_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a((Context) this.b, 12.0f)), 1, spannableString4.length(), 18);
+            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a((Context) this.b, 12.0f)), 1, spannableString4.length(), 18);
             this.k = new AlertDialog.Builder(this.b).setTitle(com.baidu.tieba.y.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.r).create();
         }
     }
@@ -189,7 +189,7 @@ public class j extends com.baidu.adp.base.c {
     private void v() {
         if (this.n == null) {
             SpannableString spannableString = new SpannableString(this.b.getString(com.baidu.tieba.y.is_wifiopen_dialog));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.util.j.a(this.mContext, 12.0f)), 5, spannableString.length(), 18);
             this.n = new AlertDialog.Builder(this.b).setTitle(com.baidu.tieba.y.show_photo).setItems(new CharSequence[]{spannableString, new SpannableString(this.b.getString(com.baidu.tieba.y.is_alwaysopen)), new SpannableString(this.b.getString(com.baidu.tieba.y.is_close))}, this.s).create();
         }
     }
@@ -205,7 +205,7 @@ public class j extends com.baidu.adp.base.c {
             if (TbadkApplication.m252getInst().getSkinType() != 1) {
                 com.baidu.tieba.ai.c().c(i);
                 a(i);
-                new bb(TbConfig.ST_TYPE_EYESHIELD_MODE).start();
+                TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
             } else {
                 return;
             }
@@ -217,7 +217,7 @@ public class j extends com.baidu.adp.base.c {
                 return;
             }
         }
-        com.baidu.tbadk.core.util.g.a();
+        com.baidu.tbadk.core.util.h.a();
     }
 
     public void k() {

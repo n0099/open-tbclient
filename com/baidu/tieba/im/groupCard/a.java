@@ -24,7 +24,6 @@ public class a implements com.baidu.tbadk.imageManager.d {
             dVar4.a(0, this.a.getString(y.group_card_error));
             return;
         }
-        this.a.i = aVar.h();
         dVar2 = this.a.d;
         dVar2.a(aVar);
         dVar3 = this.a.d;

@@ -55,7 +55,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.i = true;
         this.j = 6;
         this.d = context;
-        this.h = com.baidu.adp.lib.util.k.a(this.d, this.h);
+        this.h = com.baidu.adp.lib.util.j.a(this.d, this.h);
         this.f = (int) this.d.getResources().getDimension(com.baidu.tieba.t.ds60);
         if (this.d instanceof ab) {
             ab abVar = (ab) this.d;

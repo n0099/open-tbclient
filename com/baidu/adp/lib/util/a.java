@@ -11,7 +11,7 @@ public class a {
         try {
             ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService("clipboard")).setText(str);
         } catch (Throwable th) {
-            BdLog.e("copyToClipboard failed: " + th.getMessage());
+            BdLog.e(th);
         }
     }
 }

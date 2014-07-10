@@ -5,21 +5,22 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ y a;
-    private final /* synthetic */ GroupMsgData b;
+public class aa extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ z b;
+    private final /* synthetic */ GroupMsgData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y yVar, GroupMsgData groupMsgData) {
-        this.a = yVar;
-        this.b = groupMsgData;
+    public aa(z zVar, GroupMsgData groupMsgData) {
+        this.b = zVar;
+        this.c = groupMsgData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<GroupNewsPojo> linkedList) {
-        b.a(this.b, false);
-        this.a.a(linkedList);
-        this.a.b(linkedList);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public LinkedList<GroupNewsPojo> a() {
+        LinkedList<GroupNewsPojo> a;
+        a = this.b.a(this.c);
+        return a;
     }
 }

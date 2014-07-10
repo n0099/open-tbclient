@@ -13,8 +13,8 @@ public class bv implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        v vVar;
-        vVar = this.a.d;
-        vVar.a(Integer.parseInt(view.getTag().toString()));
+        r rVar;
+        rVar = this.a.d;
+        rVar.a(Integer.parseInt(view.getTag().toString()));
     }
 }

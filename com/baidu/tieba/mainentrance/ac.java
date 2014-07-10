@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.data.SearchPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ SquareSearchActivity b;
-    private an c = null;
+    private aq c = null;
     private String d;
 
     public ac(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -38,7 +38,7 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
         textView.setVisibility(8);
         SquareSearchActivity squareSearchActivity = this.b;
         editText = this.b.c;
-        com.baidu.adp.lib.util.k.a(squareSearchActivity, editText);
+        com.baidu.adp.lib.util.j.a(squareSearchActivity, editText);
         listView = this.b.m;
         if (listView.getVisibility() != 0) {
             progressBar = this.b.q;
@@ -55,7 +55,7 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
         Exception e;
         String str;
         try {
-            this.c = new an(this.d);
+            this.c = new aq(this.d);
             Iterator<BasicNameValuePair> it = this.a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
@@ -75,7 +75,7 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
                 return searchPostModel;
             } catch (Exception e2) {
                 e = e2;
-                BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return searchPostModel;
             }
         } catch (Exception e3) {

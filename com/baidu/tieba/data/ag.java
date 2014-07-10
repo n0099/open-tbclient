@@ -1,50 +1,50 @@
 package com.baidu.tieba.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private volatile long a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+    private String h;
+    private int i;
+    private boolean g = false;
+    private int a = 0;
+    private String b = null;
+    private int e = 0;
+    private String c = null;
+    private String d = null;
+    private String f = null;
 
-    public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.a = i;
-        }
+    public boolean a() {
+        return this.g;
     }
 
-    public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
-        }
-    }
-
-    public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
-    }
-
-    public void a() {
-        this.d = false;
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public void a(com.baidu.tbadk.core.util.an anVar) {
-        if (anVar != null) {
-            if (this.a != 0) {
-                anVar.a("ctime", String.valueOf(this.a));
-            }
-            if (this.b != 0) {
-                anVar.a("data_size", String.valueOf(this.b));
-            }
-            if (this.c != 0) {
-                anVar.a("net_error", String.valueOf(this.c));
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.b = jSONObject.optString("id");
+                this.a = jSONObject.optInt("is_login", 0);
+                this.e = jSONObject.optInt("no_un", 0);
+                this.c = jSONObject.optString("name");
+                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.f = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                if (jSONObject.optInt("is_manager", 0) == 1) {
+                    this.g = true;
+                } else {
+                    this.g = false;
+                }
+                this.h = jSONObject.optString("bimg_url");
+                this.i = jSONObject.optInt("bimg_end_time", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public String b() {
+        return this.h;
+    }
+
+    public int c() {
+        return this.i;
     }
 }

@@ -1,65 +1,31 @@
 package com.baidu.tieba.square;
 
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class w extends Handler {
-    final /* synthetic */ v a;
+public class w {
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<w> e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.a = vVar;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        ViewPager viewPager;
-        ViewPager viewPager2;
-        y yVar;
-        ArrayList arrayList;
-        y yVar2;
-        ViewPager viewPager3;
-        ViewPager viewPager4;
-        ViewPager viewPager5;
-        ViewPager viewPager6;
-        ViewPager viewPager7;
-        y yVar3;
-        ViewPager viewPager8;
-        viewPager = this.a.c;
-        int currentItem = viewPager.getCurrentItem();
-        if (message.what == 0) {
-            viewPager2 = this.a.c;
-            if (viewPager2 != null) {
-                yVar = this.a.e;
-                if (yVar != null) {
-                    arrayList = this.a.m;
-                    if (arrayList.size() > 1) {
-                        if (currentItem < 1) {
-                            viewPager7 = this.a.c;
-                            yVar3 = this.a.e;
-                            viewPager7.setCurrentItem(yVar3.getCount() - 2, false);
-                            viewPager8 = this.a.c;
-                            viewPager8.invalidate();
-                            return;
-                        }
-                        yVar2 = this.a.e;
-                        if (currentItem > yVar2.getCount() - 2) {
-                            viewPager5 = this.a.c;
-                            viewPager5.setCurrentItem(1, false);
-                            viewPager6 = this.a.c;
-                            viewPager6.invalidate();
-                            return;
-                        }
-                        viewPager3 = this.a.c;
-                        viewPager3.setCurrentItem(currentItem + 1);
-                        viewPager4 = this.a.c;
-                        viewPager4.invalidate();
-                    }
-                }
+    public void a(JSONObject jSONObject) {
+        this.a = jSONObject.optString("menu_type");
+        this.b = jSONObject.optString("menu_name");
+        this.c = jSONObject.optString("menu_id");
+        this.d = jSONObject.optString("default_logo_url", null);
+        this.d = this.d != null ? String.valueOf(this.d) + "?v=2" : null;
+        if (jSONObject.has("child_menu_list")) {
+            ArrayList<w> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                w wVar = new w();
+                wVar.a(optJSONArray.getJSONObject(i));
+                arrayList.add(wVar);
             }
+            this.e = arrayList;
         }
     }
 }

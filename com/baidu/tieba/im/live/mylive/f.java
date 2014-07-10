@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.live.mylive;
 
-import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.im.model.bc;
 /* loaded from: classes.dex */
 class f implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ a a;
@@ -12,36 +12,30 @@ class f implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        bd bdVar;
-        MyLiveNoDataView myLiveNoDataView;
-        bd bdVar2;
-        bd bdVar3;
-        bd bdVar4;
-        MyLiveNoDataView myLiveNoDataView2;
+        bc bcVar;
+        bc bcVar2;
+        bc bcVar3;
+        bc bcVar4;
         MyLiveListAdapter myLiveListAdapter;
-        bd bdVar5;
-        bd bdVar6;
-        bdVar = this.a.c;
-        if (!bdVar.a()) {
-            myLiveNoDataView2 = this.a.g;
-            myLiveNoDataView2.a();
-            myLiveListAdapter = this.a.h;
-            myLiveListAdapter.b(true);
-            bdVar5 = this.a.c;
-            bdVar5.a(0);
-            bdVar6 = this.a.c;
-            bdVar6.c(0);
-            this.a.a(false);
+        bc bcVar5;
+        bc bcVar6;
+        bcVar = this.a.c;
+        if (bcVar.a()) {
+            bcVar2 = this.a.c;
+            bcVar2.a(0);
+            bcVar3 = this.a.c;
+            bcVar3.c(0);
+            bcVar4 = this.a.c;
+            bcVar4.a(false);
+            this.a.a(true);
             return;
         }
-        myLiveNoDataView = this.a.g;
-        myLiveNoDataView.a();
-        bdVar2 = this.a.c;
-        bdVar2.a(0);
-        bdVar3 = this.a.c;
-        bdVar3.c(0);
-        bdVar4 = this.a.c;
-        bdVar4.a(false);
-        this.a.a(true);
+        myLiveListAdapter = this.a.h;
+        myLiveListAdapter.b(true);
+        bcVar5 = this.a.c;
+        bcVar5.a(0);
+        bcVar6 = this.a.c;
+        bcVar6.c(0);
+        this.a.a(false);
     }
 }

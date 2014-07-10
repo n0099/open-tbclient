@@ -1,17 +1,33 @@
 package com.baidu.tieba.write;
+
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements Runnable {
-    final /* synthetic */ am a;
+public class an implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.a = amVar;
+    public an(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        WriteActivity writeActivity;
-        writeActivity = this.a.a;
-        writeActivity.finish();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            writeEditorToolButtonContainer = this.a.z;
+            writeEditorToolButtonContainer.c();
+            editorToolComponetContainer = this.a.A;
+            editText = this.a.h;
+            editorToolComponetContainer.c(editText);
+            return false;
+        }
+        return false;
     }
 }

@@ -13,7 +13,7 @@ public class c {
         this.a = eVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=6, 129=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=6, 127=6] */
     public void a(int i, int i2, int i3) {
         if (i2 <= 0) {
             i2 = com.baidu.adp.framework.c.b.a().d().b();
@@ -31,32 +31,34 @@ public class c {
             try {
                 try {
                     try {
-                        dVar.e = i4 + 1;
-                        this.b = new a(this.a);
-                        this.b.a(i2, i3, dVar);
-                    } catch (SocketException e) {
-                        dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.a.b().b = -12;
+                        try {
+                            dVar.e = i4 + 1;
+                            this.b = new a(this.a);
+                            this.b.a(i2, i3, dVar);
+                        } catch (Exception e) {
+                            dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
+                            this.a.b().b = -10;
+                            BdLog.e(e.getMessage());
+                            this.a.a(dVar);
+                            dVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.a(dVar);
+                            return;
+                        }
+                    } catch (SocketTimeoutException e2) {
+                        dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                        this.a.b().b = -13;
                         this.a.a(dVar);
                         dVar.f = System.currentTimeMillis() - currentTimeMillis;
                         this.a.a(dVar);
                         z = true;
                     }
-                } catch (SocketTimeoutException e2) {
-                    dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                    this.a.b().b = -13;
+                } catch (SocketException e3) {
+                    dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.a.b().b = -12;
                     this.a.a(dVar);
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;
                     this.a.a(dVar);
                     z = true;
-                } catch (Exception e3) {
-                    dVar.h = String.valueOf(String.valueOf(this.a.b().b)) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.a.b().b = -10;
-                    BdLog.e(getClass().getName(), "getNetData", "error = " + e3.getMessage());
-                    this.a.a(dVar);
-                    dVar.f = System.currentTimeMillis() - currentTimeMillis;
-                    this.a.a(dVar);
-                    return;
                 }
                 if (this.a.b().b == 200) {
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;
@@ -76,7 +78,7 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [201=7, 202=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=7, 199=7] */
     private void c(int i, int i2, int i3) {
         if (i2 <= 0) {
             i2 = com.baidu.adp.framework.c.b.a().d().b();
@@ -101,36 +103,28 @@ public class c {
                         } catch (SocketTimeoutException e) {
                             this.a.b().b = -13;
                             dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                            BdLog.e(getClass().getName(), "postNetData", "SocketTimeoutException " + e.getMessage());
+                            BdLog.e(e.getMessage());
                             this.a.a(dVar);
                             dVar.f = System.currentTimeMillis() - currentTimeMillis;
                             this.a.a(dVar);
                             z = true;
                         }
-                    } catch (SocketException e2) {
-                        this.a.b().b = -12;
+                    } catch (UnsupportedOperationException e2) {
+                        this.a.b().b = -14;
                         dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                        BdLog.e(getClass().getName(), "postNetData", "SocketException " + e2.getMessage());
                         this.a.a(dVar);
                         dVar.f = System.currentTimeMillis() - currentTimeMillis;
                         this.a.a(dVar);
-                        z = true;
+                        z = false;
                     }
-                } catch (UnsupportedOperationException e3) {
-                    this.a.b().b = -14;
+                } catch (SocketException e3) {
+                    this.a.b().b = -12;
                     dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                    BdLog.e(e3.getMessage());
                     this.a.a(dVar);
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;
                     this.a.a(dVar);
-                    z = false;
-                } catch (Throwable th) {
-                    this.a.b().b = -10;
-                    dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                    BdLog.e(getClass().getName(), "postNetData", th.getMessage());
-                    this.a.a(dVar);
-                    dVar.f = System.currentTimeMillis() - currentTimeMillis;
-                    this.a.a(dVar);
-                    z = false;
+                    z = true;
                 }
                 if (this.a.b().b == 200) {
                     return;
@@ -149,7 +143,7 @@ public class c {
         if (i == 202 || i == 201 || i == 205 || i == 304 || i == 305 || i == 408) {
             return true;
         }
-        return (i == 502 || i == 503 || i == 504) ? false : true;
+        return (i == 502 || i == 503 || i == 504 || i == 404) ? false : true;
     }
 
     public void b(int i, int i2, int i3) {
@@ -160,7 +154,7 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [303=7, 304=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [299=7, 300=7] */
     private void d(int i, int i2, int i3) {
         if (i2 <= 0) {
             i2 = com.baidu.adp.framework.c.b.a().d().b();
@@ -185,36 +179,28 @@ public class c {
                         } catch (SocketTimeoutException e) {
                             this.a.b().b = -13;
                             dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                            BdLog.e(getClass().getName(), "postNetData", "SocketTimeoutException " + e.getMessage());
+                            BdLog.e(e.getMessage());
                             this.a.a(dVar);
                             dVar.f = System.currentTimeMillis() - currentTimeMillis;
                             this.a.a(dVar);
                             z = true;
                         }
-                    } catch (SocketException e2) {
-                        this.a.b().b = -12;
+                    } catch (UnsupportedOperationException e2) {
+                        this.a.b().b = -14;
                         dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                        BdLog.e(getClass().getName(), "postNetData", "SocketException " + e2.getMessage());
                         this.a.a(dVar);
                         dVar.f = System.currentTimeMillis() - currentTimeMillis;
                         this.a.a(dVar);
-                        z = true;
+                        z = false;
                     }
-                } catch (UnsupportedOperationException e3) {
-                    this.a.b().b = -14;
+                } catch (SocketException e3) {
+                    this.a.b().b = -12;
                     dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                    BdLog.e(e3.getMessage());
                     this.a.a(dVar);
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;
                     this.a.a(dVar);
-                    z = false;
-                } catch (Throwable th) {
-                    this.a.b().b = -10;
-                    dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
-                    BdLog.e(getClass().getName(), "postNetData", th.getMessage());
-                    this.a.a(dVar);
-                    dVar.f = System.currentTimeMillis() - currentTimeMillis;
-                    this.a.a(dVar);
-                    z = false;
+                    z = true;
                 }
                 if (this.a.b().b == 200) {
                     return;

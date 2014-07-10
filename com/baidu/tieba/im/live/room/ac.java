@@ -2,10 +2,7 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.coreExtra.live.LiveErrorMessage;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -21,24 +18,11 @@ class ac extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
         LiveRoomChatView z;
-        if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && p.getCmd() == "live_user_mute") {
-            try {
-                JSONObject jSONObject = new JSONObject(p.getContent());
-                String optString = jSONObject.optString("userMsg");
-                int optInt = jSONObject.optJSONObject("eventParam").optInt("type");
-                this.a.showToast(optString);
-                z = this.a.z();
-                if (optInt == 1) {
-                    z.aj();
-                    z.e(true);
-                } else if (optInt == 2) {
-                    z.e(false);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001163) {
+            LiveErrorMessage liveErrorMessage = (LiveErrorMessage) customResponsedMessage;
+            z = this.a.z();
+            z.d(1);
         }
     }
 }

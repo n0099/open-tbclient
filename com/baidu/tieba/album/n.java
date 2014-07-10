@@ -40,7 +40,7 @@ public class n implements o {
             if (albumActivity != null) {
                 m mVar = this.a;
                 albumActivity2 = this.a.h;
-                mVar.j = albumActivity2.f();
+                mVar.j = albumActivity2.h();
             }
         }
         pVar2 = this.a.j;

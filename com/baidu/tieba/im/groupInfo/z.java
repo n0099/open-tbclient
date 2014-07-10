@@ -1,31 +1,28 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.DialogInterface;
-import android.text.ClipboardManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements DialogInterface.OnClickListener {
-    final /* synthetic */ r a;
+public class z extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ y a;
     private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(r rVar, String str) {
-        this.a = rVar;
+    public z(y yVar, String str, String str2, boolean z) {
+        this.a = yVar;
         this.b = str;
+        this.c = str2;
+        this.d = z;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        GroupInfoActivity groupInfoActivity;
-        GroupInfoActivity groupInfoActivity2;
-        try {
-            groupInfoActivity = this.a.c;
-            ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.b);
-            groupInfoActivity2 = this.a.c;
-            groupInfoActivity2.showToast(com.baidu.tieba.y.copy_success);
-        } catch (Exception e) {
-            BdLog.e("copy group number failed");
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        this.a.b(this.b, this.c, this.d);
+        return null;
     }
 }

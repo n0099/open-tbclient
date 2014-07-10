@@ -1,46 +1,42 @@
 package com.baidu.tieba.im.live;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
-import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ b a;
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(b bVar, int i) {
+    public f(d dVar, int i) {
         super(i);
-        this.a = bVar;
+        this.a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveChatRoomEventData parseFromEventContent;
-        if (customResponsedMessage.getCmd() == 2003166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
-            LiveChatRoomEventResponseMessage liveChatRoomEventResponseMessage = (LiveChatRoomEventResponseMessage) customResponsedMessage;
-            if (!liveChatRoomEventResponseMessage.hasError()) {
-                String data = liveChatRoomEventResponseMessage.getData();
-                if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && parseFromEventContent.mEventId != null) {
-                    if ("309".equals(parseFromEventContent.mEventId) || "310".equals(parseFromEventContent.mEventId)) {
-                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
-                            BdLog.d("EVENT_ID_GROUP_END or EVENT_ID_DISMISS_GROUP");
-                            this.a.s();
-                            this.a.u();
+        String str;
+        String str2;
+        if (customResponsedMessage instanceof AccessTokenUpdatedMessage) {
+            AccessTokenUpdatedMessage accessTokenUpdatedMessage = (AccessTokenUpdatedMessage) customResponsedMessage;
+            if (!accessTokenUpdatedMessage.hasError()) {
+                String bduss = accessTokenUpdatedMessage.getBduss();
+                String accessToken = accessTokenUpdatedMessage.getAccessToken();
+                AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+                if (parseBDUSS != null && bduss != null && bduss.equals(parseBDUSS.mBduss) && accessToken != null && accessToken.length() > 0) {
+                    str = this.a.b;
+                    if (str != null) {
+                        str2 = this.a.b;
+                        if (accessToken.equals(str2)) {
+                            return;
                         }
-                    } else if ("308".equals(parseFromEventContent.mEventId)) {
-                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
-                            this.a.a(true);
-                        }
-                    } else if ("318".equals(parseFromEventContent.mEventId) && String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
-                        this.a.a(false);
                     }
+                    this.a.b = accessToken;
                 }
             }
         }

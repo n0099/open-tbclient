@@ -1,183 +1,103 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.app.Dialog;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.AccountData;
-import java.util.ArrayList;
+import android.content.Context;
+import android.graphics.PointF;
+import android.view.MotionEvent;
+import com.baidu.tbadk.core.view.BaseViewPager;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class q {
-    private BaseActivity j;
-    private View a = null;
-    private Dialog b = null;
-    private EditText c = null;
-    private RadioGroup d = null;
-    private CompoundButton.OnCheckedChangeListener e = null;
-    private RadioButton f = null;
-    private RadioButton g = null;
-    private RadioButton h = null;
-    private Button i = null;
-    private Button k = null;
-    private x l = null;
-    private w m = null;
-    private TextView n = null;
-    private Button o = null;
-    private ProgressBar p = null;
-    private ProgressBar q = null;
-    private TextView r = null;
-    private String s = null;
-    private AccountData t = null;
-    private v u = null;
-    private v v = null;
+public class q extends BaseViewPager {
+    private PointF a;
+    private com.baidu.tbadk.widget.a b;
+    private com.baidu.tbadk.widget.a c;
 
-    public q(BaseActivity baseActivity) {
-        this.j = null;
-        this.j = baseActivity;
+    public q(Context context) {
+        super(context);
     }
 
-    public void a(String str) {
-        this.s = str;
+    public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
+        this.b = aVar;
     }
 
-    public void a(AccountData accountData) {
-        this.t = accountData;
+    public com.baidu.tbadk.widget.a getCurrentView() {
+        return this.b;
     }
 
-    public void a(v vVar) {
-        this.u = vVar;
+    private float[] a(MotionEvent motionEvent) {
+        switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
+            case 1:
+            case 2:
+                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
+                return new float[]{pointF.x - this.a.x, pointF.y - this.a.y};
+            case 0:
+                this.a = new PointF(motionEvent.getX(), motionEvent.getY());
+                break;
+        }
+        return null;
     }
 
-    public void a() {
+    @Override // com.baidu.tbadk.core.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onTouchEvent(motionEvent);
+            if (this.b != null) {
+                this.b.a();
+            }
+        }
         if (this.b == null) {
-            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.w.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.a.findViewById(com.baidu.tieba.v.account);
-            this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.y.input_name)) + ":");
-            this.i = (Button) this.a.findViewById(com.baidu.tieba.v.back);
-            this.i.setOnClickListener(new r(this));
-            this.k = (Button) this.a.findViewById(com.baidu.tieba.v.check_username);
-            this.k.setOnClickListener(new s(this));
-            this.p = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.check_progress);
-            this.o = (Button) this.a.findViewById(com.baidu.tieba.v.confirm);
-            this.o.setOnClickListener(new t(this));
-            this.q = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.confirm_progress);
-            this.n = (TextView) this.a.findViewById(com.baidu.tieba.v.error_info);
-            this.d = (RadioGroup) this.a.findViewById(com.baidu.tieba.v.names_group);
-            this.f = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name1);
-            this.g = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name2);
-            this.h = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name3);
-            this.e = new u(this);
-            this.f.setOnCheckedChangeListener(this.e);
-            this.g.setOnCheckedChangeListener(this.e);
-            this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.a.findViewById(com.baidu.tieba.v.phone_info);
-            d();
-            this.b = new Dialog(this.j, com.baidu.tieba.z.input_username_dialog);
-            this.b.setCanceledOnTouchOutside(false);
-            this.b.getWindow().setSoftInputMode(20);
-            this.b.setCancelable(false);
-            this.b.setCanceledOnTouchOutside(false);
+            return super.onTouchEvent(motionEvent);
         }
-        if (!this.b.isShowing()) {
-            this.c.setText((CharSequence) null);
-            d();
-            b((String) null);
-            if (this.s == null || this.s.length() <= 0) {
-                this.r.setText("Hi," + this.j.getString(com.baidu.tieba.y.bar_friend));
-            } else {
-                this.r.setText("Hi," + this.s);
+        float[] a = a(motionEvent);
+        if (this.b.b()) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (a != null && this.b.h() && a[0] < 0.0f) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (a != null && this.b.i() && a[0] > 0.0f) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (a == null) {
+            if (this.b.i() || this.b.h()) {
+                return super.onTouchEvent(motionEvent);
             }
-            if (!this.j.isFinishing()) {
-                this.b.show();
-                this.b.setContentView(this.a);
-                WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
-                attributes.gravity = 51;
-                attributes.x = 0;
-                attributes.y = 0;
-                attributes.width = -1;
-                attributes.height = -1;
-                this.b.getWindow().setAttributes(attributes);
-                this.j.ShowSoftKeyPadDelay(this.c, 150);
-                this.c.requestFocus();
+            return false;
+        }
+        return false;
+    }
+
+    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onInterceptTouchEvent(motionEvent);
+        }
+        float[] a = a(motionEvent);
+        if (this.b == null) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        if (this.b.b()) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        if (a != null && this.b.h() && a[0] < 0.0f) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        if (a != null && this.b.i() && a[0] > 0.0f) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        if (a == null) {
+            if (this.b.i() || this.b.h()) {
+                return super.onInterceptTouchEvent(motionEvent);
             }
+            return false;
         }
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (this.v != null) {
-            this.v.a(null);
-        }
+    public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
+        this.c = aVar;
     }
 
-    public void a(ArrayList<String> arrayList) {
-        int size;
-        if (arrayList != null && (size = arrayList.size()) > 0) {
-            this.d.setVisibility(0);
-            if (size > 0 && arrayList.get(0) != null) {
-                this.f.setText(arrayList.get(0));
-                this.f.setVisibility(0);
-            }
-            if (size > 1 && arrayList.get(1) != null) {
-                this.g.setText(arrayList.get(1));
-                this.g.setVisibility(0);
-            }
-            if (size > 2 && arrayList.get(2) != null) {
-                this.h.setText(arrayList.get(2));
-                this.h.setVisibility(0);
-            }
-        }
-    }
-
-    public void b() {
-        if (this.l != null) {
-            this.l.cancel();
-            this.l = null;
-        }
-        if (this.m != null) {
-            this.m.cancel();
-            this.m = null;
-        }
-        e();
-    }
-
-    public boolean c() {
-        return this.b != null && this.b.isShowing();
-    }
-
-    public void d() {
-        this.d.setVisibility(8);
-        this.d.clearCheck();
-        this.f.setVisibility(8);
-        this.g.setVisibility(8);
-        this.h.setVisibility(8);
-        this.f.setChecked(false);
-        this.g.setChecked(false);
-        this.h.setChecked(false);
-    }
-
-    public void e() {
-        if (this.b != null && this.b.isShowing()) {
-            this.b.dismiss();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        if (str == null) {
-            this.n.setVisibility(8);
-            this.n.setText((CharSequence) null);
-            return;
-        }
-        this.n.setVisibility(0);
-        this.n.setText(str);
+    public com.baidu.tbadk.widget.a getSelectedView() {
+        return this.c;
     }
 }

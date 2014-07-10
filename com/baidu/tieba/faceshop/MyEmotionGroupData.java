@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class MyEmotionGroupData implements com.baidu.tbadk.editortool.y, Serializable {
+public class MyEmotionGroupData implements com.baidu.tbadk.editortool.x, Serializable {
     private static final long serialVersionUID = 1;
     protected String groupId;
     protected int id;
@@ -25,7 +25,7 @@ public class MyEmotionGroupData implements com.baidu.tbadk.editortool.y, Seriali
         this.uid = str;
     }
 
-    @Override // com.baidu.tbadk.editortool.y
+    @Override // com.baidu.tbadk.editortool.x
     public String getGroupId() {
         return this.groupId;
     }
@@ -42,7 +42,7 @@ public class MyEmotionGroupData implements com.baidu.tbadk.editortool.y, Seriali
         this.updateTime = j;
     }
 
-    @Override // com.baidu.tbadk.editortool.y
+    @Override // com.baidu.tbadk.editortool.x
     public boolean IsValid() {
         return true;
     }

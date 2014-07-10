@@ -1,9 +1,9 @@
 package com.baidu.tieba.more;
 
 import android.app.AlertDialog;
-import android.text.SpannableString;
-import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.base.c {
+public class w extends com.baidu.adp.base.f {
     private BaseActivity a;
     private p b;
-    private com.baidu.tbadk.editortool.ab c;
+    private com.baidu.tbadk.editortool.aa c;
     private NavigationBar d;
     private AlertDialog e;
     private SettingTextImageView f;
@@ -57,7 +57,7 @@ public class w extends com.baidu.adp.base.c {
             return;
         }
         if (this.c == null) {
-            this.c = new com.baidu.tbadk.editortool.ab(this.a);
+            this.c = new com.baidu.tbadk.editortool.aa(this.a);
         }
         this.f.b();
         b();
@@ -125,7 +125,7 @@ public class w extends com.baidu.adp.base.c {
     }
 
     private void f() {
-        View.OnClickListener g = g();
+        View.OnClickListener h = h();
         this.q = (RelativeLayout) this.a.findViewById(com.baidu.tieba.v.parent);
         this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.r = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -152,15 +152,16 @@ public class w extends com.baidu.adp.base.c {
         a();
         this.f.a();
         b(TbadkApplication.m252getInst().getSkinType());
-        a(g);
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds42);
-        SpannableString spannableString = new SpannableString(this.mContext.getString(com.baidu.tieba.y.close_tb));
-        spannableString.setSpan(new AbsoluteSizeSpan(dimensionPixelSize), 0, 5, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan((dimensionPixelSize * 2) / 3), 5, spannableString.length(), 33);
-        SpannableString spannableString2 = new SpannableString(this.mContext.getString(com.baidu.tieba.y.logout));
-        spannableString2.setSpan(new AbsoluteSizeSpan(dimensionPixelSize), 0, 5, 33);
-        spannableString2.setSpan(new AbsoluteSizeSpan((dimensionPixelSize * 2) / 3), 5, spannableString2.length(), 33);
-        this.e = new AlertDialog.Builder(this.mContext).setItems(new CharSequence[]{spannableString, spannableString2}, new y(this)).create();
+        a(h);
+        g();
+    }
+
+    private void g() {
+        View inflate = this.a.getLayoutInflater().inflate(com.baidu.tieba.w.quit_dialog, (ViewGroup) null);
+        ((LinearLayout) inflate.findViewById(com.baidu.tieba.v.id_close_ll)).setOnClickListener(new y(this));
+        ((LinearLayout) inflate.findViewById(com.baidu.tieba.v.id_quit_ll)).setOnClickListener(new z(this));
+        this.e = new AlertDialog.Builder(this.mContext).create();
+        this.e.setView(inflate, 0, 0, 0, 0);
     }
 
     private void a(View.OnClickListener onClickListener) {
@@ -177,8 +178,8 @@ public class w extends com.baidu.adp.base.c {
         this.p.setOnClickListener(onClickListener);
     }
 
-    private View.OnClickListener g() {
-        return new z(this);
+    private View.OnClickListener h() {
+        return new aa(this);
     }
 
     public void e() {

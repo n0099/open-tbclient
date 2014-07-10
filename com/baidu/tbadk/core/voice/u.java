@@ -1,23 +1,39 @@
 package com.baidu.tbadk.core.voice;
+
+import android.os.Handler;
+import com.baidu.adp.lib.util.StringUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements Runnable {
-    final /* synthetic */ t a;
+public class u implements Runnable {
+    final /* synthetic */ VoiceManager a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.a = tVar;
+    public u(VoiceManager voiceManager, String str, int i) {
+        this.a = voiceManager;
+        this.b = str;
+        this.c = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        VoiceManager voiceManager;
-        VoiceManager voiceManager2;
-        VoiceManager voiceManager3;
-        voiceManager = this.a.a;
-        y yVar = voiceManager.recordView;
-        voiceManager2 = this.a.a;
-        yVar.a(4, voiceManager2.context.getString(com.baidu.tieba.y.voice_error_file_md5));
-        voiceManager3 = this.a.a;
-        voiceManager3.currRecordState = 1;
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        Handler handler4;
+        String str = com.baidu.tbadk.core.voice.a.b.a(ad.c(this.b)).a;
+        handler = this.a.mHandle;
+        if (handler != null) {
+            handler2 = this.a.mHandle;
+            handler2.removeCallbacks(this.a.stopingRecorderRunnable);
+            if (StringUtils.isNull(str)) {
+                handler4 = this.a.mHandle;
+                handler4.post(new v(this));
+                return;
+            }
+            handler3 = this.a.mHandle;
+            handler3.post(new w(this, str, this.c));
+        }
     }
 }

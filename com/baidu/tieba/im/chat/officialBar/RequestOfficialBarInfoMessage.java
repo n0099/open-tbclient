@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryForumDetail.DataReq;
 import protobuf.QueryForumDetail.QueryForumDetailReqIdl;
@@ -10,7 +9,7 @@ public class RequestOfficialBarInfoMessage extends TbSocketMessage {
     private String mForumName;
 
     public RequestOfficialBarInfoMessage(int i, String str) {
-        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_INFO);
+        super(208001);
         this.mForumId = 0;
         this.mForumName = null;
         this.mForumId = i;

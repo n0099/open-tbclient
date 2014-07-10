@@ -1,18 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class bc implements AbsListView.OnScrollListener {
+    final /* synthetic */ az a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bc(az azVar) {
+        this.a = azVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.f();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

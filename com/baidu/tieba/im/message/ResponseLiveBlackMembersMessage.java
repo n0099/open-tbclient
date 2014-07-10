@@ -2,25 +2,20 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import protobuf.QueryOwnerGagList.QueryOwnerGagListResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseLiveBlackMembersMessage extends SocketResponsedMessage {
-    private com.baidu.tieba.im.data.g liveBlackMembersListData;
+    private com.baidu.tieba.im.data.e liveBlackMembersListData;
 
     public ResponseLiveBlackMembersMessage() {
-        super(MessageTypes.CMD_LIVE_BLACK_MEMBERS_LIST);
+        super(107009);
     }
 
-    public com.baidu.tieba.im.data.g getLiveBlackMembersListData() {
+    public com.baidu.tieba.im.data.e getLiveBlackMembersListData() {
         return this.liveBlackMembersListData;
-    }
-
-    public void setLiveBlackMembersListData(com.baidu.tieba.im.data.g gVar) {
-        this.liveBlackMembersListData = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +27,7 @@ public class ResponseLiveBlackMembersMessage extends SocketResponsedMessage {
             setError(queryOwnerGagListResIdl.error.errorno.intValue());
             setErrorString(queryOwnerGagListResIdl.error.usermsg);
             if (getError() == 0 && queryOwnerGagListResIdl.data != null && queryOwnerGagListResIdl.data.userList != null) {
-                this.liveBlackMembersListData = new com.baidu.tieba.im.data.g();
+                this.liveBlackMembersListData = new com.baidu.tieba.im.data.e();
                 this.liveBlackMembersListData.a(queryOwnerGagListResIdl.data.hasMore.intValue());
                 this.liveBlackMembersListData.b(queryOwnerGagListResIdl.data.gagers.intValue());
                 this.liveBlackMembersListData.a(new ArrayList());

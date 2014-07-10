@@ -13,43 +13,43 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.q;
-import com.baidu.tbadk.coreExtra.view.ae;
+import com.baidu.tbadk.coreExtra.view.ag;
 import com.baidu.tieba.im.message.RequestSubscribeLiveGroupMessage;
-import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.im.model.bc;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.d implements x, ae {
+public class a extends com.baidu.tbadk.core.d implements x, ag {
     private MyLiveActivity b;
-    private bd c;
+    private bc c;
     private BdListView d;
     private ProgressBar e;
     private q f;
     private MyLiveNoDataView g;
     private MyLiveListAdapter h;
+    private boolean j;
     private int i = 1;
-    private LiveCardData j = null;
-    private final com.baidu.adp.framework.listener.b k = new b(this, 0);
-    private final CustomMessageListener l = new c(this, 0);
-    private final com.baidu.adp.framework.listener.b m = new d(this, 0);
-    private final com.baidu.adp.framework.listener.b n = new e(this, 0);
+    private LiveCardData k = null;
+    private final com.baidu.adp.framework.listener.b l = new b(this, 0);
+    private final CustomMessageListener m = new c(this, 0);
+    private final com.baidu.adp.framework.listener.b n = new d(this, 0);
+    private final com.baidu.adp.framework.listener.b o = new e(this, 0);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (MyLiveActivity) getActivity();
-        this.i = getArguments().getInt("KeyOfFragmentType", 1);
-        this.c = new bd(this.i);
+        this.i = getArguments().getInt("KeyOfFragmentType", 2);
+        this.c = new bc(this.i);
         this.c.setUniqueId(d());
-        this.c.registerListener(MessageTypes.CMD_QUERY_MYLIVE, this.k);
-        this.c.registerListener(MessageTypes.CMD_QUERY_MYLIVE_LOCAL, this.l);
+        this.c.registerListener(107002, this.l);
+        this.c.registerListener(2001165, this.m);
         if (this.i == 1) {
-            this.c.registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.m);
+            this.c.registerListener(103104, this.n);
         } else if (this.i == 2) {
-            this.c.registerListener(MessageTypes.CMD_SUBSCRIBE_LIVE_GROUP, this.n);
+            this.c.registerListener(107105, this.o);
         }
     }
 
@@ -72,7 +72,7 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        if (this.i == 1 && this.c != null && !this.c.a()) {
+        if (this.i == 2 && this.c != null && !this.c.a()) {
             g();
         }
     }
@@ -91,15 +91,15 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
         this.g.g();
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ae
+    @Override // com.baidu.tbadk.coreExtra.view.ag
     public void a(View view) {
         if (view != null && view.getTag() != null && (view.getTag() instanceof LiveCardData)) {
-            this.j = (LiveCardData) view.getTag();
+            this.k = (LiveCardData) view.getTag();
             if (this.i == 1) {
                 d(y.live_mylive_dismiss_hint);
             } else if (this.i == 2) {
                 RequestSubscribeLiveGroupMessage requestSubscribeLiveGroupMessage = new RequestSubscribeLiveGroupMessage();
-                requestSubscribeLiveGroupMessage.setGroupId(this.j.getGroupId());
+                requestSubscribeLiveGroupMessage.setGroupId(this.k.getGroupId());
                 requestSubscribeLiveGroupMessage.setSubscribe(0);
                 this.e.setVisibility(0);
                 MessageManager.getInstance().sendMessage(requestSubscribeLiveGroupMessage);
@@ -114,12 +114,12 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.k);
         MessageManager.getInstance().unRegisterListener(this.l);
+        MessageManager.getInstance().unRegisterListener(this.m);
         if (this.i == 1) {
-            MessageManager.getInstance().unRegisterListener(this.m);
-        } else if (this.i == 2) {
             MessageManager.getInstance().unRegisterListener(this.n);
+        } else if (this.i == 2) {
+            MessageManager.getInstance().unRegisterListener(this.o);
         }
     }
 
@@ -138,7 +138,7 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
 
     public void g() {
         if (this.d != null) {
-            this.d.d();
+            this.d.e();
         }
     }
 
@@ -155,20 +155,27 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        i();
+    public boolean i() {
+        if (this.h != null) {
+            return (this.h.getCount() <= 1 || !this.h.b()) && (this.h.getCount() <= 0 || this.h.b());
+        }
+        return true;
     }
 
-    private void i() {
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
+        j();
+    }
+
+    private void j() {
         if (this.h.a()) {
             a(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        this.d.c();
+    public void k() {
+        this.d.d();
     }
 
     @Override // com.baidu.tbadk.core.d
@@ -182,24 +189,32 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void l() {
         if (this.g.b()) {
             this.g.a();
         }
+        ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
+        layoutParams.height = -1;
+        this.d.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         this.g.f();
         switch (this.i) {
             case 1:
                 this.g.c();
-                return;
+                break;
             case 2:
                 this.g.d();
-                return;
-            default:
-                return;
+                break;
         }
+        int clickBtnTop = this.g.getClickBtnTop();
+        if (clickBtnTop <= 0) {
+            clickBtnTop = ((View) this.d.getParent()).getMeasuredHeight() / 2;
+        }
+        ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
+        layoutParams.height = clickBtnTop;
+        this.d.setLayoutParams(layoutParams);
     }
 }

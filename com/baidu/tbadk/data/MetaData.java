@@ -1,6 +1,5 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -47,7 +46,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return b.a(this.userId, 0L);
+        return com.baidu.adp.lib.f.b.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -181,7 +180,7 @@ public class MetaData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("MetaData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -218,22 +217,11 @@ public class MetaData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                BdLog.e("MetaData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        BdLog.v("MetaData", "logPrint", "id = " + this.userId);
-        BdLog.v("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        BdLog.v("MetaData", "logPrint", "name = " + this.userName);
-        BdLog.v("MetaData", "logPrint", "name_show = " + this.name_show);
-        BdLog.v("MetaData", "logPrint", "portrait = " + this.portrait);
-        BdLog.v("MetaData", "logPrint", "portraith = " + this.portraith);
-        BdLog.v("MetaData", "logPrint", "level_id = " + String.valueOf(this.level_id));
-    }
-
-    public String toString() {
-        return "MetaData{id='" + this.userId + "', type=" + this.type + ", name='" + this.userName + "', level_id=" + this.level_id + ", is_like=" + this.is_like + ", bawu_type=" + this.bawu_type + ", is_bawu=" + this.is_bawu + ", name_show='" + this.name_show + "', portrait='" + this.portrait + "', portraith='" + this.portraith + "', mIconInfo=" + this.mIconInfo + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
     }
 }

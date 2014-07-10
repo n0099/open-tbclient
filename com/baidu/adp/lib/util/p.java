@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.adp.lib.cache.t;
+import com.baidu.adp.lib.cache.u;
 import java.util.Comparator;
 /* loaded from: classes.dex */
-class p implements Comparator<t<?>> {
+class p implements Comparator<u<?>> {
     private p() {
     }
 
@@ -15,10 +15,10 @@ class p implements Comparator<t<?>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
-    public int compare(t<?> tVar, t<?> tVar2) {
-        if (tVar.c == tVar2.c) {
+    public int compare(u<?> uVar, u<?> uVar2) {
+        if (uVar.c == uVar2.c) {
             return 0;
         }
-        return tVar.c > tVar2.c ? -1 : 1;
+        return uVar.c > uVar2.c ? -1 : 1;
     }
 }

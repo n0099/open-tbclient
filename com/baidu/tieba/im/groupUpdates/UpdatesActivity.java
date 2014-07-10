@@ -12,12 +12,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.core.atomData.v;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
@@ -32,7 +31,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> d;
     private com.baidu.tieba.im.a<Boolean> e;
     private Runnable f;
-    private ab g;
+    private aa g;
     private UpdatesItemData i;
     private p j;
     private boolean h = false;
@@ -44,7 +43,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     }
 
     private static void c() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010013, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008013, new c());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -64,29 +63,29 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
         this.j = new p();
         this.b = new t(this);
         d();
-        this.g = new ab(this);
-        this.g.d(true);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.l);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.l);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.l);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.l);
-        registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.l);
+        this.g = new aa(this);
+        this.g.b(true);
+        registerListener(2001136, this.l);
+        registerListener(2001137, this.l);
+        registerListener(2001134, this.l);
+        registerListener(2001133, this.l);
+        registerListener(2001141, this.l);
         this.b.a(true);
         p.b(this.d);
-        registerListener(MessageTypes.CMD_DELETE_GROUP_MSG, this.k);
+        registerListener(202004, this.k);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
         com.baidu.tbadk.coreExtra.messageCenter.a.a().a(2);
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().h();
+        com.baidu.tbadk.coreExtra.messageCenter.a.a().g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         a = false;
@@ -132,17 +131,20 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null && this.b != null) {
-            if (view.equals(this.b.e())) {
+            if (view.equals(this.b.f())) {
                 finish();
-            } else if (view.equals(this.b.g())) {
-                a(true);
-                this.b.b();
             } else if (view.equals(this.b.h())) {
-                a(false);
+                this.j.b();
+                this.j.a(this.b.b().b());
+                this.b.a(this.j.d());
+                a(true);
                 this.b.c();
+            } else if (view.equals(this.b.i())) {
+                a(false);
+                this.b.d();
                 this.j.b();
                 p.b(this.d);
-            } else if (view.equals(this.b.i())) {
+            } else if (view.equals(this.b.j())) {
                 this.b.a(true);
                 String a2 = this.j.a();
                 if (!TextUtils.isEmpty(a2)) {
@@ -163,7 +165,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
             a(false);
             this.j.b();
             this.b.a(this.j.d());
-            this.b.c();
+            this.b.d();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -176,17 +178,15 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     public void a(UpdatesItemData updatesItemData) {
         if (!UtilHelper.isNetOk()) {
             showToast(y.neterror);
-        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.p.a().e()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.p.a().e()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.q.a().e()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.q.a().e()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
                 this.b.a(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.p.a().e()));
+                requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.q.a().e()));
                 requestDelSystemMessage.setMsgIds(new StringBuilder().append(Long.parseLong(updatesItemData.getNotice_id()) / 100).toString());
-                BdLog.d("del group info request: gid" + updatesItemData.getGroupId() + " msgid:" + updatesItemData.getNotice_id() + " systemGid:" + requestDelSystemMessage.getGroupId());
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             } catch (Exception e) {
                 e.printStackTrace();
-                BdLog.e(e.getMessage());
             }
         }
     }
@@ -195,13 +195,12 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
         if (!UtilHelper.isNetOk()) {
             showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String e = com.baidu.tieba.im.pushNotify.p.a().e();
+            String e = com.baidu.tieba.im.pushNotify.q.a().e();
             if (!TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(e)) {
                 this.b.a(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
                 requestDelSystemMessage.setGroupId(Integer.parseInt(e));
                 requestDelSystemMessage.setMsgIds(str);
-                BdLog.d("del group info request: " + str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
         }
@@ -219,9 +218,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !b()) {
             String groupId = updatesItemData.getGroupId();
-            BdLog.d("go to level gid:" + groupId);
             String updatesType = updatesItemData.getUpdatesType();
-            BdLog.d("updateType:" + updatesType);
             if (!TextUtils.isEmpty(updatesType)) {
                 try {
                     if (updatesType.equals("group_level_up")) {
@@ -229,11 +226,11 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
                             com.baidu.tbadk.core.f.a(this, "update_activity_group_event_click");
-                            bk.a().a(this, new String[]{updatesItemData.getEventLink()});
+                            bq.a().a(this, new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
                             GroupActivityActivity.a(this, com.baidu.adp.lib.f.b.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.f.b.a(updatesItemData.getGroupId(), 0L), 1);
                         } else {
-                            sendMessage(new CustomMessage(2010011, new com.baidu.tbadk.core.atomData.q(this, Long.parseLong(groupId), 0)));
+                            sendMessage(new CustomMessage(2008011, new v(this, Long.parseLong(groupId), 0)));
                         }
                     }
                 } catch (Exception e) {
@@ -258,7 +255,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                 updatesItemData.setSelected(false);
             }
             this.b.a(this.j.d());
-            this.b.d();
+            this.b.e();
         }
     }
 
@@ -284,10 +281,10 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.b.f() != null) {
+        if (this.b.g() != null) {
             g();
-            this.b.f().removeCallbacks(this.f);
-            this.b.f().post(this.f);
+            this.b.g().removeCallbacks(this.f);
+            this.b.g().post(this.f);
         }
     }
 
@@ -308,7 +305,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
         }
     }
 
-    public ab a() {
+    public aa a() {
         return this.g;
     }
 

@@ -4,11 +4,11 @@ import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class x implements Comparator<ImMessageCenterShowItemData> {
-    final /* synthetic */ r a;
+    final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(r rVar) {
-        this.a = rVar;
+    public x(p pVar) {
+        this.a = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

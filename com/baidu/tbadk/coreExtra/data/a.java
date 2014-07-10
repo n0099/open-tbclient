@@ -29,7 +29,7 @@ public class a {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

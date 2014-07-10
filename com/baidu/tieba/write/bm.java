@@ -1,49 +1,33 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements CompoundButton.OnCheckedChangeListener {
+public class bm implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity) {
+    public bm(WriteImageActivity writeImageActivity, String str, int i) {
         this.a = writeImageActivity;
+        this.b = str;
+        this.c = i;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
-                linearLayout2.setVisibility(8);
-                textView2 = this.a.n;
-                textView2.setText(this.a.getString(com.baidu.tieba.y.beautify));
-                return;
-            }
-            radioButton2 = this.a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.a.l;
-                linearLayout.setVisibility(0);
-                textView = this.a.n;
-                textView.setText(this.a.getString(com.baidu.tieba.y.rotate));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        String str;
+        progressBar = this.a.g;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.b;
+            str = this.a.w;
+            if (!str2.equals(str)) {
+                this.a.a(this.b);
+                this.a.c(this.b);
+                this.a.t = this.c;
             }
         }
     }

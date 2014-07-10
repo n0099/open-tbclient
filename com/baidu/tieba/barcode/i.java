@@ -5,10 +5,9 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -31,21 +30,20 @@ public class i extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = x.c(null, TbConfig.IMAGE_RESIZED_FILE);
+            c = z.c(null, TbConfig.IMAGE_RESIZED_FILE);
         } catch (Exception e) {
             e = e;
         }
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tbadk.core.util.g.b(c, com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tbadk.core.util.h.b(c, com.baidu.adp.lib.util.j.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            BdLog.e(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
         return bitmap;

@@ -1,34 +1,49 @@
 package com.baidu.tieba.data;
-
-import android.content.Context;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import com.baidu.tieba.pb.main.PbActivity;
 /* loaded from: classes.dex */
-class ak implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ aj a;
-    private final /* synthetic */ com.baidu.adp.widget.r b;
-    private final /* synthetic */ Context c;
+public class ak {
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar, com.baidu.adp.widget.r rVar, Context context) {
-        this.a = ajVar;
-        this.b = rVar;
-        this.c = context;
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
+        }
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        ai aiVar;
-        ListAdapter adapter;
-        if (aVar != null && aVar.i()) {
-            aiVar = this.a.a;
-            this.b.a(aiVar.a(aVar));
-            if (this.c instanceof PbActivity) {
-                PbActivity pbActivity = (PbActivity) this.c;
-                if (!pbActivity.isFinishing() && (adapter = pbActivity.a().getAdapter()) != null && (adapter instanceof BaseAdapter)) {
-                    ((BaseAdapter) adapter).notifyDataSetChanged();
-                }
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
+    }
+
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
+    }
+
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
+    }
+
+    public void a(com.baidu.tbadk.core.util.aq aqVar) {
+        if (aqVar != null) {
+            if (this.a != 0) {
+                aqVar.a("ctime", String.valueOf(this.a));
+            }
+            if (this.b != 0) {
+                aqVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                aqVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

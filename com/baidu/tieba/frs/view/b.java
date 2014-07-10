@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tieba.frs.bs;
+import com.baidu.tieba.frs.bt;
 import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -26,8 +26,8 @@ public class b {
         this.c = (ImageView) this.a.findViewById(v.divider_line);
     }
 
-    public void a(bs bsVar) {
-        this.b.setAdapter((ListAdapter) bsVar);
+    public void a(bt btVar) {
+        this.b.setAdapter((ListAdapter) btVar);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {

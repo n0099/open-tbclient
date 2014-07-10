@@ -1,19 +1,19 @@
 package com.baidu.tbadk.coreExtra.share.implementation;
 
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.h;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements BdSocialShareSdkDelegate.ShareCallback {
     final /* synthetic */ a a;
-    private f b;
+    private h b;
     private int c;
 
-    public d(a aVar, f fVar, int i) {
+    public d(a aVar, h hVar, int i) {
         this.a = aVar;
         this.b = null;
         this.c = -1;
-        this.b = fVar;
+        this.b = hVar;
         this.c = i;
     }
 

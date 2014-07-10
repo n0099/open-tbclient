@@ -1,24 +1,26 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class q {
-    private static final String a = q.class.getName();
+class q extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ p b;
+    private final /* synthetic */ LinkedList c;
 
-    public String a(String str) {
-        com.baidu.tbadk.coreExtra.data.b a2;
-        if (str != null) {
-            try {
-                com.baidu.tbadk.coreExtra.data.c a3 = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).a(com.baidu.tbadk.core.util.x.a(str, 1));
-                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
-                    String a4 = a2.a();
-                    com.baidu.tbadk.core.voice.a.e.a(str, a4);
-                    return a4;
-                }
-            } catch (Exception e) {
-                BdLog.e(a, "submitVoiceBinary", "error: " + e.getMessage());
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar, LinkedList linkedList) {
+        this.b = pVar;
+        this.c = linkedList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        Iterator it = this.c.iterator();
+        while (it.hasNext()) {
+            com.baidu.tieba.im.db.h.a().a(com.baidu.tieba.im.db.h.c(((ImMessageCenterShowItemData) it.next()).getFriendId()), true);
         }
         return null;
     }

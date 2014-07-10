@@ -1,47 +1,75 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class al extends ClickableSpan {
-    final /* synthetic */ ai a;
-    private String b;
-    private String c;
-    private Context d;
+public class al {
+    private ArrayList<UserData> a = new ArrayList<>();
+    private ArrayList<UserData> b = new ArrayList<>();
+    private com.baidu.tbadk.core.data.k c = new com.baidu.tbadk.core.data.k();
+    private int d = 0;
+    private int e = 0;
 
-    public al(ai aiVar, Context context, String str, String str2) {
-        this.a = aiVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = context;
+    public void a(com.baidu.tbadk.core.data.k kVar) {
+        this.c = kVar;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.d != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text_1));
-            } else {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text));
-            }
+    public com.baidu.tbadk.core.data.k a() {
+        return this.c;
+    }
+
+    public ArrayList<UserData> b() {
+        return this.a;
+    }
+
+    public ArrayList<UserData> c() {
+        return this.b;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.d, this.c, this.b)));
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.b.add(userData2);
+                    }
+                }
+                this.c.a(jSONObject.optJSONObject("page"));
+                this.d = jSONObject.optInt("tafriendnum", 0);
+                this.e = jSONObject.optInt("commonfriendnum", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

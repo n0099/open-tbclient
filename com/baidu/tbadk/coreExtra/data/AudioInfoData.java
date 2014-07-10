@@ -17,7 +17,7 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.d implements Serial
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -37,7 +37,7 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.d implements Serial
                     this.voiceId = optJSONObject2.optString("voice_md5", null);
                 }
             } catch (Exception e) {
-                BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

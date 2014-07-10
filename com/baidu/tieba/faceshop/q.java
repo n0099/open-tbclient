@@ -1,10 +1,11 @@
 package com.baidu.tieba.faceshop;
 
 import android.view.View;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
+class q implements AdapterView.OnItemClickListener {
     final /* synthetic */ EmotionManageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,39 +13,47 @@ class q implements View.OnClickListener {
         this.a = emotionManageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         boolean z;
-        u uVar;
         List list;
-        textView = this.a.h;
-        if (view != textView) {
-            textView2 = this.a.i;
-            if (view != textView2) {
-                textView3 = this.a.m;
-                if (view == textView3) {
-                    FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
-                    this.a.e();
-                    this.a.a(true);
+        w wVar;
+        List<u> list2;
+        List list3;
+        List list4;
+        List list5;
+        z = this.a.p;
+        if (z) {
+            list = this.a.a;
+            if (list.get(i) != null && (wVar = (w) view.getTag()) != null) {
+                Object tag = wVar.a.getTag();
+                if (tag instanceof String) {
+                    String str = (String) tag;
+                    list2 = this.a.a;
+                    for (u uVar : list2) {
+                        if (uVar.a.equals(str)) {
+                            list3 = this.a.b;
+                            if (list3.contains(str)) {
+                                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_n);
+                                list4 = this.a.b;
+                                list4.remove(str);
+                                this.a.b(str);
+                                uVar.c = false;
+                            } else {
+                                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_s);
+                                this.a.a(str);
+                                uVar.c = true;
+                            }
+                        }
+                    }
                     return;
                 }
                 return;
             }
-            z = this.a.p;
-            if (!z) {
-                this.a.d();
-            } else {
-                this.a.e();
-                list = this.a.b;
-                list.clear();
-            }
-            uVar = this.a.o;
-            uVar.notifyDataSetChanged();
             return;
         }
-        this.a.g();
+        EmotionManageActivity emotionManageActivity = this.a;
+        list5 = this.a.a;
+        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.n(emotionManageActivity, ((u) list5.get(i)).a, false, "emotion_manage")));
     }
 }

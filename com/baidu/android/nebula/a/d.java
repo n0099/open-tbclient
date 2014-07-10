@@ -1,241 +1,86 @@
 package com.baidu.android.nebula.a;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import com.baidu.tbadk.TbConfig;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Iterator;
+import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class d {
-    private static final String a = d.class.getSimpleName();
-    private static d b;
-    private Context c;
-    private long e;
-    private String f;
-    private String g;
-    private String i;
-    private String j;
-    private String k;
-    private String m;
-    private String p;
-    private String d = "0.0.0.0";
-    private String h = "";
-    private String l = "xcloud";
-    private String n = "app_moblie_txt";
-    private String o = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
+public class d {
+    private int a;
+    private Map b;
+    private Map c;
+    private byte[] d;
 
-    private d(Context context) {
-        b(context);
+    public d() {
+        this.a = -1;
+        this.b = new HashMap();
+        this.c = new HashMap();
     }
 
-    public static synchronized d a(Context context) {
-        d dVar;
-        synchronized (d.class) {
-            if (b == null) {
-                b = new d(context);
-            }
-            dVar = b;
+    public d(String str) {
+        this.a = -1;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        if (str == null) {
+            return;
         }
-        return dVar;
-    }
-
-    private String b(String str) {
-        try {
-            return URLEncoder.encode(str, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            return "";
-        }
-    }
-
-    private String c(Context context) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int i = displayMetrics.widthPixels;
-        int i2 = displayMetrics.heightPixels;
-        int i3 = displayMetrics.densityDpi;
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(i);
-        stringBuffer.append("_");
-        stringBuffer.append(i2);
-        stringBuffer.append("_");
-        stringBuffer.append("android");
-        stringBuffer.append("_");
-        stringBuffer.append(this.d);
-        stringBuffer.append("_");
-        stringBuffer.append(i3);
-        return stringBuffer.toString();
-    }
-
-    private String d() {
-        String str = Build.MODEL;
-        String str2 = Build.VERSION.RELEASE;
-        return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + Build.VERSION.SDK_INT + "_" + Build.MANUFACTURER.replace("_", "-");
-    }
-
-    private String d(Context context) {
-        String str;
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            str = telephonyManager != null ? telephonyManager.getDeviceId() : null;
-        } catch (Exception e) {
-            str = null;
-        }
-        return TextUtils.isEmpty(str) ? "" : str;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    private String e(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1);
-        String string = sharedPreferences.getString("xboss_appid", "000000");
-        if (!"000000".equals(string)) {
-            return string;
-        }
-        InputStream resourceAsStream = d.class.getResourceAsStream("/appidconfig.ini");
-        if (resourceAsStream != null) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream));
-            try {
-                string = bufferedReader.readLine();
-                if (bufferedReader != null) {
+        String[] split = str.split(IOUtils.LINE_SEPARATOR_WINDOWS);
+        if (split.length >= 2) {
+            String[] split2 = split[0].split(" ");
+            if (split2.length >= 2) {
+                this.a = b.a(split2[0]);
+                String str2 = split2[1];
+                if (str2 != null) {
+                    this.b.put("URI", str2);
+                    int indexOf = str2.indexOf("?");
                     try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
+                        this.c = new HashMap();
+                        if (indexOf != -1) {
+                            String[] split3 = str2.substring(indexOf + 1).split("&");
+                            for (String str3 : split3) {
+                                String[] split4 = str3.split("=");
+                                if (split4.length >= 2) {
+                                    split4[0] = URLDecoder.decode(split4[0], "utf8");
+                                    split4[1] = URLDecoder.decode(split4[1], "utf8");
+                                    this.c.put(split4[0], split4[1]);
+                                }
+                            }
+                        }
+                        for (int i = 1; i < split.length; i++) {
+                            String[] split5 = split[i].split(": ");
+                            if (split5.length >= 2) {
+                                split5[0] = split5[0].trim();
+                                split5[1] = split5[1].trim();
+                                this.b.put(split5[0], split5[1]);
+                            }
+                        }
+                    } catch (Exception e) {
                     }
                 }
-            } catch (IOException e2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e3) {
-                    }
-                }
-            } catch (Throwable th) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e4) {
-                    }
-                }
-                throw th;
             }
         }
-        if (!TextUtils.isEmpty(string)) {
-            sharedPreferences.edit().putString("xboss_appid", string);
-            return string;
-        }
-        String str = "000000";
-        Iterator it = com.baidu.android.moplus.util.a.g(context).iterator();
-        while (true) {
-            String str2 = str;
-            if (!it.hasNext()) {
-                return str2;
-            }
-            String str3 = ((ResolveInfo) it.next()).activityInfo.packageName;
-            try {
-                str = context.createPackageContext(str3, 0).getSharedPreferences(str3 + ".push_sync", 0).getString("xboss_appid", "000000");
-            } catch (PackageManager.NameNotFoundException e5) {
-                str = str2;
-            }
-            if (!"000000".equals(str)) {
-                return str;
-            }
-        }
-    }
-
-    public String a() {
-        return this.i;
     }
 
     public String a(String str) {
-        if (str.indexOf("?") < 0) {
-            str = str + "?";
-        }
-        if (!str.endsWith("&") && !str.endsWith("?")) {
-            str = str + "&";
-        }
-        String b2 = b(this.m);
-        String b3 = b(this.k);
-        String b4 = b(this.j);
-        String b5 = b(this.c.getPackageName());
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(str);
-        stringBuffer.append("cuid=" + b2);
-        stringBuffer.append("&");
-        stringBuffer.append("cua=" + b4);
-        stringBuffer.append("&");
-        stringBuffer.append("cut=" + b3);
-        stringBuffer.append("&");
-        stringBuffer.append("sdfrom=" + b5);
-        stringBuffer.append("&");
-        stringBuffer.append("lcid=miiasdk");
-        return stringBuffer.toString();
+        return (String) this.b.get(str);
     }
 
-    public String a(String str, boolean z) {
-        if (str.indexOf("?") < 0) {
-            str = str + "?";
-        }
-        if (!str.endsWith("&") && !str.endsWith("?")) {
-            str = str + "&";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        String b2 = b(this.m);
-        String b3 = b(this.l);
-        String b4 = b(this.j);
-        String b5 = b(this.k);
-        String b6 = b(this.n);
-        String b7 = b(this.o);
-        stringBuffer.append("cuid@" + b2 + ",");
-        stringBuffer.append("osname@" + b3 + ",");
-        stringBuffer.append("cua@" + b4 + ",");
-        stringBuffer.append("cut@" + b5 + ",");
-        stringBuffer.append("csrc@" + b6 + ",");
-        stringBuffer.append("ctv@" + b7 + ",");
-        String b8 = b(stringBuffer.toString());
-        StringBuffer stringBuffer2 = new StringBuffer();
-        stringBuffer2.append(str);
-        stringBuffer2.append("pkgname=" + b(this.p));
-        stringBuffer2.append("&");
-        stringBuffer2.append("ver=" + b(String.valueOf(this.e)));
-        stringBuffer2.append("&");
-        if (z) {
-            stringBuffer2.append("vfrom=" + b(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK));
-            stringBuffer2.append("&");
-        }
-        stringBuffer2.append("pu=" + b8);
-        return stringBuffer2.toString();
+    public Map a() {
+        return this.c;
     }
 
-    public String b() {
-        return this.h;
+    public void a(byte[] bArr) {
+        this.d = bArr;
     }
 
-    public void b(Context context) {
-        this.c = context.getApplicationContext();
-        PackageInfo b2 = com.baidu.android.systemmonitor.util.f.b(context, context.getPackageName());
-        this.e = b2.versionCode;
-        this.d = b2.versionName;
-        this.p = b2.packageName;
-        this.h = (String) b2.applicationInfo.loadLabel(this.c.getPackageManager());
-        this.f = Build.VERSION.RELEASE;
-        this.g = d(this.c);
-        this.i = e(context);
-        this.j = c(this.c);
-        this.k = d();
-        this.m = j.a(this.c);
-    }
-
-    public String c() {
-        return this.d;
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry entry : this.b.entrySet()) {
+            sb.append(((String) entry.getKey()) + " : " + ((String) entry.getValue()) + IOUtils.LINE_SEPARATOR_UNIX);
+        }
+        if (this.d != null) {
+            sb.append(new String(this.d));
+        }
+        return sb.toString();
     }
 }

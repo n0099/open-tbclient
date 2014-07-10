@@ -1,27 +1,29 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements TextWatcher {
-    final /* synthetic */ bi a;
+public class bk implements View.OnTouchListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bi biVar) {
-        this.a = biVar;
+    public bk(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.t();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
+            case 0:
+                view.getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+            case 1:
+            case 3:
+                view.getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+        }
+        return false;
     }
 }

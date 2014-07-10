@@ -21,7 +21,7 @@ class a extends com.baidu.adp.framework.listener.b {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         k kVar;
         k kVar2;
-        com.baidu.tieba.im.model.k kVar3;
+        com.baidu.tieba.im.model.i iVar;
         kVar = this.a.c;
         kVar.d(false);
         kVar2 = this.a.c;
@@ -44,8 +44,8 @@ class a extends com.baidu.adp.framework.listener.b {
         }
         GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
         if (groupPermData != null) {
-            kVar3 = this.a.d;
-            kVar3.a(groupPermData);
+            iVar = this.a.d;
+            iVar.a(groupPermData);
             this.a.a(groupPermData);
         }
     }

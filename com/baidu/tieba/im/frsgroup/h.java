@@ -1,6 +1,4 @@
 package com.baidu.tieba.im.frsgroup;
-
-import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 class h implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ b a;
@@ -12,25 +10,12 @@ class h implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        com.baidu.tieba.im.model.k kVar;
-        com.baidu.tieba.im.model.k kVar2;
-        int i;
-        BdListView bdListView;
-        kVar = this.a.c;
-        if (!kVar.h() || !z) {
-            kVar2 = this.a.c;
-            if (kVar2.i()) {
-                i = this.a.k;
-                if (i == com.baidu.adp.lib.util.k.a()) {
-                    bdListView = this.a.e;
-                    bdListView.c();
-                    this.a.a(com.baidu.tieba.y.frsgroup_hot_cannot_refresh_tip);
-                    return;
-                }
-            }
+        com.baidu.tieba.im.model.i iVar;
+        iVar = this.a.c;
+        if (iVar.h() && z) {
+            this.a.a(false);
+        } else {
             this.a.i();
-            return;
         }
-        this.a.a(false);
     }
 }

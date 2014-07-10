@@ -2,11 +2,9 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -22,7 +20,7 @@ public class l extends com.baidu.adp.framework.a.j {
     private long a;
 
     public l() {
-        super(MessageTypes.CMD_MESSAGE_SYNC);
+        super(202003);
         this.a = 0L;
     }
 
@@ -38,7 +36,7 @@ public class l extends com.baidu.adp.framework.a.j {
                 TiebaStatic.imNet(socketResponsedMessage);
                 this.a++;
             }
-            b.a().h();
+            b.b().i();
             Iterator<GroupMsgData> it = ((ResponsePullMessage) socketResponsedMessage).getGroupMsg().iterator();
             while (it.hasNext() && (next = it.next()) != null) {
                 b(next);
@@ -66,7 +64,7 @@ public class l extends com.baidu.adp.framework.a.j {
                         groupInfo.setCustomType(5);
                         c(next);
                         break;
-                    case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+                    case 21:
                         groupInfo.setCustomType(7);
                         c(next);
                         continue;
@@ -101,10 +99,10 @@ public class l extends com.baidu.adp.framework.a.j {
                     GroupMsgData groupMsgData2 = (GroupMsgData) hashMap.get(Long.valueOf(j));
                     if (groupMsgData2 == null) {
                         if (i == 1) {
-                            groupMsgData2 = new GroupMsgData(2015003);
+                            groupMsgData2 = new GroupMsgData(2013003);
                             groupMsgData2.getGroupInfo().setCustomType(4);
                         } else {
-                            groupMsgData2 = new GroupMsgData(2015001);
+                            groupMsgData2 = new GroupMsgData(2013001);
                             groupMsgData2.getGroupInfo().setCustomType(2);
                         }
                         hashMap.put(Long.valueOf(j), groupMsgData2);
@@ -131,7 +129,7 @@ public class l extends com.baidu.adp.framework.a.j {
                     ChatMessage next = it.next();
                     j = next.getMsgId() > j2 ? next.getMsgId() : j2;
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.e.a().a(groupId, bv.c(j2));
+                    com.baidu.tbadk.coreExtra.messageCenter.e.a().a(groupId, bw.c(j2));
                     return;
                 }
             }

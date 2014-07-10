@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements Animation.AnimationListener {
+public class l implements Animation.AnimationListener {
     final /* synthetic */ NoNetworkView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

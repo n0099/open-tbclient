@@ -13,8 +13,8 @@ public class g implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.im.model.j jVar;
-        jVar = this.a.o;
-        jVar.b();
+        com.baidu.tieba.im.model.h hVar;
+        hVar = this.a.o;
+        hVar.b();
     }
 }

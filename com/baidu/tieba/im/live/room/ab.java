@@ -2,8 +2,8 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.live.LiveErrorMessage;
+import com.baidu.tbadk.coreExtra.live.LivePublisherSayMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 class ab extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -19,11 +19,20 @@ class ab extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveRoomChatView z;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003163) {
-            BdLog.d("Got CMD_LIVE_ERROR: " + ((LiveErrorMessage) customResponsedMessage).errorPrompt);
-            z = this.a.z();
-            z.d(1);
+        LiveRoomChatView liveRoomChatView;
+        LiveRoomChatView liveRoomChatView2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001170 && (customResponsedMessage instanceof LivePublisherSayMessage) && this.a.x() != null && this.a.x().b != null) {
+            liveRoomChatView = this.a.p;
+            if (liveRoomChatView != null) {
+                LivePublisherSayMessage livePublisherSayMessage = (LivePublisherSayMessage) customResponsedMessage;
+                if (livePublisherSayMessage.getChatMsg() != null && (livePublisherSayMessage.getChatMsg() instanceof ChatMessage)) {
+                    ChatMessage chatMessage = (ChatMessage) livePublisherSayMessage.getChatMsg();
+                    if (com.baidu.adp.lib.f.b.a(chatMessage.getGroupId(), 0) == this.a.x().b.groupId.intValue()) {
+                        liveRoomChatView2 = this.a.p;
+                        liveRoomChatView2.a(chatMessage);
+                    }
+                }
+            }
         }
     }
 }

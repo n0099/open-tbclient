@@ -24,21 +24,21 @@ public class u implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         Button button;
-        boolean X;
+        boolean Y;
         Button button2;
         Button button3;
         if (editable == null || editable.length() <= 0) {
-            button = this.a.E;
+            button = this.a.F;
             button.setEnabled(false);
             return;
         }
-        X = this.a.X();
-        if (X) {
-            button3 = this.a.E;
+        Y = this.a.Y();
+        if (Y) {
+            button3 = this.a.F;
             button3.setEnabled(true);
             return;
         }
-        button2 = this.a.E;
+        button2 = this.a.F;
         button2.setEnabled(false);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.os.Handler;
-import com.baidu.tieba.im.model.cb;
+import com.baidu.tieba.im.model.ca;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -25,15 +25,15 @@ public class h extends com.baidu.tbadk.coreExtra.c.c {
             return;
         }
         x = this.a.x();
-        if (x.U().getVisibility() != 4) {
+        if (x.V().getVisibility() != 4) {
             return;
         }
         x2 = this.a.x();
-        x2.U().setVisibility(0);
+        x2.V().setVisibility(0);
         x3 = this.a.x();
-        x3.U().a(30000L, 1000L);
+        x3.V().a(30000L, 1000L);
         x4 = this.a.x();
-        x4.U().a();
+        x4.V().a();
         z = this.a.t;
         if (z) {
             this.a.showToast(this.a.getString(y.snap_group_chat_silence_warning), false);
@@ -44,16 +44,16 @@ public class h extends com.baidu.tbadk.coreExtra.c.c {
     public void c() {
         SnapGroupChatView x;
         com.baidu.tieba.im.chat.g gVar;
-        cb cbVar;
+        ca caVar;
         int i;
         Handler handler;
         x = this.a.x();
-        x.U().setNoticeText(this.a.getString(y.snap_group_chat_kick_out_by_silence));
+        x.V().setNoticeText(this.a.getString(y.snap_group_chat_kick_out_by_silence));
         gVar = this.a.d;
-        gVar.Q();
-        cbVar = this.a.m;
+        gVar.R();
+        caVar = this.a.m;
         i = this.a.p;
-        cbVar.a(i, false, 1);
+        caVar.a(i, false, 1);
         handler = this.a.v;
         handler.postDelayed(new i(this), 3000L);
     }

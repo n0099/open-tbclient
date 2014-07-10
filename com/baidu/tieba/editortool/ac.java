@@ -1,20 +1,25 @@
 package com.baidu.tieba.editortool;
 
+import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
+public class ac implements View.OnTouchListener {
     final /* synthetic */ PbEditorToolView a;
-    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.x xVar) {
+    public ac(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.w wVar) {
         this.a = pbEditorToolView;
-        this.b = xVar;
+        this.b = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.b.a(10, null);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.c.requestFocus();
+            this.b.a(12, null);
+        }
+        return false;
     }
 }

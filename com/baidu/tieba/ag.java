@@ -38,7 +38,7 @@ class ag implements View.OnClickListener {
                     drawable2 = context3.getResources().getDrawable(u.btn_dailog_choose_n);
                 }
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                textView2 = this.a.n;
+                textView2 = this.a.m;
                 textView2.setCompoundDrawables(drawable2, null, null, null);
                 this.a.d = false;
                 this.a.e = false;
@@ -52,7 +52,7 @@ class ag implements View.OnClickListener {
                 drawable = context.getResources().getDrawable(u.btn_dailog_choose_s);
             }
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView = this.a.n;
+            textView = this.a.m;
             textView.setCompoundDrawables(drawable, null, null, null);
             this.a.d = true;
             this.a.e = true;

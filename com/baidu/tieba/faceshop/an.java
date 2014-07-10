@@ -1,126 +1,149 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.b {
-    private boolean a;
-    private int b;
-    private String c;
-    private String d;
-    private String f;
-    private FacePackageDetailData h;
-    private int j;
-    private int k;
-    private float l;
-    private String e = null;
-    private BaseActivity.LoadDataCallBack m = null;
-    private ao i = null;
-    private GsonBuilder g = new GsonBuilder();
+public class an extends BdAsyncTask<Object, String, FacePackageDetailData> {
+    final /* synthetic */ am a;
+    private com.baidu.tbadk.core.util.aq b;
+    private volatile boolean c;
 
-    public an() {
-        this.j = 0;
-        this.k = 0;
-        Context e = com.baidu.tieba.ai.c().e();
-        this.j = com.baidu.adp.lib.util.k.b(e);
-        this.k = com.baidu.adp.lib.util.k.c(e);
-        this.l = e.getResources().getDisplayMetrics().density;
+    private an(am amVar) {
+        this.a = amVar;
+        this.c = false;
     }
 
-    public FacePackageDetailData a() {
-        return this.h;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ an(am amVar, an anVar) {
+        this(amVar);
     }
 
-    public void a(String str) {
-        this.e = str;
-    }
-
-    public String b() {
-        return this.e;
-    }
-
-    public void a(boolean z) {
-        this.a = z;
-    }
-
-    public boolean c() {
-        return this.a;
-    }
-
-    public int d() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public String e() {
-        return this.d;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public void d(String str) {
-        this.f = str;
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public void g() {
-        if (this.i == null) {
-            this.i = new ao(this, null);
-            this.i.setPriority(3);
-            this.i.execute(new Object[0]);
-        }
-    }
-
-    public void a(FacePackageData facePackageData) {
-        if (facePackageData != null) {
-            int i = facePackageData.buyStatus;
-            int i2 = facePackageData.canDownload;
-            int i3 = facePackageData.downloading;
-            int i4 = facePackageData.downloaded;
-            if (i3 == 1) {
-                this.b = 5;
-            } else if (i4 == 1) {
-                this.b = 1;
-            } else if (i == 2) {
-                this.b = 6;
-            } else if (i == 1) {
-                if (i2 == 1) {
-                    this.b = 2;
-                }
-            } else if (i == 0) {
-                if (i2 == 1) {
-                    this.b = 3;
-                } else {
-                    this.b = 4;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public FacePackageDetailData doInBackground(Object... objArr) {
+        FacePackageDetailData facePackageDetailData;
+        Exception e;
+        String str;
+        String str2;
+        int i;
+        int i2;
+        float f;
+        String str3;
+        String str4;
+        GsonBuilder gsonBuilder;
+        String str5;
+        try {
+            str = this.a.d;
+            if (str != null) {
+                str2 = this.a.d;
+                if (str2.length() > 0 && !this.c) {
+                    com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
+                    if (B != null) {
+                        StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
+                        str5 = this.a.d;
+                        String a = B.a(sb.append(str5).toString());
+                        if (!com.baidu.tbadk.core.util.bm.c(a)) {
+                            publishProgress(a);
+                        }
+                    }
+                    this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getfacelist");
+                    com.baidu.tbadk.core.util.aq aqVar = this.b;
+                    i = this.a.j;
+                    aqVar.a("scr_w", String.valueOf(i));
+                    com.baidu.tbadk.core.util.aq aqVar2 = this.b;
+                    i2 = this.a.k;
+                    aqVar2.a("scr_h", String.valueOf(i2));
+                    com.baidu.tbadk.core.util.aq aqVar3 = this.b;
+                    f = this.a.l;
+                    aqVar3.a("scr_dip", String.valueOf(f));
+                    com.baidu.tbadk.core.util.aq aqVar4 = this.b;
+                    str3 = this.a.d;
+                    aqVar4.a("pid", str3);
+                    com.baidu.tbadk.core.util.aq aqVar5 = this.b;
+                    str4 = this.a.c;
+                    aqVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
+                    String i3 = this.b.i();
+                    gsonBuilder = this.a.g;
+                    facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(i3, (Class<Object>) FacePackageDetailData.class);
+                    if (facePackageDetailData != null) {
+                        try {
+                            if (facePackageDetailData.facePackage != null) {
+                                a(i3);
+                                return facePackageDetailData;
+                            }
+                            return facePackageDetailData;
+                        } catch (Exception e2) {
+                            e = e2;
+                            BdLog.detailException(e);
+                            return facePackageDetailData;
+                        }
+                    }
+                    return facePackageDetailData;
                 }
             }
+            return null;
+        } catch (Exception e3) {
+            facePackageDetailData = null;
+            e = e3;
         }
     }
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        if (this.i != null) {
-            this.i.cancel();
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(FacePackageDetailData facePackageDetailData) {
+        BaseActivity.LoadDataCallBack loadDataCallBack;
+        super.onPostExecute(facePackageDetailData);
+        this.a.i = null;
+        if (facePackageDetailData != null) {
+            this.a.h = facePackageDetailData;
         }
-        return true;
+        loadDataCallBack = this.a.m;
+        loadDataCallBack.callback(facePackageDetailData, false);
     }
 
-    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.m = loadDataCallBack;
+    private void a(String str) {
+        String str2;
+        com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
+        if (B != null) {
+            StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
+            str2 = this.a.d;
+            B.a(sb.append(str2).toString(), str, 604800000L);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(String... strArr) {
+        GsonBuilder gsonBuilder;
+        BaseActivity.LoadDataCallBack loadDataCallBack;
+        String str = strArr[0];
+        gsonBuilder = this.a.g;
+        FacePackageDetailData facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(str, (Class<Object>) FacePackageDetailData.class);
+        this.a.h = facePackageDetailData;
+        loadDataCallBack = this.a.m;
+        loadDataCallBack.callback(facePackageDetailData, true);
+        super.onProgressUpdate(strArr);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.c = true;
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
+        }
+        this.a.i = null;
     }
 }

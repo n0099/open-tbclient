@@ -3,11 +3,13 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class au extends com.baidu.tbadk.core.frameworkData.a {
-    public au(Context context, String str, String str2, String str3, boolean z) {
+    public static String a = "from_page";
+    public static String b = "from_account";
+    public static String c = "form_logo";
+    public static String d = "from_hao123";
+
+    public au(Context context, String str) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.POST_DESC, str3);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, z);
+        getIntent().putExtra(a, str);
     }
 }

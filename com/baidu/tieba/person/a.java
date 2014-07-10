@@ -1,48 +1,49 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ForumData;
+import android.widget.ImageView;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
-    final /* synthetic */ EditBarActivity a;
+public class a extends HttpMessageListener {
+    final /* synthetic */ BasePersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(BasePersonInfoActivity basePersonInfoActivity, int i) {
+        super(i);
+        this.a = basePersonInfoActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        int[] iArr;
         int i;
+        ImageView imageView;
+        int[] iArr2;
         int i2;
-        g gVar;
-        g gVar2;
+        int[] iArr3;
         int i3;
-        f fVar;
-        f fVar2;
-        f fVar3;
-        f fVar4;
-        this.a.l = ((Integer) view.getTag()).intValue();
-        i = this.a.l;
-        if (i >= 0) {
-            i2 = this.a.l;
-            gVar = this.a.i;
-            if (i2 < gVar.getCount()) {
-                gVar2 = this.a.i;
-                i3 = this.a.l;
-                ForumData forumData = (ForumData) gVar2.getItem(i3);
-                fVar = this.a.n;
-                if (fVar != null) {
-                    fVar4 = this.a.n;
-                    fVar4.cancel();
-                }
-                this.a.n = new f(this.a, null);
-                fVar2 = this.a.n;
-                fVar2.setPriority(2);
-                fVar3 = this.a.n;
-                fVar3.execute(forumData);
+        if (httpResponsedMessage.isSuccess()) {
+            if (httpResponsedMessage.getError() == 0) {
+                int s = this.a.s();
+                iArr = BasePersonInfoActivity.m;
+                i = this.a.f;
+                com.baidu.tbadk.core.account.o.a(s, iArr[i]);
+                imageView = this.a.p;
+                iArr2 = BasePersonInfoActivity.k;
+                i2 = this.a.f;
+                com.baidu.tbadk.core.util.bk.c(imageView, iArr2[i2]);
+                BasePersonInfoActivity basePersonInfoActivity = this.a;
+                BasePersonInfoActivity basePersonInfoActivity2 = this.a;
+                iArr3 = BasePersonInfoActivity.l;
+                i3 = this.a.f;
+                basePersonInfoActivity.a(basePersonInfoActivity2.getString(iArr3[i3]), com.baidu.tieba.u.icon_toast_info);
+                return;
             }
+            this.a.a(httpResponsedMessage.getErrorString());
         }
     }
 }

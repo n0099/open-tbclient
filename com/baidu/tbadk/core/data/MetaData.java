@@ -1,15 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.data.IconData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements af, com.baidu.tbadk.core.view.p {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements ai, bg, com.baidu.tbadk.core.view.p {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getImageUrl() {
         LinkedList<IconData> iconInfo = getIconInfo();
         LinkedList<IconData> tShowInfo = getTShowInfo();
@@ -26,7 +28,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements af, com.b
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
@@ -43,18 +45,28 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements af, com.b
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ai
     public boolean isSupportImageSize() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
-    public LinkedList<ab> getImagesWithEmotions() {
+    @Override // com.baidu.tbadk.core.util.ai
+    public LinkedList<ad> getImagesWithEmotions() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getForumPhotoUrl() {
         return null;
+    }
+
+    @Override // com.baidu.tbadk.core.util.bg
+    public LinkedList<bf> getImages() {
+        LinkedList<bf> linkedList = new LinkedList<>();
+        bf bfVar = new bf();
+        bfVar.a = getPortrait();
+        bfVar.d = 12;
+        linkedList.add(bfVar);
+        return linkedList;
     }
 }

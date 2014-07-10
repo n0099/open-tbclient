@@ -1,7 +1,7 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
-import com.baidu.tbadk.core.util.g;
+import com.baidu.tbadk.core.util.h;
 /* loaded from: classes.dex */
 public class f extends b {
     private float a;
@@ -24,8 +24,8 @@ public class f extends b {
             return null;
         }
         if (this.a > 0.0f) {
-            com.baidu.tbadk.imageManager.e.a().c(g.a(bitmap) * 2);
-            return g.a(bitmap, this.a, z);
+            com.baidu.tbadk.imageManager.e.a().c(h.a(bitmap) * 2);
+            return h.a(bitmap, this.a, z);
         }
         return bitmap;
     }

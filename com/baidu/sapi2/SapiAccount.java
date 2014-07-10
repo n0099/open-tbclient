@@ -225,7 +225,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public ReloginCredentials getReloginCredentials() {
-        return d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).b(this.uid);
+        return d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).c(this.uid);
     }
 
     /* loaded from: classes.dex */

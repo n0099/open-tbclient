@@ -17,13 +17,13 @@ class j extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 2:
-                b.a(b.a()).removeMessages(2);
-                b.a().g();
+                b.a(b.b()).removeMessages(2);
+                b.b().h();
                 return;
             case 3:
-                b.a(b.a()).removeMessages(3);
-                b.a().g();
-                b.a(b.a()).sendMessageDelayed(b.a(b.a()).obtainMessage(3), b.h(b.a()));
+                b.a(b.b()).removeMessages(3);
+                b.b().h();
+                b.a(b.b()).sendMessageDelayed(b.a(b.b()).obtainMessage(3), b.h(b.b()));
                 return;
             default:
                 return;

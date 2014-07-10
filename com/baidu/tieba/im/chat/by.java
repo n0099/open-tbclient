@@ -1,23 +1,28 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class by implements View.OnClickListener {
+public class by implements View.OnLongClickListener {
     final /* synthetic */ MsgActivityView a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(MsgActivityView msgActivityView, String str, String str2) {
+    public by(MsgActivityView msgActivityView) {
         this.a = msgActivityView;
-        this.b = str;
-        this.c = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.a.getContext(), this.b, this.c)));
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.adp.lib.b.b bVar;
+        com.baidu.adp.lib.b.b bVar2;
+        int i;
+        bVar = this.a.v;
+        if (bVar != null) {
+            bVar2 = this.a.v;
+            i = this.a.t;
+            bVar2.b(view, 8, i, 0L);
+            return true;
+        }
+        return true;
     }
 }

@@ -1,236 +1,208 @@
 package com.baidu.sapi2.utils;
 
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Xml;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.shell.response.SapiAccountResponse;
-import com.baidu.sapi2.shell.response.SocialResponse;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.TbConfig;
-import java.io.ByteArrayInputStream;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.xmlpull.v1.XmlPullParser;
+import com.baidu.android.common.security.MD5Util;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class b {
-    public static SapiAccountResponse a(String str) {
-        SapiAccountResponse sapiAccountResponse;
-        int eventType;
-        SapiAccountResponse sapiAccountResponse2;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        XmlPullParser newPullParser = Xml.newPullParser();
-        try {
-            newPullParser.setInput(new ByteArrayInputStream(str.getBytes()), "UTF-8");
-            sapiAccountResponse = null;
-        } catch (Exception e) {
-            L.e(e);
-            sapiAccountResponse = null;
-        }
-        for (eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.next()) {
-            switch (eventType) {
-                case 2:
-                    String name = newPullParser.getName();
-                    if (name.equalsIgnoreCase("data")) {
-                        if (sapiAccountResponse == null) {
-                            sapiAccountResponse2 = new SapiAccountResponse();
-                            continue;
-                            sapiAccountResponse = sapiAccountResponse2;
-                        }
-                    } else {
-                        if (sapiAccountResponse == null && name.equalsIgnoreCase("error_code")) {
-                            SapiAccountResponse sapiAccountResponse3 = new SapiAccountResponse();
-                            sapiAccountResponse3.errorCode = Integer.parseInt(newPullParser.nextText());
-                            sapiAccountResponse2 = sapiAccountResponse3;
-                            continue;
-                        } else if (sapiAccountResponse == null && name.equalsIgnoreCase("error_description")) {
-                            SapiAccountResponse sapiAccountResponse4 = new SapiAccountResponse();
-                            sapiAccountResponse4.errorMsg = newPullParser.nextText();
-                            sapiAccountResponse2 = sapiAccountResponse4;
-                            continue;
-                        } else if (sapiAccountResponse != null) {
-                            if (name.equalsIgnoreCase("errno")) {
-                                sapiAccountResponse.errorCode = Integer.parseInt(newPullParser.nextText());
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("uname")) {
-                                sapiAccountResponse.username = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("errmsg")) {
-                                sapiAccountResponse.errorMsg = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_BDUSS)) {
-                                sapiAccountResponse.bduss = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_PTOKEN)) {
-                                sapiAccountResponse.ptoken = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_STOKEN)) {
-                                sapiAccountResponse.stoken = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_DISPLAYNAME)) {
-                                sapiAccountResponse.displayname = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_UID)) {
-                                sapiAccountResponse.uid = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("authsid")) {
-                                sapiAccountResponse.authSid = newPullParser.nextText();
-                                sapiAccountResponse.newReg = !TextUtils.isEmpty(sapiAccountResponse.authSid);
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("account")) {
-                                sapiAccountResponse.reloginCredentials.account = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("accounttype")) {
-                                sapiAccountResponse.reloginCredentials.accountType = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("password")) {
-                                sapiAccountResponse.reloginCredentials.password = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("ubi")) {
-                                sapiAccountResponse.reloginCredentials.ubi = newPullParser.nextText();
-                                sapiAccountResponse2 = sapiAccountResponse;
-                                continue;
-                            }
-                        }
-                        sapiAccountResponse = sapiAccountResponse2;
-                    }
-                    L.e(e);
-                    sapiAccountResponse = null;
-                    return sapiAccountResponse;
-                case 3:
-                    sapiAccountResponse2 = sapiAccountResponse;
-                    continue;
-                    sapiAccountResponse = sapiAccountResponse2;
+    public static void a(Context context) {
+        if (context != null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream("/system/etc/hosts");
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str = new String(bArr);
+                if (!TextUtils.isEmpty(str) && str.contains("passport.baidu.com")) {
+                    com.baidu.sapi2.d.a(context).b(true);
+                } else {
+                    com.baidu.sapi2.d.a(context).b(false);
+                }
+            } catch (Throwable th) {
+                com.baidu.sapi2.d.a(context).b(false);
+                L.e(th);
             }
-            sapiAccountResponse2 = sapiAccountResponse;
-            continue;
-            sapiAccountResponse = sapiAccountResponse2;
         }
-        return sapiAccountResponse;
     }
 
-    public static SocialResponse b(String str) {
-        SocialResponse socialResponse;
-        int eventType;
-        SocialResponse socialResponse2;
-        if (TextUtils.isEmpty(str)) {
+    public static String b(Context context) {
+        if (context == null) {
             return null;
         }
-        XmlPullParser newPullParser = Xml.newPullParser();
-        try {
-            newPullParser.setInput(new ByteArrayInputStream(str.getBytes()), "UTF-8");
-            socialResponse = null;
-        } catch (Exception e) {
-            L.e(e);
-            socialResponse = null;
-        }
-        for (eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.next()) {
-            switch (eventType) {
-                case 2:
-                    String name = newPullParser.getName();
-                    if (name.equalsIgnoreCase("data")) {
-                        if (socialResponse == null) {
-                            socialResponse2 = new SocialResponse();
-                            continue;
-                            socialResponse = socialResponse2;
-                        }
-                    } else {
-                        if (socialResponse == null && name.equalsIgnoreCase("error_code")) {
-                            SocialResponse socialResponse3 = new SocialResponse();
-                            socialResponse3.errorCode = Integer.parseInt(newPullParser.nextText());
-                            socialResponse2 = socialResponse3;
-                            continue;
-                        } else if (socialResponse == null && name.equalsIgnoreCase("error_description")) {
-                            SocialResponse socialResponse4 = new SocialResponse();
-                            socialResponse4.errorMsg = newPullParser.nextText();
-                            socialResponse2 = socialResponse4;
-                            continue;
-                        } else if (socialResponse != null) {
-                            if (name.equalsIgnoreCase("error_code")) {
-                                socialResponse.errorCode = Integer.parseInt(newPullParser.nextText());
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("error_description")) {
-                                socialResponse.errorMsg = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("is_binded")) {
-                                socialResponse.isBinded = newPullParser.nextText().equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("display_name")) {
-                                socialResponse.displayname = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("passport_uname")) {
-                                socialResponse.username = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("bduid")) {
-                                socialResponse.uid = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_BDUSS)) {
-                                socialResponse.bduss = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_PTOKEN)) {
-                                socialResponse.ptoken = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("os_username")) {
-                                socialResponse.socialUname = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("os_headurl")) {
-                                socialResponse.socialPortraitUrl = newPullParser.nextText();
-                                socialResponse2 = socialResponse;
-                                continue;
-                            } else if (name.equalsIgnoreCase("os_type")) {
-                                socialResponse.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
-                                socialResponse2 = socialResponse;
-                                continue;
-                            }
-                        }
-                        socialResponse = socialResponse2;
-                    }
-                    L.e(e);
-                    socialResponse = null;
-                    return socialResponse;
-                case 3:
-                    socialResponse2 = socialResponse;
-                    continue;
-                    socialResponse = socialResponse2;
-            }
-            socialResponse2 = socialResponse;
-            continue;
-            socialResponse = socialResponse2;
-        }
-        return socialResponse;
+        return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 
-    public static String a(String str, String str2) {
-        String str3 = "";
-        Pattern compile = Pattern.compile(str);
-        if (!TextUtils.isEmpty(str2)) {
-            Matcher matcher = compile.matcher(str2);
-            while (matcher.find()) {
-                str3 = matcher.group();
+    public static String c(Context context) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+            return TextUtils.isEmpty(connectionInfo.getMacAddress()) ? "" : connectionInfo.getMacAddress();
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String a() {
+        try {
+            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String b() {
+        try {
+            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String c() {
+        try {
+            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, "UTF-8");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    public static String d(Context context) {
+        return MD5Util.toMd5((b(context) + c(context)).getBytes(), false).replace(IOUtils.LINE_SEPARATOR_UNIX, "");
+    }
+
+    public static String d() {
+        return "os_version=" + a() + "&brand_name=" + b() + "&brand_model=" + c() + "&os_type=Android";
+    }
+
+    /* loaded from: classes.dex */
+    public class a {
+        private static final String a = "MD5";
+        private static final String b = "AES";
+        private static final String c = "UTF-8";
+        private static final int d = 16;
+        private static final int e = 16;
+
+        private static byte[] b(String str) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(a);
+                messageDigest.update(str.getBytes());
+                return messageDigest.digest();
+            } catch (NoSuchAlgorithmException e2) {
+                L.e(e2);
+                return null;
             }
         }
-        return str3;
+
+        public static String a(byte[] bArr) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+            }
+            return sb.toString();
+        }
+
+        private static String b(byte[] bArr) {
+            int i;
+            StringBuilder sb = new StringBuilder();
+            int length = bArr.length * 8;
+            byte b2 = 0;
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 6;
+            int i5 = 0;
+            do {
+                if (i5 > 0 && i4 > 0) {
+                    b2 = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> (8 - i4)))) & 63);
+                    i5 = 8 - i4;
+                    i4 = 6 - i5;
+                } else if (i5 == 0) {
+                    b2 = (byte) ((bArr[i3] & 255) >> (8 - i4));
+                    i5 = 2;
+                    i4 = 4;
+                } else if (i4 == 0) {
+                    b2 = (byte) (bArr[i3] & 63);
+                    i4 = 6;
+                    i5 = 0;
+                }
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
+                i2 += 6;
+                i3 = i2 / 8;
+                i = length - i2;
+            } while (i >= 6);
+            if (i > 0) {
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
+            }
+            int i6 = length % 3;
+            for (int i7 = 0; i7 < i6; i7++) {
+                sb.append("=");
+            }
+            return sb.toString();
+        }
+
+        public static String a(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                String b2 = b(str.getBytes(c));
+                return a(b2 + "." + a(b(b2 + e.s)), e.s);
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        public static String a(String str, String str2) {
+            try {
+                String a2 = a(b(str2.trim()));
+                String substring = a2.substring(0, 16);
+                String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
+                Cipher cipher = Cipher.getInstance(e.t);
+                cipher.init(1, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
+                return b(cipher.doFinal(c(str.getBytes(c))));
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        public static String b(String str, String str2) {
+            try {
+                String a2 = a(b(str2.trim()));
+                String substring = a2.substring(0, 16);
+                String stringBuffer = new StringBuffer(a2.substring(0, 16)).reverse().toString();
+                Cipher cipher = Cipher.getInstance(e.t);
+                cipher.init(2, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
+                return b(cipher.doFinal(c(str.getBytes(c))));
+            } catch (Exception e2) {
+                L.e(e2);
+                return null;
+            }
+        }
+
+        private static byte[] c(byte[] bArr) {
+            if (bArr.length % 16 != 0) {
+                byte[] bArr2 = new byte[((bArr.length / 16) + 1) * 16];
+                System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
+                for (int length = bArr.length; length < bArr2.length; length++) {
+                    bArr2[length] = 0;
+                }
+                return bArr2;
+            }
+            return bArr;
+        }
     }
 }

@@ -1,30 +1,44 @@
 package com.baidu.tieba.person.post;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.aw;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends a {
-    public ReplyLinearLayout g;
-    public TextView h;
-    private View i;
-    private View j;
+public class j implements b {
+    final /* synthetic */ h a;
 
-    public j(View view) {
-        super(view);
-        this.g = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.v.content_container);
-        this.h = (TextView) view.findViewById(com.baidu.tieba.v.original_post_title);
-        this.i = view.findViewById(com.baidu.tieba.v.reply_top_line);
-        this.j = view.findViewById(com.baidu.tieba.v.reply_bottom_line);
-        this.h.setOnClickListener(this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // com.baidu.tieba.person.post.a
-    public void a(int i) {
-        super.a(i);
-        be.f((View) this.h, com.baidu.tieba.s.cp_bg_line_e);
-        be.a(this.h, com.baidu.tieba.s.cp_cont_b, 1);
-        be.f(this.i, com.baidu.tieba.s.cp_bg_line_b);
-        be.f(this.j, com.baidu.tieba.s.cp_bg_line_b);
+    @Override // com.baidu.tieba.person.post.b
+    public void a(View view) {
+        String[] strArr;
+        Activity activity;
+        Activity activity2;
+        Activity activity3;
+        Activity activity4;
+        int id = view.getId();
+        if (id == com.baidu.tieba.v.portrait) {
+            activity4 = this.a.e;
+            activity4.finish();
+        } else if (id == com.baidu.tieba.v.username) {
+            activity3 = this.a.e;
+            activity3.finish();
+        } else if ((id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.original_post_title || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+            if ("0".equals(strArr[2]) || strArr[1] == null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                activity = this.a.e;
+                messageManager.sendMessage(new CustomMessage(2004001, new aw(activity).a(strArr[0], strArr[1], "person_post_reply")));
+                return;
+            }
+            MessageManager messageManager2 = MessageManager.getInstance();
+            activity2 = this.a.e;
+            messageManager2.sendMessage(new CustomMessage(2004001, new aw(activity2).b(strArr[0], strArr[1], "person_post_reply")));
+        }
     }
 }

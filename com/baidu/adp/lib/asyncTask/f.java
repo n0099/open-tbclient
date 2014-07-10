@@ -30,7 +30,7 @@ public class f implements Executor {
     public static final Executor a = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, d, c, new ThreadPoolExecutor.DiscardPolicy());
 
     private f() {
-        com.baidu.adp.lib.util.k.b();
+        com.baidu.adp.lib.util.j.a();
     }
 
     public String toString() {
@@ -54,7 +54,7 @@ public class f implements Executor {
 
     @Override // java.util.concurrent.Executor
     public synchronized void execute(Runnable runnable) {
-        com.baidu.adp.lib.util.k.b();
+        com.baidu.adp.lib.util.j.a();
         if (runnable instanceof k) {
             i iVar = new i(this, (k) runnable);
             if (iVar.k()) {
@@ -62,9 +62,7 @@ public class f implements Executor {
             } else {
                 b(iVar);
                 a((j) null);
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.d(toString());
-                }
+                BdBaseApplication.getInst().isDebugMode();
             }
         }
     }
@@ -243,7 +241,7 @@ public class f implements Executor {
     }
 
     private synchronized void a(LinkedList<j> linkedList, boolean z, int i, String str) {
-        com.baidu.adp.lib.util.k.b();
+        com.baidu.adp.lib.util.j.a();
         Iterator<j> it = linkedList.iterator();
         while (it.hasNext()) {
             j next = it.next();
@@ -258,8 +256,14 @@ public class f implements Executor {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0020, code lost:
+        r1.remove();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        com.baidu.adp.lib.util.k.b();
+        com.baidu.adp.lib.util.j.a();
         Iterator<j> it = this.j.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -267,11 +271,9 @@ public class f implements Executor {
             }
             j next = it.next();
             if (next != null && next.d() == bdAsyncTask) {
-                it.remove();
                 break;
             }
         }
-        BdLog.d(b().toString());
     }
 
     public int a(String str, int i) {

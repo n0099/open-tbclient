@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushNotify.PushNotifyResIdl;
@@ -11,16 +10,12 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     private LinkedList<PushNotifyMessage> mMsgList;
 
     public PushNotifyMessageDecoder() {
-        super(MessageTypes.CMD_PUSH_NOTIFY);
+        super(202006);
         this.mMsgList = null;
     }
 
     public LinkedList<PushNotifyMessage> getMsgList() {
         return this.mMsgList;
-    }
-
-    public void setMsgList(LinkedList<PushNotifyMessage> linkedList) {
-        this.mMsgList = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

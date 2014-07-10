@@ -66,4 +66,25 @@ public class e {
         }
         return this.b;
     }
+
+    public long d() {
+        long longValue;
+        long j = 0;
+        int size = this.b.size();
+        int i = 0;
+        while (i < size) {
+            Long valueAt = this.b.valueAt(i);
+            if (valueAt == null) {
+                longValue = j;
+            } else {
+                longValue = valueAt.longValue();
+                if (longValue <= j) {
+                    longValue = j;
+                }
+            }
+            i++;
+            j = longValue;
+        }
+        return j;
+    }
 }

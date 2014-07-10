@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends com.baidu.tieba.im.b<LinkedList<String>> {
+public class aw extends com.baidu.tieba.im.b<LinkedHashMap<String, String>> {
     final /* synthetic */ w b;
     private final /* synthetic */ String c;
 
@@ -16,7 +16,7 @@ public class aw extends com.baidu.tieba.im.b<LinkedList<String>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
-    public LinkedList<String> a() {
-        return com.baidu.tieba.im.db.n.d().a(this.c, 2, (String) null, 1000);
+    public LinkedHashMap<String, String> a() {
+        return com.baidu.tieba.im.db.o.d().a(this.c, 2, (String) null, 1000);
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateChatroomTopic.DataReq;
 import protobuf.UpdateChatroomTopic.UpdateChatroomTopicReqIdl;
@@ -12,7 +10,7 @@ public class RequestUpdateChatroomTopicMessage extends TbSocketMessage {
     private String mTitle;
 
     public RequestUpdateChatroomTopicMessage() {
-        super(MessageTypes.CMD_UPDATE_CHATROOM_TOPIC);
+        super(106103);
     }
 
     public void setGroupId(int i) {
@@ -50,7 +48,6 @@ public class RequestUpdateChatroomTopicMessage extends TbSocketMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

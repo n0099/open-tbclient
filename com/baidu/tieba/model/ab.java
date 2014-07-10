@@ -1,14 +1,30 @@
 package com.baidu.tieba.model;
-
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ab {
-    public boolean a;
-    public String b;
-    public ArrayList<com.baidu.tbadk.core.data.g> c;
-    final /* synthetic */ v d;
+public class ab extends com.baidu.adp.base.e {
+    private ac a = null;
+    private String b = null;
 
-    public ab(v vVar) {
-        this.d = vVar;
+    public boolean a(String str) {
+        this.b = str;
+        return LoadData();
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+        }
+        this.a = new ac(this, this.b);
+        this.a.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            return true;
+        }
+        return true;
     }
 }

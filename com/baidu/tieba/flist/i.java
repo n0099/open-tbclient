@@ -1,6 +1,5 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
@@ -47,7 +46,6 @@ class i implements com.baidu.adp.widget.ListView.d {
                     } else {
                         this.a.n = Constants.MEDIA_INFO;
                     }
-                    BdLog.d("ForumListActivity", "pull down", "left refresh");
                     new q(this.a, null).execute(new Void[0]);
                 } else if (this.a.c.d.getCurrentItem() == 1) {
                     z3 = this.a.C;
@@ -56,7 +54,6 @@ class i implements com.baidu.adp.widget.ListView.d {
                     } else {
                         this.a.o = Constants.MEDIA_INFO;
                     }
-                    BdLog.d("ForumListActivity", "pull down", "right refresh");
                     new p(this.a, null).execute(new Void[0]);
                 }
             }

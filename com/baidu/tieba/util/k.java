@@ -71,7 +71,7 @@ public class k {
                 databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
                 databaseManager.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TbadkApplication.getCurrentAccount(), Integer.valueOf(i), str});
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "cachData", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashData" + i, new Object[0]);
             }
         }
@@ -83,7 +83,7 @@ public class k {
             try {
                 databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "cachData", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delCachData" + i, new Object[0]);
             }
         }
@@ -94,71 +94,71 @@ public class k {
         String str;
         Exception e;
         Cursor cursor2;
-        Cursor cursor3 = null;
         if (TbadkApplication.getCurrentAccount() == null) {
             return null;
         }
         DatabaseManager databaseManager = new DatabaseManager();
-        try {
-            if (databaseManager != null) {
-                try {
-                    cursor = databaseManager.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
-                    if (cursor != null) {
+        if (databaseManager != null) {
+            try {
+                cursor = databaseManager.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+                if (cursor != null) {
+                    try {
                         try {
                             str = cursor.moveToFirst() ? cursor.getString(2) : null;
+                        } catch (Exception e2) {
+                            str = null;
+                            e = e2;
+                        }
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            e = e3;
+                            BdLog.e(e.getMessage());
+                            TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getCachData" + i, new Object[0]);
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e4) {
+                                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
+                                }
+                            }
+                            return str;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                BdLog.e("DatabaseManager", "getCachData", "error = " + e.getMessage());
-                                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getCachData" + i, new Object[0]);
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                        TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
-                                    }
-                                }
-                                return str;
+                            } catch (Exception e5) {
+                                TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
                             }
-                        } catch (Exception e4) {
-                            str = null;
-                            e = e4;
                         }
-                    } else {
-                        str = null;
+                        throw th;
                     }
-                    cursor2 = null;
-                } catch (Exception e5) {
-                    cursor = null;
+                } else {
                     str = null;
-                    e = e5;
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            cursor3.close();
-                        } catch (Exception e6) {
-                            TiebaStatic.printDBExceptionLog(e6, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
-                        }
-                    }
-                    throw th;
                 }
-            } else {
                 cursor2 = null;
+            } catch (Exception e6) {
+                cursor = null;
                 str = null;
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
             }
-            if (0 != 0) {
-                try {
-                    cursor2.close();
-                } catch (Exception e7) {
-                    TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
-                }
-            }
-            return str;
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            cursor2 = null;
+            str = null;
         }
+        if (0 != 0) {
+            try {
+                cursor2.close();
+            } catch (Exception e7) {
+                TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
+            }
+        }
+        return str;
     }
 
     private static void b(int i, String str) {
@@ -168,7 +168,7 @@ public class k {
             try {
                 databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str});
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "cachData", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delCachData" + i, new Object[0]);
             }
         }
@@ -208,7 +208,7 @@ public class k {
                                     } catch (Exception e) {
                                         e = e;
                                         cursor2 = a2;
-                                        BdLog.e("DatabaseManager", "getAllSearchData", "error = " + e.getMessage());
+                                        BdLog.e(e.getMessage());
                                         TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getAllSearchData", new Object[0]);
                                         if (cursor2 != null) {
                                             try {
@@ -291,7 +291,7 @@ public class k {
                         break;
                 }
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "saveSearchData", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.saveOneSearchData", new Object[0]);
             }
         }
@@ -320,13 +320,13 @@ public class k {
                         return;
                 }
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "delAllSearchData", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delAllSearchData", new Object[0]);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -365,7 +365,7 @@ public class k {
                                 arrayList.add(markData);
                             } catch (Exception e2) {
                                 e = e2;
-                                BdLog.e("DatabaseManager", "getAllMarkData", "error = " + e.getMessage());
+                                BdLog.e(e.getMessage());
                                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getAllMarkData", new Object[0]);
                                 if (cursor != null) {
                                     try {
@@ -374,7 +374,7 @@ public class k {
                                         TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.getAllMarkData close cursor", new Object[0]);
                                     }
                                 }
-                                BdLog.i("DatabaseManager", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+                                BdLog.i(String.valueOf(arrayList.size()));
                                 return arrayList;
                             }
                         } catch (Throwable th2) {
@@ -413,7 +413,7 @@ public class k {
                 TiebaStatic.printDBExceptionLog(e6, "DatabaseManager.getAllMarkData close cursor", new Object[0]);
             }
         }
-        BdLog.i("DatabaseManager", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+        BdLog.i(String.valueOf(arrayList.size()));
         return arrayList;
     }
 
@@ -433,7 +433,7 @@ public class k {
                 Object[] objArr = new Object[10];
                 objArr[0] = TbadkApplication.getCurrentAccount();
                 objArr[1] = Integer.valueOf(TbadkApplication.m252getInst().getMsgFrequency());
-                objArr[2] = Integer.valueOf(TbadkApplication.m252getInst().isMsgFansOn() ? 1 : 0);
+                objArr[2] = Integer.valueOf(TbadkApplication.m252getInst().isMsgZanOn() ? 1 : 0);
                 objArr[3] = Integer.valueOf(TbadkApplication.m252getInst().isMsgReplymeOn() ? 1 : 0);
                 objArr[4] = Integer.valueOf(TbadkApplication.m252getInst().isMsgAtmeOn() ? 1 : 0);
                 objArr[5] = Integer.valueOf(ai.c().r());
@@ -443,14 +443,13 @@ public class k {
                 objArr[9] = TbadkApplication.m252getInst().getNoDisturbEndTime();
                 databaseManager.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time) values(?,?,?,?,?,?,?,?,?,?)", objArr);
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "saveDraftBox", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.saveSettingData", new Object[0]);
             }
         }
     }
 
     public static void n() {
-        BdLog.i("DatabaseManager", "getSetting", TbadkApplication.getCurrentAccountName());
         if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0 || TbadkApplication.getCurrentAccountName() == null) {
             ai.c().b(0);
             return;
@@ -461,26 +460,22 @@ public class k {
                 Cursor a2 = new DatabaseManager().a("select * from setting where account=?", new String[]{TbadkApplication.getCurrentAccount()});
                 if (a2 != null && a2.moveToFirst()) {
                     ai.c().b(a2.getInt(1));
-                    if (a2.getInt(2) == 0) {
+                    ai.c().j(a2.getInt(a2.getColumnIndex("fans_switch")) == 1);
+                    if (a2.getInt(3) == 0) {
+                        ai.c().k(false);
+                    } else {
+                        ai.c().k(true);
+                    }
+                    if (a2.getInt(4) == 0) {
                         ai.c().i(false);
                     } else {
                         ai.c().i(true);
                     }
-                    if (a2.getInt(3) == 0) {
+                    ai.c().a(a2.getInt(5));
+                    if (a2.getInt(6) == 0) {
                         ai.c().l(false);
                     } else {
                         ai.c().l(true);
-                    }
-                    if (a2.getInt(4) == 0) {
-                        ai.c().j(false);
-                    } else {
-                        ai.c().j(true);
-                    }
-                    ai.c().a(a2.getInt(5));
-                    if (a2.getInt(6) == 0) {
-                        ai.c().m(false);
-                    } else {
-                        ai.c().m(true);
                     }
                     if (a2.getInt(7) == 0) {
                         ai.c().g(false);
@@ -501,12 +496,11 @@ public class k {
                     }
                 } else {
                     ai.c().b(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+                    ai.c().k(true);
                     ai.c().i(true);
-                    ai.c().l(true);
-                    ai.c().j(true);
                     ai.c().f(true);
                     ai.c().h(false);
-                    ai.c().m(true);
+                    ai.c().l(true);
                     ai.c().g(false);
                     ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                     ai.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
@@ -519,7 +513,7 @@ public class k {
                     }
                 }
             } catch (Exception e2) {
-                BdLog.e("DatabaseManager", "getDraftBox", "error = " + e2.getMessage());
+                BdLog.e(e2.getMessage());
                 TiebaStatic.printDBExceptionLog(e2, "DatabaseManager.getSettingData", new Object[0]);
                 if (0 != 0) {
                     try {
@@ -551,7 +545,7 @@ public class k {
                 databaseManager.a("delete from account_data where id=?", new Object[]{str});
                 databaseManager.a("delete from setting where account=?", new Object[]{str});
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "deleteAccountAllInfo", e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.deleteAccountAllInfo", new Object[0]);
             }
         }
@@ -564,7 +558,7 @@ public class k {
                 databaseManager.a("delete from cash_data where type=?", (Object[]) new String[]{String.valueOf(i)});
                 return databaseManager.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", (Object[]) new String[]{String.valueOf(i), "", str}).booleanValue();
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "cashHostspot", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashNoAccountData" + i, new Object[0]);
                 return false;
             }
@@ -577,67 +571,67 @@ public class k {
         Exception e;
         String str;
         Cursor cursor2;
-        Cursor cursor3 = null;
         DatabaseManager databaseManager = new DatabaseManager();
-        try {
-            if (databaseManager != null) {
-                try {
-                    cursor = databaseManager.a("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
-                    if (cursor != null) {
+        if (databaseManager != null) {
+            try {
+                cursor = databaseManager.a("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
+                if (cursor != null) {
+                    try {
                         try {
                             str = cursor.moveToFirst() ? cursor.getString(2) : null;
+                        } catch (Exception e2) {
+                            str = null;
+                            e = e2;
+                        }
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            e = e3;
+                            BdLog.e(e.getMessage());
+                            TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getNoAccountData" + i, new Object[0]);
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e4) {
+                                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
+                                }
+                            }
+                            return str;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                BdLog.e("DatabaseManager", "getHotspot", "error = " + e.getMessage());
-                                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getNoAccountData" + i, new Object[0]);
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                        TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-                                    }
-                                }
-                                return str;
+                            } catch (Exception e5) {
+                                TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
                             }
-                        } catch (Exception e4) {
-                            str = null;
-                            e = e4;
                         }
-                    } else {
-                        str = null;
+                        throw th;
                     }
-                    cursor2 = null;
-                } catch (Exception e5) {
-                    cursor = null;
-                    e = e5;
+                } else {
                     str = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            cursor3.close();
-                        } catch (Exception e6) {
-                            TiebaStatic.printDBExceptionLog(e6, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-                        }
-                    }
-                    throw th;
                 }
-            } else {
-                str = null;
                 cursor2 = null;
+            } catch (Exception e6) {
+                cursor = null;
+                e = e6;
+                str = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
             }
-            if (0 != 0) {
-                try {
-                    cursor2.close();
-                } catch (Exception e7) {
-                    TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-                }
-            }
-            return str;
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            str = null;
+            cursor2 = null;
         }
+        if (0 != 0) {
+            try {
+                cursor2.close();
+            } catch (Exception e7) {
+                TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
+            }
+        }
+        return str;
     }
 }

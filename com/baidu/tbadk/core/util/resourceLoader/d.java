@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.util.resourceLoader;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.a.f;
 import com.baidu.adp.lib.cache.s;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.g;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bl;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.h;
+import com.baidu.tbadk.core.util.httpNet.i;
+import com.baidu.tbadk.core.util.y;
 /* loaded from: classes.dex */
 public class d extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
@@ -25,10 +25,10 @@ public class d extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
     public Object a(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (eVar.g) {
-            String f = bg.f(str);
+            String f = bm.f(str);
             String str2 = bVar.f != null ? String.valueOf(f) + bVar.f : f;
             String a = bVar.a(str);
-            synchronized (g.a) {
+            synchronized (h.a) {
                 if (str2 != null) {
                     if (eVar.d == 5) {
                         Bitmap a2 = com.baidu.tbadk.core.a.a.a(a);
@@ -36,17 +36,17 @@ public class d extends a {
                             eVar.e = a2;
                         }
                     } else {
-                        int d = bf.a().d(str2);
+                        int d = bl.a().d(str2);
                         if (d > 0) {
                             com.baidu.tbadk.imageManager.e.a().c(d);
-                            eVar.e = bf.a().b(str2);
+                            eVar.e = bl.a().b(str2);
                             if (eVar.e != null) {
                                 s<String> A = com.baidu.tbadk.core.a.b.a().A();
                                 if (A != null && "gif".equals(A.a(a))) {
                                     eVar.h = true;
                                 }
                                 if (!eVar.h) {
-                                    eVar.h = bf.a().c(str2);
+                                    eVar.h = bl.a().c(str2);
                                 }
                             }
                         }
@@ -88,22 +88,22 @@ public class d extends a {
             return null;
         }
         int i3 = eVar.d;
-        w wVar = new w();
-        wVar.a("url", str);
-        String f2 = bVar.f != null ? String.valueOf(f) + bVar.f : bg.f(str);
-        wVar.a("name", f2);
+        y yVar = new y();
+        yVar.a("url", str);
+        String f2 = bVar.f != null ? String.valueOf(f) + bVar.f : bm.f(str);
+        yVar.a("name", f2);
         if (bVar.b == 0) {
-            i = k.a(bVar.a, 105.0f);
+            i = j.a(bVar.a, 105.0f);
         } else {
             i = bVar.b;
         }
         if (bVar.c == 0) {
-            i2 = k.a(bVar.a, 105.0f);
+            i2 = j.a(bVar.a, 105.0f);
         } else {
             i2 = bVar.c;
         }
-        wVar.a("picW", Integer.valueOf(i));
-        wVar.a("picH", Integer.valueOf(i2));
+        yVar.a("picW", Integer.valueOf(i));
+        yVar.a("picH", Integer.valueOf(i2));
         boolean e = bVar.e();
         if (e) {
             sb = str;
@@ -111,13 +111,13 @@ public class d extends a {
             StringBuilder sb2 = new StringBuilder(100);
             sb2.append(TbConfig.IMAGE_ADDRESS);
             sb2.append("src=");
-            sb2.append(bg.d(str));
+            sb2.append(bm.d(str));
             sb2.append("&width=");
             sb2.append(String.valueOf(i));
             sb2.append("&height=");
             sb2.append(String.valueOf(i2));
             sb2.append("&imgtype=0");
-            sb2.append("&qulity=" + bh.a().d());
+            sb2.append("&qulity=" + bn.a().d());
             sb2.append("&first_gif=1");
             if (bVar.e) {
                 sb2.append("&ispv=1");
@@ -134,8 +134,8 @@ public class d extends a {
             str2 = String.valueOf(sb.substring(0, lastIndexOf)) + ".webp" + sb.substring(lastIndexOf + 4, sb.length());
             z = true;
         }
-        wVar.a("fullUrl", str2);
-        eVar.a = new com.baidu.tbadk.core.util.a.e();
+        yVar.a("fullUrl", str2);
+        eVar.a = new i();
         if (bVar.h != null && !e) {
             int i4 = 0;
             while (true) {
@@ -151,10 +151,10 @@ public class d extends a {
         byte[] a2 = eVar.a.a(str2, !e);
         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         if (!eVar.a.b()) {
-            a(TbErrInfo.PIC_REQUEST_FAIL, bVar, eVar, wVar, e, str2, currentTimeMillis2);
+            a(TbErrInfo.PIC_REQUEST_FAIL, bVar, eVar, yVar, e, str2, currentTimeMillis2);
             return null;
         } else if (a2 == null) {
-            a(TbErrInfo.PIC_NOT_RESULT, bVar, eVar, wVar, e, str2, currentTimeMillis2);
+            a(TbErrInfo.PIC_NOT_RESULT, bVar, eVar, yVar, e, str2, currentTimeMillis2);
             return null;
         } else if (eVar.n) {
             return null;
@@ -164,42 +164,40 @@ public class d extends a {
                 return null;
             }
             com.baidu.tbadk.imageManager.e.a().c(TbConfig.getPbImageSize() + a2.length);
-            eVar.e = g.a(a2);
+            eVar.e = h.a(a2);
             eVar.j = a2;
             if (z && eVar.e == null) {
-                BdLog.e("Webp decoding failed: " + str2);
                 TiebaStatic.imgError(eVar.a.a, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str2);
                 TbadkApplication.m252getInst().incWebpFailureCount();
                 byte[] a4 = eVar.a.a(sb, !e);
                 if (a4 != null && eVar.a.b()) {
-                    eVar.e = g.a(a4);
+                    eVar.e = h.a(a4);
                     eVar.j = a4;
                 }
             }
             if (eVar.e == null) {
-                a(TbErrInfo.PIC_CONVERT_ERR, bVar, eVar, wVar, e, str2, currentTimeMillis2);
+                a(TbErrInfo.PIC_CONVERT_ERR, bVar, eVar, yVar, e, str2, currentTimeMillis2);
                 return null;
             }
-            eVar.h = eVar.a.d || k.a(a2);
+            eVar.h = eVar.a.d || j.a(a2);
             if (eVar.n) {
                 return null;
             }
             if (eVar.e.getWidth() > i || eVar.e.getHeight() > i2) {
-                BdLog.e(getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(eVar.e.getWidth()) + "*" + String.valueOf(eVar.e.getHeight())));
-                com.baidu.tbadk.imageManager.e.a().c(g.a(eVar.e) * 2);
-                eVar.e = g.a(eVar.e, i, i2, true);
+                com.baidu.tbadk.imageManager.e.a().c(h.a(eVar.e) * 2);
+                eVar.e = h.a(eVar.e, i, i2, true);
             }
             if (eVar.n) {
                 return null;
             }
             if (i3 == 4) {
-                com.baidu.tbadk.imageManager.e.a().c(g.a(eVar.e) * 2);
-                eVar.e = g.a(eVar.e, 7.0f, true);
+                com.baidu.tbadk.imageManager.e.a().c(h.a(eVar.e) * 2);
+                eVar.e = h.a(eVar.e, 7.0f, true);
             }
             if (eVar.n) {
                 return null;
             }
-            if (eVar.p && (a = ay.a().a(eVar.e, eVar.p, true, f2)) != null) {
+            if (eVar.p && (a = bc.a().a(eVar.e, eVar.p, true, f2)) != null) {
                 eVar.e = a;
             }
             eVar.i = new com.baidu.adp.widget.a.a(eVar.e, eVar.h, str);
@@ -213,12 +211,12 @@ public class d extends a {
             }
             eVar.k = f2;
             eVar.l = a3;
-            eVar.m = wVar.toString();
+            eVar.m = yVar.toString();
             eVar.f = false;
             return eVar.i;
         }
     }
 
-    private void a(int i, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar, w wVar, boolean z, String str, long j) {
+    private void a(int i, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar, y yVar, boolean z, String str, long j) {
     }
 }

@@ -1,23 +1,17 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bp implements DialogInterface.OnClickListener {
-    private final /* synthetic */ Activity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(Activity activity) {
-        this.a = activity;
+public class bp {
+    public static Date a() {
+        return new Date(System.currentTimeMillis());
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        TbadkApplication.m252getInst().notifyAppEnterBackground();
-        com.baidu.tbadk.core.log.a.b();
-        TbadkApplication.m252getInst().clearHasShowAppForums();
-        this.a.finish();
+    public static long a(Date date, Date date2) {
+        return (date.getTime() - date2.getTime()) / 3600000;
+    }
+
+    public static boolean b(Date date, Date date2) {
+        return date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay();
     }
 }

@@ -7,9 +7,9 @@ import android.os.IBinder;
 /* loaded from: classes.dex */
 public class SyncLoginService extends Service {
     private static String mStatistics = null;
-    private l mSyncTask = null;
+    private n mSyncTask = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new k(this);
+    private Runnable mRunnable = new m(this);
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -30,7 +30,7 @@ public class SyncLoginService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new l(this, null);
+        this.mSyncTask = new n(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 

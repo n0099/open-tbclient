@@ -2,7 +2,6 @@ package com.baidu.tieba.account;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -45,7 +44,7 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
         try {
             Thread.sleep(1000L);
             if (this.d) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2010015, this.b.getID()));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.b.getID()));
             }
             com.baidu.tieba.util.k.h(this.b.getID());
             if (this.b.getID().equals(TbadkApplication.getCurrentAccount())) {
@@ -71,7 +70,7 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
             this.c = 0;
             return null;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            BdLog.detailException(e);
             return null;
         }
     }
@@ -114,8 +113,6 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
                 break;
             case 2:
                 TbadkApplication.m252getInst().onUserChanged();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
                 com.baidu.tbadk.core.b.b.a(this.a, 11, false);
                 break;
         }

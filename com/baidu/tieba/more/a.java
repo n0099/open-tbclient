@@ -18,13 +18,13 @@ class a implements p {
             this.a.finish();
         } else if (i != 1) {
             if (i == 2) {
-                this.a.sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this.a).a("from_about_page")));
+                this.a.sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.w(this.a).a("from_about_page")));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.a().b(SettingTextFunctionIntroView.f, true);
+                com.baidu.tbadk.core.sharedPref.b.a().c(SettingTextFunctionIntroView.f, true);
                 AboutActivity aboutActivity = this.a;
                 String string = this.a.getString(com.baidu.tieba.y.setting_funtion_intro);
                 str = this.a.d;
-                TbWebViewActivity.b(aboutActivity, string, str);
+                TbWebViewActivity.startActivity(aboutActivity, string, str);
             }
         } else {
             this.a.a();

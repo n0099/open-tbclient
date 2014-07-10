@@ -1,66 +1,31 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.MetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class aq {
-    private final ArrayList<MetaData> a = new ArrayList<>();
+    final int a;
+    final String b;
+    final AntiData c;
 
-    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
-        String str;
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < optJSONArray.length()) {
-                    MetaData metaData = new MetaData();
-                    String optString = optJSONArray.optString(i2);
-                    metaData.setUserName(optString);
-                    metaData.setName_show(optString);
-                    if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
-                        metaData.setPortrait(str);
-                    }
-                    this.a.add(metaData);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    public aq(int i, String str, AntiData antiData) {
+        this.a = i;
+        this.b = str;
+        this.c = antiData;
     }
 
-    public void a(String str, HashMap<String, String> hashMap) {
-        try {
-            a(new JSONObject(str), hashMap);
-        } catch (Exception e) {
-            BdLog.e("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
-        }
+    public boolean a() {
+        return this.a != 0;
     }
 
-    public void a(HashMap<String, String> hashMap) {
-        if (hashMap != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.a.size()) {
-                    MetaData metaData = this.a.get(i2);
-                    metaData.setPortrait(hashMap.get(metaData.getUserName()));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
+    public boolean b() {
+        return this.a == 5 || this.a == 6;
     }
 
-    public ArrayList<MetaData> a() {
-        return this.a;
+    public String c() {
+        return this.b;
+    }
+
+    public AntiData d() {
+        return this.c;
     }
 }

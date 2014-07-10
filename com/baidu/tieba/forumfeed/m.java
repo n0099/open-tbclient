@@ -1,23 +1,90 @@
 package com.baidu.tieba.forumfeed;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.t;
 import com.baidu.tieba.v;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements AbsListView.RecyclerListener {
+public class m extends com.baidu.adp.widget.ListView.e {
     final /* synthetic */ j a;
+    private BaseFragmentActivity b;
+    private TextView c = null;
+    private ProgressBar d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private View g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
+    public m(j jVar, BaseFragmentActivity baseFragmentActivity) {
         this.a = jVar;
+        this.b = null;
+        this.b = baseFragmentActivity;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(v.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.d();
+    @Override // com.baidu.adp.widget.ListView.e
+    public View a() {
+        this.f = LayoutInflater.from(this.b).inflate(w.new_pb_list_more, (ViewGroup) null);
+        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin));
+        this.c = (TextView) this.f.findViewById(v.pb_more_text);
+        this.g = this.f.findViewById(v.pb_more_view);
+        this.g.setVisibility(8);
+        this.d = (ProgressBar) this.f.findViewById(v.progress);
+        a(TbadkApplication.m252getInst().getSkinType());
+        this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.f;
+    }
+
+    public void a(int i) {
+        n nVar;
+        this.b.c().a(this.g);
+        nVar = this.a.k;
+        nVar.a(i);
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.e = onClickListener;
+    }
+
+    public void c() {
+        this.f.setVisibility(8);
+    }
+
+    public void d() {
+        this.f.setVisibility(0);
+    }
+
+    public void e() {
+        this.d.setVisibility(0);
+        this.c.setText(this.b.getText(y.loading));
+        this.g.setVisibility(0);
+    }
+
+    public void f() {
+        this.d.setVisibility(8);
+        this.c.setText(y.no_more_to_load);
+    }
+
+    public void g() {
+        this.d.setVisibility(8);
+        this.c.setText(y.load_more);
+    }
+
+    public void h() {
+        this.g.setVisibility(0);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.e
+    public void onClick() {
+        if (this.e != null) {
+            this.e.onClick(this.f);
         }
     }
 }

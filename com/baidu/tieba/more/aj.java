@@ -1,57 +1,23 @@
 package com.baidu.tieba.more;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.base.b {
-    private Context d;
-    private ak a = null;
-    private al b = null;
-    private am c = null;
-    private BaseActivity.LoadDataCallBack e = null;
+class aj extends CustomMessageListener {
+    final /* synthetic */ SystemHelpSettingActivity a;
 
-    public aj(Context context) {
-        this.d = null;
-        this.d = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
+        super(i);
+        this.a = systemHelpSettingActivity;
     }
 
-    public void a() {
-        if (this.a == null) {
-            this.a = new ak(this, null);
-            this.a.execute(new String[0]);
-        }
-    }
-
-    public void b() {
-        if (this.b == null) {
-            this.b = new al(this, null);
-            this.b.execute(new String[0]);
-        }
-    }
-
-    public void c() {
-        if (this.c == null) {
-            this.c = new am(this, null);
-            this.c.execute(new String[0]);
-        }
-    }
-
-    public void a(boolean z) {
-        TbadkApplication.m252getInst().setHeadsetModeOn(z);
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.e = loadDataCallBack;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.a.closeLoadingDialog();
+        this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);
     }
 }

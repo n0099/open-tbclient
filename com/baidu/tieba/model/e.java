@@ -1,43 +1,51 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.b {
-    private RequestUpdateMaskInfoMessage a;
-    private int b = 2;
+public class e extends HttpMessageListener {
+    final /* synthetic */ d a;
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(d dVar, int i) {
+        super(i);
+        this.a = dVar;
     }
 
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        super.cancelMessage();
-        return false;
-    }
-
-    public void a(long j) {
-        this.a = new RequestUpdateMaskInfoMessage();
-        this.a.setIsMask(1);
-        this.a.setMaskType(10);
-        this.a.setList(String.valueOf(j));
-        super.sendMessage(this.a);
-    }
-
-    public void b(long j) {
-        this.a = new RequestUpdateMaskInfoMessage();
-        this.a.setIsMask(0);
-        this.a.setMaskType(10);
-        this.a.setList(String.valueOf(j));
-        super.sendMessage(this.a);
-    }
-
-    public int a() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        g gVar;
+        g gVar2;
+        g gVar3;
+        g gVar4;
+        g gVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500) {
+            gVar = this.a.a;
+            if (gVar != null) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
+                    gVar5 = this.a.a;
+                    gVar5.b(null);
+                    return;
+                }
+                ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
+                if (statusCode != 200 || error != 0) {
+                    gVar2 = this.a.a;
+                    gVar2.b(responseBubbleListMessage.getBubbleListData());
+                } else if (responseBubbleListMessage.getBubbleListData() == null) {
+                    gVar4 = this.a.a;
+                    gVar4.b(responseBubbleListMessage.getBubbleListData());
+                } else {
+                    gVar3 = this.a.a;
+                    gVar3.a(responseBubbleListMessage.getBubbleListData());
+                }
+            }
+        }
     }
 }

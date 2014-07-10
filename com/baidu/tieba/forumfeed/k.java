@@ -1,7 +1,8 @@
 package com.baidu.tieba.forumfeed;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class k implements Runnable {
+class k implements AbsListView.OnScrollListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +10,11 @@ public class k implements Runnable {
         this.a = jVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean z;
-        z = this.a.n;
-        if (z) {
-            this.a.i();
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

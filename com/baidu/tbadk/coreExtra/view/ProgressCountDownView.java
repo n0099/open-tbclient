@@ -16,7 +16,7 @@ public class ProgressCountDownView extends FrameLayout {
     private String d;
     private String e;
     private com.baidu.tbadk.coreExtra.c.c f;
-    private ap g;
+    private ar g;
     private long h;
     private long i;
     private boolean j;
@@ -50,7 +50,7 @@ public class ProgressCountDownView extends FrameLayout {
     public void a(long j, long j2, long j3) {
         this.h = j;
         this.i = j3;
-        this.f = new ao(this, j, j2);
+        this.f = new aq(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,7 +102,7 @@ public class ProgressCountDownView extends FrameLayout {
         }
     }
 
-    public void setOnFinishlistener(ap apVar) {
-        this.g = apVar;
+    public void setOnFinishlistener(ar arVar) {
+        this.g = arVar;
     }
 }

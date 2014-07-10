@@ -16,6 +16,6 @@ class v extends com.baidu.tieba.im.b<Void> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Void a() {
-        return com.baidu.tieba.im.db.n.d().a(this.c);
+        return com.baidu.tieba.im.db.o.d().a(this.c);
     }
 }

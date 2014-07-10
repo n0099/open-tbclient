@@ -1,57 +1,44 @@
 package com.baidu.tieba.plugins;
 
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.LinearLayout;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 /* loaded from: classes.dex */
-class k implements DialogInterface.OnKeyListener {
+class k implements ServiceConnection {
     final /* synthetic */ PluginDownloadActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PluginDownloadActivity pluginDownloadActivity) {
+    private k(PluginDownloadActivity pluginDownloadActivity) {
         this.a = pluginDownloadActivity;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        boolean z;
-        o oVar;
-        o oVar2;
-        LinearLayout linearLayout;
-        o oVar3;
-        LinearLayout linearLayout2;
-        o oVar4;
-        LinearLayout linearLayout3;
-        o oVar5;
-        LinearLayout linearLayout4;
-        o oVar6;
-        LinearLayout linearLayout5;
-        z = this.a.g;
-        if (!z) {
-            oVar = this.a.a;
-            oVar.dismiss();
-            return true;
-        } else if (i == 4 && keyEvent.getAction() == 1) {
-            oVar2 = this.a.a;
-            linearLayout = oVar2.i;
-            if (linearLayout.getVisibility() == 0) {
-                oVar5 = this.a.a;
-                linearLayout4 = oVar5.i;
-                linearLayout4.setVisibility(8);
-                oVar6 = this.a.a;
-                linearLayout5 = oVar6.b;
-                linearLayout5.setVisibility(0);
-                return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ k(PluginDownloadActivity pluginDownloadActivity, k kVar) {
+        this(pluginDownloadActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ k(PluginDownloadActivity pluginDownloadActivity, k kVar, k kVar2) {
+        this(pluginDownloadActivity);
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        PluginDownloadActivity.a(this.a, new Messenger(iBinder));
+        Message obtain = Message.obtain(null, 1, null);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = PluginDownloadActivity.d(this.a);
+                PluginDownloadActivity.e(this.a).send(obtain);
+            } catch (RemoteException e) {
             }
-            oVar3 = this.a.a;
-            linearLayout2 = oVar3.i;
-            linearLayout2.setVisibility(0);
-            oVar4 = this.a.a;
-            linearLayout3 = oVar4.b;
-            linearLayout3.setVisibility(8);
-            return true;
-        } else {
-            return false;
         }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        PluginDownloadActivity.a(this.a, (Messenger) null);
     }
 }

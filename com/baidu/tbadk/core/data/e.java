@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ae;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
@@ -33,11 +33,11 @@ public class e {
 
     public void a(boolean z) {
         if (this.a != z) {
-            com.baidu.adp.lib.stats.s a = ac.a();
+            com.baidu.adp.lib.stats.o a = ae.a();
             a.a("act", "fallback");
             a.a("result", z ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
             a.a("type", "switch");
-            com.baidu.adp.lib.stats.h.a().a("img", a);
+            com.baidu.adp.lib.stats.d.b().a("img", a);
         }
         this.a = z;
     }
@@ -61,7 +61,7 @@ public class e {
             }
         } catch (Exception e) {
             this.a = false;
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -93,7 +93,7 @@ public class e {
                 }
             } catch (Exception e) {
                 this.a = false;
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

@@ -3,6 +3,8 @@ package com.baidu.tieba.tblauncher;
 import android.widget.TextView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
     final /* synthetic */ MainTabActivity a;
@@ -19,11 +21,16 @@ class w extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         TextView textView;
-        if (customResponsedMessage != null) {
-            MainTabActivity mainTabActivity = this.a;
-            textView = this.a.B;
-            mainTabActivity.a(textView, 0);
-            MainTabActivity.c = false;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.c) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                MainTabActivity mainTabActivity = this.a;
+                textView = this.a.C;
+                mainTabActivity.a(textView, msgReplyme);
+            }
         }
     }
 }

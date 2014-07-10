@@ -1,60 +1,92 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.AntiData;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int f = 0;
-    private String e = null;
+    private int a;
+    private int b;
+    private final AntiData c;
+    private Context d;
+    private ArrayList<am> e;
 
-    public String a() {
+    public x() {
+        this.a = 0;
+        this.b = 0;
+        this.d = null;
+        this.e = null;
+        this.e = new ArrayList<>();
+        this.c = new AntiData();
+    }
+
+    public x(Context context) {
+        this.a = 0;
+        this.b = 0;
+        this.d = null;
+        this.e = null;
+        this.e = new ArrayList<>();
+        this.c = new AntiData();
+        this.d = context;
+    }
+
+    public ArrayList<am> a() {
+        return this.e;
+    }
+
+    public int b() {
         return this.a;
     }
 
-    public String b() {
+    public int c() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public boolean d() {
+        return this.e.size() >= this.b;
     }
 
-    public int c() {
-        return this.d;
+    public boolean e() {
+        return this.e != null && this.e.size() < this.b && this.e.size() < 200;
     }
 
-    public void b(int i) {
-        this.c = i;
-    }
-
-    public int d() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-                c(jSONObject.optInt("is_like", 0));
-                this.d = jSONObject.optInt("is_sign", 0);
-                this.c = jSONObject.optInt("level_id", 0);
-                this.e = jSONObject.optString("avatar", "");
-            } catch (Exception e) {
-                BdLog.e("BrowseForumData", "parserJson", "error = " + e.getMessage());
-            }
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int e() {
-        return this.f;
+    private void a(JSONObject jSONObject) {
+        try {
+            JSONArray jSONArray = jSONObject.getJSONArray("comment_list");
+            if (jSONArray != null) {
+                int size = this.e.size() - (this.e.size() % 10);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    am amVar = new am();
+                    amVar.a(jSONObject2);
+                    if (this.d != null) {
+                        amVar.b(this.d);
+                    }
+                    if (size < this.e.size()) {
+                        this.e.remove(size);
+                        this.e.add(size, amVar);
+                    } else {
+                        this.e.add(amVar);
+                    }
+                    size++;
+                }
+                this.a = this.e.size();
+            }
+            this.b = jSONObject.optInt("comment_amount", 0);
+            this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

@@ -164,7 +164,7 @@ public class aa {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.c():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.d():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(aa aaVar) {
         aaVar.c();

@@ -1,112 +1,122 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.kirin.KirinConfig;
 import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends FrameLayout {
-    private static int l = KirinConfig.READ_TIME_OUT;
-    public View.OnTouchListener a;
-    private Context b;
-    private ViewPager c;
-    private IndicatorView d;
-    private y e;
-    private int f;
-    private int g;
-    private float h;
-    private final int i;
-    private final int j;
-    private final int k;
-    private ArrayList<au> m;
-    private Handler n;
+public class v implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ q a;
 
-    public v(Context context) {
-        this(context, null);
+    private v(q qVar) {
+        this.a = qVar;
     }
 
-    public v(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0.3043478f;
-        this.m = new ArrayList<>();
-        this.n = new w(this);
-        this.a = new x(this);
-        this.b = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.carousel_topics_recommend, (ViewGroup) this, true);
-        this.c = (ViewPager) findViewById(com.baidu.tieba.v.carousel_pager);
-        this.d = (IndicatorView) findViewById(com.baidu.tieba.v.carousel_indicator);
-        this.c.setOnTouchListener(this.a);
-        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingTop);
-        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingBottom);
-        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
-        this.f = com.baidu.adp.lib.util.k.b(context) - (this.k * 2);
-        this.g = (int) (0.5f + (this.f * this.h));
-        ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-        layoutParams.width = this.f;
-        layoutParams.height = this.g;
-        this.c.setLayoutParams(layoutParams);
-        this.e = new y(this, this.b);
-        setPadding(this.k, this.j, this.k, this.i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(q qVar, v vVar) {
+        this(qVar);
     }
 
-    public Boolean a(ArrayList<au> arrayList) {
-        if (arrayList == null || arrayList.size() == 0) {
-            setVisibility(8);
-            return false;
-        }
-        this.m.clear();
-        this.m = arrayList;
-        setVisibility(0);
-        int size = this.m.size();
-        if (size > 1) {
-            this.m.add(arrayList.get(0));
-            this.m.add(0, arrayList.get(arrayList.size() - 1));
-        }
-        this.e.a(this.m);
-        this.c.setAdapter(this.e);
-        this.c.setOnPageChangeListener(new aa(this, null));
-        this.c.setCurrentItem(size > 1 ? 1 : 0, false);
-        this.c.invalidate();
-        if (size > 1) {
-            this.d.setVisibility(0);
-            this.d.setCount(this.m.size() - 2);
-            this.d.setPosition(0.0f);
-        } else {
-            this.d.setVisibility(8);
-        }
-        a();
-        return true;
-    }
-
-    public void a(int i) {
-        if (this.e != null) {
-            this.e.a(i);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        IndicatorView indicatorView;
+        t tVar;
+        ArrayList arrayList;
+        t tVar2;
+        IndicatorView indicatorView2;
+        IndicatorView indicatorView3;
+        IndicatorView indicatorView4;
+        indicatorView = this.a.d;
+        if (indicatorView != null) {
+            tVar = this.a.e;
+            if (tVar != null) {
+                arrayList = this.a.m;
+                if (arrayList.size() > 1) {
+                    tVar2 = this.a.e;
+                    int count = tVar2.getCount();
+                    if (i == 0) {
+                        indicatorView4 = this.a.d;
+                        indicatorView4.setPosition((count - 3) + f);
+                    } else if (i == count - 1) {
+                        indicatorView3 = this.a.d;
+                        indicatorView3.setPosition(f);
+                    } else {
+                        indicatorView2 = this.a.d;
+                        indicatorView2.setPosition((i - 1) + f);
+                    }
+                }
+            }
         }
     }
 
-    public void a() {
-        this.n.removeMessages(0);
-        this.n.sendEmptyMessageDelayed(0, l);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
     }
 
-    public void b() {
-        this.n.removeMessages(0);
-    }
-
-    public y getPagerAdapter() {
-        return this.e;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        ViewPager viewPager;
+        t tVar;
+        ViewPager viewPager2;
+        ArrayList arrayList;
+        ViewPager viewPager3;
+        ViewPager viewPager4;
+        t tVar2;
+        Handler handler;
+        Handler handler2;
+        int i2;
+        ViewPager viewPager5;
+        ViewPager viewPager6;
+        Handler handler3;
+        Handler handler4;
+        int i3;
+        ViewPager viewPager7;
+        t tVar3;
+        ViewPager viewPager8;
+        viewPager = this.a.c;
+        if (viewPager != null) {
+            tVar = this.a.e;
+            if (tVar != null) {
+                if (i == 0) {
+                    arrayList = this.a.m;
+                    if (arrayList.size() > 1) {
+                        viewPager4 = this.a.c;
+                        int currentItem = viewPager4.getCurrentItem();
+                        if (currentItem < 1) {
+                            viewPager7 = this.a.c;
+                            tVar3 = this.a.e;
+                            viewPager7.setCurrentItem(tVar3.getCount() - 2, false);
+                            viewPager8 = this.a.c;
+                            viewPager8.invalidate();
+                        } else {
+                            tVar2 = this.a.e;
+                            if (currentItem > tVar2.getCount() - 2) {
+                                viewPager5 = this.a.c;
+                                viewPager5.setCurrentItem(1, false);
+                                viewPager6 = this.a.c;
+                                viewPager6.invalidate();
+                                handler3 = this.a.n;
+                                handler3.removeMessages(0);
+                                handler4 = this.a.n;
+                                i3 = q.l;
+                                handler4.sendEmptyMessageDelayed(0, i3);
+                            } else {
+                                handler = this.a.n;
+                                handler.removeMessages(0);
+                                handler2 = this.a.n;
+                                i2 = q.l;
+                                handler2.sendEmptyMessageDelayed(0, i2);
+                            }
+                        }
+                    }
+                    viewPager3 = this.a.c;
+                    viewPager3.requestDisallowInterceptTouchEvent(false);
+                } else if (i == 1) {
+                    viewPager2 = this.a.c;
+                    viewPager2.requestDisallowInterceptTouchEvent(true);
+                }
+            }
+        }
     }
 }

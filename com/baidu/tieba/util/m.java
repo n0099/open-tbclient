@@ -2,12 +2,12 @@ package com.baidu.tieba.util;
 
 import com.baidu.adp.lib.cache.s;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class m {
     public static void a(String str, n nVar) {
-        if (bg.c(str)) {
+        if (bm.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -18,7 +18,7 @@ public class m {
     }
 
     public static void b(String str, n nVar) {
-        if (bg.c(str)) {
+        if (bm.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -33,32 +33,32 @@ public class m {
     }
 
     public static void a(int i, WriteData writeData) {
-        s<String> e = com.baidu.tbadk.core.a.b.a().e();
+        s<String> g = com.baidu.tbadk.core.a.b.a().g();
         if (writeData != null && writeData.hasContentToSave()) {
-            e.b(a(i), writeData.toDraftString(), 604800000L);
+            g.b(a(i), writeData.toDraftString(), 604800000L);
         } else {
-            e.d(a(i));
+            g.d(a(i));
         }
     }
 
     public static void a(String str, WriteData writeData) {
-        if (!bg.c(str)) {
-            s<String> e = com.baidu.tbadk.core.a.b.a().e();
+        if (!bm.c(str)) {
+            s<String> g = com.baidu.tbadk.core.a.b.a().g();
             if (writeData != null && writeData.hasContentToSave()) {
-                e.b(b(str), writeData.toDraftString(), 604800000L);
+                g.b(b(str), writeData.toDraftString(), 604800000L);
             } else {
-                e.d(b(str));
+                g.d(b(str));
             }
         }
     }
 
     public static void b(String str, WriteData writeData) {
-        if (!bg.c(str)) {
-            s<String> e = com.baidu.tbadk.core.a.b.a().e();
+        if (!bm.c(str)) {
+            s<String> g = com.baidu.tbadk.core.a.b.a().g();
             if (writeData != null && writeData.hasContentToSave()) {
-                e.b(a(str), writeData.toDraftString(), 604800000L);
+                g.b(a(str), writeData.toDraftString(), 604800000L);
             } else {
-                e.d(a(str));
+                g.d(a(str));
             }
         }
     }

@@ -1,55 +1,21 @@
 package com.baidu.adp.lib.cache;
-
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class y<T> extends v<T> {
-    public y(String str, r<T> rVar) {
-        super(str, rVar);
+class y implements Runnable {
+    final /* synthetic */ w a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ Object c;
+    private final /* synthetic */ long d;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(w wVar, String str, Object obj, long j) {
+        this.a = wVar;
+        this.b = str;
+        this.c = obj;
+        this.d = j;
     }
 
-    @Override // com.baidu.adp.lib.cache.v, com.baidu.adp.lib.cache.s
-    public T a(String str) {
-        try {
-            return (T) super.a(str);
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                BdLog.e(getClass(), "failed to get cache:" + str, th);
-            }
-            return null;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.v, com.baidu.adp.lib.cache.s
-    public t<T> b(String str) {
-        try {
-            return super.b(str);
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                BdLog.e(getClass(), "failed to get cache:" + str, th);
-            }
-            return null;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.v, com.baidu.adp.lib.cache.s
-    public void a(String str, T t, long j) {
-        try {
-            super.a(str, t, j);
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                BdLog.e(getClass(), "failed to store cache key:" + str + ", value:" + t, th);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.v, com.baidu.adp.lib.cache.s
-    public void c(String str) {
-        try {
-            super.c(str);
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                BdLog.e(getClass(), "failed to remove cache:" + str, th);
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.a(this.b, this.c, this.d);
     }
 }

@@ -31,7 +31,7 @@ public class b extends com.baidu.tbadk.core.d {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (AlbumActivity) getActivity();
-        this.c = this.b.f();
+        this.c = this.b.h();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -44,7 +44,7 @@ public class b extends com.baidu.tbadk.core.d {
         this.l = (ImageView) inflate.findViewById(com.baidu.tieba.v.img_choose);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new c(this));
         this.h = (ViewPager) this.k.findViewById(com.baidu.tieba.v.viewPager);
-        this.d = this.b.g();
+        this.d = this.b.i();
         this.h.setOnPageChangeListener(new d(this));
         this.m = this.k.findViewById(com.baidu.tieba.v.album_no_data);
         return this.k;
@@ -65,7 +65,7 @@ public class b extends com.baidu.tbadk.core.d {
 
     private void f() {
         if (this.c == null && this.b != null) {
-            this.c = this.b.f();
+            this.c = this.b.h();
         }
         if (this.c != null && this.c.f() != null) {
             int g = this.c.g();
@@ -107,8 +107,8 @@ public class b extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d
     public void c(int i) {
         super.c(i);
-        this.b.a().a(i == 1);
-        this.b.a().a(this.k);
+        this.b.c().a(i == 1);
+        this.b.c().a(this.k);
         if (this.e != null) {
             this.e.c(i);
         }

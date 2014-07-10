@@ -1,35 +1,40 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.adp.framework.message.HttpMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EditBarActivity a;
+public class c implements View.OnClickListener {
+    final /* synthetic */ BasePersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+    public c(BasePersonInfoActivity basePersonInfoActivity) {
+        this.a = basePersonInfoActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        g gVar;
-        f fVar;
-        g gVar2;
-        gVar = this.a.i;
-        if (gVar.getItem(i) != null) {
-            fVar = this.a.n;
-            if (fVar == null) {
-                this.a.l = i;
-                gVar2 = this.a.i;
-                ForumData forumData = (ForumData) gVar2.getItem(i);
-                if (forumData != null) {
-                    this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(forumData.getName(), "tb_mytieba")));
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        this.a.f = com.baidu.tbadk.core.account.o.a(this.a.s()) % 3;
+        String str = "";
+        switch (this.a.s()) {
+            case 2:
+                str = "like";
+                break;
+            case 3:
+                str = "group";
+                break;
+            case 4:
+                str = "post";
+                break;
+            case 5:
+                str = "friend";
+                break;
         }
+        HttpMessage httpMessage = new HttpMessage(1001506);
+        httpMessage.addParam("opt", str);
+        i = this.a.f;
+        httpMessage.addParam("val", String.valueOf(i + 1));
+        this.a.a(httpMessage);
     }
 }

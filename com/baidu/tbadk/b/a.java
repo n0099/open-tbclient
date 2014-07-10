@@ -2,6 +2,7 @@ package com.baidu.tbadk.b;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.i;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
@@ -37,7 +38,7 @@ public class a {
                 b(jSONObject.getInt("end_time"));
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -61,42 +62,42 @@ public class a {
     }
 
     public int d() {
-        return com.baidu.tbadk.f.a().a("ad_start_time", 0);
+        return i.a().a("ad_start_time", 0);
     }
 
     public int e() {
-        return com.baidu.tbadk.f.a().a("ad_end_time", 0);
+        return i.a().a("ad_end_time", 0);
     }
 
     public long f() {
-        return com.baidu.tbadk.f.a().a("ad_time", 0L);
+        return i.a().a("ad_time", 0L);
     }
 
     public String g() {
-        return com.baidu.tbadk.f.a().b("ad_url", (String) null);
+        return i.a().b("ad_url", (String) null);
     }
 
     public boolean h() {
-        return com.baidu.tbadk.f.a().a("ad_enabled", false);
+        return i.a().a("ad_enabled", false);
     }
 
     public void a(long j) {
-        com.baidu.tbadk.f.a().b("ad_time", j);
+        i.a().b("ad_time", j);
     }
 
     public void a(String str) {
-        com.baidu.tbadk.f.a().a("ad_url", str);
+        i.a().a("ad_url", str);
     }
 
     public void a(boolean z) {
-        com.baidu.tbadk.f.a().b("ad_enabled", z);
+        i.a().c("ad_enabled", z);
     }
 
     public void a(int i) {
-        com.baidu.tbadk.f.a().b("ad_start_time", i);
+        i.a().b("ad_start_time", i);
     }
 
     public void b(int i) {
-        com.baidu.tbadk.f.a().b("ad_end_time", i);
+        i.a().b("ad_end_time", i);
     }
 }

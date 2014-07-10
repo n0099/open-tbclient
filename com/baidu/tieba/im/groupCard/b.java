@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.groupCard;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
+import com.baidu.adp.base.e;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.b {
+public class b extends e {
     private static Long f = 0L;
     private static final Long g = 300000L;
     private final long a;
     private final GroupCardActivity b;
-    private ab c = null;
+    private aa c = null;
     private c d = null;
     private String e;
 
@@ -27,29 +27,29 @@ public class b extends com.baidu.adp.base.b {
         this.b = groupCardActivity;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
     public com.baidu.adp.widget.a.a a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
-        this.c = new ab(activity);
+        this.c = new aa(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
         }
         this.c.b("&t=" + f);
-        this.c.b(true);
+        this.c.a(true);
         this.c.a(i, i2);
         return this.c.a(this.e, dVar, false);
     }
 
-    public void a(Bitmap bitmap) {
-        this.d = new c(this, bitmap);
+    public void b() {
+        this.d = new c(this);
         this.d.execute(new String[0]);
     }
 }

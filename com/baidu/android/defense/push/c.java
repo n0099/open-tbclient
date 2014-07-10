@@ -1,54 +1,37 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.baidu.android.systemmonitor.localapp.AppManager;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends n {
-    protected ArrayList a;
-
+public class c extends a {
     public c(String str, Context context) {
         super(str, context);
-        this.a = null;
-        this.a = new ArrayList();
-        a();
     }
 
-    public void a() {
-        if (this.b != null) {
-            try {
-                JSONArray jSONArray = this.b.getJSONArray("params");
-                if (jSONArray == null || jSONArray.length() == 0) {
-                    this.c = false;
-                    return;
-                }
-                int length = jSONArray.length();
-                new JSONObject();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    if (jSONObject != null) {
-                        com.baidu.android.defense.a.a aVar = new com.baidu.android.defense.a.a();
-                        aVar.a = jSONObject.getString("downurl");
-                        aVar.b = jSONObject.getString("savepath");
-                        aVar.c = jSONObject.getInt("filesize");
-                        this.a.add(aVar);
-                    }
-                }
-            } catch (JSONException e) {
-                this.c = false;
-            }
+    private boolean a(com.baidu.android.defense.b.c cVar) {
+        if (cVar == null || TextUtils.isEmpty(cVar.a())) {
+            return false;
         }
+        com.baidu.android.systemmonitor.localapp.a aVar = (com.baidu.android.systemmonitor.localapp.a) AppManager.a(this.d).a().get(cVar.a());
+        if (aVar == null || (cVar.b() != 0 && aVar.f != cVar.b())) {
+            return false;
+        }
+        return true;
     }
 
-    @Override // com.baidu.android.defense.push.n
+    @Override // com.baidu.android.defense.push.a, com.baidu.android.defense.push.i
     public boolean b() {
         if (this.c) {
-            Iterator it = this.a.iterator();
-            while (it.hasNext()) {
-                com.baidu.android.defense.a.d.a().a(new com.baidu.android.defense.a.c(this.d, (com.baidu.android.defense.a.a) it.next()));
+            if (this.a != null) {
+                Iterator it = this.a.iterator();
+                while (it.hasNext()) {
+                    com.baidu.android.defense.b.c cVar = (com.baidu.android.defense.b.c) it.next();
+                    if (a(cVar)) {
+                        com.baidu.android.defense.b.e.a(this.d).a(false, cVar);
+                    }
+                }
             }
             return true;
         }

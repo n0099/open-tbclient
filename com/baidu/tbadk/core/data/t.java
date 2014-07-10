@@ -1,10 +1,12 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.WorldCupNews;
+import tbclient.FrsPage.WorldCupPk;
 /* loaded from: classes.dex */
 public class t {
     String a;
     String b;
+    String c;
+    String d;
 
     public String a() {
         return this.a;
@@ -14,10 +16,20 @@ public class t {
         return this.b;
     }
 
-    public void a(WorldCupNews worldCupNews) {
-        if (worldCupNews != null) {
-            this.a = worldCupNews.url;
-            this.b = worldCupNews.title;
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void a(WorldCupPk worldCupPk) {
+        if (worldCupPk != null) {
+            this.d = worldCupPk.url;
+            this.b = worldCupPk.sum_bonus;
+            this.a = worldCupPk.sum_game;
+            this.c = worldCupPk.prize_url;
         }
     }
 }

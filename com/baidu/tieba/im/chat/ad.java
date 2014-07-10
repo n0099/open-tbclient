@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,6 +19,6 @@ public class ad implements com.baidu.tieba.im.a<Boolean> {
     public void a(Boolean bool) {
         this.b.setLogTime(System.currentTimeMillis());
         MessageManager.getInstance().sendMessage(this.b);
-        BdLog.d("SHANG sendMessage to queue");
+        com.baidu.tieba.im.b.e.a(3, this.b, String.valueOf(this.b.getToUserId()));
     }
 }

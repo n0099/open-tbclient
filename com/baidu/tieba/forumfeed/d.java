@@ -12,7 +12,7 @@ public class d implements x {
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        this.a.o();
+    public void g_() {
+        this.a.p();
     }
 }

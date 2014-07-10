@@ -22,16 +22,16 @@ public class r extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         VoiceData.VoiceModel voiceModel;
-        x playView;
+        y playView;
         VoiceData.VoiceModel voiceModel2;
         VoiceData.VoiceModel voiceModel3;
         String a;
         VoiceData.VoiceModel voiceModel4;
-        x playView2;
+        y playView2;
         VoiceData.VoiceModel voiceModel5;
         VoiceData.VoiceModel voiceModel6;
         VoiceData.VoiceModel voiceModel7;
-        x playView3;
+        y playView3;
         VoiceData.VoiceModel voiceModel8;
         boolean z;
         boolean z2;
@@ -39,7 +39,7 @@ public class r extends BroadcastReceiver {
         Handler handler2;
         Handler handler3;
         VoiceData.VoiceModel voiceModel9;
-        x playView4;
+        y playView4;
         VoiceData.VoiceModel voiceModel10;
         VoiceData.VoiceModel voiceModel11;
         VoiceData.VoiceModel voiceModel12;
@@ -48,7 +48,7 @@ public class r extends BroadcastReceiver {
         VoiceData.VoiceModel voiceModel14;
         VoiceData.VoiceModel voiceModel15;
         VoiceData.VoiceModel voiceModel16;
-        x playView5;
+        y playView5;
         VoiceData.VoiceModel voiceModel17;
         Handler handler5;
         Runnable runnable;
@@ -76,15 +76,15 @@ public class r extends BroadcastReceiver {
                                 playView5.a(voiceModel17);
                             }
                         } catch (Exception e) {
-                            com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w();
+                            com.baidu.tbadk.core.util.y yVar = new com.baidu.tbadk.core.util.y();
                             voiceModel13 = this.this$0.mCurPlayModel;
                             if (voiceModel13 != null) {
                                 voiceModel14 = this.this$0.mCurPlayModel;
-                                wVar.a("id", voiceModel14.getId());
+                                yVar.a("id", voiceModel14.getId());
                                 voiceModel15 = this.this$0.mCurPlayModel;
-                                wVar.a("from", voiceModel15.from);
+                                yVar.a(com.baidu.tbadk.core.frameworkData.a.FROM, voiceModel15.from);
                             }
-                            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), wVar.toString());
+                            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), yVar.toString());
                         }
                     }
                 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.im;
 
-import com.baidu.adp.lib.util.BdLog;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -11,9 +10,7 @@ public class i {
     private static Executor b = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, a, new j());
 
     public static <T> void a(b<T> bVar, a<T> aVar) {
-        if (a() > 5) {
-            BdLog.w("TiebaIMSingleExecutor queue size - " + a());
-        }
+        a();
         if (bVar != null) {
             bVar.a(aVar);
             b.execute(bVar);

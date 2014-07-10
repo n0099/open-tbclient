@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
@@ -15,6 +15,6 @@ public class g implements Runnable {
     public void run() {
         t tVar;
         tVar = this.a.b;
-        ag.a(tVar.f(), this.a.a(), 0, -1);
+        aj.a(tVar.g(), this.a.a(), 0, -1);
     }
 }

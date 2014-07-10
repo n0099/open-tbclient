@@ -3,7 +3,6 @@ package com.baidu.tieba.im.chat;
 import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,16 +24,16 @@ public class ba extends CustomMessageListener {
         GroupNewsPojo p;
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
-                case MessageTypes.CMD_GROUP_MEMBER_CHANGE /* 2003109 */:
+                case 2001109:
                     this.a.d.j();
                     return;
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS /* 2003130 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_KICK_OUT /* 2003132 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE /* 2003134 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE /* 2003136 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP /* 2003137 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE /* 2003138 */:
-                case MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP /* 2003141 */:
+                case 2001130:
+                case 2001132:
+                case 2001134:
+                case 2001136:
+                case 2001137:
+                case 2001138:
+                case 2001141:
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {

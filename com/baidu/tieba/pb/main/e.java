@@ -16,13 +16,21 @@ class e implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
+        bm bmVar;
+        bm bmVar2;
         if (view instanceof HeadImageView) {
             str = ((HeadImageView) view).getUserId();
         } else {
             str = (String) view.getTag();
         }
         if (str != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.a, str, null)));
+            bmVar = this.a.x;
+            if (bmVar != null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                PbActivity pbActivity = this.a;
+                bmVar2 = this.a.x;
+                messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(pbActivity, str, null, bmVar2.f())));
+            }
         }
     }
 }

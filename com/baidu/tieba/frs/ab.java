@@ -17,17 +17,25 @@ class ab extends HttpMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        dh dhVar;
+        di diVar;
+        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.b.a aVar2;
         if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
             FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
             j jVar = new j();
-            jVar.a = frsPageHttpResponseMessage.getError() >= -13 && frsPageHttpResponseMessage.getError() <= -13;
-            jVar.b = frsPageHttpResponseMessage.hasNetworkError() ? false : true;
+            jVar.a = frsPageHttpResponseMessage.getError() < -13 || frsPageHttpResponseMessage.getError() > -10;
+            jVar.b = !frsPageHttpResponseMessage.hasNetworkError();
             jVar.c = frsPageHttpResponseMessage.getError();
             jVar.d = frsPageHttpResponseMessage.getErrorString();
             jVar.e = frsPageHttpResponseMessage.getDownSize();
-            dhVar = this.a.ad;
-            dhVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
+            diVar = this.a.ah;
+            diVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
+            aVar = this.a.G;
+            if (aVar != null) {
+                aVar2 = this.a.G;
+                aVar2.a(true, jVar.b, jVar.c, jVar.d, jVar.e);
+                this.a.G = null;
+            }
         }
     }
 }

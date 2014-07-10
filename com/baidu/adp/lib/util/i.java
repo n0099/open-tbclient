@@ -1,113 +1,91 @@
 package com.baidu.adp.lib.util;
 
-import android.util.Log;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Date;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.annotation.SuppressLint;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import org.apache.commons.io.IOUtils;
+@SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
-public class i implements Runnable {
-    private final /* synthetic */ String a;
+public class i {
+    private static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
+    private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
+    private static SimpleDateFormat e = new SimpleDateFormat("M月d日 HH:mm");
+    private static SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat g = new SimpleDateFormat("MM-dd");
+    private static final char[] h = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] i = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', IOUtils.DIR_SEPARATOR_UNIX};
+    private static byte[] j = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(String str) {
-        this.a = str;
+    public static String a(CharSequence charSequence, String str) {
+        if (charSequence instanceof String) {
+            return (String) charSequence;
+        }
+        return charSequence != null ? charSequence.toString() : str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x008e A[Catch: Exception -> 0x0092, TRY_LEAVE, TryCatch #6 {Exception -> 0x0092, blocks: (B:25:0x0089, B:27:0x008e), top: B:48:0x0089 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        BufferedWriter bufferedWriter;
-        FileWriter fileWriter;
-        FileWriter fileWriter2 = null;
-        long currentTimeMillis = System.currentTimeMillis();
-        File d = c.d("log_" + j.a(new Date()));
-        if (d != null) {
-            try {
-                fileWriter = new FileWriter(d, true);
-                try {
-                    bufferedWriter = new BufferedWriter(fileWriter);
-                    try {
-                        bufferedWriter.write(String.valueOf(j.a(currentTimeMillis)) + "\t\t" + this.a);
-                        bufferedWriter.newLine();
-                        bufferedWriter.flush();
-                    } catch (Exception e) {
-                        e = e;
-                        fileWriter2 = fileWriter;
-                        try {
-                            Log.d("BaiduLog", e.getMessage());
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                } catch (Exception e2) {
-                                    Log.d("BaiduLog", e2.getMessage());
-                                    return;
-                                }
-                            }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                                return;
-                            }
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileWriter = fileWriter2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    Log.d("BaiduLog", e3.getMessage());
-                                    throw th;
-                                }
-                            }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileWriter != null) {
-                        }
-                        if (bufferedWriter != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    bufferedWriter = null;
-                    fileWriter2 = fileWriter;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedWriter = null;
+    public static String a(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            sb.append(h[(bArr[i2] & 240) >>> 4]);
+            sb.append(h[bArr[i2] & 15]);
+        }
+        return sb.toString();
+    }
+
+    public static String a(InputStream inputStream) {
+        String str = null;
+        if (inputStream == null) {
+            return null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    messageDigest.update(bArr, 0, read);
+                } else {
+                    inputStream.close();
+                    str = a(messageDigest.digest());
+                    return str;
                 }
-            } catch (Exception e5) {
-                e = e5;
-                bufferedWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedWriter = null;
-                fileWriter = null;
             }
-        } else {
-            bufferedWriter = null;
-            fileWriter = null;
+        } catch (Exception e2) {
+            BdLog.e(e2.toString());
+            return str;
         }
-        if (fileWriter != null) {
-            try {
-                fileWriter.close();
-            } catch (Exception e6) {
-                Log.d("BaiduLog", e6.getMessage());
-                return;
-            }
+    }
+
+    public static String a(String str) {
+        try {
+            return a(new ByteArrayInputStream(str.getBytes("UTF-8")));
+        } catch (Exception e2) {
+            return null;
         }
-        if (bufferedWriter != null) {
-            bufferedWriter.close();
+    }
+
+    public static boolean b(String str) {
+        return str == null || str.length() == 0 || str.equals("null");
+    }
+
+    public static String c(String str) {
+        if (str == null) {
+            return null;
+        }
+        try {
+            return URLEncoder.encode(str, "utf-8");
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return "";
         }
     }
 }

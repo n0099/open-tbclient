@@ -8,27 +8,33 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.message.http.ResponseLocationJsonHttpMessage;
+import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.plugins.Hao123Plugin;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.plugins.PluginCenterActivity;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private an a = null;
-    private aj b = null;
+    private at a = null;
+    private aq b = null;
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new an(this);
-        this.b = new aj(this);
+        this.a = new at(this);
+        this.b = new aq(this);
         if (TbadkApplication.m252getInst().isHeadsetModeOn()) {
-            this.a.d().a();
+            this.a.d().c();
         } else {
-            this.a.d().b();
+            this.a.d().d();
         }
         if (TbadkApplication.m252getInst().getLocationShared()) {
             this.a.a().a();
@@ -39,13 +45,29 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
             this.a.c().setVisibility(8);
         }
         if (TbadkApplication.m252getInst().isTiebaHelperOpen()) {
-            this.a.b().a();
+            this.a.b().c();
         } else {
-            this.a.b().b();
+            this.a.b().d();
         }
         this.a.e().setTip(getString(com.baidu.tieba.y.calc_cache_size));
         this.a.e().b();
-        this.b.a(new ae(this, this));
+        this.b.a(new af(this, this));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001506, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SET_PRIVATE);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        registerListener(new ag(this, 1001506));
+        registerListener(new aj(this, 2008016));
+        a();
+    }
+
+    private void a() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001507, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_USER_LOCATION);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setResponsedClass(ResponseLocationJsonHttpMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        registerListener(new ak(this, 1001507));
+        sendMessage(new HttpMessage(1001507));
     }
 
     public static void a(Context context) {
@@ -53,13 +75,13 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.b != null) {
             this.b.c();
         }
-        a();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,7 +91,7 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
         this.a.a(i);
     }
 
-    private void a() {
+    private void b() {
         this.a.g().a();
     }
 
@@ -80,11 +102,11 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                 if (TextUtils.isEmpty(this.a.e().getTip())) {
                     showToast(com.baidu.tieba.y.no_cache_delete);
                 } else {
-                    new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_all_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new af(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new ag(this)).create().show();
+                    new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_all_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new am(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new an(this)).create().show();
                 }
             }
         } else if (view == this.a.f()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new ai(this)).create().show();
+            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ao(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new ap(this)).create().show();
         } else if (view == this.a.g()) {
             startActivity(new Intent(this, PluginCenterActivity.class));
         }
@@ -105,11 +127,15 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                     this.b.a(false);
                 }
             } else if (view.equals(this.a.a())) {
+                HttpMessage httpMessage = new HttpMessage(1001506);
+                httpMessage.addParam("opt", "location");
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    TbadkApplication.m252getInst().setLocationShared(true);
+                    httpMessage.addParam("val", String.valueOf(1));
                 } else {
-                    TbadkApplication.m252getInst().setLocationShared(false);
+                    httpMessage.addParam("val", String.valueOf(3));
                 }
+                sendMessage(httpMessage);
+                showProgressBar();
             } else if (view.equals(this.a.b())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     TbadkApplication.m252getInst().setTiebaHelperOpen(true);
@@ -119,7 +145,7 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                     }
                     if (TbadkApplication.isLogin() && !this.c) {
                         this.c = true;
-                        new com.baidu.tieba.model.o().a(true);
+                        new com.baidu.tieba.model.m().a(true);
                     }
                     com.baidu.tbadk.core.f.a(this, "tb_zs_setting");
                     return;

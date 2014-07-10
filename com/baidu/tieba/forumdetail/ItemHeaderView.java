@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.forumdetail.ForumDetailData;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -78,10 +77,8 @@ public class ItemHeaderView extends RelativeLayout {
         } else {
             this.c.setVisibility(8);
         }
-        int a = com.baidu.adp.lib.util.k.a(this.a, 80.0f);
-        ab abVar = new ab(this.a);
-        abVar.a(a, a);
-        abVar.b(forumInfo.avatar, new j(this));
+        int a = com.baidu.adp.lib.util.j.a(this.a, 80.0f);
+        this.b.a(forumInfo.avatar, 10, a, a, false);
         return true;
     }
 

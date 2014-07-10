@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupUsers.DataReq;
 import protobuf.DelGroupUsers.DelGroupUsersReqIdl;
@@ -10,7 +9,7 @@ public class RequestRemoveMembersMessage extends TbSocketMessage {
     private String userIds;
 
     public RequestRemoveMembersMessage() {
-        super(MessageTypes.CMD_REMOVE_MEMBERS);
+        super(103112);
     }
 
     public long getGroupId() {

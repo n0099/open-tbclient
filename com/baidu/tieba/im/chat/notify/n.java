@@ -1,39 +1,18 @@
 package com.baidu.tieba.im.chat.notify;
-
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ b a;
+class n extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(b bVar) {
-        this.a = bVar;
+    public n(l lVar) {
+        this.b = lVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        s sVar;
-        s sVar2;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        if (i >= 0) {
-            sVar = this.a.l;
-            long itemId = sVar.getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                b bVar = this.a;
-                sVar2 = this.a.l;
-                bVar.i = (ImMessageCenterShowItemData) sVar2.getItem(i);
-                b bVar2 = this.a;
-                imMessageCenterShowItemData = this.a.i;
-                bVar2.a(imMessageCenterShowItemData);
-                if (this.a.b != null) {
-                    this.a.b.show();
-                }
-            }
-            return true;
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.db.h.a().b("-1001", true);
+        return null;
     }
 }

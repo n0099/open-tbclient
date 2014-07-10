@@ -1,35 +1,36 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends CustomMessageListener {
+public class v implements AdapterView.OnItemClickListener {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(MembersActivity membersActivity, int i) {
-        super(i);
+    public v(MembersActivity membersActivity) {
         this.a = membersActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                if (cmd.equals("apply_join_success")) {
-                    this.a.g();
-                } else if (cmd.equals("kick_out")) {
-                    this.a.g();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ag agVar;
+        agVar = this.a.b;
+        ac f = agVar.f();
+        UserData userData = (UserData) f.getItem(i);
+        if (userData != null) {
+            if (f.d()) {
+                if (!userData.getPermission().isController()) {
+                    f.a(Long.valueOf(userData.getUserIdLong()));
+                    return;
                 }
+                return;
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
         }
     }
 }

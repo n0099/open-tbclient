@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupInfo;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class c implements TextWatcher {
     final /* synthetic */ ApplyJoinGroupActivity a;
@@ -31,7 +30,6 @@ class c implements TextWatcher {
             if (30 < length) {
                 this.a.f.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
-                BdLog.d("start:" + selectionStart + " end:" + selectionEnd);
                 this.a.b.setText(editable);
                 this.a.b.setSelection(selectionStart);
                 length = 30;

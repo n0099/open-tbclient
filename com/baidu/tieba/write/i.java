@@ -1,10 +1,11 @@
 package com.baidu.tieba.write;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements AbsListView.OnScrollListener {
+public class i implements n {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +13,21 @@ public class i implements AbsListView.OnScrollListener {
         this.a = atListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.h;
-        runnable = this.a.y;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.h;
-        runnable2 = this.a.y;
-        handler2.postDelayed(runnable2, 90L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // com.baidu.tieba.write.n
+    public void a(View view, Object obj) {
+        BdListView bdListView;
+        if (obj != null) {
+            if (obj instanceof com.baidu.tbadk.core.view.p) {
+                ((com.baidu.tbadk.core.view.p) obj).setChecked(false);
+            }
+            bdListView = this.a.d;
+            View findViewWithTag = bdListView.findViewWithTag(obj);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
+                ((TbCheckBox) findViewWithTag).setChecked(false);
+            } else if (!(obj instanceof com.baidu.tbadk.coreExtra.relationship.b)) {
+            } else {
+                this.a.b((com.baidu.tbadk.coreExtra.relationship.b) obj);
+            }
+        }
     }
 }

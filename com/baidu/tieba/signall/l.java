@@ -8,13 +8,13 @@ import java.util.HashMap;
 public class l implements View.OnClickListener {
     final /* synthetic */ k a;
     private final /* synthetic */ b b;
-    private final /* synthetic */ o c;
+    private final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, b bVar, o oVar) {
+    public l(k kVar, b bVar, n nVar) {
         this.a = kVar;
         this.b = bVar;
-        this.c = oVar;
+        this.c = nVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,14 +26,14 @@ public class l implements View.OnClickListener {
             this.c.j.setVisibility(0);
             this.c.k.setText(com.baidu.tieba.y.signallforum_resigning);
             this.b.c(true);
-            aa aaVar = new aa();
-            aaVar.a(this.a);
+            z zVar = new z();
+            zVar.a(this.a);
             String sb = new StringBuilder(String.valueOf(this.b.a())).toString();
             synchronized (this.a) {
-                hashMap = this.a.g;
-                hashMap.put(sb, aaVar);
+                hashMap = this.a.e;
+                hashMap.put(sb, zVar);
             }
-            aaVar.a(this.b.b(), sb);
+            zVar.a(this.b.b(), sb);
             context = this.a.c;
             com.baidu.tbadk.core.f.a(context, "signall_resign_click");
         }

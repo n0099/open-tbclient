@@ -1,47 +1,44 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.WorldCup;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.WorldCupGame;
+import tbclient.FrsPage.WorldCupGameTeam;
 /* loaded from: classes.dex */
 public class q {
-    private t a;
-    private u b;
-    private s c;
-    private r d;
+    ArrayList<u> a;
+    String b;
+    String c;
+    String d;
 
-    public t a() {
+    public ArrayList<u> a() {
         return this.a;
     }
 
-    public u b() {
+    public String b() {
         return this.b;
     }
 
-    public s c() {
+    public String c() {
         return this.c;
     }
 
-    public r d() {
+    public String d() {
         return this.d;
     }
 
-    public void a(WorldCup worldCup) {
-        if (worldCup != null) {
-            if (worldCup.game != null || worldCup.lottery != null || worldCup.news != null || worldCup.pk != null) {
-                if (worldCup.news != null) {
-                    this.a = new t();
-                    this.a.a(worldCup.news);
-                }
-                if (worldCup.pk != null) {
-                    this.b = new u();
-                    this.b.a(worldCup.pk);
-                }
-                if (worldCup.lottery != null) {
-                    this.c = new s();
-                    this.c.a(worldCup.lottery);
-                }
-                if (worldCup.game != null) {
-                    this.d = new r();
-                    this.d.a(worldCup.game);
+    public void a(WorldCupGame worldCupGame) {
+        if (worldCupGame != null) {
+            this.d = worldCupGame.url;
+            this.b = worldCupGame.title;
+            this.c = worldCupGame.status;
+            this.a = new ArrayList<>();
+            List<WorldCupGameTeam> list = worldCupGame.team;
+            if (list != null) {
+                for (WorldCupGameTeam worldCupGameTeam : list) {
+                    u uVar = new u();
+                    uVar.a(worldCupGameTeam);
+                    this.a.add(uVar);
                 }
             }
         }

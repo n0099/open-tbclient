@@ -26,22 +26,22 @@ public class d extends com.baidu.adp.framework.listener.b {
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         k kVar;
-        com.baidu.tieba.im.model.k kVar2;
-        com.baidu.tieba.im.model.k kVar3;
-        com.baidu.tieba.im.model.k kVar4;
-        com.baidu.tieba.im.model.k kVar5;
+        com.baidu.tieba.im.model.i iVar;
+        com.baidu.tieba.im.model.i iVar2;
+        com.baidu.tieba.im.model.i iVar3;
+        com.baidu.tieba.im.model.i iVar4;
         GroupListAdapter groupListAdapter;
         GroupListAdapter groupListAdapter2;
-        com.baidu.tieba.im.model.k kVar6;
-        com.baidu.tieba.im.model.k kVar7;
+        com.baidu.tieba.im.model.i iVar5;
+        com.baidu.tieba.im.model.i iVar6;
         GroupListAdapter groupListAdapter3;
         GroupListAdapter groupListAdapter4;
-        com.baidu.tieba.im.model.k kVar8;
+        com.baidu.tieba.im.model.i iVar7;
         GroupListAdapter groupListAdapter5;
         GroupListAdapter groupListAdapter6;
         GroupListAdapter groupListAdapter7;
         GroupListAdapter groupListAdapter8;
-        com.baidu.tieba.im.model.k kVar9;
+        com.baidu.tieba.im.model.i iVar8;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFrsGroupsMessage)) {
             this.a.a(com.baidu.tieba.y.neterror);
             return;
@@ -50,16 +50,16 @@ public class d extends com.baidu.adp.framework.listener.b {
         Message<?> orginalMessage = responseFrsGroupsMessage.getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage)) {
             String type = ((RequestFrsGroupsMessage) orginalMessage).getType();
-            kVar9 = this.a.c;
-            if (!type.equals(String.valueOf(kVar9.g()))) {
+            iVar8 = this.a.c;
+            if (!type.equals(String.valueOf(iVar8.g()))) {
                 return;
             }
         }
         this.a.l();
         kVar = this.a.d;
         kVar.b(true);
-        kVar2 = this.a.c;
-        kVar2.a(this.a.getTag());
+        iVar = this.a.c;
+        iVar.a(this.a.getTag());
         if (responseFrsGroupsMessage.getError() != 0) {
             if (responseFrsGroupsMessage.getError() > 0) {
                 if (!TextUtils.isEmpty(responseFrsGroupsMessage.getErrorString())) {
@@ -73,21 +73,20 @@ public class d extends com.baidu.adp.framework.listener.b {
         }
         List<GroupInfoData> groups = responseFrsGroupsMessage.getGroups();
         GroupPermData groupPerm = responseFrsGroupsMessage.getGroupPerm();
-        kVar3 = this.a.c;
-        kVar3.a(groupPerm);
+        iVar2 = this.a.c;
+        iVar2.a(groupPerm);
         if (groups != null) {
-            kVar4 = this.a.c;
-            if (kVar4.h()) {
+            iVar3 = this.a.c;
+            if (iVar3.h()) {
                 groupListAdapter8 = this.a.i;
                 groupListAdapter8.a(true);
                 this.a.c(true);
             }
-            this.a.k = com.baidu.adp.lib.util.k.a();
             int size = groups.size();
-            kVar5 = this.a.c;
-            if (size != kVar5.l()) {
-                kVar8 = this.a.c;
-                if (!kVar8.h()) {
+            iVar4 = this.a.c;
+            if (size != iVar4.k()) {
+                iVar7 = this.a.c;
+                if (!iVar7.h()) {
                     groupListAdapter5 = this.a.i;
                     groupListAdapter5.a(GroupListAdapter.BOTTOM_TYPE.NO_MORE);
                 } else if (groups.size() == 0) {
@@ -106,10 +105,10 @@ public class d extends com.baidu.adp.framework.listener.b {
             this.a.m();
             groupListAdapter2 = this.a.i;
             groupListAdapter2.b(true);
-            kVar6 = this.a.c;
-            kVar6.c(groups.size());
-            kVar7 = this.a.c;
-            kVar7.d(20);
+            iVar5 = this.a.c;
+            iVar5.c(groups.size());
+            iVar6 = this.a.c;
+            iVar6.d(20);
             groupListAdapter3 = this.a.i;
             groupListAdapter3.a(groups);
             groupListAdapter4 = this.a.i;

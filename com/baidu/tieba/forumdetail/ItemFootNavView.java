@@ -14,8 +14,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
-import com.baidu.tieba.model.af;
-import com.baidu.tieba.model.bd;
+import com.baidu.tieba.model.ae;
+import com.baidu.tieba.model.be;
 import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -86,10 +86,10 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     private void a(BaseActivity baseActivity, boolean z) {
-        af afVar = new af();
-        afVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
-        afVar.setLoadDataCallBack(new h(this, afVar, baseActivity, z));
-        afVar.a(this.f.forumInfo.forumName, String.valueOf(this.f.forumInfo.forumID));
+        ae aeVar = new ae();
+        aeVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
+        aeVar.setLoadDataCallBack(new h(this, aeVar, baseActivity, z));
+        aeVar.a(this.f.forumInfo.forumName, String.valueOf(this.f.forumInfo.forumID));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,10 +97,10 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     private void b(BaseActivity baseActivity, boolean z) {
-        bd bdVar = new bd();
-        bdVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
-        bdVar.a(new i(this, baseActivity, z));
-        bdVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
+        be beVar = new be();
+        beVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
+        beVar.a(new i(this, baseActivity, z));
+        beVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

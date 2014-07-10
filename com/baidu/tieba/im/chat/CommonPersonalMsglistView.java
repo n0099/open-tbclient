@@ -14,6 +14,6 @@ public class CommonPersonalMsglistView extends g {
 
     @Override // com.baidu.tieba.im.chat.g
     protected void d() {
-        this.i = false;
+        this.j = false;
     }
 }

@@ -1,24 +1,21 @@
 package com.baidu.tieba.editortool;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements as {
-    final /* synthetic */ u a;
+public class v implements au {
+    final /* synthetic */ PbEditor a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.a = uVar;
+    public v(PbEditor pbEditor) {
+        this.a = pbEditor;
     }
 
-    @Override // com.baidu.tieba.editortool.as
+    @Override // com.baidu.tieba.editortool.au
     public void a() {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        pbEditor = this.a.a;
-        pbEditor.e = true;
-        pbEditor2 = this.a.a;
-        pbEditor2.b.getEditText().requestFocus();
+        this.a.e();
+        this.a.h = false;
     }
 
-    @Override // com.baidu.tieba.editortool.as
+    @Override // com.baidu.tieba.editortool.au
     public void b() {
     }
 }

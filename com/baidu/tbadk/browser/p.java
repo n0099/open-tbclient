@@ -21,16 +21,16 @@ class p implements View.OnClickListener {
         TbWebViewActivity tbWebViewActivity3;
         com.baidu.adp.lib.guide.d dVar2;
         tbWebViewActivity = this.a.a;
-        dVar = tbWebViewActivity.w;
+        dVar = tbWebViewActivity.mInstallGuide;
         if (dVar != null) {
             tbWebViewActivity3 = this.a.a;
-            dVar2 = tbWebViewActivity3.w;
+            dVar2 = tbWebViewActivity3.mInstallGuide;
             dVar2.a();
         }
         tbWebViewActivity2 = this.a.a;
-        imageView = tbWebViewActivity2.q;
+        imageView = tbWebViewActivity2.mBottomInstallPlugin;
         imageView.setSelected(false);
-        com.baidu.tbadk.core.sharedPref.b.a().b("install_plugin_dialog_closed", true);
-        com.baidu.tbadk.core.sharedPref.b.a().b("install_plugin_dialog_shown_time", new Date().getTime());
+        com.baidu.tbadk.core.sharedPref.b.a().c(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+        com.baidu.tbadk.core.sharedPref.b.a().b(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
     }
 }

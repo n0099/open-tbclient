@@ -33,9 +33,6 @@ public class o implements k {
     private d s = null;
 
     public o() {
-        if (p()) {
-            BdLog.d("created");
-        }
         a();
     }
 
@@ -44,9 +41,7 @@ public class o implements k {
             return false;
         }
         if (this.s != null || !f()) {
-            if (p()) {
-                BdLog.d("mWebSocketSendData not null");
-            }
+            p();
             if (dVar != null) {
                 dVar.a(1);
                 return false;
@@ -66,9 +61,6 @@ public class o implements k {
     }
 
     public void a(int i, String str) {
-        if (p()) {
-            BdLog.d("fail connection [code = " + i + ", reason = " + str);
-        }
         this.o = false;
         this.q = true;
         if (this.b != null) {
@@ -99,9 +91,6 @@ public class o implements k {
                     BdLog.d(e2.getMessage());
                 }
             }
-        }
-        if (p()) {
-            BdLog.d("worker threads stopped");
         }
     }
 
@@ -172,18 +161,12 @@ public class o implements k {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.c = new aq(handlerThread.getLooper(), this.a, this.d, this.e);
-        if (p()) {
-            BdLog.d("WS writer created and started");
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c() {
         this.b = new an(this.a, this.d, this.e, "WebSocketReader");
         this.b.start();
-        if (p()) {
-            BdLog.d("WS reader created and started");
-        }
     }
 
     public boolean d() {

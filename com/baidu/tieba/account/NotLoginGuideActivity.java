@@ -15,9 +15,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aj;
-import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.atomData.ao;
 import com.baidu.tbadk.core.atomData.ap;
+import com.baidu.tbadk.core.atomData.au;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.ai;
@@ -31,7 +31,7 @@ public class NotLoginGuideActivity extends BaseActivity {
     private String e = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ap.class, NotLoginGuideActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(au.class, NotLoginGuideActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,9 +47,9 @@ public class NotLoginGuideActivity extends BaseActivity {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.e = bundle.getString(ap.a);
+            this.e = bundle.getString(au.a);
         } else {
-            this.e = getIntent().getStringExtra(ap.a);
+            this.e = getIntent().getStringExtra(au.a);
         }
     }
 
@@ -58,16 +58,18 @@ public class NotLoginGuideActivity extends BaseActivity {
         this.a = (ImageView) findViewById(com.baidu.tieba.v.guide_bg);
         this.c = (Button) findViewById(com.baidu.tieba.v.guide_regist);
         this.d = (Button) findViewById(com.baidu.tieba.v.guide_login);
-        this.b = com.baidu.tbadk.core.util.g.a(this, com.baidu.tieba.u.not_login_guide_bg);
-        this.a.setImageBitmap(this.b);
+        this.b = com.baidu.tbadk.core.util.h.a(this, com.baidu.tieba.u.not_login_guide_bg);
+        if (this.b != null) {
+            this.a.setImageBitmap(this.b);
+        }
         this.c.setOnClickListener(this);
         this.d.setOnClickListener(this);
     }
 
     private boolean b() {
-        if (ap.d.equals(getIntent().getStringExtra(ap.a)) && com.baidu.tieba.util.r.a((Activity) this)) {
+        if (au.d.equals(getIntent().getStringExtra(au.a)) && com.baidu.tieba.util.r.a((Activity) this)) {
             new Intent().putExtra("class", 20);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj((Context) this, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao((Context) this, false)));
             finish();
             return true;
         }
@@ -75,16 +77,16 @@ public class NotLoginGuideActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     private void c() {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this).a("from_logo_page")));
+            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.w(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2017001, new ak(this).a(1)));
+            sendMessage(new CustomMessage(2015001, new ap(this).a(1)));
         }
         finish();
     }
@@ -105,10 +107,9 @@ public class NotLoginGuideActivity extends BaseActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                if (ap.b.equals(this.e)) {
+                closeActivity();
+                if (au.b.equals(this.e)) {
                     com.baidu.tbadk.core.b.b.a(this, Constants.MEDIA_INFO);
-                } else {
-                    closeActivity();
                 }
                 return true;
             default:

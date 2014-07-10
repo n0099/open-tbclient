@@ -1,25 +1,39 @@
 package com.baidu.tbadk.editortool;
 
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ k a;
+public class l extends PagerAdapter {
+    final /* synthetic */ EmotionTabContentView a;
+    private ArrayList<View> b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.a = kVar;
+    public l(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
+        this.a = emotionTabContentView;
+        this.b = new ArrayList<>();
+        this.b = arrayList;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        EmotionTabContentView emotionTabContentView;
-        emotionTabContentView = this.a.a;
-        View findViewWithTag = emotionTabContentView.findViewWithTag(str);
-        if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && aVar != null) {
-            TbImageView tbImageView = (TbImageView) findViewWithTag;
-            aVar.a(tbImageView);
-            tbImageView.setTag(null);
-        }
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.b.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.b.get(i));
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        View view = this.b.get(i);
+        viewGroup.addView(view);
+        return view;
     }
 }

@@ -24,12 +24,12 @@ public class d implements com.baidu.adp.lib.c.d {
         e eVar5;
         e eVar6;
         if (i != 0) {
-            eVar = this.a.h;
+            eVar = this.a.i;
             if (eVar != null) {
-                eVar2 = this.a.h;
-                eVar2.a();
-                eVar3 = this.a.h;
-                eVar3.f();
+                eVar2 = this.a.i;
+                eVar2.c();
+                eVar3 = this.a.i;
+                eVar3.b();
             }
         } else if (address != null) {
             String valueOf = String.valueOf(address.getLatitude());
@@ -38,12 +38,12 @@ public class d implements com.baidu.adp.lib.c.d {
             TbadkApplication.m252getInst().setLocationLng(valueOf2);
             TbadkApplication.m252getInst().setLocationPos(address.getAdminArea());
             if (TextUtils.isEmpty(TbadkApplication.m252getInst().getLocationLat()) || TextUtils.isEmpty(TbadkApplication.m252getInst().getLocationLng())) {
-                eVar4 = this.a.h;
+                eVar4 = this.a.i;
                 if (eVar4 != null) {
-                    eVar5 = this.a.h;
-                    eVar5.a();
-                    eVar6 = this.a.h;
-                    eVar6.f();
+                    eVar5 = this.a.i;
+                    eVar5.c();
+                    eVar6 = this.a.i;
+                    eVar6.b();
                     return;
                 }
                 return;

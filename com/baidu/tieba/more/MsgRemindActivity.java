@@ -15,13 +15,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
-    private ab a;
+    private ac a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new ab(this);
+        this.a = new ac(this);
         this.a.a(this);
     }
 
@@ -46,13 +46,13 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (view == this.a.e()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tieba.ai.c().n(true);
+                com.baidu.tieba.ai.c().m(true);
                 this.a.b();
                 this.a.e(true);
                 this.a.c(true);
                 return;
             }
-            com.baidu.tieba.ai.c().n(false);
+            com.baidu.tieba.ai.c().m(false);
             this.a.e(false);
             this.a.c(false);
         } else if (view == this.a.f()) {
@@ -150,23 +150,23 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        com.baidu.tieba.view.d dVar = new com.baidu.tieba.view.d(this, new aa(this, i, com.baidu.tieba.ai.c()), 0, 0, true);
+        com.baidu.tieba.view.e eVar = new com.baidu.tieba.view.e(this, new ab(this, i, com.baidu.tieba.ai.c()), 0, 0, true);
         if (i == com.baidu.tieba.v.sign_remind) {
-            dVar.setTitle(com.baidu.tieba.y.sign_remind);
+            eVar.setTitle(com.baidu.tieba.y.sign_remind);
         } else if (i == com.baidu.tieba.v.no_disturb_end_time) {
-            dVar.setTitle(com.baidu.tieba.y.no_disturb_end_time);
+            eVar.setTitle(com.baidu.tieba.y.no_disturb_end_time);
         } else if (i == com.baidu.tieba.v.no_disturb_start_time) {
-            dVar.setTitle(com.baidu.tieba.y.no_disturb_start_time);
+            eVar.setTitle(com.baidu.tieba.y.no_disturb_start_time);
         }
-        dVar.setButton(-1, getString(com.baidu.tieba.y.alert_yes_button), dVar);
-        dVar.setButton(-2, getString(com.baidu.tieba.y.alert_no_button), dVar);
-        return dVar;
+        eVar.setButton(-1, getString(com.baidu.tieba.y.alert_yes_button), eVar);
+        eVar.setButton(-2, getString(com.baidu.tieba.y.alert_no_button), eVar);
+        return eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         com.baidu.tieba.util.k.m();
     }
 
@@ -175,23 +175,17 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
         int id = compoundButton.getId();
         if (id == com.baidu.tieba.v.check_replyme) {
             if (z) {
-                com.baidu.tieba.ai.c().l(true);
-            } else {
-                com.baidu.tieba.ai.c().l(false);
-            }
-        } else if (id == com.baidu.tieba.v.check_zan) {
-            if (z) {
                 com.baidu.tieba.ai.c().k(true);
             } else {
                 com.baidu.tieba.ai.c().k(false);
             }
-        } else if (id == com.baidu.tieba.v.check_atme) {
+        } else if (id == com.baidu.tieba.v.check_zan) {
             if (z) {
                 com.baidu.tieba.ai.c().j(true);
             } else {
                 com.baidu.tieba.ai.c().j(false);
             }
-        } else if (id == com.baidu.tieba.v.check_newfans) {
+        } else if (id == com.baidu.tieba.v.check_atme) {
             if (z) {
                 com.baidu.tieba.ai.c().i(true);
             } else {
@@ -199,9 +193,9 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (id == com.baidu.tieba.v.check_chatmessage) {
             if (z) {
-                com.baidu.tieba.ai.c().m(true);
+                com.baidu.tieba.ai.c().l(true);
             } else {
-                com.baidu.tieba.ai.c().m(false);
+                com.baidu.tieba.ai.c().l(false);
             }
         } else if (id == com.baidu.tieba.v.check_groupmessage) {
             if (z) {

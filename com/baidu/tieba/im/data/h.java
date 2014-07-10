@@ -1,35 +1,17 @@
 package com.baidu.tieba.im.data;
-
-import com.baidu.tbadk.core.data.LiveCardData;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class h {
-    private LiveCardData a;
-    private List<i> b = new ArrayList();
-    private int c;
+public class h extends i {
+    private String a;
 
-    public LiveCardData a() {
+    public h() {
+        a(0);
+    }
+
+    public String a() {
         return this.a;
     }
 
-    public void a(LiveCardData liveCardData) {
-        this.a = liveCardData;
-    }
-
-    public List<i> b() {
-        return this.b;
-    }
-
-    public void a(List<i> list) {
-        this.b = list;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public boolean c() {
-        return this.c == 1;
+    public void a(String str) {
+        this.a = str;
     }
 }

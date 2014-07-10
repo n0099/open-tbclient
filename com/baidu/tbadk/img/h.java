@@ -6,9 +6,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tieba.y;
 import java.io.File;
@@ -27,7 +27,7 @@ public class h {
     private Object l;
     private int a = 102400;
     private String h = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
-    private an i = null;
+    private aq i = null;
 
     public h(String str) {
         this.f = str;
@@ -97,7 +97,7 @@ public class h {
             b = this.j.b(imageFileInfo, true);
         }
         imageFileInfo.setPageActionsList(pageActionsList);
-        if (b != null && (a = x.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
+        if (b != null && (a = z.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
             return a(a);
         }
         return null;
@@ -175,7 +175,7 @@ public class h {
             try {
                 File file = new File(str);
                 long length = file.length();
-                String a = bg.a(x.a(file));
+                String a = bm.a(z.a(file));
                 sb.append("path=");
                 sb.append(str);
                 sb.append("|length=");
@@ -250,7 +250,7 @@ public class h {
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
-                                        this.i = new an(TbConfig.UPLOAD_IMG_URL);
+                                        this.i = new aq(TbConfig.UPLOAD_IMG_URL);
                                         this.i.a("resourceId", str2);
                                         this.i.a("chunkNo", String.valueOf(i3));
                                         if (i3 >= j2) {

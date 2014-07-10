@@ -25,7 +25,7 @@ public class AccountActivity extends BaseActivity {
     private f i = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2017006, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015006, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

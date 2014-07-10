@@ -11,14 +11,13 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.flist.ForumListModel;
 import java.util.ArrayList;
@@ -49,8 +48,8 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
     private int n = Constants.MEDIA_INFO;
     private int o = Constants.MEDIA_INFO;
     private int p = 0;
-    private final com.baidu.tieba.model.af q = new com.baidu.tieba.model.af();
-    private com.baidu.tbadk.editortool.ab r = null;
+    private final com.baidu.tieba.model.ae q = new com.baidu.tieba.model.ae();
+    private com.baidu.tbadk.editortool.aa r = null;
     private boolean s = false;
     private int t = 0;
     private boolean u = false;
@@ -70,9 +69,9 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        com.baidu.tieba.square.ab a = this.c.y.a();
+        com.baidu.tieba.square.w a = this.c.y.a();
         if (a != null) {
-            ArrayList<com.baidu.tieba.square.ab> arrayList = a.e;
+            ArrayList<com.baidu.tieba.square.w> arrayList = a.e;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 if (arrayList.get(i).b.equals(str)) {
@@ -94,7 +93,6 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
             this.A.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
             this.A.offset = 0;
             this.A.rn = 10;
-            BdLog.d("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -154,11 +152,11 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
 
     private void b(String str, String str2, String str3, String str4) {
         this.e = new Handler();
-        if (bg.c(str4)) {
+        if (bm.c(str4)) {
             str4 = str;
         }
         this.c.h.setText(str4);
-        this.r = new com.baidu.tbadk.editortool.ab(this);
+        this.r = new com.baidu.tbadk.editortool.aa(this);
         this.A = new ForumListModel.RequestParams();
         try {
             this.A.menu_id = Integer.valueOf(str2).intValue();
@@ -168,7 +166,6 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
             this.A.parent_menu_name = str;
             this.A.offset = 0;
             this.A.rn = 10;
-            BdLog.d("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -192,7 +189,6 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
         this.c.s.a(this.K);
         this.c.t.a(this.K);
         if (str3.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT)) {
-            BdLog.d("ForumListActivity", "OnCreate", "from frs");
             this.c.A.setVisibility(8);
             this.c.d();
         } else {
@@ -202,7 +198,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
         }
         this.G = new t(this, this.A);
         this.G.a(this.H);
-        this.c.i.d();
+        this.c.i.e();
     }
 
     public static void a(String str, String str2, String str3, String str4) {
@@ -213,7 +209,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (d) {

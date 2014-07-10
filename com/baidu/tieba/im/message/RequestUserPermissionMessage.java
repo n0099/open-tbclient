@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
@@ -10,7 +8,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
     private long forumId;
 
     public RequestUserPermissionMessage() {
-        super(MessageTypes.CMD_GET_USER_PERMISSION);
+        super(103008);
     }
 
     public long getForumId() {
@@ -30,7 +28,6 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

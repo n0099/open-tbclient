@@ -1,74 +1,77 @@
 package com.baidu.tieba.square;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask<Object, Integer, t> {
-    final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tbadk.core.util.an b;
+public class p extends BaseAdapter implements com.baidu.tieba.view.u {
+    private t a = null;
+    private ArrayList<ap> b = new ArrayList<>();
+    private q c;
 
-    private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.a = barFolderSecondDirActivity;
-        this.b = null;
+    public p(Context context) {
+        this.c = null;
+        this.c = new q(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, p pVar) {
-        this(barFolderSecondDirActivity);
+    public void a(ArrayList<ap> arrayList) {
+        this.b = arrayList;
+        this.c.a(arrayList);
+        this.a = this.c.getPagerAdapter();
+        notifyDataSetChanged();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public t doInBackground(Object... objArr) {
-        q qVar;
-        String str;
-        String str2;
-        String str3;
-        qVar = this.a.i;
-        t a = qVar.a();
-        try {
-            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            com.baidu.tbadk.core.util.an anVar = this.b;
-            str = this.a.k;
-            anVar.a("menu_name", str);
-            com.baidu.tbadk.core.util.an anVar2 = this.b;
-            str2 = this.a.l;
-            anVar2.a("menu_type", str2);
-            com.baidu.tbadk.core.util.an anVar3 = this.b;
-            str3 = this.a.m;
-            anVar3.a("menu_id", str3);
-            String i = this.b.i();
-            if (this.b.a().b().b()) {
-                a.b(i);
-            } else {
-                a.a(this.b.f());
-            }
-        } catch (Exception e) {
-            a.a(e.getMessage());
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+    public void a() {
+        if (this.c != null) {
+            this.c.a();
         }
-        return a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(t tVar) {
-        this.a.a(tVar, false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
+    public void c() {
+        if (this.c != null) {
+            this.c.b();
         }
-        this.a.a(null, true);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.b != null ? this.b.size() + 0 : 0) > 0 ? 1 : 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.c;
+    }
+
+    @Override // com.baidu.tieba.view.u
+    public void b() {
+        if (this.a != null) {
+            this.a.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.u
+    public void a(View view, int i, int i2) {
+        if (this.a != null) {
+            this.a.a(this.c, 0, 0);
+        }
+    }
+
+    public void a(int i) {
+        if (this.c != null) {
+            this.c.a(i);
+        }
     }
 }

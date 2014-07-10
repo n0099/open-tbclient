@@ -13,12 +13,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class OfficialBarInfoActivity extends BaseActivity implements View.OnClickListener, com.baidu.adp.widget.BdSwitchView.c {
-    al a;
-    am b;
+    ao a;
+    ap b;
     private int c = 0;
     private String d = null;
-    private com.baidu.tbadk.editortool.ab e;
-    private an f;
+    private com.baidu.tbadk.editortool.aa e;
+    private aq f;
 
     public static void a(Context context, int i, String str) {
         Intent intent = new Intent(context, OfficialBarInfoActivity.class);
@@ -37,7 +37,7 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     }
 
     private void a() {
-        this.f = new an(this);
+        this.f = new aq(this);
         this.f.a((View.OnClickListener) this);
         this.f.a((com.baidu.adp.widget.BdSwitchView.c) this);
         showProgressBar();
@@ -51,14 +51,14 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
         } else {
             this.f.b(this.d);
         }
-        az.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ah(this));
-        this.e = new com.baidu.tbadk.editortool.ab(this);
+        bd.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ak(this));
+        this.e = new com.baidu.tbadk.editortool.aa(this);
         sendMessage(new RequestOfficialBarInfoMessage(this.c, this.d));
     }
 
     private void c() {
-        this.a = new al(this);
-        this.b = new am(this);
+        this.a = new ao(this);
+        this.b = new ap(this);
         MessageManager.getInstance().registerListener(this.a);
         MessageManager.getInstance().registerListener(this.b);
     }
@@ -76,7 +76,7 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -92,18 +92,18 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.f.a()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ai(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new aj(this)).create().show();
+            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new al(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new am(this)).create().show();
         } else if (view == this.f.b()) {
             OfficialBarHistoryActivity.a(this, this.c);
         } else if (view == this.f.c()) {
-            com.baidu.tbadk.core.atomData.m mVar = new com.baidu.tbadk.core.atomData.m(this);
-            mVar.a(this.d, "official_bar");
-            sendMessage(new CustomMessage(2005000, mVar));
+            com.baidu.tbadk.core.atomData.r rVar = new com.baidu.tbadk.core.atomData.r(this);
+            rVar.a(this.d, "official_bar");
+            sendMessage(new CustomMessage(2003000, rVar));
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        new ak(this, switchState).execute(new Void[0]);
+        new an(this, switchState).execute(new Void[0]);
     }
 }

@@ -14,25 +14,24 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* loaded from: classes.dex */
 public class LiveRoomSettingActivity extends BaseActivity {
-    private bi e;
-    private bh f;
+    private bj e;
+    private bi f;
     private String g;
     private String h;
     private final String c = "key_url";
     private final String d = "key_pid";
-    private com.baidu.adp.framework.listener.b i = new bd(this, 0);
-    private com.baidu.adp.framework.listener.b j = new be(this, 0);
-    DialogInterface.OnClickListener a = new bf(this);
-    DialogInterface.OnClickListener b = new bg(this);
+    private com.baidu.adp.framework.listener.b i = new be(this, 0);
+    private com.baidu.adp.framework.listener.b j = new bf(this, 0);
+    DialogInterface.OnClickListener a = new bg(this);
+    DialogInterface.OnClickListener b = new bh(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ah.class, LiveRoomSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.am.class, LiveRoomSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,7 +45,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     }
 
     private void a() {
-        this.e = new bi(this);
+        this.e = new bj(this);
         this.e.a(this.b);
         this.e.b(this.a);
         this.e.a(this.g);
@@ -60,7 +59,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     }
 
     private void a(Bundle bundle) {
-        this.f = new bh();
+        this.f = new bi();
         if (bundle == null) {
             if (getIntent() != null) {
                 a(getIntent());
@@ -86,8 +85,8 @@ public class LiveRoomSettingActivity extends BaseActivity {
     }
 
     private void b() {
-        registerListener(MessageTypes.CMD_UPDATE_LIVE_GROUP, this.i);
-        registerListener(MessageTypes.CMD_GET_LIVE_GROUP_INFO, this.j);
+        registerListener(107102, this.i);
+        registerListener(107008, this.j);
     }
 
     private void c() {
@@ -119,10 +118,10 @@ public class LiveRoomSettingActivity extends BaseActivity {
                 finish();
             }
         } else if (view == this.e.h()) {
-            com.baidu.tbadk.core.atomData.d dVar = new com.baidu.tbadk.core.atomData.d(this, String.valueOf(this.f.a()));
-            dVar.setIntentAction(IntentAction.ActivityForResult);
-            dVar.setRequestCode(23002);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, dVar));
+            com.baidu.tbadk.core.atomData.e eVar = new com.baidu.tbadk.core.atomData.e(this, String.valueOf(this.f.a()));
+            eVar.setIntentAction(IntentAction.ActivityForResult);
+            eVar.setRequestCode(23002);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, eVar));
         }
     }
 
@@ -132,10 +131,10 @@ public class LiveRoomSettingActivity extends BaseActivity {
         if (dialogInterface == this.e.g()) {
             switch (i) {
                 case 0:
-                    com.baidu.tbadk.core.util.bd.a(this);
+                    com.baidu.tbadk.core.util.bj.a(this);
                     return;
                 case 1:
-                    com.baidu.tbadk.core.util.bd.c(this);
+                    com.baidu.tbadk.core.util.bj.c(this);
                     return;
                 default:
                     return;
@@ -161,7 +160,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tbadk.core.util.ay.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        com.baidu.tbadk.core.util.bc.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.z.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                         this.f.a(photoUrlData.getPicId());
                         this.f.a(true);
                         this.e.a(photoUrlData.getSmallurl());
@@ -181,9 +180,9 @@ public class LiveRoomSettingActivity extends BaseActivity {
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tbadk.core.util.bd.a(this);
+                com.baidu.tbadk.core.util.bj.a(this);
             } else if (i == 12009) {
-                com.baidu.tbadk.core.util.bd.b(this);
+                com.baidu.tbadk.core.util.bj.b(this);
             }
         }
     }

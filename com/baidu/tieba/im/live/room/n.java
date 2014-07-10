@@ -1,22 +1,39 @@
 package com.baidu.tieba.im.live.room;
 
-import com.baidu.tbadk.TbadkApplication;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-class n extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ LiveRoomChatActivity b;
-    private final /* synthetic */ GroupData c;
+class n implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ LiveRoomChatActivity a;
+    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(LiveRoomChatActivity liveRoomChatActivity, GroupData groupData) {
-        this.b = liveRoomChatActivity;
-        this.c = groupData;
+        this.a = liveRoomChatActivity;
+        this.b = groupData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getGroupId())));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        com.baidu.tieba.im.chat.g gVar;
+        com.baidu.tieba.im.chat.g gVar2;
+        com.baidu.tieba.im.chat.g gVar3;
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                gVar3 = this.a.d;
+                gVar3.M();
+            } else {
+                gVar = this.a.d;
+                gVar.N();
+            }
+            if (this.a.x() != null && this.b != null) {
+                String name = this.b.getName();
+                if (!TextUtils.isEmpty(name)) {
+                    gVar2 = this.a.d;
+                    gVar2.a(name, true);
+                }
+            }
+        }
     }
 }

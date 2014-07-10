@@ -13,7 +13,7 @@ class af implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ah ahVar;
-        ahVar = this.a.x;
+        ahVar = this.a.u;
         ahVar.a();
     }
 }

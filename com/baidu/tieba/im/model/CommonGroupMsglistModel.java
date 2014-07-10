@@ -4,10 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -36,7 +34,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void a() {
         super.a();
-        m();
+        l();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -54,11 +52,8 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
-        if (eVar == null || this.a == null) {
-            return null;
-        }
-        return eVar.a(new StringBuilder(String.valueOf(this.a.getGroupId())).toString());
+    protected ImMessageCenterPojo b() {
+        return com.baidu.tieba.im.b.a.a().a(String.valueOf(this.a.getGroupId()));
     }
 
     public void a(GroupData groupData) {
@@ -70,18 +65,18 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         }
     }
 
-    public GroupData b() {
+    public GroupData c() {
         return this.a;
     }
 
     private void f() {
         this.b = new f(this, null);
         com.baidu.tieba.im.chat.w.b().a(this.b);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.c);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_GROUP, this.c);
+        MessageManager.getInstance().registerListener(103112, this.c);
+        MessageManager.getInstance().registerListener(103102, this.c);
     }
 
-    private void m() {
+    private void l() {
         MessageManager.getInstance().unRegisterListener(this.c);
         com.baidu.tieba.im.chat.w.b().b(this.b);
     }
@@ -93,7 +88,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             return null;
         }
         GroupMsgData groupMsgData = (GroupMsgData) responsedMessage;
-        if (b() == null || groupMsgData.getGroupInfo() == null || groupMsgData.getGroupInfo().getGroupId() != b().getGroupId() || (listMessage = groupMsgData.getListMessage()) == null) {
+        if (c() == null || groupMsgData.getGroupInfo() == null || groupMsgData.getGroupInfo().getGroupId() != c().getGroupId() || (listMessage = groupMsgData.getListMessage()) == null) {
             return null;
         }
         return a(listMessage);
@@ -145,16 +140,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ResponsedMessage<?> responsedMessage) {
-        if (!(responsedMessage instanceof ResponseUpdateGroupMessage)) {
-            BdLog.d("transform error");
-            return;
-        }
-        ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
-        if (responseUpdateGroupMessage.getError() != 0) {
-            BdLog.e("has error");
-        } else if (responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
-            this.mLoadDataMode = 10;
-            this.mLoadDataCallBack.a(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
+        if (responsedMessage instanceof ResponseUpdateGroupMessage) {
+            ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
+            if (responseUpdateGroupMessage.getError() == 0 && responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
+                this.mLoadDataMode = 10;
+                this.mLoadDataCallBack.a(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
+            }
         }
     }
 

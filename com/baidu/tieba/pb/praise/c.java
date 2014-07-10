@@ -1,26 +1,16 @@
 package com.baidu.tieba.pb.praise;
 
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.bf;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ b a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.a = bVar;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (aVar != null && str != null) {
-            headImageView = this.a.b;
-            if (str.equals(headImageView.getTag())) {
-                headImageView2 = this.a.b;
-                aVar.a(headImageView2);
-            }
+class c implements CustomMessageTask.CustomRunnable<bf> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<bf> run(CustomMessage<bf> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            PraiseListActivity.b(customMessage.getData().getContext(), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.POST_DESC), customMessage.getData().getIntent().getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true));
         }
+        return null;
     }
 }

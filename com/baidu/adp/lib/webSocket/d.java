@@ -6,7 +6,7 @@ public abstract class d implements ap {
 
     protected abstract byte[] k();
 
-    public byte[] s() {
+    public byte[] t() {
         synchronized (this) {
             if (!this.b) {
                 this.b = true;

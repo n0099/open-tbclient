@@ -1,31 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.widget.ListView;
-import com.baidu.tieba.editortool.PbEditor;
+import android.content.DialogInterface;
+import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd implements Runnable {
-    private int a;
-    private int b;
-    private PbEditor c;
-    private ListView d;
-    private Activity e;
-    private int f;
+public class dd implements DialogInterface.OnClickListener {
+    final /* synthetic */ ct a;
 
-    public dd(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
-        this.b = i2;
-        this.a = i;
-        this.c = pbEditor;
-        this.d = listView;
-        this.f = i3;
-        this.e = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dd(ct ctVar) {
+        this.a = ctVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        this.c.getLocationInWindow(iArr);
-        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.k.a(this.e));
-        this.d.invalidate();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        BaseActivity baseActivity;
+        BaseActivity baseActivity2;
+        if (i == 0) {
+            baseActivity2 = this.a.g;
+            com.baidu.tbadk.core.util.bj.a(baseActivity2);
+        } else if (i == 1) {
+            baseActivity = this.a.g;
+            com.baidu.tbadk.core.util.bj.b(baseActivity);
+        }
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.tieba.im.live.mylive;
 
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tbadk.coreExtra.view.ab;
+import com.baidu.tbadk.coreExtra.view.ad;
 /* loaded from: classes.dex */
-class i implements ab {
+class i implements ad {
     final /* synthetic */ MyLiveListAdapter a;
     private final /* synthetic */ LiveCardData b;
 
@@ -14,7 +14,7 @@ class i implements ab {
         this.b = liveCardData;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ab
+    @Override // com.baidu.tbadk.coreExtra.view.ad
     public void onClick(LiveBroadcastCard liveBroadcastCard) {
         MyLiveActivity myLiveActivity;
         myLiveActivity = this.a.a;

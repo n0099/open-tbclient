@@ -8,19 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class GroupActivityActivity extends BaseActivity implements View.OnClickListener {
     private s a;
     private r b;
-    private CustomMessageListener c = new n(this, MessageTypes.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL);
+    private CustomMessageListener c = new n(this, 2001127);
     private com.baidu.adp.framework.listener.b d = new o(this, 0);
 
     public static void a(Context context, int i, long j, int i2) {
         Intent intent = new Intent(context, GroupActivityActivity.class);
         intent.putExtra("activity_id", i);
         intent.putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
-        intent.putExtra("from", i2);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FROM, i2);
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
@@ -39,11 +38,11 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
         if (bundle != null) {
             this.b.b(bundle.getInt("activity_id", 0));
             this.b.a(bundle.getLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
-            this.b.a(bundle.getInt("from", 0));
+            this.b.a(bundle.getInt(com.baidu.tbadk.core.frameworkData.a.FROM, 0));
         } else if (getIntent() != null) {
             this.b.b(getIntent().getIntExtra("activity_id", 0));
             this.b.a(getIntent().getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
-            this.b.a(getIntent().getIntExtra("from", 0));
+            this.b.a(getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FROM, 0));
         }
         b();
         c();
@@ -63,15 +62,15 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
         if (intent != null) {
             this.b.b(intent.getIntExtra("activity_id", 0));
             this.b.a(intent.getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
-            this.b.a(intent.getIntExtra("from", 0));
+            this.b.a(intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.FROM, 0));
         }
         c();
     }
 
     private void a() {
-        registerListener(MessageTypes.CMD_GET_GROUP_ACTIVITY, this.d);
+        registerListener(103015, this.d);
         registerListener(this.c);
-        registerListener(MessageTypes.CMD_DEL_GROUP_ACTIVITY, this.d);
+        registerListener(103121, this.d);
     }
 
     @Override // android.app.Activity
@@ -80,12 +79,12 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
         if (this.b != null) {
             bundle.putInt("activity_id", this.b.b());
             bundle.putLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.b.c());
-            bundle.putInt("from", this.b.a());
+            bundle.putInt(com.baidu.tbadk.core.frameworkData.a.FROM, this.b.a());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
     }

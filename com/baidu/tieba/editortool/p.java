@@ -1,23 +1,22 @@
 package com.baidu.tieba.editortool;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ o a;
-    private final /* synthetic */ ViewGroup b;
+public class p implements View.OnClickListener {
+    final /* synthetic */ EditorToolComponetContainer a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar, ViewGroup viewGroup) {
-        this.a = oVar;
-        this.b = viewGroup;
+    public p(EditorToolComponetContainer editorToolComponetContainer, int i) {
+        this.a = editorToolComponetContainer;
+        this.b = i;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView = (TbImageView) this.b.findViewWithTag(str);
-        if (tbImageView != null && aVar != null) {
-            tbImageView.invalidate();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortool.w wVar;
+        wVar = this.a.y;
+        wVar.a(this.b, null);
     }
 }

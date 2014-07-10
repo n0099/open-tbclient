@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.act;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements TextWatcher {
@@ -35,7 +35,7 @@ public class ac implements TextWatcher {
         String str2;
         this.a.d();
         str = this.a.f;
-        if (!bg.c(str)) {
+        if (!bm.c(str)) {
             String editable2 = editable.toString();
             str2 = this.a.f;
             if (!editable2.equals(str2)) {

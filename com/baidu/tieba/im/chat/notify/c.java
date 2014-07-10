@@ -1,34 +1,32 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ b a;
-
+class c extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.a = bVar;
+    public c(int i) {
+        super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
-        BdListView bdListView;
-        s sVar;
-        s sVar2;
-        com.baidu.tieba.im.model.r rVar;
-        BdListView bdListView2;
-        bdListView = this.a.k;
-        if (bdListView != null && com.baidu.tieba.im.b.e.d()) {
-            bdListView2 = this.a.k;
-            bdListView2.c();
-        }
-        sVar = this.a.l;
-        if (sVar != null) {
-            sVar2 = this.a.l;
-            rVar = this.a.d;
-            sVar2.a(rVar.b());
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        TextView textView;
+        TextView textView2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
+            int msgChat = ((NewsNotifyMessage) customResponsedMessage).getMsgChat();
+            if (!com.baidu.tieba.im.b.e.a.get()) {
+                msgChat = 0;
+            }
+            textView = ImMessageCenterDelegateStatic.c;
+            if (textView != null) {
+                textView2 = ImMessageCenterDelegateStatic.c;
+                ImMessageCenterDelegateStatic.b(textView2, msgChat);
+            }
         }
     }
 }

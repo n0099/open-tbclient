@@ -1,13 +1,12 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.QuitChatroom.QuitChatroomResIdl;
 /* loaded from: classes.dex */
 public class ResponseQuitChatRoomMessage extends SocketResponsedMessage {
     public ResponseQuitChatRoomMessage() {
-        super(MessageTypes.CMD_QUIT_CHAT_ROOM);
+        super(106102);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -3,7 +3,6 @@ package com.baidu.tieba.plugins;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.service.PluginDownloadService;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
@@ -18,7 +17,6 @@ public class PluginDownloadReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         int i = 1;
-        BdLog.d("onReceive");
         if (UtilHelper.getNetStatusInfo(context) == UtilHelper.NetworkStateInfo.WIFI) {
             if (!com.baidu.tbadk.tbplugin.m.a().b("motusdk") || !com.baidu.tbadk.tbplugin.m.a().b("browser")) {
                 if (!this.mInit) {

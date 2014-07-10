@@ -2,7 +2,6 @@ package com.baidu.tieba.account;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccount;
@@ -59,7 +58,7 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            BdLog.detailException(e);
         }
         return true;
     }
@@ -76,8 +75,6 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
         this.a.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         TbadkApplication.m252getInst().onUserChanged();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
         com.baidu.tbadk.core.b.b.a(this.a, 1, false);
         this.a.h = null;
     }

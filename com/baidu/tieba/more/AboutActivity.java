@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.bc;
+import com.baidu.tieba.model.bd;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity {
     private d a;
     private com.baidu.tieba.model.a b;
     private c c = null;
-    private String d = String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/topic_page/110_1";
+    private String d = String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/topic_page/110_1";
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
@@ -29,7 +29,7 @@ public class AboutActivity extends BaseActivity {
         b();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
@@ -73,16 +73,16 @@ public class AboutActivity extends BaseActivity {
         if (this.a != null) {
             this.a.b();
         }
-        bc bcVar = obj != null ? (bc) obj : null;
-        if (bcVar != null) {
-            com.baidu.tieba.ai.c().a(bcVar.c());
+        bd bdVar = obj != null ? (bd) obj : null;
+        if (bdVar != null) {
+            com.baidu.tieba.ai.c().a(bdVar.c());
             TbadkApplication.m252getInst().refreshNewVersion(false);
-            if (bcVar.c().hasNewVer()) {
-                if (bcVar.c().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b());
+            if (bdVar.c().hasNewVer()) {
+                if (bdVar.c().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bdVar.c(), bdVar.b());
                 } else {
                     TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b());
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bdVar.c(), bdVar.b());
                 }
             } else {
                 showToast(getResources().getString(com.baidu.tieba.y.neednot_update));

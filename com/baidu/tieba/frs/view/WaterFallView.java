@@ -18,9 +18,9 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private p e;
+    private q e;
     private LinearLayout f;
-    private p g;
+    private q g;
     private View h;
     private View i;
     private int j;
@@ -28,7 +28,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private q o;
+    private r o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -68,8 +68,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         j();
     }
 
-    public void setOnScrollListener(q qVar) {
-        this.o = qVar;
+    public void setOnScrollListener(r rVar) {
+        this.o = rVar;
     }
 
     public void a(View view) {
@@ -104,15 +104,15 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void j() {
-        this.e = new p(this);
-        this.g = new p(this);
-        this.n = com.baidu.adp.lib.util.k.a(getContext(), 20.0f);
-        this.b = com.baidu.adp.lib.util.k.a(getContext(), 3.0f);
+        this.e = new q(this);
+        this.g = new q(this);
+        this.n = com.baidu.adp.lib.util.j.a(getContext(), 20.0f);
+        this.b = com.baidu.adp.lib.util.j.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(w.water_fall_view, (ViewGroup) null);
         addView(this.c);
         this.d = (LinearLayout) this.c.findViewById(v.line1);
         this.f = (LinearLayout) this.c.findViewById(v.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.k.b(getContext()), 1073741824), 0);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.j.b(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
         k();
     }
@@ -122,7 +122,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void k() {
-        this.k = new o(this);
+        this.k = new p(this);
     }
 
     @Override // android.view.View
@@ -135,12 +135,12 @@ public class WaterFallView extends BdPullRefreshScrollView {
         }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.adp.lib.util.k.a(this, "mScroller").get(this);
+                Object obj = com.baidu.adp.lib.util.j.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onScrollChanged", e.getMessage());
+                BdLog.detailException(e);
             }
         }
         if (this.o != null) {

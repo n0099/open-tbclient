@@ -79,7 +79,7 @@ public class h implements Runnable {
                         return;
                     }
                 } catch (Exception e) {
-                    BdLog.e("Recorder", "run", "error = " + e.getMessage());
+                    BdLog.e(e.getMessage());
                     c();
                     if (this.f != null) {
                         this.f.sendMessage(this.f.obtainMessage(1));
@@ -203,7 +203,7 @@ public class h implements Runnable {
                             }
                             i2 += read;
                             if (i2 == 160) {
-                                long currentTimeMillis = System.currentTimeMillis();
+                                System.currentTimeMillis();
                                 if (this.c > 0) {
                                     int size = arrayList.size();
                                     if (size + 1 > 1 && (size + 1) % 10 == 0) {
@@ -214,7 +214,6 @@ public class h implements Runnable {
                                 } else {
                                     a(sArr2);
                                 }
-                                BdLog.d(getClass(), "TestVoice_compress", new StringBuilder(String.valueOf(System.currentTimeMillis() - currentTimeMillis)).toString());
                                 sArr2 = null;
                             }
                             if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.b.a) {
@@ -224,7 +223,7 @@ public class h implements Runnable {
                                 break;
                             }
                         }
-                        long currentTimeMillis2 = System.currentTimeMillis();
+                        long currentTimeMillis = System.currentTimeMillis();
                         if (sArr != null) {
                             while (i < 160 && i < sArr.length) {
                                 sArr[i] = 0;
@@ -235,21 +234,19 @@ public class h implements Runnable {
                         if (this.c > 0) {
                             BdSoundGate.a().c();
                         }
-                        Log.d("test_record", "1:" + (System.currentTimeMillis() - currentTimeMillis2));
-                        long currentTimeMillis3 = System.currentTimeMillis();
+                        Log.d("test_record", "1:" + (System.currentTimeMillis() - currentTimeMillis));
+                        System.currentTimeMillis();
                         b.stop();
                         b.release();
-                        BdLog.d(getClass(), "test_record", "2:" + (System.currentTimeMillis() - currentTimeMillis3));
                         System.currentTimeMillis();
                         if (this.a == 5) {
-                            BdLog.i("----runnable cancel");
                             if (!c()) {
                                 if (this.f != null) {
                                     this.f.sendMessage(this.f.obtainMessage(2));
                                 }
                             } else {
                                 try {
-                                    com.baidu.adp.lib.util.c.e(this.b);
+                                    com.baidu.adp.lib.util.c.d(this.b);
                                     if (this.f != null) {
                                         this.f.sendMessage(this.f.obtainMessage(100));
                                     }
@@ -269,7 +266,7 @@ public class h implements Runnable {
                         if (this.i != null) {
                             this.i.removeCallbacks(this.j);
                         }
-                        long currentTimeMillis4 = System.currentTimeMillis();
+                        System.currentTimeMillis();
                         if (!c() && this.f != null) {
                             this.f.sendMessage(this.f.obtainMessage(2));
                         }
@@ -278,13 +275,12 @@ public class h implements Runnable {
                         if (this.f != null) {
                             if (z) {
                                 this.f.sendMessage(this.f.obtainMessage(7));
-                            } else {
-                                Message obtainMessage2 = this.f.obtainMessage(0);
-                                obtainMessage2.arg1 = (int) this.h;
-                                this.f.sendMessage(obtainMessage2);
+                                return;
                             }
+                            Message obtainMessage2 = this.f.obtainMessage(0);
+                            obtainMessage2.arg1 = (int) this.h;
+                            this.f.sendMessage(obtainMessage2);
                         }
-                        BdLog.d(getClass(), "test_record", "5:" + (System.currentTimeMillis() - currentTimeMillis4));
                     } catch (IOException e9) {
                         audioRecord = b;
                     }
@@ -336,7 +332,7 @@ public class h implements Runnable {
             try {
                 this.d.close();
             } catch (IOException e) {
-                BdLog.e("Recorder", "closeFileStream", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return false;
             }
         }
@@ -355,12 +351,9 @@ public class h implements Runnable {
 
     public void a() {
         this.a = 4;
-        BdLog.i("----stop:" + this.a);
-        BdLog.i("record runnable state after stop:----" + this.h);
     }
 
     public void b() {
         this.a = 5;
-        BdLog.i("----cancel:");
     }
 }

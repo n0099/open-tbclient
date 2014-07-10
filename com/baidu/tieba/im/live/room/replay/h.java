@@ -1,24 +1,61 @@
 package com.baidu.tieba.im.live.room.replay;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ LiveRoomReplayActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.core.data.LiveCardData;
+import java.util.List;
+/* loaded from: classes.dex */
+public class h extends BaseAdapter {
+    private LiveRoomReplayActivity a;
+    private List<LiveCardData> b = null;
+
     public h(LiveRoomReplayActivity liveRoomReplayActivity) {
+        this.a = null;
         this.a = liveRoomReplayActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        LiveRoomReplayPlayer liveRoomReplayPlayer;
-        LiveRoomReplayPlayer liveRoomReplayPlayer2;
-        if (aVar != null && str != null) {
-            liveRoomReplayPlayer = this.a.e;
-            if (str.equals(liveRoomReplayPlayer.getHeadView().getTag())) {
-                liveRoomReplayPlayer2 = this.a.e;
-                aVar.a(liveRoomReplayPlayer2.getHeadView());
-            }
+    public void a(List<LiveCardData> list) {
+        this.b = list;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.b != null) {
+            return this.b.size();
         }
+        return 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public LiveCardData getItem(int i) {
+        if (this.b == null || this.b.size() <= 0) {
+            return null;
+        }
+        return this.b.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return a(i, view, viewGroup);
+    }
+
+    private View a(int i, View view, ViewGroup viewGroup) {
+        com.baidu.tieba.im.live.room.intro.c a = com.baidu.tieba.im.live.room.intro.c.a(this.a, view);
+        a.a(getItem(i));
+        if (i == 0) {
+            a.a();
+        } else {
+            a.b();
+        }
+        this.a.changSkinType(a.c());
+        return a.c();
     }
 }

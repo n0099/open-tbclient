@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryLiveGroupsByFid.DataReq;
 import protobuf.QueryLiveGroupsByFid.QueryLiveGroupsByFidReqIdl;
@@ -12,7 +11,7 @@ public class RequestFrsLiveListMessage extends TbSocketMessage {
     private int type;
 
     public RequestFrsLiveListMessage() {
-        super(MessageTypes.CMD_REQUEST_LIVE_LIST_BY_FID);
+        super(107001);
     }
 
     public int getForumId() {

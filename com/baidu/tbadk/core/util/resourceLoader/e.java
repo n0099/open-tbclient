@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.util.resourceLoader;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.g;
+import com.baidu.tbadk.core.util.h;
+import com.baidu.tbadk.core.util.httpNet.i;
 /* loaded from: classes.dex */
 public class e extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
@@ -17,7 +17,7 @@ public class e extends a {
         Bitmap a;
         if (eVar.g) {
             int i = eVar.d;
-            synchronized (g.a) {
+            synchronized (h.a) {
                 if (i == 1) {
                     a = com.baidu.tbadk.core.a.a.b(str, 0L);
                 } else {
@@ -52,53 +52,44 @@ public class e extends a {
         int i = eVar.d;
         if (i == 2) {
             str2 = String.valueOf(TbConfig.getPhotoSmallAddress()) + str;
-        } else if (i != 1) {
-            str2 = null;
         } else {
-            str2 = String.valueOf(TbConfig.getFriendPhotoAddress()) + str;
+            str2 = i == 1 ? String.valueOf(TbConfig.getFriendPhotoAddress()) + str : null;
         }
-        eVar.a = new com.baidu.tbadk.core.util.a.e();
+        eVar.a = new i();
         if (bVar.h != null) {
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= bVar.h.size()) {
-                    break;
-                }
-                eVar.a.a(bVar.h.get(i3));
-                i2 = i3 + 1;
+            for (int i2 = 0; i2 < bVar.h.size(); i2++) {
+                eVar.a.a(bVar.h.get(i2));
             }
         }
         byte[] a = eVar.a.a(str2, false);
         if (a == null || !eVar.a.b() || eVar.n) {
             return null;
         }
-        synchronized (g.a) {
+        synchronized (h.a) {
             if (eVar.n) {
                 return null;
             }
-            eVar.e = g.a(a);
+            eVar.e = h.a(a);
             if (eVar.e == null) {
                 return null;
             }
-            eVar.h = eVar.a.d || k.a(a);
+            eVar.h = eVar.a.d || j.a(a);
             if (eVar.n) {
                 return null;
             }
-            int i4 = 80;
+            int i3 = 80;
             if (i == 1) {
-                i4 = TbConfig.getFriendPhotoMaxSize();
+                i3 = TbConfig.getFriendPhotoMaxSize();
             }
-            if (eVar.e.getWidth() > i4 || eVar.e.getHeight() > i4) {
-                BdLog.e(getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(eVar.e.getWidth()) + "*" + String.valueOf(eVar.e.getHeight())));
-                com.baidu.tbadk.imageManager.e.a().c(g.a(eVar.e) * 2);
-                eVar.e = g.a(eVar.e, i4);
+            if (eVar.e.getWidth() > i3 || eVar.e.getHeight() > i3) {
+                com.baidu.tbadk.imageManager.e.a().c(h.a(eVar.e) * 2);
+                eVar.e = h.a(eVar.e, i3);
             }
             if (eVar.n) {
                 return null;
             }
-            com.baidu.tbadk.imageManager.e.a().c(g.a(eVar.e) * 2);
-            eVar.e = g.a(eVar.e, 7.0f, true);
+            com.baidu.tbadk.imageManager.e.a().c(h.a(eVar.e) * 2);
+            eVar.e = h.a(eVar.e, 7.0f, true);
             if (eVar.n) {
                 return null;
             }

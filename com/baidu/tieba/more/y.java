@@ -1,9 +1,9 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements DialogInterface.OnClickListener {
+public class y implements View.OnClickListener {
     final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,16 +11,10 @@ public class y implements DialogInterface.OnClickListener {
         this.a = wVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         p pVar;
-        p pVar2;
-        if (i == 0) {
-            pVar2 = this.a.b;
-            pVar2.a(11);
-            return;
-        }
         pVar = this.a.b;
-        pVar.a(12);
+        pVar.a(11);
     }
 }

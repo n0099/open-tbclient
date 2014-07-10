@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ MyGroupFragment a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(MyGroupFragment myGroupFragment, int i) {
-        super(i);
-        this.a = myGroupFragment;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.a.c = true;
-    }
+class c {
+    LinearLayout a;
+    LinearLayout b;
+    HeadImageView c;
+    TextView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    TextView h;
+    ImageView i;
+    ImageView j;
+    ImageView k;
+    ImageView[] l;
 }

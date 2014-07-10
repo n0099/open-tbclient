@@ -1,50 +1,44 @@
 package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.model.Hao123Model;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private ArrayList<x> a = new ArrayList<>();
-    private boolean b;
-    private int c;
+    private String a = "";
+    private String b = "";
+    private String c = "";
+    private String d = "";
+    private int e = 0;
+    private int f = 0;
 
-    public ArrayList<x> a() {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("id");
+                this.e = jSONObject.optInt("user_type");
+                this.f = jSONObject.optInt("is_verify");
+                this.b = jSONObject.optString("name");
+                this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public String a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public boolean b() {
+    public String b() {
         return this.b;
     }
 
-    public void c() {
-        Iterator<x> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().a(0);
-        }
+    public String c() {
+        return this.c;
     }
 
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            try {
-                Hao123Model.setHao123Cache(Hao123Model.getHao123JosnStr(Hao123Model.parserLikeForums(jSONArray)));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    x xVar = new x();
-                    xVar.a(jSONArray.getJSONObject(i));
-                    if (xVar.d() >= this.c) {
-                        this.b = true;
-                    }
-                    this.a.add(xVar);
-                }
-            } catch (Exception e) {
-                BdLog.e("LikeForumListData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public String d() {
+        return this.d;
     }
 }

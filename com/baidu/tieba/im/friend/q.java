@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.friend;
 
-import com.baidu.tbadk.coreExtra.view.at;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements at {
+public class q implements DialogInterface.OnCancelListener {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,21 +11,14 @@ public class q implements at {
         this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.at
-    public void a(String str) {
-        af afVar;
-        if (str == null || str.trim().equals("")) {
-            afVar = this.a.b;
-            afVar.a(str);
-            this.a.a();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ae aeVar;
+        ae aeVar2;
+        aeVar = this.a.c;
+        if (aeVar != null) {
+            aeVar2 = this.a.c;
+            aeVar2.cancelLoadData();
         }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.at
-    public void b(String str) {
-        af afVar;
-        afVar = this.a.b;
-        afVar.a(str);
-        this.a.a();
     }
 }

@@ -13,7 +13,7 @@ class ah implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         LiveGroupHistoryActivity liveGroupHistoryActivity;
-        com.baidu.tieba.im.live.b.b().s();
+        com.baidu.tieba.im.live.d.b().s();
         liveGroupHistoryActivity = this.a.a;
         liveGroupHistoryActivity.g();
     }

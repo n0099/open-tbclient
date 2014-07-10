@@ -5,18 +5,19 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioGroup;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class HotLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private ad c;
-    private com.baidu.tieba.im.model.p d;
+    private com.baidu.tieba.im.model.n d;
     private boolean e;
     private boolean f;
     private boolean g = TbadkApplication.m252getInst().isLiveRecordOpen();
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.s.class, HotLiveListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.x.class, HotLiveListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +29,7 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         b(TbadkApplication.m252getInst().getSkinType());
@@ -48,30 +49,30 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
 
     private void a(Bundle bundle) {
         this.c = new ad(this, this.g);
-        this.c.b();
+        this.c.c();
         if (bundle != null) {
             this.c.c(this.d.c());
         }
-        this.c.a(g());
-        this.c.a();
+        this.c.a(i());
+        this.c.b();
     }
 
-    public com.baidu.tieba.im.model.p e() {
+    public com.baidu.tieba.im.model.n g() {
         return this.d;
     }
 
-    public ad f() {
+    public ad h() {
         return this.c;
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.d = new com.baidu.tieba.im.model.p(this);
+        this.d = new com.baidu.tieba.im.model.n(this);
         if (bundle == null) {
-            com.baidu.tieba.im.model.p pVar = this.d;
+            com.baidu.tieba.im.model.n nVar = this.d;
             if (intent == null) {
                 intent = getIntent();
             }
-            pVar.a(intent);
+            nVar.a(intent);
         } else {
             this.d.a(bundle);
         }
@@ -83,7 +84,7 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
         this.c.d(i);
     }
 
-    public int g() {
+    public int i() {
         if (this.g) {
             return this.d.c() - 1;
         }
@@ -117,8 +118,8 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
                 com.baidu.tbadk.core.f.a(this, "hot_now_list");
                 this.d.a(1);
             }
-            this.c.a(g());
-            this.c.c().setCurrentItem(g());
+            this.c.a(i());
+            this.c.d().setCurrentItem(i());
             this.e = false;
         }
     }
@@ -164,8 +165,17 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
                 this.d.a(1);
             }
             this.c.c(i2);
-            this.c.a(g());
+            this.c.a(i());
             this.f = false;
         }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity
+    public BdListView h_() {
+        z a;
+        if (this.c == null || (a = this.c.a()) == null) {
+            return null;
+        }
+        return a.f();
     }
 }

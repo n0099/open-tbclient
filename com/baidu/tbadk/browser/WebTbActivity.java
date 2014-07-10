@@ -44,7 +44,7 @@ public class WebTbActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.k.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
+            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebTbActivity.class);
@@ -128,7 +128,7 @@ public class WebTbActivity extends BaseActivity {
             settings.setPluginsEnabled(true);
             a.a(settings);
         } catch (Throwable th) {
-            BdLog.e(WebTbActivity.class.getName(), "set webview settings.", th);
+            BdLog.e(th);
         }
         this.i = (ImageView) findViewById(com.baidu.tieba.v.webBack);
         this.i.setEnabled(false);
@@ -159,7 +159,7 @@ public class WebTbActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a("onResume");
@@ -216,7 +216,7 @@ public class WebTbActivity extends BaseActivity {
             try {
                 WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

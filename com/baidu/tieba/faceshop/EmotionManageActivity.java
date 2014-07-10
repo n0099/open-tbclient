@@ -15,16 +15,15 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EmotionManageActivity extends BaseActivity {
-    private List<v> a;
-    private w c;
-    private t d;
+    private List<u> a;
+    private v c;
+    private s d;
     private LinearLayout e;
     private NavigationBar f;
     private View g;
@@ -35,12 +34,12 @@ public class EmotionManageActivity extends BaseActivity {
     private BdListView l;
     private TextView m;
     private View n;
-    private u o;
+    private t o;
     private final List<String> b = new LinkedList();
     private boolean p = false;
-    private final View.OnClickListener q = new q(this);
-    private final AdapterView.OnItemClickListener r = new r(this);
-    private final CustomMessageListener s = new s(this, 0);
+    private final View.OnClickListener q = new p(this);
+    private final AdapterView.OnItemClickListener r = new q(this);
+    private final CustomMessageListener s = new r(this, 0);
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, EmotionManageActivity.class));
@@ -71,7 +70,7 @@ public class EmotionManageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        com.baidu.tbadk.core.util.be.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
+        com.baidu.tbadk.core.util.bk.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
     }
 
     private void a() {
@@ -97,10 +96,10 @@ public class EmotionManageActivity extends BaseActivity {
     }
 
     private void b() {
-        registerListener(MessageTypes.CMD_EMOTIONS_GROUP_CHANGED, this.s);
-        this.c = new w(this, null);
+        registerListener(2001120, this.s);
+        this.c = new v(this, null);
         this.c.execute(new String[0]);
-        this.o = new u(this, null);
+        this.o = new t(this, null);
         this.l.setAdapter((ListAdapter) this.o);
     }
 
@@ -111,7 +110,7 @@ public class EmotionManageActivity extends BaseActivity {
             this.b.clear();
         } else {
             for (String str : this.b) {
-                Iterator<v> it = this.a.iterator();
+                Iterator<u> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -204,7 +203,7 @@ public class EmotionManageActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.d = new t(this, null);
+        this.d = new s(this, null);
         this.d.execute(this.b);
     }
 

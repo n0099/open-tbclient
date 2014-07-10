@@ -1,46 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class bm implements View.OnTouchListener {
-    final /* synthetic */ az a;
+class bm {
+    View a;
+    TextView b;
+    View c;
+    TextView d;
+    final /* synthetic */ az e;
 
     private bm(az azVar) {
-        this.a = azVar;
+        this.e = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public /* synthetic */ bm(az azVar, bm bmVar) {
         this(azVar);
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.core.data.n nVar = (com.baidu.tbadk.core.data.n) this.a.getItem(((Integer) view.getTag()).intValue());
-        View childAt = ((ViewGroup) view).getChildAt(0);
-        if (childAt != null) {
-            boolean z = nVar.o() == null || nVar.o().getIsLike() == 0;
-            if (motionEvent.getAction() == 0) {
-                if (System.currentTimeMillis() - az.b(this.a) > 1000) {
-                    az.a(this.a, true);
-                    az.a(this.a, childAt);
-                } else {
-                    az.a(this.a, false);
-                }
-            } else if (motionEvent.getAction() == 1) {
-                if (z) {
-                    az.a(this.a, childAt, az.c(this.a));
-                } else {
-                    az.b(this.a, childAt, az.c(this.a));
-                }
-            } else if (motionEvent.getAction() == 2) {
-                az.b(this.a, childAt, az.c(this.a));
-            } else if (motionEvent.getAction() == 3) {
-                az.b(this.a, childAt, az.c(this.a));
-            }
-        }
-        return false;
     }
 }

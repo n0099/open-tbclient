@@ -1,35 +1,21 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
 /* loaded from: classes.dex */
-class bq implements TextWatcher {
-    final /* synthetic */ bo a;
+class bq implements View.OnFocusChangeListener {
+    final /* synthetic */ bp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bo boVar) {
-        this.a = boVar;
+    public bq(bp bpVar) {
+        this.a = bpVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        if (editable == null || editable.toString().length() <= 0) {
-            this.a.c.setEnabled(false);
-            this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.s.cp_cont_e));
-            return;
-        }
-        this.a.c.setEnabled(true);
-        this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.s.cp_cont_g));
-        if (editable.toString().length() >= 30) {
-            this.a.b.showToast(com.baidu.tieba.y.input_worlds_max);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.util.j.a(this.a.b, this.a.e);
+        } else {
+            com.baidu.adp.lib.util.j.b(this.a.b, this.a.e);
         }
     }
 }

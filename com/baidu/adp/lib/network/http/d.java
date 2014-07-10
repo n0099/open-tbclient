@@ -11,4 +11,5 @@ public class d {
     public String h = "";
     public int i = -1;
     public int j = 0;
+    public String k = null;
 }

@@ -7,9 +7,9 @@ import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import com.baidu.android.systemmonitor.freqstatistic.c;
+import com.baidu.android.systemmonitor.c.c;
+import com.baidu.android.systemmonitor.freqstatistic.d;
 import com.baidu.android.systemmonitor.freqstatistic.e;
-import com.baidu.android.systemmonitor.util.f;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class AppManager {
@@ -28,47 +28,47 @@ public final class AppManager {
             a aVar;
             a a;
             String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            e eVar = new e(schemeSpecificPart);
-            if (eVar == null) {
+            d dVar = new d(schemeSpecificPart);
+            if (dVar == null) {
                 return;
             }
-            eVar.b = System.currentTimeMillis();
+            dVar.b = System.currentTimeMillis();
             String action = intent.getAction();
             if (action.equals("android.intent.action.PACKAGE_ADDED")) {
-                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a = f.a(AppManager.this.a, schemeSpecificPart)) == null) {
+                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a = c.a(AppManager.this.a, schemeSpecificPart)) == null) {
                     return;
                 }
                 AppManager.this.c.put(a.a(), a);
-                eVar.c = 0;
-                eVar.e = a.f;
-                eVar.d = a.b;
-                eVar.h = a.a(AppManager.this.a);
+                dVar.c = 0;
+                dVar.e = a.f;
+                dVar.d = a.b;
+                dVar.h = a.a(AppManager.this.a);
             } else if (action.equals("android.intent.action.PACKAGE_REPLACED")) {
                 a aVar2 = (a) AppManager.this.c.remove(schemeSpecificPart);
                 if (aVar2 == null) {
                     return;
                 }
-                eVar.c = 1;
-                eVar.e = aVar2.f;
-                eVar.d = aVar2.b;
-                eVar.h = aVar2.a(AppManager.this.a);
-                a a2 = f.a(AppManager.this.a, schemeSpecificPart);
+                dVar.c = 1;
+                dVar.e = aVar2.f;
+                dVar.d = aVar2.b;
+                dVar.h = aVar2.a(AppManager.this.a);
+                a a2 = c.a(AppManager.this.a, schemeSpecificPart);
                 if (a2 == null) {
                     return;
                 }
                 AppManager.this.c.put(a2.a(), a2);
-                eVar.g = a2.f;
-                eVar.f = a2.b;
+                dVar.g = a2.f;
+                dVar.f = a2.b;
             } else if (action.equals("android.intent.action.PACKAGE_REMOVED")) {
                 if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (aVar = (a) AppManager.this.c.remove(schemeSpecificPart)) == null) {
                     return;
                 }
-                eVar.c = 2;
-                eVar.e = aVar.f;
-                eVar.d = aVar.b;
-                eVar.h = aVar.a(AppManager.this.a);
+                dVar.c = 2;
+                dVar.e = aVar.f;
+                dVar.d = aVar.b;
+                dVar.h = aVar.a(AppManager.this.a);
             }
-            c.a(AppManager.this.a).a(AppManager.this.a.getContentResolver(), eVar);
+            e.a(AppManager.this.a).a(AppManager.this.a.getContentResolver(), dVar);
         }
     }
 
@@ -108,7 +108,7 @@ public final class AppManager {
 
     private void d() {
         System.currentTimeMillis();
-        for (PackageInfo packageInfo : f.a(this.a)) {
+        for (PackageInfo packageInfo : c.a(this.a)) {
             a aVar = new a();
             aVar.c((String) packageInfo.applicationInfo.loadLabel(this.a.getPackageManager()));
             aVar.b = packageInfo.versionName;
@@ -119,7 +119,7 @@ public final class AppManager {
                 aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 0) ? false : true;
             }
             aVar.e(packageInfo.packageName);
-            f.a(this.a, packageInfo, aVar);
+            c.a(this.a, packageInfo, aVar);
             try {
                 int intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
                 if (intValue != 0 && intValue != 2) {

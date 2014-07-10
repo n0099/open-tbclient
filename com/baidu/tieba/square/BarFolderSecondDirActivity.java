@@ -9,8 +9,8 @@ import com.baidu.tieba.AutoSkinActivity;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends AutoSkinActivity {
     private ProgressBar h;
-    private q i;
-    private p j;
+    private l i;
+    private k j;
     private String k;
     private String l;
     private String m;
@@ -30,7 +30,7 @@ public class BarFolderSecondDirActivity extends AutoSkinActivity {
     }
 
     protected void c() {
-        this.i = new q(this, new t(), this.k, this.m);
+        this.i = new l(this, new o(), this.k, this.m);
         this.e.setAdapter((ListAdapter) this.i);
         this.d.setText(this.k);
         this.h = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
@@ -57,7 +57,7 @@ public class BarFolderSecondDirActivity extends AutoSkinActivity {
     }
 
     protected void d() {
-        this.e.setOnItemClickListener(new o(this));
+        this.e.setOnItemClickListener(new j(this));
     }
 
     protected void e() {
@@ -66,19 +66,19 @@ public class BarFolderSecondDirActivity extends AutoSkinActivity {
         if (this.j != null) {
             this.j.cancel();
         }
-        this.j = new p(this, null);
+        this.j = new k(this, null);
         this.j.setPriority(3);
         this.j.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(t tVar, boolean z) {
+    public void a(o oVar, boolean z) {
         this.h.setVisibility(8);
         this.e.setEnabled(true);
         this.j = null;
         if (!z) {
-            if (tVar.b()) {
-                showToast(tVar.c());
+            if (oVar.b()) {
+                showToast(oVar.c());
                 return;
             }
             this.e.setVisibility(4);

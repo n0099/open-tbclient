@@ -2,19 +2,14 @@ package com.baidu.tieba.im.group;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.aa;
-import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
@@ -121,48 +116,5 @@ public class GroupTabWidget extends RelativeLayout {
         this.b = 0;
         this.c = 0;
         this.f.setText(str);
-    }
-
-    public void a(String str, int i, int i2) {
-        boolean z;
-        this.a = true;
-        this.b = i;
-        this.c = i2;
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        if (str.length() > i) {
-            Context context = getContext();
-            if (context instanceof BaseActivity) {
-                z = ((BaseActivity) context).getLayoutMode().a();
-            } else if (!(context instanceof BaseFragmentActivity)) {
-                z = false;
-            } else {
-                z = ((BaseFragmentActivity) getContext()).a().a();
-            }
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(s.im_near_group_count_1) : getResources().getColor(s.im_near_group_count)), i, i2, 33);
-        }
-        this.f.setText(spannableStringBuilder);
-    }
-
-    public void a(int i) {
-        if (1 == i) {
-            this.e.setImageResource(this.k[1]);
-            this.h.setImageResource(s.cp_bg_line_b_1);
-            this.i.setImageResource(s.cp_bg_line_b_1);
-            this.j.setImageResource(s.cp_bg_line_b_1);
-        } else {
-            this.e.setImageResource(this.k[0]);
-            this.h.setImageResource(s.cp_bg_line_b);
-            this.i.setImageResource(s.cp_bg_line_b);
-            this.j.setImageResource(s.cp_bg_line_b);
-        }
-        Context context = getContext();
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).getLayoutMode().a((View) this);
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) getContext()).a().a((View) this);
-        }
-        if (this.a) {
-            a(this.f.getText().toString(), this.b, this.c);
-        }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -16,27 +15,22 @@ class f extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
+        int i;
+        String str;
         super.handleMessage(message);
         if (message.what == 900002) {
-            notification = this.a.mNotify;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.a.mNotify;
-                notification2.contentView.setProgressBar(v.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+            if (message.arg2 > 0) {
+                this.a.progress = (int) ((message.arg1 * 100) / message.arg2);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / 1000));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / 1000));
                 stringBuffer.append("K");
-                notification3 = this.a.mNotify;
-                notification3.contentView.setTextViewText(v.schedule, stringBuffer);
-                notificationManager = this.a.mNotificationManager;
-                notification4 = this.a.mNotify;
-                notificationManager.notify(10, notification4);
+                this.a.schedule = stringBuffer.toString();
+                Context baseContext = this.a.getBaseContext();
+                i = this.a.progress;
+                str = this.a.schedule;
+                com.baidu.tbadk.core.util.bb.a(baseContext, 10, (String) null, i, str, (String) null, true);
             }
         } else if (message.what == 1) {
             UtilHelper.install_apk(ai.c().d(), (String) message.obj);

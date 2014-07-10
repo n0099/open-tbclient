@@ -37,6 +37,9 @@ public class e {
     }
 
     public ImMessageCenterPojo a(String str) {
+        if (str == null) {
+            return null;
+        }
         return this.a.get(str);
     }
 

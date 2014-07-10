@@ -3,8 +3,8 @@ package com.baidu.tieba.service;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.z;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +13,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ PerformMonitorService a;
-    private an b;
+    private aq b;
 
     private j(PerformMonitorService performMonitorService) {
         this.a = performMonitorService;
@@ -25,14 +25,14 @@ public class j extends BdAsyncTask<String, Integer, String> {
         this(performMonitorService);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [295=4, 296=4, 299=4, 300=8, 301=4, 305=4, 306=4, 309=4, 310=8, 311=4, 315=4, 316=4, 319=4, 320=8, 321=4] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:153:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [294=4, 295=4, 298=4, 299=4, 303=4, 304=4, 307=4, 308=4, 312=4, 313=4, 316=4, 317=4] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x004b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:132:0x006a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -46,7 +46,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = x.d(str);
+                File d = z.d(str);
                 if (d != null) {
                     fileInputStream = new FileInputStream(d);
                     try {
@@ -71,14 +71,14 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                     try {
                                         byteArrayOutputStream2.close();
                                     } catch (Exception e) {
-                                        BdLog.e(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        BdLog.e(e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        BdLog.e(getClass().getName(), "sendPerformFile", e2.getMessage());
+                                        BdLog.e(e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -86,13 +86,13 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        BdLog.e(getClass().getName(), "sendPerformFile", e3.getMessage());
+                                        BdLog.e(e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                             this.b.j();
@@ -109,19 +109,19 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream2 = byteArrayOutputStream3;
-                                    BdLog.e(getClass().getName(), "sendPerformFile", e.getMessage());
+                                    BdLog.e(e.getMessage());
                                     if (byteArrayOutputStream2 != null) {
                                         try {
                                             byteArrayOutputStream2.close();
                                         } catch (Exception e5) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e5.getMessage());
+                                            BdLog.e(e5.getMessage());
                                         }
                                     }
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
                                         } catch (Exception e6) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e6.getMessage());
+                                            BdLog.e(e6.getMessage());
                                         }
                                     }
                                     if (fileWriter == null) {
@@ -129,7 +129,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                             fileWriter.close();
                                             return;
                                         } catch (Exception e7) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e7.getMessage());
+                                            BdLog.e(e7.getMessage());
                                             return;
                                         }
                                     }
@@ -141,21 +141,21 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception e8) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e8.getMessage());
+                                            BdLog.e(e8.getMessage());
                                         }
                                     }
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
                                         } catch (Exception e9) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e9.getMessage());
+                                            BdLog.e(e9.getMessage());
                                         }
                                     }
                                     if (fileWriter != null) {
                                         try {
                                             fileWriter.close();
                                         } catch (Exception e10) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", e10.getMessage());
+                                            BdLog.e(e10.getMessage());
                                         }
                                     }
                                     throw th;
@@ -174,15 +174,13 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                         } else {
                                             fileWriter = fileWriter3;
                                         }
-                                        if (!d.delete()) {
-                                            BdLog.e(getClass().getName(), "sendPerformFile", "file.delete error");
-                                        }
+                                        d.delete();
                                     } catch (Exception e11) {
                                         e = e11;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream2 = byteArrayOutputStream3;
-                                        BdLog.e(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        BdLog.e(e.getMessage());
                                         if (byteArrayOutputStream2 != null) {
                                         }
                                         if (fileInputStream != null) {
@@ -230,21 +228,21 @@ public class j extends BdAsyncTask<String, Integer, String> {
                     try {
                         byteArrayOutputStream3.close();
                     } catch (Exception e15) {
-                        BdLog.e(getClass().getName(), "sendPerformFile", e15.getMessage());
+                        BdLog.e(e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        BdLog.e(getClass().getName(), "sendPerformFile", e16.getMessage());
+                        BdLog.e(e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        BdLog.e(getClass().getName(), "sendPerformFile", e17.getMessage());
+                        BdLog.e(e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {

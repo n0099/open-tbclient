@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-class r implements com.baidu.adp.lib.d.c<bb> {
+class r implements com.baidu.adp.lib.d.c<bf> {
     final /* synthetic */ m a;
     private final /* synthetic */ Context b;
 
@@ -15,30 +15,30 @@ class r implements com.baidu.adp.lib.d.c<bb> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
-    public bb a() {
-        return new bb(this.b);
+    public bf a() {
+        return new bf(this.b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public void a(bb bbVar) {
-        if (bbVar instanceof bb) {
-            bbVar.a();
+    public void a(bf bfVar) {
+        if (bfVar instanceof bf) {
+            bfVar.a();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public bb b(bb bbVar) {
-        return bbVar;
+    public bf b(bf bfVar) {
+        return bfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public bb c(bb bbVar) {
-        if (bbVar instanceof bb) {
-            bbVar.a();
+    public bf c(bf bfVar) {
+        if (bfVar instanceof bf) {
+            bfVar.a();
         }
-        return bbVar;
+        return bfVar;
     }
 }

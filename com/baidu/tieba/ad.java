@@ -38,10 +38,10 @@ class ad implements View.OnClickListener {
                 drawable = context.getResources().getDrawable(u.btn_dailog_choose_d);
             }
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView = this.a.n;
+            textView = this.a.m;
             textView.setCompoundDrawables(drawable, null, null, null);
         }
-        ahVar = this.a.x;
+        ahVar = this.a.u;
         z3 = this.a.e;
         ahVar.a(z3);
     }

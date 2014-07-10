@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RandChatRoomData implements Parcelable {
-    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new m();
+    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new n();
     private int a;
     private int b;
     private int c;
@@ -113,10 +113,6 @@ public class RandChatRoomData implements Parcelable {
 
     public void d(long j) {
         this.g = j;
-    }
-
-    public String toString() {
-        return "RandChatRoomData{groupId=" + this.a + ", userNum=" + this.b + ", maxUserNum=" + this.c + ", durationTime=" + this.d + ", silenceTime=" + this.e + ", averageWaitTime=" + this.f + ", users=" + this.h + '}';
     }
 
     @Override // android.os.Parcelable

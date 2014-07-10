@@ -23,9 +23,9 @@ public class i extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.x.a(this.a, this.b, this.c)) {
+        switch (com.baidu.tbadk.core.util.z.a(this.a, this.b, this.c)) {
             case -2:
-                return com.baidu.tbadk.core.util.x.b();
+                return com.baidu.tbadk.core.util.z.b();
             case -1:
             default:
                 return this.c.getString(com.baidu.tieba.y.save_error);

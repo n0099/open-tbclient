@@ -1,12 +1,10 @@
 package com.baidu.tbadk.core.voice;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.core.voice.a.c {
+public class ac implements l {
     final /* synthetic */ VoiceManager a;
 
     private ac(VoiceManager voiceManager) {
@@ -18,47 +16,72 @@ public class ac implements com.baidu.tbadk.core.voice.a.c {
         this(voiceManager);
     }
 
-    @Override // com.baidu.tbadk.core.voice.a.c
-    public void a(String str, String str2, int i, String str3) {
-        VoiceData.VoiceModel voiceModel;
-        x xVar;
-        x xVar2;
-        VoiceData.VoiceModel voiceModel2;
-        x xVar3;
-        VoiceData.VoiceModel voiceModel3;
-        VoiceData.VoiceModel voiceModel4;
-        VoiceData.VoiceModel voiceModel5;
-        voiceModel = this.a.mCurPlayModel;
-        if (voiceModel != null) {
-            xVar = this.a.sPlayView;
-            if (xVar != null) {
-                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    voiceModel3 = this.a.mCurPlayModel;
-                    if (voiceModel3.voiceId.equals(str2)) {
-                        voiceModel4 = this.a.mCurPlayModel;
-                        if (VoiceManager.isVoiceDownloading(voiceModel4.voice_status.intValue())) {
-                            VoiceManager voiceManager = this.a;
-                            voiceModel5 = this.a.mCurPlayModel;
-                            voiceManager.setPlaying(voiceModel5, str);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                BdLog.e("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
-                TiebaStatic.voiceError("", i, str3, str);
-                if (i <= 0 || StringUtils.isNull(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
-                    xVar2 = this.a.sPlayView;
-                    xVar2.a(5, ae.a(com.baidu.tieba.y.voice_err_load_fail));
-                } else {
-                    xVar3 = this.a.sPlayView;
-                    xVar3.a(5, str3);
-                }
-                VoiceManager voiceManager2 = this.a;
-                voiceModel2 = this.a.mCurPlayModel;
-                voiceManager2.setPlayWaiting(voiceModel2);
+    @Override // com.baidu.tbadk.core.voice.l
+    public void a(String str, int i) {
+        this.a.releaseWakeLock();
+        this.a.currRecordState = 1;
+        if (this.a.mCurRecordVid == null || str == null) {
+            com.baidu.tbadk.core.util.y yVar = new com.baidu.tbadk.core.util.y();
+            yVar.a("file", str);
+            yVar.a("dur", Integer.valueOf(i));
+            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", yVar.toString());
+        } else if (this.a.recordView != null) {
+            if (i <= 1000) {
+                this.a.recordView.a(2, ae.a(com.baidu.tieba.y.voice_record_short_tip));
+                com.baidu.tbadk.core.util.y yVar2 = new com.baidu.tbadk.core.util.y();
+                yVar2.a("file", str);
+                yVar2.a("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_LEN, "voice too short", yVar2.toString());
+            } else if (str.endsWith(this.a.mCurRecordVid)) {
+                this.a.doVoiceFileMd5(this.a.mCurRecordVid, (int) Math.round((i * 1.0d) / 1000.0d));
+                this.a.mCurRecordVid = null;
+            } else {
+                com.baidu.tbadk.core.util.y yVar3 = new com.baidu.tbadk.core.util.y();
+                yVar3.a("file", str);
+                yVar3.a("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", yVar3.toString());
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.l
+    public void a(int i, String str) {
+        this.a.releaseWakeLock();
+        TiebaStatic.voiceError("", i, "RecoreCallback.error: " + str, "");
+        if (this.a.recordView == null) {
+            this.a.currRecordState = 1;
+        } else if (i != 7) {
+            this.a.currRecordState = 1;
+            if (i == 8) {
+                i = 2;
+            }
+            this.a.recordView.a(i, str);
+            TiebaStatic.voiceError("", i, "RecoreCallback.err: " + str, "");
+        } else if (this.a.mCurRecordVid != null) {
+            this.a.doVoiceFileMd5(this.a.mCurRecordVid, com.baidu.adp.lib.voice.b.a / 1000);
+            this.a.mCurRecordVid = null;
+            this.a.recordView.a(3, this.a.context.getString(com.baidu.tieba.y.voice_record_timeout_tip));
+        } else {
+            TiebaStatic.voiceError("", i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.l
+    public void a(int i) {
+        if (this.a.recordView != null) {
+            this.a.recordView.c(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.l
+    public void b(int i) {
+        if (this.a.recordView != null) {
+            this.a.recordView.b(i / 1000);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.l
+    public void a() {
+        this.a.currRecordState = 1;
     }
 }

@@ -32,8 +32,8 @@ public class k implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.j) {
-            this.c.setText(((com.baidu.tieba.im.data.j) obj).a());
+        if (obj instanceof com.baidu.tieba.im.data.h) {
+            this.c.setText(((com.baidu.tieba.im.data.h) obj).a());
             this.b.setVisibility(8);
         }
     }

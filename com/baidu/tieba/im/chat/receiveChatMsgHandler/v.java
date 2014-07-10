@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class v implements com.baidu.tieba.im.a<Boolean> {
-    private final /* synthetic */ GroupMsgData a;
+class v extends com.baidu.tieba.im.b<Boolean> {
     private final /* synthetic */ String b;
-    private final /* synthetic */ CommonMsgPojo c;
-    private final /* synthetic */ int d;
+    private final /* synthetic */ LinkedList c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(GroupMsgData groupMsgData, String str, CommonMsgPojo commonMsgPojo, int i) {
-        this.a = groupMsgData;
+    public v(String str, LinkedList linkedList) {
         this.b = str;
-        this.c = commonMsgPojo;
-        this.d = i;
+        this.c = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        SnapChatMsgHelper.b(this.a, this.b, this.c, this.d);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.b, this.c, true));
     }
 }

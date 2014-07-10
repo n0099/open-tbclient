@@ -9,6 +9,6 @@ class aw implements com.baidu.adp.widget.ListView.x {
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
     }
 }

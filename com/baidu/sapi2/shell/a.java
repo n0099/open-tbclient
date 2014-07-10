@@ -1,6 +1,7 @@
 package com.baidu.sapi2.shell;
 
 import android.content.Context;
+import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
@@ -12,17 +13,19 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.shell.callback.FillUsernameCallBack;
+import com.baidu.sapi2.shell.callback.OAuthCallBack;
 import com.baidu.sapi2.shell.callback.QrAppLoginCallBack;
 import com.baidu.sapi2.shell.callback.QrPCLoginCallBack;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.GetPortraitResponse;
+import com.baidu.sapi2.shell.response.OAuthResponse;
 import com.baidu.sapi2.shell.response.QrAppLoginResponse;
 import com.baidu.sapi2.shell.response.QrPCLoginResponse;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.d;
+import com.baidu.sapi2.utils.b;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.TbConfig;
@@ -42,11 +45,11 @@ public final class a {
     private static final int a = 6;
     private SapiConfiguration b = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient c;
-    private com.baidu.sapi2.utils.e d;
+    private com.baidu.sapi2.utils.d d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.d = new com.baidu.sapi2.utils.e(context);
+        this.d = new com.baidu.sapi2.utils.d(context);
     }
 
     public void a() {
@@ -83,11 +86,14 @@ public final class a {
             com.baidu.sapi2.shell.b bVar = new com.baidu.sapi2.shell.b();
             try {
                 this.c = new AsyncHttpClient();
-                this.c.setUserAgent(x());
+                this.c.setUserAgent(y());
                 HashMap hashMap = new HashMap();
                 hashMap.put("crypttype", "11");
                 hashMap.put("tpl", this.b.tpl);
                 hashMap.put("appid", this.b.appId);
+                if (TextUtils.isEmpty(this.b.clientId)) {
+                    this.b.clientId = SapiUtils.getClientId(this.b.context);
+                }
                 hashMap.put("cuid", this.b.clientId);
                 hashMap.put("cert_id", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
                 hashMap.put("isdpass", "0");
@@ -98,9 +104,9 @@ public final class a {
                 hashMap.put("login_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                 hashMap.put("key", bVar.a());
                 hashMap.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                hashMap.put("pinfo", com.baidu.sapi2.utils.d.b());
+                hashMap.put("pinfo", com.baidu.sapi2.utils.b.b());
                 hashMap.put("sig", a(hashMap, this.b.appSignKey));
-                this.c.post(this.b.context, j(), new RequestParams(hashMap), new l(sapiCallBack, reloginCredentials));
+                this.c.post(this.b.context, j(), new RequestParams(hashMap), new m(sapiCallBack, reloginCredentials));
             } catch (Exception e2) {
                 d(-100, sapiCallBack, null);
                 L.e(e2);
@@ -110,11 +116,11 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class l extends HttpResponseHandler {
+    public class m extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ SapiAccount.ReloginCredentials b;
 
-        l(SapiCallBack sapiCallBack, SapiAccount.ReloginCredentials reloginCredentials) {
+        m(SapiCallBack sapiCallBack, SapiAccount.ReloginCredentials reloginCredentials) {
             this.a = sapiCallBack;
             this.b = reloginCredentials;
         }
@@ -163,17 +169,14 @@ public final class a {
                             sapiAccount.stoken = sapiAccountResponse.stoken;
                             sapiAccount.uid = sapiAccountResponse.uid;
                             sapiAccount.username = sapiAccountResponse.username;
-                            sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
+                            sapiAccount.app = SapiUtils.getAppName(this.b.context);
                             sapiAccount.extra = str;
-                            if (SapiUtils.isValidAccount(sapiAccount)) {
-                                com.baidu.sapi2.d.a(this.b.context).a(sapiAccount);
-                                com.baidu.sapi2.d.a(this.b.context).c(sapiAccount);
-                            }
+                            com.baidu.sapi2.share.b.a().a(sapiAccount);
                             sapiCallBack.onSuccess(sapiAccountResponse);
-                            return;
+                            break;
                         default:
                             sapiCallBack.onSystemError(i2);
-                            return;
+                            break;
                     }
                 }
             } catch (Exception e2) {
@@ -199,20 +202,20 @@ public final class a {
         }
         com.baidu.sapi2.shell.b bVar = new com.baidu.sapi2.shell.b();
         this.c = new AsyncHttpClient();
-        this.c.get(this.b.context, z(), new m(sapiCallBack, z, bVar, str, str2));
+        this.c.get(this.b.context, A(), new n(sapiCallBack, z, bVar, str, str2));
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class m extends HttpResponseHandler {
+    public class n extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ boolean b;
         final /* synthetic */ com.baidu.sapi2.shell.b c;
         final /* synthetic */ String d;
         final /* synthetic */ String e;
 
-        m(SapiCallBack sapiCallBack, boolean z, com.baidu.sapi2.shell.b bVar, String str, String str2) {
+        n(SapiCallBack sapiCallBack, boolean z, com.baidu.sapi2.shell.b bVar, String str, String str2) {
             this.a = sapiCallBack;
             this.b = z;
             this.c = bVar;
@@ -257,12 +260,15 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, String str3, String str4, boolean z, com.baidu.sapi2.shell.b bVar) {
         this.c = new AsyncHttpClient();
-        this.c.setUserAgent(x());
+        this.c.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("crypttype", "6");
         hashMap.put("tpl", this.b.tpl);
         hashMap.put("appid", this.b.appId);
-        hashMap.put("cuid", this.b.clientId);
+        String str5 = this.b.clientId;
+        if (!TextUtils.isEmpty(str5)) {
+            hashMap.put("cuid", str5);
+        }
         hashMap.put("cert_id", str2);
         hashMap.put("isdpass", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         JSONObject jSONObject = new JSONObject();
@@ -272,23 +278,23 @@ public final class a {
         jSONObject.put("login_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
         jSONObject.put("key", bVar.a());
         jSONObject.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-        jSONObject.put("pinfo", com.baidu.sapi2.utils.d.b());
+        jSONObject.put("pinfo", com.baidu.sapi2.utils.b.b());
         hashMap.put("userinfo", bVar.a(str, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.b.appSignKey));
-        this.c.post(this.b.context, j(), new RequestParams(hashMap), new n(sapiCallBack, z, bVar, str3, str4));
+        this.c.post(this.b.context, j(), new RequestParams(hashMap), new o(sapiCallBack, z, bVar, str3, str4));
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class n extends HttpResponseHandler {
+    public class o extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ boolean b;
         final /* synthetic */ com.baidu.sapi2.shell.b c;
         final /* synthetic */ String d;
         final /* synthetic */ String e;
 
-        n(SapiCallBack sapiCallBack, boolean z, com.baidu.sapi2.shell.b bVar, String str, String str2) {
+        o(SapiCallBack sapiCallBack, boolean z, com.baidu.sapi2.shell.b bVar, String str, String str2) {
             this.a = sapiCallBack;
             this.b = z;
             this.c = bVar;
@@ -344,11 +350,9 @@ public final class a {
                                 sapiAccount.stoken = sapiAccountResponse.stoken;
                                 sapiAccount.uid = sapiAccountResponse.uid;
                                 sapiAccount.username = sapiAccountResponse.username;
-                                sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
+                                sapiAccount.app = SapiUtils.getAppName(this.b.context);
                                 sapiAccount.extra = str2;
-                                if (SapiUtils.isValidAccount(sapiAccount)) {
-                                    com.baidu.sapi2.share.b.a().a(sapiAccount);
-                                }
+                                com.baidu.sapi2.share.b.a().a(sapiAccount);
                             }
                             sapiCallBack.onSuccess(sapiAccountResponse);
                             return;
@@ -406,12 +410,12 @@ public final class a {
         }
         multipartRequestParams.put("sig", a2);
         multipartRequestParams.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", TextUtils.isEmpty(str4) ? "image/jpeg" : str4);
-        this.c.post(this.b.context, h(), multipartRequestParams, new o(sapiCallBack, str, str2, str3, bArr, str4));
+        this.c.post(this.b.context, h(), multipartRequestParams, new p(sapiCallBack, str, str2, str3, bArr, str4));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class o extends HttpResponseHandler {
+    public class p extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ String b;
         final /* synthetic */ String c;
@@ -419,7 +423,7 @@ public final class a {
         final /* synthetic */ byte[] e;
         final /* synthetic */ String f;
 
-        o(SapiCallBack sapiCallBack, String str, String str2, String str3, byte[] bArr, String str4) {
+        p(SapiCallBack sapiCallBack, String str, String str2, String str3, byte[] bArr, String str4) {
             this.a = sapiCallBack;
             this.b = str;
             this.c = str2;
@@ -488,18 +492,18 @@ public final class a {
             requestParams.put(entry.getKey(), entry.getValue());
         }
         requestParams.put("sig", a2);
-        this.c.post(this.b.context, i(), requestParams, new h(sapiCallBack, str, str2, str3));
+        this.c.post(this.b.context, i(), requestParams, new i(sapiCallBack, str, str2, str3));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class h extends HttpResponseHandler {
+    public class i extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ String b;
         final /* synthetic */ String c;
         final /* synthetic */ String d;
 
-        h(SapiCallBack sapiCallBack, String str, String str2, String str3) {
+        i(SapiCallBack sapiCallBack, String str, String str2, String str3) {
             this.a = sapiCallBack;
             this.b = str;
             this.c = str2;
@@ -543,29 +547,29 @@ public final class a {
         }
     }
 
-    public boolean a(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3) {
+    public void a(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3) {
         if (!SapiUtils.hasActiveNetwork(this.b.context)) {
             if (fillUsernameCallBack != null) {
                 fillUsernameCallBack.onNetworkFailed();
+                return;
             }
-            return false;
+            return;
         }
         com.baidu.sapi2.shell.b bVar = new com.baidu.sapi2.shell.b();
         this.c = new AsyncHttpClient();
-        this.c.get(this.b.context, z(), new i(fillUsernameCallBack, bVar, str, str2, str3));
-        return true;
+        this.c.get(this.b.context, A(), new j(fillUsernameCallBack, bVar, str, str2, str3));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class i extends HttpResponseHandler {
+    public class j extends HttpResponseHandler {
         final /* synthetic */ FillUsernameCallBack a;
         final /* synthetic */ com.baidu.sapi2.shell.b b;
         final /* synthetic */ String c;
         final /* synthetic */ String d;
         final /* synthetic */ String e;
 
-        i(FillUsernameCallBack fillUsernameCallBack, com.baidu.sapi2.shell.b bVar, String str, String str2, String str3) {
+        j(FillUsernameCallBack fillUsernameCallBack, com.baidu.sapi2.shell.b bVar, String str, String str2, String str3) {
             this.a = fillUsernameCallBack;
             this.b = bVar;
             this.c = str;
@@ -607,7 +611,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3, String str4, String str5, com.baidu.sapi2.shell.b bVar) {
+    public void a(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3, String str4, String str5, com.baidu.sapi2.shell.b bVar) {
         this.c = new AsyncHttpClient();
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.b.appId);
@@ -622,22 +626,23 @@ public final class a {
         if (!TextUtils.isEmpty(this.b.clientIp)) {
             jSONObject.put("clientip", this.b.clientIp);
         }
-        jSONObject.put(SapiAccountManager.SESSION_PTOKEN, str2);
+        if (!TextUtils.isEmpty(str2)) {
+            jSONObject.put(SapiAccountManager.SESSION_PTOKEN, str2);
+        }
         jSONObject.put("username", str3);
         jSONObject.put("key", bVar.a());
         hashMap.put("userinfo", bVar.a(str4, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.b.appSignKey));
-        this.c.post(this.b.context, g(), new RequestParams(hashMap), new j(fillUsernameCallBack, bVar));
-        return true;
+        this.c.post(this.b.context, g(), new RequestParams(hashMap), new k(fillUsernameCallBack, bVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class j extends HttpResponseHandler {
+    public class k extends HttpResponseHandler {
         final /* synthetic */ FillUsernameCallBack a;
         final /* synthetic */ com.baidu.sapi2.shell.b b;
 
-        j(FillUsernameCallBack fillUsernameCallBack, com.baidu.sapi2.shell.b bVar) {
+        k(FillUsernameCallBack fillUsernameCallBack, com.baidu.sapi2.shell.b bVar) {
             this.a = fillUsernameCallBack;
             this.b = bVar;
         }
@@ -652,6 +657,68 @@ public final class a {
         public void onFailure(Throwable th, String str) {
             super.onFailure(th, str);
             a.this.a(a.this.b(str), this.a, str, this.b);
+        }
+    }
+
+    public void a(OAuthCallBack oAuthCallBack, String str) {
+        if (!SapiUtils.hasActiveNetwork(this.b.context)) {
+            if (oAuthCallBack != null) {
+                oAuthCallBack.onFinish();
+                oAuthCallBack.onNetworkFailed();
+            }
+        } else if (TextUtils.isEmpty(str)) {
+            if (oAuthCallBack != null) {
+                oAuthCallBack.onFinish();
+                oAuthCallBack.onSystemError(SapiErrorCode.BDUSS_IS_EMPTY);
+            }
+        } else {
+            this.c = new AsyncHttpClient();
+            this.c.setUserAgent(y());
+            HashMap hashMap = new HashMap();
+            hashMap.put("appid", this.b.appId);
+            hashMap.put("tpl", this.b.tpl);
+            if (!TextUtils.isEmpty(this.b.clientId)) {
+                hashMap.put("clientid", this.b.clientId);
+            }
+            if (!TextUtils.isEmpty(this.b.clientIp)) {
+                hashMap.put("clientip", this.b.clientIp);
+            }
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
+            hashMap.put("sig", a(hashMap, this.b.appSignKey));
+            this.c.post(this.b.context, x(), new RequestParams(hashMap), new l(oAuthCallBack, str));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class l extends HttpResponseHandler {
+        final /* synthetic */ OAuthCallBack a;
+        final /* synthetic */ String b;
+
+        l(OAuthCallBack oAuthCallBack, String str) {
+            this.a = oAuthCallBack;
+            this.b = str;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+        public void onSuccess(int i, String str) {
+            super.onSuccess(i, str);
+            a.this.d.d();
+            a.this.b(this.a, str);
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+        public void onFailure(Throwable th, String str) {
+            super.onFailure(th, str);
+            if (a.this.d.c()) {
+                a.this.d.d();
+                a.this.b(this.a, str);
+                return;
+            }
+            a.this.d.b();
+            a.this.a(this.a, this.b);
         }
     }
 
@@ -681,7 +748,7 @@ public final class a {
             return false;
         } else {
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("sign", str);
             hashMap.put(com.baidu.tbadk.core.frameworkData.a.CMD, str2);
@@ -692,21 +759,23 @@ public final class a {
             if (!TextUtils.isEmpty(str4)) {
                 hashMap.put(SapiAccountManager.SESSION_STOKEN, str4);
             }
-            hashMap.put("clientid", this.b.clientId);
+            if (!TextUtils.isEmpty(this.b.clientId)) {
+                hashMap.put("clientid", this.b.clientId);
+            }
             if (!TextUtils.isEmpty(this.b.clientIp)) {
                 hashMap.put("clientip", this.b.clientIp);
             }
             hashMap.put("tpl", this.b.tpl);
             hashMap.put("appid", this.b.appId);
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
-            this.c.post(this.b.context, t(), new RequestParams(hashMap), new k(qrPCLoginCallBack, str, str2, str3, str4, str5));
+            this.c.post(this.b.context, t(), new RequestParams(hashMap), new h(qrPCLoginCallBack, str, str2, str3, str4, str5));
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class k extends HttpResponseHandler {
+    public class h extends HttpResponseHandler {
         final /* synthetic */ QrPCLoginCallBack a;
         final /* synthetic */ String b;
         final /* synthetic */ String c;
@@ -714,7 +783,7 @@ public final class a {
         final /* synthetic */ String e;
         final /* synthetic */ String f;
 
-        k(QrPCLoginCallBack qrPCLoginCallBack, String str, String str2, String str3, String str4, String str5) {
+        h(QrPCLoginCallBack qrPCLoginCallBack, String str, String str2, String str3, String str4, String str5) {
             this.a = qrPCLoginCallBack;
             this.b = str;
             this.c = str2;
@@ -766,30 +835,32 @@ public final class a {
             return false;
         } else {
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("sign", str);
             hashMap.put(com.baidu.tbadk.core.frameworkData.a.CMD, str2);
-            hashMap.put("clientid", this.b.clientId);
+            if (!TextUtils.isEmpty(this.b.clientId)) {
+                hashMap.put("clientid", this.b.clientId);
+            }
             if (!TextUtils.isEmpty(this.b.clientIp)) {
                 hashMap.put("clientip", this.b.clientIp);
             }
             hashMap.put("tpl", this.b.tpl);
             hashMap.put("appid", this.b.appId);
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
-            this.c.post(this.b.context, u(), new RequestParams(hashMap), new g(qrAppLoginCallBack, str, str2));
+            this.c.post(this.b.context, u(), new RequestParams(hashMap), new d(qrAppLoginCallBack, str, str2));
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class g extends HttpResponseHandler {
+    public class d extends HttpResponseHandler {
         final /* synthetic */ QrAppLoginCallBack a;
         final /* synthetic */ String b;
         final /* synthetic */ String c;
 
-        g(QrAppLoginCallBack qrAppLoginCallBack, String str, String str2) {
+        d(QrAppLoginCallBack qrAppLoginCallBack, String str, String str2) {
             this.a = qrAppLoginCallBack;
             this.b = str;
             this.c = str2;
@@ -833,28 +904,30 @@ public final class a {
             return false;
         } else {
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("username", str);
-            hashMap.put("clientid", this.b.clientId);
+            if (!TextUtils.isEmpty(this.b.clientId)) {
+                hashMap.put("clientid", this.b.clientId);
+            }
             if (!TextUtils.isEmpty(this.b.clientIp)) {
                 hashMap.put("clientip", this.b.clientIp);
             }
             hashMap.put("tpl", this.b.tpl);
             hashMap.put("appid", this.b.appId);
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
-            this.c.post(this.b.context, w(), new RequestParams(hashMap), new d(sapiCallBack, str));
+            this.c.post(this.b.context, w(), new RequestParams(hashMap), new c(sapiCallBack, str));
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class d extends HttpResponseHandler {
+    public class c extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ String b;
 
-        d(SapiCallBack sapiCallBack, String str) {
+        c(SapiCallBack sapiCallBack, String str) {
             this.a = sapiCallBack;
             this.b = str;
         }
@@ -897,28 +970,30 @@ public final class a {
             return false;
         } else {
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("sms", str);
-            hashMap.put("clientid", this.b.clientId);
+            if (!TextUtils.isEmpty(this.b.clientId)) {
+                hashMap.put("clientid", this.b.clientId);
+            }
             if (!TextUtils.isEmpty(this.b.clientIp)) {
                 hashMap.put("clientip", this.b.clientIp);
             }
             hashMap.put("tpl", this.b.tpl);
             hashMap.put("appid", this.b.appId);
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
-            this.c.post(this.b.context, v(), new RequestParams(hashMap), new c(sapiCallBack, str));
+            this.c.post(this.b.context, v(), new RequestParams(hashMap), new b(sapiCallBack, str));
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class c extends HttpResponseHandler {
+    public class b extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ String b;
 
-        c(SapiCallBack sapiCallBack, String str) {
+        b(SapiCallBack sapiCallBack, String str) {
             this.a = sapiCallBack;
             this.b = str;
         }
@@ -945,22 +1020,34 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
+        boolean z = true;
+        if (Looper.myLooper() == null) {
+            Looper.prepare();
+            z = false;
+        }
         if (this.b != null && this.b.context != null && SapiUtils.hasActiveNetwork(this.b.context)) {
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             if (com.baidu.sapi2.d.a(this.b.context).a() != null) {
-                hashMap.put(BasicStoreTools.DEVICE_ID, com.baidu.sapi2.utils.d.d(this.b.context));
+                hashMap.put(BasicStoreTools.DEVICE_ID, com.baidu.sapi2.utils.b.d(this.b.context));
                 hashMap.put("device_token", com.baidu.sapi2.d.a(this.b.context).a());
             }
-            this.c.get(this.b.context, p(), new RequestParams(hashMap), new b());
+            this.c.get(this.b.context, p(), new RequestParams(hashMap), new HandlerC0009a(z));
+            if (!z) {
+                Looper.loop();
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.sapi2.shell.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class b extends HttpResponseHandler {
-        b() {
+    public class HandlerC0009a extends HttpResponseHandler {
+        final /* synthetic */ boolean a;
+
+        HandlerC0009a(boolean z) {
+            this.a = z;
         }
 
         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -969,10 +1056,7 @@ public final class a {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.has("error_code") || jSONObject.has("error_msg") || jSONObject.optInt("fulfilbind") != 0) {
-                        return;
-                    }
-                    if (jSONObject.optInt(TbConfig.ST_TYPE_REG) == 1 || jSONObject.optInt(TbConfig.ST_TYPE_LOGIN) == 1) {
+                    if (!jSONObject.has("error_code") && !jSONObject.has("error_msg") && jSONObject.optInt("fulfilbind") == 0 && (jSONObject.optInt(TbConfig.ST_TYPE_REG) == 1 || jSONObject.optInt("login") == 1)) {
                         com.baidu.sapi2.d.a(a.this.b.context).a(true);
                     }
                 } catch (JSONException e) {
@@ -980,12 +1064,18 @@ public final class a {
                     com.baidu.sapi2.d.a(a.this.b.context).a(false);
                 }
             }
+            if (!this.a) {
+                getLooper().quit();
+            }
         }
 
         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
         public void onFailure(Throwable th, String str) {
             super.onFailure(th, str);
             com.baidu.sapi2.d.a(a.this.b.context).a(false);
+            if (!this.a) {
+                getLooper().quit();
+            }
         }
     }
 
@@ -1002,24 +1092,23 @@ public final class a {
             return false;
         }
         this.c = new AsyncHttpClient();
-        this.c.setUserAgent(x());
+        this.c.setUserAgent(y());
         HashMap hashMap = new HashMap();
-        String a2 = d.a.a(com.baidu.sapi2.utils.d.d(this.b.context));
+        String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
         hashMap.put("ptpl", this.b.tpl);
         hashMap.put(BasicStoreTools.DEVICE_ID, a2);
-        hashMap.put("device_info", com.baidu.sapi2.utils.d.d());
+        hashMap.put("device_info", com.baidu.sapi2.utils.b.d());
         hashMap.put("package_sign", this.b.deviceLoginSignKey);
-        this.c.post(this.b.context, r(), new RequestParams(hashMap), new HandlerC0009a(sapiCallBack));
+        this.c.post(this.b.context, r(), new RequestParams(hashMap), new g(sapiCallBack));
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.baidu.sapi2.shell.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0009a extends HttpResponseHandler {
+    public class g extends HttpResponseHandler {
         final /* synthetic */ SapiCallBack a;
 
-        HandlerC0009a(SapiCallBack sapiCallBack) {
+        g(SapiCallBack sapiCallBack) {
             this.a = sapiCallBack;
         }
 
@@ -1046,12 +1135,12 @@ public final class a {
                 return;
             }
             this.c = new AsyncHttpClient();
-            this.c.setUserAgent(x());
+            this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
-            String a2 = d.a.a(com.baidu.sapi2.utils.d.d(this.b.context));
+            String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
             hashMap.put("ptpl", this.b.tpl);
             hashMap.put(BasicStoreTools.DEVICE_ID, a2);
-            hashMap.put("device_info", com.baidu.sapi2.utils.d.d());
+            hashMap.put("device_info", com.baidu.sapi2.utils.b.d());
             hashMap.put("force_reg_token", str);
             this.c.post(this.b.context, s(), new RequestParams(hashMap), new f(sapiCallBack));
         }
@@ -1092,9 +1181,9 @@ public final class a {
             return false;
         }
         this.c = new AsyncHttpClient();
-        this.c.setUserAgent(x());
+        this.c.setUserAgent(y());
         HashMap hashMap = new HashMap();
-        String a2 = d.a.a(com.baidu.sapi2.utils.d.d(this.b.context));
+        String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
         hashMap.put("ptpl", this.b.tpl);
         hashMap.put(BasicStoreTools.DEVICE_ID, a2);
         hashMap.put("device_token", str);
@@ -1145,13 +1234,11 @@ public final class a {
                     sapiAccount.displayname = sapiAccountResponse.displayname;
                     sapiAccount.stoken = sapiAccountResponse.stoken;
                     sapiAccount.ptoken = sapiAccountResponse.ptoken;
-                    sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
+                    sapiAccount.app = SapiUtils.getAppName(this.b.context);
                     if (jSONObject.has("device_token")) {
                         com.baidu.sapi2.d.a(this.b.context).a(jSONObject.getString("device_token"));
                     }
-                    if (SapiUtils.isValidAccount(sapiAccount)) {
-                        com.baidu.sapi2.share.b.a().a(sapiAccount);
-                    }
+                    com.baidu.sapi2.share.b.a().a(sapiAccount);
                 }
                 if (sapiCallBack != null) {
                     switch (jSONObject.optInt("error_code")) {
@@ -1189,13 +1276,11 @@ public final class a {
                     sapiAccount.displayname = sapiAccountResponse.displayname;
                     sapiAccount.stoken = sapiAccountResponse.stoken;
                     sapiAccount.ptoken = sapiAccountResponse.ptoken;
-                    sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
+                    sapiAccount.app = SapiUtils.getAppName(this.b.context);
                     if (jSONObject.has("device_token")) {
                         com.baidu.sapi2.d.a(this.b.context).a(jSONObject.getString("device_token"));
                     }
-                    if (SapiUtils.isValidAccount(sapiAccount)) {
-                        com.baidu.sapi2.share.b.a().a(sapiAccount);
-                    }
+                    com.baidu.sapi2.share.b.a().a(sapiAccount);
                 }
                 if (sapiCallBack != null) {
                     switch (jSONObject.optInt("error_code")) {
@@ -1243,7 +1328,7 @@ public final class a {
         return MD5Util.toMd5(sb.toString().getBytes(), false);
     }
 
-    private String x() {
+    private String y() {
         return "tpl:" + this.b.tpl + ";android_sapi_v" + SapiAccountManager.VERSION_NAME;
     }
 
@@ -1288,29 +1373,27 @@ public final class a {
                             sapiAccount.stoken = sapiAccountResponse.stoken;
                             sapiAccount.uid = sapiAccountResponse.uid;
                             sapiAccount.username = sapiAccountResponse.username;
-                            sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
+                            sapiAccount.app = SapiUtils.getAppName(this.b.context);
                             sapiAccount.extra = jSONObject.toString();
-                            if (SapiUtils.isValidAccount(sapiAccount)) {
-                                com.baidu.sapi2.share.b.a().a(sapiAccount);
-                            }
+                            com.baidu.sapi2.share.b.a().a(sapiAccount);
                             fillUsernameCallBack.onSuccess(sapiAccountResponse);
-                            return;
+                            break;
                         case SapiErrorCode.USER_IS_NOT_ONLINE /* 160103 */:
                             fillUsernameCallBack.onInvalidBduss();
-                            return;
+                            break;
                         case SapiErrorCode.USER_DO_HAVE_NAME /* 160104 */:
                             fillUsernameCallBack.onUserHaveUsername();
-                            return;
+                            break;
                         case SapiErrorCode.FILL_UNAME_CANNOT_BE_USE /* 160105 */:
                         case SapiErrorCode.FILL_UNAME_IS_EXIST /* 160111 */:
                             fillUsernameCallBack.onUsernameAlreadyExist();
-                            return;
+                            break;
                         case SapiErrorCode.FILL_UNAME_FORMAT_ERROR /* 160110 */:
                             fillUsernameCallBack.onUsernameFormatError();
-                            return;
+                            break;
                         default:
                             fillUsernameCallBack.onSystemError(i2);
-                            return;
+                            break;
                     }
                 }
                 return;
@@ -1322,6 +1405,33 @@ public final class a {
         fillUsernameCallBack.onSystemError(i2);
     }
 
+    void b(OAuthCallBack oAuthCallBack, String str) {
+        oAuthCallBack.onFinish();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+            switch (parseInt) {
+                case 0:
+                    OAuthResponse oAuthResponse = new OAuthResponse();
+                    oAuthResponse.errorCode = parseInt;
+                    oAuthResponse.errorMsg = jSONObject.optString("errmsg");
+                    oAuthResponse.accessToken = jSONObject.optString("access_token");
+                    oAuthResponse.expiresIn = jSONObject.optInt("expires_in");
+                    oAuthResponse.refreshToken = jSONObject.optString("refresh_token");
+                    oAuthResponse.sessionKey = jSONObject.optString("session_key");
+                    oAuthResponse.sessionSecret = jSONObject.optString("session_secret");
+                    oAuthResponse.extra = str;
+                    oAuthCallBack.onSuccess(oAuthResponse);
+                    break;
+                default:
+                    oAuthCallBack.onSystemError(parseInt);
+                    break;
+            }
+        } catch (Throwable th) {
+            oAuthCallBack.onSystemError(-100);
+        }
+    }
+
     void a(QrPCLoginCallBack qrPCLoginCallBack, String str) {
         qrPCLoginCallBack.onFinish();
         try {
@@ -1331,31 +1441,28 @@ public final class a {
                 case SapiErrorCode.INVALID_ARG /* -103 */:
                 case 1:
                     qrPCLoginCallBack.onQrCodeInvalid();
-                    break;
+                    return;
                 case 0:
+                    QrPCLoginResponse qrPCLoginResponse = new QrPCLoginResponse();
+                    qrPCLoginResponse.errorCode = parseInt;
                     JSONObject optJSONObject = jSONObject.optJSONObject("local");
-                    if (optJSONObject == null) {
-                        qrPCLoginCallBack.onSuccess(null);
-                        break;
-                    } else {
-                        QrPCLoginResponse qrPCLoginResponse = new QrPCLoginResponse();
-                        qrPCLoginResponse.errorCode = parseInt;
+                    if (optJSONObject != null) {
                         qrPCLoginResponse.country = optJSONObject.optString("country");
                         qrPCLoginResponse.province = optJSONObject.optString("provice");
                         qrPCLoginResponse.city = optJSONObject.optString("city");
-                        qrPCLoginCallBack.onSuccess(qrPCLoginResponse);
-                        break;
                     }
+                    qrPCLoginCallBack.onSuccess(qrPCLoginResponse);
+                    return;
                 case 2:
                 case SapiErrorCode.BDUSS_IS_EMPTY /* 160102 */:
                     qrPCLoginCallBack.onBdussInvalid();
-                    break;
+                    return;
                 case 3:
                     qrPCLoginCallBack.onUserNotNormalized();
-                    break;
+                    return;
                 default:
                     qrPCLoginCallBack.onSystemError(parseInt);
-                    break;
+                    return;
             }
         } catch (Exception e2) {
             qrPCLoginCallBack.onSystemError(-100);
@@ -1385,10 +1492,8 @@ public final class a {
                     sapiAccount.stoken = jSONObject.optString(SapiAccountManager.SESSION_STOKEN);
                     sapiAccount.ptoken = jSONObject.optString(SapiAccountManager.SESSION_PTOKEN);
                     sapiAccount.extra = str;
-                    sapiAccount.app = com.baidu.sapi2.utils.c.a(this.b.context);
-                    if (SapiUtils.isValidAccount(sapiAccount)) {
-                        com.baidu.sapi2.share.b.a().a(sapiAccount);
-                    }
+                    sapiAccount.app = SapiUtils.getAppName(this.b.context);
+                    com.baidu.sapi2.share.b.a().a(sapiAccount);
                 }
                 if (qrAppLoginCallBack != null) {
                     switch (parseInt) {
@@ -1480,37 +1585,37 @@ public final class a {
         }
     }
 
-    private Domain y() {
+    private Domain z() {
         return this.b.environment;
     }
 
-    private String z() {
+    private String A() {
         return this.d.a() + "/sslcrypt/get_last_cert";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String c() {
-        return y().getWap() + "/passport/login";
+        return z().getWap() + "/passport/login";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String d() {
-        return y().getWap() + "/passport/getpass";
+        return z().getWap() + "/passport/getpass";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String e() {
-        return y().getWap() + "/v2/?bindingaccount&";
+        return z().getWap() + "/v2/?bindingaccount&";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
-        return y().getWap() + "/v2/?bindingret";
+        return z().getWap() + "/v2/?bindingret";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(BindWidgetAction bindWidgetAction) {
-        return y().getWap() + bindWidgetAction.getUri();
+        return z().getWap() + bindWidgetAction.getUri();
     }
 
     String g() {
@@ -1526,7 +1631,7 @@ public final class a {
     }
 
     String j() {
-        return this.d.a() + com.baidu.sapi2.utils.f.a;
+        return this.d.a() + com.baidu.sapi2.utils.e.a;
     }
 
     public String k() {
@@ -1538,46 +1643,50 @@ public final class a {
     }
 
     public String m() {
-        return this.d.a() + com.baidu.sapi2.utils.f.h;
+        return this.d.a() + com.baidu.sapi2.utils.e.h;
     }
 
     public String n() {
-        return this.d.a() + com.baidu.sapi2.utils.f.i;
+        return this.d.a() + com.baidu.sapi2.utils.e.i;
     }
 
     public String o() {
-        return this.d.a() + com.baidu.sapi2.utils.f.j;
+        return this.d.a() + com.baidu.sapi2.utils.e.j;
     }
 
     public String p() {
-        return y().getDeviceUrl() + com.baidu.sapi2.utils.f.v;
+        return z().getDeviceUrl() + com.baidu.sapi2.utils.e.v;
     }
 
     public String q() {
-        return y().getDeviceUrl() + com.baidu.sapi2.utils.f.x;
+        return z().getDeviceUrl() + com.baidu.sapi2.utils.e.x;
     }
 
     public String r() {
-        return y().getDeviceUrl() + com.baidu.sapi2.utils.f.w;
+        return z().getDeviceUrl() + com.baidu.sapi2.utils.e.w;
     }
 
     public String s() {
-        return y().getDeviceUrl() + com.baidu.sapi2.utils.f.y;
+        return z().getDeviceUrl() + com.baidu.sapi2.utils.e.y;
     }
 
     public String t() {
-        return this.d.a() + com.baidu.sapi2.utils.f.k;
+        return this.d.a() + com.baidu.sapi2.utils.e.k;
     }
 
     public String u() {
-        return this.d.a() + com.baidu.sapi2.utils.f.l;
+        return this.d.a() + com.baidu.sapi2.utils.e.l;
     }
 
     public String v() {
-        return this.d.a() + com.baidu.sapi2.utils.f.m;
+        return this.d.a() + com.baidu.sapi2.utils.e.m;
     }
 
     public String w() {
-        return this.d.a() + com.baidu.sapi2.utils.f.o;
+        return this.d.a() + com.baidu.sapi2.utils.e.o;
+    }
+
+    public String x() {
+        return this.d.a() + com.baidu.sapi2.utils.e.z;
     }
 }

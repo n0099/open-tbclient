@@ -15,11 +15,11 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-public class WriteMultiImgsActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, w {
+public class WriteMultiImgsActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, s {
     private WriteImagesInfo a = null;
     private View b = null;
     private ViewPager c = null;
-    private v d = null;
+    private r d = null;
     private LinearLayout e = null;
     private RadioButton f = null;
     private RadioButton g = null;
@@ -36,7 +36,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     private int r = 0;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bj.class, WriteMultiImgsActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bx.class, WriteMultiImgsActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,7 +46,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         int i2 = 1;
         super.onCreate(bundle);
         int b = com.baidu.adp.lib.a.f.a().b("motu_sdk");
-        if (Build.VERSION.SDK_INT < 7 || b == 1) {
+        if (Build.VERSION.SDK_INT < 7 || b == 1 || com.baidu.tbadk.tbplugin.m.a().d("motusdk") == null) {
             this.q = false;
         } else {
             this.q = true;
@@ -130,7 +130,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         if (str != null && i != -1) {
             this.a = new WriteImagesInfo();
             this.a.parseJson(str);
-            this.d = new v(this, this.c, this.a.getChosedFiles(), i, this);
+            this.d = new r(this, this.c, this.a.getChosedFiles(), i, this);
             this.c.setAdapter(this.d);
             this.c.setCurrentItem(i, true);
             if (i == 0) {
@@ -140,7 +140,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         }
     }
 
-    @Override // com.baidu.tieba.write.w
+    @Override // com.baidu.tieba.write.s
     public void a() {
         if (this.j.getVisibility() == 0) {
             this.j.setVisibility(8);
@@ -151,7 +151,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         this.e.setVisibility(0);
     }
 
-    @Override // com.baidu.tieba.write.w
+    @Override // com.baidu.tieba.write.s
     public void a(com.baidu.tbadk.coreExtra.view.k kVar, int i) {
         this.h.removeAllViews();
         this.h.addView(kVar);
@@ -159,12 +159,12 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         this.k.setText(String.valueOf(this.o) + this.p);
     }
 
-    @Override // com.baidu.tieba.write.w
+    @Override // com.baidu.tieba.write.s
     public void c() {
         this.r--;
     }
 
-    @Override // com.baidu.tieba.write.w
+    @Override // com.baidu.tieba.write.s
     public void b() {
         this.r++;
     }
@@ -210,17 +210,17 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         this.j.c(i);
         if (i == 1) {
             if (this.l.isEnabled()) {
-                com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg_1);
+                com.baidu.tbadk.core.util.bk.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            com.baidu.tbadk.core.util.bk.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.l.isEnabled()) {
-            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg);
+            com.baidu.tbadk.core.util.bk.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg);
             this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d);
+            com.baidu.tbadk.core.util.bk.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }

@@ -11,10 +11,11 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.ai;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 /* loaded from: classes.dex */
@@ -24,21 +25,21 @@ public class ForumRankActivity extends BaseActivity {
     private r c = null;
     private NavigationBar d = null;
     private TbImageView e = null;
-    private com.baidu.tbadk.editortool.ab f = null;
-    private com.baidu.tieba.model.af g = null;
+    private com.baidu.tbadk.editortool.aa f = null;
+    private com.baidu.tieba.model.ae g = null;
     private LinearLayout h = null;
     private com.baidu.tbadk.core.view.q i = null;
     private FrameLayout j = null;
     private Handler k = null;
     private String l = null;
     private boolean m = false;
-    private final com.baidu.adp.base.e n = new aa(this);
-    private final com.baidu.tbadk.core.util.af o = new ab(this);
+    private final com.baidu.adp.base.h n = new aa(this);
+    private final ai o = new ab(this);
     private final AbsListView.OnScrollListener p = new ac(this);
     private final Runnable q = new ad(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.l.class, ForumRankActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.p.class, ForumRankActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,13 +55,13 @@ public class ForumRankActivity extends BaseActivity {
         setContentView(com.baidu.tieba.w.forum_rank_activity);
         this.e = new TbImageView(this);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f = new com.baidu.tbadk.editortool.ab(this);
-        int b = com.baidu.adp.lib.util.k.b(this);
+        this.f = new com.baidu.tbadk.editortool.aa(this);
+        int b = com.baidu.adp.lib.util.j.b(this);
         this.f.a(b, b);
         this.d = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a = (BdListView) findViewById(com.baidu.tieba.v.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.b(this), (int) (com.baidu.adp.lib.util.k.b(this) * 0.5d)));
+        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.j.b(this), (int) (com.baidu.adp.lib.util.j.b(this) * 0.5d)));
         this.a.setOnScrollListener(this.p);
         this.e.setVisibility(8);
         this.h = (LinearLayout) getLayoutInflater().inflate(com.baidu.tieba.w.forum_list_forum_footer, (ViewGroup) null);
@@ -94,14 +95,14 @@ public class ForumRankActivity extends BaseActivity {
             this.c.a(100);
             showProgressBar();
         }
-        this.g = new com.baidu.tieba.model.af();
+        this.g = new com.baidu.tieba.model.ae();
         this.c.a(this.g);
     }
 
     private void b() {
         ForumInfoData[] a = this.c.a();
         for (int i = 0; i < a.length; i++) {
-            int d = ai.c().d(a[i].forum_name);
+            int d = com.baidu.tieba.ai.c().d(a[i].forum_name);
             if (d == 1) {
                 a[i].is_like = 1;
             } else if (d == -1) {
@@ -112,11 +113,11 @@ public class ForumRankActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         b();
-        com.baidu.tbadk.core.util.ag.a(this.a, this.f, 0, -1);
+        aj.a(this.a, this.f, 0, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -146,7 +147,7 @@ public class ForumRankActivity extends BaseActivity {
             this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             this.c.a(false);
         }
-        be.b(findViewById(com.baidu.tieba.v.root_view), i);
+        bk.b(findViewById(com.baidu.tieba.v.root_view), i);
         this.i.a(i);
         if (i == 1) {
             this.c.a(com.baidu.tieba.u.btn_add_end_1, com.baidu.tieba.u.btn_add_1);

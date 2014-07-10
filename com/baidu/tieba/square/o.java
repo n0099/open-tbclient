@@ -1,24 +1,26 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import android.widget.AdapterView;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BarFolderSecondDirActivity a;
+public class o extends com.baidu.tieba.data.a {
+    private w a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.a = barFolderSecondDirActivity;
+    public w d() {
+        return this.a;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
-        qVar = this.a.i;
-        ArrayList<ab> arrayList = qVar.a().d().e;
-        if (arrayList == null || i >= arrayList.size()) {
+    public void a(w wVar) {
+        this.a = wVar;
+        a((String) null);
+    }
+
+    @Override // com.baidu.tieba.data.a
+    protected void a(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject("forum_dir");
+        if (optJSONObject != null) {
+            w wVar = new w();
+            wVar.a(optJSONObject);
+            a(wVar);
         }
     }
 }

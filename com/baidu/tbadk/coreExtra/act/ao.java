@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.coreExtra.view.v {
+public class ao implements com.baidu.tbadk.coreExtra.view.x {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class ao implements com.baidu.tbadk.coreExtra.view.v {
         this.a = loginActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.v
+    @Override // com.baidu.tbadk.coreExtra.view.x
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.account.a.a(accountData);
         TbadkApplication.setCurrentAccount(accountData, this.a.getBaseContext());

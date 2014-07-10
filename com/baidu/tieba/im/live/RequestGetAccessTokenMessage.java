@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetAccessToken.DataReq;
 import protobuf.GetAccessToken.GetAccessTokenReqIdl;
@@ -9,7 +8,7 @@ public class RequestGetAccessTokenMessage extends TbSocketMessage {
     private String bduss;
 
     public RequestGetAccessTokenMessage() {
-        super(MessageTypes.CMD_GET_ACCESS_TOKEN);
+        super(107201);
     }
 
     public String getBduss() {

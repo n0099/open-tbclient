@@ -1,57 +1,51 @@
 package com.baidu.tieba.im.live.room;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.message.RequestAddLiveGroupMessage;
+import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseAddLiveGroupMessage;
+import protobuf.LiveGroupInfo;
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.base.b {
-    private LiveRoomEntranceActivity a;
-    private RequestAddLiveGroupMessage b;
-    private int c;
-    private String d;
-    private String e;
-    private int f = 21;
+class ay extends com.baidu.adp.framework.listener.b {
+    final /* synthetic */ LiveRoomEntranceActivity a;
 
-    public String a() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.e = str;
-    }
-
-    public ay(LiveRoomEntranceActivity liveRoomEntranceActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ay(LiveRoomEntranceActivity liveRoomEntranceActivity, int i) {
+        super(i);
         this.a = liveRoomEntranceActivity;
     }
 
-    public void a(Intent intent, Bundle bundle) {
-        if (bundle != null) {
-            this.c = bundle.getInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-            this.d = bundle.getString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        az azVar;
+        Handler handler;
+        this.a.hideProgressBar();
+        if (socketResponsedMessage == null) {
+            this.a.showToast(com.baidu.tieba.y.neterror);
+        } else if (socketResponsedMessage.getCmd() == 107101 && (socketResponsedMessage instanceof ResponseAddLiveGroupMessage)) {
+            ResponseAddLiveGroupMessage responseAddLiveGroupMessage = (ResponseAddLiveGroupMessage) socketResponsedMessage;
+            if (responseAddLiveGroupMessage.hasError()) {
+                if (TextUtils.isEmpty(responseAddLiveGroupMessage.getErrorString())) {
+                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    return;
+                } else {
+                    this.a.showToast(responseAddLiveGroupMessage.getErrorString());
+                    return;
+                }
+            }
+            LiveGroupInfo liveGroupInfo = responseAddLiveGroupMessage.getLiveGroupInfo();
+            MessageManager messageManager = MessageManager.getInstance();
+            LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
+            int intValue = liveGroupInfo.groupId.intValue();
+            azVar = this.a.b;
+            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(liveRoomEntranceActivity, intValue, azVar.a())));
+            handler = this.a.d;
+            handler.sendEmptyMessageDelayed(2001, 300L);
         }
-        this.c = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
-        this.d = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-    }
-
-    public void b() {
-        this.b = new RequestAddLiveGroupMessage();
-        this.b.forumId = this.c;
-        this.b.name = this.e;
-        this.b.groupType = this.f;
-        this.b.publisherName = TbadkApplication.getCurrentAccountName();
-        this.b.publisherId = com.baidu.adp.lib.f.b.a(TbadkApplication.getCurrentAccount(), 0);
-        this.a.sendMessage(this.b);
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
     }
 }

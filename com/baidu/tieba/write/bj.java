@@ -1,11 +1,13 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.widget.RadioButton;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements View.OnClickListener {
+public class bj implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,24 +15,36 @@ public class bj implements View.OnClickListener {
         this.a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
         LinearLayout linearLayout;
-        NavigationBar navigationBar3;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
         LinearLayout linearLayout2;
-        navigationBar = this.a.p;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.a.p;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.a.m;
-            linearLayout2.setVisibility(8);
-            return;
+        TextView textView2;
+        if (z) {
+            radioButton = this.a.j;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.a.f;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.a.l;
+                linearLayout2.setVisibility(8);
+                textView2 = this.a.n;
+                textView2.setText(this.a.getString(com.baidu.tieba.y.beautify));
+                return;
+            }
+            radioButton2 = this.a.k;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.a.f;
+                horizontalScrollView.setVisibility(8);
+                linearLayout = this.a.l;
+                linearLayout.setVisibility(0);
+                textView = this.a.n;
+                textView.setText(this.a.getString(com.baidu.tieba.y.rotate));
+            }
         }
-        navigationBar2 = this.a.p;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.a.m;
-        linearLayout.setVisibility(0);
     }
 }

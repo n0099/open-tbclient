@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.share.implementation;
 
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.h;
 /* loaded from: classes.dex */
 class e implements b {
     final /* synthetic */ d a;
@@ -13,11 +13,11 @@ class e implements b {
     @Override // com.baidu.tbadk.coreExtra.share.implementation.b
     public void a() {
         a aVar;
-        f fVar;
+        h hVar;
         int i;
         aVar = this.a.a;
-        fVar = this.a.b;
+        hVar = this.a.b;
         i = this.a.c;
-        aVar.a(fVar, i, false);
+        aVar.a(hVar, i, false);
     }
 }

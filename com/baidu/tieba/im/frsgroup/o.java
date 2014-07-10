@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.c {
+public class o extends com.baidu.adp.base.f {
     protected NavigationBar a;
     private GroupLevelActivity b;
     private View c;
@@ -96,10 +96,10 @@ public class o extends com.baidu.adp.base.c {
         String string;
         if (z) {
             this.h.setText(TbadkApplication.m252getInst().getString(com.baidu.tieba.y.grouplevel_vip_current_level));
-            be.a(this.h, com.baidu.tieba.s.group_level_promote, 1);
+            bk.a(this.h, com.baidu.tieba.s.group_level_promote, 1);
         } else {
             this.h.setText(TbadkApplication.m252getInst().getString(com.baidu.tieba.y.grouplevel_current_level));
-            be.a(this.h, com.baidu.tieba.s.group_level_secondtitle_text, 1);
+            bk.a(this.h, com.baidu.tieba.s.group_level_secondtitle_text, 1);
         }
         if (z || !z2) {
             this.x.setVisibility(8);
@@ -111,7 +111,7 @@ public class o extends com.baidu.adp.base.c {
         if (z3 && i > 0) {
             this.x.setEnabled(true);
             string = String.format(TbadkApplication.m252getInst().getString(com.baidu.tieba.y.upgrade_mem_group_left_num), String.valueOf(i));
-            be.a(this.x, com.baidu.tieba.s.upgrade_mem_group_btn_text, 3);
+            bk.a(this.x, com.baidu.tieba.s.upgrade_mem_group_btn_text, 3);
             this.x.setEnabled(true);
         } else {
             if (!z3) {
@@ -120,7 +120,7 @@ public class o extends com.baidu.adp.base.c {
                 string = TbadkApplication.m252getInst().getString(com.baidu.tieba.y.upgrade_mem_group_over_max_num);
             }
             this.x.setEnabled(false);
-            be.a(this.x, com.baidu.tieba.s.upgrade_mem_group_btn_cannotup_text, 3);
+            bk.a(this.x, com.baidu.tieba.s.upgrade_mem_group_btn_cannotup_text, 3);
         }
         this.y.setText(string);
     }
@@ -162,17 +162,17 @@ public class o extends com.baidu.adp.base.c {
         int i6 = com.baidu.tieba.u.icon_vip_grade_big_star_n;
         while (i2 <= i) {
             if (z) {
-                be.c(this.t[i2], i5);
+                bk.c(this.t[i2], i5);
             } else {
-                be.c(this.t[i2], i3);
+                bk.c(this.t[i2], i3);
             }
             i2++;
         }
         while (i2 <= 3) {
             if (z) {
-                be.c(this.t[i2], i6);
+                bk.c(this.t[i2], i6);
             } else {
-                be.c(this.t[i2], i4);
+                bk.c(this.t[i2], i4);
             }
             i2++;
         }

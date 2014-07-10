@@ -45,7 +45,7 @@ public class a {
                         a(accountData, databaseManager);
                     }
                 } catch (Exception e) {
-                    BdLog.e("DatabaseService", "saveAccountData", "error = " + e.getMessage());
+                    BdLog.e(e.getMessage());
                     TiebaStatic.printDBExceptionLog(e, "DatabaseService.saveAccountData", new Object[0]);
                 }
             }
@@ -58,7 +58,7 @@ public class a {
             try {
                 databaseManager.a("update account_data set isactive=0 where isactive=1");
             } catch (Exception e) {
-                BdLog.e("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseService.clearActiveAccount", new Object[0]);
             }
         }
@@ -71,13 +71,13 @@ public class a {
             try {
                 databaseManager.a("update account_data set isactive=1 where account=?", (Object[]) new String[]{accountData.getAccount()});
             } catch (Exception e) {
-                BdLog.e("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseService.setActiveAccount", new Object[0]);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0020 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0020 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -85,8 +85,8 @@ public class a {
         int i;
         Cursor cursor = null;
         DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
-            try {
+        try {
+            if (databaseManager != null) {
                 try {
                     cursor = databaseManager.a("select count(*) from account_data", (String[]) null);
                     if (cursor != null && cursor.moveToFirst()) {
@@ -102,7 +102,7 @@ public class a {
                         return i;
                     }
                 } catch (Exception e2) {
-                    BdLog.e("DatabaseService", "getAccountNum", e2.getMessage());
+                    BdLog.e(e2.getMessage());
                     TiebaStatic.printDBExceptionLog(e2, "DatabaseService.getAccountNum", new Object[0]);
                     if (cursor != null) {
                         try {
@@ -115,24 +115,24 @@ public class a {
                     }
                     return 0;
                 }
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e4) {
-                        TiebaStatic.printDBExceptionLog(e4, "DatabaseService.getAccountNum close cursor", new Object[0]);
-                    }
-                }
-                throw th;
             }
+            i = 0;
+            if (cursor != null) {
+            }
+            return i;
+        } catch (Throwable th) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e4) {
+                    TiebaStatic.printDBExceptionLog(e4, "DatabaseService.getAccountNum close cursor", new Object[0]);
+                }
+            }
+            throw th;
         }
-        i = 0;
-        if (cursor != null) {
-        }
-        return i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0096 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -165,7 +165,7 @@ public class a {
                                     exc = e;
                                     accountData = accountData2;
                                     try {
-                                        BdLog.e("DatabaseService", "getActiveAccountData", "error = " + exc.getMessage());
+                                        BdLog.e(exc.getMessage());
                                         TiebaStatic.printDBExceptionLog(exc, "DatabaseService.getActiveAccountData", new Object[0]);
                                         if (cursor2 != null) {
                                             try {
@@ -179,26 +179,26 @@ public class a {
                                         th = th;
                                         cursor = cursor2;
                                         if (cursor != null) {
+                                            try {
+                                                cursor.close();
+                                            } catch (Exception e3) {
+                                                TiebaStatic.printDBExceptionLog(e3, "DatabaseService.getActiveAccountData close cursor", new Object[0]);
+                                            }
                                         }
                                         throw th;
                                     }
                                 }
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e3) {
-                                    TiebaStatic.printDBExceptionLog(e3, "DatabaseService.getActiveAccountData close cursor", new Object[0]);
-                                }
-                            }
-                            throw th;
+                        } catch (Exception e4) {
+                            accountData = null;
+                            cursor2 = cursor;
+                            exc = e4;
                         }
-                    } catch (Exception e4) {
-                        accountData = null;
-                        cursor2 = cursor;
-                        exc = e4;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (cursor != null) {
+                        }
+                        throw th;
                     }
                 }
                 accountData = null;
@@ -223,8 +223,8 @@ public class a {
         return accountData;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0097 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -255,7 +255,7 @@ public class a {
                                 } catch (Exception e2) {
                                     e = e2;
                                     accountData = accountData2;
-                                    BdLog.e("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                    BdLog.e(e.getMessage());
                                     TiebaStatic.printDBExceptionLog(e, "DatabaseService.getAccountData", new Object[0]);
                                     if (cursor != null) {
                                     }
@@ -268,7 +268,7 @@ public class a {
                                 cursor.close();
                             } catch (Exception e3) {
                                 e = e3;
-                                BdLog.e("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                BdLog.e(e.getMessage());
                                 TiebaStatic.printDBExceptionLog(e, "DatabaseService.getAccountData", new Object[0]);
                                 if (cursor != null) {
                                     try {
@@ -279,20 +279,20 @@ public class a {
                                 }
                                 return accountData;
                             }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e5) {
-                                    TiebaStatic.printDBExceptionLog(e5, "DatabaseService.getAccountData close cursor", new Object[0]);
-                                }
-                            }
-                            throw th;
+                        } catch (Exception e5) {
+                            accountData = null;
+                            e = e5;
                         }
-                    } catch (Exception e6) {
-                        accountData = null;
-                        e = e6;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e6) {
+                                TiebaStatic.printDBExceptionLog(e6, "DatabaseService.getAccountData close cursor", new Object[0]);
+                            }
+                        }
+                        throw th;
                     }
                 } else {
                     accountData = null;
@@ -329,7 +329,7 @@ public class a {
             try {
                 databaseManager.a("update account_data set portrait=? where account=?", (Object[]) new String[]{str2, str});
             } catch (Exception e) {
-                BdLog.e("DatabaseManager", "updateAccountPortrait", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.updateAccountPortrait", new Object[0]);
             }
         }
@@ -360,7 +360,7 @@ public class a {
                                 arrayList.add(accountData);
                             } catch (Exception e) {
                                 e = e;
-                                BdLog.e("DatabaseManager", "getAllAccountData", "error = " + e.getMessage());
+                                BdLog.e(e.getMessage());
                                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getAllAccountData", new Object[0]);
                                 if (cursor != null) {
                                     try {

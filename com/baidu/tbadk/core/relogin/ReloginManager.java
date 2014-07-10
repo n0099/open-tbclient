@@ -20,12 +20,12 @@ public class ReloginManager {
     private static ReloginManager b = new ReloginManager();
     private boolean a;
     private final ArrayList<HttpMessage> c = new ArrayList<>();
-    private final HttpMessageListener d = new a(this, 1003001);
+    private final HttpMessageListener d = new a(this, 1001101);
 
     private ReloginManager() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.registerListener(this.d);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003001, TbConfig.SERVER_ADDRESS + TbConfig.LOGIN_ADDRESS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001101, TbConfig.SERVER_ADDRESS + TbConfig.LOGIN_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
@@ -57,7 +57,7 @@ public class ReloginManager {
     private void a(AccountData accountData) {
         MessageManager messageManager = MessageManager.getInstance();
         TbadkApplication.setCurrentAccount(null, TbadkApplication.m252getInst().getApp().getApplicationContext());
-        HttpMessage httpMessage = new HttpMessage(1003001);
+        HttpMessage httpMessage = new HttpMessage(1001101);
         httpMessage.addParam("un", accountData.getAccount());
         httpMessage.addParam("passwd", accountData.getPassword());
         httpMessage.addParam("isphone", "0");
@@ -68,6 +68,7 @@ public class ReloginManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(AccountData accountData) {
+        com.baidu.tbadk.core.account.a.a();
         String account = accountData == null ? "" : accountData.getAccount();
         Message obtainMessage = TbadkApplication.m252getInst().handler.obtainMessage(1);
         Bundle bundle = new Bundle();

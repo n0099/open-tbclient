@@ -2,9 +2,8 @@ package com.baidu.tbadk.download;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.y;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -61,7 +60,7 @@ public class b {
 
     public void b(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!x.a()) {
+            if (!z.a()) {
                 downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
@@ -97,7 +96,6 @@ public class b {
         if (b == null && !c.isEmpty()) {
             b = c.get(0);
             if (b != null) {
-                BdLog.d("download_file:start:" + b.getUrl());
                 this.d = new d(this);
                 this.d.execute(b);
             }

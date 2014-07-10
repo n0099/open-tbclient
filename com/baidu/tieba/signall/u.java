@@ -1,189 +1,63 @@
 package com.baidu.tieba.signall;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Scroller;
-import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import java.util.Random;
+import com.baidu.kirin.KirinConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends FrameLayout {
-    private int a;
-    private final int b;
-    private Context c;
-    private ProgressBar d;
-    private ImageView e;
-    private TextView f;
-    private TextView g;
-    private TextView h;
-    private Scroller i;
-    private int j;
-    private Runnable k;
-    private Runnable l;
-    private Runnable m;
+public class u implements Runnable {
+    final /* synthetic */ t a;
 
-    public u(Context context) {
-        super(context);
-        this.a = 0;
-        this.b = 180;
-        this.j = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-        this.k = new v(this);
-        this.l = new w(this);
-        this.m = new x(this);
-        b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(t tVar) {
+        this.a = tVar;
     }
 
-    private void b() {
-        this.c = getContext();
-        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.signallforum_progress_view, this);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.signallforum_progress);
-        this.e = (ImageView) findViewById(com.baidu.tieba.v.signallforum_icon);
-        this.f = (TextView) findViewById(com.baidu.tieba.v.signallforun_status);
-        this.g = (TextView) findViewById(com.baidu.tieba.v.signallforun_message1);
-        this.h = (TextView) findViewById(com.baidu.tieba.v.signallforun_message2);
-        c();
-        this.i = new Scroller(this.c, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.bg_all_sign));
-        bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-        setBackgroundDrawable(bitmapDrawable);
-    }
-
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.k.a(this.c, 180.0f), 1073741824));
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5 = (i3 - i) / 2;
-        int measuredWidth = this.d.getMeasuredWidth();
-        int measuredHeight = this.d.getMeasuredHeight();
-        int i6 = i5 - (measuredWidth / 2);
-        int a = com.baidu.adp.lib.util.k.a(this.c, 16.0f);
-        int i7 = measuredHeight + a;
-        this.d.layout(i6, a, measuredWidth + i6, i7);
-        int measuredWidth2 = this.e.getMeasuredWidth();
-        int measuredHeight2 = this.e.getMeasuredHeight();
-        int i8 = i5 - (measuredWidth2 / 2);
-        int measuredHeight3 = (i7 - (this.d.getMeasuredHeight() / 2)) - measuredHeight2;
-        int i9 = measuredHeight2 + measuredHeight3;
-        this.e.layout(i8, measuredHeight3, measuredWidth2 + i8, i9);
-        int measuredWidth3 = this.f.getMeasuredWidth();
-        int measuredHeight4 = this.f.getMeasuredHeight();
-        int i10 = i5 - (measuredWidth3 / 2);
-        int a2 = i9 + com.baidu.adp.lib.util.k.a(this.c, 10.0f);
-        this.f.layout(i10, a2, measuredWidth3 + i10, measuredHeight4 + a2);
-        int measuredWidth4 = this.g.getMeasuredWidth();
-        int measuredHeight5 = this.g.getMeasuredHeight();
-        int i11 = i5 - (measuredWidth4 / 2);
-        int a3 = com.baidu.adp.lib.util.k.a(this.c, 125.0f);
-        int i12 = measuredHeight5 + a3;
-        this.g.layout(i11, a3, measuredWidth4 + i11, i12);
-        int measuredWidth5 = this.h.getMeasuredWidth();
-        int i13 = i5 - (measuredWidth5 / 2);
-        this.h.layout(i13, i12, measuredWidth5 + i13, this.h.getMeasuredHeight() + i12);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchSetPressed(boolean z) {
-    }
-
-    private void c() {
-        removeCallbacks(this.k);
-        removeCallbacks(this.l);
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        switch (this.a) {
-            case 0:
-                this.d.setClickable(true);
-                this.d.setProgress(0);
-                this.d.setSecondaryProgress(0);
-                this.d.setBackgroundResource(com.baidu.tieba.u.btn_all_sign);
-                this.f.setText(com.baidu.tieba.y.signallforum_begin);
+    @Override // java.lang.Runnable
+    public void run() {
+        Scroller scroller;
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        Scroller scroller2;
+        Scroller scroller3;
+        ProgressBar progressBar3;
+        ProgressBar progressBar4;
+        Runnable runnable;
+        int i;
+        Scroller scroller4;
+        Runnable runnable2;
+        scroller = this.a.i;
+        if (!scroller.computeScrollOffset()) {
+            progressBar = this.a.d;
+            int progress = progressBar.getProgress();
+            progressBar2 = this.a.d;
+            int max = (progressBar2.getMax() * 9) / 10;
+            if (progress < max) {
+                scroller2 = this.a.i;
+                scroller2.startScroll(progress, 0, max - progress, 0, KirinConfig.READ_TIME_OUT);
+                this.a.post(this);
                 return;
-            case 1:
-                post(this.m);
-                this.d.setClickable(false);
-                this.d.setBackgroundResource(com.baidu.tieba.u.bg_all_sign_conduct);
-                this.e.setImageResource(z ? com.baidu.tieba.u.icon_all_sign_d_1 : com.baidu.tieba.u.icon_all_sign_d);
-                this.f.setText(com.baidu.tieba.y.signallforum_ing);
-                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.d.getMax()) / 100;
-                if (nextInt - this.d.getProgress() < 0) {
-                    this.i.startScroll(nextInt, 0, this.d.getProgress() - nextInt, 0, this.j);
-                } else {
-                    this.i.startScroll(this.d.getProgress(), 0, nextInt - this.d.getProgress(), 0, this.j);
-                }
-                post(this.k);
-                return;
-            case 2:
-                this.d.setClickable(true);
-                this.d.setBackgroundResource(z ? com.baidu.tieba.u.bg_all_sign_d_1 : com.baidu.tieba.u.bg_all_sign_d);
-                this.d.setProgress(0);
-                this.e.setImageResource(z ? com.baidu.tieba.u.bg_all_sign_ok_1 : com.baidu.tieba.u.bg_all_sign_ok);
-                this.f.setText(com.baidu.tieba.y.signallforum_success);
-                return;
-            default:
-                return;
+            }
+            return;
         }
-    }
-
-    public int getCurrentStatus() {
-        return this.a;
-    }
-
-    public void setSigning(int i) {
-        if (this.a != 1 && this.a == 0) {
-            this.d.setProgress(i);
-            this.a = 1;
-            c();
+        scroller3 = this.a.i;
+        int currX = scroller3.getCurrX();
+        progressBar3 = this.a.d;
+        if (currX >= (progressBar3.getMax() * 9) / 10) {
+            i = this.a.a;
+            if (i != 2) {
+                scroller4 = this.a.i;
+                scroller4.forceFinished(true);
+                t tVar = this.a;
+                runnable2 = this.a.l;
+                tVar.postDelayed(runnable2, 2000L);
+                return;
+            }
         }
-    }
-
-    public void a() {
-        if (this.a != 2) {
-            this.a = 2;
-            c();
-        }
-    }
-
-    public ProgressBar getProgressBar() {
-        return this.d;
-    }
-
-    public ImageView getIcon() {
-        return this.e;
-    }
-
-    public TextView getmStatus() {
-        return this.f;
-    }
-
-    public TextView getMessage1() {
-        return this.g;
-    }
-
-    public TextView getMessage2() {
-        return this.h;
-    }
-
-    public int getProgress() {
-        return this.d.getProgress();
-    }
-
-    public void setDuration(int i) {
-        this.j = i;
+        progressBar4 = this.a.d;
+        progressBar4.setProgress(currX);
+        t tVar2 = this.a;
+        runnable = this.a.k;
+        tVar2.postDelayed(runnable, 16L);
     }
 }

@@ -1,102 +1,89 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.graphics.Bitmap;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends com.baidu.adp.base.e {
-    final /* synthetic */ bm a;
+public class bv extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ PersonChangeActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bm bmVar) {
-        this.a = bmVar;
+    private bv(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.adp.base.e
-    public void a(Object obj) {
-        af afVar;
-        com.baidu.tieba.model.av avVar;
-        aj ajVar;
-        BaseFragmentActivity baseFragmentActivity;
-        com.baidu.tieba.model.av avVar2;
-        com.baidu.tieba.model.av avVar3;
-        aj ajVar2;
-        com.baidu.tieba.model.av avVar4;
-        com.baidu.tieba.model.av avVar5;
-        com.baidu.tieba.model.av avVar6;
-        boolean z;
-        com.baidu.tieba.model.e eVar;
-        af afVar2;
-        com.baidu.tieba.model.av avVar7;
-        aj ajVar3;
-        com.baidu.tieba.model.av avVar8;
-        com.baidu.tieba.model.av avVar9;
-        aj ajVar4;
-        BaseFragmentActivity baseFragmentActivity2;
-        com.baidu.tieba.model.av avVar10;
-        BaseFragmentActivity baseFragmentActivity3;
-        BaseFragmentActivity baseFragmentActivity4;
-        af afVar3;
-        afVar = this.a.n;
-        if (afVar != null) {
-            afVar3 = this.a.n;
-            afVar3.d();
-        }
-        avVar = this.a.c;
-        if (avVar.getLoadDataMode() != 1) {
-            avVar8 = this.a.c;
-            if (avVar8.getLoadDataMode() != 2) {
-                avVar9 = this.a.c;
-                if (avVar9.getLoadDataMode() == 3) {
-                    ajVar4 = this.a.k;
-                    if (ajVar4 != null) {
-                        if (((Boolean) obj).booleanValue()) {
-                            baseFragmentActivity3 = this.a.f;
-                            baseFragmentActivity4 = this.a.f;
-                            baseFragmentActivity3.a(baseFragmentActivity4.getResources().getString(com.baidu.tieba.y.success));
-                            this.a.h();
-                            return;
-                        }
-                        baseFragmentActivity2 = this.a.f;
-                        avVar10 = this.a.c;
-                        baseFragmentActivity2.a(avVar10.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-        }
-        if (!((Boolean) obj).booleanValue()) {
-            ajVar = this.a.k;
-            ajVar.i();
-            baseFragmentActivity = this.a.f;
-            avVar2 = this.a.c;
-            baseFragmentActivity.a(avVar2.getErrorString());
-            return;
-        }
-        this.a.m();
-        avVar3 = this.a.c;
-        if (avVar3.b()) {
-            ajVar3 = this.a.k;
-            ajVar3.c();
-        } else {
-            ajVar2 = this.a.k;
-            avVar4 = this.a.c;
-            ajVar2.a(avVar4);
-        }
-        avVar5 = this.a.c;
-        if (!avVar5.g()) {
-            avVar6 = this.a.c;
-            if (avVar6.h() != null) {
-                avVar7 = this.a.c;
-                z = avVar7.h().isMask();
-            } else {
-                z = false;
-            }
-            eVar = this.a.d;
-            eVar.a(z ? 1 : 0);
-            afVar2 = this.a.n;
-            afVar2.b(z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bv(PersonChangeActivity personChangeActivity, bv bvVar) {
+        this(personChangeActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        ProgressBar progressBar;
+        TextView textView;
+        progressBar = this.a.y;
+        progressBar.setVisibility(0);
+        textView = this.a.f;
+        textView.setEnabled(false);
+        this.a.a.setImageBitmap(null);
+        this.a.v = null;
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        return com.baidu.tbadk.core.util.z.c(null, TbConfig.PERSON_HEAD_FILE);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        this.a.w = null;
+        progressBar = this.a.y;
+        progressBar.setVisibility(8);
+        textView = this.a.f;
+        textView.setEnabled(true);
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        TextView textView;
+        ProgressBar progressBar;
+        com.baidu.adp.widget.a.a aVar;
+        com.baidu.tieba.model.at atVar;
+        com.baidu.adp.widget.a.a aVar2;
+        super.onPostExecute(bitmap);
+        this.a.w = null;
+        textView = this.a.f;
+        textView.setEnabled(true);
+        progressBar = this.a.y;
+        progressBar.setVisibility(8);
+        if (bitmap != null) {
+            this.a.v = new com.baidu.adp.widget.a.a(bitmap, false, null);
+            aVar = this.a.v;
+            aVar.a(this.a.a);
+            com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
+            atVar = this.a.u;
+            String portrait = atVar.a().getPortrait();
+            aVar2 = this.a.v;
+            a.a(portrait, aVar2, true);
         }
     }
 }

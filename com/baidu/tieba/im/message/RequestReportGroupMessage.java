@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.ReportGroup.DataReq;
 import protobuf.ReportGroup.ReportGroupReqIdl;
@@ -11,7 +9,7 @@ public class RequestReportGroupMessage extends TbSocketMessage {
     private int mReportType;
 
     public RequestReportGroupMessage() {
-        super(MessageTypes.CMD_REPORT_GROUP);
+        super(103103);
     }
 
     public int getGroupId() {
@@ -40,7 +38,6 @@ public class RequestReportGroupMessage extends TbSocketMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

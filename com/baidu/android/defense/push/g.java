@@ -1,90 +1,57 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class g {
-    private static final String a = g.class.getSimpleName();
+public class g extends i {
+    protected ArrayList a;
 
-    private g() {
+    public g(String str, Context context) {
+        super(str, context);
+        this.a = null;
+        this.a = new ArrayList();
+        a();
     }
 
-    public static void a(Context context, int i) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putInt("push_bind", i);
-        edit.commit();
+    public void a() {
+        if (this.b != null) {
+            try {
+                JSONArray jSONArray = this.b.getJSONArray("params");
+                if (jSONArray == null || jSONArray.length() == 0) {
+                    this.c = false;
+                    return;
+                }
+                int length = jSONArray.length();
+                new JSONObject();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                    if (jSONObject != null) {
+                        com.baidu.android.defense.a.c cVar = new com.baidu.android.defense.a.c();
+                        cVar.a = jSONObject.getString("downurl");
+                        cVar.b = jSONObject.getString("savepath");
+                        cVar.c = jSONObject.getInt("filesize");
+                        this.a.add(cVar);
+                    }
+                }
+            } catch (JSONException e) {
+                this.c = false;
+            }
+        }
     }
 
-    public static void a(Context context, long j) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putLong("register_time", j);
-        edit.commit();
-    }
-
-    public static void a(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putString("push_access_token", str);
-        edit.commit();
-    }
-
-    public static void a(Context context, boolean z) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putBoolean("registered", z);
-        edit.commit();
-    }
-
-    public static boolean a(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getInt("push_bind", 0) != 0;
-    }
-
-    public static int b(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getInt("push_bind", 0);
-    }
-
-    public static void b(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putString("channel_id", str);
-        edit.commit();
-    }
-
-    public static String c(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getString("push_access_token", "");
-    }
-
-    public static void c(Context context, String str) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putString(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
-        edit.commit();
-    }
-
-    public static String d(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getString("channel_id", "");
-    }
-
-    public static String e(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getString(com.baidu.tbadk.core.frameworkData.a.USER_ID, "");
-    }
-
-    public static long f(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getLong("register_time", 0L);
-    }
-
-    public static boolean g(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getBoolean("registered", false);
-    }
-
-    public static void h(Context context) {
-        a(context, true);
-        a(context, System.currentTimeMillis());
-    }
-
-    public static long i(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getLong("last_bind_time", 0L);
-    }
-
-    public static void j(Context context) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putLong("last_bind_time", System.currentTimeMillis());
-        edit.commit();
+    @Override // com.baidu.android.defense.push.i
+    public boolean b() {
+        if (this.c) {
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                com.baidu.android.defense.a.b.a().a(new com.baidu.android.defense.a.a(this.d, (com.baidu.android.defense.a.c) it.next()));
+            }
+            return true;
+        }
+        return false;
     }
 }

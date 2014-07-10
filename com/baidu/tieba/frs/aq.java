@@ -21,8 +21,8 @@ public class aq extends BdAsyncTask<Void, Integer, Void> {
     public Void doInBackground(Void... voidArr) {
         String str;
         StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.Z;
-        com.baidu.tbadk.core.util.x.c(new File(append.append(str).toString()));
+        str = this.a.aa;
+        com.baidu.tbadk.core.util.z.c(new File(append.append(str).toString()));
         return null;
     }
 }

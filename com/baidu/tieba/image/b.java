@@ -1,18 +1,19 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.data.t;
-import com.baidu.tieba.data.u;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.data.v;
+import com.baidu.tieba.data.w;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Object, Integer, u> {
+public class b extends BdAsyncTask<Object, Integer, w> {
     final /* synthetic */ a a;
-    private an b = null;
+    private aq b = null;
     private String c;
     private String d;
     private int e;
@@ -38,31 +39,40 @@ public class b extends BdAsyncTask<Object, Integer, u> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public u doInBackground(Object... objArr) {
+    public w doInBackground(Object... objArr) {
         String str;
         boolean z;
-        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/picpage");
-        an anVar = this.b;
+        boolean z2;
+        boolean z3;
+        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/picpage");
+        aq aqVar = this.b;
         str = this.a.e;
-        anVar.a("kw", str);
+        aqVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
             this.b.a("pic_id", this.d);
         }
         this.b.a("next", String.valueOf(this.e));
         this.b.a("prev", String.valueOf(this.f));
-        z = this.a.j;
+        z = this.a.k;
         if (!z) {
             this.b.a("not_see_lz", String.valueOf(1));
+        }
+        StringBuilder sb = new StringBuilder("mIsReserver=");
+        z2 = this.a.h;
+        BdLog.e(sb.append(z2).toString());
+        z3 = this.a.h;
+        if (!z3) {
+            this.b.a("r", String.valueOf(1));
         }
         this.b.a().a().b = false;
         String i = this.b.i();
         if (!this.b.a().b().b()) {
             return null;
         }
-        u uVar = new u();
-        uVar.a(i, true);
-        return uVar;
+        w wVar = new w();
+        wVar.a(i, true);
+        return wVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -70,7 +80,7 @@ public class b extends BdAsyncTask<Object, Integer, u> {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.h = null;
+        this.a.i = null;
         super.cancel(true);
     }
 
@@ -85,7 +95,7 @@ public class b extends BdAsyncTask<Object, Integer, u> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onPostExecute(u uVar) {
+    public void onPostExecute(w wVar) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -109,19 +119,19 @@ public class b extends BdAsyncTask<Object, Integer, u> {
         int i4;
         String str4;
         c cVar4;
-        super.onPostExecute(uVar);
-        this.a.h = null;
-        if (uVar != null) {
-            this.a.i = uVar.j();
-            this.a.c = uVar.f();
-            this.a.b = uVar.e();
+        super.onPostExecute(wVar);
+        this.a.i = null;
+        if (wVar != null) {
+            this.a.j = wVar.j();
+            this.a.c = wVar.f();
+            this.a.b = wVar.e();
             if (this.d == null) {
                 arrayList3 = this.a.a;
                 arrayList3.clear();
-                hashMap3 = this.a.m;
+                hashMap3 = this.a.n;
                 hashMap3.clear();
             }
-            LinkedList<t> g = uVar.g();
+            LinkedList<v> g = wVar.g();
             int size = g.size();
             if (size <= 0) {
                 this.a.g = true;
@@ -129,18 +139,18 @@ public class b extends BdAsyncTask<Object, Integer, u> {
                 for (int i5 = 0; i5 < size; i5++) {
                     a = this.a.a(g.get(i5));
                     a2 = this.a.a(a);
-                    hashMap = this.a.m;
+                    hashMap = this.a.n;
                     if (!hashMap.containsKey(a2)) {
                         arrayList2 = this.a.a;
                         arrayList2.add(a);
-                        hashMap2 = this.a.m;
+                        hashMap2 = this.a.n;
                         hashMap2.put(a2, a);
                     }
                 }
-                t tVar = g.get(size - 1);
-                this.a.f = tVar.c();
-                i3 = this.a.i;
-                if (i3 == tVar.h()) {
+                v vVar = g.get(size - 1);
+                this.a.f = vVar.c();
+                i3 = this.a.j;
+                if (i3 == vVar.h()) {
                     this.a.g = true;
                 } else {
                     this.a.g = false;
@@ -161,11 +171,11 @@ public class b extends BdAsyncTask<Object, Integer, u> {
                             z3 = false;
                             i = -1;
                         }
-                        cVar = this.a.l;
+                        cVar = this.a.m;
                         if (cVar == null) {
-                            cVar2 = this.a.l;
+                            cVar2 = this.a.m;
                             arrayList = this.a.a;
-                            i2 = this.a.i;
+                            i2 = this.a.j;
                             str = this.a.c;
                             cVar2.a(arrayList, i, i2, z2, str, z3);
                             return;
@@ -177,11 +187,11 @@ public class b extends BdAsyncTask<Object, Integer, u> {
             z2 = false;
             if (this.d != null) {
             }
-            cVar = this.a.l;
+            cVar = this.a.m;
             if (cVar == null) {
             }
         } else {
-            cVar3 = this.a.l;
+            cVar3 = this.a.m;
             if (cVar3 != null) {
                 if (this.b != null) {
                     i4 = this.b.d();
@@ -190,7 +200,7 @@ public class b extends BdAsyncTask<Object, Integer, u> {
                     i4 = -1;
                     str4 = null;
                 }
-                cVar4 = this.a.l;
+                cVar4 = this.a.m;
                 cVar4.a(i4, str4);
             }
         }

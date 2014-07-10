@@ -2,7 +2,10 @@ package com.baidu.android.nebula.cmd;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.common.security.Base64;
+import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbConfig;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -14,7 +17,7 @@ import javax.crypto.Cipher;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GetCuid implements NoProGuard, d {
+public class GetCuid implements NoProGuard, n {
     private static final String ALGORITHM_RSA = "RSA";
     private static final boolean DEBUG = false;
     public static final int ERROR_FAIL = 1;
@@ -29,73 +32,74 @@ public class GetCuid implements NoProGuard, d {
     }
 
     public static byte[] decryptByPrivateKey(byte[] bArr, String str) {
-        PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(com.baidu.android.nebula.a.k.a(str.getBytes())));
+        PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(2, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] decryptByPublicKey(byte[] bArr, String str) {
-        PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(com.baidu.android.nebula.a.k.a(str.getBytes(), 0)));
+        PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(), 0)));
         Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(2, generatePublic);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] encryptByPrivateKey(byte[] bArr, String str) {
-        PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(com.baidu.android.nebula.a.k.a(str.getBytes(), 0)));
+        PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes(), 0)));
         Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(1, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public byte[] encryptByPublicKey(byte[] bArr, String str) {
-        PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(com.baidu.android.nebula.a.k.a(str.getBytes())));
+        PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }
 
-    @Override // com.baidu.android.nebula.cmd.d
-    public com.baidu.android.nebula.b.c execute(com.baidu.android.nebula.b.k kVar, Map map, Map map2, Map map3) {
+    @Override // com.baidu.android.nebula.cmd.n
+    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
         String str;
         String str2;
         a.a(System.currentTimeMillis());
-        if (map2 == null || map2.size() < 1) {
+        Map a = dVar.a();
+        if (a == null || a.size() < 1) {
             a.a(-1);
-            return null;
+            return;
         }
-        String str3 = (String) map2.get("callback");
-        a.d((String) map2.get("mcmdf"));
+        String str3 = (String) a.get("callback");
+        a.d((String) a.get("mcmdf"));
         if (str3 == null) {
             a.a(-1);
-            return null;
+            return;
         }
-        String str4 = (String) map2.get("secret");
-        this.mContext = com.baidu.android.nebula.d.b.a().c();
+        String str4 = (String) a.get("secret");
+        this.mContext = com.baidu.android.nebula.d.c.a().c();
         if (this.mContext == null) {
             a.a(-1);
-            return null;
+            return;
         }
         a.b(this.mContext.getPackageName());
-        if (!com.baidu.android.nebula.d.a.a(this.mContext).a((String) map.get("referer"))) {
+        if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a("Referer"))) {
             this.mErrcode = 4;
         }
         if (this.mErrcode != 4) {
             this.mErrcode = 1;
-            String a = com.baidu.android.nebula.a.j.a(this.mContext);
+            String cuid = CommonParam.getCUID(this.mContext);
             if (TextUtils.equals(str4, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
                 try {
                     str = str4;
-                    str2 = new String(com.baidu.android.nebula.a.k.a(encryptByPublicKey(a.getBytes(), RSA_PUBLIC_KEY), "utf-8"));
+                    str2 = new String(Base64.encode(encryptByPublicKey(cuid.getBytes(), RSA_PUBLIC_KEY), "utf-8"));
                 } catch (Exception e) {
                     System.out.println("加密失败：" + e.getMessage());
                     str = "0";
-                    str2 = a;
+                    str2 = cuid;
                 }
             } else {
                 str = "0";
-                str2 = a;
+                str2 = cuid;
             }
         } else {
             str = str4;
@@ -111,13 +115,15 @@ public class GetCuid implements NoProGuard, d {
             jSONObject.put("error", this.mErrcode);
         } catch (JSONException e2) {
         }
-        com.baidu.android.nebula.b.c cVar = new com.baidu.android.nebula.b.c(str3 + " && " + str3 + "(" + jSONObject.toString() + ");");
+        aVar.a("text/javascript");
+        aVar.a().put("Cache-Control", "no-cache");
+        aVar.b(str3 + " && " + str3 + "(" + jSONObject.toString() + ");");
+        aVar.a(Constants.MEDIA_INFO);
         a.a(this.mErrcode);
-        return cVar;
     }
 
-    @Override // com.baidu.android.nebula.cmd.d
+    @Override // com.baidu.android.nebula.cmd.n
     public void writeToStatic() {
-        k.a().a(this.mContext, a.toString());
+        m.a().a(this.mContext, a.toString());
     }
 }

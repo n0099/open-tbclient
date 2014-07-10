@@ -6,23 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.q;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.im.model.be;
+import com.baidu.tieba.im.model.bd;
 import com.baidu.tieba.v;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends BaseActivity {
     private m b = null;
-    private be c = null;
+    private bd c = null;
     private com.baidu.adp.lib.util.d d = null;
     private com.baidu.adp.widget.ListView.d e = new b(this);
     com.baidu.adp.lib.c.d a = new c(this);
-    private CustomMessageListener f = new d(this, MessageTypes.CMD_REQUEST_GROUP_BY_LOCATION_LOCAL);
+    private CustomMessageListener f = new d(this, 2001115);
     private com.baidu.adp.framework.listener.b g = new e(this, 0);
 
     public static void a(Activity activity) {
@@ -38,17 +37,17 @@ public class NearbyGroupsActivity extends BaseActivity {
         this.b.a(new f(this));
         this.b.a(new g(this));
         this.d = new com.baidu.adp.lib.util.d(this);
-        this.c = new be();
+        this.c = new bd();
         this.c.setUniqueId(getUniqueId());
-        registerListener(MessageTypes.CMD_NEARBY_GROUP, this.g);
-        registerListener(MessageTypes.CMD_GET_USER_PERMISSION, this.g);
+        registerListener(103009, this.g);
+        registerListener(103008, this.g);
         registerListener(this.f);
-        registerListener(MessageTypes.CMD_UPGRADE_MEMBER_GROUP, this.g);
-        this.b.d();
+        registerListener(103105, this.g);
+        this.b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -59,7 +58,7 @@ public class NearbyGroupsActivity extends BaseActivity {
             return true;
         }
         try {
-            return bj.a(bj.a(), new Date(j)) >= 1;
+            return bp.a(bp.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -70,7 +69,7 @@ public class NearbyGroupsActivity extends BaseActivity {
         if (!this.c.b()) {
             this.b.b();
         } else if (!this.c.a()) {
-            this.b.c();
+            this.b.d();
             this.c.e();
         }
     }
@@ -91,7 +90,7 @@ public class NearbyGroupsActivity extends BaseActivity {
     public void onClick(View view) {
         Object tag;
         super.onClick(view);
-        if (view.getId() == this.b.f()) {
+        if (view.getId() == this.b.g()) {
             if (!TbadkApplication.isLogin()) {
                 LoginActivity.a((Activity) this, "", true, 0);
             } else {
@@ -100,7 +99,7 @@ public class NearbyGroupsActivity extends BaseActivity {
         } else if (view.getId() == v.guide_setting) {
             this.d.a();
         } else if (view.getId() == v.list_item_content && (tag = view.getTag()) != null) {
-            sendMessage(new CustomMessage(2010011, new q(this, com.baidu.adp.lib.f.b.a(tag.toString(), 0L), 1)));
+            sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.v(this, com.baidu.adp.lib.f.b.a(tag.toString(), 0L), 1)));
         }
     }
 
@@ -115,5 +114,10 @@ public class NearbyGroupsActivity extends BaseActivity {
     public void onDestroy() {
         super.onDestroy();
         this.c.cancelMessage();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity
+    public BdListView onGetPreLoadListView() {
+        return this.b.a();
     }
 }

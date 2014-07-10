@@ -22,7 +22,7 @@ public class a {
     private ArrayList<b> l = new ArrayList<>();
     private ArrayList<b> m = new ArrayList<>();
     private HashMap<String, b> n = new HashMap<>();
-    private com.baidu.tieba.home.s o = new com.baidu.tieba.home.s();
+    private com.baidu.tieba.home.r o = new com.baidu.tieba.home.r();
     private int p;
 
     public String a() {
@@ -65,7 +65,7 @@ public class a {
         return this.k;
     }
 
-    public com.baidu.tieba.home.s k() {
+    public com.baidu.tieba.home.r k() {
         return this.o;
     }
 
@@ -77,20 +77,20 @@ public class a {
         return this.m;
     }
 
-    public void a(p pVar) {
-        ArrayList<q> d = pVar.d();
+    public void a(o oVar) {
+        ArrayList<p> d = oVar.d();
         int size = d.size();
         for (int i = 0; i < size; i++) {
-            q qVar = d.get(i);
-            String sb = new StringBuilder(String.valueOf(qVar.a())).toString();
+            p pVar = d.get(i);
+            String sb = new StringBuilder(String.valueOf(pVar.a())).toString();
             b bVar = this.n.get(sb);
             if (bVar != null) {
-                if (qVar.b() != 0) {
+                if (pVar.b() != 0) {
                     this.n.remove(sb);
                     this.m.remove(bVar);
                     bVar.a(1);
-                    bVar.b(qVar.c());
-                    bVar.d(qVar.d());
+                    bVar.b(pVar.c());
+                    bVar.d(pVar.d());
                     bVar.a(true);
                     bVar.b(false);
                     bVar.c(false);
@@ -104,7 +104,7 @@ public class a {
                     bVar.a(false);
                     bVar.b(true);
                     bVar.c(false);
-                    bVar.a(qVar.e().b());
+                    bVar.a(pVar.e().b());
                 }
             }
         }
@@ -125,10 +125,10 @@ public class a {
                 this.i = jSONObject.optString("sign_notice");
                 this.j = jSONObject.optInt("valid");
                 this.p = jSONObject.optInt("sign_max_num");
-                y.a = this.p;
+                x.a = this.p;
                 JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
                 if (optJSONArray != null) {
-                    int min = Math.min(optJSONArray.length(), y.a);
+                    int min = Math.min(optJSONArray.length(), x.a);
                     for (int i = 0; i < min; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -149,7 +149,7 @@ public class a {
                     }
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

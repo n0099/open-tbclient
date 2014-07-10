@@ -2,15 +2,15 @@ package com.baidu.tieba.im.b;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.model.r;
+import com.baidu.tieba.im.model.p;
 import java.io.File;
 /* loaded from: classes.dex */
 public class j extends c {
     private static j c;
-    private String d = x.a + File.separator + TbConfig.getTempDirName() + File.separator + "OfficialBarMsgMemoryCache.";
+    private String d = z.a + File.separator + TbConfig.getTempDirName() + File.separator + "OfficialBarMsgMemoryCache.";
 
     public static synchronized j a() {
         j jVar;
@@ -34,20 +34,20 @@ public class j extends c {
     protected void b() {
         ImMessageCenterPojo b = com.baidu.tieba.im.db.h.a().b("-1000");
         if (b != null) {
-            r.a(b.getUnread_count() > 0);
+            p.a(b.getUnread_count() > 0);
         }
         e.b(this);
     }
 
     public void c() {
-        if (x.a()) {
+        if (z.a()) {
             this.b.a(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
         }
     }
 
     @Override // com.baidu.tieba.im.b.c
     public void d() {
-        if (x.a()) {
+        if (z.a()) {
             this.b.b(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
         }
     }

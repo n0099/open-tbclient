@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.voice;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class g implements Handler.Callback {
     @Override // android.os.Handler.Callback
@@ -107,7 +106,6 @@ class g implements Handler.Callback {
                     lVar13 = f.d;
                     lVar13.a(message.what, ae.a(com.baidu.tieba.y.voice_record_short_tip));
                     f.d = null;
-                    BdLog.i("----record too short......");
                     break;
                 }
                 break;

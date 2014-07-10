@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.im.model.by;
+import com.baidu.tieba.im.model.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.framework.listener.b {
@@ -31,57 +31,58 @@ public class p extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tieba.im.model.m mVar;
+        com.baidu.tieba.im.model.k kVar;
         Message<?> orginalMessage;
-        com.baidu.tieba.im.model.m mVar2;
+        com.baidu.tieba.im.model.k kVar2;
         String[] split;
-        com.baidu.tieba.im.model.m mVar3;
-        com.baidu.tieba.im.model.m mVar4;
+        com.baidu.tieba.im.model.k kVar3;
+        com.baidu.tieba.im.model.k kVar4;
         r rVar;
-        com.baidu.tieba.im.model.m mVar5;
+        com.baidu.tieba.im.model.k kVar5;
         r rVar2;
-        com.baidu.tieba.im.model.m mVar6;
+        com.baidu.tieba.im.model.k kVar6;
         r rVar3;
-        com.baidu.tieba.im.model.m mVar7;
+        com.baidu.tieba.im.model.k kVar7;
         r rVar4;
-        com.baidu.tieba.im.model.m mVar8;
+        com.baidu.tieba.im.model.k kVar8;
         r rVar5;
         int i;
-        com.baidu.tieba.im.model.m mVar9;
-        by byVar;
-        com.baidu.tieba.im.model.m mVar10;
-        by byVar2;
-        com.baidu.tieba.im.model.m mVar11;
-        by byVar3;
-        com.baidu.tieba.im.model.m mVar12;
-        com.baidu.tieba.im.model.m mVar13;
-        com.baidu.tieba.im.model.m mVar14;
+        com.baidu.tieba.im.model.k kVar9;
+        bx bxVar;
+        com.baidu.tieba.im.model.k kVar10;
+        bx bxVar2;
+        com.baidu.tieba.im.model.k kVar11;
+        bx bxVar3;
+        com.baidu.tieba.im.model.k kVar12;
+        com.baidu.tieba.im.model.k kVar13;
+        com.baidu.tieba.im.model.k kVar14;
         r rVar6;
-        com.baidu.tieba.im.model.m mVar15;
+        com.baidu.tieba.im.model.k kVar15;
         r rVar7;
-        com.baidu.tieba.im.model.m mVar16;
-        com.baidu.tieba.im.model.m mVar17;
+        com.baidu.tieba.im.model.k kVar16;
+        com.baidu.tieba.im.model.k kVar17;
         r rVar8;
-        com.baidu.tieba.im.model.m mVar18;
-        com.baidu.tieba.im.model.m mVar19;
+        com.baidu.tieba.im.model.k kVar18;
+        com.baidu.tieba.im.model.k kVar19;
         r rVar9;
-        com.baidu.tieba.im.model.m mVar20;
-        com.baidu.tieba.im.model.m mVar21;
+        com.baidu.tieba.im.model.k kVar20;
+        com.baidu.tieba.im.model.k kVar21;
         r rVar10;
-        com.baidu.tieba.im.model.m mVar22;
+        com.baidu.tieba.im.model.k kVar22;
         Message<?> orginalMessage2;
-        com.baidu.tieba.im.model.m mVar23;
+        com.baidu.tieba.im.model.k kVar23;
         r rVar11;
-        com.baidu.tieba.im.model.m mVar24;
+        com.baidu.tieba.im.model.k kVar24;
         r rVar12;
-        com.baidu.tieba.im.model.m mVar25;
-        com.baidu.tieba.im.model.m mVar26;
+        com.baidu.tieba.im.model.k kVar25;
+        com.baidu.tieba.im.model.k kVar26;
         r rVar13;
-        com.baidu.tieba.im.model.m mVar27;
         r rVar14;
+        com.baidu.tieba.im.model.k kVar27;
+        r rVar15;
         if (socketResponsedMessage == null) {
-            rVar14 = this.a.f;
-            rVar14.p();
+            rVar15 = this.a.f;
+            rVar15.p();
             this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103004) {
             rVar12 = this.a.f;
@@ -91,24 +92,26 @@ public class p extends com.baidu.adp.framework.listener.b {
                 return;
             }
             ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage;
-            mVar25 = this.a.g;
-            if (mVar25.k() == responseGroupInfoMessage.getOrginalMessage()) {
+            kVar25 = this.a.g;
+            if (kVar25.k() == responseGroupInfoMessage.getOrginalMessage()) {
                 if (responseGroupInfoMessage.getError() == 2230101) {
                     this.a.showToast(responseGroupInfoMessage.getErrorString(), false);
                     this.a.finish();
                 } else if (responseGroupInfoMessage.getData() != null && responseGroupInfoMessage.getError() == 0) {
                     this.a.f();
-                    mVar26 = this.a.g;
-                    mVar26.a(responseGroupInfoMessage.getData());
+                    kVar26 = this.a.g;
+                    kVar26.a(responseGroupInfoMessage.getData());
                     if (responseGroupInfoMessage == null || responseGroupInfoMessage.getData().g()) {
                         rVar13 = this.a.f;
                         rVar13.a(responseGroupInfoMessage.getData(), false);
                         return;
                     }
-                    aa a = aa.a();
+                    rVar14 = this.a.f;
+                    rVar14.q();
+                    y a = y.a();
                     String currentAccount = TbadkApplication.getCurrentAccount();
-                    mVar27 = this.a.g;
-                    a.a(currentAccount, String.valueOf(mVar27.d()), TbConfig.USE_TIME_INTERVAL, new q(this, responseGroupInfoMessage));
+                    kVar27 = this.a.g;
+                    a.a(currentAccount, String.valueOf(kVar27.d()), TbConfig.USE_TIME_INTERVAL, new q(this, responseGroupInfoMessage));
                 } else {
                     this.a.showToast(com.baidu.tieba.y.neterror);
                 }
@@ -117,12 +120,12 @@ public class p extends com.baidu.adp.framework.listener.b {
             if (socketResponsedMessage instanceof ResponseJoinGroupMessage) {
                 ResponseJoinGroupMessage responseJoinGroupMessage = (ResponseJoinGroupMessage) socketResponsedMessage;
                 if (responseJoinGroupMessage.getError() == 0 && (orginalMessage2 = responseJoinGroupMessage.getOrginalMessage()) != null && (orginalMessage2 instanceof RequestJoinGroupMessage)) {
-                    mVar23 = this.a.g;
-                    if (((RequestJoinGroupMessage) orginalMessage2).getGroupId() == mVar23.d()) {
+                    kVar23 = this.a.g;
+                    if (((RequestJoinGroupMessage) orginalMessage2).getGroupId() == kVar23.d()) {
                         rVar11 = this.a.f;
                         rVar11.w();
-                        mVar24 = this.a.g;
-                        mVar24.a(true);
+                        kVar24 = this.a.g;
+                        kVar24.a(true);
                         this.a.g();
                     }
                 }
@@ -143,57 +146,57 @@ public class p extends com.baidu.adp.framework.listener.b {
                 switch (i) {
                     case 1:
                         if (type == 3) {
-                            mVar21 = this.a.g;
-                            mVar21.i();
+                            kVar21 = this.a.g;
+                            kVar21.i();
                             rVar10 = this.a.f;
-                            mVar22 = this.a.g;
-                            rVar10.b(mVar22.f());
+                            kVar22 = this.a.g;
+                            rVar10.b(kVar22.f());
                             return;
                         }
                         return;
                     case 2:
                         if (type == 3) {
-                            mVar19 = this.a.g;
-                            mVar19.h();
+                            kVar19 = this.a.g;
+                            kVar19.h();
                             rVar9 = this.a.f;
-                            mVar20 = this.a.g;
-                            rVar9.b(mVar20.f());
+                            kVar20 = this.a.g;
+                            rVar9.b(kVar20.f());
                             return;
                         }
                         return;
                     case 3:
                         if (type == 4) {
-                            mVar17 = this.a.g;
-                            mVar17.j();
+                            kVar17 = this.a.g;
+                            kVar17.j();
                             rVar8 = this.a.f;
-                            mVar18 = this.a.g;
-                            rVar8.b(mVar18.f());
+                            kVar18 = this.a.g;
+                            rVar8.b(kVar18.f());
                             return;
                         }
                         return;
                     case 4:
-                        mVar9 = this.a.g;
-                        GroupData b = mVar9.f().b();
-                        byVar = this.a.h;
-                        b.setFlag(byVar.h());
-                        mVar10 = this.a.g;
-                        GroupData b2 = mVar10.f().b();
-                        byVar2 = this.a.h;
-                        b2.setPosition(byVar2.e());
-                        mVar11 = this.a.g;
-                        GroupData b3 = mVar11.f().b();
-                        byVar3 = this.a.h;
-                        b3.setBusiness(byVar3.f());
-                        mVar12 = this.a.g;
-                        if ((mVar12.f().b().getFlag() & 1) == 1) {
+                        kVar9 = this.a.g;
+                        GroupData b = kVar9.f().b();
+                        bxVar = this.a.h;
+                        b.setFlag(bxVar.h());
+                        kVar10 = this.a.g;
+                        GroupData b2 = kVar10.f().b();
+                        bxVar2 = this.a.h;
+                        b2.setPosition(bxVar2.e());
+                        kVar11 = this.a.g;
+                        GroupData b3 = kVar11.f().b();
+                        bxVar3 = this.a.h;
+                        b3.setBusiness(bxVar3.f());
+                        kVar12 = this.a.g;
+                        if ((kVar12.f().b().getFlag() & 1) == 1) {
                             rVar7 = this.a.f;
-                            mVar16 = this.a.g;
-                            rVar7.a(mVar16.f().h());
+                            kVar16 = this.a.g;
+                            rVar7.a(kVar16.f().h());
                         } else {
-                            mVar13 = this.a.g;
-                            String position = mVar13.f().b().getPosition();
-                            mVar14 = this.a.g;
-                            String business = mVar14.f().b().getBusiness();
+                            kVar13 = this.a.g;
+                            String position = kVar13.f().b().getPosition();
+                            kVar14 = this.a.g;
+                            String business = kVar14.f().b().getBusiness();
                             StringBuffer stringBuffer = new StringBuffer();
                             if (position != null) {
                                 stringBuffer.append(position);
@@ -202,8 +205,8 @@ public class p extends com.baidu.adp.framework.listener.b {
                                 stringBuffer.append(business);
                             }
                             rVar6 = this.a.f;
-                            mVar15 = this.a.g;
-                            rVar6.a(mVar15.f().h(), stringBuffer.toString());
+                            kVar15 = this.a.g;
+                            rVar6.a(kVar15.f().h(), stringBuffer.toString());
                         }
                         this.a.showToast(com.baidu.tieba.y.group_address_success);
                         return;
@@ -217,38 +220,38 @@ public class p extends com.baidu.adp.framework.listener.b {
                 if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                     RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
                     long groupId = requestRemoveMembersMessage.getGroupId();
-                    mVar2 = this.a.g;
-                    if (groupId == mVar2.d()) {
+                    kVar2 = this.a.g;
+                    if (groupId == kVar2.d()) {
                         String userIds = requestRemoveMembersMessage.getUserIds();
                         if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
                             String id = TbadkApplication.getCurrentAccountObj().getID();
                             if (!TextUtils.isEmpty(id)) {
                                 for (String str : split) {
                                     if (id.equals(str)) {
-                                        mVar3 = this.a.g;
-                                        mVar3.f().a(false);
-                                        mVar4 = this.a.g;
-                                        mVar4.a(false);
+                                        kVar3 = this.a.g;
+                                        kVar3.f().a(false);
+                                        kVar4 = this.a.g;
+                                        kVar4.a(false);
                                         rVar = this.a.f;
-                                        mVar5 = this.a.g;
-                                        rVar.a(mVar5.f(), true);
+                                        kVar5 = this.a.g;
+                                        rVar.a(kVar5.f(), true);
                                         rVar2 = this.a.f;
                                         rVar2.c(str);
                                         this.a.g();
                                         return;
                                     }
-                                    mVar6 = this.a.g;
-                                    if (mVar6.a(str)) {
+                                    kVar6 = this.a.g;
+                                    if (kVar6.a(str)) {
                                         rVar3 = this.a.f;
                                         rVar3.c(str);
-                                        mVar7 = this.a.g;
-                                        GroupData b4 = mVar7.f().b();
+                                        kVar7 = this.a.g;
+                                        GroupData b4 = kVar7.f().b();
                                         if (b4 != null && b4.getMemberNum() > 1) {
                                             b4.setMemberNum(b4.getMemberNum() - 1);
                                         }
                                         rVar4 = this.a.f;
-                                        mVar8 = this.a.g;
-                                        rVar4.a(mVar8.f());
+                                        kVar8 = this.a.g;
+                                        rVar4.a(kVar8.f());
                                     }
                                 }
                             }
@@ -260,8 +263,8 @@ public class p extends com.baidu.adp.framework.listener.b {
             if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                 ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
                 if (responseDismissGroupMessage.getError() == 0) {
-                    mVar = this.a.g;
-                    if (mVar.d() == responseDismissGroupMessage.getGroupId()) {
+                    kVar = this.a.g;
+                    if (kVar.d() == responseDismissGroupMessage.getGroupId()) {
                         this.a.finish();
                     }
                 }

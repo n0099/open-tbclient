@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.c {
+public class f extends com.baidu.adp.base.f {
     private View a;
     private WaittingActivity b;
     private NavigationBar c;
@@ -44,7 +44,7 @@ public class f extends com.baidu.adp.base.c {
             gVar.a(this.g).a(178).b(true);
             gVar.a(new g(this));
             gVar.a().a(this.b);
-            com.baidu.tbadk.core.sharedPref.b.a().b("is_show_randchat_create", false);
+            com.baidu.tbadk.core.sharedPref.b.a().c("is_show_randchat_create", false);
         }
     }
 

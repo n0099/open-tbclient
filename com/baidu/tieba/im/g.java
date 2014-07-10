@@ -15,6 +15,6 @@ public class g implements a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r4) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2007014));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005014));
     }
 }

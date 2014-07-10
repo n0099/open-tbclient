@@ -33,17 +33,17 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            Bitmap c = com.baidu.tbadk.core.util.x.c(null, TbConfig.IMAGE_RESIZED_FILE);
+            Bitmap c = com.baidu.tbadk.core.util.z.c(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
                 if (c.getWidth() > 750 || c.getHeight() > 750) {
-                    Bitmap a = com.baidu.tbadk.core.util.g.a(c, (int) TbConfig.POST_IMAGE_MIDDLE);
+                    Bitmap a = com.baidu.tbadk.core.util.h.a(c, (int) TbConfig.POST_IMAGE_MIDDLE);
                     try {
                         c.recycle();
                         c = a;
                     } catch (Exception e) {
                         e = e;
                         bitmap = a;
-                        BdLog.e(getClass().getName(), "GetImageTask", e.toString());
+                        BdLog.e(e.toString());
                         return bitmap;
                     }
                 }
@@ -51,12 +51,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                     c.recycle();
                     return null;
                 }
-                int a2 = com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f);
+                int a2 = com.baidu.adp.lib.util.j.a((Context) this.a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
                     z = this.a.A;
                     if (z) {
-                        Bitmap b = com.baidu.tbadk.core.util.g.b(c, a2);
-                        Bitmap a3 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.k.a((Context) this.a, 5.0f), c != b);
+                        Bitmap b = com.baidu.tbadk.core.util.h.b(c, a2);
+                        Bitmap a3 = com.baidu.tbadk.core.util.h.a(b, com.baidu.adp.lib.util.j.a((Context) this.a, 5.0f), c != b);
                         this.a.F = new HashMap();
                         this.a.G = new HashMap();
                         hashMap = this.a.F;

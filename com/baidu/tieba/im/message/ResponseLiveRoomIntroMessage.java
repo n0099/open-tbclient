@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ public class ResponseLiveRoomIntroMessage extends SocketResponsedMessage {
     public List<LiveCardData> otherLiveRoomDataList;
 
     public ResponseLiveRoomIntroMessage() {
-        super(MessageTypes.CMD_QUERY_LIVE_ROOM_INTRO);
+        super(107004);
         this.introData = null;
         this.otherLiveRoomDataList = null;
     }

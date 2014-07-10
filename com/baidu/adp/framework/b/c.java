@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -52,7 +52,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
 
     public void a(int i, MessageListener<N> messageListener) {
         b();
-        k.b();
+        j.a();
         if (messageListener != null) {
             if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
                 throw new InvalidParameterException("registerListener cmd error");
@@ -75,7 +75,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
 
     public void a(MessageListener messageListener) {
         b();
-        k.b();
+        j.a();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
@@ -94,7 +94,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
 
     public void e(int i) {
         b();
-        k.b();
+        j.a();
         if (i != 0) {
             int size = this.e.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -110,7 +110,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
     }
 
     public boolean c(M m, T t) {
-        k.b();
+        j.a();
         if (m == null) {
             return false;
         }
@@ -154,7 +154,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
     }
 
     public void a(N n) {
-        k.b();
+        j.a();
         if (n != null) {
             int cmd = n.getCmd();
             if (this.d.indexOfKey(cmd) >= 0) {

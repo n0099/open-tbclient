@@ -19,9 +19,9 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     static {
-        p pVar = new p(2009002);
-        pVar.setPriority(2);
-        MessageManager.getInstance().registerListener(pVar);
+        o oVar = new o(2007002);
+        oVar.setPriority(2);
+        MessageManager.getInstance().registerListener(oVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b

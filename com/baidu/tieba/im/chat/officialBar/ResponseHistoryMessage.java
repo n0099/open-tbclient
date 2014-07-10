@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -13,19 +11,19 @@ import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
-    private List<ba> msg;
+    private List<be> msg;
     private int msgCount;
 
     public int getMsgCount() {
         return this.msgCount;
     }
 
-    public List<ba> getMsg() {
+    public List<be> getMsg() {
         return this.msg;
     }
 
     public ResponseHistoryMessage() {
-        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_HISTORY);
+        super(208002);
         this.msgCount = 0;
         this.msg = new LinkedList();
     }
@@ -39,16 +37,15 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         this.msgCount = queryHistoryMsgResIdl.data.total.intValue();
         if (queryHistoryMsgResIdl.data.res != null) {
             for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                ba baVar = new ba();
+                be beVar = new be();
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    baVar.a = bg.c(date);
-                    baVar.b = msgInfo.type.intValue();
-                    baVar.c = msgInfo.content;
-                    baVar.d = msgInfo.id.intValue();
-                    BdLog.d("history:item:" + baVar.d);
-                    this.msg.add(baVar);
+                    beVar.a = bm.c(date);
+                    beVar.b = msgInfo.type.intValue();
+                    beVar.c = msgInfo.content;
+                    beVar.d = msgInfo.id.intValue();
+                    this.msg.add(beVar);
                 }
             }
         }
@@ -56,7 +53,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             com.baidu.adp.lib.cache.s<byte[]> C = com.baidu.tbadk.core.a.b.a().C();
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                C.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                C.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), (String) bArr);
             }
         }
     }

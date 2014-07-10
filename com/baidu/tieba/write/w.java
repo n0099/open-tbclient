@@ -1,11 +1,17 @@
 package com.baidu.tieba.write;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface w {
-    void a();
+class w implements View.OnClickListener {
+    final /* synthetic */ VcodeActivity a;
 
-    void a(com.baidu.tbadk.coreExtra.view.k kVar, int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(VcodeActivity vcodeActivity) {
+        this.a = vcodeActivity;
+    }
 
-    void b();
-
-    void c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
+    }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bt;
+import com.baidu.tbadk.core.util.bz;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class l implements bt {
+class l implements bz {
     final /* synthetic */ k a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -16,7 +16,7 @@ class l implements bt {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
+    @Override // com.baidu.tbadk.core.util.bz
     public boolean a(View view) {
         if ((view instanceof TbImageView) && this.b.equals(view.getTag())) {
             view.setTag(null);

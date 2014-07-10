@@ -1,23 +1,21 @@
 package com.baidu.tbadk;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    public static String a = "ws://im.tieba.baidu.com:8000";
-    public static int[] b = {30, 60, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI, TbConfig.POST_IMAGE_SMALL, 1800, 3600, 7200, 14400};
-    public static String c = "post_image";
-    public static int d = 30;
-    public static int e = 30;
-    public static String f = "c/i/msgcenter/uploadPic";
-    public static String g = "http://tieba.baidu.com/group/index?id=";
-    public static String h = "http://tieba.baidu.com/mo/q/liveshowshare?gid=";
+public class h implements Runnable {
+    final /* synthetic */ TbadkApplication a;
+    private final /* synthetic */ boolean b;
 
-    public static byte[] a() {
-        return com.baidu.adp.lib.webSocket.a.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwQpwBZxXJV/JVRF/uNfyMSdu7YWwRNLM8+2xbniGp2iIQHOikPpTYQjlQgMi1uvq1kZpJ32rHo3hkwjy2l0lFwr3u4Hk2Wk7vnsqYQjAlYlK0TCzjpmiI+OiPOUNVtbWHQiLiVqFtzvpvi4AU7C1iKGvc/4IS45WjHxeScHhnZZ7njS4S1UgNP/GflRIbzgbBhyZ9kEW5/OO5YfG1fy6r4KSlDJw4o/mw5XhftyIpL+5ZBVBC6E1EIiP/dd9AbK62VV1PByfPMHMixpxI3GM2qwcmFsXcCcgvUXJBa9k6zP8dDQ3csCM2QNT+CQAOxthjtp/TFWaD7MzOdsIYb3THwIDAQAB");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(TbadkApplication tbadkApplication, boolean z) {
+        this.a = tbadkApplication;
+        this.b = z;
     }
 
-    public static int a(Context context) {
-        return k.a(context, 300.0f);
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(this.b)));
     }
 }

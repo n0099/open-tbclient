@@ -23,8 +23,8 @@ class ab extends Handler {
         imagePbImageView.n = i - 1;
         i2 = this.a.n;
         if (i2 >= 0) {
-            handler = this.a.o;
-            handler2 = this.a.o;
+            handler = this.a.p;
+            handler2 = this.a.p;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
             this.a.invalidate();
         }

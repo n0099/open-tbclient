@@ -8,15 +8,16 @@ import tbclient.User;
 public class UserData extends MetaData {
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
+    private int bimg_end_time;
     private String bimg_url;
     private int concern_num;
-    private int fans_num;
     private int have_attention;
     private long inTime;
     private String intro;
     private String ip;
     private boolean isManager;
     private boolean isMask;
+    private int is_mem;
     private long lastReplyTime;
     private String lat;
     private int like_bars;
@@ -25,11 +26,20 @@ public class UserData extends MetaData {
     private int managerLevel;
     private String password;
     private Permission permission;
+    private b personPrivate;
     private String position;
     private int posts_num;
     private int sex;
     private String tb_age;
     private int userType;
+
+    public b getPersonPrivate() {
+        return this.personPrivate;
+    }
+
+    public void setPersonPrivate(b bVar) {
+        this.personPrivate = bVar;
+    }
 
     public String getTb_age() {
         return this.tb_age;
@@ -39,13 +49,16 @@ public class UserData extends MetaData {
         this.tb_age = str;
     }
 
+    public int getIsMem() {
+        return this.is_mem;
+    }
+
     public UserData() {
         this.password = null;
         this.isManager = false;
         this.isMask = false;
         this.ip = null;
         this.BDUSS = null;
-        this.fans_num = 0;
         this.concern_num = 0;
         this.like_bars = 0;
         this.sex = 1;
@@ -87,7 +100,6 @@ public class UserData extends MetaData {
             super.parserProtobuf(user);
             this.ip = user.ip;
             this.BDUSS = user.BDUSS;
-            this.fans_num = user.fans_num.intValue();
             this.concern_num = user.concern_num.intValue();
             this.sex = user.sex.intValue();
             this.like_bars = user.my_like_num.intValue();
@@ -102,7 +114,11 @@ public class UserData extends MetaData {
             } else {
                 this.isManager = false;
             }
+            if (user.is_mem != null) {
+                this.is_mem = user.is_mem.intValue();
+            }
             this.bimg_url = user.bimg_url;
+            this.bimg_end_time = user.bimg_end_time.intValue();
         }
     }
 
@@ -116,7 +132,7 @@ public class UserData extends MetaData {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("PostData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -127,7 +143,6 @@ public class UserData extends MetaData {
             if (jSONObject != null) {
                 this.ip = jSONObject.optString("ip");
                 this.BDUSS = jSONObject.optString("BDUSS");
-                this.fans_num = jSONObject.optInt("fans_num");
                 this.concern_num = jSONObject.optInt("concern_num");
                 this.sex = jSONObject.optInt("sex", 1);
                 this.like_bars = jSONObject.optInt("my_like_num");
@@ -142,6 +157,13 @@ public class UserData extends MetaData {
                     this.isManager = false;
                 }
                 this.bimg_url = jSONObject.optString("bimg_url");
+                this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
+                this.is_mem = jSONObject.optInt("is_mem");
+                JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
+                if (optJSONObject != null) {
+                    this.personPrivate = new b();
+                    this.personPrivate.a(optJSONObject);
+                }
                 if (jSONObject.optInt("is_mask") == 1) {
                     this.isMask = true;
                 } else {
@@ -149,27 +171,13 @@ public class UserData extends MetaData {
                 }
             }
         } catch (Exception e) {
-            BdLog.e("PostData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void logPrint() {
         super.logPrint();
-        BdLog.v(getClass().getName(), "logPrint", "ip = " + this.ip);
-        BdLog.v(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        BdLog.v(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        BdLog.v(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        BdLog.v(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        BdLog.v(getClass().getName(), "logPrint", "intro = " + this.intro);
-    }
-
-    public void setFans_num(int i) {
-        this.fans_num = i;
-    }
-
-    public int getFans_num() {
-        return this.fans_num;
     }
 
     public void setConcern_num(int i) {
@@ -300,17 +308,16 @@ public class UserData extends MetaData {
         this.bimg_url = str;
     }
 
+    public int getBimg_end_time() {
+        return this.bimg_end_time;
+    }
+
     public boolean isMask() {
         return this.isMask;
     }
 
     public void setMask(boolean z) {
         this.isMask = z;
-    }
-
-    @Override // com.baidu.tbadk.data.MetaData
-    public String toString() {
-        return "UserData [ip=" + this.ip + ", BDUSS=" + this.BDUSS + ", fans_num=" + this.fans_num + ", concern_num=" + this.concern_num + ", like_bars=" + this.like_bars + ", sex=" + this.sex + ", intro=" + this.intro + ", have_attention=" + this.have_attention + ", password=" + this.password + ", posts_num=" + this.posts_num + ", isManager=" + this.isManager + ", position=" + this.position + ", lng=" + this.lng + ", lat=" + this.lat + ", inTime=" + this.inTime + ", loginTime=" + this.loginTime + ", lastReplyTime=" + this.lastReplyTime + ", userType=" + this.userType + ", permission=" + this.permission + ", tb_age=" + this.tb_age + "]";
     }
 
     /* loaded from: classes.dex */

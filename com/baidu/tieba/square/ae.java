@@ -1,20 +1,17 @@
 package com.baidu.tieba.square;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.bo;
 /* loaded from: classes.dex */
-class ae {
-    TextView a;
-    TextView b;
-    LinearLayout c;
-    final /* synthetic */ ac d;
-
-    private ae(ac acVar) {
-        this.d = acVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ac acVar, ae aeVar) {
-        this(acVar);
+class ae implements CustomMessageTask.CustomRunnable<bo> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<bo> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SingleSquareActivity.class);
+            customMessage.getData().startActivity();
+        }
+        return null;
     }
 }

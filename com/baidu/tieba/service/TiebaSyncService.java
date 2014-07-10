@@ -4,21 +4,20 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tieba.model.bc;
+import com.baidu.tbadk.core.atomData.br;
+import com.baidu.tieba.model.bd;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
     private static String mStatistics = null;
-    private s mSyncTask = null;
+    private r mSyncTask = null;
     private int mHaveRetry = 0;
-    private bc mModel = null;
+    private bd mModel = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new r(this);
+    private Runnable mRunnable = new q(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bd.class, TiebaSyncService.class);
+        TbadkApplication.m252getInst().RegisterIntent(br.class, TiebaSyncService.class);
     }
 
     public static void setMsgType(String str) {
@@ -40,7 +39,7 @@ public class TiebaSyncService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new s(this, null);
+        this.mSyncTask = new r(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 
@@ -64,8 +63,7 @@ public class TiebaSyncService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.d.d()));
-            BdLog.i(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.mModel.c().getNewVersion()));
+            sendBroadcast(new Intent(com.baidu.tieba.data.e.d()));
         }
     }
 }

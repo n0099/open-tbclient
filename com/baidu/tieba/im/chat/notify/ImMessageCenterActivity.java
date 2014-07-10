@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class ImMessageCenterActivity extends BaseFragmentActivity {
     static {
-        e();
+        g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,12 +17,12 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, Fragment.instantiate(this, b.class.getName()));
+        beginTransaction.add(16908290, Fragment.instantiate(this, d.class.getName()));
         beginTransaction.commit();
     }
 
-    private static void e() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010012, new a());
+    private static void g() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.gif.GifView;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwidget.a.g {
+public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwidget.a.h {
     static int a = 174;
     private boolean A;
     private boolean B;
@@ -322,7 +321,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         if (imageView instanceof TbImageView) {
             ((TbImageView) imageView).a(c.f(), this.x ? 17 : 18, false);
         }
-        int[] a2 = com.baidu.adp.lib.util.k.a(c.c(), c.b(), i, i2);
+        int[] a2 = com.baidu.adp.lib.util.j.a(c.c(), c.b(), i, i2);
         if (a2 != null) {
             boolean z = !this.w;
             int[] iArr = {a2[0], a2[1]};
@@ -355,7 +354,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             textView = this.c.a();
         }
         if (textView == null || textView.getParent() != null) {
-            textView = new com.baidu.tbadk.widget.m(context);
+            textView = new com.baidu.tbadk.widget.l(context);
         }
         textView.setPadding(this.h, 0, this.h, 0);
         return textView;
@@ -403,14 +402,12 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             gifView = this.f.a();
         }
         if (gifView == null || gifView.getParent() != null) {
-            BdLog.w("TbRichTextView", "getGifView", "Pool's full, create new one.");
             return new GifView(getContext());
         }
         return gifView;
     }
 
     private boolean a(c cVar, GifView gifView) {
-        BdLog.d("TbRichTextView", "initGifView", "c:" + cVar.g());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gifView.getLayoutParams();
         if (layoutParams == null || layoutParams.width != cVar.g().b.f || layoutParams.height != cVar.g().b.g) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(cVar.g().b.f, cVar.g().b.g);
@@ -426,11 +423,8 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     private View getVoiceView() {
         View a2 = this.d != null ? this.d.a() : null;
-        if (a2 == null || a2.getParent() != null) {
-            BdLog.d("voice view is null");
-            if (this.y != -1) {
-                a2 = this.z.inflate(this.y, (ViewGroup) null);
-            }
+        if ((a2 == null || a2.getParent() != null) && this.y != -1) {
+            a2 = this.z.inflate(this.y, (ViewGroup) null);
         }
         if (a2 != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -707,13 +701,13 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             return;
         }
         Context context = getContext();
-        if (context == null || !(context instanceof com.baidu.adp.base.g)) {
+        if (context == null || !(context instanceof com.baidu.adp.base.j)) {
             i = 0;
             z = false;
         } else {
-            com.baidu.adp.base.g gVar = (com.baidu.adp.base.g) context;
-            int uniqueId = gVar.getUniqueId();
-            z = gVar.isScroll();
+            com.baidu.adp.base.j jVar = (com.baidu.adp.base.j) context;
+            int uniqueId = jVar.getUniqueId();
+            z = jVar.isScroll();
             i = uniqueId;
         }
         if (!(str.equals(this.N) && this.P == i)) {
@@ -755,7 +749,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         }
     }
 
-    @Override // com.baidu.adp.newwidget.a.g
+    @Override // com.baidu.adp.newwidget.a.h
     public void b() {
         a(this.N);
     }

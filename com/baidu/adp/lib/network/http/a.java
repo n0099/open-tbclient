@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.network.http;
 
 import android.net.Proxy;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -44,15 +43,15 @@ public class a {
 
     private HttpURLConnection a(URL url) {
         String defaultHost;
-        BdNetUtil.NetTpyeEnmu b = BdNetUtil.b();
+        BdNetUtil.NetTpyeEnmu netType = BdNetUtil.getNetType();
         try {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (b == BdNetUtil.NetTpyeEnmu.UNAVAIL) {
+        if (netType == BdNetUtil.NetTpyeEnmu.UNAVAIL) {
             return null;
         }
-        if ((b == BdNetUtil.NetTpyeEnmu.NET || b == BdNetUtil.NetTpyeEnmu.WAP) && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
+        if ((netType == BdNetUtil.NetTpyeEnmu.NET || netType == BdNetUtil.NetTpyeEnmu.WAP) && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
             if (a(defaultHost)) {
                 StringBuilder sb = new StringBuilder(80);
                 sb.append("http://");
@@ -79,13 +78,12 @@ public class a {
         if (this.a.b().a) {
             throw new BdHttpCancelException();
         }
-        String a = this.a.a().a(dVar);
-        URL url = new URL(a);
+        URL url = new URL(this.a.a().a(dVar));
         if (this.a.b().a) {
             throw new BdHttpCancelException();
         }
         dVar.j = -2;
-        HttpURLConnection a2 = a(url);
+        HttpURLConnection a = a(url);
         dVar.j = -3;
         long currentTimeMillis = System.currentTimeMillis();
         try {
@@ -95,14 +93,13 @@ public class a {
             this.b.setRequestMethod("GET");
             this.b.setConnectTimeout(i2);
             this.b.setReadTimeout(i);
-            this.a.a().a(a2);
+            this.a.a().a(a);
             if (this.a.b().a) {
                 throw new BdHttpCancelException();
             }
             dVar.g = new Date().getTime() - currentTimeMillis;
-            BdLog.i("GET:" + a);
             dVar.j = -4;
-            a2.connect();
+            a.connect();
             dVar.j = -5;
             dVar.c = (new Date().getTime() - currentTimeMillis) - dVar.g;
             if (this.a.b().a) {
@@ -111,10 +108,10 @@ public class a {
             dVar.j = -8;
             this.a.b().a(this.b);
             dVar.i = this.a.b().b;
-            byte[] a3 = a(this.b);
-            if (a3 != null) {
-                dVar.b = a3.length;
-                this.a.b().g = a(this.a.b().c, a3);
+            byte[] a2 = a(this.b);
+            if (a2 != null) {
+                dVar.b = a2.length;
+                this.a.b().g = a(this.a.b().c, a2);
             }
             dVar.j = -9;
             dVar.d = new Date().getTime() - currentTimeMillis;

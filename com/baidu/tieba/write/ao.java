@@ -1,10 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class ao implements DialogInterface.OnClickListener {
+class ao implements Runnable {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,20 +11,22 @@ public class ao implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        writeData = this.a.a;
-        int type = writeData.getType();
-        if (type == 0) {
-            writeData3 = this.a.a;
-            com.baidu.tieba.util.m.a(writeData3.getForumId(), (WriteData) null);
-        } else if (type == 1) {
-            writeData2 = this.a.a;
-            com.baidu.tieba.util.m.b(writeData2.getThreadId(), (WriteData) null);
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditText editText3;
+        editText = this.a.e;
+        if (editText.getVisibility() == 0) {
+            editorToolComponetContainer2 = this.a.A;
+            editText3 = this.a.e;
+            editorToolComponetContainer2.c(editText3);
+            return;
         }
-        this.a.finish();
+        editorToolComponetContainer = this.a.A;
+        editText2 = this.a.h;
+        editorToolComponetContainer.c(editText2);
     }
 }

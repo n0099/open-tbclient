@@ -1,27 +1,28 @@
 package com.baidu.tieba.im.live.room;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.im.chat.GroupMsgImageActivity;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
-    final /* synthetic */ ag a;
-    private final /* synthetic */ ChatMessage b;
+public class aj implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ ah a;
+    private final /* synthetic */ TbImageView b;
+    private final /* synthetic */ View c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ag agVar, ChatMessage chatMessage) {
-        this.a = agVar;
-        this.b = chatMessage;
+    public aj(ah ahVar, TbImageView tbImageView, View view) {
+        this.a = ahVar;
+        this.b = tbImageView;
+        this.c = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LiveRoomChatActivity liveRoomChatActivity;
-        String a = com.baidu.tieba.im.e.r.a(this.b.getContent(), true);
-        Context context = this.a.getContext();
-        liveRoomChatActivity = this.a.g;
-        GroupMsgImageActivity.a(context, a, liveRoomChatActivity.x().b().getGroupId(), false);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str.equals(this.b.getTag())) {
+            this.c.setVisibility(0);
+            this.b.setTag(null);
+            this.b.f();
+            aVar.a(this.b);
+        }
     }
 }

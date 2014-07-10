@@ -1,32 +1,26 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ AtSelectFriendList a;
+public class q implements View.OnClickListener {
+    final /* synthetic */ FeedBackTopListView a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(AtSelectFriendList atSelectFriendList) {
-        this.a = atSelectFriendList;
+    public q(FeedBackTopListView feedBackTopListView, String str) {
+        this.a = feedBackTopListView;
+        this.b = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        LinearLayout linearLayout;
-        boolean d;
-        r rVar;
-        r rVar2;
-        linearLayout = this.a.b;
-        linearLayout.removeView(view);
-        d = this.a.d();
-        if (!d) {
-            this.a.b();
-        }
-        rVar = this.a.i;
-        if (rVar != null) {
-            rVar2 = this.a.i;
-            rVar2.a(view, view.getTag());
-        }
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.a.a;
+        messageManager.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(context).a(this.b, null, "feed_back")));
     }
 }

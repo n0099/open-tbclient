@@ -21,13 +21,13 @@ public class l implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         String str2;
-        str = this.a.ao;
+        str = this.a.an;
         if (!TextUtils.isEmpty(str)) {
-            activity = this.a.y;
-            activity2 = this.a.y;
+            activity = this.a.z;
+            activity2 = this.a.z;
             String string = activity2.getString(y.frs_badge_intro);
-            str2 = this.a.ao;
-            TbWebViewActivity.b(activity, string, str2);
+            str2 = this.a.an;
+            TbWebViewActivity.startActivity(activity, string, str2);
         }
     }
 }

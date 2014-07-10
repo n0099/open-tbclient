@@ -11,7 +11,7 @@ import java.io.InputStream;
 public class b extends c {
     private Rect j;
 
-    public Rect s() {
+    public Rect u() {
         return this.j;
     }
 

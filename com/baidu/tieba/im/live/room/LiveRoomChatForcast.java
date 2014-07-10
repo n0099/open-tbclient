@@ -35,7 +35,7 @@ public class LiveRoomChatForcast extends RelativeLayout {
         this.b = (Button) inflate.findViewById(com.baidu.tieba.v.live_room_forcast_btn);
         this.c = inflate.findViewById(com.baidu.tieba.v.live_room_close_btn);
         this.d = inflate.findViewById(com.baidu.tieba.v.live_room_close_layout);
-        com.baidu.adp.lib.util.k.a(context, this.c, 30, 30, 30, 30);
+        com.baidu.adp.lib.util.j.a(context, this.c, 30, 30, 30, 30);
     }
 
     public Button getForcastBtn() {

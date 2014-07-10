@@ -1,32 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ GroupMsglistModel a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(GroupMsglistModel groupMsglistModel, int i) {
-        super(i);
-        this.a = groupMsglistModel;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() == 2015005) {
-                this.a.a((ResponsedMessage<?>) customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2003146) {
-                this.a.b(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2003149) {
-                this.a.a(customResponsedMessage);
+public class o {
+    public String a(String str) {
+        com.baidu.tbadk.coreExtra.data.b a;
+        if (str != null) {
+            try {
+                com.baidu.tbadk.coreExtra.data.c a2 = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).a(com.baidu.tbadk.core.util.z.a(str, 1));
+                if (a2 != null && a2.b() && (a = a2.a()) != null) {
+                    String a3 = a.a();
+                    com.baidu.tbadk.core.voice.a.b.a(str, a3);
+                    return a3;
+                }
+            } catch (Exception e) {
             }
         }
+        return null;
     }
 }

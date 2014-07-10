@@ -11,12 +11,12 @@ class j implements t {
     @Override // com.baidu.tieba.pb.image.t
     public void a(int i, int i2, int i3) {
         r rVar;
-        com.baidu.tieba.data.u uVar;
+        com.baidu.tieba.data.w wVar;
         rVar = this.a.b;
         if (rVar == null) {
             ImagePbActivity imagePbActivity = this.a;
-            uVar = this.a.F;
-            imagePbActivity.a(uVar.k(), 0, 10, false);
+            wVar = this.a.F;
+            imagePbActivity.a(wVar.k(), 0, 10, false);
         }
     }
 }

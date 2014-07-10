@@ -1,18 +1,24 @@
 package com.baidu.tieba.editortool;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* loaded from: classes.dex */
-public class u implements Runnable {
-    final /* synthetic */ PbEditor a;
-    private final /* synthetic */ int b;
+class u extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(PbEditor pbEditor, int i) {
-        this.a = pbEditor;
-        this.b = i;
+    public u(q qVar, String str) {
+        this.a = qVar;
+        this.b = str;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.a(this.b, new v(this));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.tbadk.core.util.z.c(new File(this.b));
+        return null;
     }
 }

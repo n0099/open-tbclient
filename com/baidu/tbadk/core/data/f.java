@@ -28,7 +28,7 @@ public class f {
                 this.b = jSONObject.optString("bannerUrl");
                 this.c = jSONObject.optString("value");
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error=" + e.toString());
+                BdLog.e(e.toString());
             }
         }
     }

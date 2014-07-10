@@ -1,22 +1,15 @@
 package com.baidu.tieba.pb.main;
-
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements Runnable {
-    final /* synthetic */ bq a;
-    private final /* synthetic */ boolean b;
+class bu implements com.baidu.tieba.bubble.t {
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bq bqVar, boolean z) {
-        this.a = bqVar;
-        this.b = z;
+    public bu(bt btVar) {
+        this.a = btVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.a.o;
-        bdListView.setEnabled(this.b);
+    @Override // com.baidu.tieba.bubble.t
+    public void a() {
+        this.a.h.u();
     }
 }

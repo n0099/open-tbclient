@@ -17,6 +17,6 @@ class bc extends com.baidu.tieba.im.b<Boolean> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getGroupId())));
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.y.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getGroupId())));
     }
 }

@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.editortool.EmotionTabHost;
@@ -36,52 +37,63 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     protected DragContainer g;
     protected DragLayer h;
     protected DragHorizonScrollView i;
-    protected TextView j;
-    protected PrivilegeTabHost k;
-    protected boolean l;
-    private AlertDialog.Builder m;
-    private final boolean n;
-    private boolean o;
-    private int p;
-    private int q;
-    private LayoutInflater r;
-    private WriteImagesInfo s;
-    private com.baidu.tbadk.editortool.x t;
-    private com.baidu.tbadk.img.e u;
+    protected DragContainer j;
+    protected DragLayer k;
+    protected DragHorizonScrollView l;
+    protected TextView m;
+    protected PrivilegeTabHost n;
+    protected boolean o;
+    private AlertDialog.Builder p;
+    private final boolean q;
+    private boolean r;
+    private boolean s;
+    private int t;
+    private int u;
+    private LayoutInflater v;
+    private WriteImagesInfo w;
+    private WriteImagesInfo x;
+    private com.baidu.tbadk.editortool.w y;
+    private com.baidu.tbadk.img.e z;
 
     public EditorToolComponetContainer(Context context) {
         super(context);
-        this.l = false;
-        this.m = null;
-        this.n = true;
+        this.o = false;
+        this.p = null;
+        this.q = true;
+        this.s = false;
         this.a = context;
         a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.l = false;
-        this.m = null;
-        this.n = true;
+        this.o = false;
+        this.p = null;
+        this.q = true;
+        this.s = false;
         this.a = context;
         a();
     }
 
     protected void a() {
-        this.r = LayoutInflater.from(this.a);
-        this.r.inflate(com.baidu.tieba.w.editor_tool_container, (ViewGroup) this, true);
+        this.v = LayoutInflater.from(this.a);
+        this.v.inflate(com.baidu.tieba.w.editor_tool_container, (ViewGroup) this, true);
         this.b = (ToolMoreView) findViewById(com.baidu.tieba.v.tool_view);
         this.c = (EmotionTabHost) findViewById(com.baidu.tieba.v.face_view);
         this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.v.record_voice_view);
-        this.k = (PrivilegeTabHost) findViewById(com.baidu.tieba.v.privilege_view);
-        this.m = new AlertDialog.Builder(this.a);
-        this.m.setTitle(com.baidu.tieba.y.editor_dialog_title);
-        this.m.setNegativeButton(com.baidu.tieba.y.editor_dialog_no, (DialogInterface.OnClickListener) null);
+        this.n = (PrivilegeTabHost) findViewById(com.baidu.tieba.v.privilege_view);
+        this.p = new AlertDialog.Builder(this.a);
+        this.p.setTitle(com.baidu.tieba.y.editor_dialog_title);
+        this.p.setNegativeButton(com.baidu.tieba.y.editor_dialog_no, (DialogInterface.OnClickListener) null);
         this.f = (ImageView) findViewById(com.baidu.tieba.v.pb_foot_down_shadow);
-        C();
+        H();
+        I();
+        if (com.baidu.tieba.d.a.b()) {
+            this.b.c("N");
+        }
     }
 
-    private void C() {
+    private void H() {
         this.g = (DragContainer) findViewById(com.baidu.tieba.v.muti_image_upload);
         this.h = (DragLayer) findViewById(com.baidu.tieba.v.muti_image_upload_draglayer);
         this.i = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.muti_image_upload_dragscrollview);
@@ -89,13 +101,37 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         aVar.a(this.h);
         aVar.a((com.baidu.tieba.img.view.g) this.i);
         aVar.a((com.baidu.tieba.img.view.f) this.i);
-        this.j = (TextView) findViewById(com.baidu.tieba.v.muti_image_tips);
-        this.p = getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_muti_image_upload_scrollview_paddingleft);
-        this.q = getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_24);
-        this.i.setAddView(D());
+        this.m = (TextView) findViewById(com.baidu.tieba.v.muti_image_tips);
+        this.t = getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_muti_image_upload_scrollview_paddingleft);
+        this.u = getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_24);
+        this.i.setAddView(b(7));
         this.i.setOnSwapDataListener(this);
         this.i.setMaxItemNum(10);
-        this.u = new com.baidu.tbadk.img.e(this.a);
+        this.z = new com.baidu.tbadk.img.e(this.a);
+    }
+
+    private void I() {
+        this.j = (DragContainer) findViewById(com.baidu.tieba.v.baobao_image_upload);
+        this.k = (DragLayer) findViewById(com.baidu.tieba.v.baobao_image_upload_draglayer);
+        this.l = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.baobao_image_upload_dragscrollview);
+        com.baidu.tieba.img.view.a aVar = new com.baidu.tieba.img.view.a(getContext());
+        aVar.a(this.k);
+        aVar.a((com.baidu.tieba.img.view.g) this.l);
+        aVar.a((com.baidu.tieba.img.view.f) this.l);
+        this.l.setAddView(b(48));
+        this.l.setOnSwapDataListener(this);
+        this.l.setMaxItemNum(1);
+        this.l.setCenterStart(true);
+    }
+
+    public void setHideBaobao(boolean z) {
+        this.s = z;
+        if (this.b != null) {
+            this.b.setHideBaobao(z);
+            if (z && com.baidu.tieba.d.a.b()) {
+                this.b.e();
+            }
+        }
     }
 
     public void setFrom(int i) {
@@ -136,89 +172,113 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.g.setVisibility(0);
     }
 
-    protected void i() {
+    public void i() {
+        this.j.setVisibility(8);
+    }
+
+    public void j() {
+        this.b.e();
+    }
+
+    public void k() {
+        this.f.setVisibility(0);
+        this.j.setVisibility(0);
+    }
+
+    protected void l() {
         this.b.setVisibility(8);
     }
 
-    protected void j() {
-        this.k.setVisibility(0);
+    protected void m() {
+        this.n.setVisibility(0);
     }
 
-    protected void k() {
-        this.k.setVisibility(8);
+    protected void n() {
+        this.n.setVisibility(8);
     }
 
     public void a(View view) {
         if (view != null) {
-            com.baidu.adp.lib.util.k.b(this.a, view);
-            this.l = true;
+            com.baidu.adp.lib.util.j.b(this.a, view);
+            this.o = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
-            com.baidu.adp.lib.util.k.a(this.a, view);
-            this.l = false;
+            com.baidu.adp.lib.util.j.a(this.a, view);
+            this.o = false;
         }
     }
 
-    public boolean l() {
-        return this.b.getVisibility() == 0 || this.d.getVisibility() == 0 || this.c.getVisibility() == 0 || this.g.getVisibility() == 0 || this.k.getVisibility() == 0;
-    }
-
-    public void m() {
-        n();
-        b(this.e);
-    }
-
-    public void n() {
-        this.f.setVisibility(8);
-        i();
-        e();
-        c();
-        g();
-        k();
-    }
-
-    public void o() {
-        m();
-        f();
+    public boolean o() {
+        return this.b.getVisibility() == 0 || this.d.getVisibility() == 0 || this.c.getVisibility() == 0 || this.g.getVisibility() == 0 || this.n.getVisibility() == 0 || this.j.getVisibility() == 0;
     }
 
     public void p() {
-        m();
-        b();
+        q();
+        b(this.e);
     }
 
     public void q() {
-        m();
-        d();
+        this.f.setVisibility(8);
+        l();
+        e();
+        c();
+        g();
+        n();
+        i();
     }
 
     public void r() {
-        m();
-        h();
+        p();
+        f();
     }
 
     public void s() {
+        p();
+        b();
+    }
+
+    public void t() {
+        p();
+        d();
+    }
+
+    public void u() {
+        p();
+        h();
+    }
+
+    public void v() {
+        p();
         m();
-        j();
+    }
+
+    public void w() {
+        p();
+        k();
     }
 
     public void c(View view) {
-        if (!this.l) {
-            m();
+        if (!this.o) {
+            p();
             this.e = view;
             a(view);
         }
     }
 
-    public boolean t() {
+    public boolean x() {
         BaseAdapter adapter = this.i.getAdapter();
         return adapter != null && adapter.getCount() > 0;
     }
 
-    public boolean u() {
+    public boolean y() {
+        BaseAdapter adapter = this.l.getAdapter();
+        return adapter != null && adapter.getCount() > 0;
+    }
+
+    public boolean z() {
         VoiceData.VoiceModel voiceModel = this.d.getVoiceModel();
         return (voiceModel == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
     }
@@ -227,34 +287,35 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return this.d.getVoiceModel();
     }
 
-    public void v() {
+    public void A() {
         this.d.d();
     }
 
-    public void w() {
+    public void B() {
         this.d.c();
         setImage(null);
+        this.b.e();
     }
 
-    public void x() {
+    public void C() {
         this.d.b();
     }
 
-    public void y() {
-        x();
+    public void D() {
+        C();
     }
 
-    public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
-        this.t = new h(this, xVar);
-        this.m.setPositiveButton(com.baidu.tieba.y.editor_dialog_yes, new i(this));
-        this.b.setOnClickListener(new j(this));
-        this.c.setOnDataSelected(new k(this));
-        this.d.setCallback(new l(this));
-        this.k.setOnDataSelected(new m(this));
+    public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
+        this.y = new j(this, wVar);
+        this.p.setPositiveButton(com.baidu.tieba.y.editor_dialog_yes, new k(this));
+        this.b.setOnClickListener(new l(this));
+        this.c.setOnDataSelected(new m(this));
+        this.d.setCallback(new n(this));
+        this.n.setOnDataSelected(new o(this));
     }
 
-    public boolean z() {
-        return this.l;
+    public boolean E() {
+        return this.o;
     }
 
     public void setImage(Bitmap bitmap) {
@@ -265,7 +326,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     public void a(boolean z) {
-        this.o = z;
+        this.r = z;
         this.b.b(z);
         this.c.setShowBigEmotion(!z);
     }
@@ -273,48 +334,61 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     public void a(int i) {
         this.c.b(i);
         this.b.a(i);
-        this.k.b(i);
+        this.n.b(i);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.s = writeImagesInfo;
-        this.i.a(new o(this, writeImagesInfo), z);
+        this.w = writeImagesInfo;
+        this.i.a(new q(this, writeImagesInfo), z);
         int maxItemNum = this.i.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!com.baidu.tieba.ai.c().S() && size > 1) {
-            this.j.setText(com.baidu.tieba.y.editor_mutiiamge_drag_tip);
-            com.baidu.tieba.ai.c().r(true);
+        if (!com.baidu.tieba.ai.c().P() && size > 1) {
+            this.m.setText(com.baidu.tieba.y.editor_mutiiamge_drag_tip);
+            com.baidu.tieba.ai.c().q(true);
         } else {
-            this.j.setText(getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.m.setText(getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
             this.b.a(new StringBuilder(String.valueOf(size)).toString());
         } else {
             this.b.a();
         }
-        this.t.a(13, null);
+        this.y.a(13, null);
     }
 
-    private View D() {
+    public void setBaobaoUris(WriteImagesInfo writeImagesInfo) {
+        this.x = writeImagesInfo;
+        this.l.a((BaseAdapter) new q(this, this.x), false);
+        this.y.a(51, null);
+        if (this.x.size() > 0) {
+            this.b.c(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        } else {
+            this.b.e();
+        }
+        this.y.a(51, null);
+    }
+
+    private View b(int i) {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(skinType == 1 ? com.baidu.tieba.u.btn_add_photo_selector_1 : com.baidu.tieba.u.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
-        int a = com.baidu.adp.lib.util.k.a(this.a, 3.0f);
-        imageView.setPadding(a, com.baidu.adp.lib.util.k.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_20) + a, this.q + a, a);
-        imageView.setOnClickListener(new n(this));
+        int a = com.baidu.adp.lib.util.j.a(this.a, 3.0f);
+        imageView.setPadding(a, com.baidu.adp.lib.util.j.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_20) + a, this.u + a, a);
+        imageView.setOnClickListener(new p(this, i));
         return imageView;
     }
 
-    public void A() {
+    public void F() {
         this.i.f();
+        this.l.f();
     }
 
     @Override // com.baidu.tieba.img.view.d
     public void a(int i, int i2) {
-        if (i != i2 && this.s != null && this.s.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.s.getChosedFiles();
+        if (i != i2 && this.w != null && this.w.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.w.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }
@@ -325,10 +399,10 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    public void B() {
-        if (this.o) {
+    public void G() {
+        if (this.r) {
             this.b.d();
-        } else if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble()) && !this.o) {
+        } else if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble()) && !this.r) {
             this.b.d();
         } else {
             this.b.c();

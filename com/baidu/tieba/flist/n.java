@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.ForumInfoData;
 /* loaded from: classes.dex */
-class n extends com.baidu.adp.base.e {
+class n extends com.baidu.adp.base.h {
     final /* synthetic */ ForumListActivity a;
     private final /* synthetic */ ForumInfoData[] b;
 
@@ -13,27 +13,27 @@ class n extends com.baidu.adp.base.e {
         this.b = forumInfoDataArr;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        com.baidu.tieba.model.af afVar;
-        com.baidu.tieba.model.af afVar2;
+        com.baidu.tieba.model.ae aeVar;
+        com.baidu.tieba.model.ae aeVar2;
         int i;
         int i2;
         r rVar;
         r rVar2;
         r rVar3;
         r rVar4;
-        com.baidu.tieba.model.af afVar3;
-        afVar = this.a.q;
-        if (afVar.getErrorCode() == 22) {
+        com.baidu.tieba.model.ae aeVar3;
+        aeVar = this.a.q;
+        if (aeVar.getErrorCode() == 22) {
             this.a.showToast(this.a.getString(com.baidu.tieba.y.had_liked_forum));
         } else if (obj != null) {
-            afVar2 = this.a.q;
-            if (afVar2.getErrorCode() != 0) {
+            aeVar2 = this.a.q;
+            if (aeVar2.getErrorCode() != 0) {
                 ForumListActivity forumListActivity = this.a;
-                afVar3 = this.a.q;
-                forumListActivity.showToast(afVar3.getErrorString());
-            } else if (((com.baidu.tieba.data.z) obj).c() == 1) {
+                aeVar3 = this.a.q;
+                forumListActivity.showToast(aeVar3.getErrorString());
+            } else if (((com.baidu.tieba.data.ab) obj).c() == 1) {
                 this.a.showToast(this.a.getString(com.baidu.tieba.y.like_success));
                 i = this.a.p;
                 if (i != 0) {

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class LocateScrollView extends ScrollView {
-    private l a;
+    private k a;
     private View b;
     private int c;
     private Rect d;
@@ -59,7 +59,7 @@ public class LocateScrollView extends ScrollView {
         invalidate();
     }
 
-    public void setOnSizeChangeListener(l lVar) {
-        this.a = lVar;
+    public void setOnSizeChangeListener(k kVar) {
+        this.a = kVar;
     }
 }

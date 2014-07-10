@@ -3,12 +3,12 @@ package com.baidu.adp.lib.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
-import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class b {
     private static b a = null;
-    private volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
+    private volatile SparseArray<Bitmap> b = new SparseArray<>();
     private Context c = null;
     private Bitmap.Config d = Bitmap.Config.RGB_565;
 
@@ -23,19 +23,11 @@ public class b {
         return bVar;
     }
 
-    public void a(Context context) {
+    public synchronized void a(Context context) {
         this.c = context;
     }
 
     private b() {
-    }
-
-    public Bitmap a(int i) {
-        Bitmap bitmap = this.b.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = a(this.c, i)) != null) {
-            this.b.put(Integer.valueOf(i), bitmap);
-        }
-        return bitmap;
     }
 
     public Bitmap a(String str) {

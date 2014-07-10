@@ -1,21 +1,23 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.bdcvf.CertVerifier;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
+public class e implements CertVerifier.ResultListener {
     final /* synthetic */ TbadkApplication a;
-    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(TbadkApplication tbadkApplication, boolean z) {
+    public e(TbadkApplication tbadkApplication) {
         this.a = tbadkApplication;
-        this.b = z;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2009004, new com.baidu.tbadk.mainTab.a(this.b)));
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyOK() {
+        this.a.mIsOfficial = true;
+    }
+
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyFail(int i) {
+        this.a.mIsOfficial = false;
     }
 }

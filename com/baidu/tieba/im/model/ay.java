@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ CommonGroupChatMessage b;
+public class ay extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ PersonalChatMessage c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage) {
-        this.a = msglistModel;
-        this.b = commonGroupChatMessage;
+    public ay(MsglistModel msglistModel, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = personalChatMessage;
+        this.d = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.c(this.b);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.p.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
     }
 }

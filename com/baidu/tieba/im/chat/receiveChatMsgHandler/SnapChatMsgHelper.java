@@ -43,7 +43,7 @@ public class SnapChatMsgHelper extends b {
             }
             CommonMsgPojo commonMsgPojo2 = (CommonMsgPojo) linkedList.getLast();
             commonMsgPojo2.checkRidAndSelf();
-            com.baidu.tieba.im.i.a(new u(valueOf, linkedList), new v(groupMsgData, valueOf, commonMsgPojo2, i2));
+            com.baidu.tieba.im.i.a(new v(valueOf, linkedList), new w(groupMsgData, valueOf, commonMsgPojo2, i2));
         }
     }
 
@@ -81,7 +81,7 @@ public class SnapChatMsgHelper extends b {
             if (!TextUtils.isEmpty(gid) && SnapGroupChatActivity.a && gid.equals(SnapGroupChatActivity.b)) {
                 z = false;
             }
-            com.baidu.tieba.im.pushNotify.a.f().a(z, false, (com.baidu.tieba.im.a<Void>) new w());
+            com.baidu.tieba.im.pushNotify.a.i().a(z, false, (com.baidu.tieba.im.a<Void>) new x());
         }
     }
 }

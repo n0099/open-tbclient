@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -18,7 +17,6 @@ public class t implements ViewGroup.OnHierarchyChangeListener {
     public void onChildViewRemoved(View view, View view2) {
         com.baidu.adp.lib.d.b bVar;
         com.baidu.adp.lib.d.b bVar2;
-        BdLog.d("pool return child");
         if (view2 instanceof TbImageView) {
             bVar = this.a.b;
             if (bVar != null) {

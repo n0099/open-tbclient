@@ -1,45 +1,22 @@
 package com.baidu.tieba.person.post;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
+import com.baidu.adp.framework.message.HttpMessage;
 /* loaded from: classes.dex */
-public class e extends FragmentPagerAdapter {
-    private int[] a;
-    private s b;
-    private k c;
+class e implements View.OnClickListener {
+    final /* synthetic */ PersonPostActivity a;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public e(PersonPostActivity personPostActivity) {
-        super(personPostActivity.getSupportFragmentManager());
-        Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.e());
-        bundle.putString("key_portrait_url", personPostActivity.g());
-        bundle.putString("key_empty_view_text", personPostActivity.h());
-        this.c = new k();
-        this.c.setArguments(bundle);
-        this.b = new s();
-        this.b.setArguments(bundle);
-        this.a = new int[]{0, 1};
+        this.a = personPostActivity;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        switch (i) {
-            case 0:
-                return this.b;
-            case 1:
-                return this.c;
-            default:
-                return null;
-        }
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return 2;
-    }
-
-    public int a(int i) {
-        return this.a[i];
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c = com.baidu.tbadk.core.account.o.a(4) % 3;
+        HttpMessage httpMessage = new HttpMessage(1001506);
+        httpMessage.addParam("opt", "post");
+        httpMessage.addParam("val", String.valueOf(this.a.c + 1));
+        this.a.a(httpMessage);
     }
 }

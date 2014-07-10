@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
 class u extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ r b;
+    final /* synthetic */ p b;
     private final /* synthetic */ boolean c;
     private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(r rVar, boolean z, String str) {
-        this.b = rVar;
+    public u(p pVar, boolean z, String str) {
+        this.b = pVar;
         this.c = z;
         this.d = str;
     }

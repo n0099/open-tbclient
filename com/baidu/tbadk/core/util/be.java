@@ -1,334 +1,96 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.text.TextUtils;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbConfig;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class be {
-    private static String a = "skinType not support";
-
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_button_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.white));
-            }
-        }
-    }
-
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.black));
-            }
-        }
-    }
-
-    public static void c(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.gray_night_1));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.search_text_content));
-            }
-        }
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
-            }
-        }
-    }
-
-    public static void b(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.u.common_bg_1);
-            } else {
-                view.setBackgroundResource(com.baidu.tieba.u.common_bg);
-            }
-        }
-    }
-
-    public static void c(View view, int i) {
-        if (view != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.login_bg_color));
-            }
-        }
-    }
-
-    public static void d(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.white));
-            }
-        }
-    }
-
-    public static void d(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.u.titlebar_bg_1);
-            } else {
-                view.setBackgroundResource(com.baidu.tieba.u.titlebar_bg);
-            }
-            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
-    }
-
-    public static void e(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.u.title_comm_1);
-            } else {
-                e((View) textView, com.baidu.tieba.u.title_comm);
-            }
-        }
-        d(textView, i);
-    }
-
-    public static void f(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.u.title_comm_hilite_1);
-            } else {
-                e((View) textView, com.baidu.tieba.u.title_comm_hilite);
-            }
-        }
-        d(textView, i);
-    }
-
-    public static void g(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.u.navi_done_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.u.navi_done_text_bg);
-            }
-        }
-        h(textView, i);
-    }
-
-    public static void h(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
-            }
-        }
-    }
-
-    public static void i(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.u.navi_op_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.u.navi_op_text_bg);
-            }
-        }
-        j(textView, i);
-    }
-
-    public static void j(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_op_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_op_text));
-            }
-        }
-    }
-
-    public static void k(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.u.navi_del_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.u.navi_del_text_bg);
-            }
-        }
-        l(textView, i);
-    }
-
-    public static void l(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_del_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_del_text));
-            }
-        }
-    }
-
-    public static void a(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.u.icon_return_old_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.u.icon_return_old_n);
-        }
-    }
-
-    public static void b(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.u.icon_refresh_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.u.icon_refresh_n);
-        }
-    }
-
-    public static int a(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
-        }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int b(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_second_common_color);
-        }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int c(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_third_common_color);
-        }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int d(int i) {
-        Application app = BdBaseApplication.getInst().getApp();
-        return i == 1 ? app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg) : app.getResources().getColor(com.baidu.tieba.s.backgroundcolor);
-    }
-
-    public static void e(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            view.setBackgroundResource(i);
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    private static final int a(Context context, int i) {
-        String resourceName;
-        if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
-            int identifier = context.getResources().getIdentifier(String.valueOf(resourceName) + "_1", null, null);
-            if (identifier == 0) {
-                BdLog.e("cannot find res:" + resourceName + "_1");
-                return i;
-            }
-            return identifier;
-        }
-        return i;
-    }
-
-    public static void c(ImageView imageView, int i) {
-        if (imageView != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                i = a(imageView.getContext(), i);
-            }
-            imageView.setImageResource(i);
-        }
-    }
-
-    public static void f(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                view.setBackgroundResource(a(view.getContext(), i));
-            } else {
-                view.setBackgroundResource(i);
-            }
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    public static void a(View view, int i, int i2) {
-        if (view != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                i = a(view.getContext(), i);
-            }
-            ColorStateList colorStateList = BdBaseApplication.getInst().getApp().getResources().getColorStateList(i);
-            if (i2 == 1) {
-                ((TextView) view).setTextColor(colorStateList);
-            } else if (i2 == 2) {
-                ((EditText) view).setTextColor(colorStateList);
-            } else if (i2 == 3) {
-                ((Button) view).setTextColor(colorStateList);
-            }
-        }
-    }
-
     public static void a(ListView listView, int i) {
-        if (listView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
-                listView.setCacheColorHint(app.getResources().getColor(17170445));
-                listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.u.list_divider_1));
-                listView.setSelector(com.baidu.tieba.u.list_selector_1);
-                return;
+        ListAdapter adapter;
+        LinkedList<bf> images;
+        int pbImageSize;
+        if (listView != null && BdResourceLoaderNetHelperStatic.a() && (adapter = listView.getAdapter()) != null) {
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 0;
+            int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
+            boolean i5 = bn.i();
+            int firstVisiblePosition = listView.getFirstVisiblePosition();
+            int lastVisiblePosition = listView.getLastVisiblePosition();
+            com.baidu.adp.lib.resourceLoader.d.a().a(i, (com.baidu.adp.lib.resourceLoader.c) null);
+            while (true) {
+                int i6 = firstVisiblePosition;
+                if (i6 < adapter.getCount()) {
+                    Object item = adapter.getItem(i6);
+                    if ((item instanceof bg) && (images = ((bg) item).getImages()) != null && images.size() != 0) {
+                        Iterator<bf> it = images.iterator();
+                        int i7 = i4;
+                        int i8 = i2;
+                        int i9 = i3;
+                        while (it.hasNext()) {
+                            bf next = it.next();
+                            if (com.baidu.adp.lib.resourceLoader.d.a().c(next.d)) {
+                                if (12 == next.d) {
+                                    int i10 = i7 + 1;
+                                    if (i10 > 30 || i6 <= lastVisiblePosition || TextUtils.isEmpty(next.a)) {
+                                        i7 = i10;
+                                    } else {
+                                        com.baidu.adp.lib.resourceLoader.d.a().a(next.a, 12, null, i);
+                                        i7 = i10;
+                                    }
+                                } else {
+                                    int i11 = next.b * next.c;
+                                    if (i11 > 0) {
+                                        if (next.e != null) {
+                                            pbImageSize = i9 + (i11 * 4);
+                                        } else {
+                                            pbImageSize = i9 + (i11 * 2);
+                                        }
+                                    } else if (next.e != null) {
+                                        BdLog.e("missing big emotion image width and height!");
+                                        pbImageSize = i9 + TbConfig.getBigEmotionsSize();
+                                    } else {
+                                        pbImageSize = i9 + TbConfig.getPbImageSize();
+                                    }
+                                    int i12 = i8 + 1;
+                                    if (i12 <= 13 && pbImageSize < bigImageMaxUsedMemory && i6 > lastVisiblePosition) {
+                                        if (next.e != null) {
+                                            com.baidu.tbadk.widget.richText.e eVar = next.e;
+                                            String str = i5 ? eVar.b.d : eVar.b.c;
+                                            if (!TextUtils.isEmpty(str)) {
+                                                com.baidu.adp.lib.resourceLoader.d.a().a(eVar.b.b, next.d, null, 0, 0, i, eVar.b.e, eVar.b.b, Boolean.valueOf(i5), str);
+                                                i9 = pbImageSize;
+                                                i8 = i12;
+                                            }
+                                        } else {
+                                            String str2 = next.a;
+                                            if (!TextUtils.isEmpty(str2)) {
+                                                com.baidu.adp.lib.resourceLoader.d.a().a(str2, next.d, null, i);
+                                            }
+                                        }
+                                    }
+                                    i9 = pbImageSize;
+                                    i8 = i12;
+                                }
+                            }
+                        }
+                        if ((i8 > 13 || i9 >= bigImageMaxUsedMemory) && i7 > 30) {
+                            return;
+                        }
+                        i4 = i7;
+                        i3 = i9;
+                        i2 = i8;
+                    }
+                    firstVisiblePosition = i6 + 1;
+                } else {
+                    return;
+                }
             }
-            listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
-            listView.setCacheColorHint(app.getResources().getColor(17170445));
-            listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.u.list_divider));
-            listView.setSelector(com.baidu.tieba.u.list_selector);
         }
     }
 }

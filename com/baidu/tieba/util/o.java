@@ -2,8 +2,9 @@ package com.baidu.tieba.util;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends BdAsyncTask<String, String, WriteData> {
+public class o extends BdAsyncTask<String, String, WriteData> {
     private final n a;
     private final String b;
 
@@ -20,7 +21,7 @@ class o extends BdAsyncTask<String, String, WriteData> {
     public WriteData doInBackground(String... strArr) {
         String str;
         try {
-            str = com.baidu.tbadk.core.a.b.a().e().a(this.b);
+            str = com.baidu.tbadk.core.a.b.a().g().a(this.b);
         } catch (Exception e) {
             str = null;
         }

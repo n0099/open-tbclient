@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i> {
     final /* synthetic */ Register2Activity a;
-    private an b;
+    private aq b;
 
     private z(Register2Activity register2Activity) {
         this.a = register2Activity;
@@ -46,7 +46,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
         try {
             m = this.a.m();
-            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
             this.b.a("un", m.getName());
             this.b.a("phonenum", m.getPhone());
             this.b.a("passwd", m.getPsw());
@@ -64,7 +64,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
             }
             return iVar;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.detailException(e);
             return null;
         }
     }

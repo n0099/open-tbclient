@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
+@Deprecated
 /* loaded from: classes.dex */
 public class b {
     public Context a;
@@ -46,13 +47,6 @@ public class b {
     }
 
     public void a(boolean z) {
-    }
-
-    public void a(ArrayList<BasicNameValuePair> arrayList) {
-        this.h = arrayList;
-    }
-
-    public void b(boolean z) {
         this.e = z;
     }
 
@@ -81,7 +75,7 @@ public class b {
     }
 
     public static boolean c() {
-        return x.a() && com.baidu.adp.gif.e.a();
+        return z.a() && com.baidu.adp.gif.e.a();
     }
 
     @Deprecated
@@ -230,7 +224,7 @@ public class b {
                 return (com.baidu.adp.widget.a.a) a;
             }
         } catch (Exception e) {
-            BdLog.e("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_LOAD_BITMAP, "AsyncImageLoader.loadBitmap error: " + e.toString(), sb.toString());
         }
         return null;
@@ -263,15 +257,11 @@ public class b {
         this.c = i2;
     }
 
-    public void c(boolean z) {
-        this.g = z;
-    }
-
     public boolean e() {
         return this.i;
     }
 
-    public void d(boolean z) {
+    public void b(boolean z) {
         this.i = z;
     }
 

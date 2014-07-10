@@ -1,10 +1,10 @@
 package com.baidu.tieba.forumfeed;
 
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.model.u;
+import com.baidu.tieba.model.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.e {
+public class b extends com.baidu.adp.base.h {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.base.e {
         this.a = aVar;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         boolean z;
         VoiceManager voiceManager;
@@ -26,12 +26,12 @@ public class b extends com.baidu.adp.base.e {
             }
             this.a.i = false;
         }
-        if (!(obj instanceof u)) {
+        if (!(obj instanceof s)) {
             if (obj != null) {
                 this.a.b(obj);
                 return;
             } else {
-                this.a.k();
+                this.a.l();
                 return;
             }
         }

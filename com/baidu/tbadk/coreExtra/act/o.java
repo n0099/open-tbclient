@@ -3,11 +3,12 @@ package com.baidu.tbadk.coreExtra.act;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ EditHeadActivity a;
-    private com.baidu.tbadk.core.util.an b;
+    private aq b;
 
     private o(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
@@ -32,22 +33,22 @@ public class o extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         Exception e;
-        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
         try {
             str = this.b.b(TbConfig.PERSON_HEAD_FILE);
-            try {
-                if (this.b.a().b().b()) {
-                    return str;
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+        } catch (Exception e2) {
+            str = null;
+            e = e2;
+        }
+        try {
+            if (this.b.a().b().b()) {
                 return str;
             }
+            return null;
         } catch (Exception e3) {
-            str = null;
             e = e3;
+            BdLog.e(e.getMessage());
+            return str;
         }
     }
 

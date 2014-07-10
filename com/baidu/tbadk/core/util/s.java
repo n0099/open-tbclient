@@ -80,7 +80,7 @@ public class s extends SQLiteOpenHelper {
             try {
                 a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             } catch (Exception e) {
-                BdLog.e(s.class.getName(), "onUpgrade", e.getMessage());
+                BdLog.e(e.getMessage());
                 TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.onUpdate", new Object[0]);
                 b(sQLiteDatabase);
                 a(sQLiteDatabase);

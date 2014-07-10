@@ -42,4 +42,11 @@ public class b {
             a = aVar;
         }
     }
+
+    public static int c() {
+        if (a == null) {
+            return -1;
+        }
+        return a.c();
+    }
 }

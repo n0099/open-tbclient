@@ -9,8 +9,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bx;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends BaseActivity {
@@ -41,7 +41,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.e.notifyDataSetChanged();
@@ -52,11 +52,11 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         this.h.a(getResources().getString(com.baidu.tieba.y.bar_first_dir_name));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a = (ListView) findViewById(com.baidu.tieba.v.list);
-        this.e = new c(this, new h(), true);
+        this.e = new c(this, new f(), true);
         this.a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         this.b = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
-        br.b(this.b);
+        bx.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,7 +66,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         if (this.f != null) {
             this.f.cancel();
         }
-        a((h) null, true);
+        a((f) null, true);
     }
 
     protected void b() {
@@ -90,16 +90,16 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(h hVar, boolean z) {
+    public void a(f fVar, boolean z) {
         this.d.setVisibility(8);
         this.a.setEnabled(true);
         this.f = null;
         if (!z) {
-            if (hVar.b()) {
-                showToast(hVar.c());
+            if (fVar.b()) {
+                showToast(fVar.c());
                 return;
             }
-            this.e.a(hVar.d());
+            this.e.a(fVar.d());
             this.a.setVisibility(4);
             this.e.notifyDataSetChanged();
             this.a.setVisibility(0);
@@ -115,8 +115,8 @@ public class BarFolderFirstDirActivity extends BaseActivity {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            br.a(this.b, i);
+            bx.a(this.b, i);
         }
-        be.b(findViewById(com.baidu.tieba.v.root_view), i);
+        bk.b(findViewById(com.baidu.tieba.v.root_view), i);
     }
 }

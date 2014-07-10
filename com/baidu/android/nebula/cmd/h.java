@@ -1,56 +1,48 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.Context;
-import android.os.Process;
-import android.util.Log;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class h extends Thread {
-    e a;
-    final /* synthetic */ ScanDownloadFile b;
-    private CharSequence c;
+public class h {
+    private static final Map a = new HashMap();
+    private static final String b = GeoLocation.class.getPackage().getName() + ".";
 
-    public h(ScanDownloadFile scanDownloadFile, CharSequence charSequence) {
-        String str;
-        this.b = scanDownloadFile;
-        StringBuilder sb = new StringBuilder();
-        str = scanDownloadFile.mFileName;
-        setName(sb.append(str).append("_moplus_getdownloadinfo_thread").toString());
-        this.c = charSequence;
+    static {
+        a.put("geolocation", b + "GeoLocation");
+        a.put("getsearchboxinfo", b + "GetSearchboxInfo");
+        a.put("getapn", b + "GetApn");
+        a.put("getserviceinfo", b + "GetServiceInfo");
+        a.put("getpackageinfo", b + "GetPackageInfo");
+        a.put("sendintent", b + "SendIntent");
+        a.put("getcuid", b + "GetCuid");
+        a.put("getlocstring", b + "GetLocString");
+        a.put("scandownloadfile", b + "ScanDownloadFile");
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Context context;
-        long j;
-        Process.setThreadPriority(19);
-        try {
-            j = this.b.mScanedOneTime;
-            sleep(j);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public String a(String str) {
+        return (String) a.get(str);
+    }
+
+    public void a(String str, com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+        n nVar;
+        String a2 = a(str);
+        if (a2 == null) {
+            return;
         }
-        context = this.b.mContext;
-        com.baidu.android.nebula.a.a aVar = new com.baidu.android.nebula.a.a(context);
         try {
-            HttpResponse execute = aVar.execute(new HttpGet(this.c.toString()));
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                String entityUtils = EntityUtils.toString(execute.getEntity(), "utf-8");
-                if (!isInterrupted()) {
-                    this.a = new e(this.b, new JSONArray(entityUtils));
-                    this.a.start();
-                }
-            } else {
-                Log.d("ScanDownloadFile", "request failed  " + execute.getStatusLine());
-            }
-        } catch (Exception e2) {
-            Log.w("ScanDownloadFile", "error", e2);
-        } finally {
-            aVar.a();
+            nVar = (n) Class.forName(a2).newInstance();
+        } catch (ClassCastException e) {
+            nVar = null;
+        } catch (ClassNotFoundException e2) {
+            nVar = null;
+        } catch (IllegalAccessException e3) {
+            nVar = null;
+        } catch (InstantiationException e4) {
+            nVar = null;
+        }
+        if (nVar != null) {
+            nVar.execute(dVar, aVar);
+            nVar.writeToStatic();
         }
     }
 }

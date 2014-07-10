@@ -19,7 +19,7 @@ public class bo extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Void doInBackground(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.getCurrentAccount(), this.a.b(), this.b);
+        com.baidu.tieba.im.groupInfo.y.a().d(TbadkApplication.getCurrentAccount(), this.a.b(), this.b);
         return null;
     }
 }

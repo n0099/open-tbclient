@@ -1,12 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements DialogInterface.OnClickListener {
+public class am implements TextWatcher {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,39 +12,16 @@ public class am implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        EditText editText;
-        WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        Handler handler;
-        WriteData writeData6;
-        WriteData writeData7;
-        writeData = this.a.a;
-        editText = this.a.e;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.a.a;
-        editText2 = this.a.h;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.a.a;
-        int type = writeData3.getType();
-        if (type == 0) {
-            writeData6 = this.a.a;
-            String forumId = writeData6.getForumId();
-            writeData7 = this.a.a;
-            com.baidu.tieba.util.m.a(forumId, writeData7);
-        } else if (type == 1) {
-            writeData4 = this.a.a;
-            String threadId = writeData4.getThreadId();
-            writeData5 = this.a.a;
-            com.baidu.tieba.util.m.b(threadId, writeData5);
-        }
-        this.a.showToast(com.baidu.tieba.y.draft_save_success);
-        handler = this.a.t;
-        handler.postDelayed(new an(this), 1000L);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.z();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

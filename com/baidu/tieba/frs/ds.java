@@ -1,23 +1,25 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ds implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ dq a;
-    private final /* synthetic */ HeadImageView b;
+public class ds implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ dr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ds(dq dqVar, HeadImageView headImageView) {
-        this.a = dqVar;
-        this.b = headImageView;
+    public ds(dr drVar) {
+        this.a = drVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null) {
-            aVar.a(this.b);
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            com.baidu.tbadk.core.h.a().c(0);
+            com.baidu.tbadk.core.h.a().a(true);
         } else {
-            this.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
+            com.baidu.tbadk.core.h.a().a(false);
         }
+        this.a.n = true;
     }
 }

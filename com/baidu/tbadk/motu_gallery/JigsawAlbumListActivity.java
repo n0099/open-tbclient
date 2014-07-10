@@ -75,7 +75,7 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
         this.l.a(this.a.d());
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.p = true;

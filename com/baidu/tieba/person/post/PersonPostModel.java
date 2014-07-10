@@ -5,34 +5,36 @@ import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.annotations.SerializedName;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
-public class PersonPostModel extends com.baidu.adp.base.b implements Serializable {
+public class PersonPostModel extends com.baidu.adp.base.e implements Serializable {
     public static final int PAGE_SIZE = 20;
     private static int a = 0;
     private static String b = "";
     public List<PostList> post_list = new ArrayList();
     public int hide_post = 0;
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
-    public void fetchPost(Activity activity, f fVar, boolean z, String str, boolean z2) {
+    public void fetchPost(Activity activity, g gVar, boolean z, String str, boolean z2) {
         if (z || !str.equals(b)) {
             a = 1;
             b = str;
@@ -46,7 +48,7 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(fVar));
+        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(gVar));
         if (activity instanceof BdBaseFragmentActivity) {
             ((BdBaseFragmentActivity) activity).a(userPostPageRequestMessage);
         } else {
@@ -83,7 +85,7 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class PostList implements Serializable {
+    public class PostList implements bg, Serializable {
         @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
         public long forum_id = 0;
         @SerializedName(com.baidu.tbadk.core.frameworkData.a.THREAD_ID)
@@ -124,10 +126,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         public LbsInfo lbs_info = new LbsInfo();
         @SerializedName("is_post_deleted")
         public int is_post_deleted = 0;
-
-        public String toString() {
-            return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs_thread) + ", content='" + this.content_thread + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", anchor_info=" + this.anchor_info.toString() + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
-        }
 
         public void parseProtobuf(tbclient.UserPost.PostList postList) {
             if (postList != null) {
@@ -174,6 +172,21 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
                 }
             }
         }
+
+        @Override // com.baidu.tbadk.core.util.bg
+        public LinkedList<bf> getImages() {
+            Media[] mediaArr;
+            LinkedList<bf> linkedList = new LinkedList<>();
+            for (Media media : this.media) {
+                if (media.big_pic != null) {
+                    bf bfVar = new bf();
+                    bfVar.a = media.big_pic;
+                    bfVar.d = 10;
+                    linkedList.add(bfVar);
+                }
+            }
+            return linkedList;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -186,10 +199,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         public long post_type = 0;
         @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
         public long post_id = 0;
-
-        public String toString() {
-            return "Content{post_content=" + Arrays.toString(this.post_content) + ", create_time=" + this.create_time + '}';
-        }
 
         public void parseProtobuf(tbclient.UserPost.Content content) {
             if (content != null) {
@@ -228,10 +237,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         @SerializedName("link")
         public String link = "";
 
-        public String toString() {
-            return "PostContent{type=" + this.type + ", text='" + this.text + "', src='" + this.src + "', un='" + this.un + "', link='" + this.link + "'}";
-        }
-
         public void parseProtobuf(Abstract r2) {
             if (r2 != null) {
                 this.type = r2.type.intValue();
@@ -256,10 +261,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         @SerializedName("content")
         public String content = "";
 
-        public String toString() {
-            return "Quote{post_id=" + this.post_id + ", user_name='" + this.user_name + "', user_id=" + this.user_id + ", ip=" + this.ip + ", content='" + this.content + "'}";
-        }
-
         public void parseProtobuf(tbclient.UserPost.Quote quote) {
             if (quote != null) {
                 this.post_id = quote.post_id.longValue();
@@ -281,10 +282,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         public String big_pic = "";
         @SerializedName("water_pic")
         public String water_pic = "";
-
-        public String toString() {
-            return "Media{type=" + this.type + ", small_pic='" + this.small_pic + "', big_pic='" + this.big_pic + "', water_pic='" + this.water_pic + "'}";
-        }
 
         public void parseProtobuf(tbclient.Media media) {
             if (media != null) {
@@ -325,10 +322,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         @SerializedName("publisherId")
         public int publisherId = 0;
 
-        public String toString() {
-            return "anchor_info{portrait=" + this.portrait + ", name='" + this.name + "', start_time='" + this.start_time + "', status='" + this.status + "', author_id='" + this.author_id + "', author_name='" + this.author_name + "', listeners='" + this.listeners + "', likers='" + this.likers + "', group_id='" + this.group_id + "', intro='" + this.intro + "', publisherPortrait='" + this.publisherPortrait + "', publisherName='" + this.publisherName + "', publisherId='" + this.publisherId + "'}";
-        }
-
         public void parseProtobuf(tbclient.AnchorInfo anchorInfo) {
             if (anchorInfo != null) {
                 this.portrait = anchorInfo.portrait;
@@ -357,10 +350,6 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
         @SerializedName("town")
         public String town = "";
 
-        public String toString() {
-            return "LbsInfo{lat='" + this.lat + "', lon='" + this.lon + "', town='" + this.town + "'}";
-        }
-
         public void parseProtobuf(tbclient.UserPost.LbsInfo lbsInfo) {
             if (lbsInfo != null) {
                 this.lat = lbsInfo.lat;
@@ -368,9 +357,5 @@ public class PersonPostModel extends com.baidu.adp.base.b implements Serializabl
                 this.town = lbsInfo.town;
             }
         }
-    }
-
-    public String toString() {
-        return "PersonPostThreadModel{post_list=" + this.post_list + ", hide_post=" + this.hide_post + '}';
     }
 }

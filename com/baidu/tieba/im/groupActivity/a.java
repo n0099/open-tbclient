@@ -19,7 +19,7 @@ class a extends com.baidu.adp.framework.listener.b {
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         boolean z;
-        this.a.e_();
+        this.a.e();
         if (socketResponsedMessage == null) {
             this.a.c(y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103120) {

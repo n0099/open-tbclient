@@ -5,9 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
@@ -31,10 +29,10 @@ public class w {
     }
 
     public void a() {
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_GROUP_CHAT_MSG, this.d);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_COMMIT_PERSONAL_MSG, this.d);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT, this.e);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY, this.e);
+        MessageManager.getInstance().registerListener(202001, this.d);
+        MessageManager.getInstance().registerListener(205001, this.d);
+        MessageManager.getInstance().registerListener(2001103, this.e);
+        MessageManager.getInstance().registerListener(2001105, this.e);
     }
 
     public static w b() {
@@ -46,9 +44,6 @@ public class w {
 
     public static void a(int i) {
         if (i != 0 && a != i) {
-            if (a != 0) {
-                BdLog.e("私聊GID有变化!!!!!!!!!!!");
-            }
             a = i;
             com.baidu.tieba.im.i.a(new ar(i), null);
         }
@@ -98,7 +93,6 @@ public class w {
     }
 
     public void a(ChatMessage chatMessage) {
-        BdLog.d("SHNAG chatManager sendMessage, content = " + chatMessage.getContent());
         if (chatMessage instanceof CommonGroupChatMessage) {
             CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
             LinkedList linkedList = new LinkedList();
@@ -137,7 +131,6 @@ public class w {
     public void b(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof ResponseCommitGroupMessage) {
             ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) socketResponsedMessage;
-            BdLog.d("SHANG ChatResponsedMessage onAcked");
             if (responseCommitGroupMessage.getError() != 0) {
                 b((ResponsedMessage<?>) responseCommitGroupMessage);
             } else {
@@ -150,14 +143,11 @@ public class w {
     public void c(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof ResponseCommitPersonalMessage) {
             ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
-            BdLog.d("SHANG ChatResponsedMessage onAcked");
             if (responseCommitPersonalMessage.getError() != 0) {
                 b((ResponsedMessage<?>) responseCommitPersonalMessage);
                 return;
             }
-            int a2 = com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.getGroupId(), 0);
-            a(a2);
-            BdLog.d("GET Personal Gid MSGACK=" + a2);
+            a(com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.getGroupId(), 0));
             if (responseCommitPersonalMessage.getToUserType() == 0) {
                 a(responseCommitPersonalMessage);
             } else {
@@ -167,11 +157,9 @@ public class w {
     }
 
     private void b(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            ChatMessage chatMessage = (ChatMessage) responsedMessage.getOrginalMessage();
-            if (chatMessage == null) {
-                BdLog.e("chatMessage == null");
-            } else if (chatMessage instanceof CommonGroupChatMessage) {
+        ChatMessage chatMessage;
+        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && (chatMessage = (ChatMessage) responsedMessage.getOrginalMessage()) != null) {
+            if (chatMessage instanceof CommonGroupChatMessage) {
                 com.baidu.tieba.im.i.a(new ae(this, (CommonGroupChatMessage) chatMessage, chatMessage), new af(this, responsedMessage));
             } else if (chatMessage instanceof PersonalChatMessage) {
                 com.baidu.tieba.im.i.a(new ag(this, (PersonalChatMessage) chatMessage, chatMessage), new ah(this, responsedMessage));

@@ -16,7 +16,7 @@ public class ar extends com.baidu.tieba.im.b<Void> {
     /* renamed from: b */
     public Void a() {
         if (TbadkApplication.getCurrentAccountName() != null) {
-            com.baidu.tieba.im.db.o.d().a(this.b);
+            com.baidu.tieba.im.db.p.d().a(this.b);
             return null;
         }
         return null;

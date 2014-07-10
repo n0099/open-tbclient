@@ -84,11 +84,11 @@ public class b {
             if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(GroupChatActivity.b)) {
                 z = false;
             }
-            boolean d = com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.getCurrentAccount(), gid);
+            boolean d = com.baidu.tieba.im.groupInfo.y.a().d(TbadkApplication.getCurrentAccount(), gid);
             if (z && !d) {
                 z = false;
             }
-            com.baidu.tieba.im.pushNotify.a.f().a(z, z2, new e());
+            com.baidu.tieba.im.pushNotify.a.i().a(z, z2, new e());
         }
     }
 }

@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements Animation.AnimationListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bq bqVar) {
-        this.a = bqVar;
+    public bw(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,15 +22,15 @@ public class bw implements Animation.AnimationListener {
         View view2;
         View view3;
         PbActivity pbActivity;
-        bq bqVar = this.a;
-        view = this.a.aL;
-        bqVar.aR = view.getVisibility() == 0;
-        this.a.j.setVisibility(8);
-        view2 = this.a.aL;
+        bt btVar = this.a;
+        view = this.a.aJ;
+        btVar.aP = view.getVisibility() == 0;
+        this.a.h.setVisibility(8);
+        view2 = this.a.aJ;
         view2.setVisibility(8);
-        view3 = this.a.aK;
+        view3 = this.a.aI;
         view3.setVisibility(8);
-        pbActivity = this.a.m;
+        pbActivity = this.a.k;
         pbActivity.showToast(com.baidu.tieba.y.pb_double_click_tips, 0);
     }
 

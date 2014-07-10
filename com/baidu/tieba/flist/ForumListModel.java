@@ -1,16 +1,14 @@
 package com.baidu.tieba.flist;
 
 import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
-import java.util.Arrays;
 /* loaded from: classes.dex */
-public class ForumListModel extends com.baidu.adp.base.b implements Serializable {
+public class ForumListModel extends com.baidu.adp.base.e implements Serializable {
     private static boolean a = false;
     private static String b = null;
     private static final long serialVersionUID = -5006585496963439439L;
@@ -23,58 +21,11 @@ public class ForumListModel extends com.baidu.adp.base.b implements Serializable
     public long ctime = 0;
     public long logid = 0;
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public boolean isOk() {
-        return a;
-    }
-
     /* loaded from: classes.dex */
     public class List implements Serializable {
         private static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
-
-        public String toString() {
-            return "List{has_more=" + this.has_more + ", forum_list=" + Arrays.toString(this.forum_list) + '}';
-        }
-    }
-
-    public String toString() {
-        return "DataProvider{error_code=" + this.error_code + ", editor_recommend=" + Arrays.toString(this.editor_recommend) + ", forum_class=" + Arrays.toString(this.forum_class) + ", recommend_list_left=" + this.recommend_list_left + ", recommend_list_right=" + this.recommend_list_right + ", time=" + this.time + ", ctime=" + this.ctime + ", logid=" + this.logid + '}';
-    }
-
-    public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
-        int i;
-        com.baidu.adp.lib.cache.s<String> p;
-        if (requestParams.menu_id == 0) {
-            i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
-        } else {
-            i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
-        }
-        b = requestParams.menu_name;
-        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
-        anVar.a("rn", String.valueOf(requestParams.rn));
-        anVar.a("offset", String.valueOf(requestParams.offset));
-        anVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        anVar.a("menu_name", requestParams.menu_name);
-        anVar.a("menu_type", String.valueOf(i));
-        String i2 = anVar.i();
-        a = anVar.c();
-        BdLog.d("DataProvider", "fetch", "fetched raw string\n" + i2);
-        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null)) {
-            p.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
-        }
-        return forumListModel;
     }
 
     /* loaded from: classes.dex */
@@ -89,9 +40,43 @@ public class ForumListModel extends com.baidu.adp.base.b implements Serializable
         public String parent_menu_name = "";
         public int parent_menu_id = 0;
         public String level_2_name = "";
+    }
 
-        public String toString() {
-            return "?rn=" + this.rn + "&offset=" + this.offset + "&recommend_type=" + this.recommend_type + "&menu_name=" + this.menu_name + "&menu_id=" + this.menu_id + "&menu_type=" + this.menu_type + "&parent_menu_name=" + this.parent_menu_name + "&parent_menu_id=" + this.parent_menu_id;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public boolean isOk() {
+        return a;
+    }
+
+    public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
+        int i;
+        com.baidu.adp.lib.cache.s<String> p;
+        if (requestParams.menu_id == 0) {
+            i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
+        } else {
+            i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
+        b = requestParams.menu_name;
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
+        aqVar.a("rn", String.valueOf(requestParams.rn));
+        aqVar.a("offset", String.valueOf(requestParams.offset));
+        aqVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        aqVar.a("menu_name", requestParams.menu_name);
+        aqVar.a("menu_type", String.valueOf(i));
+        String i2 = aqVar.i();
+        a = aqVar.c();
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null)) {
+            p.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
+        }
+        return forumListModel;
     }
 }

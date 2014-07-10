@@ -14,71 +14,64 @@ class a implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        com.baidu.tieba.data.u uVar;
+        com.baidu.tieba.data.w wVar;
         int i;
         int i2;
+        com.baidu.tieba.data.w wVar2;
         int i3;
-        com.baidu.tieba.data.u uVar2;
         int i4;
         int i5;
-        ac acVar;
         int i6;
+        com.baidu.tieba.data.w wVar3;
         int i7;
-        boolean z2;
-        ac acVar2;
-        ac acVar3;
-        com.baidu.tieba.data.u uVar3;
         int i8;
         int i9;
-        com.baidu.tieba.data.u uVar4;
         int i10;
+        com.baidu.tieba.data.w wVar4;
+        int i11;
+        int i12 = 0;
         try {
             z = this.a.A;
             if (z) {
-                uVar = this.a.F;
-                if (uVar != null) {
+                wVar = this.a.F;
+                if (wVar != null) {
                     i = this.a.I;
                     if (i > 0) {
-                        i10 = this.a.I;
-                        i2 = i10 - 1;
-                    } else {
-                        i2 = 0;
+                        i11 = this.a.I;
+                        i12 = i11 - 1;
                     }
-                    i3 = this.a.I;
-                    uVar2 = this.a.F;
-                    if (i3 >= uVar2.j() - 1) {
-                        uVar4 = this.a.F;
-                        i5 = uVar4.j() - 1;
+                    i2 = this.a.I;
+                    wVar2 = this.a.F;
+                    if (i2 >= wVar2.j() - 1) {
+                        wVar4 = this.a.F;
+                        i4 = wVar4.j() - 1;
                     } else {
-                        i4 = this.a.I;
-                        i5 = i4 + 1;
+                        i3 = this.a.I;
+                        i4 = i3 + 1;
                     }
                     UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.a);
-                    acVar = this.a.y;
-                    acVar.d().a();
-                    if (netStatusInfo != UtilHelper.NetworkStateInfo.WIFI && netStatusInfo != UtilHelper.NetworkStateInfo.ThreeG) {
-                        i8 = this.a.I;
-                        i9 = this.a.I;
-                        i6 = i8;
-                        i7 = i9;
-                        z2 = false;
+                    if (netStatusInfo == UtilHelper.NetworkStateInfo.WIFI || netStatusInfo == UtilHelper.NetworkStateInfo.ThreeG) {
+                        i5 = i4;
+                        i6 = i12;
                     } else {
-                        i6 = i2;
-                        i7 = i5;
-                        z2 = true;
+                        i9 = this.a.I;
+                        i10 = this.a.I;
+                        i5 = i10;
+                        i6 = i9;
                     }
-                    acVar2 = this.a.y;
-                    acVar2.d().a(z2);
-                    for (int i11 = i6; i11 <= i7; i11++) {
-                        acVar3 = this.a.y;
-                        com.baidu.tbadk.editortool.ab d = acVar3.d();
-                        uVar3 = this.a.F;
-                        d.b(uVar3.g().get(i11).b(), new b(this));
+                    for (int i13 = i6; i13 <= i5; i13++) {
+                        com.baidu.adp.lib.resourceLoader.d a = com.baidu.adp.lib.resourceLoader.d.a();
+                        wVar3 = this.a.F;
+                        String b = wVar3.g().get(i13).b();
+                        b bVar = new b(this);
+                        i7 = this.a.S;
+                        i8 = this.a.T;
+                        a.a(b, 10, bVar, i7, i8, 0, new Object[0]);
                     }
                 }
             }
         } catch (Exception e) {
-            BdLog.e("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

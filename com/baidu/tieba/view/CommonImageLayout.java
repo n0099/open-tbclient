@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
@@ -14,7 +15,7 @@ public class CommonImageLayout extends ViewGroup {
     public TbImageView b;
     public TbImageView c;
     public TbImageView d;
-    private com.baidu.tbadk.core.data.j[] k;
+    private MediaData[] k;
     private int l;
     private boolean m;
     private boolean n;
@@ -32,7 +33,7 @@ public class CommonImageLayout extends ViewGroup {
 
     private void b() {
         if (a < 0.0f) {
-            a = com.baidu.adp.lib.util.k.b(this.o) / 320.0f;
+            a = com.baidu.adp.lib.util.j.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -98,8 +99,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tbadk.core.data.j[] jVarArr) {
-        this.k = jVarArr;
+    public void setData(MediaData[] mediaDataArr) {
+        this.k = mediaDataArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -278,27 +279,28 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.j jVar) {
+    private void a(TbImageView tbImageView, MediaData mediaData) {
         if (tbImageView != null) {
-            String c = jVar.c();
-            if (jVar.b() == 5) {
-                c = null;
+            String picUrl = mediaData.getPicUrl();
+            if (mediaData.getType() == 5) {
+                picUrl = null;
                 tbImageView.setDefaultResource(com.baidu.tieba.u.pic_video);
                 tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_video_1);
-                tbImageView.setOnClickListener(new g(this, jVar));
+                tbImageView.setOnClickListener(new h(this, mediaData));
             } else {
                 tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
                 tbImageView.setClickable(false);
             }
-            tbImageView.setTag(c);
+            tbImageView.setTag(picUrl);
+            tbImageView.a(picUrl, 13, false);
         }
     }
 
     public void setFromCDN(boolean z) {
         this.n = z;
         if (j != null) {
-            j.d(this.n);
+            j.b(this.n);
         }
     }
 

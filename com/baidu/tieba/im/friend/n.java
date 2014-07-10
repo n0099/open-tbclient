@@ -1,47 +1,32 @@
 package com.baidu.tieba.im.friend;
 
-import java.util.ArrayList;
+import android.os.Handler;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 /* loaded from: classes.dex */
-class n extends com.baidu.adp.base.e {
+class n extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(InviteFriendListActivity inviteFriendListActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(InviteFriendListActivity inviteFriendListActivity, int i) {
+        super(i);
         this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.adp.base.e
-    public void a(Object obj) {
-        y yVar;
-        y yVar2;
-        af afVar;
-        af afVar2;
-        af afVar3;
-        yVar = this.a.a;
-        yVar.j();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         this.a.closeLoadingDialog();
-        if (obj == null) {
-            afVar = this.a.b;
-            if (afVar.getErrorCode() != 0) {
-                afVar2 = this.a.b;
-                if (afVar2.getErrorString() != null) {
-                    InviteFriendListActivity inviteFriendListActivity = this.a;
-                    afVar3 = this.a.b;
-                    inviteFriendListActivity.showToast(afVar3.getErrorString());
-                    return;
-                }
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205002 && (socketResponsedMessage instanceof ResponseCommitInviteMessage)) {
+            ResponseCommitInviteMessage responseCommitInviteMessage = (ResponseCommitInviteMessage) socketResponsedMessage;
+            if (responseCommitInviteMessage.getError() != 0) {
+                this.a.showToast(responseCommitInviteMessage.getErrorString());
                 return;
             }
-            return;
-        }
-        com.baidu.tieba.im.data.f fVar = (com.baidu.tieba.im.data.f) obj;
-        ArrayList<com.baidu.tieba.im.data.e> a = fVar == null ? null : fVar.a();
-        if (fVar != null && fVar.b() && (a == null || a.size() <= 0)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.y.invite_friend_no_data_now));
-        }
-        if (fVar != null) {
-            yVar2 = this.a.a;
-            yVar2.a(fVar);
+            this.a.showToast(this.a.getString(com.baidu.tieba.y.send_success), false);
+            new Handler().postDelayed(new o(this), 400L);
         }
     }
 }

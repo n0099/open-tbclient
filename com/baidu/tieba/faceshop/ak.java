@@ -1,53 +1,50 @@
 package com.baidu.tieba.faceshop;
-
-import com.baidu.tbadk.download.DownloadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.base.e {
+public class ak extends com.baidu.adp.base.h {
     final /* synthetic */ FacePackageDetailActivity a;
-    private final /* synthetic */ DownloadData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(FacePackageDetailActivity facePackageDetailActivity, DownloadData downloadData) {
+    public ak(FacePackageDetailActivity facePackageDetailActivity) {
         this.a = facePackageDetailActivity;
-        this.b = downloadData;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        an anVar;
-        an anVar2;
-        an anVar3;
-        an anVar4;
-        an anVar5;
-        if (obj != null && (obj instanceof FacePackageDownloadData)) {
-            FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
-            if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
-                String str = facePackageDownloadData.packUrl;
-                anVar = this.a.a;
-                anVar.a(str);
-                anVar2 = this.a.a;
-                if (anVar2.a() != null) {
-                    anVar3 = this.a.a;
-                    if (anVar3.a().facePackage != null) {
-                        FacePackageDetailActivity facePackageDetailActivity = this.a;
-                        anVar4 = this.a.a;
-                        String e = anVar4.e();
-                        anVar5 = this.a.a;
-                        facePackageDetailActivity.a(e, anVar5.a().facePackage.pname, str);
-                        return;
-                    }
+        am amVar;
+        am amVar2;
+        ao aoVar;
+        am amVar3;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FaceBuyData)) {
+            FaceBuyData faceBuyData = (FaceBuyData) obj;
+            if (faceBuyData.errno == 0 && faceBuyData.usermsg != null) {
+                String str = faceBuyData.buyInfo.buyUrl;
+                String str2 = faceBuyData.buyInfo.returnUrl;
+                if (faceBuyData.buyInfo.buyStatus != 2) {
+                    amVar3 = this.a.a;
+                    amVar3.d(String.valueOf(faceBuyData.buyInfo.orderId));
+                    FaceBuyWebViewActivity.a(this.a, str, str2, this.a.getString(com.baidu.tieba.y.buy_package), 0, 10001);
                     return;
                 }
+                this.a.showToast(com.baidu.tieba.y.has_buy2);
+                amVar = this.a.a;
+                FacePackageData facePackageData = amVar.a().facePackage;
+                facePackageData.buyStatus = 1;
+                facePackageData.canDownload = 1;
+                amVar2 = this.a.a;
+                amVar2.a(facePackageData);
+                aoVar = this.a.b;
+                aoVar.d();
                 return;
-            } else if (facePackageDownloadData.usermsg != null) {
-                this.a.showToast(facePackageDownloadData.usermsg);
+            } else if (faceBuyData.usermsg != null) {
+                this.a.showToast(faceBuyData.usermsg);
                 return;
             } else {
-                g.a().a(this.b);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
         }
-        g.a().a(this.b);
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

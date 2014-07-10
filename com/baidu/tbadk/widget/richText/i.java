@@ -220,18 +220,16 @@ public class i {
                         break;
                     }
                 }
-                String str2 = split[i].split("_")[0];
-                BdLog.d("TbRichTextView", "onClick", str2);
-                this.e.b.e = str2;
+                this.e.b.e = split[i].split("_")[0];
             } else {
                 this.b = new b(jSONObject);
                 if (this.a == 4) {
-                    String str3 = "[" + jSONObject.optString("c") + "]";
+                    String str2 = "[" + jSONObject.optString("c") + "]";
                     if (TbFaceManager.a().b(this.b.a()) <= 0) {
                         this.a = 1;
-                        this.b.a(str3);
+                        this.b.a(str2);
                     } else {
-                        this.b.b(str3);
+                        this.b.b(str2);
                     }
                 } else if (this.a == 256) {
                     this.b.b(jSONObject.optString("phonetype"));

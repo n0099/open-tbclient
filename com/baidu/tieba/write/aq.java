@@ -1,33 +1,38 @@
 package com.baidu.tieba.write;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.graphics.drawable.NinePatchDrawable;
 import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnTouchListener {
+public class aq implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(WriteActivity writeActivity) {
+    public aq(WriteActivity writeActivity, boolean z) {
         this.a = writeActivity;
+        this.b = z;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         EditText editText;
-        if (motionEvent.getAction() == 1) {
-            view.requestFocus();
-            writeEditorToolButtonContainer = this.a.z;
-            writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.a.A;
+        EditText editText2;
+        com.baidu.tieba.bubble.t tVar;
+        if (aVar != null && aVar.h() != null && aVar.m() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkApplication.m252getInst().getResources(), aVar.h(), aVar.h().getNinePatchChunk(), aVar.m(), null);
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.pb.main.bt.a);
+            }
             editText = this.a.h;
-            editorToolComponetContainer.c(editText);
-            return false;
+            editText.setBackgroundDrawable(ninePatchDrawable);
+            if (this.b) {
+                WriteActivity writeActivity = this.a;
+                editText2 = this.a.h;
+                tVar = this.a.ac;
+                com.baidu.tieba.bubble.h.a(writeActivity, editText2, true, tVar);
+            }
         }
-        return false;
     }
 }

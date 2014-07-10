@@ -8,9 +8,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class ImagesInvalidService extends Service {
     private static final int DELAY_TIMES = 10000;
@@ -21,7 +19,7 @@ public class ImagesInvalidService extends Service {
     private static Handler sHandler = new a();
 
     static {
-        MessageManager.getInstance().registerListener(new b(MessageTypes.CMD_BACKGROUND_SWTICH));
+        MessageManager.getInstance().registerListener(new b(2001011));
     }
 
     public static void setSuccess(boolean z) {
@@ -46,7 +44,6 @@ public class ImagesInvalidService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        BdLog.d("start delete invalde images");
         this.mDiskFileOperate = new c(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         d.a().b(this.mDiskFileOperate);
     }
@@ -54,7 +51,6 @@ public class ImagesInvalidService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        BdLog.d("stop delete invalde images");
         d.a().c(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
     }

@@ -12,6 +12,6 @@ public class p implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r2) {
-        com.baidu.tieba.im.pushNotify.p.a().d();
+        com.baidu.tieba.im.pushNotify.q.a().d();
     }
 }

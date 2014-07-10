@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tieba.service.PerformMonitorService;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class r {
     public static String a(String str) {
-        if (bg.c(str) || str.indexOf("cuid=") <= -1) {
+        if (bm.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -41,7 +41,7 @@ public class r {
         context.startService(new Intent(context, PerformMonitorService.class));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [280=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=5] */
     public static boolean a() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -54,12 +54,12 @@ public class r {
                     } catch (Exception e) {
                         e = e;
                         BdLog.e(e.getMessage());
-                        com.baidu.tbadk.core.util.m.a(randomAccessFile);
+                        com.baidu.adp.lib.util.m.a(randomAccessFile);
                         return false;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.tbadk.core.util.m.a(randomAccessFile);
+                    com.baidu.adp.lib.util.m.a(randomAccessFile);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -68,11 +68,11 @@ public class r {
             } catch (Throwable th2) {
                 th = th2;
                 randomAccessFile = null;
-                com.baidu.tbadk.core.util.m.a(randomAccessFile);
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
                 throw th;
             }
             if (randomAccessFile.read(bArr) < 1) {
-                com.baidu.tbadk.core.util.m.a(randomAccessFile);
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
                 return false;
             }
             String str = new String(bArr);
@@ -81,10 +81,10 @@ public class r {
                 str = str.substring(0, indexOf);
             }
             if (str.toLowerCase().contains("arm")) {
-                com.baidu.tbadk.core.util.m.a(randomAccessFile);
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
                 return true;
             }
-            com.baidu.tbadk.core.util.m.a(randomAccessFile);
+            com.baidu.adp.lib.util.m.a(randomAccessFile);
             return false;
         }
         return true;
@@ -113,9 +113,9 @@ public class r {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            BdLog.e(e.getMessage());
+            BdLog.detailException(e);
         } catch (SecurityException e2) {
-            BdLog.e(e2.getMessage());
+            BdLog.detailException(e2);
         }
     }
 
@@ -126,9 +126,9 @@ public class r {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            BdLog.e(e.getMessage());
+            BdLog.detailException(e);
         } catch (SecurityException e2) {
-            BdLog.e(e2.getMessage());
+            BdLog.detailException(e2);
         }
     }
 

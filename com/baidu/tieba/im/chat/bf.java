@@ -19,7 +19,7 @@ class bf extends com.baidu.adp.framework.listener.b {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         bn bnVar;
         bn bnVar2;
-        com.baidu.tieba.im.model.by byVar;
+        com.baidu.tieba.im.model.bx bxVar;
         bn bnVar3;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
             if (socketResponsedMessage.getCmd() == 103112) {
@@ -32,7 +32,7 @@ class bf extends com.baidu.adp.framework.listener.b {
                 this.a.showToast(com.baidu.tieba.y.group_quit_suc);
                 bnVar3 = this.a.b;
                 com.baidu.tieba.im.e.i.a(bnVar3.b());
-                com.baidu.tieba.im.pushNotify.a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
+                com.baidu.tieba.im.pushNotify.a.i().b(false, (com.baidu.tieba.im.a<Void>) null);
                 this.a.finish();
             } else if (socketResponsedMessage.getCmd() == 103102) {
                 if (socketResponsedMessage.getError() != 0) {
@@ -43,8 +43,8 @@ class bf extends com.baidu.adp.framework.listener.b {
                 this.a.hideProgressBar();
                 this.a.showToast(com.baidu.tieba.y.group_add_group_switch_success);
                 bnVar2 = this.a.b;
-                byVar = this.a.c;
-                bnVar2.b(byVar.h());
+                bxVar = this.a.c;
+                bnVar2.b(bxVar.h());
             } else if (socketResponsedMessage.getCmd() == 103104) {
                 this.a.hideProgressBar();
                 if (socketResponsedMessage.getError() == 0) {

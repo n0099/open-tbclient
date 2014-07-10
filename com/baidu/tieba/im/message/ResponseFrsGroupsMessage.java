@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.Message;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
@@ -18,23 +17,15 @@ public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
     private List<GroupInfoData> groups;
 
     public ResponseFrsGroupsMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUPS_BYFID);
+        super(103002);
     }
 
     public List<GroupInfoData> getGroups() {
         return this.groups;
     }
 
-    public void setGroups(List<GroupInfoData> list) {
-        this.groups = list;
-    }
-
     public GroupPermData getGroupPerm() {
         return this.groupPerm;
-    }
-
-    public void setGroupPerm(GroupPermData groupPermData) {
-        this.groupPerm = groupPermData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +35,7 @@ public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
         setError(queryGroupsByFidResIdl.error.errorno.intValue());
         setErrorString(queryGroupsByFidResIdl.error.usermsg);
         if (getError() == 0) {
-            setGroups(new ArrayList());
+            this.groups = new ArrayList();
             if (queryGroupsByFidResIdl.data.groups != null) {
                 for (GroupInfo groupInfo : queryGroupsByFidResIdl.data.groups) {
                     GroupInfoData groupInfoData = new GroupInfoData();
@@ -74,17 +65,17 @@ public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
             groupPermData.setCreateOfficialTip(groupPermission.createOfficialTip);
             groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
             groupPermData.setIsManager(groupPermission.isForumManager.intValue());
-            setGroupPerm(groupPermData);
+            this.groupPerm = groupPermData;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage) && getError() == 0) {
             RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) orginalMessage;
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().f(), PB_KEY_PRE + requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), PB_KEY_PRE + requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), bArr);
         }
     }
 }

@@ -17,55 +17,55 @@ class j implements com.baidu.tieba.pb.sub.h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.data.ap apVar) {
-        bq bqVar;
-        bq bqVar2;
+    public void a(boolean z, int i, String str, com.baidu.tieba.data.at atVar) {
+        bt btVar;
+        bt btVar2;
         com.baidu.tieba.pb.sub.f fVar;
-        bj bjVar;
+        bm bmVar;
         com.baidu.tieba.pb.sub.f fVar2;
-        bq bqVar3;
-        bj bjVar2;
+        bt btVar3;
+        bm bmVar2;
         AntiData i2;
         com.baidu.tieba.pb.sub.f fVar3;
         String str2;
-        bq bqVar4;
-        bj bjVar3;
+        bt btVar4;
+        bm bmVar3;
         String str3;
         com.baidu.tieba.pb.sub.f fVar4;
-        bj bjVar4;
+        bm bmVar4;
         this.a.D();
-        bqVar = this.a.D;
-        bqVar.d(str);
-        bqVar2 = this.a.D;
-        bqVar2.F();
+        btVar = this.a.D;
+        btVar.d(str);
+        btVar2 = this.a.D;
+        btVar2.G();
         if (!z) {
             if (i == 4 || i == 28) {
-                bjVar4 = this.a.x;
-                if (bjVar4.n()) {
+                bmVar4 = this.a.x;
+                if (bmVar4.o()) {
                     this.a.closeActivity();
                 }
             }
-        } else if (apVar != null) {
+        } else if (atVar != null) {
             fVar = this.a.B;
             String b = fVar.b();
-            bjVar = this.a.x;
-            ArrayList<com.baidu.tieba.data.ai> e = bjVar.q().e();
+            bmVar = this.a.x;
+            ArrayList<com.baidu.tieba.data.am> d = bmVar.r().d();
             int i3 = 0;
             while (true) {
-                if (i3 < e.size()) {
-                    com.baidu.tieba.data.ai aiVar = e.get(i3);
-                    if (aiVar.l() == null || !aiVar.l().equals(b)) {
+                if (i3 < d.size()) {
+                    com.baidu.tieba.data.am amVar = d.get(i3);
+                    if (amVar.l() == null || !amVar.l().equals(b)) {
                         i3++;
                     } else {
-                        ArrayList<com.baidu.tieba.data.ai> c = apVar.c();
-                        aiVar.b(c.size());
-                        int size = aiVar.i().size();
+                        ArrayList<com.baidu.tieba.data.am> c = atVar.c();
+                        amVar.b(c.size());
+                        int size = amVar.i().size();
                         while (true) {
                             int i4 = size;
                             if (i4 >= 2 || i4 >= c.size()) {
                                 break;
                             }
-                            aiVar.i().add(apVar.c().get(i4));
+                            amVar.i().add(atVar.c().get(i4));
                             size = i4 + 1;
                         }
                     }
@@ -80,19 +80,19 @@ class j implements com.baidu.tieba.pb.sub.h {
                 if ("mention".equals(fVar3.c()) || c2.equals("person_post_reply")) {
                     str2 = this.a.J;
                     if (str2 != null) {
-                        bqVar4 = this.a.D;
-                        bjVar3 = this.a.x;
-                        int l = bjVar3.q().l();
+                        btVar4 = this.a.D;
+                        bmVar3 = this.a.x;
+                        int k = bmVar3.r().k();
                         str3 = this.a.J;
-                        boolean z2 = apVar.b() > 1;
+                        boolean z2 = atVar.b() > 1;
                         fVar4 = this.a.B;
-                        bqVar4.a(apVar, l, str3, z2, fVar4.g() == 1);
-                        i2 = apVar.i();
+                        btVar4.a(atVar, k, str3, z2, fVar4.h() == 1);
+                        i2 = atVar.i();
                         if (i2 == null) {
                             Boolean valueOf = Boolean.valueOf(i2.isIfvoice());
                             this.a.p = i2.getVoice_message();
-                            if (apVar.h() != null) {
-                                this.a.a(apVar.h().getName(), valueOf);
+                            if (atVar.h() != null) {
+                                this.a.a(atVar.h().getName(), valueOf);
                                 return;
                             }
                             return;
@@ -101,10 +101,10 @@ class j implements com.baidu.tieba.pb.sub.h {
                     }
                 }
             }
-            bqVar3 = this.a.D;
-            bjVar2 = this.a.x;
-            bqVar3.a(apVar, bjVar2.q().l());
-            i2 = apVar.i();
+            btVar3 = this.a.D;
+            bmVar2 = this.a.x;
+            btVar3.a(atVar, bmVar2.r().k());
+            i2 = atVar.i();
             if (i2 == null) {
             }
         }

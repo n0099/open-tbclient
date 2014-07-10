@@ -5,7 +5,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.h;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -39,14 +40,14 @@ public class g extends BdAsyncTask<Object, Integer, Boolean> {
             i = this.d.mMaxSize;
             Bitmap a = com.baidu.tbadk.b.g.a(i3, tiebaPrepareImageService, uri, i);
             if (a != null) {
-                if (x.a((String) null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
+                if (z.a((String) null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                     int i4 = 100;
                     i2 = this.d.mDisplaySize;
                     if (i2 > 0) {
                         i4 = this.d.mDisplaySize;
                     }
-                    Bitmap a2 = com.baidu.tbadk.core.util.g.a(a, i4);
-                    if (a2 == null || x.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) == null) {
+                    Bitmap a2 = h.a(a, i4);
+                    if (a2 == null || z.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) == null) {
                         this.c = this.d.getString(y.error_sd_error);
                         z = false;
                     }

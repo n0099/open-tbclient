@@ -1,32 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class cf implements AbsListView.OnScrollListener {
-    final /* synthetic */ PersonListActivity a;
+class cf implements View.OnClickListener {
+    final /* synthetic */ cb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public cf(cb cbVar) {
+        this.a = cbVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.h;
-        runnable = this.a.r;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.h;
-        runnable2 = this.a.r;
-        handler2.postDelayed(runnable2, 90L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        cl clVar;
+        z = this.a.m;
+        if (!z) {
+            cb cbVar = this.a;
+            clVar = this.a.h;
+            cbVar.n = clVar.b().a().c() + 1;
+            this.a.m = true;
+            this.a.g();
+        }
     }
 }

@@ -5,11 +5,11 @@ import android.os.Process;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ b a;
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.a = bVar;
+    public i(c cVar) {
+        this.a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,7 +18,7 @@ public class i implements Runnable {
         Context context2;
         Process.setThreadPriority(10);
         context = this.a.b;
-        c a = c.a(context.getApplicationContext());
+        e a = e.a(context.getApplicationContext());
         context2 = this.a.b;
         a.b(context2.getApplicationContext());
     }

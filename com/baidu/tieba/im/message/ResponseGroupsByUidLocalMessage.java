@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
@@ -12,11 +11,14 @@ import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
 /* loaded from: classes.dex */
 public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Object> {
+    private int commonGroupNum;
+    private List<GroupInfoData> commonGroups;
+    private int groupNum;
     private GroupPermData groupPerm;
     private List<GroupInfoData> groups;
 
     public ResponseGroupsByUidLocalMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUP_BY_UID_LOCAL);
+        super(2001106);
     }
 
     public ResponseGroupsByUidLocalMessage(int i) {
@@ -37,6 +39,30 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
 
     public void setGroupPerm(GroupPermData groupPermData) {
         this.groupPerm = groupPermData;
+    }
+
+    public List<GroupInfoData> getCommonGroups() {
+        return this.commonGroups;
+    }
+
+    public void setCommonGroups(List<GroupInfoData> list) {
+        this.commonGroups = list;
+    }
+
+    public int getGroupNum() {
+        return this.groupNum;
+    }
+
+    public void setGroupNum(int i) {
+        this.groupNum = i;
+    }
+
+    public int getCommonGroupNum() {
+        return this.commonGroupNum;
+    }
+
+    public void setCommonGroupNum(int i) {
+        this.commonGroupNum = i;
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -63,6 +89,25 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
                     getGroups().add(groupInfoData);
                 }
             }
+            setCommonGroups(new ArrayList());
+            if (queryGroupsByUidResIdl.data.commonGroups != null) {
+                for (GroupInfo groupInfo2 : queryGroupsByUidResIdl.data.commonGroups) {
+                    GroupInfoData groupInfoData2 = new GroupInfoData();
+                    groupInfoData2.setGroupId(groupInfo2.groupId.intValue());
+                    groupInfoData2.setAuthorId(groupInfo2.authorId.intValue());
+                    groupInfoData2.setAuthorName(groupInfo2.authorName);
+                    groupInfoData2.setForumId(groupInfo2.forumId.intValue());
+                    groupInfoData2.setGrade(groupInfo2.grade.intValue());
+                    groupInfoData2.setIntro(groupInfo2.intro);
+                    groupInfoData2.setName(groupInfo2.name);
+                    groupInfoData2.setIsGroupManager(groupInfo2.isGroupManager.intValue());
+                    groupInfoData2.setMaxMemberNum(groupInfo2.maxMemberNum.intValue());
+                    groupInfoData2.setMemberNum(groupInfo2.memberNum.intValue());
+                    groupInfoData2.setPortrait(groupInfo2.portrait);
+                    groupInfoData2.setMemGroup(groupInfo2.isMemberGroup.intValue() == 1);
+                    getCommonGroups().add(groupInfoData2);
+                }
+            }
             GroupPermission groupPermission = queryGroupsByUidResIdl.data.groupPerm;
             GroupPermData groupPermData = new GroupPermData();
             groupPermData.setCanCreateNormal(groupPermission.canCreateNormal.intValue());
@@ -73,6 +118,8 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
             groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
             groupPermData.setIsManager(groupPermission.isForumManager.intValue());
             setGroupPerm(groupPermData);
+            setGroupNum(queryGroupsByUidResIdl.data.groupnum.intValue());
+            setCommonGroupNum(queryGroupsByUidResIdl.data.commongroupnum.intValue());
         }
     }
 }

@@ -30,7 +30,7 @@ public class f implements View.OnTouchListener {
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
             editText2 = this.a.k;
-            com.baidu.adp.lib.util.k.b(imagePbActivity, editText2);
+            com.baidu.adp.lib.util.j.b(imagePbActivity, editText2);
             button = this.a.m;
             button.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
             return true;

@@ -36,7 +36,7 @@ public class o {
     }
 
     public void a(String str, int i) {
-        a(str, i, com.baidu.adp.lib.util.k.a((Context) BdBaseApplication.getInst().getApp(), 100.0f));
+        a(str, i, com.baidu.adp.lib.util.j.a((Context) BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void a(int i, int i2) {

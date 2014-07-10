@@ -6,7 +6,6 @@ import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,10 +15,10 @@ public class LivePlayingStatusMgr {
     private int b;
     private ArrayList<SoftReference<LivePlayingImageView>> d;
     private LivePlayingStatus c = LivePlayingStatus.IDEL;
-    private final CustomMessageListener e = new ah(this, MessageTypes.CMD_LIVE_STATUS_CHANGE);
-    private final CustomMessageListener f = new ai(this, MessageTypes.CMD_LIVE_CHAT_ROOM_EVENT);
+    private final CustomMessageListener e = new aj(this, 2001161);
+    private final CustomMessageListener f = new ak(this, 2001166);
     @SuppressLint({"HandlerLeak"})
-    private final Handler g = new aj(this);
+    private final Handler g = new al(this);
 
     /* loaded from: classes.dex */
     public enum LivePlayingStatus {

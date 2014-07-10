@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.core.view.w;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tbadk.core.voice.z;
+import com.baidu.tbadk.core.voice.aa;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.account.SapiFastRegActivity;
+import com.baidu.tieba.model.q;
 import com.baidu.tieba.model.s;
-import com.baidu.tieba.model.u;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.d implements w {
     private VoiceManager b;
-    private s c;
+    private q c;
     private j d;
     private View e;
     private BaseFragmentActivity g;
@@ -41,6 +41,10 @@ public class a extends com.baidu.tbadk.core.d implements w {
         this.g = (BaseFragmentActivity) activity;
     }
 
+    public j f() {
+        return this.d;
+    }
+
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -54,11 +58,11 @@ public class a extends com.baidu.tbadk.core.d implements w {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f = l();
-        f();
+        this.f = m();
+        g();
         this.l = null;
-        if (this.g instanceof z) {
-            this.b = ((z) this.g).d();
+        if (this.g instanceof aa) {
+            this.b = ((aa) this.g).d();
         }
     }
 
@@ -85,17 +89,12 @@ public class a extends com.baidu.tbadk.core.d implements w {
                 this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.h.a().f();
                 this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
             }
-            boolean l = l();
-            if (this.f != l) {
-                this.f = l;
-                f();
-                return;
-            }
-            if (this.k) {
-                n();
-            }
-            if (this.d != null) {
-                this.d.h();
+            boolean m = m();
+            if (this.f != m) {
+                this.f = m;
+                g();
+            } else if (this.k) {
+                o();
             }
         }
     }
@@ -110,6 +109,9 @@ public class a extends com.baidu.tbadk.core.d implements w {
         super.onStop();
         if (this.d != null) {
             this.d.g();
+        }
+        if (this.e != null) {
+            h.a(this.e);
         }
     }
 
@@ -135,20 +137,21 @@ public class a extends com.baidu.tbadk.core.d implements w {
         }
     }
 
-    private void f() {
-        if (l()) {
+    private void g() {
+        if (m()) {
             FrameLayout frameLayout = (FrameLayout) getView();
             if (this.e != null) {
+                h.a(this.e);
                 frameLayout.removeView(this.e);
                 this.e = null;
             }
             this.h.setVisibility(0);
-            m();
+            n();
+            i();
             h();
-            g();
             return;
         }
-        q();
+        r();
     }
 
     private View a(LayoutInflater layoutInflater) {
@@ -158,28 +161,28 @@ public class a extends com.baidu.tbadk.core.d implements w {
         return frameLayout;
     }
 
-    private void g() {
-        i();
-    }
-
     private void h() {
-        this.c = new s();
-        this.c.setLoadDataCallBack(j());
+        j();
     }
 
     private void i() {
+        this.c = new q();
+        this.c.setLoadDataCallBack(k());
+    }
+
+    private void j() {
         this.c.g();
     }
 
-    private com.baidu.adp.base.e j() {
+    private com.baidu.adp.base.h k() {
         return new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        u uVar = (u) obj;
-        if (uVar != null && uVar.a != null && uVar.a.b() != null && uVar.a.b().size() > 0) {
-            this.d.a(uVar.a);
+        s sVar = (s) obj;
+        if (sVar != null && sVar.a != null && sVar.a.b() != null && sVar.a.b().size() > 0) {
+            this.d.a(sVar.a);
             this.c.a(true);
         }
         this.d.a();
@@ -211,7 +214,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void l() {
         if (this.c != null) {
             int errorCode = this.c.getErrorCode();
             String errorString = this.c.getErrorString();
@@ -221,17 +224,17 @@ public class a extends com.baidu.tbadk.core.d implements w {
                     this.d.b();
                 }
             }
-            if (errorCode != 0 && errorString != "" && p()) {
+            if (errorCode != 0 && errorString != "" && q()) {
                 this.g.a(errorString);
             }
         }
     }
 
-    private boolean l() {
+    private boolean m() {
         return (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccountName() == null) ? false : true;
     }
 
-    private void m() {
+    private void n() {
         this.d = new j(this.g, this);
         this.d.a(new c(this));
         this.d.a(new d(this));
@@ -240,12 +243,12 @@ public class a extends com.baidu.tbadk.core.d implements w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
+    public void o() {
         this.i = true;
         if (this.c == null) {
-            h();
+            i();
         }
-        if (p()) {
+        if (q()) {
             this.c.a(1);
         } else {
             this.d.d();
@@ -253,18 +256,18 @@ public class a extends com.baidu.tbadk.core.d implements w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        if (this.c.b() && this.c.f() && p()) {
+    public void p() {
+        if (this.c.b() && this.c.f() && q()) {
             this.d.e();
             this.c.a(2);
         }
     }
 
-    private boolean p() {
+    private boolean q() {
         return UtilHelper.getNetStatusInfo(this.g.getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
-    private void q() {
+    private void r() {
         FrameLayout frameLayout = (FrameLayout) getView();
         if (this.e != null) {
             frameLayout.removeView(this.e);
@@ -277,7 +280,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
 
     @Override // com.baidu.tbadk.core.view.w
     public ListView a() {
-        return this.d.j();
+        return this.d.h();
     }
 
     @Override // com.baidu.tbadk.core.view.w
@@ -285,7 +288,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
         if (this.d == null) {
             return 0;
         }
-        return this.d.k();
+        return this.d.i();
     }
 
     @Override // com.baidu.tbadk.core.view.w

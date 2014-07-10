@@ -22,20 +22,33 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout {
     private static final Pattern g = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private static final Pattern j = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private static final Pattern k = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
     protected Context a;
     protected PbEditorToolView b;
     public EditorToolComponetContainer c;
-    protected com.baidu.tbadk.editortool.x d;
+    protected com.baidu.tbadk.editortool.w d;
     protected boolean e;
     private int f;
     private boolean h;
     private boolean i;
+    private boolean j;
+
+    public void setHideBaobao(boolean z) {
+        this.j = z;
+        if (this.c != null) {
+            this.c.setHideBaobao(z);
+        }
+    }
+
+    public EditorToolComponetContainer getEditorToolComponetContainer() {
+        return this.c;
+    }
 
     public PbEditor(Context context) {
         super(context);
         this.f = 1000;
         this.i = false;
+        this.j = false;
         this.e = true;
         this.a = context;
         i();
@@ -45,6 +58,7 @@ public class PbEditor extends LinearLayout {
         super(context, attributeSet);
         this.f = 1000;
         this.i = false;
+        this.j = false;
         this.e = true;
         this.a = context;
         i();
@@ -66,10 +80,10 @@ public class PbEditor extends LinearLayout {
 
     public boolean c() {
         Editable text = this.b.getEditText().getText();
-        if ((text == null || text.toString().trim().length() <= 0) && !this.c.t()) {
-            return this.c.u();
+        if ((text != null && text.toString().trim().length() > 0) || this.c.x() || this.c.y()) {
+            return true;
         }
-        return true;
+        return this.c.z();
     }
 
     public EditText getEditText() {
@@ -97,26 +111,26 @@ public class PbEditor extends LinearLayout {
     }
 
     public void e() {
-        this.c.m();
+        this.c.p();
         this.b.k();
     }
 
     public void f() {
-        this.c.m();
+        this.c.p();
         this.b.k();
     }
 
     public void g() {
-        if (this.c.l() && !this.h) {
+        if (this.c.o() && !this.h) {
             this.h = true;
-            aq.a(this, this.a, new t(this));
+            as.a(this, this.a, new v(this));
             return;
         }
         e();
     }
 
     public boolean h() {
-        return this.c.l();
+        return this.c.o();
     }
 
     protected void i() {
@@ -126,7 +140,7 @@ public class PbEditor extends LinearLayout {
     }
 
     public boolean j() {
-        return this.c.z();
+        return this.c.E();
     }
 
     public void a(View view) {
@@ -144,7 +158,7 @@ public class PbEditor extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i, as asVar) {
+    public void a(int i, au auVar) {
         this.b.getEditText().requestFocus();
         this.c.b(this.b.getEditText());
         a(i);
@@ -152,28 +166,31 @@ public class PbEditor extends LinearLayout {
 
     protected void a(int i) {
         if (i == 5) {
-            this.c.q();
+            this.c.t();
         } else if (i == 23 || i == 22) {
-            this.c.r();
+            this.c.u();
         } else if (i == 2) {
-            this.c.p();
-        } else if (i == 38) {
-            this.c.o();
-        } else if (i == 44) {
             this.c.s();
+        } else if (i == 38) {
+            this.c.r();
+        } else if (i == 44) {
+            this.c.v();
+        } else if (i == 50 || i == 48) {
+            this.c.w();
         }
     }
 
     public void b(int i) {
-        if (this.c.l()) {
+        if (this.c.o()) {
             a(i);
+            this.c.b(this.b.getEditText());
             return;
         }
         this.e = false;
-        if (this.c.z()) {
+        if (this.c.E()) {
             this.c.b(this.b.getEditText());
         }
-        new Handler().postDelayed(new u(this, i), 200L);
+        new Handler().postDelayed(new w(this, i), 200L);
     }
 
     public boolean l() {
@@ -181,11 +198,11 @@ public class PbEditor extends LinearLayout {
         return (text == null ? 0 : text.length()) >= this.f;
     }
 
-    public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
-        if (xVar != null) {
-            this.d = xVar;
-            this.b.setOnActionListener(new w(this, xVar));
-            this.c.setOnActionListener(new x(this, xVar));
+    public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
+        if (wVar != null) {
+            this.d = wVar;
+            this.b.setOnActionListener(new y(this, wVar));
+            this.c.setOnActionListener(new z(this, wVar));
         }
     }
 
@@ -197,15 +214,15 @@ public class PbEditor extends LinearLayout {
             ((BaseActivity) this.a).getLayoutMode().a((View) this.b);
             ((BaseActivity) this.a).getLayoutMode().a((View) this.c);
         } else if (this.a instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.a).a().a(i == 1);
-            ((BaseFragmentActivity) this.a).a().a((View) this.b);
-            ((BaseFragmentActivity) this.a).a().a((View) this.c);
+            ((BaseFragmentActivity) this.a).c().a(i == 1);
+            ((BaseFragmentActivity) this.a).c().a((View) this.b);
+            ((BaseFragmentActivity) this.a).c().a((View) this.c);
         }
     }
 
     public void m() {
         this.b.b();
-        this.c.w();
+        this.c.B();
     }
 
     public void n() {
@@ -220,7 +237,7 @@ public class PbEditor extends LinearLayout {
             this.d.a(34, null);
         }
         this.b.k();
-        this.c.m();
+        this.c.p();
         b(getEditText());
         setVisibility(8);
     }
@@ -246,7 +263,7 @@ public class PbEditor extends LinearLayout {
     }
 
     public void s() {
-        this.c.x();
+        this.c.C();
     }
 
     public VoiceData.VoiceModel getAudioData() {
@@ -254,7 +271,7 @@ public class PbEditor extends LinearLayout {
     }
 
     public void t() {
-        this.c.v();
+        this.c.A();
     }
 
     public void a(Bitmap bitmap) {
@@ -274,9 +291,9 @@ public class PbEditor extends LinearLayout {
     public static int a(String str) {
         int i = 0;
         if (str != null && str.length() != 0) {
-            Matcher matcher = j.matcher(str);
+            Matcher matcher = k.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.ac.a().a(matcher.group())) {
+                if (com.baidu.tbadk.editortool.ab.a().a(matcher.group())) {
                     i++;
                 }
             }
@@ -290,13 +307,15 @@ public class PbEditor extends LinearLayout {
             return;
         }
         if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble()) && !this.i) {
-            if (!this.c.t()) {
+            if (!this.c.x() && !this.c.y()) {
                 this.b.j();
+            } else {
+                this.b.i();
             }
         } else {
             this.b.i();
         }
-        this.c.B();
+        this.c.G();
     }
 
     public void setMaxTextCount(int i) {

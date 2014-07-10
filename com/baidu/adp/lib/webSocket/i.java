@@ -39,8 +39,8 @@ class i implements g {
         this.b = this.a.getInputStream();
         this.c = this.a.getOutputStream();
         this.d = new byte[1024];
-        this.g = com.baidu.adp.lib.util.k.e();
-        this.h = com.baidu.adp.lib.util.k.f();
+        this.g = com.baidu.adp.lib.util.j.d();
+        this.h = com.baidu.adp.lib.util.j.e();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g

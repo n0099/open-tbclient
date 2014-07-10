@@ -1,70 +1,60 @@
 package com.baidu.adp.base;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.adp.framework.MessageManager;
+import android.os.Handler;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class f extends SQLiteOpenHelper {
-    private static SQLiteDatabase a;
-    private static Object b = new Object();
+public class f {
+    protected Context mContext;
+    private InputMethodManager mInputManager = null;
 
-    public f(Context context, String str) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, 1);
+    public f(Context context) {
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public boolean a(SQLiteDatabase sQLiteDatabase, String str) {
+    public void destroy() {
+    }
+
+    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+        this.mInputManager = inputMethodManager;
+    }
+
+    public InputMethodManager getInputMethodManager() {
+        if (this.mInputManager == null) {
+            this.mInputManager = (InputMethodManager) this.mContext.getSystemService("input_method");
+        }
+        return this.mInputManager;
+    }
+
+    public void HidenSoftKeyPad(View view) {
         try {
-            sQLiteDatabase.execSQL(str);
-            return true;
-        } catch (Throwable th) {
-            BdLog.e(getClass(), str, th);
-            return false;
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i < 1) {
-            a(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-    }
-
-    protected void a(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
-    }
-
-    public SQLiteDatabase a() {
-        if (a == null || !a.isOpen()) {
-            synchronized (b) {
-                if (a == null) {
-                    a = getWritableDatabase();
-                }
+            if (this.mInputManager == null) {
+                getInputMethodManager();
             }
+            if (this.mInputManager != null && view != null) {
+                this.mInputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return a;
     }
 
-    public void a(Throwable th) {
-        close();
+    public void ShowSoftKeyPad(View view) {
+        try {
+            getInputMethodManager().showSoftInput(view, 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
-    public void close() {
-        synchronized (b) {
-            com.baidu.adp.lib.f.a.a(a);
-            a = null;
-        }
+    public void ShowSoftKeyPadDelay(View view, int i) {
+        new Handler().postDelayed(new g(this, view), i);
     }
 }

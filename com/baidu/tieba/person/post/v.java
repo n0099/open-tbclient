@@ -1,21 +1,34 @@
 package com.baidu.tieba.person.post;
+
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ s a;
+public class v extends HttpMessageListener {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar) {
-        this.a = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(t tVar, int i) {
+        super(i);
+        this.a = tVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        p pVar;
-        p pVar2;
-        pVar = this.a.c;
-        if (pVar != null) {
-            pVar2 = this.a.c;
-            pVar2.a(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        g gVar;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                this.a.a((PersonPostModel) null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (gVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                gVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
         }
     }
 }

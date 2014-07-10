@@ -142,6 +142,25 @@ public class a {
         return null;
     }
 
+    public void a(d dVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.n.size()) {
+                SoftReference<d> softReference = this.n.get(i2);
+                d dVar2 = softReference.get();
+                if (dVar2 == null || !dVar2.equals(dVar)) {
+                    i = i2 + 1;
+                } else {
+                    this.n.remove(softReference);
+                    return;
+                }
+            } else {
+                return;
+            }
+        }
+    }
+
     public void d() {
         if (this.p.hasMessages(0)) {
             this.p.removeMessages(0);
@@ -150,7 +169,7 @@ public class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                BdLog.e("error : " + e.getMessage());
+                BdLog.detailException(e);
             }
         }
         if (this.f != null && this.f.isStarted()) {

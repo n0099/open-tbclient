@@ -56,9 +56,9 @@ public class h extends RelativeLayout {
             this.b.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
             if (!TextUtils.isEmpty(tVar.c)) {
                 this.b.setTag(tVar.c);
-                com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
-                abVar.d(true);
-                abVar.b(tVar.c, new k(this, view));
+                com.baidu.tbadk.editortool.aa aaVar = new com.baidu.tbadk.editortool.aa(this.a);
+                aaVar.b(true);
+                aaVar.b(tVar.c, new k(this, view));
             }
         }
     }

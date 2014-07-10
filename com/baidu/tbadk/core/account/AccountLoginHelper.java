@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
 public class AccountLoginHelper {
     private static AccountLoginHelper mHelper = null;
@@ -44,8 +44,8 @@ public class AccountLoginHelper {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(AccountData accountData) {
-                    super.onPostExecute((C00111) accountData);
-                    if (accountData != null && !bg.c(accountData.getPassword())) {
+                    super.onPostExecute((C00101) accountData);
+                    if (accountData != null && !bm.c(accountData.getPassword())) {
                         c.a(accountData.getAccount(), accountData.getPassword(), AccountLoginHelper.this.mLoginCallBackForCacheAccount);
                     }
                 }
@@ -135,7 +135,7 @@ public class AccountLoginHelper {
                         return ourToken;
                     } catch (Exception e2) {
                         e = e2;
-                        BdLog.e("AccountShareHelper", "parseBDUSS", e.getMessage());
+                        BdLog.e(e.getMessage());
                         return ourToken;
                     }
                 }

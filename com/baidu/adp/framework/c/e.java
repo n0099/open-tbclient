@@ -50,7 +50,7 @@ public class e {
         if (this.a == null || this.a.length != 3) {
             return 0;
         }
-        switch (c()[BdNetUtil.a().ordinal()]) {
+        switch (c()[BdNetUtil.getStatusInfo().ordinal()]) {
             case 2:
                 return this.a[2];
             case 3:

@@ -9,26 +9,26 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ar;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bb;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, h {
-    private i a = null;
-    private f b = null;
+public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, g {
+    private h a = null;
+    private e b = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2003007, new d());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2002007, new c());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str, String str2, String str3, boolean z) {
-        if (!j.b(str2)) {
+        if (!i.b(str2)) {
             Intent intent = new Intent(context, PraiseListActivity.class);
             intent.putExtra("KeyIntentThreadId", str);
             intent.putExtra("KeyIntentPostId", str2);
@@ -46,15 +46,15 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.b = new f(bundle.getString("KeyIntentThreadId"), bundle.getString("KeyIntentPostId"), bundle.getString("KeyIntentPostDesc"), bundle.getBoolean("KeyIntentIsFromPb", true), this);
+            this.b = new e(bundle.getString("KeyIntentThreadId"), bundle.getString("KeyIntentPostId"), bundle.getString("KeyIntentPostDesc"), bundle.getBoolean("KeyIntentIsFromPb", true), this);
             this.b.a(bundle.getInt("KeyIntentPraiseId"));
         } else if (getIntent() != null) {
-            this.b = new f(getIntent().getStringExtra("KeyIntentThreadId"), getIntent().getStringExtra("KeyIntentPostId"), getIntent().getStringExtra("KeyIntentPostDesc"), getIntent().getBooleanExtra("KeyIntentIsFromPb", true), this);
+            this.b = new e(getIntent().getStringExtra("KeyIntentThreadId"), getIntent().getStringExtra("KeyIntentPostId"), getIntent().getStringExtra("KeyIntentPostDesc"), getIntent().getBooleanExtra("KeyIntentIsFromPb", true), this);
         }
         if (this.b == null) {
-            this.b = new f();
+            this.b = new e();
         }
-        this.a = new i(this, this.b.d());
+        this.a = new h(this, this.b.d());
         this.a.b();
         this.b.e();
     }
@@ -67,7 +67,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
                 finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(this).a(this.b.a(), null, "praise_list")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this).a(this.b.a(), null, "praise_list")));
             finish();
         } else if (view == this.a.g() && !this.a.d()) {
             this.a.b();
@@ -79,7 +79,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a b = this.b.b(i);
         if (b != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, b.a(), b.d())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, b.a(), b.d())));
         }
     }
 
@@ -99,21 +99,21 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
         this.b.e(bundle, "KeyIntentPraiseId");
     }
 
-    @Override // com.baidu.tieba.pb.praise.h
+    @Override // com.baidu.tieba.pb.praise.g
     public void a(String str) {
-        if (!j.b(str)) {
+        if (!i.b(str)) {
             showToast(str, true);
         }
         this.a.c();
     }
 
-    @Override // com.baidu.tieba.pb.praise.h
+    @Override // com.baidu.tieba.pb.praise.g
     public void a(int i, List<a> list, int i2, int i3) {
         this.a.a(i, list, i2, i3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.a();

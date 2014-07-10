@@ -56,7 +56,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x012e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0110 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v5 */
@@ -64,7 +64,6 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     private List<a> a(Context context, List<a> list, Uri uri) {
         Cursor cursor;
         String str;
-        String str2;
         File[] listFiles;
         Matcher matcher;
         if (context == null) {
@@ -109,8 +108,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                                 aVar.a(imageFileInfo);
                                 aVar.b(string2);
                                 if (string2 != null) {
-                                    str2 = this.a.b;
-                                    if (string2.equals(str2)) {
+                                    str = this.a.b;
+                                    if (string2.equals(str)) {
                                         list.add(0, aVar);
                                     }
                                 }
@@ -124,8 +123,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                     return list;
                 } catch (Exception e) {
                     e = e;
-                    str = this.a.a;
-                    BdLog.e(str, "getAlbumData", "error = " + e.getMessage());
+                    BdLog.detailException(e);
                     com.baidu.adp.lib.f.a.a(cursor);
                     return list;
                 }

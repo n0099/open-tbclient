@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.z;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
 class e {
     final /* synthetic */ a a;
-    private an b;
+    private aq b;
 
     private e(a aVar) {
         this.a = aVar;
@@ -25,9 +25,9 @@ class e {
         this(aVar);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [600=4, 601=4, 604=4, 605=8, 606=4, 610=4, 611=4, 614=4, 615=8, 616=4] */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [596=4, 597=4, 600=4, 601=4, 605=4, 606=4, 609=4, 610=4] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0073 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -66,7 +66,7 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e.getMessage());
+                                    BdLog.e(e.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -74,13 +74,13 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e2) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e2.getMessage());
+                                    BdLog.e(e2.getMessage());
                                     return;
                                 }
                             }
                             return;
                         }
-                        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                         this.b.a("cuid", TbadkApplication.getUniqueIdentifier());
                         this.b.a(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
                         this.b.a("time", str5);
@@ -97,10 +97,8 @@ class e {
                         }
                         if (this.b.a().b().b()) {
                             str3 = a.d;
-                            x.l(str3);
-                            if (TextUtils.isEmpty(x.a(TbConfig.TMP_LOG_DIR_NAME, name, TbConfig.TMP_LOGBAK_DIR_NAME, name))) {
-                                BdLog.e(getClass().getName(), "sendLogFile", "file.move error");
-                            }
+                            z.l(str3);
+                            TextUtils.isEmpty(z.a(TbConfig.TMP_LOG_DIR_NAME, name, TbConfig.TMP_LOGBAK_DIR_NAME, name));
                             a aVar = this.a;
                             str4 = a.d;
                             aVar.g(str4);
@@ -109,12 +107,12 @@ class e {
                         e = e3;
                         byteArrayOutputStream2 = byteArrayOutputStream;
                         try {
-                            BdLog.e(getClass().getName(), "sendLogFile", e.getMessage());
+                            BdLog.e(e.getMessage());
                             if (byteArrayOutputStream2 != null) {
                                 try {
                                     byteArrayOutputStream2.close();
                                 } catch (Exception e4) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e4.getMessage());
+                                    BdLog.e(e4.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -122,7 +120,7 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e5) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e5.getMessage());
+                                    BdLog.e(e5.getMessage());
                                     return;
                                 }
                             }
@@ -134,14 +132,14 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e6) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e6.getMessage());
+                                    BdLog.e(e6.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                 } catch (Exception e7) {
-                                    BdLog.e(getClass().getName(), "sendLogFile", e7.getMessage());
+                                    BdLog.e(e7.getMessage());
                                 }
                             }
                             throw th;
@@ -168,14 +166,14 @@ class e {
                 try {
                     byteArrayOutputStream.close();
                 } catch (Exception e9) {
-                    BdLog.e(getClass().getName(), "sendLogFile", e9.getMessage());
+                    BdLog.e(e9.getMessage());
                 }
             }
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (Exception e10) {
-                    BdLog.e(getClass().getName(), "sendLogFile", e10.getMessage());
+                    BdLog.e(e10.getMessage());
                 }
             }
         } catch (Exception e11) {

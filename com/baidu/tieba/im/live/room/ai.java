@@ -1,28 +1,30 @@
 package com.baidu.tieba.im.live.room;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ag a;
-    private final /* synthetic */ TbImageView b;
-    private final /* synthetic */ View c;
+public class ai extends Handler {
+    final /* synthetic */ ah a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar, TbImageView tbImageView, View view) {
-        this.a = agVar;
-        this.b = tbImageView;
-        this.c = view;
+    public ai(ah ahVar) {
+        this.a = ahVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str.equals(this.b.getTag())) {
-            this.c.setVisibility(0);
-            this.b.setTag(null);
-            this.b.f();
-            aVar.a(this.b);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        View view;
+        switch (message.what) {
+            case 1:
+                this.a.b.setVisibility(8);
+                this.a.a.setVisibility(8);
+                view = this.a.E;
+                view.setVisibility(0);
+                return;
+            default:
+                return;
         }
     }
 }

@@ -10,9 +10,9 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
     private static BdCacheService a;
-    private aa b;
+    private ac b;
     private Context c;
-    private com.baidu.adp.base.f d;
+    private com.baidu.adp.base.i d;
     private final String e;
     private HashMap<String, s<String>> f;
     private HashMap<String, s<byte[]>> g;
@@ -56,7 +56,7 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     private BdCacheService(String str) {
-        super(2002998);
+        super(2000998);
         this.f = new HashMap<>();
         this.g = new HashMap<>();
         this.e = str;
@@ -80,7 +80,7 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
         n a2;
         int a3 = cVar.a();
-        aa d = d();
+        ac d = d();
         a2 = d.a(str);
         if (a2 == null) {
             a2 = new n();
@@ -107,7 +107,7 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized s<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         s<String> sVar;
         f a2;
-        ac abVar;
+        ae adVar;
         boolean z;
         sVar = this.f.get(str);
         if (sVar == null) {
@@ -119,32 +119,32 @@ public class BdCacheService extends CustomMessageListener {
                 a2 = i.a();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                abVar = new ac(e());
+                adVar = new ae(e());
                 z = false;
             } else {
-                abVar = new ab(e(), "cache_kv_tshare");
+                adVar = new ad(e(), "cache_kv_tshare");
                 z = true;
             }
-            abVar.a(a2, a(abVar, str, "text", i));
-            sVar = a(str, new o(abVar, a2, z));
+            adVar.a(a2, a(adVar, str, "text", i));
+            sVar = a(str, new o(adVar, a2, z));
         }
         return sVar;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.v] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.w] */
     public synchronized s<String> a(String str, r<String> rVar) {
-        y yVar;
-        y yVar2;
+        aa aaVar;
+        aa aaVar2;
         s<String> sVar = this.f.get(str);
-        yVar2 = sVar;
+        aaVar2 = sVar;
         if (sVar != null) {
             if (rVar != null) {
-                boolean z = sVar instanceof u;
-                yVar2 = sVar;
+                boolean z = sVar instanceof v;
+                aaVar2 = sVar;
                 if (z) {
-                    r<String> b = ((u) sVar).b();
-                    yVar2 = sVar;
+                    r<String> b = ((v) sVar).b();
+                    aaVar2 = sVar;
                     if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
@@ -152,15 +152,15 @@ public class BdCacheService extends CustomMessageListener {
             }
         } else {
             if (a()) {
-                yVar = new v(str, rVar);
+                aaVar = new w(str, rVar);
             } else {
-                yVar = new y(str, rVar);
+                aaVar = new aa(str, rVar);
             }
-            this.f.put(str, yVar);
-            yVar.d();
-            yVar2 = yVar;
+            this.f.put(str, aaVar);
+            aaVar.d();
+            aaVar2 = aaVar;
         }
-        return yVar2;
+        return aaVar2;
     }
 
     public synchronized s<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
@@ -191,19 +191,19 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.v] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.w] */
     public synchronized s<byte[]> b(String str, r<byte[]> rVar) {
-        y yVar;
-        y yVar2;
+        aa aaVar;
+        aa aaVar2;
         s<byte[]> sVar = this.g.get(str);
-        yVar2 = sVar;
+        aaVar2 = sVar;
         if (sVar != null) {
             if (rVar != null) {
-                boolean z = sVar instanceof u;
-                yVar2 = sVar;
+                boolean z = sVar instanceof v;
+                aaVar2 = sVar;
                 if (z) {
-                    r<byte[]> b = ((u) sVar).b();
-                    yVar2 = sVar;
+                    r<byte[]> b = ((v) sVar).b();
+                    aaVar2 = sVar;
                     if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
@@ -211,38 +211,38 @@ public class BdCacheService extends CustomMessageListener {
             }
         } else {
             if (a()) {
-                yVar = new v(str, rVar);
+                aaVar = new w(str, rVar);
             } else {
-                yVar = new y(str, rVar);
+                aaVar = new aa(str, rVar);
             }
-            this.g.put(str, yVar);
-            yVar.d();
-            yVar2 = yVar;
+            this.g.put(str, aaVar);
+            aaVar.d();
+            aaVar2 = aaVar;
         }
-        return yVar2;
+        return aaVar2;
     }
 
     public void a(s<?> sVar) {
-        if (sVar instanceof u) {
-            u uVar = (u) sVar;
-            synchronized (uVar) {
-                String a2 = uVar.a();
-                uVar.c();
+        if (sVar instanceof v) {
+            v vVar = (v) sVar;
+            synchronized (vVar) {
+                String a2 = vVar.a();
+                vVar.c();
                 this.f.remove(a2);
             }
         }
     }
 
-    public aa d() {
+    public ac d() {
         if (this.b == null) {
-            this.b = new aa(b(), e());
+            this.b = new ac(b(), e());
         }
         return this.b;
     }
 
-    public com.baidu.adp.base.f e() {
+    public com.baidu.adp.base.i e() {
         if (this.d == null) {
-            this.d = new com.baidu.adp.base.f(b(), this.e);
+            this.d = new com.baidu.adp.base.i(b(), this.e);
         }
         return this.d;
     }

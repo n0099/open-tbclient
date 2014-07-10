@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends BaseActivity {
-    private com.baidu.tieba.im.model.n a;
+    private com.baidu.tieba.im.model.l a;
     private o b;
     private com.baidu.tbadk.core.dialog.a c;
-    private com.baidu.tbadk.core.dialog.c d = new l(this);
-    private com.baidu.tbadk.core.dialog.c e = new m(this);
+    private com.baidu.tbadk.core.dialog.d d = new l(this);
+    private com.baidu.tbadk.core.dialog.d e = new m(this);
     private com.baidu.adp.framework.listener.b f = new n(this, 0);
 
     public static void a(Context context, long j) {
@@ -68,20 +67,20 @@ public class GroupLevelActivity extends BaseActivity {
     }
 
     public void a(Bundle bundle) {
-        this.a = new com.baidu.tieba.im.model.n();
+        this.a = new com.baidu.tieba.im.model.l();
         if (bundle == null) {
             this.a.a(getIntent());
         } else {
             this.a.a(bundle);
         }
-        registerListener(MessageTypes.CMD_REQUEST_GROUPLEVEL_BY_ID, this.f);
-        registerListener(MessageTypes.CMD_UPGRADE_MEMBER_GROUP, this.f);
+        registerListener(103006, this.f);
+        registerListener(103105, this.f);
     }
 
     private void b(Bundle bundle) {
         this.b = new o(this);
         this.c = new com.baidu.tbadk.core.dialog.a(this);
-        this.c.a(com.baidu.tieba.y.upgrade_mem_group_if_up);
+        this.c.b(com.baidu.tieba.y.upgrade_mem_group_if_up);
         this.c.a(com.baidu.tieba.y.alert_yes_btn, this.d);
         this.c.b(com.baidu.tieba.y.alert_no_button, this.e);
         this.c.a();

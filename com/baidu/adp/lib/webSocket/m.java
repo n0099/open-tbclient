@@ -32,9 +32,7 @@ public class m {
         this.e = str2;
         this.d = strArr;
         this.c = list;
-        if (p()) {
-            BdLog.d("----ws init " + str);
-        }
+        p();
     }
 
     private m() {
@@ -44,14 +42,11 @@ public class m {
 
     public boolean b() {
         if (p()) {
-            com.baidu.adp.lib.util.k.b();
-            BdLog.d("----open");
+            com.baidu.adp.lib.util.j.a();
         }
         if (this.f != null) {
             if (this.f.e() || this.f.f()) {
-                if (p()) {
-                    BdLog.d("----WebSocketConnection connecting");
-                }
+                p();
                 return true;
             }
             this.f.a(1, (String) null);
@@ -83,21 +78,21 @@ public class m {
 
     public boolean c() {
         if (p()) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
         }
         return (this.f == null || !this.f.f() || this.f.d()) ? false : true;
     }
 
     public boolean d() {
         if (p()) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
         }
         return this.f != null && this.f.f();
     }
 
     public boolean e() {
         if (p()) {
-            com.baidu.adp.lib.util.k.b();
+            com.baidu.adp.lib.util.j.a();
         }
         return this.f != null && this.f.e();
     }
@@ -106,7 +101,7 @@ public class m {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                com.baidu.adp.lib.util.k.b();
+                com.baidu.adp.lib.util.j.a();
                 if (this.f != null) {
                     z = this.f.a(dVar);
                 } else if (dVar != null) {

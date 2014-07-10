@@ -1,62 +1,57 @@
 package com.baidu.tieba.im.live.room;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.im.view.LocateScrollView;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.RequestAddLiveGroupMessage;
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.base.c {
-    public static String a = "live_room_entrance_gif_s.gif";
-    public static String b = "live_room_entrance_gif_b.gif";
-    private Button c;
-    private EditText d;
-    private LiveRoomEntranceActivity e;
-    private NavigationBar f;
-    private View g;
-    private ImageView h;
-    private LocateScrollView i;
-    private com.baidu.tieba.im.view.l j;
+public class az extends com.baidu.adp.base.e {
+    private LiveRoomEntranceActivity a;
+    private RequestAddLiveGroupMessage b;
+    private int c;
+    private String d;
+    private String e;
+    private int f = 21;
 
-    public void a() {
-        HidenSoftKeyPad(this.d);
-    }
-
-    public View b() {
-        return this.g;
-    }
-
-    public EditText c() {
+    public String a() {
         return this.d;
     }
 
-    public Button d() {
-        return this.c;
-    }
-
-    public ImageView e() {
-        return this.h;
-    }
-
-    public void a(int i) {
-        this.f.c(0);
+    public void a(String str) {
+        this.e = str;
     }
 
     public az(LiveRoomEntranceActivity liveRoomEntranceActivity) {
-        super(liveRoomEntranceActivity);
-        this.e = liveRoomEntranceActivity;
-        liveRoomEntranceActivity.setContentView(com.baidu.tieba.w.activity_live_entrance);
-        this.f = (NavigationBar) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.lay_title_bar);
-        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, liveRoomEntranceActivity);
-        this.f.a(com.baidu.tieba.y.liveroom);
-        this.h = (ImageView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_spot);
-        this.c = (Button) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.btnEnter);
-        this.j = new ba(this, this.e.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds20));
-        this.i = (LocateScrollView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_scrollview);
-        this.i.setOnSizeChangeListener(this.j);
-        this.d = (EditText) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.homenameedit);
-        this.c.setOnClickListener(liveRoomEntranceActivity);
-        this.d.addTextChangedListener(new bb(this));
+        this.a = liveRoomEntranceActivity;
+    }
+
+    public void a(Intent intent, Bundle bundle) {
+        if (bundle != null) {
+            this.c = bundle.getInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+            this.d = bundle.getString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+            return;
+        }
+        this.c = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
+        this.d = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+    }
+
+    public void b() {
+        this.b = new RequestAddLiveGroupMessage();
+        this.b.forumId = this.c;
+        this.b.name = this.e;
+        this.b.groupType = this.f;
+        this.b.publisherName = TbadkApplication.getCurrentAccountName();
+        this.b.publisherId = com.baidu.adp.lib.f.b.a(TbadkApplication.getCurrentAccount(), 0);
+        this.a.sendMessage(this.b);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

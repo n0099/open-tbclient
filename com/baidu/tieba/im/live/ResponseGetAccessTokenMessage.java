@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.GetAccessToken.GetAccessTokenResIdl;
 /* loaded from: classes.dex */
@@ -10,7 +9,7 @@ public class ResponseGetAccessTokenMessage extends SocketResponsedMessage {
     private int leftExpiredTimeInSeconds;
 
     public ResponseGetAccessTokenMessage() {
-        super(MessageTypes.CMD_GET_ACCESS_TOKEN);
+        super(107201);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,15 +28,7 @@ public class ResponseGetAccessTokenMessage extends SocketResponsedMessage {
         return this.accessToken;
     }
 
-    public void setAccessToken(String str) {
-        this.accessToken = str;
-    }
-
     public int getLeftExpiredTimeInSeconds() {
         return this.leftExpiredTimeInSeconds;
-    }
-
-    public void setLeftExpiredTimeInSeconds(int i) {
-        this.leftExpiredTimeInSeconds = i;
     }
 }

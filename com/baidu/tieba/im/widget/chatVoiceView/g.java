@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.widget.chatVoiceView;
 
-import com.baidu.tieba.im.db.n;
+import com.baidu.tieba.im.db.o;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,6 +21,6 @@ public class g extends com.baidu.tieba.im.b<Boolean> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Boolean a() {
-        return Boolean.valueOf(n.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
+        return Boolean.valueOf(o.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
     }
 }

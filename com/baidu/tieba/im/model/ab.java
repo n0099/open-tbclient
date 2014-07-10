@@ -29,12 +29,12 @@ public class ab extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData>
         String str5 = "im_" + String.valueOf(System.currentTimeMillis());
         str = this.a.mSPath;
         str2 = this.a.mSName;
-        String a = com.baidu.tbadk.core.util.x.a(str, str2, com.baidu.tbadk.h.c, String.valueOf(str5) + "_send");
+        String a = com.baidu.tbadk.core.util.z.a(str, str2, com.baidu.tbadk.k.c, String.valueOf(str5) + "_send");
         String str6 = String.valueOf(str5) + "_display";
         str3 = this.a.mDPath;
         str4 = this.a.mDName;
-        String a2 = com.baidu.tbadk.core.util.x.a(str3, str4, com.baidu.tbadk.h.c, str6);
-        Bitmap c = com.baidu.tbadk.core.util.x.c(com.baidu.tbadk.h.c, str6);
+        String a2 = com.baidu.tbadk.core.util.z.a(str3, str4, com.baidu.tbadk.k.c, str6);
+        Bitmap c = com.baidu.tbadk.core.util.z.c(com.baidu.tbadk.k.c, str6);
         if (a == null || a2 == null || c == null) {
             return null;
         }
@@ -52,14 +52,14 @@ public class ab extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData>
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(LocalPicModel.ResponseData responseData) {
-        com.baidu.adp.base.e eVar;
-        com.baidu.adp.base.e eVar2;
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
         super.onPostExecute(responseData);
         this.a.mImageTask = null;
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(responseData);
+        hVar = this.a.mLoadDataCallBack;
+        if (hVar != null) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(responseData);
         }
     }
 }

@@ -10,6 +10,7 @@ class g implements CustomMessageTask.CustomRunnable<InvokeOnAccountChangedMessag
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<InvokeOnAccountChangedMessageConfig> run(CustomMessage<InvokeOnAccountChangedMessageConfig> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
+            com.baidu.tieba.im.b.e.a.set(false);
             boolean isNull = StringUtils.isNull(customMessage.getData().mData);
             com.baidu.tieba.im.i.a(new h(this, isNull), new i(this, isNull));
         }

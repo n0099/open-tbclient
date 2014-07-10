@@ -21,7 +21,7 @@ public class i extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         List list;
-        if (customResponsedMessage.getCmd() == 2003123 && (customResponsedMessage instanceof QueryDownloadMessage)) {
+        if (customResponsedMessage.getCmd() == 2001123 && (customResponsedMessage instanceof QueryDownloadMessage)) {
             this.a.c = ((QueryDownloadMessage) customResponsedMessage).getData();
             g gVar = this.a;
             list = this.a.c;

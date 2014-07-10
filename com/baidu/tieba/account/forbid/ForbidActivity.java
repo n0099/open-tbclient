@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.s;
@@ -84,10 +84,10 @@ public class ForbidActivity extends BaseActivity {
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                be.e((View) radioButton, i4);
+                bk.e((View) radioButton, i4);
                 radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                be.e((View) radioButton, i2);
+                bk.e((View) radioButton, i2);
                 radioButton.setTextColor(getResources().getColor(i3));
             }
         }
@@ -103,6 +103,6 @@ public class ForbidActivity extends BaseActivity {
         getLayoutMode().a(findViewById);
         this.a.c(i);
         this.i.setDivider(getResources().getDrawable(z ? u.forbid_list_divider_1 : u.forbid_list_divider));
-        this.i.setDividerHeight(com.baidu.adp.lib.util.k.a((Context) this, 1.0f));
+        this.i.setDividerHeight(com.baidu.adp.lib.util.j.a((Context) this, 1.0f));
     }
 }

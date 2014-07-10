@@ -6,20 +6,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements View.OnClickListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bq bqVar) {
-        this.a = bqVar;
+    public bz(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
         Dialog dialog2;
-        dialog = this.a.ae;
+        dialog = this.a.ac;
         if (dialog != null) {
-            dialog2 = this.a.ae;
+            dialog2 = this.a.ac;
             dialog2.dismiss();
         }
         SparseArray sparseArray = (SparseArray) view.getTag();

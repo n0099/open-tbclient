@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.searchGroup;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -39,7 +38,6 @@ class d extends com.baidu.adp.framework.listener.b {
                     gVar2.c();
                 }
             } catch (Exception e) {
-                BdLog.i("ResponseGroupInfoMessage invalid");
             }
         }
     }

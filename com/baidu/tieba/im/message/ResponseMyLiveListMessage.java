@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -13,15 +13,11 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
     private com.baidu.tieba.im.data.d hotLiveListData;
 
     public ResponseMyLiveListMessage() {
-        super(MessageTypes.CMD_QUERY_MYLIVE);
+        super(107002);
     }
 
     public com.baidu.tieba.im.data.d getHotLiveListData() {
         return this.hotLiveListData;
-    }
-
-    public void setHotLiveListData(com.baidu.tieba.im.data.d dVar) {
-        this.hotLiveListData = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,10 +69,15 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestMyLiveListMessage) && getError() == 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), "mylive_" + String.valueOf(((RequestMyLiveListMessage) orginalMessage).getType()), bArr);
+            String valueOf = String.valueOf(((RequestMyLiveListMessage) orginalMessage).getType());
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().j(), "mylive_" + valueOf + currentAccount, bArr);
         }
     }
 }

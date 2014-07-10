@@ -1,58 +1,97 @@
 package com.baidu.tieba.service;
 
 import android.os.Build;
-import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.ai;
+import com.baidu.tieba.model.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask<String, Integer, String> {
-    an a;
-    final /* synthetic */ TiebaActiveService b;
+public class n extends BdAsyncTask<String, Integer, bc> {
+    aq a;
+    final /* synthetic */ SyncLoginService b;
 
-    private n(TiebaActiveService tiebaActiveService) {
-        this.b = tiebaActiveService;
+    private n(SyncLoginService syncLoginService) {
+        this.b = syncLoginService;
         this.a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(TiebaActiveService tiebaActiveService, n nVar) {
-        this(tiebaActiveService);
+    public /* synthetic */ n(SyncLoginService syncLoginService, n nVar) {
+        this(syncLoginService);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        BdLog.i(getClass().getName(), "doBackGround", "send active...");
+    public bc doInBackground(String... strArr) {
+        bc bcVar;
+        Exception e;
+        String str;
+        String str2;
         try {
-            this.a = new an("http://114.113.149.3:8086/partnersService");
-            this.a.a("apk", ai.c().d().getPackageName());
-            this.a.a("imei", TbadkApplication.m252getInst().getImei());
-            this.a.a("model", Build.MODEL);
-            this.a.a("edition", TbConfig.getVersion());
-            this.a.a("system", Build.VERSION.SDK);
-            this.a.a().a().a().f = false;
-            String i = this.a.i();
-            if (this.a.c()) {
-                BdLog.i(getClass().getName(), "task", "data=" + i);
-                return i;
+            this.a = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/switch");
+            this.a.a("_os_version", Build.VERSION.RELEASE);
+            StringBuffer stringBuffer = new StringBuffer(15);
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.b(ai.c().d())));
+            stringBuffer.append(",");
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.c(ai.c().d())));
+            this.a.a("_phone_screen", stringBuffer.toString());
+            this.a.a("scr_w", String.valueOf(com.baidu.adp.lib.util.j.b(ai.c().d())));
+            this.a.a("scr_h", String.valueOf(com.baidu.adp.lib.util.j.c(ai.c().d())));
+            this.a.a("scr_dip", String.valueOf(com.baidu.adp.lib.util.j.d(ai.c().d())));
+            if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
+                this.a.a("_msg_status", "0");
+            } else {
+                this.a.a("_msg_status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             }
-        } catch (Exception e) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("active", 1);
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+            String D = ai.c().D();
+            if (D != null) {
+                if (D.length() < 1) {
+                    D = "0";
+                }
+                this.a.a("_active", D);
+            }
+            this.a.a("_pic_quality", String.valueOf(TbadkApplication.m252getInst().getViewImageQuality()));
+            str = SyncLoginService.mStatistics;
+            if (str != null) {
+                aq aqVar = this.a;
+                str2 = SyncLoginService.mStatistics;
+                aqVar.a("_msg_type", str2);
+            }
+            String packageName = TbadkApplication.m252getInst().getPackageName();
+            this.a.a("package", packageName);
+            this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
+            this.a.a("signmd5", UtilHelper.getAPKMd5(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.a.a("md5", com.baidu.tieba.bc.a());
+            String i = this.a.i();
+            if (this.a.a().b().b()) {
+                bcVar = new bc();
+                try {
+                    bcVar.a(i);
+                    SyncLoginService.mStatistics = null;
+                    return bcVar;
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    return bcVar;
+                }
+            }
+            return null;
+        } catch (Exception e3) {
+            bcVar = null;
+            e = e3;
         }
-        return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.mActiveTask = null;
+        this.b.mSyncTask = null;
         if (this.a != null) {
             this.a.g();
         }
@@ -63,34 +102,8 @@ public class n extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(String str) {
-        int i;
-        int i2;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        super.onPostExecute(str);
-        this.b.mActiveTask = null;
-        if (str == null) {
-            TiebaActiveService tiebaActiveService = this.b;
-            i = tiebaActiveService.mHaveRetry;
-            tiebaActiveService.mHaveRetry = i + 1;
-            i2 = this.b.mHaveRetry;
-            if (i2 < 10) {
-                handler = this.b.mHandler;
-                runnable = this.b.mRunnable;
-                handler.removeCallbacks(runnable);
-                handler2 = this.b.mHandler;
-                runnable2 = this.b.mRunnable;
-                handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
-            } else {
-                com.baidu.tbadk.core.sharedPref.b.a().b("active", 1);
-                this.b.stopSelf();
-            }
-        }
-        BdLog.i(getClass().getName(), "onPostExecute", "send active ok");
-        com.baidu.tbadk.core.sharedPref.b.a().b("active", 2);
-        this.b.stopSelf();
+    public void onPostExecute(bc bcVar) {
+        super.onPostExecute(bcVar);
+        this.b.mSyncTask = null;
     }
 }

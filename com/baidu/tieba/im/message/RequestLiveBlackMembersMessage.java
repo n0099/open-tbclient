@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryOwnerGagList.DataReq;
 import protobuf.QueryOwnerGagList.QueryOwnerGagListReqIdl;
@@ -11,7 +10,7 @@ public class RequestLiveBlackMembersMessage extends TbSocketMessage {
     private int rn;
 
     public RequestLiveBlackMembersMessage() {
-        super(MessageTypes.CMD_LIVE_BLACK_MEMBERS_LIST);
+        super(107009);
     }
 
     public long getGroupId() {

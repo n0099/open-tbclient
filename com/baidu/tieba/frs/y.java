@@ -14,11 +14,11 @@ class y implements com.baidu.tbadk.core.view.m {
         g gVar;
         g gVar2;
         if (z) {
-            ctVar = this.a.w;
-            if (!ctVar.u()) {
-                gVar = this.a.I;
+            ctVar = this.a.v;
+            if (!ctVar.t()) {
+                gVar = this.a.H;
                 if (gVar != null) {
-                    gVar2 = this.a.I;
+                    gVar2 = this.a.H;
                     if (gVar2.h().size() != 0) {
                         return;
                     }

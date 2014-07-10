@@ -6,14 +6,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ac a;
-    private an b = null;
+    private aq b = null;
     private int c;
     private int d;
     private String e;
@@ -52,10 +52,10 @@ public class af extends BdAsyncTask<String, Integer, String> {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         String str;
-        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
-        an anVar = this.b;
-        str = this.a.e;
-        anVar.a("kw", str);
+        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
+        aq aqVar = this.b;
+        str = this.a.d;
+        aqVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
         this.b.a("pn", String.valueOf(this.c));
@@ -99,7 +99,7 @@ public class af extends BdAsyncTask<String, Integer, String> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         HashMap hashMap2;
-        com.baidu.tieba.data.v vVar = null;
+        com.baidu.tieba.data.x xVar = null;
         super.onPostExecute(str);
         try {
             if (this.g != null) {
@@ -113,33 +113,33 @@ public class af extends BdAsyncTask<String, Integer, String> {
                     return;
                 }
                 if (this.g != null) {
-                    this.g.a((com.baidu.tieba.data.v) null);
+                    this.g.a((com.baidu.tieba.data.x) null);
                     this.g.notifyDataSetChanged();
                 }
-                hashMap = this.a.h;
+                hashMap = this.a.g;
                 if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.a.h;
-                    vVar = (com.baidu.tieba.data.v) hashMap2.get(this.g.e().d());
-                    vVar.a(str);
+                    hashMap2 = this.a.g;
+                    xVar = (com.baidu.tieba.data.x) hashMap2.get(this.g.e().d());
+                    xVar.a(str);
                 }
                 if (this.g != null) {
-                    this.g.a(vVar);
+                    this.g.a(xVar);
                     this.g.notifyDataSetChanged();
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.a.s;
+                    arrayList2 = this.a.q;
                     if (((View) arrayList2.get(i)).getTag() instanceof x) {
-                        arrayList3 = this.a.s;
-                        x xVar = (x) ((View) arrayList3.get(i)).getTag();
-                        if (xVar.e() != null && this.h.equals(xVar.e().d())) {
-                            xVar.notifyDataSetChanged();
+                        arrayList3 = this.a.q;
+                        x xVar2 = (x) ((View) arrayList3.get(i)).getTag();
+                        if (xVar2.e() != null && this.h.equals(xVar2.e().d())) {
+                            xVar2.notifyDataSetChanged();
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

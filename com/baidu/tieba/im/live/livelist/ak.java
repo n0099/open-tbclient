@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.base.c {
+public class ak extends com.baidu.adp.base.f {
     private LiveGroupHistoryActivity a;
     private ai b;
     private ViewGroup c;

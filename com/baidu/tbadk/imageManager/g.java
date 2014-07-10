@@ -1,9 +1,8 @@
 package com.baidu.tbadk.imageManager;
 
 import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> {
+class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,13 +27,8 @@ public class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.d.a
     public void a(boolean z, String str, com.baidu.adp.widget.a.a aVar, com.baidu.adp.widget.a.a aVar2) {
-        com.baidu.adp.lib.d.a aVar3;
         if (aVar != null) {
-            if (BdLog.isDebugMode()) {
-                StringBuilder append = new StringBuilder("pic removed from cache:").append(aVar.k()).append(", size:").append(aVar.f()).append("/");
-                aVar3 = this.a.c;
-                BdLog.d(append.append(aVar3.c()).toString());
-            }
+            BdLog.isDebugMode();
             aVar.g();
         }
     }

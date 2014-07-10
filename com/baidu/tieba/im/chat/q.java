@@ -14,7 +14,7 @@ public class q implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         this.a.f();
-        this.a.W();
-        this.a.R();
+        this.a.X();
+        this.a.S();
     }
 }

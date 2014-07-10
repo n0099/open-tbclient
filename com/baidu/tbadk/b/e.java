@@ -4,17 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ar;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.m;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.atomData.av;
+import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.h;
+import com.baidu.tbadk.core.atomData.r;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.tieba.y;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class e {
@@ -26,7 +28,7 @@ public class e {
                     return true;
                 }
             } catch (Exception e) {
-                BdLog.e(e.class.getName(), "jumpTiebaNative", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
         if (str != null && str.contains("jump=finish_this_page") && (context instanceof BaseActivity)) {
@@ -35,10 +37,10 @@ public class e {
         }
         if (str != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.DAILY_CLASSICLA_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.g(context)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2010021, new h(context)));
                 return true;
             } else if (str.contains("jump_personalCenter=1") && str.contains("userid=") && str.contains("un=")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(context, a(str, "userid="), a(str, "un="))));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(context, a(str, "userid="), a(str, "un="))));
                 return true;
             } else if (str.contains("jump_chat=1")) {
                 String a = a(str, "userid=");
@@ -46,27 +48,35 @@ public class e {
                 String a3 = a(str, "portrait=");
                 if (a != null && a.length() > 0) {
                     try {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new at(context, Long.parseLong(a), a2, a3, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new bc(context, Long.parseLong(a), a2, a3, 0)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2010012));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2008012));
+                }
+                return true;
+            } else if (str.contains("jump_official_chat=1")) {
+                String a4 = a(str, "barid=");
+                String a5 = a(str, "barname=");
+                String a6 = a(str, "portrait=");
+                if (a4 != null && a4.length() > 0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new av(context, com.baidu.adp.lib.f.b.a(a4, 0L), a5, a6, 0)));
                 }
                 return true;
             } else if (str.contains("kz=")) {
-                String a4 = a(str, "kz=");
-                if (a4 != null && a4.length() >= 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(context).a(a4, null, "allthread")));
+                String a7 = a(str, "kz=");
+                if (a7 != null && a7.length() >= 0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(context).a(a7, null, "allthread")));
                 }
                 return true;
             } else if (str.contains("kw=")) {
-                String a5 = a(str, "kw=");
-                if (a5 != null && a5.length() >= 0) {
+                String a8 = a(str, "kw=");
+                if (a8 != null && a8.length() >= 0) {
                     if (context instanceof BaseActivity) {
-                        ((BaseActivity) context).sendMessage(new CustomMessage(2005000, new m(context).a(a5, "allthread")));
+                        ((BaseActivity) context).sendMessage(new CustomMessage(2003000, new r(context).a(a8, "allthread")));
                     } else if (context instanceof BaseFragmentActivity) {
-                        ((BaseFragmentActivity) context).a(new CustomMessage(2005000, new m(context).a(a5, "allthread")));
+                        ((BaseFragmentActivity) context).a(new CustomMessage(2003000, new r(context).a(a8, "allthread")));
                     }
                 }
                 return true;
@@ -74,11 +84,11 @@ public class e {
                 LoginActivity.a((Activity) context, "", true, 0);
                 return true;
             } else if (str.contains("jumptobubble_list") && (context instanceof Activity)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.e(context)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.f(context)));
                 return true;
             } else if (str.contains("pay=1") && (context instanceof Activity)) {
+                UtilHelper.showToast(context, y.buy_sucess);
                 ((Activity) context).finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfig.BUBBLE_LIST_REFRESH));
             }
         }
         return false;

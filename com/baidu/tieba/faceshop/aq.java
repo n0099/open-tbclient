@@ -1,31 +1,24 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ap a;
+public class aq implements com.baidu.tbadk.widget.k {
+    final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ap apVar) {
-        this.a = apVar;
+    public aq(ao aoVar) {
+        this.a = aoVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        GifView gifView;
-        GifView gifView2;
-        GifView gifView3;
-        gifView = this.a.y;
-        Object tag = gifView.getTag();
-        if (tag != null && (tag instanceof String) && ((String) tag).equals(str)) {
-            if (aVar != null) {
-                gifView3 = this.a.y;
-                gifView3.setGif(aVar);
-                return;
-            }
-            gifView2 = this.a.y;
-            gifView2.setGif(null);
-        }
+    @Override // com.baidu.tbadk.widget.k
+    public void a(String str, boolean z) {
+        TbImageView tbImageView;
+        tbImageView = this.a.H;
+        tbImageView.setVisibility(0);
+    }
+
+    @Override // com.baidu.tbadk.widget.k
+    public void a() {
     }
 }

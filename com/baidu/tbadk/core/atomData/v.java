@@ -1,18 +1,27 @@
 package com.baidu.tbadk.core.atomData;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes.dex */
 public class v extends com.baidu.tbadk.core.frameworkData.a {
-    public v(Context context) {
+    public v(Context context, long j, int i) {
         super(context);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
+        getIntent().putExtra("activity_from", i);
+        if (!(context instanceof Activity)) {
+            getIntent().addFlags(268435456);
+        }
     }
 
-    public v a(String str, String str2, String str3) {
-        Intent intent = getIntent();
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-        intent.putExtra("forum", str2);
-        intent.putExtra("title", str3);
-        return this;
+    public v(Context context, long j, int i, String str, long j2) {
+        super(context);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
+        getIntent().putExtra("activity_from", i);
+        getIntent().putExtra("default_invite_msg", str);
+        getIntent().putExtra("inviter_user_id", j2);
+        getIntent().putExtra("join_type", c.b);
+        if (!(context instanceof Activity)) {
+            getIntent().addFlags(268435456);
+        }
     }
 }

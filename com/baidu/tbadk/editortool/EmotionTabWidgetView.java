@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class EmotionTabWidgetView extends LinearLayout {
     private EmotionTabHorizonScrollView a;
     private ImageView b;
-    private x c;
+    private w c;
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,7 +29,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.emotion_tab_widget, (ViewGroup) this, true);
         this.a = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.v.face_tab_scroll_view);
         this.b = (ImageView) findViewById(com.baidu.tieba.v.face_tab_delete);
-        this.b.setOnClickListener(new t(this));
+        this.b.setOnClickListener(new s(this));
     }
 
     public void setFrom(int i) {
@@ -38,20 +38,20 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<af> arrayList) {
+    public void setDatas(ArrayList<ae> arrayList) {
         this.a.setDatas(arrayList);
     }
 
-    public void a(af afVar) {
-        this.a.a(afVar);
+    public void a(ae aeVar) {
+        this.a.a(aeVar);
     }
 
     public void setCurrentTab(int i) {
         this.a.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(u uVar) {
-        this.a.setOnTabSelectedListener(uVar);
+    public void setOnTabSelectedListener(t tVar) {
+        this.a.setOnTabSelectedListener(tVar);
     }
 
     public void a() {
@@ -80,7 +80,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.a.a(i, z);
     }
 
-    public void setOnDataSelected(x xVar) {
-        this.c = xVar;
+    public void setOnDataSelected(w wVar) {
+        this.c = wVar;
     }
 }

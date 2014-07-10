@@ -27,12 +27,12 @@ public class EmotionImageActivity extends BaseActivity {
     private int m;
     private int n;
     private int o;
-    private com.baidu.tbadk.editortool.ab p;
+    private com.baidu.tbadk.editortool.aa p;
     private boolean q;
     private int r = 0;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.i.class, EmotionImageActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.l.class, EmotionImageActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,13 +68,13 @@ public class EmotionImageActivity extends BaseActivity {
             this.l = intent.getIntExtra("width", this.n);
             this.m = intent.getIntExtra("height", this.o);
         }
-        this.r = getIntent().getIntExtra("from", 0);
-        this.p = new com.baidu.tbadk.editortool.ab(this);
+        this.r = getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FROM, 0);
+        this.p = new com.baidu.tbadk.editortool.aa(this);
     }
 
     private void a() {
         FrameLayout.LayoutParams layoutParams;
-        com.baidu.adp.widget.a.a i;
+        com.baidu.adp.widget.a.a j;
         this.a = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
         this.a.a(getString(com.baidu.tieba.y.emotion_image_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new k(this));
@@ -85,24 +85,24 @@ public class EmotionImageActivity extends BaseActivity {
             layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
         }
         this.b.setLayoutParams(layoutParams);
-        boolean c = com.baidu.tbadk.editortool.ab.c();
+        boolean c = com.baidu.tbadk.editortool.aa.c();
         com.baidu.adp.widget.a.a a = this.p.a(this.f, this.k, c ? this.i : this.j, c, new l(this), false);
         if (a != null) {
             this.b.setGif(a);
         }
         this.c = (TbImageView) findViewById(com.baidu.tieba.v.emotion_icon);
         if (!TextUtils.isEmpty(this.h)) {
-            this.p.b(this.h, new m(this));
+            this.c.a(this.h, 10, false);
         } else {
-            com.baidu.tbadk.editortool.af d = com.baidu.tbadk.editortool.ac.a().d(this.f);
-            if (d != null && (i = d.i()) != null) {
-                i.a(this.c);
+            com.baidu.tbadk.editortool.ae d = com.baidu.tbadk.editortool.ab.a().d(this.f);
+            if (d != null && (j = d.j()) != null) {
+                j.a(this.c);
             }
         }
         this.d = (TextView) findViewById(com.baidu.tieba.v.emotion_pname);
         this.d.setText(this.g);
         this.e = (TextView) findViewById(com.baidu.tieba.v.emotion_detail);
-        this.e.setOnClickListener(new n(this));
+        this.e.setOnClickListener(new m(this));
     }
 
     @Override // android.app.Activity

@@ -1,7 +1,6 @@
 package com.baidu.tieba.flist;
 
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class g implements e {
     final /* synthetic */ ForumListActivity a;
@@ -12,24 +11,21 @@ class g implements e {
     }
 
     @Override // com.baidu.tieba.flist.e
-    public void a(boolean z, int i, com.baidu.tieba.square.ab abVar, String str, boolean z2) {
+    public void a(boolean z, int i, com.baidu.tieba.square.w wVar, String str, boolean z2) {
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        BdLog.d("ForumListActivity", "callback", com.baidu.tbadk.core.frameworkData.a.START);
         if (!z || i != 0) {
-            BdLog.d("ForumListActivity", "callback", "dir menu not ok");
             if (!z2) {
                 this.a.c.d();
                 return;
             }
             return;
         }
-        BdLog.d("ForumListActivity", "callback", "dir menu ok");
-        abVar.e.add(0, abVar);
+        wVar.e.add(0, wVar);
         if (this.a.c.y != null) {
-            this.a.c.y.a(abVar);
+            this.a.c.y.a(wVar);
             this.a.a(String.valueOf(this.a.c.h.getText()));
             this.a.c.y.notifyDataSetChanged();
         }

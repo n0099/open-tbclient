@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 public class LivePlayingImageView extends ImageView {
     private static /* synthetic */ int[] c;
     private String a;
-    private ag b;
+    private ai b;
 
     static /* synthetic */ int[] a() {
         int[] iArr = c;
@@ -49,12 +49,12 @@ public class LivePlayingImageView extends ImageView {
         this.a = str;
     }
 
-    public ag getVisibleChangeCallback() {
+    public ai getVisibleChangeCallback() {
         return this.b;
     }
 
-    public void setVisibleChangeCallback(ag agVar) {
-        this.b = agVar;
+    public void setVisibleChangeCallback(ai aiVar) {
+        this.b = aiVar;
     }
 
     public LivePlayingImageView(Context context) {
@@ -73,7 +73,7 @@ public class LivePlayingImageView extends ImageView {
     }
 
     private void b() {
-        setOnClickListener(new af(this));
+        setOnClickListener(new ah(this));
         a(LivePlayingStatusMgr.a().b());
     }
 

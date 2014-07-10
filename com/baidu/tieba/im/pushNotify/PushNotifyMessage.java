@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class PushNotifyMessage extends SocketResponsedMessage {
     private static final long serialVersionUID = 7053886389487061173L;
@@ -52,7 +51,7 @@ public class PushNotifyMessage extends SocketResponsedMessage {
     }
 
     public PushNotifyMessage() {
-        super(MessageTypes.CMD_PUSH_NOTIFY);
+        super(202006);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

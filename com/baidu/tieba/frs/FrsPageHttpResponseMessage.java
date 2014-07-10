@@ -39,7 +39,7 @@ public class FrsPageHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.g() != null) {
             f.a().a(this.forumModel.g().getName(), bArr);
         }

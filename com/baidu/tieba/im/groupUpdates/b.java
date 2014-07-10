@@ -24,7 +24,7 @@ class b extends CustomMessageListener {
         tVar.a(false);
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
             int cmd = customResponsedMessage.getCmd();
-            if (2003136 == cmd || 2003137 == cmd || 2003134 == cmd || 2003133 == cmd || 2003141 == cmd) {
+            if (2001136 == cmd || 2001137 == cmd || 2001134 == cmd || 2001133 == cmd || 2001141 == cmd) {
                 aVar = this.a.d;
                 p.b(aVar);
             }

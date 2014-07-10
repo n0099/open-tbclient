@@ -24,8 +24,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
-import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 import java.util.HashMap;
@@ -98,9 +98,9 @@ public class EditHeadActivity extends BaseActivity {
         if (this.E == 12002 || this.E == 12001) {
             e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.E, intent.getData(), bh.a().e());
+                TiebaPrepareImageService.StartService(this.E, intent.getData(), bn.a().e());
             } else {
-                TiebaPrepareImageService.StartService(this.E, null, bh.a().e());
+                TiebaPrepareImageService.StartService(this.E, null, bn.a().e());
             }
             f();
         } else {
@@ -219,7 +219,7 @@ public class EditHeadActivity extends BaseActivity {
             this.j.setText(getString(com.baidu.tieba.y.done));
         }
         this.C = (LinearLayout) findViewById(com.baidu.tieba.v.filters);
-        this.y = com.baidu.adp.lib.util.k.a((Context) this, 2.0f);
+        this.y = com.baidu.adp.lib.util.j.a((Context) this, 2.0f);
         this.t = (LinearLayout) findViewById(com.baidu.tieba.v.beautify_rotate);
         this.s = (LinearLayout) findViewById(com.baidu.tieba.v.rotate);
         this.q = (RadioButton) findViewById(com.baidu.tieba.v.beautify_btn);
@@ -253,13 +253,13 @@ public class EditHeadActivity extends BaseActivity {
 
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tbadk.core.util.x.a((String) null, str, bitmap, 80);
+            com.baidu.tbadk.core.util.z.a((String) null, str, bitmap, 80);
             if (this.D) {
-                new bb("motu_pic", String.valueOf(this.z)).start();
+                new bh("motu_pic", String.valueOf(this.z)).start();
             }
             return true;
         } catch (Exception e2) {
-            BdLog.e(getClass().getName(), "saveFile", e2.toString());
+            BdLog.e(e2.toString());
             return false;
         }
     }

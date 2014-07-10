@@ -14,23 +14,22 @@ public class o extends BaseAdapter {
     private FrsLiveListActivity c;
     private p d;
     private t e;
-    private com.baidu.tbadk.editortool.ab f;
+    private boolean f;
     private boolean g;
     private boolean h;
     private boolean i;
-    private boolean j;
 
     public p a() {
         return this.d;
     }
 
     public void a(boolean z) {
-        this.i = z;
+        this.h = z;
         this.d.a(z);
     }
 
     public void b(boolean z) {
-        this.g = z;
+        this.f = z;
         this.d.c(z);
     }
 
@@ -39,25 +38,23 @@ public class o extends BaseAdapter {
     }
 
     public void c(boolean z) {
-        this.j = z;
+        this.i = z;
         this.d.d(z);
     }
 
     public boolean b() {
-        return this.h;
+        return this.g;
     }
 
     public void d(boolean z) {
-        this.h = z;
+        this.g = z;
         this.d.b(z);
     }
 
     public o(FrsLiveListActivity frsLiveListActivity) {
         this.c = frsLiveListActivity;
-        this.f = new com.baidu.tbadk.editortool.ab(frsLiveListActivity);
-        this.f.d(true);
-        this.d = new p(frsLiveListActivity, this.f);
-        this.e = new t(frsLiveListActivity, this.f);
+        this.d = new p(frsLiveListActivity);
+        this.e = new t(frsLiveListActivity);
         this.a.add(-1);
         this.a.add(0);
         this.b.add(1);
@@ -80,7 +77,7 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.g ? this.d.getCount() + this.e.getCount() : this.d.getCount();
+        return this.f ? this.d.getCount() + this.e.getCount() : this.d.getCount();
     }
 
     @Override // android.widget.Adapter
@@ -88,7 +85,7 @@ public class o extends BaseAdapter {
         if (i < this.d.getCount()) {
             return this.d.getItem(i);
         }
-        if (i >= this.d.getCount() && this.g) {
+        if (i >= this.d.getCount() && this.f) {
             return this.e.getItem(i - this.d.getCount());
         }
         return null;
@@ -99,7 +96,7 @@ public class o extends BaseAdapter {
         if (i < this.d.getCount()) {
             return this.d.getItemId(i);
         }
-        if (i >= this.d.getCount() && this.g) {
+        if (i >= this.d.getCount() && this.f) {
             return this.e.getItemId(i - this.d.getCount());
         }
         return -1000L;
@@ -110,7 +107,7 @@ public class o extends BaseAdapter {
         if (i < this.d.getCount()) {
             return this.d.getItemViewType(i);
         }
-        if (i >= this.d.getCount() && this.g) {
+        if (i >= this.d.getCount() && this.f) {
             return this.e.getItemViewType(i - this.d.getCount());
         }
         return -1;

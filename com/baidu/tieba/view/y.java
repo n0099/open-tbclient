@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class y implements View.OnClickListener {
     final /* synthetic */ SearchBoxView a;
@@ -17,15 +16,7 @@ class y implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        String str;
-        Activity activity2;
-        if (view.getId() == com.baidu.tieba.v.search_bg_layout) {
-            activity = this.a.a;
-            str = this.a.b;
-            TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);
-            MessageManager messageManager = MessageManager.getInstance();
-            activity2 = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2017002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
-        }
+        activity = this.a.a;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.g(activity, 16003)));
     }
 }

@@ -4,7 +4,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.GroupsByLocationLocalMessage;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
 /* loaded from: classes.dex */
@@ -22,7 +21,7 @@ public class v implements CustomMessageTask.CustomRunnable<Object> {
         ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = new ResponseNearbyGroupsLocalMessage();
         if (a != null) {
             try {
-                responseNearbyGroupsLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_BY_LOCATION_LOCAL, a);
+                responseNearbyGroupsLocalMessage.decodeInBackGround(2001115, a);
             } catch (Exception e) {
                 e.printStackTrace();
             }

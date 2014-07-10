@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
@@ -14,8 +15,9 @@ public class SearchBar extends LinearLayout {
     private final Context a;
     private EditText b;
     private Button c;
-    private Button d;
-    private at e;
+    private LinearLayout d;
+    private ImageView e;
+    private au f;
 
     public SearchBar(Context context) {
         super(context);
@@ -31,22 +33,30 @@ public class SearchBar extends LinearLayout {
 
     public void a(int i) {
         if (i == 1) {
+            setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d_1);
+            this.d.setBackgroundResource(com.baidu.tieba.u.inputbox_top_1);
+            this.e.setImageResource(com.baidu.tieba.u.icon_head_bar_search_1);
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text_1));
             this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text_1));
-            setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg_1));
+            this.c.setBackgroundResource(com.baidu.tieba.u.search_delete_button_1);
             return;
         }
+        setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d);
+        this.d.setBackgroundResource(com.baidu.tieba.u.inputbox_top);
+        this.e.setImageResource(com.baidu.tieba.u.icon_head_bar_search);
+        this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text));
         this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text));
-        setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg));
+        this.c.setBackgroundResource(com.baidu.tieba.u.search_delete_button);
     }
 
     private void a() {
         LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.search_bar, (ViewGroup) this, true);
         this.b = (EditText) findViewById(com.baidu.tieba.v.home_et_search);
         this.c = (Button) findViewById(com.baidu.tieba.v.home_bt_search_del);
-        this.d = (Button) findViewById(com.baidu.tieba.v.home_bt_search_s);
-        this.b.addTextChangedListener(new aq(this));
-        this.c.setOnClickListener(new ar(this));
-        this.d.setOnClickListener(new as(this));
+        this.d = (LinearLayout) findViewById(com.baidu.tieba.v.search_tap_text_layout);
+        this.e = (ImageView) findViewById(com.baidu.tieba.v.search_bar_icon);
+        this.b.addTextChangedListener(new as(this));
+        this.c.setOnClickListener(new at(this));
         a(TbadkApplication.m252getInst().getSkinType());
     }
 
@@ -54,12 +64,8 @@ public class SearchBar extends LinearLayout {
         this.b.setHint(str);
     }
 
-    public void setHandler(at atVar) {
-        this.e = atVar;
-    }
-
-    public int getSearchButtonId() {
-        return this.d.getId();
+    public void setHandler(au auVar) {
+        this.f = auVar;
     }
 
     public EditText getEditText() {

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.c {
+public class k extends com.baidu.adp.base.f {
     private FrsGroupActivity a;
     private View b;
     private View c;
@@ -112,15 +112,15 @@ public class k extends com.baidu.adp.base.c {
     }
 
     public void c(int i) {
-        this.a.a().a(i == 1);
-        this.a.a().a(this.b);
+        this.a.c().a(i == 1);
+        this.a.c().a(this.b);
         this.e.c(i);
         if (this.r != null) {
             this.r.a(i);
         }
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
         if (this.m != null) {

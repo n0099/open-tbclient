@@ -1,23 +1,26 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-class au extends BroadcastReceiver {
-    final /* synthetic */ at this$0;
+class au extends TimerTask {
+    final /* synthetic */ NetWorkCoreByBdHttp a;
 
-    private au(at atVar) {
-        this.this$0 = atVar;
+    private au(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
+        this.a = netWorkCoreByBdHttp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ au(at atVar, au auVar) {
-        this(atVar);
+    public /* synthetic */ au(NetWorkCoreByBdHttp netWorkCoreByBdHttp, au auVar) {
+        this(netWorkCoreByBdHttp);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.b();
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        try {
+            this.a.b();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

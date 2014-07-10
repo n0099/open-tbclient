@@ -5,7 +5,8 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.h;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class g {
     public static int a(String str) {
@@ -32,14 +33,14 @@ public class g {
     private static Bitmap a(int i) {
         Exception e;
         try {
-            int a = a(x.c("camera.jpg"));
-            Bitmap a2 = com.baidu.tbadk.core.util.g.a("camera.jpg", i);
+            int a = a(z.c("camera.jpg"));
+            Bitmap a2 = h.a("camera.jpg", i);
             if (a != 0 && a2 != null) {
                 try {
-                    return com.baidu.tbadk.core.util.g.e(a2, a);
+                    return h.e(a2, a);
                 } catch (Exception e2) {
                     e = e2;
-                    BdLog.e("WriteUtil", "photoResult", "error = " + e.getMessage());
+                    BdLog.e(e.getMessage());
                     return null;
                 }
             }
@@ -51,9 +52,9 @@ public class g {
 
     private static Bitmap a(Context context, Uri uri, int i) {
         try {
-            return com.baidu.tbadk.core.util.g.a(context, uri, i);
+            return h.a(context, uri, i);
         } catch (Exception e) {
-            BdLog.e("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }

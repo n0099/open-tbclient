@@ -1,12 +1,15 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<List<String>, Integer, Boolean> {
+public class t extends BaseAdapter {
     final /* synthetic */ EmotionManageActivity a;
 
     private t(EmotionManageActivity emotionManageActivity) {
@@ -18,41 +21,97 @@ public class t extends BdAsyncTask<List<String>, Integer, Boolean> {
         this(emotionManageActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(List<String>... listArr) {
-        List<String> list = listArr[0];
-        if (list == null || list.isEmpty()) {
-            return false;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        List list;
+        List list2;
+        list = this.a.a;
+        if (list != null) {
+            list2 = this.a.a;
+            return list2.size();
         }
-        int i = 0;
-        for (String str : list) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.setGroupId(str);
-            myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-            if (d.a().a(myEmotionGroupData)) {
-                BdLog.d("delete my emotion:" + myEmotionGroupData.getId());
-                i++;
-            }
-        }
-        if (i > 0) {
-            return true;
-        }
-        return false;
+        return 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        super.onPostExecute(bool);
-        if (bool.booleanValue()) {
-            com.baidu.tbadk.editortool.ac.a().b();
-            this.a.p = true;
-            this.a.a(true);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        List list;
+        List list2;
+        List list3;
+        list = this.a.a;
+        if (list != null) {
+            list2 = this.a.a;
+            if (i <= list2.size()) {
+                list3 = this.a.a;
+                return list3.get(i);
+            }
         }
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        List list;
+        List list2;
+        list = this.a.a;
+        if (list != null) {
+            list2 = this.a.a;
+            if (i <= list2.size()) {
+                return i;
+            }
+        }
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        List list;
+        boolean z;
+        List list2;
+        List list3;
+        List list4;
+        List list5;
+        if (view == null) {
+            view = a();
+        }
+        w wVar = (w) view.getTag();
+        list = this.a.a;
+        Bitmap bitmap = ((u) list.get(i)).d;
+        if (bitmap != null) {
+            wVar.b.setImageBitmap(bitmap);
+        } else {
+            com.baidu.tbadk.core.util.bk.c(wVar.b, com.baidu.tieba.u.pic_image_h_not);
+        }
+        z = this.a.p;
+        if (z) {
+            list3 = this.a.b;
+            list4 = this.a.a;
+            if (list3.contains(((u) list4.get(i)).a)) {
+                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_s);
+            } else {
+                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_n);
+            }
+            wVar.a.setVisibility(0);
+            ImageView imageView = wVar.a;
+            list5 = this.a.a;
+            imageView.setTag(((u) list5.get(i)).a);
+        } else {
+            wVar.a.setVisibility(8);
+        }
+        TextView textView = wVar.c;
+        list2 = this.a.a;
+        textView.setText(((u) list2.get(i)).b);
+        this.a.getLayoutMode().a(view);
+        return view;
+    }
+
+    private View a() {
+        View inflate = View.inflate(this.a, com.baidu.tieba.w.emotion_manage_list_item, null);
+        w wVar = new w(null);
+        wVar.a = (ImageView) inflate.findViewById(com.baidu.tieba.v.emotion_group_select);
+        wVar.b = (ImageView) inflate.findViewById(com.baidu.tieba.v.emotion_group_photo);
+        wVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.emotion_group_name);
+        inflate.setTag(wVar);
+        return inflate;
     }
 }

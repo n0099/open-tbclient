@@ -11,16 +11,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.util.bq;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
@@ -34,16 +32,16 @@ import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
-import com.baidu.tieba.im.model.by;
+import com.baidu.tieba.im.model.bx;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GroupInfoActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, ae, af {
+public class GroupInfoActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, ac, ad {
     private r f;
-    private com.baidu.tieba.im.model.m g;
-    private by h;
+    private com.baidu.tieba.im.model.k g;
+    private bx h;
     private p i;
     private final int a = 1;
     private final int b = 2;
@@ -51,7 +49,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     private final int d = 4;
     private int e = 0;
     private final DialogInterface.OnClickListener j = new j(this);
-    private final ad k = new k(this);
+    private final ab k = new k(this);
     private final CustomMessageListener l = new l(this, 0);
     private final CustomMessageListener m = new m(this, 0);
 
@@ -61,13 +59,13 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private static void a() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010011, new n());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008011, new n());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     private static void b() {
-        bk.a().a(new o());
+        bq.a().a(new o());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -90,20 +88,20 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
 
     private void c() {
         this.i = new p(this);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, this.l);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_GROUP, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_JOIN_GROUP, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_CREATE_GROUP_ACTIVITY, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_DEL_GROUP_ACTIVITY, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.i);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPGRADE_MEMBER_GROUP, this.i);
+        MessageManager.getInstance().registerListener(103004, this.i);
+        MessageManager.getInstance().registerListener(2001102, this.l);
+        MessageManager.getInstance().registerListener(103102, this.i);
+        MessageManager.getInstance().registerListener(103112, this.i);
+        MessageManager.getInstance().registerListener(103110, this.i);
+        MessageManager.getInstance().registerListener(103120, this.i);
+        MessageManager.getInstance().registerListener(103121, this.i);
+        MessageManager.getInstance().registerListener(2001132, this.m);
+        MessageManager.getInstance().registerListener(2001130, this.m);
+        MessageManager.getInstance().registerListener(2001134, this.m);
+        MessageManager.getInstance().registerListener(103104, this.i);
+        MessageManager.getInstance().registerListener(2001141, this.m);
+        MessageManager.getInstance().registerListener(2001139, this.m);
+        MessageManager.getInstance().registerListener(103105, this.i);
     }
 
     @Override // android.app.Activity
@@ -113,7 +111,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
     }
@@ -151,18 +149,18 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.g = new com.baidu.tieba.im.model.m();
+        this.g = new com.baidu.tieba.im.model.k();
         this.g.setUniqueId(getUniqueId());
         if (bundle == null) {
-            com.baidu.tieba.im.model.m mVar = this.g;
+            com.baidu.tieba.im.model.k kVar = this.g;
             if (intent == null) {
                 intent = getIntent();
             }
-            mVar.a(intent);
+            kVar.a(intent);
         } else {
             this.g.a(bundle);
         }
-        this.h = new by();
+        this.h = new bx();
         this.h.setUniqueId(getUniqueId());
     }
 
@@ -171,7 +169,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         onChangeSkinType(TbadkApplication.m252getInst().getSkinType());
@@ -185,15 +183,15 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x01cc: INVOKE  (r2v35 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.m : 0x01ca: IGET  (r2v34 com.baidu.tieba.im.model.m A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.m)
-     type: VIRTUAL call: com.baidu.tieba.im.model.m.d():long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0210: INVOKE  (r2v31 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.m : 0x020e: IGET  (r2v30 com.baidu.tieba.im.model.m A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.m)
-     type: VIRTUAL call: com.baidu.tieba.im.model.m.d():long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x02c3: INVOKE  (r3v2 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.m : 0x02c1: IGET  (r3v1 com.baidu.tieba.im.model.m A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.m)
-     type: VIRTUAL call: com.baidu.tieba.im.model.m.d():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x01c6: INVOKE  (r2v35 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x01c4: IGET  (r2v34 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+     type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x020a: INVOKE  (r2v31 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x0208: IGET  (r2v30 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+     type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x02bd: INVOKE  (r3v2 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x02bb: IGET  (r3v1 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+     type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.f.r()) {
@@ -205,32 +203,31 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             closeActivity();
         } else if (view == this.f.c()) {
             if (this.g.f() != null && this.g.f().b() != null) {
-                sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.n(this, String.valueOf(this.g.f().b().getForumId()), this.g.f().i() ? false : true)));
+                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.s(this, String.valueOf(this.g.f().b().getForumId()), this.g.f().i() ? false : true)));
             }
         } else if (view == this.f.l()) {
             if (this.g.f() != null && this.g.f().b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, String.valueOf(this.g.f().b().getAuthorId()), this.g.f().b().getAuthorName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, String.valueOf(this.g.f().b().getAuthorId()), this.g.f().b().getAuthorName())));
             }
         } else if (view == this.f.m()) {
             GroupLevelActivity.a(this, this.g.d());
         } else if (view == this.f.k()) {
-            BdLog.d("botton click");
             if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
                 LoginActivity.a((Activity) this, "", true, 3);
             } else if (this.g.f() != null) {
                 if (this.g.f().g()) {
                     if (this.g.f().b() != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.p(this, (int) this.g.d(), this.g.f().b().getName(), this.g.f().b().getAuthorId(), "group_info")));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.u(this, (int) this.g.d(), this.g.f().b().getName(), this.g.f().b().getAuthorId(), "group_info")));
                     }
                 } else if (this.g.l()) {
                     showToast(com.baidu.tieba.y.has_recent_join);
                 } else if (this.g.f() != null) {
                     if (this.g.f().f() <= 0) {
                         showToast(com.baidu.tieba.y.add_group_max);
-                    } else if (com.baidu.tbadk.core.atomData.b.a == this.g.a()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2010014, new com.baidu.tbadk.core.atomData.b(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f())));
-                    } else if (com.baidu.tbadk.core.atomData.b.b == this.g.a()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2010014, new com.baidu.tbadk.core.atomData.b(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f(), this.g.b(), this.g.c())));
+                    } else if (com.baidu.tbadk.core.atomData.c.a == this.g.a()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f())));
+                    } else if (com.baidu.tbadk.core.atomData.c.b == this.g.a()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f(), this.g.b(), this.g.c())));
                     }
                 }
             }
@@ -271,7 +268,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
         finish();
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.af
+    @Override // com.baidu.tieba.im.groupInfo.ad
     public void a(View view, Object obj, int i) {
         this.f.a(obj, i);
     }
@@ -294,7 +291,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.ae
+    @Override // com.baidu.tieba.im.groupInfo.ac
     public void onClick(View view, int i, Object obj, int i2) {
         if (i == 2) {
             this.f.t();
@@ -363,7 +360,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        ay.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        bc.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.z.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -375,9 +372,9 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bd.a(this);
+                bj.a(this);
             } else if (i == 12009) {
-                bd.b(this);
+                bj.b(this);
             }
         }
     }
@@ -503,7 +500,6 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.g.d()))) {
                     finish();
-                    BdLog.d("dismiss suc");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

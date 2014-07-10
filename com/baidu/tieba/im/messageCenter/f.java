@@ -13,10 +13,10 @@ class f implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.f().d();
-        com.baidu.tieba.im.pushNotify.a.f().b((ImMessageCenterShowItemData) null);
-        com.baidu.tieba.im.pushNotify.a.f().d((ImMessageCenterShowItemData) null);
-        com.baidu.tieba.im.pushNotify.a.f().c((ImMessageCenterShowItemData) null);
-        com.baidu.tieba.im.pushNotify.a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
+        com.baidu.tieba.im.pushNotify.a.i().g();
+        com.baidu.tieba.im.pushNotify.a.i().b((ImMessageCenterShowItemData) null);
+        com.baidu.tieba.im.pushNotify.a.i().d((ImMessageCenterShowItemData) null);
+        com.baidu.tieba.im.pushNotify.a.i().c((ImMessageCenterShowItemData) null);
+        com.baidu.tieba.im.pushNotify.a.i().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

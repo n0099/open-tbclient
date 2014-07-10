@@ -20,10 +20,10 @@ class av extends CustomMessageListener {
         ct ctVar;
         ct ctVar2;
         if (customResponsedMessage != null) {
-            ctVar = this.a.w;
+            ctVar = this.a.v;
             if (ctVar != null) {
-                ctVar2 = this.a.w;
-                ctVar2.S();
+                ctVar2 = this.a.v;
+                ctVar2.R();
             }
         }
     }

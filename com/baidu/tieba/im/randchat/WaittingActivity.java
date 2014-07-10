@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.randchat;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,10 +22,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.cb;
+import com.baidu.tieba.im.model.ca;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import com.baidu.tieba.y;
 import com.baidu.tieba.z;
@@ -35,15 +35,15 @@ import java.util.List;
 public class WaittingActivity extends BaseActivity {
     private static /* synthetic */ int[] m;
     private f a;
-    private cb b;
-    private com.baidu.tieba.im.model.j c;
+    private ca b;
+    private com.baidu.tieba.im.model.h c;
     private com.baidu.tbadk.coreExtra.c.c e;
     private com.baidu.tbadk.coreExtra.c.c f;
     private boolean h;
     private com.baidu.tieba.im.view.a d = null;
     private boolean g = false;
     private WaitingTipView.Type i = WaitingTipView.Type.ORIGINAL_ENTER;
-    private CustomMessageListener j = new h(this, MessageTypes.CMD_CHAT_ROOM_EVENT);
+    private CustomMessageListener j = new h(this, 2001119);
     private com.baidu.adp.framework.listener.b k = new p(this, 0);
     private BroadcastReceiver l = new q(this);
 
@@ -96,6 +96,9 @@ public class WaittingActivity extends BaseActivity {
         Intent intent = new Intent(context, WaittingActivity.class);
         intent.putExtra("randChatRoomData", randChatRoomData);
         intent.putExtra("startCount", i);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
         context.startActivity(intent);
     }
 
@@ -122,7 +125,7 @@ public class WaittingActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         c();
@@ -154,13 +157,13 @@ public class WaittingActivity extends BaseActivity {
     private void f() {
         com.baidu.tieba.im.e.i.a(String.valueOf(this.b.f().d()));
         showLoadingDialog(getString(y.group_tab_enterchatroom_loading));
-        this.c.a(this.b.f().d());
+        this.c.a(this.b.f().d(), false);
     }
 
     private void g() {
-        this.b = new cb(this);
+        this.b = new ca(this);
         this.b.a(getIntent());
-        this.c = new com.baidu.tieba.im.model.j();
+        this.c = new com.baidu.tieba.im.model.h();
         this.c.setUniqueId(getUniqueId());
     }
 
@@ -270,7 +273,7 @@ public class WaittingActivity extends BaseActivity {
             boolean z2 = false;
             while (i < size) {
                 UserData userData2 = j.get(i);
-                if (userData2 == null || userData.getUserId() != userData2.getUserId()) {
+                if (userData2 == null || userData.getUserId() == null || !userData.getUserId().equals(userData2.getUserId())) {
                     z = z2;
                 } else if (i != 0) {
                     j.set(i, null);
@@ -338,13 +341,19 @@ public class WaittingActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
+        com.baidu.adp.widget.a.a aVar;
         WaitingTipView e = this.a.e();
         Object tag = e.getTag();
         if (tag != null && (tag instanceof String) && ((String) tag).equals(str)) {
             HeadImageView tipImageHead = e.getTipImageHead();
-            com.baidu.adp.widget.a.a b = com.baidu.tbadk.imageManager.e.a().b(str);
-            if (b != null) {
-                tipImageHead.setImageBitmap(b.h());
+            Object a = com.baidu.adp.lib.resourceLoader.d.a().a(str, 12, new Object[0]);
+            if (a == null || !(a instanceof com.baidu.adp.widget.a.a)) {
+                aVar = null;
+            } else {
+                aVar = (com.baidu.adp.widget.a.a) a;
+            }
+            if (aVar != null) {
+                tipImageHead.setImageBitmap(aVar.h());
             }
         }
     }
@@ -397,6 +406,8 @@ public class WaittingActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(WaitingTipView.Type type, Object[] objArr) {
+        com.baidu.adp.widget.a.a aVar;
+        com.baidu.adp.widget.a.a aVar2;
         WaitingTipView e = this.a.e();
         e.setTag(null);
         CircleBgView circelBgView = e.getCircelBgView();
@@ -443,9 +454,14 @@ public class WaittingActivity extends BaseActivity {
                 SpannableString spannableString = new SpannableString(getString(y.rand_chat_waiting_other_enter_success, new Object[]{str, String.valueOf(intValue)}));
                 spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.tip_view_text_name_color)), 0, str.length(), 34);
                 tipText.setText(spannableString);
-                com.baidu.adp.widget.a.a b = com.baidu.tbadk.imageManager.e.a().b(str2);
-                if (b != null) {
-                    tipImageHead.setImageBitmap(b.h());
+                Object a = com.baidu.adp.lib.resourceLoader.d.a().a(str2, 12, new Object[0]);
+                if (a == null || !(a instanceof com.baidu.adp.widget.a.a)) {
+                    aVar2 = null;
+                } else {
+                    aVar2 = (com.baidu.adp.widget.a.a) a;
+                }
+                if (aVar2 != null) {
+                    tipImageHead.setImageBitmap(aVar2.h());
                 } else {
                     tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_date));
                     e.setTag(str2);
@@ -492,9 +508,14 @@ public class WaittingActivity extends BaseActivity {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(str3) + getString(y.rand_chat_waiting_quit));
                 spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.tip_view_text_name_color)), 0, str3.length(), 34);
                 tipText.setText(spannableString2);
-                com.baidu.adp.widget.a.a b2 = com.baidu.tbadk.imageManager.e.a().b(str4);
-                if (b2 != null) {
-                    tipImageHead.setImageBitmap(b2.h());
+                Object a2 = com.baidu.adp.lib.resourceLoader.d.a().a(str4, 12, new Object[0]);
+                if (a2 == null || !(a2 instanceof com.baidu.adp.widget.a.a)) {
+                    aVar = null;
+                } else {
+                    aVar = (com.baidu.adp.widget.a.a) a2;
+                }
+                if (aVar != null) {
+                    tipImageHead.setImageBitmap(aVar.h());
                 } else {
                     tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_date));
                     e.setTag(str4);
@@ -549,7 +570,7 @@ public class WaittingActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         new Handler().postDelayed(new w(this), 50L);

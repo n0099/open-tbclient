@@ -28,56 +28,39 @@ public class BdLog {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public static void i(String str, String str2, String str3) {
+    private static void i(String str, String str2, String str3) {
         String createMsg = createMsg(true, str, str2, str3);
         if (createMsg != null) {
             Log.i(LOG_TAG, createMsg);
         }
     }
 
-    public static void e(String str, String str2, String str3) {
+    private static void e(String str, String str2, String str3) {
         String createMsg = createMsg(false, str, str2, str3);
         if (createMsg != null) {
-            logToSDcard(createMsg);
             Log.e(LOG_TAG, createMsg);
         }
     }
 
-    public static void e(String str, String str2, Throwable th) {
-        String createMsg = createMsg(false, str, str2, th.getMessage());
-        if (createMsg != null) {
-            logToSDcard(createMsg);
-            Log.e(LOG_TAG, createMsg);
-        }
-    }
-
-    public static void w(String str, String str2, String str3) {
+    private static void w(String str, String str2, String str3) {
         String createMsg = createMsg(false, str, str2, str3);
         if (createMsg != null) {
             Log.w(LOG_TAG, createMsg);
         }
     }
 
-    public static void v(String str, String str2, String str3) {
+    private static void v(String str, String str2, String str3) {
         String createMsg = createMsg(true, str, str2, str3);
         if (createMsg != null) {
             Log.v(LOG_TAG, createMsg);
         }
     }
 
-    public static void d(String str, String str2, String str3) {
+    private static void d(String str, String str2, String str3) {
         String createMsg = createMsg(true, str, str2, str3);
         if (createMsg != null) {
             Log.d(LOG_TAG, createMsg);
         }
-    }
-
-    public static void d(Class<?> cls, String str, String str2) {
-        d(cls.getName(), str, str2);
-    }
-
-    public static void e(Class<?> cls, String str, Throwable th) {
-        e(cls.getName(), str, th.getMessage());
     }
 
     private static String createMsg(boolean z, String str, String str2, String str3) {
@@ -156,6 +139,10 @@ public class BdLog {
         return printLog(0, th.getMessage());
     }
 
+    public static int e(Throwable th) {
+        return printLog(0, th.getMessage());
+    }
+
     public static int e(String str) {
         return printLog(0, str);
     }
@@ -174,9 +161,5 @@ public class BdLog {
 
     public static int v(String str) {
         return printLog(4, str);
-    }
-
-    private static void logToSDcard(String str) {
-        new Thread(new i(str)).start();
     }
 }

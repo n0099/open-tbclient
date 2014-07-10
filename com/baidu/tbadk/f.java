@@ -1,49 +1,16 @@
 package com.baidu.tbadk;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class f {
-    private static f a = new g();
-
-    private f() {
-    }
+public class f implements com.baidu.adp.framework.client.socket.link.d {
+    final /* synthetic */ TbadkApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(f fVar) {
-        this();
+    public f(TbadkApplication tbadkApplication) {
+        this.a = tbadkApplication;
     }
 
-    public static f a() {
-        return a;
-    }
-
-    public void a(String str, String str2) {
-        com.baidu.tbadk.core.sharedPref.b.a().b(str, str2);
-    }
-
-    public String b(String str, String str2) {
-        return com.baidu.tbadk.core.sharedPref.b.a().a(str, str2);
-    }
-
-    public boolean a(String str, boolean z) {
-        return com.baidu.tbadk.core.sharedPref.b.a().a(str, z);
-    }
-
-    public void b(String str, boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.a().b(str, z);
-    }
-
-    public int a(String str, int i) {
-        return com.baidu.tbadk.core.sharedPref.b.a().a(str, i);
-    }
-
-    public void b(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.a().b(str, i);
-    }
-
-    public long a(String str, long j) {
-        return com.baidu.tbadk.core.sharedPref.b.a().a(str, j);
-    }
-
-    public void b(String str, long j) {
-        com.baidu.tbadk.core.sharedPref.b.a().b(str, j);
+    @Override // com.baidu.adp.framework.client.socket.link.d
+    public boolean a() {
+        return !i.a().a("is_exit_app_not_start_websocket", false);
     }
 }

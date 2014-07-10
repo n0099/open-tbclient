@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
-    private bm c;
+    private cr c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -16,7 +16,7 @@ public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         Bundle a = a(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new bm();
+        this.c = new cr();
         this.c.setArguments(a);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
         beginTransaction.add(16908290, this.c);

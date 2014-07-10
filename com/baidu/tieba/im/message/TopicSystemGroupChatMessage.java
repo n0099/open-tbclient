@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 /* loaded from: classes.dex */
 public class TopicSystemGroupChatMessage extends GroupChatMessage {
@@ -8,7 +7,7 @@ public class TopicSystemGroupChatMessage extends GroupChatMessage {
     public String mSystemMsg;
 
     public TopicSystemGroupChatMessage() {
-        super(MessageTypes.CMD_CHAT_FAKE_SYSTEM_MESSAGE);
+        super(501126);
         setMsgType(12);
     }
 

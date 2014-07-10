@@ -4,32 +4,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.q;
-import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h extends q {
     private NearbyGroupsActivity a;
-    private ab d;
-    private a f;
     private NearbyGroupsData b = null;
     private boolean c = true;
-    private boolean e = false;
+    private boolean d = false;
+    private a e;
 
     public h(NearbyGroupsActivity nearbyGroupsActivity) {
         this.a = null;
-        this.d = null;
         this.a = nearbyGroupsActivity;
-        this.d = new ab(this.a);
-        this.d.d(true);
     }
 
     public NearbyGroupsData d() {
         return this.b;
-    }
-
-    public ab e() {
-        return this.d;
     }
 
     public void a(boolean z) {
@@ -41,8 +32,8 @@ public class h extends q {
     }
 
     public void b(boolean z) {
-        this.e = z;
-        if (this.e) {
+        this.d = z;
+        if (this.d) {
             this.b = null;
         }
         a();
@@ -54,18 +45,18 @@ public class h extends q {
             z = true;
         }
         if (z) {
-            com.baidu.tieba.im.data.j lastGroup = this.b.getLastGroup();
-            com.baidu.tieba.im.data.j firstGroup = nearbyGroupsData.getFirstGroup();
+            com.baidu.tieba.im.data.h lastGroup = this.b.getLastGroup();
+            com.baidu.tieba.im.data.h firstGroup = nearbyGroupsData.getFirstGroup();
             if (lastGroup != null && firstGroup != null && lastGroup.a() != null && lastGroup.a().equals(firstGroup.a())) {
                 nearbyGroupsData.remove(firstGroup);
             }
             Iterator it = nearbyGroupsData.iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.im.data.k kVar = (com.baidu.tieba.im.data.k) it.next();
-                if ((kVar instanceof com.baidu.tieba.im.data.l) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.l) kVar).c()) != null) {
+                com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) it.next();
+                if ((iVar instanceof com.baidu.tieba.im.data.j) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.j) iVar).c()) != null) {
                     break;
                 }
-                this.b.add(kVar);
+                this.b.add(iVar);
             }
         } else {
             this.b = nearbyGroupsData;
@@ -76,7 +67,7 @@ public class h extends q {
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.b == null) {
-            return (this.e || !this.c) ? 1 : 0;
+            return (this.d || !this.c) ? 1 : 0;
         }
         int size = this.b.size();
         if (size == 0) {
@@ -91,7 +82,7 @@ public class h extends q {
             if (!this.c) {
                 return 0;
             }
-            if (this.e) {
+            if (this.d) {
                 return 1;
             }
             return 5;
@@ -152,16 +143,16 @@ public class h extends q {
 
     @Override // com.baidu.adp.widget.q
     public View c() {
-        if (this.f == null) {
-            this.f = i.a(this.a, 4);
+        if (this.e == null) {
+            this.e = i.a(this.a, 4);
         }
-        return this.f.a();
+        return this.e.a();
     }
 
     @Override // com.baidu.adp.widget.q
     public void a(View view, AdapterView adapterView, int i) {
-        if (this.f != null) {
-            this.f.a(i, getItem(i));
+        if (this.e != null) {
+            this.e.a(i, getItem(i));
         }
     }
 }

@@ -1,37 +1,28 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class aa extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity this$0;
-
-    private aa(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
-    }
+class aa extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(MainTabActivity mainTabActivity, aa aaVar) {
-        this(mainTabActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.a = mainTabActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MainTabActivity mainTabActivity;
+        if (customResponsedMessage != null && com.baidu.tbadk.core.b.b.a() == null) {
+            ae aeVar = new ae();
+            mainTabActivity = this.a.G;
+            aeVar.a((k) mainTabActivity);
+            com.baidu.tbadk.core.b.b.a(aeVar);
         }
-    }
-
-    private void refreshNewVersion() {
-        if (TbadkApplication.checkNeedShowNewVersion()) {
-            this.this$0.R = true;
-        } else {
-            this.this$0.R = false;
-        }
-        this.this$0.a(false);
     }
 }

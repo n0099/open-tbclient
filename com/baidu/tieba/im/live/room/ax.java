@@ -1,51 +1,20 @@
 package com.baidu.tieba.im.live.room;
 
 import android.os.Handler;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseAddLiveGroupMessage;
-import protobuf.LiveGroupInfo;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class ax extends com.baidu.adp.framework.listener.b {
+class ax implements Runnable {
     final /* synthetic */ LiveRoomEntranceActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(LiveRoomEntranceActivity liveRoomEntranceActivity, int i) {
-        super(i);
+    public ax(LiveRoomEntranceActivity liveRoomEntranceActivity) {
         this.a = liveRoomEntranceActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ay ayVar;
+    @Override // java.lang.Runnable
+    public void run() {
         Handler handler;
-        this.a.hideProgressBar();
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107101 && (socketResponsedMessage instanceof ResponseAddLiveGroupMessage)) {
-            ResponseAddLiveGroupMessage responseAddLiveGroupMessage = (ResponseAddLiveGroupMessage) socketResponsedMessage;
-            if (responseAddLiveGroupMessage.hasError()) {
-                if (TextUtils.isEmpty(responseAddLiveGroupMessage.getErrorString())) {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
-                    return;
-                } else {
-                    this.a.showToast(responseAddLiveGroupMessage.getErrorString());
-                    return;
-                }
-            }
-            LiveGroupInfo liveGroupInfo = responseAddLiveGroupMessage.getLiveGroupInfo();
-            MessageManager messageManager = MessageManager.getInstance();
-            LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
-            int intValue = liveGroupInfo.groupId.intValue();
-            ayVar = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(liveRoomEntranceActivity, intValue, ayVar.a())));
-            handler = this.a.d;
-            handler.sendEmptyMessageDelayed(2001, 300L);
-        }
+        handler = this.a.d;
+        handler.sendEmptyMessage(TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
     }
 }

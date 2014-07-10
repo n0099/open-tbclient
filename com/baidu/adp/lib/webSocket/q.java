@@ -40,9 +40,9 @@ public class q extends Thread {
             oVar.d = fVar.a(str, i, this.a.e, false);
             z = this.a.q;
             if (!z) {
-                if (this.a.d.b()) {
-                    this.a.r = System.currentTimeMillis() - currentTimeMillis;
-                    try {
+                try {
+                    if (this.a.d.b()) {
+                        this.a.r = System.currentTimeMillis() - currentTimeMillis;
                         this.a.c();
                         this.a.b();
                         str2 = this.a.h;
@@ -59,22 +59,21 @@ public class q extends Thread {
                         uVar.f = list;
                         this.a.c.a((Object) uVar);
                         z2 = this.a.q;
-                        if (!z2) {
-                            return;
+                        if (z2) {
+                            this.a.b(new v());
                         }
-                        this.a.b(new v());
-                        return;
-                    } catch (Throwable th) {
-                        p = this.a.p();
-                        if (p) {
-                            BdLog.i("----WebSocketConnector error. e:" + th.getMessage());
-                        }
-                        this.a.b(new y(new Exception(th)));
-                        return;
+                    } else {
+                        this.a.b(new x(2, "cannot connect"));
                     }
+                    return;
+                } catch (Throwable th) {
+                    p = this.a.p();
+                    if (p) {
+                        BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
+                    }
+                    this.a.b(new y(new Exception(th)));
+                    return;
                 }
-                this.a.b(new x(2, "cannot connect"));
-                return;
             }
             this.a.b(new v());
         } catch (Throwable th2) {

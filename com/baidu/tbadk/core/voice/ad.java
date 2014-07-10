@@ -19,7 +19,7 @@ public class ad {
     }
 
     public static String b(String str) {
-        return com.baidu.tbadk.core.util.x.a(str, 1);
+        return com.baidu.tbadk.core.util.z.a(str, 1);
     }
 
     public static String c(String str) {
@@ -37,7 +37,7 @@ public class ad {
             }
             return false;
         } catch (Throwable th) {
-            BdLog.e("FileHelper", "DelFile", "error = " + th.getMessage());
+            BdLog.e(th.getMessage());
             TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
             return false;
         }

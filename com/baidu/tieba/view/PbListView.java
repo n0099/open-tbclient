@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.e {
     private Context a;
@@ -140,9 +140,9 @@ public class PbListView extends com.baidu.adp.widget.ListView.e {
             }
         }
         if (this.i == 0) {
-            be.f(this.g, com.baidu.tieba.s.cp_bg_line_d);
+            bk.f(this.g, com.baidu.tieba.s.cp_bg_line_d);
         } else if (this.i > 0) {
-            be.f(this.g, this.i);
+            bk.f(this.g, this.i);
         }
     }
 }

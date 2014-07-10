@@ -2,7 +2,6 @@ package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.ImSystemShowNotifyMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -21,7 +20,7 @@ public class b extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         switch (customResponsedMessage.getCmd()) {
-            case MessageTypes.CMD_IM_SYSTEM_SHOW_NOTIFY /* 2003128 */:
+            case 2001128:
                 if (customResponsedMessage instanceof ImSystemShowNotifyMessage) {
                     a.i(((ImSystemShowNotifyMessage) customResponsedMessage).getCurSysMid());
                     return;

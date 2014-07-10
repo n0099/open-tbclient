@@ -7,7 +7,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,7 +21,7 @@ public class DailyRecommendActivity extends BaseActivity {
     private final com.baidu.adp.widget.ListView.d f = new g(this);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new d());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010020, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -50,7 +49,7 @@ public class DailyRecommendActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void showToast(String str) {
-        com.baidu.adp.lib.util.k.a((Context) this, str);
+        com.baidu.adp.lib.util.j.a((Context) this, str);
     }
 
     private void c() {
@@ -59,7 +58,7 @@ public class DailyRecommendActivity extends BaseActivity {
         this.b.b();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.b.e();

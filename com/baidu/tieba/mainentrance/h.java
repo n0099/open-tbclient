@@ -29,7 +29,7 @@ public class h implements View.OnTouchListener {
             if (editText.hasFocus()) {
                 SquareSearchActivity squareSearchActivity = this.a;
                 editText2 = this.a.c;
-                com.baidu.adp.lib.util.k.a(squareSearchActivity, editText2);
+                com.baidu.adp.lib.util.j.a(squareSearchActivity, editText2);
                 return false;
             }
             return false;

@@ -5,11 +5,11 @@ import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx implements Animation.AnimationListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bq bqVar) {
-        this.a = bqVar;
+    public bx(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,7 +19,7 @@ public class bx implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         RelativeLayout relativeLayout;
-        relativeLayout = this.a.H;
+        relativeLayout = this.a.F;
         relativeLayout.setVisibility(0);
     }
 

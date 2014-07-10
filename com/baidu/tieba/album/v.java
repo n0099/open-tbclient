@@ -17,7 +17,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.c {
+public class v extends com.baidu.adp.base.f {
     private final int a;
     private String b;
     private String c;
@@ -112,8 +112,8 @@ public class v extends com.baidu.adp.base.c {
     }
 
     public void d(int i) {
-        this.k.a().a(i == 1);
-        this.k.a().a((View) this.e);
+        this.k.c().a(i == 1);
+        this.k.c().a((View) this.e);
     }
 
     public Button b() {

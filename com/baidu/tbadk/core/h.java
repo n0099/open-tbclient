@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bn;
 /* loaded from: classes.dex */
 public class h {
     private static h a;
@@ -46,7 +46,7 @@ public class h {
 
     public boolean d() {
         if (this.b == 0) {
-            if (bh.a().c()) {
+            if (bn.a().c()) {
                 return true;
             }
         } else if (this.b == 1) {
@@ -74,7 +74,7 @@ public class h {
     public void a(boolean z) {
         if (this.e != z) {
             this.e = z;
-            com.baidu.tbadk.core.sharedPref.b.a().b("show_images", z);
+            com.baidu.tbadk.core.sharedPref.b.a().c("show_images", z);
         }
     }
 
@@ -82,8 +82,8 @@ public class h {
         if (this.f != i) {
             this.f = i;
             com.baidu.tbadk.core.sharedPref.b.a().b("view_image_quality", i);
-            bh.a().f();
-            bh.a().g();
+            bn.a().f();
+            bn.a().g();
         }
     }
 

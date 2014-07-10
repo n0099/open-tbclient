@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.log.a;
 import com.baidu.tbadk.core.log.k;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo;
@@ -61,21 +61,21 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x008f: IGET  (r5v1 long A[REMOVE]) = (r2v3 com.baidu.tbadk.core.util.ax) com.baidu.tbadk.core.util.ax.b long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x008f: IGET  (r5v1 long A[REMOVE]) = (r2v3 com.baidu.tbadk.core.util.ba) com.baidu.tbadk.core.util.ba.b long)] */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, e eVar) {
         if (eVar.c().size() > 0) {
             d dVar = eVar.c().get(eVar.c().size() - 1);
-            aw.a.addAndGet(eVar.c().size() - 1);
-            ax axVar = new ax();
-            axVar.e = getMode(BdNetUtil.a());
-            axVar.c = dVar.b;
-            axVar.b = dVar.f;
-            axVar.d = dVar.e;
-            axVar.a = eVar.a().a() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            aw.a(axVar);
-            if (eVar.a().a() == HttpMessageTask.HTTP_METHOD.GET && axVar.b > TbConfig.NOTIFY_SOUND_INTERVAL) {
-                a.a(k.a(eVar.a().b().toString(), new StringBuilder().append(axVar.b).toString(), String.valueOf(axVar.c) + " |DNS Time" + dVar.g + "|ConnectTime" + dVar.c + "|current ip" + UtilHelper.getIpFromDomain(UtilHelper.getDomainName(eVar.a().b())), "old network download OK, retryCount:" + axVar.d, ""));
+            az.a.addAndGet(eVar.c().size() - 1);
+            ba baVar = new ba();
+            baVar.e = getMode(BdNetUtil.getStatusInfo());
+            baVar.c = dVar.b;
+            baVar.b = dVar.f;
+            baVar.d = dVar.e;
+            baVar.a = eVar.a().a() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            az.a(baVar);
+            if (eVar.a().a() == HttpMessageTask.HTTP_METHOD.GET && baVar.b > TbConfig.NOTIFY_SOUND_INTERVAL) {
+                a.a(k.a(eVar.a().b().toString(), new StringBuilder().append(baVar.b).toString(), String.valueOf(baVar.c) + " |DNS Time" + dVar.g + "|ConnectTime" + dVar.c + "|current ip" + UtilHelper.getIpFromDomain(UtilHelper.getDomainName(eVar.a().b())), "old network download OK, retryCount:" + baVar.d, ""));
             }
         }
     }

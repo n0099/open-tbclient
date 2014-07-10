@@ -24,7 +24,7 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
 
     public ab(AlbumActivity albumActivity, p pVar) {
         this.b = albumActivity;
-        this.c = albumActivity.g();
+        this.c = albumActivity.i();
         this.d = pVar;
         this.g = (int) this.b.getResources().getDimension(com.baidu.tieba.t.album_gridview_item_height);
     }
@@ -112,8 +112,8 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
             afVar.a = false;
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.b.a().a(skinType == 1);
-        this.b.a().a(view);
+        this.b.c().a(skinType == 1);
+        this.b.c().a(view);
         if (this.d != null) {
             if (this.d.c(item)) {
                 if (skinType == 1) {

@@ -1,95 +1,37 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.c {
-    private BaseActivity a;
-    private View b;
-    private NavigationBar c;
-    private HeadImageView d;
-    private TextView e;
-    private TextView f;
-    private SettingTextSwitchView g;
-    private RelativeLayout h;
-    private RelativeLayout i;
-    private Button j;
+class an extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ OfficialBarInfoActivity a;
+    private final /* synthetic */ BdSwitchView.SwitchState b;
 
-    public an(BaseActivity baseActivity) {
-        super(baseActivity);
-        this.a = baseActivity;
-        d();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(OfficialBarInfoActivity officialBarInfoActivity, BdSwitchView.SwitchState switchState) {
+        this.a = officialBarInfoActivity;
+        this.b = switchState;
     }
 
-    private void d() {
-        this.b = View.inflate(this.a, com.baidu.tieba.w.official_bar_info_activity, null);
-        this.a.setContentView(this.b);
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.c.a(com.baidu.tieba.y.officical_bar_info_title);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (HeadImageView) this.b.findViewById(com.baidu.tieba.v.bar_img);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.bar_name);
-        this.f = (TextView) this.b.findViewById(com.baidu.tieba.v.bar_authen_content);
-        this.g = (SettingTextSwitchView) this.b.findViewById(com.baidu.tieba.v.bar_notify);
-        this.h = (RelativeLayout) this.b.findViewById(com.baidu.tieba.v.bar_info_clean_lay);
-        this.i = (RelativeLayout) this.b.findViewById(com.baidu.tieba.v.bar_info_history_lay);
-        this.j = (Button) this.b.findViewById(com.baidu.tieba.v.bar_info_goto_btn);
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.g.b();
-        } else {
-            this.g.a();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        int i;
+        int i2;
+        if (this.b == BdSwitchView.SwitchState.OFF) {
+            bd a = bd.a();
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            i2 = this.a.c;
+            a.d(currentAccount, String.valueOf(i2), false);
+            return null;
         }
-    }
-
-    public RelativeLayout a() {
-        return this.h;
-    }
-
-    public RelativeLayout b() {
-        return this.i;
-    }
-
-    public Button c() {
-        return this.j;
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.h.setOnClickListener(onClickListener);
-        this.i.setOnClickListener(onClickListener);
-        this.j.setOnClickListener(onClickListener);
-    }
-
-    public void a(String str) {
-        this.f.setText(str);
-    }
-
-    public void b(String str) {
-        String str2 = String.valueOf(str) + this.a.getString(com.baidu.tieba.y.bar);
-        this.e.setText(str2);
-        this.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.visit)) + str2);
-    }
-
-    public void a(String str, com.baidu.tbadk.editortool.ab abVar) {
-        abVar.b(str, new ao(this));
-    }
-
-    public void a(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        this.g.setSwitchStateChangeListener(cVar);
-    }
-
-    public void a(int i) {
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.b);
-        this.c.c(i);
-        this.g.a(i);
+        bd a2 = bd.a();
+        String currentAccount2 = TbadkApplication.getCurrentAccount();
+        i = this.a.c;
+        a2.d(currentAccount2, String.valueOf(i), true);
+        return null;
     }
 }

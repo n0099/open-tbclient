@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<String, Integer, bc> {
-    com.baidu.tbadk.core.util.an a;
+public class b extends BdAsyncTask<String, Integer, bd> {
+    com.baidu.tbadk.core.util.aq a;
     final /* synthetic */ a b;
 
     private b(a aVar) {
@@ -33,17 +33,17 @@ public class b extends BdAsyncTask<String, Integer, bc> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public bc doInBackground(String... strArr) {
-        bc bcVar;
+    public bd doInBackground(String... strArr) {
+        bd bdVar;
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.a = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.b(com.baidu.tieba.ai.c().d())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.b(com.baidu.tieba.ai.c().d())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.c(com.baidu.tieba.ai.c().d())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.c(com.baidu.tieba.ai.c().d())));
             this.a.a("_phone_screen", stringBuffer.toString());
             if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
                 this.a.a("_msg_status", "0");
@@ -59,23 +59,23 @@ public class b extends BdAsyncTask<String, Integer, bc> {
             if (!this.a.a().b().b()) {
                 return null;
             }
-            bcVar = new bc();
+            bdVar = new bd();
             try {
-                bcVar.a(i);
-                if (TbadkApplication.getClientId() == null && bcVar.d().a() != null && bcVar.d().a().length() > 0) {
+                bdVar.a(i);
+                if (TbadkApplication.getClientId() == null && bdVar.d().a() != null && bdVar.d().a().length() > 0) {
                     context = this.b.c;
-                    TbadkApplication.saveClientId(context, bcVar.d().a());
-                    TbadkApplication.setClientId(bcVar.d().a());
-                    return bcVar;
+                    TbadkApplication.saveClientId(context, bdVar.d().a());
+                    TbadkApplication.setClientId(bdVar.d().a());
+                    return bdVar;
                 }
-                return bcVar;
+                return bdVar;
             } catch (Exception e2) {
                 e = e2;
-                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-                return bcVar;
+                BdLog.e(e.getMessage());
+                return bdVar;
             }
         } catch (Exception e3) {
-            bcVar = null;
+            bdVar = null;
             e = e3;
         }
     }
@@ -93,9 +93,9 @@ public class b extends BdAsyncTask<String, Integer, bc> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(bc bcVar) {
-        super.onPostExecute(bcVar);
+    public void onPostExecute(bd bdVar) {
+        super.onPostExecute(bdVar);
         this.b.b = null;
-        this.b.a.a(bcVar);
+        this.b.a.a(bdVar);
     }
 }

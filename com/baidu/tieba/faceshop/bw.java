@@ -1,105 +1,65 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.TbConfig;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
-    final /* synthetic */ bv a;
-    private int b;
-    private com.baidu.tbadk.core.util.an c;
-    private volatile boolean d;
+public class bw extends com.baidu.adp.widget.ListView.e {
+    final /* synthetic */ bt a;
+    private final BaseActivity b;
+    private TextView c = null;
+    private ProgressBar d = null;
+    private View e = null;
+    private View f;
 
-    private bw(bv bvVar) {
-        this.a = bvVar;
-        this.d = false;
+    public bw(bt btVar, BaseActivity baseActivity) {
+        this.a = btVar;
+        this.b = baseActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bw(bv bvVar, bw bwVar) {
-        this(bvVar);
+    @Override // com.baidu.adp.widget.ListView.e
+    public View a() {
+        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.new_pb_list_more, (ViewGroup) null);
+        this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin));
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.v.pb_more_text);
+        this.f = this.e.findViewById(com.baidu.tieba.v.pb_more_view);
+        this.f.setVisibility(8);
+        this.d = (ProgressBar) this.e.findViewById(com.baidu.tieba.v.progress);
+        a(TbadkApplication.m252getInst().getSkinType());
+        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.e;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public FaceShopData doInBackground(Object... objArr) {
-        int i;
-        int i2;
-        int i3;
-        float f;
-        int i4;
-        String str;
-        this.b = ((Integer) objArr[0]).intValue();
-        try {
-            if (!this.d) {
-                this.c = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpacklist");
-                if (this.b == 1) {
-                    this.a.c = 0;
-                } else if (this.b == 2) {
-                    bv bvVar = this.a;
-                    i = bvVar.c;
-                    bvVar.c = i + 1;
-                }
-                com.baidu.tbadk.core.util.an anVar = this.c;
-                i2 = this.a.f;
-                anVar.a("scr_w", String.valueOf(i2));
-                com.baidu.tbadk.core.util.an anVar2 = this.c;
-                i3 = this.a.g;
-                anVar2.a("scr_h", String.valueOf(i3));
-                com.baidu.tbadk.core.util.an anVar3 = this.c;
-                f = this.a.h;
-                anVar3.a("scr_dip", String.valueOf(f));
-                com.baidu.tbadk.core.util.an anVar4 = this.c;
-                i4 = this.a.c;
-                anVar4.a("offset", String.valueOf(i4));
-                this.c.a("limit", String.valueOf(10));
-                com.baidu.tbadk.core.util.an anVar5 = this.c;
-                str = this.a.d;
-                anVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
-                return (FaceShopData) new GsonBuilder().create().fromJson(this.c.i(), (Class<Object>) FaceShopData.class);
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.toString());
-        }
-        return null;
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.f);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(FaceShopData faceShopData) {
-        com.baidu.adp.base.e eVar;
-        FaceShopData faceShopData2;
-        FaceShopData faceShopData3;
-        super.onPostExecute(faceShopData);
-        this.a.b = null;
-        if (faceShopData != null) {
-            this.a.e = faceShopData.hasMore == 1;
-            if (this.b == 1) {
-                this.a.a = faceShopData;
-            } else if (this.b == 2) {
-                faceShopData3 = this.a.a;
-                faceShopData3.add(faceShopData);
-            }
-        }
-        eVar = this.a.mLoadDataCallBack;
-        faceShopData2 = this.a.a;
-        eVar.a(faceShopData2);
+    public void c() {
+        this.e.setVisibility(8);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        this.a.b = null;
+    public void d() {
+        this.e.setVisibility(0);
+    }
+
+    public void e() {
+        this.c.setText(this.b.getText(com.baidu.tieba.y.loading));
+        this.f.setVisibility(0);
+    }
+
+    public void f() {
+        this.d.setVisibility(8);
+        this.c.setText(com.baidu.tieba.y.load_more);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.e
+    public void onClick() {
     }
 }

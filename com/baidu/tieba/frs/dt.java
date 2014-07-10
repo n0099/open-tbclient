@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 public class dt {
     public String a;
     public String b;
-    final /* synthetic */ dq c;
+    final /* synthetic */ dr c;
 
-    public dt(dq dqVar) {
-        this.c = dqVar;
+    public dt(dr drVar) {
+        this.c = drVar;
     }
 }

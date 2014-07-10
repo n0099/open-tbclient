@@ -3,7 +3,6 @@ package com.baidu.tieba.barcode.a;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 final class f implements Camera.PreviewCallback {
     private final c a;
@@ -28,8 +27,6 @@ final class f implements Camera.PreviewCallback {
         if (a != null && handler != null) {
             handler.obtainMessage(this.c, a.x, a.y, bArr).sendToTarget();
             this.b = null;
-            return;
         }
-        BdLog.d(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
     }
 }

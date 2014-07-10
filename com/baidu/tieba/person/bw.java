@@ -1,33 +1,84 @@
 package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements DialogInterface.OnClickListener {
-    final /* synthetic */ bm a;
+public class bw extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ PersonChangeActivity a;
+    private com.baidu.tbadk.core.util.aq b = null;
+    private com.baidu.tieba.model.at c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bm bmVar) {
-        this.a = bmVar;
+    public bw(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.at atVar) {
+        this.a = personChangeActivity;
+        this.c = null;
+        this.c = atVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.av avVar;
-        com.baidu.tieba.model.e eVar;
-        com.baidu.tieba.model.e eVar2;
-        com.baidu.tieba.model.e eVar3;
-        avVar = this.a.c;
-        int a = com.baidu.adp.lib.f.b.a(avVar.f(), -1);
-        if (a > 0) {
-            eVar = this.a.d;
-            if (eVar.a() == 1) {
-                eVar3 = this.a.d;
-                eVar3.b(a);
-                return;
-            }
-            eVar2 = this.a.d;
-            eVar2.a(a);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.a.x = null;
+        if (this.b != null) {
+            this.b.g();
         }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        Boolean bool;
+        this.a.x = null;
+        this.a.closeLoadingDialog();
+        if (this.b != null) {
+            if (this.b.a().b().b()) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.success));
+                Intent intent = new Intent();
+                bool = this.a.b;
+                if (bool.booleanValue()) {
+                    intent.putExtra("person_change_data", this.c.a());
+                } else {
+                    intent.putExtra("data", this.c.a());
+                }
+                com.baidu.tieba.ai.c().a(this.c.a());
+                this.a.setResult(-1, intent);
+                this.a.finish();
+            } else {
+                this.a.showToast(this.b.f());
+            }
+        }
+        super.onPostExecute(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        DialogInterface.OnCancelListener onCancelListener;
+        PersonChangeActivity personChangeActivity = this.a;
+        String string = this.a.getString(com.baidu.tieba.y.saving);
+        onCancelListener = this.a.z;
+        personChangeActivity.showLoadingDialog(string, onCancelListener);
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        if (this.c != null) {
+            this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
+            this.b.a("sex", String.valueOf(this.c.a().getSex()));
+            this.b.a("intro", this.c.a().getIntro());
+            this.b.j();
+            if (this.b.a().b().b()) {
+                com.baidu.tieba.util.k.c();
+            }
+        }
+        return null;
     }
 }

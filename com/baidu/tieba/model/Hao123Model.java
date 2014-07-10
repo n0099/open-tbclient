@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class Hao123Model extends com.baidu.adp.base.b {
+public class Hao123Model extends com.baidu.adp.base.e {
     public static final String HAO123_KEY = "hao123_cache_data_key";
     private static final int LIKES_MAX_SIZE = 19;
 
@@ -139,12 +139,12 @@ public class Hao123Model extends com.baidu.adp.base.b {
         return barInfo;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }

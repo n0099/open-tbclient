@@ -1,7 +1,7 @@
 package com.baidu.android.systemmonitor;
 
 import android.content.Context;
-import com.baidu.android.systemmonitor.devicestatistic.j;
+import com.baidu.android.systemmonitor.devicestatistic.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements Runnable {
@@ -16,6 +16,6 @@ public class a implements Runnable {
     public void run() {
         Context context;
         context = this.a.mContext;
-        j.a(context).b();
+        i.a(context).b();
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupActivity.AddGroupActivityResIdl;
@@ -11,15 +10,11 @@ public class ResponseCreateGroupActivityMessage extends SocketResponsedMessage {
     private GroupActivityData activityData;
 
     public ResponseCreateGroupActivityMessage() {
-        super(MessageTypes.CMD_CREATE_GROUP_ACTIVITY);
+        super(103120);
     }
 
     public GroupActivityData getActivityData() {
         return this.activityData;
-    }
-
-    public void setActivityData(GroupActivityData groupActivityData) {
-        this.activityData = groupActivityData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +31,7 @@ public class ResponseCreateGroupActivityMessage extends SocketResponsedMessage {
             groupActivityData.setgActivityTitle(dataRes.gActivityTitle);
             groupActivityData.setGroupId(dataRes.groupId.intValue());
             groupActivityData.setGroupName(dataRes.groupName);
-            setActivityData(groupActivityData);
+            this.activityData = groupActivityData;
         }
     }
 }

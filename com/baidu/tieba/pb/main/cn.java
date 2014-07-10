@@ -4,19 +4,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cn implements View.OnFocusChangeListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(bq bqVar) {
-        this.a = bqVar;
+    public cn(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         PbActivity pbActivity;
         if (!z) {
-            pbActivity = this.a.m;
-            com.baidu.adp.lib.util.k.a(pbActivity, view);
+            pbActivity = this.a.k;
+            com.baidu.adp.lib.util.j.a(pbActivity, view);
         }
     }
 }

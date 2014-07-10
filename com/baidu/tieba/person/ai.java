@@ -1,55 +1,36 @@
 package com.baidu.tieba.person;
 
-import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends PagerAdapter {
-    public List<View> a;
-    final /* synthetic */ af b;
+public class ai implements View.OnClickListener {
+    final /* synthetic */ ah a;
 
-    public ai(af afVar, List<View> list) {
-        this.b = afVar;
-        this.a = list;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ah ahVar) {
+        this.a = ahVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.a.get(i));
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void finishUpdate(View view) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.a.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.a.get(i), 0);
-        return this.a.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Parcelable saveState() {
-        return null;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void startUpdate(View view) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        BaseFragmentActivity baseFragmentActivity3;
+        BaseFragmentActivity baseFragmentActivity4;
+        if (view.getId() == com.baidu.tieba.v.textHomeListFrsName) {
+            String obj = view.getTag().toString();
+            baseFragmentActivity3 = this.a.a;
+            baseFragmentActivity4 = this.a.a;
+            baseFragmentActivity3.a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(baseFragmentActivity4).a(obj, "")));
+            return;
+        }
+        aj ajVar = (aj) view.getTag();
+        if (ajVar != null) {
+            baseFragmentActivity = this.a.a;
+            baseFragmentActivity2 = this.a.a;
+            baseFragmentActivity.a(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(baseFragmentActivity2).a(ajVar.l, (String) null, (String) null, 18003)));
+        }
     }
 }

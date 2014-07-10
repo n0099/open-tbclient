@@ -155,6 +155,19 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         return null;
     }
 
+    public FragmentTabWidget getFragmentTabWidget() {
+        return this.c;
+    }
+
+    public b a(int i) {
+        for (b bVar : this.g) {
+            if (i == bVar.a) {
+                return bVar;
+            }
+        }
+        return null;
+    }
+
     public void b() {
         FragmentTransaction beginTransaction = this.f.beginTransaction();
         int size = this.g.size();
@@ -175,7 +188,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         return "android:switcher:" + i + ":" + j;
     }
 
-    public void a(int i) {
+    public void b(int i) {
         this.c.a(i);
         for (b bVar : this.g) {
             bVar.b.a(i);

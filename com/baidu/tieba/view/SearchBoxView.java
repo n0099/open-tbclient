@@ -26,8 +26,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new y(this);
+        this.g = new z(this);
         a(context);
     }
 
@@ -37,8 +37,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new y(this);
+        this.g = new z(this);
         a(context);
     }
 
@@ -48,8 +48,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new y(this);
+        this.g = new z(this);
         a(context);
     }
 
@@ -75,8 +75,8 @@ public class SearchBoxView extends RelativeLayout {
         }
         if (this.a instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.a;
-            baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a((View) this);
+            baseFragmentActivity.c().a(i == 1);
+            baseFragmentActivity.c().a((View) this);
         }
         if (i == 1) {
             this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text_1));

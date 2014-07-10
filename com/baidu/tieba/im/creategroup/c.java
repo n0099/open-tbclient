@@ -48,6 +48,17 @@ public class c implements x {
         return this.e;
     }
 
+    public void a(int i) {
+        String a;
+        if (e() > i && (a = com.baidu.adp.lib.util.i.a(this.d.getText(), null)) != null && a.length() > 2) {
+            while (com.baidu.tieba.im.e.t.a(a) > i) {
+                a = a.substring(0, a.length() - 1);
+            }
+            this.d.setText(a);
+            this.d.setSelection(a.length());
+        }
+    }
+
     @Override // com.baidu.tieba.im.creategroup.x
     public View a() {
         TiebaStatic.eventStat(this.a, "create_g_intro", "pv", 1, new Object[0]);

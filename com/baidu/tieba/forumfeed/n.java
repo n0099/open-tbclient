@@ -1,90 +1,67 @@
 package com.baidu.tieba.forumfeed;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.widget.ListView.e {
-    final /* synthetic */ j a;
-    private BaseFragmentActivity b;
-    private TextView c = null;
-    private ProgressBar d = null;
-    private View.OnClickListener e = null;
-    private View f = null;
-    private View g;
+public class n {
+    public boolean a = false;
+    final /* synthetic */ j b;
+    private final TextView c;
+    private final TextView d;
+    private final ImageView e;
+    private final LinearLayout f;
+    private final Button g;
+    private final View h;
 
-    public n(j jVar, BaseFragmentActivity baseFragmentActivity) {
-        this.a = jVar;
-        this.b = null;
-        this.b = baseFragmentActivity;
+    public n(j jVar, Context context, View view) {
+        this.b = jVar;
+        this.h = view;
+        this.c = (TextView) view.findViewById(v.tip1);
+        this.d = (TextView) view.findViewById(v.tip2);
+        this.e = (ImageView) view.findViewById(v.nodata_img_bg);
+        this.g = (Button) view.findViewById(v.btn_go);
+        this.f = (LinearLayout) view.findViewById(v.layout_btn_go);
+        this.g.setOnClickListener(new o(this, context));
     }
 
-    @Override // com.baidu.adp.widget.ListView.e
-    public View a() {
-        this.f = LayoutInflater.from(this.b).inflate(w.new_pb_list_more, (ViewGroup) null);
-        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin));
-        this.c = (TextView) this.f.findViewById(v.pb_more_text);
-        this.g = this.f.findViewById(v.pb_more_view);
-        this.g.setVisibility(8);
-        this.d = (ProgressBar) this.f.findViewById(v.progress);
-        a(TbadkApplication.m252getInst().getSkinType());
-        this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.f;
+    public void a() {
+        LinearLayout linearLayout;
+        this.a = false;
+        this.c.setVisibility(8);
+        this.d.setVisibility(8);
+        this.e.setVisibility(8);
+        this.f.setVisibility(8);
+        int i = TbadkApplication.m252getInst().getSkinType() == 1 ? s.forumfeed_frs_bg_1 : s.forumfeed_frs_bg;
+        linearLayout = this.b.l;
+        linearLayout.setBackgroundResource(i);
+    }
+
+    public void b() {
+        LinearLayout linearLayout;
+        this.a = true;
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        this.c.setVisibility(0);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.f.setVisibility(0);
+        a(skinType);
+        linearLayout = this.b.l;
+        linearLayout.setBackgroundColor(0);
     }
 
     public void a(int i) {
-        o oVar;
-        this.b.a().a(this.g);
-        oVar = this.a.k;
-        oVar.a(i);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.e = onClickListener;
-    }
-
-    public void c() {
-        this.f.setVisibility(8);
-    }
-
-    public void d() {
-        this.f.setVisibility(0);
-    }
-
-    public void e() {
-        this.d.setVisibility(0);
-        this.c.setText(this.b.getText(y.loading));
-        this.g.setVisibility(0);
-    }
-
-    public void f() {
-        this.d.setVisibility(8);
-        this.c.setText(y.no_more_to_load);
-    }
-
-    public void g() {
-        this.d.setVisibility(8);
-        this.c.setText(y.load_more);
-    }
-
-    public void h() {
-        this.g.setVisibility(0);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.e
-    public void onClick() {
-        if (this.e != null) {
-            this.e.onClick(this.f);
+        if (i == 1) {
+            this.h.setBackgroundResource(s.forumfeed_frs_bg_1);
+        } else if (this.a) {
+            this.h.setBackgroundResource(s.forumfeed_frs_bg);
         }
     }
 }

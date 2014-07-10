@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class EmotionTabHorizonScrollView extends HorizontalScrollView {
     private g a;
     private int b;
-    private ArrayList<af> c;
-    private u d;
+    private ArrayList<ae> c;
+    private t d;
     private int e;
     private int f;
     private int g;
@@ -71,11 +71,11 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.l = i;
     }
 
-    public void setDatas(ArrayList<af> arrayList) {
+    public void setDatas(ArrayList<ae> arrayList) {
         this.c = arrayList;
     }
 
-    private TbImageView b(af afVar) {
+    private TbImageView b(ae aeVar) {
         LinearLayout linearLayout = new LinearLayout(getContext());
         TbImageView tbImageView = new TbImageView(getContext());
         tbImageView.setAutoChangeStyle(false);
@@ -89,28 +89,28 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             linearLayout.setBackgroundResource(com.baidu.tieba.u.bg_expression_bar);
         }
         this.a.addView(linearLayout, this.a.getChildCount() - 1, this.k);
-        EmotionGroupType c = afVar.c();
+        EmotionGroupType c = aeVar.c();
         if (c == EmotionGroupType.LOCAL) {
-            if (afVar.i() != null) {
-                afVar.i().a(tbImageView);
+            if (aeVar.j() != null) {
+                aeVar.j().a(tbImageView);
             }
-            linearLayout.setOnClickListener(new q(this, this.a.getChildCount() - 3, null));
+            linearLayout.setOnClickListener(new p(this, this.a.getChildCount() - 3, null));
         } else if (c == EmotionGroupType.PROMOTION) {
-            if (afVar.a() != null) {
-                afVar.a().a(tbImageView);
+            if (aeVar.a() != null) {
+                aeVar.a().a(tbImageView);
             }
-            linearLayout.setOnClickListener(new r(this, afVar.e(), null));
+            linearLayout.setOnClickListener(new q(this, aeVar.e(), null));
         } else if (c == EmotionGroupType.BIG_EMOTION) {
             if (this.m) {
-                if (afVar.i() != null) {
-                    afVar.i().a(tbImageView);
+                if (aeVar.j() != null) {
+                    aeVar.j().a(tbImageView);
                 }
-                linearLayout.setOnClickListener(new q(this, this.a.getChildCount() - 3, null));
+                linearLayout.setOnClickListener(new p(this, this.a.getChildCount() - 3, null));
             } else {
-                if (afVar.a() != null) {
-                    afVar.a().a(tbImageView);
+                if (aeVar.a() != null) {
+                    aeVar.a().a(tbImageView);
                 }
-                linearLayout.setOnClickListener(new n(this));
+                linearLayout.setOnClickListener(new m(this));
             }
         }
         return tbImageView;
@@ -138,7 +138,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         } else {
             this.a.setNewViewVisible(false);
         }
-        this.h.setOnClickListener(new o(this));
+        this.h.setOnClickListener(new n(this));
         this.n = new View(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
@@ -147,29 +147,29 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.a.addView(this.n);
     }
 
-    public void a(af afVar) {
-        b(afVar);
+    public void a(ae aeVar) {
+        b(aeVar);
     }
 
     public void a(int i, boolean z) {
         this.m = z;
         int i2 = i + 1;
         int childCount = this.a.getChildCount();
-        af afVar = this.c.get(i2 - 1);
-        if (i2 < childCount && afVar.c() == EmotionGroupType.BIG_EMOTION) {
+        ae aeVar = this.c.get(i2 - 1);
+        if (i2 < childCount && aeVar.c() == EmotionGroupType.BIG_EMOTION) {
             LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(i2);
             TbImageView tbImageView = (TbImageView) linearLayout.getChildAt(0);
             if (!this.m) {
-                linearLayout.setOnClickListener(new p(this));
-                if (afVar.a() != null) {
-                    afVar.a().a(tbImageView);
+                linearLayout.setOnClickListener(new o(this));
+                if (aeVar.a() != null) {
+                    aeVar.a().a(tbImageView);
                     return;
                 }
                 return;
             }
-            linearLayout.setOnClickListener(new q(this, i2 - 1, null));
-            if (afVar.i() != null) {
-                afVar.i().a(tbImageView);
+            linearLayout.setOnClickListener(new p(this, i2 - 1, null));
+            if (aeVar.j() != null) {
+                aeVar.j().a(tbImageView);
             }
         }
     }
@@ -183,9 +183,9 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(this.b + 1);
             linearLayout.setSelected(true);
             TbImageView tbImageView = (TbImageView) linearLayout.getChildAt(0);
-            af afVar = this.c.get(this.b);
-            if (afVar.i() != null) {
-                afVar.i().a(tbImageView);
+            ae aeVar = this.c.get(this.b);
+            if (aeVar.j() != null) {
+                aeVar.j().a(tbImageView);
             }
         }
     }
@@ -227,7 +227,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setOnTabSelectedListener(u uVar) {
-        this.d = uVar;
+    public void setOnTabSelectedListener(t tVar) {
+        this.d = tVar;
     }
 }

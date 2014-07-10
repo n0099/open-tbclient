@@ -25,30 +25,30 @@ public class ar implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo5;
         WriteImagesInfo writeImagesInfo6;
         if (i == 0) {
-            writeImagesInfo4 = this.a.Y;
+            writeImagesInfo4 = this.a.X;
             if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.a.Y;
+                writeImagesInfo5 = this.a.X;
                 int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.a.Y;
+                writeImagesInfo6 = this.a.X;
                 if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
                     this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            this.a.Z = String.valueOf(System.currentTimeMillis());
+            this.a.aa = String.valueOf(System.currentTimeMillis());
             FrsActivity frsActivity = this.a;
-            str = this.a.Z;
-            com.baidu.tbadk.core.util.bd.a(frsActivity, str);
+            str = this.a.aa;
+            com.baidu.tbadk.core.util.bj.a(frsActivity, str);
         } else if (i == 1) {
-            writeImagesInfo = this.a.Y;
+            writeImagesInfo = this.a.X;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.a.Y;
+                writeImagesInfo2 = this.a.X;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
                     FrsActivity frsActivity2 = this.a;
-                    writeImagesInfo3 = this.a.Y;
-                    com.baidu.tbadk.core.atomData.a aVar = new com.baidu.tbadk.core.atomData.a(frsActivity2, writeImagesInfo3.toJsonString());
-                    aVar.setRequestCode(12002);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, aVar));
+                    writeImagesInfo3 = this.a.X;
+                    com.baidu.tbadk.core.atomData.b bVar = new com.baidu.tbadk.core.atomData.b(frsActivity2, writeImagesInfo3.toJsonString());
+                    bVar.setRequestCode(12002);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar));
                 }
             }
         }

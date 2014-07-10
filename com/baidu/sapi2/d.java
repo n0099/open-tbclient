@@ -2,9 +2,11 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,81 +14,126 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
-    private static final String a = "current_account";
-    private static final String b = "share_accounts";
-    private static final String c = "login_accounts";
-    private static final String d = "first_install";
-    private static final String e = "sapi_options";
-    private static final String f = "relogin_credentials";
-    private static final String g = "cuidtoken";
-    private static final String h = "device_token";
-    private static final String i = "device_login_available";
-    private static final String j = "hosts_hijacked";
-    private static d l;
-    private SharedPreferences k;
+    private static final String a = "sapi_version";
+    private static final String b = "login_share_strategy";
+    private static final String c = "current_account";
+    private static final String d = "share_accounts";
+    private static final String e = "login_accounts";
+    private static final String f = "first_install";
+    private static final String g = "login_status_changed";
+    private static final String h = "voluntary_share_version";
+    private static final String i = "sapi_options";
+    private static final String j = "relogin_credentials";
+    private static final String k = "cuidtoken";
+    private static final String l = "device_token";
+    private static final String m = "device_login_available";
+    private static final String n = "hosts_hijacked";
+    private static d p;
+    private SharedPreferences o;
 
     public static d a(Context context) {
         synchronized (d.class) {
-            if (l == null) {
-                l = new d(context);
+            if (p == null) {
+                p = new d(context.getApplicationContext());
             }
         }
-        return l;
+        return p;
     }
 
     private d(Context context) {
-        this.k = context.getSharedPreferences("sapi_system", 0);
+        this.o = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(String str, String str2) {
-        this.k.edit().putString(str, str2).commit();
+        if (Build.VERSION.SDK_INT > 8) {
+            this.o.edit().putString(str, str2).apply();
+        } else {
+            this.o.edit().putString(str, str2).commit();
+        }
     }
 
-    private String d(String str) {
-        return this.k.getString(str, "");
+    private void a(String str, int i2) {
+        if (Build.VERSION.SDK_INT > 8) {
+            this.o.edit().putInt(str, i2).apply();
+        } else {
+            this.o.edit().putInt(str, i2).commit();
+        }
+    }
+
+    private void a(String str, boolean z) {
+        if (Build.VERSION.SDK_INT > 8) {
+            this.o.edit().putBoolean(str, z).apply();
+        } else {
+            this.o.edit().putBoolean(str, z).commit();
+        }
+    }
+
+    private String e(String str) {
+        return this.o.getString(str, "");
+    }
+
+    private boolean b(String str, boolean z) {
+        return this.o.getBoolean(str, z);
+    }
+
+    private int b(String str, int i2) {
+        return this.o.getInt(str, i2);
     }
 
     public String a() {
-        return d(h);
+        return e(l);
     }
 
     public void a(String str) {
-        a(h, str);
+        a(l, str);
     }
 
     public boolean b() {
-        return this.k.getBoolean(i, false);
+        return b(m, false);
     }
 
     public void a(boolean z) {
-        this.k.edit().putBoolean(i, z).commit();
+        a(m, z);
     }
 
     public boolean c() {
-        return this.k.getBoolean(j, false);
+        return b(n, false);
     }
 
     public void b(boolean z) {
-        this.k.edit().putBoolean(j, z).commit();
+        a(n, z);
+    }
+
+    public void b(String str) {
+        a(a, str);
+    }
+
+    public void a(LoginShareStrategy loginShareStrategy) {
+        if (loginShareStrategy != null) {
+            a(b, loginShareStrategy.getStrValue());
+        }
     }
 
     public void a(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
-            a(a, "");
+            a(c, "");
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
-            a(a, jSONObject.toString());
+            a(c, jSONObject.toString());
+            if (!h()) {
+                m();
+            }
         }
     }
 
     public SapiAccount d() {
-        if (TextUtils.isEmpty(d(a))) {
+        if (TextUtils.isEmpty(e(c))) {
             return null;
         }
         try {
-            return SapiAccount.fromJSONObject(new JSONObject(d(a)));
+            return SapiAccount.fromJSONObject(new JSONObject(e(c)));
         } catch (JSONException e2) {
             return null;
         }
@@ -128,6 +175,9 @@ public final class d {
 
     public void e(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
+            if (d() != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(d().uid)) {
+                com.baidu.sapi2.share.b.a().b();
+            }
             List<SapiAccount> f2 = f();
             if (f2.contains(sapiAccount)) {
                 f2.remove(sapiAccount);
@@ -137,9 +187,9 @@ public final class d {
     }
 
     public List<SapiAccount> e() {
-        if (!TextUtils.isEmpty(d(b))) {
+        if (!TextUtils.isEmpty(e(d))) {
             try {
-                return SapiAccount.fromJSONArray(new JSONArray(d(b)));
+                return SapiAccount.fromJSONArray(new JSONArray(e(d)));
             } catch (Throwable th) {
                 return new ArrayList();
             }
@@ -148,9 +198,9 @@ public final class d {
     }
 
     public List<SapiAccount> f() {
-        if (!TextUtils.isEmpty(d(c))) {
+        if (!TextUtils.isEmpty(e(e))) {
             try {
-                return SapiAccount.fromJSONArray(new JSONArray(d(c)));
+                return SapiAccount.fromJSONArray(new JSONArray(e(e)));
             } catch (Exception e2) {
                 return new ArrayList();
             }
@@ -159,33 +209,49 @@ public final class d {
     }
 
     public boolean g() {
-        if (this.k.getBoolean(d, true)) {
-            this.k.edit().putBoolean(d, false).commit();
+        if (b(f, true)) {
+            a(f, false);
             return true;
         }
         return false;
     }
 
+    public boolean h() {
+        return b(g, false);
+    }
+
+    private void m() {
+        a(g, true);
+    }
+
+    public int i() {
+        return b(h, 0);
+    }
+
+    public void a(int i2) {
+        a(h, i2);
+    }
+
     private void a(List<SapiAccount> list) {
         JSONArray jSONArray = SapiAccount.toJSONArray(list);
         if (jSONArray != null) {
-            a(b, jSONArray.toString());
+            a(d, jSONArray.toString());
         }
     }
 
     private void b(List<SapiAccount> list) {
         JSONArray jSONArray = SapiAccount.toJSONArray(list);
         if (jSONArray != null) {
-            a(c, jSONArray.toString());
+            a(e, jSONArray.toString());
         }
     }
 
-    public b h() {
-        String d2 = d(e);
-        if (!TextUtils.isEmpty(d2)) {
+    public b j() {
+        String e2 = e(i);
+        if (!TextUtils.isEmpty(e2)) {
             try {
-                return b.a(new JSONObject(d2));
-            } catch (JSONException e2) {
+                return b.a(new JSONObject(e2));
+            } catch (JSONException e3) {
             }
         }
         return new b();
@@ -193,53 +259,53 @@ public final class d {
 
     public void a(b bVar) {
         if (bVar != null) {
-            a(e, bVar.d());
+            a(i, bVar.e());
         }
     }
 
     public void a(String str, SapiAccount.ReloginCredentials reloginCredentials) {
         if (!TextUtils.isEmpty(str) && reloginCredentials != null && !TextUtils.isEmpty(reloginCredentials.account) && !TextUtils.isEmpty(reloginCredentials.password) && !TextUtils.isEmpty(reloginCredentials.ubi) && !TextUtils.isEmpty(reloginCredentials.accountType)) {
-            c(reloginCredentials.ubi);
-            JSONObject i2 = i();
-            if (i2 == null) {
-                i2 = new JSONObject();
+            d(reloginCredentials.ubi);
+            JSONObject k2 = k();
+            if (k2 == null) {
+                k2 = new JSONObject();
             }
             try {
-                i2.put(str, reloginCredentials.toJSONObject());
-                a(f, i2.toString());
+                k2.put(str, reloginCredentials.toJSONObject());
+                a(j, k2.toString());
             } catch (JSONException e2) {
                 L.e(e2);
             }
         }
     }
 
-    public SapiAccount.ReloginCredentials b(String str) {
+    public SapiAccount.ReloginCredentials c(String str) {
         JSONObject optJSONObject;
-        JSONObject i2 = i();
-        if (i2 == null || (optJSONObject = i2.optJSONObject(str)) == null) {
+        JSONObject k2 = k();
+        if (k2 == null || (optJSONObject = k2.optJSONObject(str)) == null) {
             return new SapiAccount.ReloginCredentials();
         }
         SapiAccount.ReloginCredentials fromJSONObject = SapiAccount.ReloginCredentials.fromJSONObject(optJSONObject);
-        fromJSONObject.ubi = j();
+        fromJSONObject.ubi = l();
         return fromJSONObject;
     }
 
-    public JSONObject i() {
-        String d2 = d(f);
-        if (!TextUtils.isEmpty(d2)) {
+    public JSONObject k() {
+        String e2 = e(j);
+        if (!TextUtils.isEmpty(e2)) {
             try {
-                return new JSONObject(d2);
-            } catch (JSONException e2) {
+                return new JSONObject(e2);
+            } catch (JSONException e3) {
             }
         }
         return null;
     }
 
-    void c(String str) {
-        a(g, str);
+    void d(String str) {
+        a(k, str);
     }
 
-    String j() {
-        return d(g);
+    String l() {
+        return e(k);
     }
 }

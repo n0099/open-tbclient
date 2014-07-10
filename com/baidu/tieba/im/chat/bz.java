@@ -1,24 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.widget.TextView;
-import com.baidu.tieba.im.message.FakeSystemGroupChatMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-public class bz extends com.baidu.adp.base.a<ChatMessage> {
-    private TextView b;
+class bz implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
-    public bz(Context context) {
-        super(context, com.baidu.tieba.w.msg_msg_chat_rule_view);
-        this.b = (TextView) a(com.baidu.tieba.v.tex_msgcontent);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bz(MsgActivityView msgActivityView, String str, String str2) {
+        this.a = msgActivityView;
+        this.b = str;
+        this.c = str2;
     }
 
-    public void a(ChatMessage chatMessage) {
-        String str;
-        if (chatMessage == null) {
-            this.b = null;
-        } else if ((chatMessage instanceof FakeSystemGroupChatMessage) && (str = ((FakeSystemGroupChatMessage) chatMessage).mSystemMsg) != null) {
-            this.b.setText(str);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(this.a.getContext(), this.b, this.c)));
     }
 }

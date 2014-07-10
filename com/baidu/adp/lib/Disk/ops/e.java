@@ -41,7 +41,7 @@ public class e extends DiskFileOperate {
         return null;
     }
 
-    public String s() {
+    public String u() {
         return this.g;
     }
 

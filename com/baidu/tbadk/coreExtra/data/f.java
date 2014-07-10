@@ -29,7 +29,7 @@ public class f {
             }
             a(optJSONObject);
         } catch (Exception e) {
-            BdLog.e("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ public class f {
                 this.b = jSONObject.optString("vcode_pic_url");
                 this.c = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                BdLog.e("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

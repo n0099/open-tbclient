@@ -1,9 +1,12 @@
 package com.baidu.tieba.write;
 
-import java.util.ArrayList;
+import android.content.DialogInterface;
+import android.os.Handler;
+import android.widget.EditText;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.base.e {
+public class aj implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,26 +14,39 @@ public class aj extends com.baidu.adp.base.e {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.adp.base.e
-    public void a(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.a.hideProgressBar();
-        if (obj == null || !(obj instanceof s)) {
-            feedBackTopListView = this.a.k;
-            feedBackTopListView.setVisibility(8);
-            this.a.showToast(com.baidu.tieba.y.neterror);
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        EditText editText;
+        WriteData writeData2;
+        EditText editText2;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        Handler handler;
+        WriteData writeData6;
+        WriteData writeData7;
+        writeData = this.a.a;
+        editText = this.a.e;
+        writeData.setTitle(editText.getText().toString());
+        writeData2 = this.a.a;
+        editText2 = this.a.h;
+        writeData2.setContent(editText2.getText().toString());
+        writeData3 = this.a.a;
+        int type = writeData3.getType();
+        if (type == 0) {
+            writeData6 = this.a.a;
+            String forumId = writeData6.getForumId();
+            writeData7 = this.a.a;
+            com.baidu.tieba.util.m.a(forumId, writeData7);
+        } else if (type == 1) {
+            writeData4 = this.a.a;
+            String threadId = writeData4.getThreadId();
+            writeData5 = this.a.a;
+            com.baidu.tieba.util.m.b(threadId, writeData5);
         }
-        s sVar = (s) obj;
-        if (sVar.b() != 0) {
-            feedBackTopListView2 = this.a.k;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.n> a = sVar.a();
-        feedBackTopListView3 = this.a.k;
-        feedBackTopListView3.setData(a);
+        this.a.showToast(com.baidu.tieba.y.draft_save_success);
+        handler = this.a.t;
+        handler.postDelayed(new ak(this), 1000L);
     }
 }

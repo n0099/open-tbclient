@@ -9,6 +9,7 @@ public class BdStatSwitchData implements Serializable {
     private static final long serialVersionUID = -4426491450548432115L;
     private BdStatFirstSwitchData error;
     private String mAppVersion;
+    private String mData;
     private int uploadInterval;
     private long specifiedExpired = 0;
     private int error_code = -1;
@@ -42,6 +43,14 @@ public class BdStatSwitchData implements Serializable {
 
     public void setError_msg(String str) {
         this.error_msg = str;
+    }
+
+    public String getmData() {
+        return this.mData;
+    }
+
+    public void setmData(String str) {
+        this.mData = str;
     }
 
     public BdStatFirstSwitchData getDebug() {
@@ -104,8 +113,9 @@ public class BdStatSwitchData implements Serializable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 a(new JSONObject(str));
+                this.mData = str;
             } catch (Exception e) {
-                BdLog.e(getClass(), "parserJson", e);
+                BdLog.e(e);
             }
         }
     }
@@ -135,7 +145,7 @@ public class BdStatSwitchData implements Serializable {
                     this.error.parserJson(optJSONObject.optJSONArray("error"));
                 }
             } catch (Exception e) {
-                BdLog.e(getClass(), "parserJson", e);
+                BdLog.e(e);
             }
         }
     }

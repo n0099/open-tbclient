@@ -8,16 +8,15 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.q;
+import com.baidu.tbadk.core.atomData.v;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bw;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends BaseActivity {
     private b a = null;
-    private bw b = null;
-    private com.baidu.adp.framework.listener.b c = new a(this, MessageTypes.CMD_REQUEST_SEARCH_GROUP);
+    private bv b = null;
+    private com.baidu.adp.framework.listener.b c = new a(this, 103007);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AddGroupActivity.class));
@@ -29,7 +28,7 @@ public class AddGroupActivity extends BaseActivity {
         super.onCreate(bundle);
         getIntent();
         this.a = new b(this);
-        this.b = new bw();
+        this.b = new bv();
         registerListener(this.c);
     }
 
@@ -97,7 +96,7 @@ public class AddGroupActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BaseGroupData baseGroupData) {
         if (baseGroupData != null) {
-            sendMessage(new CustomMessage(2010011, new q(this, baseGroupData.getGroupId(), 0)));
+            sendMessage(new CustomMessage(2008011, new v(this, baseGroupData.getGroupId(), 0)));
         }
     }
 

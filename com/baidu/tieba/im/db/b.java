@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.chat.officialBar.az;
-import com.baidu.tieba.im.groupInfo.aa;
+import com.baidu.tieba.im.chat.officialBar.bd;
+import com.baidu.tieba.im.groupInfo.y;
 /* loaded from: classes.dex */
 public class b {
     private static b a = new b();
@@ -16,8 +16,8 @@ public class b {
     public synchronized void b() {
         com.baidu.tbadk.coreExtra.messageCenter.e.a().b();
         com.baidu.tieba.im.chat.personaltalk.a.a().b();
-        az.a().b();
-        aa.a().b();
+        bd.a().b();
+        y.a().b();
         com.baidu.tieba.im.b.e.b();
     }
 }

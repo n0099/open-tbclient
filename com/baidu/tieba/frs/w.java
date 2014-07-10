@@ -16,12 +16,12 @@ class w implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ct ctVar;
         if (i >= 0) {
-            ctVar = this.a.w;
+            ctVar = this.a.v;
             ctVar.i(i);
-            this.a.E = true;
-            this.a.D = ((com.baidu.tbadk.core.data.g) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.q = 1;
-            this.a.m = 3;
+            this.a.D = true;
+            this.a.C = ((com.baidu.tbadk.core.data.g) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.a.p = 1;
+            this.a.l = 3;
             this.a.F();
         }
     }

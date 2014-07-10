@@ -54,7 +54,7 @@ public class NewVcodeActivity extends BaseActivity {
     };
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ao.class, NewVcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.at.class, NewVcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -108,7 +108,7 @@ public class NewVcodeActivity extends BaseActivity {
         if (this.j == null) {
             try {
                 this.j = (BaseWebView) findViewById(com.baidu.tieba.v.new_vcode_webview);
-                com.baidu.tbadk.core.util.be.a(this.j, TbadkApplication.m252getInst().getSkinType());
+                com.baidu.tbadk.core.util.bk.a(this.j, TbadkApplication.m252getInst().getSkinType());
                 this.j.setHorizontalScrollBarEnabled(false);
                 this.j.setHorizontalScrollbarOverlay(false);
                 this.j.setScrollBarStyle(33554432);
@@ -133,7 +133,7 @@ public class NewVcodeActivity extends BaseActivity {
                 });
                 return true;
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 com.baidu.tieba.ai.c().e(com.baidu.tieba.ai.c().z() + 1);
                 return false;
             }
@@ -203,10 +203,10 @@ public class NewVcodeActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.c(i);
-        com.baidu.tbadk.core.util.be.g(this.c, i);
-        com.baidu.tbadk.core.util.be.a((View) this.d, i);
+        com.baidu.tbadk.core.util.bk.g(this.c, i);
+        com.baidu.tbadk.core.util.bk.a((View) this.d, i);
         if (this.j != null) {
-            com.baidu.tbadk.core.util.be.a(this.j, TbadkApplication.m252getInst().getSkinType());
+            com.baidu.tbadk.core.util.bk.a(this.j, TbadkApplication.m252getInst().getSkinType());
         }
     }
 
@@ -265,9 +265,9 @@ public class NewVcodeActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PostThreadTask extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.am> {
+    public class PostThreadTask extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.aq> {
         private WriteData b;
-        private com.baidu.tbadk.core.util.an c = null;
+        private com.baidu.tbadk.core.util.aq c = null;
         private String d = null;
 
         public PostThreadTask(WriteData writeData) {
@@ -279,15 +279,22 @@ public class NewVcodeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public com.baidu.tieba.data.am doInBackground(Integer... numArr) {
+        public com.baidu.tieba.data.aq doInBackground(Integer... numArr) {
             Address b;
-            this.c = new com.baidu.tbadk.core.util.an();
+            this.c = new com.baidu.tbadk.core.util.aq();
             this.c.a("anonymous", "0");
             this.c.a("fid", this.b.getForumId());
             this.c.a("kw", this.b.getForumName());
             String imagesCodeForPost = this.b.getImagesCodeForPost();
             this.c.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             this.c.a("content", String.valueOf(this.b.getContent()) + imagesCodeForPost);
+            if (this.b.getIsBaobaoImageUploaded()) {
+                this.c.a("tail_type", String.valueOf(com.baidu.tieba.a.e.a));
+                this.c.a("tail_content", this.b.getBaobaoContent());
+                this.b.setBabaoPosted(true);
+            } else {
+                this.b.setBabaoPosted(false);
+            }
             this.c.a("vcode_md5", this.b.getVcodeMD5());
             this.c.a("vcode", NewVcodeActivity.this.m);
             this.c.a("vcode_tag", "11");
@@ -322,23 +329,23 @@ public class NewVcodeActivity extends BaseActivity {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 String error_msg = errorData.getError_msg();
-                if (com.baidu.adp.lib.util.j.b(error_msg)) {
+                if (com.baidu.adp.lib.util.i.b(error_msg)) {
                     error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success);
-                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
+                } else if ((this.b.isHasImages() || this.b.getIsBaobao()) && com.baidu.adp.lib.util.i.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
                     error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error);
                 }
-                com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am(errorData.getError_code(), error_msg, null);
-                if (!amVar.a()) {
+                com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq(errorData.getError_code(), error_msg, null);
+                if (!aqVar.a()) {
                     this.b.deleteUploadedTempImages();
                     if (this.b.getType() == 1 && !this.b.isSubFloor()) {
                         com.baidu.tieba.util.m.b(this.b.getThreadId(), (WriteData) null);
                     }
                 }
-                return amVar;
-            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
-                return new com.baidu.tieba.data.am(this.c.d(), com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error), null);
+                return aqVar;
+            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.i.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
+                return new com.baidu.tieba.data.aq(this.c.d(), com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error), null);
             } else {
-                return new com.baidu.tieba.data.am(this.c.d(), this.c.f(), null);
+                return new com.baidu.tieba.data.aq(this.c.d(), this.c.f(), null);
             }
         }
 
@@ -356,21 +363,24 @@ public class NewVcodeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(com.baidu.tieba.data.am amVar) {
-            super.onPostExecute(amVar);
+        public void onPostExecute(com.baidu.tieba.data.aq aqVar) {
+            super.onPostExecute(aqVar);
             NewVcodeActivity.this.closeLoadingDialog();
             NewVcodeActivity.this.h = null;
-            if (amVar != null && this.c != null) {
+            if (aqVar != null && this.c != null) {
                 if (this.c.a().b().b()) {
-                    NewVcodeActivity.this.showToast(amVar.c());
+                    NewVcodeActivity.this.showToast(aqVar.c());
                     if (this.b.getLiveCardData() != null) {
-                        NewVcodeActivity.this.sendMessage(new CustomMessage(2005001, new com.baidu.tbadk.core.atomData.m(NewVcodeActivity.this).c(this.b.getForumName(), "post live's thread")));
+                        NewVcodeActivity.this.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.r(NewVcodeActivity.this).c(this.b.getForumName(), "post live's thread")));
+                    }
+                    if (this.b != null && this.b.isBabaoPosted()) {
+                        com.baidu.tieba.d.a.d();
                     }
                     NewVcodeActivity.this.setResult(-1, NewVcodeActivity.this.getIntent());
                     NewVcodeActivity.this.finish();
                     return;
                 }
-                if (amVar.b()) {
+                if (aqVar.b()) {
                     com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
                     fVar.a(this.d);
                     if (fVar.b() != null) {
@@ -384,7 +394,7 @@ public class NewVcodeActivity extends BaseActivity {
                         }
                     }
                 }
-                NewVcodeActivity.this.showToast(amVar.c());
+                NewVcodeActivity.this.showToast(aqVar.c());
             }
         }
     }
@@ -392,7 +402,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class ChangeVcodeTask extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.f> {
-        volatile com.baidu.tbadk.core.util.an a;
+        volatile com.baidu.tbadk.core.util.aq a;
         com.baidu.tbadk.coreExtra.data.f b;
 
         private ChangeVcodeTask() {
@@ -409,11 +419,18 @@ public class NewVcodeActivity extends BaseActivity {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public com.baidu.tbadk.coreExtra.data.f doInBackground(String... strArr) {
-            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.a = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             this.a.a("fid", NewVcodeActivity.this.b.getForumId());
             this.a.a("kw", NewVcodeActivity.this.b.getForumName());
             this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             this.a.a("content", NewVcodeActivity.this.b.getContent());
+            if (!NewVcodeActivity.this.b.getIsBaobaoImageUploaded()) {
+                NewVcodeActivity.this.b.setBabaoPosted(false);
+            } else {
+                this.a.a("tail_type", String.valueOf(com.baidu.tieba.a.e.a));
+                this.a.a("tail_content", NewVcodeActivity.this.b.getBaobaoContent());
+                NewVcodeActivity.this.b.setBabaoPosted(true);
+            }
             if (NewVcodeActivity.this.b.getVoice() != null) {
                 this.a.a("voice_md5", NewVcodeActivity.this.b.getVoice());
                 this.a.a("during_time", String.valueOf(NewVcodeActivity.this.b.getVoiceDuringTime()));

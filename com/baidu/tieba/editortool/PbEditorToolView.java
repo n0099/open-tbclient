@@ -65,11 +65,11 @@ public class PbEditorToolView extends LinearLayout {
         }
     }
 
-    public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
-        this.b.setOnActionListener(new z(this, xVar));
-        this.c.setOnTouchListener(new aa(this, xVar));
-        this.c.addTextChangedListener(new ab(this, xVar));
-        this.d.setOnClickListener(new ac(this, xVar));
+    public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
+        this.b.setOnActionListener(new ab(this, wVar));
+        this.c.setOnTouchListener(new ac(this, wVar));
+        this.c.addTextChangedListener(new ad(this, wVar));
+        this.d.setOnClickListener(new ae(this, wVar));
     }
 
     public void b() {

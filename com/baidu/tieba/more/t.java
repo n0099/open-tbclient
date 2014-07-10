@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.e {
+public class t extends com.baidu.adp.base.h {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,24 +11,24 @@ public class t extends com.baidu.adp.base.e {
         this.a = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        com.baidu.tieba.person.t tVar;
-        com.baidu.tieba.person.t tVar2;
-        com.baidu.tieba.person.t tVar3;
-        com.baidu.tieba.person.t tVar4;
-        com.baidu.tieba.person.t tVar5;
+        com.baidu.tieba.person.o oVar;
+        com.baidu.tieba.person.o oVar2;
+        com.baidu.tieba.person.o oVar3;
+        com.baidu.tieba.person.o oVar4;
+        com.baidu.tieba.person.o oVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        tVar = this.a.c;
-        if (tVar.a() != null) {
-            tVar2 = this.a.c;
-            personChangeData.setName(tVar2.a().getName_show());
-            tVar3 = this.a.c;
-            personChangeData.setIntro(tVar3.a().getIntro());
-            tVar4 = this.a.c;
-            personChangeData.setPortrait(tVar4.a().getPortrait());
-            tVar5 = this.a.c;
-            personChangeData.setSex(tVar5.a().getSex());
+        oVar = this.a.c;
+        if (oVar.a() != null) {
+            oVar2 = this.a.c;
+            personChangeData.setName(oVar2.a().getName_show());
+            oVar3 = this.a.c;
+            personChangeData.setIntro(oVar3.a().getIntro());
+            oVar4 = this.a.c;
+            personChangeData.setPortrait(oVar4.a().getPortrait());
+            oVar5 = this.a.c;
+            personChangeData.setSex(oVar5.a().getSex());
             this.a.a(personChangeData);
         }
     }

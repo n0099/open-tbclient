@@ -24,14 +24,14 @@ public class e extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.k kVar;
+        com.baidu.tieba.im.model.i iVar;
         List<GroupInfoData> groups;
-        com.baidu.tieba.im.model.k kVar2;
+        com.baidu.tieba.im.model.i iVar2;
         GroupListAdapter groupListAdapter;
         GroupListAdapter groupListAdapter2;
         GroupListAdapter groupListAdapter3;
         GroupListAdapter groupListAdapter4;
-        com.baidu.tieba.im.model.k kVar3;
+        com.baidu.tieba.im.model.i iVar3;
         this.a.a(true);
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseFrsGroupsLocalMessage)) {
             this.a.a(com.baidu.tieba.y.neterror);
@@ -41,15 +41,15 @@ public class e extends CustomMessageListener {
         Message<?> orginalMessage = responseFrsGroupsLocalMessage.getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsLocalMessage)) {
             String type = ((RequestFrsGroupsLocalMessage) orginalMessage).getType();
-            kVar3 = this.a.c;
-            if (!type.equals(String.valueOf(kVar3.g()))) {
+            iVar3 = this.a.c;
+            if (!type.equals(String.valueOf(iVar3.g()))) {
                 return;
             }
         }
-        kVar = this.a.c;
-        if (!kVar.e() && (groups = responseFrsGroupsLocalMessage.getGroups()) != null && !groups.isEmpty()) {
-            kVar2 = this.a.c;
-            kVar2.a(true);
+        iVar = this.a.c;
+        if (!iVar.e() && (groups = responseFrsGroupsLocalMessage.getGroups()) != null && !groups.isEmpty()) {
+            iVar2 = this.a.c;
+            iVar2.a(true);
             groupListAdapter = this.a.i;
             groupListAdapter.b(true);
             groupListAdapter2 = this.a.i;

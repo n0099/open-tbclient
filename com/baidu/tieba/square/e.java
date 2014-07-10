@@ -1,24 +1,11 @@
 package com.baidu.tieba.square;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tbadk.core.util.bt;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ c a;
-    private final /* synthetic */ ViewGroup b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, ViewGroup viewGroup) {
-        this.a = cVar;
-        this.b = viewGroup;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null) {
-            br.a(this.b, false, (bt) new f(this, str, aVar));
-        }
-    }
+public class e {
+    public HeadImageView a;
+    public TextView b;
+    public BestStringsFitTextView c;
+    public w d;
 }

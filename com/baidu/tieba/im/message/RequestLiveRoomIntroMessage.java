@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryLiveGroupByGidAndPid.DataReq;
 import protobuf.QueryLiveGroupByGidAndPid.QueryLiveGroupByGidAndPidReqIdl;
@@ -10,7 +9,7 @@ public class RequestLiveRoomIntroMessage extends TbSocketMessage {
     private int mPublisherId;
 
     public RequestLiveRoomIntroMessage() {
-        super(MessageTypes.CMD_QUERY_LIVE_ROOM_INTRO);
+        super(107004);
         this.mGroupId = 0;
         this.mPublisherId = 0;
     }

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.service;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 import com.baidu.tbadk.tbplugin.m;
@@ -20,7 +19,6 @@ class a extends c {
     @Override // com.baidu.tbadk.core.service.c, com.baidu.tbadk.download.a
     public void a(DownloadData downloadData) {
         super.a(downloadData);
-        BdLog.d("install file plugin");
         new com.baidu.tbadk.tbplugin.f(this.a, m.a().a(this.c.name), downloadData.getPath(), this.a).a();
     }
 }

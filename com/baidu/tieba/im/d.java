@@ -1,4 +1,6 @@
 package com.baidu.tieba.im;
+
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
@@ -16,7 +18,11 @@ public class d implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.b != null) {
-            this.b.a(this.c);
+            try {
+                this.b.a(this.c);
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+            }
         }
     }
 }

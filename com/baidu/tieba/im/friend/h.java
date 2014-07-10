@@ -1,23 +1,94 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.view.NavigationBar;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h {
-    public View a;
-    public HeadImageView b;
-    public TextView c;
-    public Button d;
-    final /* synthetic */ f e;
+public class h extends com.baidu.adp.base.f {
+    private IMBlackListActivity a;
+    private NavigationBar b;
+    private View c;
+    private BdListView d;
+    private e e;
+    private TextView f;
+    private ProgressBar g;
+    private com.baidu.tbadk.imageManager.d h;
 
-    private h(f fVar) {
-        this.e = fVar;
+    public h(IMBlackListActivity iMBlackListActivity) {
+        super(iMBlackListActivity);
+        this.h = new i(this);
+        this.a = iMBlackListActivity;
+        e();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(f fVar, h hVar) {
-        this(fVar);
+    public void a() {
+        this.g.setVisibility(0);
+    }
+
+    public void b() {
+        this.g.setVisibility(8);
+    }
+
+    public void a(com.baidu.tieba.im.data.a aVar) {
+        this.e.a(aVar);
+        if (this.e.getCount() <= 0) {
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
+            return;
+        }
+        this.d.setVisibility(0);
+        this.f.setVisibility(8);
+        this.e.notifyDataSetChanged();
+        c();
+    }
+
+    public void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
+        if (arrayList == null || arrayList.size() <= 0) {
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
+            return;
+        }
+        this.d.setVisibility(0);
+        this.f.setVisibility(8);
+        this.e.a(arrayList);
+        this.e.notifyDataSetChanged();
+        c();
+    }
+
+    private void e() {
+        this.a.setContentView(com.baidu.tieba.w.im_black_list);
+        this.c = this.a.findViewById(com.baidu.tieba.v.root_view);
+        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.a(com.baidu.tieba.y.black_list_title);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.v.black_list);
+        this.f = (TextView) this.c.findViewById(com.baidu.tieba.v.no_data_container);
+        this.g = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.progress);
+        this.e = new e(this.a);
+        this.d.setAdapter((ListAdapter) this.e);
+        d();
+        f();
+    }
+
+    private void f() {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        this.a.getLayoutMode().a(skinType == 1);
+        this.a.getLayoutMode().a(this.c);
+        this.b.c(skinType);
+    }
+
+    public void c() {
+        aj.a(this.d, this.e.a(), null, this.h, null, 0, 1);
+    }
+
+    public void d() {
+        this.d.setOnScrollListener(new j(this));
     }
 }

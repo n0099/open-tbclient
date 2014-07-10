@@ -1,61 +1,31 @@
 package com.baidu.tieba.pb.main;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.frs.view.FrsPraiseView;
-import com.baidu.tieba.pb.sub.SubPbLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bi {
-    public View A;
-    public View B;
-    public LinearLayout C;
-    public TextView D;
-    public TbImageView E;
-    public Button F;
-    final /* synthetic */ az G;
-    private LinearLayout H;
-    private ImageView I;
-    public View a;
-    public View b;
-    public View c;
-    public View d;
-    public HeadImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public ImageView j;
-    public ImageView k;
-    public TbRichTextView l;
-    public View m;
-    public FrsPraiseView n;
-    public ImageView o;
-    public RelativeLayout p;
-    public SubPbLayout q;
-    public UserIconBox r;
-    UserIconBox s;
-    public LinearLayout t;
-    public TextView u;
-    public LinearLayout v;
-    public Button w;
-    public LinearLayout x;
-    public TextView y;
-    public View z;
-
-    private bi(az azVar) {
-        this.G = azVar;
-    }
+public class bi implements View.OnClickListener {
+    final /* synthetic */ bc a;
+    private final /* synthetic */ com.baidu.tieba.data.ah b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bi(az azVar, bi biVar) {
-        this(azVar);
+    public bi(bc bcVar, com.baidu.tieba.data.ah ahVar) {
+        this.a = bcVar;
+        this.b = ahVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        String f = this.b.f();
+        if (!com.baidu.tbadk.core.util.bm.c(f)) {
+            context = this.a.b;
+            AlertDialog.Builder title = new AlertDialog.Builder(context).setTitle(com.baidu.tieba.y.del_post_tip);
+            context2 = this.a.b;
+            title.setMessage(context2.getString(com.baidu.tieba.y.pb_app_see_ask)).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bj(this, this.b, f)).setNegativeButton(com.baidu.tieba.y.alert_no_button, (DialogInterface.OnClickListener) null).create().show();
+        }
     }
 }

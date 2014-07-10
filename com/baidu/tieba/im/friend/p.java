@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.friend;
+
+import com.baidu.tbadk.coreExtra.view.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements Runnable {
-    final /* synthetic */ o a;
+public class p implements au {
+    final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.a = oVar;
+    public p(InviteFriendListActivity inviteFriendListActivity) {
+        this.a = inviteFriendListActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        InviteFriendListActivity inviteFriendListActivity;
-        inviteFriendListActivity = this.a.a;
-        inviteFriendListActivity.finish();
+    @Override // com.baidu.tbadk.coreExtra.view.au
+    public void a(String str) {
+        this.a.e();
     }
 }

@@ -33,8 +33,4 @@ class Configuration implements Parcelable {
         parcel.writeByte((byte) (this.g ? 1 : 0));
         parcel.writeByte((byte) (this.h ? 1 : 0));
     }
-
-    public String toString() {
-        return "Configuration{mAlpha=" + this.c + ", mFullingViewId=" + this.d + ", mTargetViewId=" + this.e + ", mFullingColorId=" + this.f + ", mAutoDismiss=" + this.g + ", mOverlayTarget=" + this.h + '}';
-    }
 }

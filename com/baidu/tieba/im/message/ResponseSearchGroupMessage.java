@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.cache.t;
+import com.baidu.adp.lib.cache.u;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,12 +11,12 @@ import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseSearchGroupMessage extends SocketResponsedMessage {
-    private List<t<String>> cacheList;
+    private List<u<String>> cacheList;
     private long gid;
     private List<BaseGroupData> searchResult;
 
     public ResponseSearchGroupMessage() {
-        super(MessageTypes.CMD_REQUEST_SEARCH_GROUP);
+        super(103007);
         this.searchResult = new ArrayList();
         this.cacheList = new ArrayList();
     }
@@ -36,11 +35,11 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
         this.searchResult = list;
     }
 
-    public List<t<String>> getCacheList() {
+    public List<u<String>> getCacheList() {
         return this.cacheList;
     }
 
-    public void setCacheList(List<t<String>> list) {
+    public void setCacheList(List<u<String>> list) {
         this.cacheList = list;
     }
 

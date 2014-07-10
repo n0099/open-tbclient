@@ -1,25 +1,28 @@
 package com.baidu.tieba.guide;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k {
-    FrameLayout a;
-    TbImageView b;
-    ImageView c;
-    RelativeLayout d;
-    TextView e;
-    final /* synthetic */ h f;
-
-    private k(h hVar) {
-        this.f = hVar;
-    }
+public class k extends Handler {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(h hVar, k kVar) {
-        this(hVar);
+    public k(j jVar) {
+        this.a = jVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 0:
+                this.a.a();
+                return;
+            case 1:
+                this.a.g();
+                return;
+            default:
+                return;
+        }
     }
 }

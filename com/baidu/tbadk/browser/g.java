@@ -11,7 +11,7 @@ public class g implements com.baidu.tbadk.core.view.h {
 
     @Override // com.baidu.tbadk.core.view.h
     public void a() {
-        this.a.a();
+        this.a.showPopMenu();
     }
 
     @Override // com.baidu.tbadk.core.view.h

@@ -1,25 +1,21 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.app.AlertDialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ bm a;
+public class bq implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bq(bm bmVar, int i) {
-        super(i);
-        this.a = bmVar;
+    public bq(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 2003124) {
-            return;
-        }
-        this.a.a(socketResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.c;
+        alertDialog.show();
     }
 }

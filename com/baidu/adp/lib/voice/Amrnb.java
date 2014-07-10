@@ -1,7 +1,5 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.stats.h;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.f;
 /* loaded from: classes.dex */
 public class Amrnb {
@@ -36,8 +34,7 @@ public class Amrnb {
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                h.a().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
-                BdLog.i("----load amrnb so failed2.");
+                com.baidu.adp.lib.stats.d.b().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
             }
         }
     }

@@ -1,24 +1,17 @@
 package com.baidu.tieba.forumfeed;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bb;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.bm;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ o a;
-    private final /* synthetic */ Context b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar, Context context) {
-        this.a = oVar;
-        this.b = context;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bb(this.b)));
+class p implements CustomMessageTask.CustomRunnable<bm> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<bm> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SingleForumFeedActivity.class);
+            customMessage.getData().startActivity();
+        }
+        return null;
     }
 }

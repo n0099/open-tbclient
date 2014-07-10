@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ f a;
+class g {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public Button d;
+    final /* synthetic */ e e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+    private g(e eVar) {
+        this.e = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        IMBlackListActivity iMBlackListActivity;
-        Object tag = view.getTag();
-        if (tag != null && (tag instanceof com.baidu.tieba.im.data.a)) {
-            iMBlackListActivity = this.a.a;
-            iMBlackListActivity.a(view, (com.baidu.tieba.im.data.a) tag);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(e eVar, g gVar) {
+        this(eVar);
     }
 }

@@ -10,11 +10,11 @@ class ac implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        com.baidu.tieba.im.model.p pVar;
-        pVar = this.a.c;
-        if (pVar.d() && z) {
+        com.baidu.tieba.im.model.n nVar;
+        nVar = this.a.c;
+        if (nVar.d() && z) {
             return;
         }
-        this.a.h();
+        this.a.i();
     }
 }

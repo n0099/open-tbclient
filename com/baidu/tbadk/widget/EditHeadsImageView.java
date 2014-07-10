@@ -101,7 +101,7 @@ public class EditHeadsImageView extends a {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getVisableBitmap", e.toString());
+            BdLog.e(e.toString());
         }
         return bitmap;
     }

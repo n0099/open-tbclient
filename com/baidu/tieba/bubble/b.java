@@ -3,11 +3,9 @@ package com.baidu.tieba.bubble;
 import android.text.TextUtils;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
-import com.baidu.tieba.model.f;
-import com.baidu.tieba.model.j;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-class b implements j {
+class b implements com.baidu.tieba.model.h {
     final /* synthetic */ BubbleChooseActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,17 +13,17 @@ class b implements j {
         this.a = bubbleChooseActivity;
     }
 
-    @Override // com.baidu.tieba.model.j
+    @Override // com.baidu.tieba.model.h
     public void a(SetBubbleResultData setBubbleResultData) {
-        e eVar;
-        f fVar;
-        e eVar2;
-        eVar = this.a.b;
-        eVar.e();
-        fVar = this.a.c;
-        int a = fVar.a();
-        eVar2 = this.a.b;
-        d a2 = eVar2.a();
+        g gVar;
+        com.baidu.tieba.model.d dVar;
+        g gVar2;
+        gVar = this.a.b;
+        gVar.e();
+        dVar = this.a.c;
+        int a = dVar.a();
+        gVar2 = this.a.b;
+        f a2 = gVar2.a();
         if (a == 0) {
             a2.a(true);
             for (BubbleListData.BubbleData bubbleData : a2.a()) {
@@ -49,11 +47,11 @@ class b implements j {
         }
     }
 
-    @Override // com.baidu.tieba.model.j
+    @Override // com.baidu.tieba.model.h
     public void b(SetBubbleResultData setBubbleResultData) {
-        e eVar;
-        eVar = this.a.b;
-        eVar.e();
+        g gVar;
+        gVar = this.a.b;
+        gVar.e();
         if (setBubbleResultData != null) {
             if (!setBubbleResultData.getError_code().equals("0")) {
                 if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {

@@ -1,125 +1,26 @@
 package com.baidu.tieba.im.live;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
-import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
-import com.baidu.tieba.im.live.service.LiveStatusParcelable;
-import com.baidu.tieba.y;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.ExitAppMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends Handler {
-    final /* synthetic */ b a;
+public class i extends CustomMessageListener {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.a = bVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(d dVar, int i) {
+        super(i);
+        this.a = dVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        boolean z;
-        Handler handler;
-        Runnable runnable;
-        l lVar;
-        l lVar2;
-        switch (message.what) {
-            case 1:
-                LiveStatusParcelable liveStatusParcelable = (LiveStatusParcelable) message.obj;
-                LiveStatusChangeMessage.LiveStatusData liveStatusData = new LiveStatusChangeMessage.LiveStatusData();
-                liveStatusData.status = liveStatusParcelable.status;
-                liveStatusData.groupId = liveStatusParcelable.groupId;
-                liveStatusData.url = liveStatusParcelable.url;
-                liveStatusData.errorString = liveStatusParcelable.errorString;
-                this.a.a(liveStatusData);
-                BdLog.d("Live status broadcast: " + liveStatusParcelable.toString());
-                return;
-            case 2:
-                String str = (String) message.obj;
-                if (!StringUtils.isNull(str)) {
-                    BdLog.e("Live error reported: " + str);
-                    if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_NOT_SUPPORT)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_NOT_SUPPORT, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_NOT_SUPPORT), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_system_not_support);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_PREPARE)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_SDK_INIT_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_SDK_INIT_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_init_failed);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_START_PUB)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_SDK_PUB_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_SDK_PUB_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_publish_failed);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CREATE_ENGINE_FAILED)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_MM_MODULE_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_MM_MODULE_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_create_engine_failed);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_accesstoken_null_or_expire);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CONNECTION_CLOSED)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_CONNECTION_KICKED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_CONNECTION_KICKED), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_connection_closed);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_FILE_ERROR)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_FILE, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_FILE), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_file);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_NET_ERROR)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_NETWORK, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_NETWORK), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_network);
-                    } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_INVALID_CODEC)) {
-                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                        UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_invalid_codec);
-                    }
-                    this.a.e(str);
-                    return;
-                }
-                return;
-            case 3:
-                int i2 = message.arg1;
-                int i3 = message.arg2;
-                String str2 = (String) message.obj;
-                BdLog.d("Live player new dur: " + i2 + ", pos: " + i3 + ", url: " + str2);
-                this.a.a(str2, i2, i3);
-                return;
-            case 4:
-                int i4 = message.arg1;
-                BdLog.d("Live record time: " + i4);
-                lVar = this.a.n;
-                if (lVar != null) {
-                    lVar2 = this.a.n;
-                    lVar2.a(i4);
-                    return;
-                }
-                return;
-            case 5:
-                BdLog.d("Live player warning.");
-                TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                b bVar = this.a;
-                i = bVar.h;
-                bVar.h = i + 1;
-                z = this.a.j;
-                if (!z) {
-                    this.a.j = true;
-                    handler = this.a.v;
-                    runnable = this.a.w;
-                    handler.postDelayed(runnable, 20000L);
-                    return;
-                }
-                return;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            default:
-                super.handleMessage(message);
-                return;
-            case 10:
-                BdLog.d("Live status as requested.");
-                this.a.h();
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage.getCmd() == 2001171 && (customResponsedMessage instanceof ExitAppMessage) && !((ExitAppMessage) customResponsedMessage).hasError()) {
+            this.a.s();
         }
     }
 }

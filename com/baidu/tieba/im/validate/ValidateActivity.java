@@ -10,13 +10,11 @@ import android.widget.AbsListView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
@@ -33,7 +31,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     private AlertDialog e;
     private ValidateItemData f;
     private Runnable g;
-    private ab h;
+    private aa h;
     private int j;
     private int l;
     private boolean m;
@@ -41,7 +39,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     private boolean i = false;
     private int k = 20;
     private com.baidu.adp.framework.listener.b o = new a(this, 0);
-    private CustomMessageListener p = new b(this, MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP);
+    private CustomMessageListener p = new b(this, 2001129);
 
     public static void a(Context context) {
         if (context != null) {
@@ -53,8 +51,8 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.h = new ab(this);
-        this.h.d(false);
+        this.h = new aa(this);
+        this.h.b(false);
         this.b = new t(this);
         c();
     }
@@ -66,7 +64,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         com.baidu.tbadk.coreExtra.messageCenter.a.a().a(1);
@@ -79,7 +77,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         h d;
         super.onStop();
@@ -99,8 +97,8 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
         this.d = new c(this);
         this.c = new d(this);
         this.n = new e(this);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_ADD_GROUP_USER, this.o);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_DELETE_GROUP_MSG, this.o);
+        MessageManager.getInstance().registerListener(103111, this.o);
+        MessageManager.getInstance().registerListener(202004, this.o);
         MessageManager.getInstance().registerListener(this.p);
         this.b.a(true);
         n.a(this.n);
@@ -164,7 +162,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
 
     private void a(ValidateItemData validateItemData) {
         if (validateItemData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, validateItemData.getUserId(), validateItemData.getUserName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, validateItemData.getUserId(), validateItemData.getUserName())));
         }
     }
 
@@ -174,8 +172,8 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
         } else if (validateItemData != null && !validateItemData.isPass() && !this.i) {
             try {
                 validateItemData.setShown(true);
-                ImMessageCenterShowItemData k = com.baidu.tieba.im.pushNotify.a.f().k();
-                k.setUnReadCount(k.getUnReadCount() - 1);
+                ImMessageCenterShowItemData n = com.baidu.tieba.im.pushNotify.a.i().n();
+                n.setUnReadCount(n.getUnReadCount() - 1);
                 n.a(this.d, validateItemData);
                 this.b.a(true);
                 RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
@@ -185,12 +183,11 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
                 requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.f.b.a(validateItemData.getGroupId(), 0));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String e = com.baidu.tieba.im.pushNotify.p.a().e();
+                String e = com.baidu.tieba.im.pushNotify.q.a().e();
                 if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(e)) {
                     requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.f.b.a(e, 0));
                     requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.f.b.a(notice_id, 0L) / 100));
                     requestAddGroupUserMessage.setDecision(1);
-                    BdLog.d("pass apply: userid:" + requestAddGroupUserMessage.getUserIds() + "  groupId:" + requestAddGroupUserMessage.getGroupId() + " sysGid" + e + " mid:" + requestAddGroupUserMessage.getSysMsgId());
                     this.i = true;
                     MessageManager.getInstance().sendMessage(requestAddGroupUserMessage);
                 }
@@ -210,9 +207,8 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
         } else if (validateItemData != null) {
             this.b.a(true);
             RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-            requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.p.a().e()));
+            requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.q.a().e()));
             requestDelSystemMessage.setMsgIds(new StringBuilder().append(Long.parseLong(validateItemData.getNotice_id()) / 100).toString());
-            BdLog.d("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + requestDelSystemMessage.getGroupId());
             this.i = true;
             MessageManager.getInstance().sendMessage(requestDelSystemMessage);
         }
@@ -260,12 +256,12 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
         }
     }
 
-    public ab b() {
+    public aa b() {
         return this.h;
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
+    public void g_() {
         if (!this.m && this.l < this.j) {
             this.m = true;
             n.a(this.k, this.l, this.c);

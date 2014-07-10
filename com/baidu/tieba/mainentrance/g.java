@@ -1,9 +1,7 @@
 package com.baidu.tieba.mainentrance;
-
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.view.v {
+public class g implements com.baidu.tieba.view.w {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +9,8 @@ public class g implements com.baidu.tieba.view.v {
         this.a = squareSearchActivity;
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.w
     public void a(boolean z) {
-        BdLog.d("simon", "onSoftKeyboardShown", String.valueOf(z));
         this.a.D = z;
     }
 }

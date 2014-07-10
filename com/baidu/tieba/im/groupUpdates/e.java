@@ -2,6 +2,7 @@ package com.baidu.tieba.im.groupUpdates;
 
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
@@ -16,11 +17,20 @@ public class e implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     @Override // com.baidu.tieba.im.a
     public void a(LinkedList<GroupNewsPojo> linkedList) {
         t tVar;
+        p pVar;
         t tVar2;
+        t tVar3;
+        p pVar2;
+        List<UpdatesItemData> a = p.a(linkedList);
         tVar = this.a.b;
-        tVar.a(p.a(linkedList));
+        tVar.a(a);
+        pVar = this.a.j;
+        pVar.a(a);
         tVar2 = this.a.b;
         tVar2.a(false);
+        tVar3 = this.a.b;
+        pVar2 = this.a.j;
+        tVar3.a(pVar2.d());
         this.a.f();
     }
 }

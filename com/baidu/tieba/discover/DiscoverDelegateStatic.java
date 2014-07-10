@@ -14,19 +14,19 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private static ImageView c;
 
     static {
-        f fVar = new f(2009002);
-        fVar.setPriority(5);
-        MessageManager.getInstance().registerListener(fVar);
-        g gVar = new g(2009004);
-        gVar.setPriority(5);
+        g gVar = new g(2007002);
+        gVar.setPriority(7);
         MessageManager.getInstance().registerListener(gVar);
+        h hVar = new h(2007004);
+        hVar.setPriority(7);
+        MessageManager.getInstance().registerListener(hVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.d a() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
         dVar.a = new a();
-        dVar.c = 5;
+        dVar.c = 6;
         dVar.b = y.discover;
         return dVar;
     }
@@ -37,7 +37,7 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
         c = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.h = this.b;
-        cVar.c = com.baidu.adp.lib.util.k.a(context, 3.0f);
+        cVar.c = com.baidu.adp.lib.util.j.a(context, 3.0f);
         cVar.a = c;
         cVar.d = u.icon_news_down_bar_one;
         cVar.e = u.icon_news_down_bar_one_1;

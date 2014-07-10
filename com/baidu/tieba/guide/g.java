@@ -4,71 +4,92 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
+import java.util.List;
 /* loaded from: classes.dex */
-class g {
-    final /* synthetic */ e a;
-    private View b;
-    private TextView c;
-    private TextView d;
-    private TextView e;
-    private ImageView f;
-    private ImageView g;
-    private LinearLayout h;
+public class g extends BaseAdapter {
+    private List<InterestFrsData.Card> a;
+    private Context b;
+    private View.OnClickListener c;
 
-    public View a() {
-        return this.b;
+    public g(Context context) {
+        this.b = context;
     }
 
-    public g(e eVar, InterestFrsData.Card card, View.OnClickListener onClickListener) {
-        Context context;
-        this.a = eVar;
-        context = eVar.a;
-        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.w.new_user_rich_item, (ViewGroup) null);
-        this.b.setTag(Integer.valueOf(card.getFid()));
-        a(card, onClickListener);
+    public void a(View.OnClickListener onClickListener) {
+        this.c = onClickListener;
     }
 
-    public g(e eVar, View view) {
-        this.a = eVar;
-        this.b = view;
-        b();
+    public void a(List<InterestFrsData.Card> list) {
+        this.a = list;
+        notifyDataSetChanged();
     }
 
-    public void b() {
-        this.c = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_fname);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_cdesc);
-        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.v.iv_like);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_slogan);
-        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.v.img);
-        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.ll_like);
-    }
-
-    public void a(boolean z) {
-        Context context;
-        Context context2;
-        if (!z) {
-            ImageView imageView = this.f;
-            context2 = this.a.a;
-            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_n));
-            return;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.a != null) {
+            return this.a.size();
         }
-        ImageView imageView2 = this.f;
-        context = this.a.a;
-        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
+        return 0;
     }
 
-    private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
-        b();
-        this.h.setOnClickListener(onClickListener);
-        this.h.setTag(card);
-        this.c.setText(card.getFname());
-        this.d.setText(card.getCdesc());
-        this.e.setText(card.getSlogan());
-        this.g.setTag(card.getAvatar());
-        a(card.getIs_like() != 0);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.a == null || i < 0 || i >= this.a.size()) {
+            return null;
+        }
+        return this.a.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        h hVar;
+        if (view == null) {
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.new_user_img_item, viewGroup, false);
+            hVar = new h(this, null);
+            hVar.b = (TbImageView) view.findViewById(com.baidu.tieba.v.pic);
+            hVar.c = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
+            hVar.d = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
+            hVar.e = (TextView) view.findViewById(com.baidu.tieba.v.tv_fname);
+            hVar.a = (FrameLayout) view.findViewById(com.baidu.tieba.v.pic_layout);
+            hVar.a.setOnClickListener(this.c);
+            view.setTag(hVar);
+        } else {
+            hVar = (h) view.getTag();
+        }
+        hVar.b.setTag(null);
+        hVar.d.setTag(null);
+        hVar.e.setText("");
+        hVar.a.setTag(null);
+        Object item = getItem(i);
+        if (item != null && (item instanceof InterestFrsData.Card)) {
+            InterestFrsData.Card card = (InterestFrsData.Card) item;
+            a(hVar.c, card.getIs_like() == 1);
+            hVar.d.setTag(card);
+            hVar.a.setTag(card);
+            hVar.b.setTag(card.getIcon_url());
+            hVar.e.setText(card.getFname());
+            hVar.b.a(card.getIcon_url(), 10, false);
+        }
+        return view;
+    }
+
+    public void a(ImageView imageView, boolean z) {
+        if (!z) {
+            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_pic_n));
+        } else {
+            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
+        }
     }
 }

@@ -1,28 +1,64 @@
 package com.baidu.android.nebula.d;
 
 import android.content.Context;
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import com.baidu.android.nebula.util.BDLocationManager;
 /* loaded from: classes.dex */
-public class c extends Thread {
-    final /* synthetic */ a a;
+public class c {
+    private static c a = null;
+    private com.baidu.android.nebula.c.b b = null;
+    private Context c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.a = aVar;
+    public static synchronized c a() {
+        c cVar;
+        synchronized (c.class) {
+            if (a == null) {
+                a = new c();
+            }
+            cVar = a;
+        }
+        return cVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Context context;
-        a aVar = this.a;
-        context = this.a.c;
-        String b = aVar.b(context);
-        if (TextUtils.isEmpty(b)) {
-            this.a.b = (byte) 0;
-            return;
+    public static void a(Context context, Intent intent) {
+        a().a(context);
+    }
+
+    public static synchronized void b() {
+        synchronized (c.class) {
+            if (a != null) {
+                a.d();
+                a = null;
+            }
         }
-        this.a.a = b;
-        this.a.b = (byte) 2;
+    }
+
+    public boolean a(Context context) {
+        if (e()) {
+            return true;
+        }
+        this.b = new com.baidu.android.nebula.c.b(new com.baidu.android.nebula.a.c(), new b());
+        boolean a2 = this.b.a(6259);
+        if (a2) {
+            this.c = context;
+            com.baidu.android.nebula.d.a.a.a(this.c);
+            return a2;
+        }
+        return a2;
+    }
+
+    public Context c() {
+        return this.c;
+    }
+
+    public void d() {
+        if (e()) {
+            this.b.a();
+        }
+        BDLocationManager.a();
+    }
+
+    public boolean e() {
+        return this.b != null && this.b.b();
     }
 }

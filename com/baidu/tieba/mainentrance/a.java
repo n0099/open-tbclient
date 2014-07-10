@@ -75,7 +75,7 @@ public class a extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    BdLog.e(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
+                    BdLog.e(exc.getMessage());
                     a(view2);
                     return view2;
                 }

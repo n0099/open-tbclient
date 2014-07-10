@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.main.bq;
+import com.baidu.tieba.pb.main.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements com.baidu.tbadk.imageManager.d {
@@ -22,7 +22,7 @@ public class w implements com.baidu.tbadk.imageManager.d {
         if (aVar != null && !TextUtils.isEmpty(str) && (tbRichTextView = (TbRichTextView) this.a.c.findViewWithTag(str)) != null) {
             NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(this.a.f.getResources(), aVar.h(), aVar.h().getNinePatchChunk(), aVar.m(), null);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                ninePatchDrawable.getPaint().setAlpha(bq.a);
+                ninePatchDrawable.getPaint().setAlpha(bt.a);
             }
             if (tbRichTextView instanceof TbRichTextView) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();

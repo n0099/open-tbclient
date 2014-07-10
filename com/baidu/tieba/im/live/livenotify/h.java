@@ -3,7 +3,6 @@ package com.baidu.tieba.im.live.livenotify;
 import android.os.Handler;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -64,6 +63,6 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfig.LIVE_CARD_TIME_UPDATE));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012113));
     }
 }

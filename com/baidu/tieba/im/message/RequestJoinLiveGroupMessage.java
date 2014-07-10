@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.JoinLiveGroup.DataReq;
 import protobuf.JoinLiveGroup.JoinLiveGroupReqIdl;
@@ -9,7 +8,7 @@ public class RequestJoinLiveGroupMessage extends TbSocketMessage {
     public int groupId;
 
     public RequestJoinLiveGroupMessage() {
-        super(MessageTypes.CMD_JOIN_LIVE_GROUP);
+        super(107103);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

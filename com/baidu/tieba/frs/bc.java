@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tieba.view.e {
+public class bc implements com.baidu.tieba.view.f {
     final /* synthetic */ az a;
     private final /* synthetic */ com.baidu.tbadk.core.data.h b;
 
@@ -15,7 +15,7 @@ public class bc implements com.baidu.tieba.view.e {
         this.b = hVar;
     }
 
-    @Override // com.baidu.tieba.view.e
+    @Override // com.baidu.tieba.view.f
     public void a(int i) {
         Context context;
         Context context2;
@@ -24,7 +24,7 @@ public class bc implements com.baidu.tieba.view.e {
             com.baidu.tbadk.core.f.a(context, "forum_live_ck");
             MessageManager messageManager = MessageManager.getInstance();
             context2 = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(context2, this.b.a().get(i).getGroupId())));
+            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(context2, this.b.a().get(i).getGroupId())));
         }
     }
 }

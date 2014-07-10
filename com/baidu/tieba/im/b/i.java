@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.im.db.o;
+import com.baidu.tieba.im.db.p;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,6 +16,6 @@ public class i extends com.baidu.tieba.im.b<Void> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Void a() {
-        return o.d().a(this.b);
+        return p.d().a(this.b);
     }
 }

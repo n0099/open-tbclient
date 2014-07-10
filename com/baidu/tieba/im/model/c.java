@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.b {
@@ -18,14 +17,14 @@ public class c extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage == null) {
-            BdLog.e("msg == null");
-        } else if (socketResponsedMessage.getCmd() != 103112) {
-            if (socketResponsedMessage.getCmd() != 103102) {
+        if (socketResponsedMessage != null) {
+            if (socketResponsedMessage.getCmd() != 103112) {
+                if (socketResponsedMessage.getCmd() != 103102) {
+                    return;
+                }
+                this.a.c(socketResponsedMessage);
                 return;
             }
-            this.a.c(socketResponsedMessage);
-        } else {
             this.a.b(socketResponsedMessage);
         }
     }

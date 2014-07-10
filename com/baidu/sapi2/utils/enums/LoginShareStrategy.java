@@ -18,7 +18,7 @@ public enum LoginShareStrategy {
     }
 
     public static LoginShareStrategy getDefault() {
-        return CHOICE;
+        return SILENT;
     }
 
     LoginShareStrategy(String str) {

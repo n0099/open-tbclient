@@ -11,10 +11,9 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ad;
+import com.baidu.tbadk.core.atomData.ai;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -55,21 +54,21 @@ public class LiveNotifyCardView extends RelativeLayout {
     public LiveNotifyCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.r = 0;
-        this.s = new f(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.s = new f(this, 2012113);
         a(context, attributeSet);
     }
 
     public LiveNotifyCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.r = 0;
-        this.s = new f(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.s = new f(this, 2012113);
         a(context, attributeSet);
     }
 
     public LiveNotifyCardView(Context context) {
         super(context);
         this.r = 0;
-        this.s = new f(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.s = new f(this, 2012113);
         a(context, null);
     }
 
@@ -168,20 +167,20 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     private void e() {
         this.m.setText(y.live_card_count_down);
-        be.f((View) this.m, u.bg_live_orange);
+        bk.f((View) this.m, u.bg_live_orange);
         this.r = 2;
     }
 
     private void f() {
         this.k.setText(c(this.o));
         this.m.setText(y.live_card_foreshowt);
-        be.f((View) this.m, u.bg_live_yellow);
+        bk.f((View) this.m, u.bg_live_yellow);
         this.r = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ad(this.a, this.p)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ai(this.a, this.p)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

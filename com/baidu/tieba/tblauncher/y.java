@@ -17,7 +17,8 @@ class y extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.P = 0;
-        this.a.a(false);
+        if (customResponsedMessage != null) {
+            MainTabActivity.d(1);
+        }
     }
 }

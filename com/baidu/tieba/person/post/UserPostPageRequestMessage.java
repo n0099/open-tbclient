@@ -1,8 +1,6 @@
 package com.baidu.tieba.person.post;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Message;
 import java.lang.ref.WeakReference;
 import tbclient.UserPost.DataReq;
@@ -11,21 +9,21 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     private boolean isReset;
     private boolean isThread;
-    private WeakReference<f> mCallbackWeakReference;
+    private WeakReference<g> mCallbackWeakReference;
     private boolean needContent;
     private int pn;
     private int rn;
     private String uid;
 
     public UserPostPageRequestMessage() {
-        super(CmdConfig.USER_POST_HTTP_CMD, MessageTypes.CMD_USER_POST_PAGE);
+        super(1001503, 303002);
     }
 
-    public WeakReference<f> getmCallbackWeakReference() {
+    public WeakReference<g> getmCallbackWeakReference() {
         return this.mCallbackWeakReference;
     }
 
-    public void setmCallbackWeakReference(WeakReference<f> weakReference) {
+    public void setmCallbackWeakReference(WeakReference<g> weakReference) {
         this.mCallbackWeakReference = weakReference;
     }
 

@@ -1,43 +1,34 @@
 package com.baidu.tbadk.core.voice.a;
 
-import android.content.Context;
-import java.util.LinkedList;
+import com.baidu.tbadk.core.voice.ae;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a {
-    private LinkedList<String> a = new LinkedList<>();
-    private Context b;
+    public String a = null;
+    public String b = null;
+    public int c = 0;
+    public String d = null;
 
-    public a(Context context) {
-        this.b = context;
-    }
-
-    public String a(String str, String str2, c cVar) {
-        if (!this.a.contains(str)) {
-            this.a.add(str);
-        }
-        d a = f.a().a(this.b, str, str2, new b(this, cVar));
-        if (a == null) {
-            return null;
-        }
-        return a.b;
-    }
-
-    public void a() {
-        if (this.a != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.a.size()) {
-                    String str = this.a.get(i2);
-                    if (str != null) {
-                        f.a().a(this.b, str);
-                    }
-                    i = i2 + 1;
-                } else {
-                    this.a.clear();
-                    return;
-                }
-            }
+    public static String a(int i) {
+        switch (i) {
+            case 0:
+                return "";
+            case 1:
+                return ae.a(y.voice_cache_error_internal);
+            case 2:
+                return ae.a(y.voice_cache_error_no_space);
+            case 3:
+                return ae.a(y.neterror);
+            case 4:
+                return ae.a(y.voice_cache_error_no_file);
+            case 5:
+                return ae.a(y.voice_cache_error_md5);
+            case 6:
+                return ae.a(y.voice_cache_error_no_input);
+            case 7:
+                return ae.a(y.voice_cache_error_no_dir);
+            default:
+                return "";
         }
     }
 }

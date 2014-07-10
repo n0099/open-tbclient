@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!bg.c(str)) {
+        if (!bm.c(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -32,15 +32,16 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-        fVar.a = str;
-        fVar.b = str2;
-        fVar.c = str4;
-        if (!bg.c(str3)) {
-            fVar.d = Uri.parse(str3);
+        com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
+        hVar.a = str;
+        hVar.b = str2;
+        hVar.c = str4;
+        if (!bm.c(str3)) {
+            hVar.d = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
-        dVar.a(fVar, true);
+        dVar.a(false);
+        dVar.a(hVar, true);
         dVar.a();
     }
 

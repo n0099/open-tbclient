@@ -19,7 +19,7 @@ public class h extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage.getCmd() == 2003144 && (customResponsedMessage instanceof CancelDownloadMessage)) {
+        if (customResponsedMessage.getCmd() == 2001144 && (customResponsedMessage instanceof CancelDownloadMessage)) {
             this.a.b();
         }
     }

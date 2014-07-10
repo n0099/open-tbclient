@@ -1,35 +1,40 @@
 package com.baidu.tieba.topRec;
 
-import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.ViewGroup;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class o {
-    Activity a;
-    int b = 0;
+class o implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ n a;
 
-    public o(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(n nVar) {
+        this.a = nVar;
     }
 
-    public static boolean a() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("toprec_first_in", false);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(w.top_cover, (ViewGroup) null);
     }
 
-    public static void b() {
-        com.baidu.tbadk.core.sharedPref.b.a().b("toprec_first_in", true);
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
     }
 
-    public void a(View view) {
-        if (!a() && TbadkApplication.m252getInst().getSkinType() == 0) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(150).b(true);
-            p pVar = new p(this);
-            gVar.a(pVar).a(new q(this));
-            gVar.a().a(this.a);
-            BdLog.d("TOPRECTipCover", "show", "done");
-            b();
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

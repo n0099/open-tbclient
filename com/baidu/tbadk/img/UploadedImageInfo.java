@@ -48,7 +48,7 @@ public class UploadedImageInfo implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -59,14 +59,11 @@ public class UploadedImageInfo implements Serializable {
                 this.width = jSONObject.optInt("width", 0);
                 this.height = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        BdLog.v("InfoData", "logPrint", "pic_id = " + this.pic_id);
-        BdLog.v("InfoData", "logPrint", "width = " + String.valueOf(this.width));
-        BdLog.v("InfoData", "logPrint", "height = " + String.valueOf(this.height));
     }
 }

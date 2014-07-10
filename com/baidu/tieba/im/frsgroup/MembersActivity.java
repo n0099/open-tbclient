@@ -5,14 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.im.message.RequestMembersMessage;
 import java.util.ArrayList;
@@ -21,13 +19,11 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private com.baidu.tbadk.core.view.q a;
-    private ah b;
-    private com.baidu.tieba.im.model.ad c;
-    private Handler d;
-    private final com.baidu.adp.framework.listener.b e = new q(this, MessageTypes.CMD_REQUEST_MEMBERS_BY_ID);
-    private final com.baidu.adp.framework.listener.b f = new t(this, MessageTypes.CMD_REMOVE_MEMBERS);
-    private final Runnable g = new u(this);
-    private final CustomMessageListener h = new v(this, 0);
+    private ag b;
+    private com.baidu.tieba.im.model.ac c;
+    private final com.baidu.adp.framework.listener.b d = new q(this, 103005);
+    private final com.baidu.adp.framework.listener.b e = new s(this, 103112);
+    private final CustomMessageListener f = new t(this, 0);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, MembersActivity.class);
@@ -39,15 +35,15 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d();
+        c();
         a(bundle);
+        d();
         e();
-        f();
     }
 
-    private void d() {
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.h);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.h);
+    private void c() {
+        MessageManager.getInstance().registerListener(2001132, this.f);
+        MessageManager.getInstance().registerListener(2001130, this.f);
     }
 
     @Override // android.app.Activity
@@ -57,7 +53,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         this.b.e().g();
@@ -69,25 +65,25 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         super.onDestroy();
     }
 
-    public com.baidu.tieba.im.model.ad b() {
+    public com.baidu.tieba.im.model.ac b() {
         return this.c;
     }
 
-    private void e() {
-        this.b = new ah(this);
+    private void d() {
+        this.b = new ag(this);
         BdListView i = this.b.i();
         this.a = new com.baidu.tbadk.core.view.q(this);
-        this.a.a(new w(this, i));
+        this.a.a(new u(this, i));
         i.setPullRefresh(this.a);
         i.setOnScrollListener(this);
         i.setOnSrollToBottomListener(this);
-        i.setOnItemClickListener(new x(this));
-        i.setOnItemLongClickListener(new y(this));
+        i.setOnItemClickListener(new v(this));
+        i.setOnItemLongClickListener(new w(this));
         this.b.a().setOnClickListener(this);
         this.b.b().setOnClickListener(this);
         this.b.c().setOnClickListener(this);
         this.b.b(false);
-        this.b.f().a(new ab(this));
+        this.b.f().a(new z(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,48 +106,47 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         return stringBuffer.toString();
     }
 
-    private void f() {
+    private void e() {
         this.c.b(false);
         this.c.a((RequestMembersMessage) null);
         this.b.f().a(true);
         this.c.b(0);
         this.c.d(50);
-        this.b.i().d();
+        this.b.i().e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
+    public void f() {
         this.c.b(true);
         this.c.a((RequestMembersMessage) null);
         this.b.f().a(false);
         this.c.b(0);
         this.c.d(50);
-        this.b.i().d();
+        this.b.i().e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        if (i()) {
+    public void g() {
+        if (h()) {
             this.b.d();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean i() {
+    public boolean h() {
         return 50 == this.c.e();
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.ad();
+        this.c = new com.baidu.tieba.im.model.ac();
         this.c.setUniqueId(getUniqueId());
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
             this.c.a(bundle);
         }
-        this.d = new Handler();
+        this.c.registerListener(this.d);
         this.c.registerListener(this.e);
-        this.c.registerListener(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -163,15 +158,8 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
-    public void c() {
-        if (this.d != null) {
-            this.d.removeCallbacks(this.g);
-            this.d.postDelayed(this.g, 0L);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
+    public void i() {
         this.b.e().f();
         this.b.e().d();
     }
@@ -186,23 +174,23 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.b.h()) {
-            k();
+            j();
         } else if (view == this.b.a()) {
-            m();
+            l();
             this.b.d(false);
         } else if (view == this.b.b()) {
-            l();
+            k();
             this.b.d(true);
         } else if (view == this.b.c()) {
-            n();
+            m();
         }
     }
 
-    private void k() {
-        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new ac(this));
+    private void j() {
+        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new aa(this));
     }
 
-    private void l() {
+    private void k() {
         this.b.b(0);
         this.b.c(false);
         this.b.f().d(false);
@@ -210,22 +198,23 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         this.b.g();
     }
 
-    private void m() {
+    private void l() {
+        this.b.b(0);
         this.b.c(true);
         this.b.f().d(true);
         this.b.g();
     }
 
-    private void n() {
+    private void m() {
         Set<Long> b = this.b.f().b();
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.e.b.b((Activity) this, (DialogInterface.OnClickListener) new r(this, arrayList), (DialogInterface.OnClickListener) new s(this));
+            com.baidu.tieba.im.e.b.b((Activity) this, (DialogInterface.OnClickListener) new ab(this, arrayList), (DialogInterface.OnClickListener) new r(this));
         }
     }
 
-    private void o() {
+    private void n() {
         if (this.b.f().c()) {
             this.c.a(this.c.f(), this.c.d(), this.c.e(), this.c.a());
         }
@@ -238,8 +227,8 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        o();
+    public void g_() {
+        n();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -248,13 +237,10 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
-            if (this.d != null) {
-                this.d.removeCallbacks(this.g);
-                this.d.postDelayed(this.g, 90L);
-            }
-        } else if (this.d != null) {
-            this.d.removeCallbacks(this.g);
-        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity
+    public BdListView onGetPreLoadListView() {
+        return this.b.i();
     }
 }

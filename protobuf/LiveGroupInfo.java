@@ -1,7 +1,5 @@
 package protobuf;
 
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -32,9 +30,9 @@ public final class LiveGroupInfo extends Message {
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.STRING)
+    @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = TbConfig.NOTIFY_LIVE_GROUP_END_EVENT, type = Message.Datatype.INT32)
+    @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer gagers;
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
     public final Integer groupId;
@@ -52,7 +50,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer listeners;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = TbConfig.NOTIFY_LIVE_NOTIFY, type = Message.Datatype.STRING)
+    @ProtoField(tag = 21, type = Message.Datatype.STRING)
     public final String playUrl;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String portrait;

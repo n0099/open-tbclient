@@ -2,7 +2,6 @@ package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -52,9 +51,9 @@ public class f extends BitmapDrawable {
             com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
             com.baidu.adp.widget.a.a c = (a == null || this.d == null) ? null : a.c(this.d);
             if (c == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.a);
-                if (decodeResource != null) {
-                    c = new com.baidu.adp.widget.a.a(decodeResource, false, null);
+                Bitmap b = com.baidu.tbadk.core.util.h.b(this.b, this.a);
+                if (b != null) {
+                    c = new com.baidu.adp.widget.a.a(b, false, null);
                 }
                 if (a != null && c != null && this.d != null) {
                     a.b(this.d, c);

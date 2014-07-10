@@ -14,10 +14,10 @@ class s implements SlidingMenu.OnClosedListener {
     public void onClosed() {
         ct ctVar;
         ct ctVar2;
-        ctVar = this.a.w;
-        if (ctVar.n().d()) {
-            ctVar2 = this.a.w;
-            ctVar2.n().b(false);
+        ctVar = this.a.v;
+        if (ctVar.m().d()) {
+            ctVar2 = this.a.v;
+            ctVar2.m().b(false);
             this.a.E();
         }
     }

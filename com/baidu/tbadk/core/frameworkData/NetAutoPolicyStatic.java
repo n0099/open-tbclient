@@ -8,7 +8,7 @@ public class NetAutoPolicyStatic {
         bVar.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().addMessageRule(bVar);
         MessageManager.getInstance().addResponsedMessageRule(new c(0));
-        d dVar = new d(CmdConfig.CMD_DEBUGLOG_SPECIFIED);
+        d dVar = new d(2000999);
         dVar.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().registerListener(dVar);
     }

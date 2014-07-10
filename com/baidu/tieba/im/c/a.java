@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
@@ -33,7 +32,7 @@ public class a {
             case 11:
             case 12:
                 return 6;
-            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+            case 21:
                 return 7;
         }
     }

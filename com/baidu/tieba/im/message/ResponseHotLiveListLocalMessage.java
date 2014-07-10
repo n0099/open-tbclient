@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import protobuf.LiveGroupInfo;
@@ -12,7 +11,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
     private com.baidu.tieba.im.data.d hotLiveListData;
 
     public ResponseHotLiveListLocalMessage() {
-        super(MessageTypes.CMD_CACHE_LIVE_HOT_LIST_ALL);
+        super(2001205);
     }
 
     public com.baidu.tieba.im.data.d getHotLiveListData() {

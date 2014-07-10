@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.view.ViewGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class cz implements com.baidu.tbadk.imageManager.d {
-    private final /* synthetic */ View a;
+class cz extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ PersonalChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(View view) {
-        this.a = view;
+    public cz(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.c = userData;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
-            com.baidu.tbadk.core.util.br.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bt) new da(this, str, aVar));
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.chat.personaltalk.a.a().a(TbadkApplication.getCurrentAccount(), PersonalChatActivity.b, this.c);
+        return null;
     }
 }

@@ -12,6 +12,6 @@ class o implements CustomMessageTask.CustomRunnable<InvokeUpdateActivityIsOpenCo
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2010005, Boolean.valueOf(UpdatesActivity.a));
+        return new CustomResponsedMessage<>(2008005, Boolean.valueOf(UpdatesActivity.a));
     }
 }

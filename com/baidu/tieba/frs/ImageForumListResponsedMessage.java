@@ -14,8 +14,8 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
     public int mHasMore;
     public ArrayList<String> mIdList;
     public JSONObject mJSONObject;
-    public com.baidu.tieba.data.ad mOwner;
-    public ArrayList<com.baidu.tieba.data.at> mThread;
+    public com.baidu.tieba.data.ag mOwner;
+    public ArrayList<com.baidu.tieba.data.aw> mThread;
     public int mTotal;
 
     public ImageForumListResponsedMessage(int i) {
@@ -40,7 +40,7 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
         this.mTotal = 0;
         this.mCurrentCount = 0;
         this.mAnti = new AntiData();
-        this.mOwner = new com.baidu.tieba.data.ad();
+        this.mOwner = new com.baidu.tieba.data.ag();
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -55,9 +55,9 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.at atVar = new com.baidu.tieba.data.at();
-                            atVar.a(optJSONArray.optJSONObject(i));
-                            this.mThread.add(atVar);
+                            com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
+                            awVar.a(optJSONArray.optJSONObject(i));
+                            this.mThread.add(awVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");

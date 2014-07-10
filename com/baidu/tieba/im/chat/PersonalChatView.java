@@ -4,7 +4,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class PersonalChatView extends CommonPersonalMsglistView {
-    private TextView k;
+    private TextView l;
 
     public PersonalChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -17,8 +17,8 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         String string = talkableActivity.getString(com.baidu.tieba.y.msglist_personInfo);
         if (string != null) {
             this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
-            this.k = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
-            this.k.setText(string);
+            this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.l.setText(string);
         }
     }
 }

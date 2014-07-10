@@ -16,13 +16,15 @@ class i implements com.baidu.tieba.im.a<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Integer num) {
-        com.baidu.tieba.im.live.b.b().a();
+        com.baidu.tieba.im.b.e.a.set(true);
+        com.baidu.tieba.im.c.b.b().a();
+        com.baidu.tieba.im.live.d.b().a();
         if (!this.b) {
             com.baidu.tieba.im.e.a(null, null);
             com.baidu.tieba.im.i.b();
+            com.baidu.tieba.im.db.p.d().c();
             com.baidu.tieba.im.db.o.d().c();
-            com.baidu.tieba.im.db.n.d().c();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2007014));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2005014));
         }
     }
 }

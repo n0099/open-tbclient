@@ -1,17 +1,17 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ a a;
-    private an b;
+    private aq b;
     private boolean c;
     private String d;
     private String e;
@@ -45,7 +45,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     public String doInBackground(Integer... numArr) {
         try {
             if (this.d != null) {
-                this.b = new an();
+                this.b = new aq();
                 if (this.c) {
                     this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {
@@ -58,7 +58,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }
@@ -82,18 +82,18 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        e eVar;
-        e eVar2;
+        h hVar;
+        h hVar2;
         super.cancel(true);
         if (this.b != null) {
             this.b.g();
             this.b = null;
         }
         this.a.a = null;
-        eVar = this.a.b;
-        if (eVar != null) {
-            eVar2 = this.a.b;
-            eVar2.a(false);
+        hVar = this.a.b;
+        if (hVar != null) {
+            hVar2 = this.a.b;
+            hVar2.a(false);
         }
     }
 }

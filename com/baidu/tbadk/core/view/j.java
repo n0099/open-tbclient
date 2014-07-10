@@ -28,7 +28,7 @@ public class j implements View.OnClickListener {
             } else if (id == com.baidu.tieba.v.navigationBarHome) {
                 MessageManager messageManager = MessageManager.getInstance();
                 activity = this.a.g;
-                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2003004, activity));
+                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2002004, activity));
             }
         }
     }

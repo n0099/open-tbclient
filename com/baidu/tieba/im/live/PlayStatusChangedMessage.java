@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class PlayStatusChangedMessage extends CustomResponsedMessage<Object> {
     public static final int STATUS_ERROR = 10;
@@ -16,7 +15,7 @@ public class PlayStatusChangedMessage extends CustomResponsedMessage<Object> {
     private String url;
 
     public PlayStatusChangedMessage() {
-        super(MessageTypes.CMD_PLAY_STATUS_CHANGED);
+        super(2001159);
     }
 
     public int getStatus() {

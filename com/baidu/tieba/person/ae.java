@@ -1,21 +1,31 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ ab a;
+class ae {
+    HeadImageView a;
+    TextView b;
+    StringBuffer c;
+    TextView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    TextView h;
+    TextView i;
+    Button j;
+    ImageView k;
+    ImageView l;
+    final /* synthetic */ ad m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar) {
-        this.a = abVar;
+    private ae(ad adVar) {
+        this.m = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.f;
-        ellipsizingTextView.setMaxLines(1000);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ae(ad adVar, ae aeVar) {
+        this(adVar);
     }
 }

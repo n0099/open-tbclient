@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public class PbEditorToolButtonContainer extends g {
+public class PbEditorToolButtonContainer extends i {
     protected Context a;
     protected EditorToolButton b;
     protected EditorToolButton c;
@@ -41,14 +41,14 @@ public class PbEditorToolButtonContainer extends g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.b.getTip() != null) {
             TextView tip = this.b.getTip();
-            int right = this.b.getRight() - com.baidu.adp.lib.util.k.a(this.a, 18.0f);
-            int top = this.b.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
+            int right = this.b.getRight() - com.baidu.adp.lib.util.j.a(this.a, 18.0f);
+            int top = this.b.getTop() - com.baidu.adp.lib.util.j.a(this.a, 2.0f);
             this.b.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
         if (this.c.getTip() != null) {
             TextView tip2 = this.c.getTip();
-            int right2 = this.c.getRight() - com.baidu.adp.lib.util.k.a(this.a, 18.0f);
-            int top2 = this.c.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
+            int right2 = this.c.getRight() - com.baidu.adp.lib.util.j.a(this.a, 18.0f);
+            int top2 = this.c.getTop() - com.baidu.adp.lib.util.j.a(this.a, 2.0f);
             this.c.getTip().layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
         }
     }
@@ -59,9 +59,9 @@ public class PbEditorToolButtonContainer extends g {
         this.b = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_audio);
     }
 
-    public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
-        if (xVar != null) {
-            View.OnClickListener a = a(xVar);
+    public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
+        if (wVar != null) {
+            View.OnClickListener a = a(wVar);
             this.c.setOnClickListener(a);
             this.b.setOnClickListener(a);
         }
@@ -118,24 +118,24 @@ public class PbEditorToolButtonContainer extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(EditorToolButton editorToolButton, com.baidu.tbadk.editortool.x xVar) {
+    public void a(EditorToolButton editorToolButton, com.baidu.tbadk.editortool.w wVar) {
         if (editorToolButton == this.c) {
-            xVar.a(37, null);
+            wVar.a(37, null);
         } else if (editorToolButton == this.b) {
-            xVar.a(4, null);
+            wVar.a(4, null);
         }
         if (editorToolButton.g() && !editorToolButton.isFocused()) {
             c();
             editorToolButton.h();
             if (editorToolButton == this.c) {
-                xVar.a(38, null);
+                wVar.a(38, null);
             } else if (editorToolButton == this.b) {
-                xVar.a(5, null);
+                wVar.a(5, null);
             }
         }
     }
 
-    protected View.OnClickListener a(com.baidu.tbadk.editortool.x xVar) {
-        return new y(this, xVar);
+    protected View.OnClickListener a(com.baidu.tbadk.editortool.w wVar) {
+        return new aa(this, wVar);
     }
 }

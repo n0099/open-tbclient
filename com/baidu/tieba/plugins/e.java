@@ -1,34 +1,46 @@
 package com.baidu.tieba.plugins;
 
-import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
-import com.baidu.tieba.y;
+import android.content.ComponentName;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.tbplugin.PluginsConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements Runnable {
+public class e extends f {
     final /* synthetic */ PluginDetailActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(PluginDetailActivity pluginDetailActivity, int i, String str) {
-        this.a = pluginDetailActivity;
-        this.b = i;
-        this.c = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(PluginDetailActivity pluginDetailActivity, PluginDetailActivity pluginDetailActivity2) {
+        super(pluginDetailActivity, null, null);
+        this.a = pluginDetailActivity2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.b == 0) {
-            this.a.showToast(this.a.getString(y.plugin_installation_finished));
-            com.baidu.tbadk.tbplugin.m.a().q();
-            if (TbadkApplication.m252getInst().isMainProcess(true)) {
-                this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
+    @Override // com.baidu.tieba.plugins.f, android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        PluginsConfig.PluginConfig pluginConfig;
+        DownloadData a;
+        Messenger messenger;
+        super.onServiceConnected(componentName, iBinder);
+        Message obtain = Message.obtain((Handler) null, 3);
+        Bundle bundle = new Bundle();
+        PluginDetailActivity pluginDetailActivity = this.a;
+        pluginConfig = this.a.k;
+        a = pluginDetailActivity.a(pluginConfig);
+        bundle.putSerializable("download_data", a);
+        if (obtain != null) {
+            obtain.setData(bundle);
+            try {
+                messenger = this.a.h;
+                messenger.send(obtain);
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
-            this.a.a();
-            return;
         }
-        this.a.showToast(String.valueOf(this.a.getString(y.plugin_installation_failed)) + this.c);
-        this.a.a();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.guide;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import com.baidu.tieba.model.ao;
+import com.baidu.tieba.model.an;
 import com.baidu.tieba.view.RightSlideViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -25,10 +25,10 @@ public class d implements ViewPager.OnPageChangeListener {
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        ao aoVar;
-        aoVar = this.a.c;
-        if (aoVar.a() && i == 0 && f > 0.0f) {
-            this.a.i();
+        an anVar;
+        anVar = this.a.c;
+        if (anVar.a() && i == 0 && f > 0.0f) {
+            this.a.k();
         }
     }
 
@@ -36,11 +36,11 @@ public class d implements ViewPager.OnPageChangeListener {
     public void onPageScrollStateChanged(int i) {
         RightSlideViewPager rightSlideViewPager;
         rightSlideViewPager = this.a.h;
-        m mVar = (m) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
+        j jVar = (j) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
         if (i == 0) {
-            mVar.a();
+            jVar.a();
         } else {
-            mVar.f();
+            jVar.f();
         }
     }
 }

@@ -57,7 +57,7 @@ public class d {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.j() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(TbErrInfo.ERR_IMG_GET_REMOTE) + this.f.get() < diskFileOperate.q() + 6) {
+        if (diskFileOperate.j() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(TbErrInfo.ERR_IMG_GET_REMOTE) + this.f.get() < diskFileOperate.r() + 6) {
             if (Looper.myLooper() != null && Looper.getMainLooper() == Looper.myLooper()) {
                 e(diskFileOperate);
             } else {

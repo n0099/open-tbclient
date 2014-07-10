@@ -3,11 +3,13 @@ package com.baidu.adp.lib.cache;
 public interface s<T> {
     T a(String str);
 
+    void a(String str, t<T> tVar);
+
     void a(String str, T t);
 
     void a(String str, T t, long j);
 
-    t<T> b(String str);
+    u<T> b(String str);
 
     void b(String str, T t, long j);
 

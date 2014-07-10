@@ -10,7 +10,7 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.c {
+public class b extends com.baidu.adp.base.f {
     private View a;
     private NavigationBar b;
     private View c;

@@ -248,7 +248,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(whatIsRunning);
                     return true;
-                case 25:
+                case TRANSACTION_stopAnyRunning /* 25 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     stopAnyRunning(parcel.readInt() != 0);
                     parcel2.writeNoException();
@@ -270,7 +270,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(recordTime);
                     return true;
-                case TRANSACTION_setPublisherPaused /* 29 */:
+                case 29:
                     parcel.enforceInterface(DESCRIPTOR);
                     setPublisherPaused(parcel.readInt() != 0);
                     parcel2.writeNoException();
@@ -674,7 +674,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(z ? 1 : 0);
-                    this.mRemote.transact(25, obtain, obtain2, 0);
+                    this.mRemote.transact(Stub.TRANSACTION_stopAnyRunning, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -741,7 +741,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(z ? 1 : 0);
-                    this.mRemote.transact(Stub.TRANSACTION_setPublisherPaused, obtain, obtain2, 0);
+                    this.mRemote.transact(29, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

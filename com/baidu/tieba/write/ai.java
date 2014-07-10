@@ -1,8 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,17 +16,21 @@ public class ai implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TextView textView;
-        by byVar;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer;
-        textView = this.a.M;
-        textView.setSelected(true);
-        byVar = this.a.N;
-        byVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.k.a((Context) this.a, 1.0f));
-        writeEditorToolButtonContainer = this.a.z;
-        writeEditorToolButtonContainer.c();
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.c;
+        editText = this.a.e;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.c;
+        editText2 = this.a.h;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
         editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.m();
+        editorToolComponetContainer.p();
+        this.a.m();
     }
 }

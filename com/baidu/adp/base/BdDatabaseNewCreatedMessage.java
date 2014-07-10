@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class BdDatabaseNewCreatedMessage extends CustomResponsedMessage<SQLiteDatabase> {
     public BdDatabaseNewCreatedMessage(SQLiteDatabase sQLiteDatabase) {
-        super(2002998, sQLiteDatabase);
+        super(2000998, sQLiteDatabase);
     }
 
     public String getDatabaseFile() {

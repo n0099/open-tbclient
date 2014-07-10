@@ -8,7 +8,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -16,7 +15,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     private e c;
     private d d;
     private boolean e = false;
-    private com.baidu.adp.framework.listener.b f = new a(this, MessageTypes.CMD_CREATE_GROUP_ACTIVITY);
+    private com.baidu.adp.framework.listener.b f = new a(this, 103120);
 
     public static void a(Context context, int i) {
         if (context != null) {
@@ -45,7 +44,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        e();
+        g();
         this.d = new d(this);
         this.c = new e(this);
         if (this.d.a() != null) {
@@ -78,7 +77,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        e();
+        g();
         if (this.d == null) {
             this.d = new d(this);
         }
@@ -124,7 +123,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
         }
     }
 
-    private void e() {
+    private void g() {
         a(this.f);
     }
 
@@ -140,7 +139,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c.a()) {
-            f();
+            h();
         } else if (view == this.c.b() && this.d != null && this.d.a() != null) {
             long f = this.c.f();
             if ((!this.e || this.c.g()) && 1000 * f < System.currentTimeMillis()) {
@@ -151,7 +150,7 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
             this.d.a().setgActivityContent(this.c.e());
             this.d.a().setgActivityTime(f);
             this.d.a().setgActivityTitle(this.c.c());
-            c();
+            e_();
             this.d.a(this.e);
         }
     }
@@ -159,13 +158,13 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            f();
+            h();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void f() {
+    private void h() {
         com.baidu.tieba.im.e.b.a(this, this.e, new b(this), new c(this));
     }
 }

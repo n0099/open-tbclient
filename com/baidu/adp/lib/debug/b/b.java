@@ -41,7 +41,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         if (b == null) {
             Properties properties = SwitchDebugService.customConfig;
             if (properties == null) {
-                BdLog.w("File of config is null!");
+                BdLog.e("File of config is null!");
                 return;
             }
             synchronized (b.class) {

@@ -14,7 +14,7 @@ public class e {
     public boolean o;
     public boolean p;
     public Map<String, Object> q;
-    public volatile com.baidu.tbadk.core.util.a.e a = null;
+    public volatile com.baidu.tbadk.core.util.httpNet.i a = null;
     public boolean f = false;
     public volatile boolean h = false;
     public byte[] j = null;

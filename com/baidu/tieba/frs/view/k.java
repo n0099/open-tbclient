@@ -21,7 +21,7 @@ public class k implements Runnable {
         if (popupWindow != null) {
             popupWindow2 = this.a.I;
             if (popupWindow2.isShowing()) {
-                z = this.a.aq;
+                z = this.a.ap;
                 if (!z) {
                     popupWindow3 = this.a.I;
                     popupWindow3.dismiss();

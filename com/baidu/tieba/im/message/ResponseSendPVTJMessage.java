@@ -1,13 +1,12 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.LogStat.LogStatResIdl;
 /* loaded from: classes.dex */
 public class ResponseSendPVTJMessage extends TbSocketReponsedMessage {
     public ResponseSendPVTJMessage() {
-        super(MessageTypes.CMD_SEND_PV_TJ);
+        super(104001);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

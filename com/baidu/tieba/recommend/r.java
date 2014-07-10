@@ -10,21 +10,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.z;
+import com.baidu.tieba.view.aa;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.c {
+public class r extends com.baidu.adp.base.f {
     private final DailyRecommendActivity a;
     private final PinnedHeaderListView b;
     private final ProgressBar c;
     private final View d;
-    private final z e;
+    private final aa e;
     private final PbListView f;
     private final View g;
     private final TextView h;
@@ -39,7 +39,7 @@ public class r extends com.baidu.adp.base.c {
         this.b = (PinnedHeaderListView) this.d.findViewById(v.pinnedHeaderListview);
         this.i = new i(dailyRecommendActivity, lVar);
         this.h = (TextView) this.d.findViewById(v.text_info);
-        this.e = new z(this.mContext);
+        this.e = new aa(this.mContext);
         this.b.setPullRefresh(this.e);
         this.b.setAdapter((ListAdapter) this.i);
         this.b.setOnSrollToBottomListener(xVar);
@@ -73,14 +73,14 @@ public class r extends com.baidu.adp.base.c {
         this.f.e();
     }
 
-    public void a(com.baidu.tieba.data.k kVar) {
-        this.b.c();
+    public void a(com.baidu.tieba.data.l lVar) {
+        this.b.d();
         this.f.e();
-        if (kVar != null) {
-            if (kVar.a().size() > 0) {
+        if (lVar != null) {
+            if (lVar.a().size() > 0) {
                 this.b.setNextPage(this.f);
             }
-            this.i.a(kVar);
+            this.i.a(lVar);
             this.i.a();
         }
     }
@@ -94,13 +94,13 @@ public class r extends com.baidu.adp.base.c {
 
     public void a(int i) {
         this.j.c(i);
-        be.f(this.b, com.baidu.tieba.s.cp_bg_line_c);
+        bk.f(this.b, com.baidu.tieba.s.cp_bg_line_c);
         this.e.a(i);
         if (this.f != null) {
             this.f.d(i);
         }
-        be.a(this.h, com.baidu.tieba.s.cp_link_tip_d, 1);
-        be.f((View) this.h, u.bg_update);
+        bk.a(this.h, com.baidu.tieba.s.cp_link_tip_d, 1);
+        bk.f((View) this.h, u.bg_update);
         this.i.a();
     }
 

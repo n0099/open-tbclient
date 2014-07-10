@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.m;
+import com.baidu.tbadk.core.atomData.r;
 import com.baidu.tbadk.core.frameworkData.a;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.ai;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -27,12 +27,12 @@ public class TiebaSDK implements Serializable {
     }
 
     public static void openBar(Context context, String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2005001, new m(context).a(str, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new r(context).a(str, null)));
     }
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        an anVar;
+        aq aqVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
@@ -50,12 +50,12 @@ public class TiebaSDK implements Serializable {
         arrayList.add(basicNameValuePair);
         arrayList.add(new BasicNameValuePair(a.ST_TYPE, "tb_forumlist"));
         try {
-            anVar = new an(stringBuffer.toString());
-            anVar.a(arrayList);
+            aqVar = new aq(stringBuffer.toString());
+            aqVar.a(arrayList);
         } catch (Exception e) {
-            BdLog.e("TiebaSDK.getBarData error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
-        return !anVar.a().b().b() ? "" : anVar.i();
+        return !aqVar.a().b().b() ? "" : aqVar.i();
     }
 
     public static void setFrom(String str) {

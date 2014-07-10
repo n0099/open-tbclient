@@ -1,43 +1,45 @@
 package com.baidu.tieba.im.model;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.im.message.RequestReportGroupMessage;
 /* loaded from: classes.dex */
-public class bt {
-    private static bt a;
-    private com.baidu.adp.lib.d.a<String, String> b;
+public class bt extends com.baidu.adp.base.e {
+    private int a;
+    private int b;
+    private RequestReportGroupMessage c;
 
-    private bt() {
-        this.b = null;
-        this.b = new com.baidu.adp.lib.d.a<>(256);
+    public void a(int i) {
+        this.a = i;
     }
 
-    public static synchronized bt a() {
-        bt btVar;
-        synchronized (bt.class) {
-            if (a == null) {
-                a = new bt();
-            }
-            btVar = a;
-        }
-        return btVar;
+    public void b(int i) {
+        this.b = i;
     }
 
-    public void a(String str, Long l) {
-        if (str != null && str.length() > 0) {
-            this.b.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str, String.valueOf(l));
-        }
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    public boolean a(String str) {
-        if (str == null || str.length() <= 0) {
-            return false;
-        }
-        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TbadkApplication.getCurrentAccount()) + str));
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        return UtilHelper.isSameDay(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    private RequestReportGroupMessage b() {
+        RequestReportGroupMessage requestReportGroupMessage = new RequestReportGroupMessage();
+        requestReportGroupMessage.setGroupId(this.a);
+        requestReportGroupMessage.setReportType(this.b);
+        return requestReportGroupMessage;
+    }
+
+    public void a() {
+        this.c = b();
+        super.sendMessage(this.c);
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.c = null;
     }
 }

@@ -38,7 +38,7 @@ public class ah extends com.baidu.tbadk.core.d implements u {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (AlbumActivity) getActivity();
-        this.c = this.b.f();
+        this.c = this.b.h();
         q.a().a(this);
     }
 
@@ -72,7 +72,7 @@ public class ah extends com.baidu.tbadk.core.d implements u {
 
     private void g() {
         if (this.c == null && this.b != null) {
-            this.c = this.b.f();
+            this.c = this.b.h();
         }
         if (this.c != null) {
             String e = this.c.e();
@@ -113,8 +113,8 @@ public class ah extends com.baidu.tbadk.core.d implements u {
     @Override // com.baidu.tbadk.core.d
     public void c(int i) {
         super.c(i);
-        this.b.a().a(i == 1);
-        this.b.a().a(this.e);
+        this.b.c().a(i == 1);
+        this.b.c().a(this.e);
         this.f.c(i);
     }
 

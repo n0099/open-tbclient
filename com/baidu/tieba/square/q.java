@@ -1,120 +1,112 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
+import android.content.Context;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.br;
+import android.widget.FrameLayout;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.kirin.KirinConfig;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class q extends BaseAdapter {
-    View.OnClickListener a = new r(this);
-    private Activity b;
-    private final t c;
-    private final String d;
-    private final String e;
+public class q extends FrameLayout {
+    private static int l = KirinConfig.READ_TIME_OUT;
+    public View.OnTouchListener a;
+    private Context b;
+    private ViewPager c;
+    private IndicatorView d;
+    private t e;
+    private int f;
+    private int g;
+    private float h;
+    private final int i;
+    private final int j;
+    private final int k;
+    private ArrayList<ap> m;
+    private Handler n;
 
-    public q(Activity activity, t tVar, String str, String str2) {
-        this.b = activity;
-        this.d = str;
-        this.e = str2;
-        this.c = tVar;
+    public q(Context context) {
+        this(context, null);
     }
 
-    public t a() {
-        return this.c;
+    public q(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0.3043478f;
+        this.m = new ArrayList<>();
+        this.n = new r(this);
+        this.a = new s(this);
+        this.b = context;
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.carousel_topics_recommend, (ViewGroup) this, true);
+        this.c = (ViewPager) findViewById(com.baidu.tieba.v.carousel_pager);
+        this.d = (IndicatorView) findViewById(com.baidu.tieba.v.carousel_indicator);
+        this.c.setOnTouchListener(this.a);
+        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingTop);
+        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingBottom);
+        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
+        this.f = com.baidu.adp.lib.util.j.b(context) - (this.k * 2);
+        this.g = (int) (0.5f + (this.f * this.h));
+        ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+        layoutParams.width = this.f;
+        layoutParams.height = this.g;
+        this.c.setLayoutParams(layoutParams);
+        this.e = new t(this, this.b);
+        setPadding(this.k, this.j, this.k, this.i);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        ab d = this.c.d();
-        if (d == null || d.e == null) {
-            return 0;
+    public Boolean a(ArrayList<ap> arrayList) {
+        if (arrayList == null || arrayList.size() == 0) {
+            setVisibility(8);
+            return false;
         }
-        return (d.e.size() * 2) - 1;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        if (view == null) {
-            view = a(viewGroup, itemViewType);
-            br.b(view);
+        this.m.clear();
+        this.m = arrayList;
+        setVisibility(0);
+        int size = this.m.size();
+        if (size > 1) {
+            this.m.add(arrayList.get(0));
+            this.m.add(0, arrayList.get(arrayList.size() - 1));
         }
-        br.a(view);
-        if (itemViewType != 3) {
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.v.container);
-            View findViewById2 = view.findViewById(com.baidu.tieba.v.item_up);
-            View findViewById3 = view.findViewById(com.baidu.tieba.v.item_down);
-            if (itemViewType == 0) {
-                findViewById2.setVisibility(0);
-                findViewById3.setVisibility(8);
-            } else if (itemViewType == 2) {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(0);
-            } else {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(8);
-            }
-            br.a(findViewById, itemViewType, skinType);
-            a(viewGroup, (s) view.getTag(), i);
+        this.e.a(this.m);
+        this.c.setAdapter(this.e);
+        this.c.setOnPageChangeListener(new v(this, null));
+        this.c.setCurrentItem(size > 1 ? 1 : 0, false);
+        this.c.invalidate();
+        if (size > 1) {
+            this.d.setVisibility(0);
+            this.d.setCount(this.m.size() - 2);
+            this.d.setPosition(0.0f);
+        } else {
+            this.d.setVisibility(8);
         }
-        return view;
+        a();
+        return true;
     }
 
-    private View a(ViewGroup viewGroup, int i) {
-        LayoutInflater from = LayoutInflater.from(this.b);
-        if (i == 3) {
-            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
+    public void a(int i) {
+        if (this.e != null) {
+            this.e.a(i);
         }
-        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.a);
-        s sVar = new s();
-        sVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
-        inflate.setTag(sVar);
-        return inflate;
     }
 
-    private void a(ViewGroup viewGroup, s sVar, int i) {
-        ab abVar = this.c.d().e.get(i / 2);
-        sVar.b = abVar;
-        sVar.a.setText(abVar.b);
+    public void a() {
+        this.n.removeMessages(0);
+        this.n.sendEmptyMessageDelayed(0, l);
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
+    public void b() {
+        this.n.removeMessages(0);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 4;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        if (i == 0) {
-            return 0;
-        }
-        if (i == getCount() - 1) {
-            return 2;
-        }
-        if (i % 2 != 0) {
-            return 3;
-        }
-        return 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Activity b() {
-        return this.b;
+    public t getPagerAdapter() {
+        return this.e;
     }
 }

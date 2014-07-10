@@ -1,36 +1,37 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class w {
-    private StringBuilder a;
+class w {
+    private static byte c = Byte.MIN_VALUE;
+    boolean a = false;
+    long b = 0;
 
-    public w() {
-        this.a = null;
-        this.a = null;
+    public static int a() {
+        return 13;
     }
 
-    public void a(String str, Object obj) {
-        if (!bg.c(str) && obj != null) {
-            try {
-                if (this.a == null) {
-                    this.a = new StringBuilder();
-                    this.a.append(str);
-                    this.a.append("=");
-                    this.a.append(obj.toString());
-                } else {
-                    this.a.append("|");
-                    this.a.append(str);
-                    this.a.append("=");
-                    this.a.append(obj.toString());
-                }
-            } catch (Exception e) {
-                BdLog.e("FieldBuilder", "append", e.getMessage());
-            }
+    public byte[] b() {
+        ByteBuffer allocate = ByteBuffer.allocate(a());
+        allocate.putInt(1786600510);
+        allocate.put(this.a ? (byte) (0 | c) : (byte) 0);
+        allocate.putLong(this.b);
+        allocate.flip();
+        return allocate.array();
+    }
+
+    public boolean a(byte[] bArr) {
+        if (bArr == null || bArr.length < a()) {
+            return false;
         }
-    }
-
-    public String toString() {
-        return this.a != null ? this.a.toString() : "";
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+        if (wrap.getInt() == 1786600510) {
+            if ((wrap.get() & c) != 0) {
+                this.a = true;
+            }
+            this.b = wrap.getLong();
+            return true;
+        }
+        return false;
     }
 }

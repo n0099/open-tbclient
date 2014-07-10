@@ -6,6 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.aq;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ Login2Activity b;
     private String d;
-    private com.baidu.tbadk.core.util.an c = null;
+    private aq c = null;
     private String e = null;
 
     public aj(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -57,12 +58,9 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
         com.baidu.tbadk.core.data.i iVar;
         Exception e;
         try {
-            this.c = new com.baidu.tbadk.core.util.an(this.d);
+            this.c = new aq(this.d);
             this.c.a(this.a);
             this.e = this.c.i();
-            if (this.e != null) {
-                BdLog.i("LoginAsyncTask", "doInBackground", "data: " + this.e);
-            }
             if (!this.c.a().b().b() || this.e == null) {
                 return null;
             }
@@ -72,7 +70,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
                 return iVar;
             } catch (Exception e2) {
                 e = e2;
-                BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return iVar;
             }
         } catch (Exception e3) {

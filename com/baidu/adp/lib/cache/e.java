@@ -30,26 +30,18 @@ public abstract class e<T> implements r<T> {
         String a = a(str, str2);
         m<T> a2 = a(a);
         if (a2 == null) {
-            if (BdLog.isDebugMode()) {
-                BdLog.d("cache", "get", "cache miss:" + a);
-                return null;
-            }
+            BdLog.isDebugMode();
             return null;
         } else if (a2.f < System.currentTimeMillis()) {
             c(a);
-            if (BdLog.isDebugMode()) {
-                BdLog.d("cache", "get", "cache miss on expired:" + a);
-                return null;
-            }
+            BdLog.isDebugMode();
             return null;
         } else {
             if (this.b.b()) {
                 a2.e = System.currentTimeMillis();
                 a(a2);
             }
-            if (BdLog.isDebugMode()) {
-                BdLog.d("cache", "get", "cache hit:" + a);
-            }
+            BdLog.isDebugMode();
             return a2;
         }
     }
@@ -64,17 +56,17 @@ public abstract class e<T> implements r<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public t<T> d(String str, String str2) {
+    public u<T> d(String str, String str2) {
         m<T> b = b(str, str2);
         if (b == null) {
             return null;
         }
-        t<T> tVar = new t<>();
-        tVar.a = str2;
-        tVar.b = b.b;
-        tVar.d = b.f;
-        tVar.c = b.d;
-        return tVar;
+        u<T> uVar = new u<>();
+        uVar.a = str2;
+        uVar.b = b.b;
+        uVar.d = b.f;
+        uVar.c = b.d;
+        return uVar;
     }
 
     @Override // com.baidu.adp.lib.cache.r

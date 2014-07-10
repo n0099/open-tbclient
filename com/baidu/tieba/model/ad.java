@@ -1,65 +1,71 @@
 package com.baidu.tieba.model;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ad extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ ac a;
-    private String b;
+public class ad {
+    private int a;
+    private int b;
+    private int c;
+    private int[] d;
+    private int e;
+    private int f;
+    private int g;
 
-    public ad(ac acVar, String str) {
-        this.a = acVar;
-        this.b = null;
-        this.b = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
-        if (this.b != null && !this.b.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-            com.baidu.tbadk.core.util.x.f("photos/" + this.b, TbConfig.IMAGE_RESIZED_FILE);
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.core.util.g.b(com.baidu.tbadk.core.util.x.c(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.base.e eVar;
-        com.baidu.adp.base.e eVar2;
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(null);
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.a = jSONObject.optInt("conn_conf");
+            this.b = jSONObject.optInt("continuous_fail_count");
+            this.c = jSONObject.optInt("restart_time_interval");
+            this.e = jSONObject.optInt("lcs_timeout_2G");
+            this.f = jSONObject.optInt("lcs_timeout_3G");
+            this.g = jSONObject.optInt("lcs_timeout_wifi");
+            JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_list");
+            if (optJSONArray != null) {
+                this.d = new int[optJSONArray.length()];
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.d[i] = optJSONArray.optInt(i);
+                }
+                return;
+            }
+            this.d = new int[0];
         }
-        super.cancel(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
+    public int a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        com.baidu.adp.base.e eVar;
-        com.baidu.adp.base.e eVar2;
-        super.onPostExecute(bitmap);
-        this.a.a = null;
-        BdLog.i(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(bitmap);
-        }
+    public int b() {
+        return this.b;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public int[] d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public int g() {
+        return this.g;
     }
 }

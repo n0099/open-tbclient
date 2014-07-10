@@ -1,84 +1,42 @@
 package com.baidu.tieba.im.group;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.content.Context;
+import android.content.res.Resources;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import java.util.List;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.m;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ b a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(b bVar, int i) {
-        super(i);
-        this.a = bVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        q qVar;
-        q qVar2;
-        com.baidu.tieba.im.mygroup.j jVar;
-        com.baidu.tieba.im.mygroup.j jVar2;
-        q qVar3;
-        com.baidu.tieba.im.mygroup.j jVar3;
-        q qVar4;
-        q qVar5;
-        q qVar6;
-        q qVar7;
-        q qVar8;
-        if (!(customResponsedMessage instanceof ResponseGroupsByUidLocalMessage)) {
-            qVar8 = this.a.c;
-            qVar8.c();
-            return;
-        }
-        if (this.a.getActivity() != null) {
-            qVar2 = this.a.c;
-            if (qVar2 != null) {
-                jVar = this.a.e;
-                if (jVar != null) {
-                    ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
-                    if (responseGroupsByUidLocalMessage.getError() != 0) {
-                        qVar7 = this.a.c;
-                        qVar7.c();
-                        if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
-                            this.a.b(responseGroupsByUidLocalMessage.getErrorString());
-                            return;
-                        }
-                        return;
-                    }
-                    List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
-                    if (groups != null) {
-                        qVar5 = this.a.c;
-                        qVar5.a().a(groups);
-                        qVar6 = this.a.c;
-                        qVar6.a().notifyDataSetChanged();
-                    }
-                    jVar2 = this.a.e;
-                    if (jVar2 == null) {
-                        qVar3 = this.a.c;
-                        qVar3.c();
-                        return;
-                    } else if (UtilHelper.getNetStatusInfo(this.a.getActivity()) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-                        qVar4 = this.a.c;
-                        qVar4.c();
-                        return;
-                    } else {
-                        jVar3 = this.a.e;
-                        jVar3.a();
-                        return;
-                    }
-                }
+public class g implements CustomMessageTask.CustomRunnable<m> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
+        int e;
+        Context context;
+        com.baidu.tieba.im.model.h hVar;
+        com.baidu.tieba.im.model.h hVar2;
+        Context context2;
+        int e2;
+        if (customMessage != null && customMessage.getData() != null) {
+            EnterChatRoomStatic.b = customMessage.getData().getContext();
+            e = EnterChatRoomStatic.e();
+            if (e > 0) {
+                context2 = EnterChatRoomStatic.b;
+                Resources resources = TbadkApplication.m252getInst().getContext().getResources();
+                int i = y.group_tab_enterchatroom_freeze;
+                e2 = EnterChatRoomStatic.e();
+                j.a(context2, resources.getString(i, new StringBuilder(String.valueOf(e2)).toString()));
+            } else {
+                context = EnterChatRoomStatic.b;
+                EnterChatRoomStatic.c = j.a(context, TbadkApplication.m252getInst().getContext().getResources().getString(y.group_tab_enterchatroom_loading), new h(this));
+                hVar = EnterChatRoomStatic.a;
+                hVar2 = EnterChatRoomStatic.a;
+                hVar.a(hVar2.a(), true);
             }
         }
-        qVar = this.a.c;
-        qVar.c();
+        return null;
     }
 }

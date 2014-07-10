@@ -1,40 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.View;
+import java.util.List;
 /* loaded from: classes.dex */
-public class j extends View {
-    private int a;
-    private int b;
+class j {
+    public final boolean a;
+    public final List<Object> b;
+    public final List<Object> c;
 
-    public j(Context context) {
-        super(context);
-        this.a = 0;
-        this.b = 0;
+    public static j a(List<Object> list, List<Object> list2) {
+        return new j(true, list, list2);
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.b == 0) {
-            setMeasuredDimension(i & 1073741823, this.a);
-        } else if (this.a == 0) {
-            setMeasuredDimension(this.b, 1073741823 & i2);
-        }
+    public static j a() {
+        return new j(false, null, null);
     }
 
-    public void setHeightPx(int i) {
-        this.a = i;
-    }
-
-    public void setWidthPx(int i) {
-        this.b = i;
-    }
-
-    public void setHeightDip(int i) {
-        this.a = com.baidu.adp.lib.util.k.a(getContext(), i);
-    }
-
-    public void setWidthDip(int i) {
-        this.b = com.baidu.adp.lib.util.k.a(getContext(), i);
+    private j(boolean z, List<Object> list, List<Object> list2) {
+        this.a = z;
+        this.b = list;
+        this.c = list2;
     }
 }

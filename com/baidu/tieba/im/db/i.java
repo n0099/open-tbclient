@@ -2,9 +2,7 @@ package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -26,8 +24,8 @@ public class i {
     }
 
     private void c() {
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.b);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_ADD_GROUP, this.b);
+        MessageManager.getInstance().registerListener(103112, this.b);
+        MessageManager.getInstance().registerListener(103101, this.b);
     }
 
     public synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
@@ -63,7 +61,7 @@ public class i {
                     long last_rid2 = imMessageCenterPojo.getLast_rid();
                     if (last_rid <= last_rid2) {
                         a2.setLast_rid(last_rid2);
-                        com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(a2.getGid(), 0), bv.c(a2.getPulled_msgId()));
+                        com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(a2.getGid(), 0), bw.c(a2.getPulled_msgId()));
                         com.baidu.tieba.im.b.a.a().a(a2);
                     }
                 }
@@ -77,8 +75,6 @@ public class i {
             a2.setLast_rid(0L);
             a2.setPulled_msgId(0L);
             a2.setIs_delete(1);
-        } else {
-            BdLog.e("删除gid失败");
         }
     }
 
@@ -135,7 +131,7 @@ public class i {
                     if (a2.getPulled_msgId() == 0) {
                         a2.setPulled_msgId(next.getPulled_msgId());
                     }
-                } else {
+                } else if (next.getCustomGroupType() != 4 && next.getCustomGroupType() != 2) {
                     com.baidu.tieba.im.b.a.a().a(next);
                 }
             }

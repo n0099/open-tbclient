@@ -72,9 +72,9 @@ public class WaitingTipView extends RelativeLayout {
     }
 
     public void a(HeadImageView headImageView, boolean z) {
-        int c = com.baidu.adp.lib.util.k.c(this.a, com.baidu.tieba.t.head_view_circle_bg);
-        int c2 = com.baidu.adp.lib.util.k.c(this.a, com.baidu.tieba.t.tip_view_image_width);
-        int c3 = com.baidu.adp.lib.util.k.c(this.a, com.baidu.tieba.t.tip_view_image_height);
+        int c = com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.t.head_view_circle_bg);
+        int c2 = com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.t.tip_view_image_width);
+        int c3 = com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.t.tip_view_image_height);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) headImageView.getLayoutParams();
         if (z) {
             layoutParams.width = c2 - c;

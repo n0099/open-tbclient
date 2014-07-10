@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class OfficialBarTipModelStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005004, new bo());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2003004, new bn());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

@@ -1,16 +1,39 @@
 package com.baidu.tieba.faceshop;
+
+import android.content.Context;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FaceShopActivity a;
+public class bn extends com.baidu.adp.base.h {
+    final /* synthetic */ bl a;
+    private final /* synthetic */ FacePackageData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(FaceShopActivity faceShopActivity) {
-        this.a = faceShopActivity;
+    public bn(bl blVar, FacePackageData facePackageData) {
+        this.a = blVar;
+        this.b = facePackageData;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        this.a.c();
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        Context context;
+        Context context2;
+        Context context3;
+        if (obj == null || !(obj instanceof FacePackageDownloadData)) {
+            context = this.a.c;
+            UtilHelper.showToast(context, com.baidu.tieba.y.neterror);
+            return;
+        }
+        FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
+        if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
+            this.b.packUrl = facePackageDownloadData.packUrl;
+            g.a().a(String.valueOf(this.b.pid), this.b.pname, this.b.packUrl);
+        } else if (facePackageDownloadData.usermsg != null) {
+            context3 = this.a.c;
+            UtilHelper.showToast(context3, facePackageDownloadData.usermsg);
+        } else {
+            context2 = this.a.c;
+            UtilHelper.showToast(context2, com.baidu.tieba.y.neterror);
+        }
     }
 }

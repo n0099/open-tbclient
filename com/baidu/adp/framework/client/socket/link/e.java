@@ -2,62 +2,54 @@ package com.baidu.adp.framework.client.socket.link;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import com.baidu.adp.framework.client.socket.l;
 import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.webSocket.m;
 /* loaded from: classes.dex */
-public class e extends Handler {
-    final /* synthetic */ d a;
+public class e {
+    private boolean a = false;
+    private int b = 0;
+    private final Handler c = new f(this, Looper.getMainLooper());
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, Looper looper) {
-        super(looper);
-        this.a = dVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        if (!BdSocketLinkService.isAvailable()) {
+            b("online failed 5");
+        } else if (!this.a) {
+            this.a = true;
+            this.c.removeMessages(1);
+            if (m.a().d()) {
+                BdLog.d("启动重连策略失败，  WebSocketClient opened");
+                b("in Opened");
+                return;
+            }
+            a();
+            BdLog.d("启动重连策略");
+            this.b = 0;
+            int[] a = l.a();
+            if (a != null && a.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + a[0]);
+                this.c.sendMessageDelayed(this.c.obtainMessage(1), a[0] * 1000);
+                return;
+            }
+            BdLog.i("don't have reconnStrategy!");
+        } else {
+            BdLog.d("重连策略正在运行中， 再次启动无效");
+            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.START, BdSocketLinkService.ALLREADY, "have in Running,so invalid");
+        }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Handler handler2;
-        Handler handler3;
-        int i5;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.a.c;
-                handler.removeMessages(1);
-                StringBuilder sb = new StringBuilder("this is reconn time:");
-                i = this.a.b;
-                BdLog.i(sb.append(i).toString());
-                BdSocketLinkService.startService(true, "time to reconnStragety");
-                d dVar = this.a;
-                i2 = dVar.b;
-                dVar.b = i2 + 1;
-                int[] a = l.a();
-                if (a != null) {
-                    i3 = this.a.b;
-                    if (i3 < a.length) {
-                        StringBuilder sb2 = new StringBuilder("Next will be delay:");
-                        i4 = this.a.b;
-                        BdLog.i(sb2.append(a[i4]).toString());
-                        handler2 = this.a.c;
-                        handler3 = this.a.c;
-                        Message obtainMessage = handler3.obtainMessage(1);
-                        i5 = this.a.b;
-                        handler2.sendMessageDelayed(obtainMessage, a[i5] * 1000);
-                        return;
-                    }
-                }
-                this.a.b("reconnStragety to the end");
-                return;
-            default:
-                return;
+    private void a() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(String str) {
+        if (this.a) {
+            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.STOP, BdSocketLinkService.STOP_RECONN, "ReConnStrategy:stop");
+            this.a = false;
+            this.b = 0;
+            BdLog.i("stop reconnStrategy");
+            this.c.removeMessages(1);
         }
     }
 }

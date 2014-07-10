@@ -1,46 +1,42 @@
 package com.baidu.tieba.faceshop;
 
-import android.app.Application;
+import android.os.Handler;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be extends com.baidu.adp.base.b {
-    private bf a;
-    private String b;
-    private int c;
-    private int d;
-    private float e;
+public class be implements AbsListView.OnScrollListener {
+    final /* synthetic */ bc a;
 
-    public be() {
-        this.c = 0;
-        this.d = 0;
-        Application d = com.baidu.tieba.ai.c().d();
-        this.c = com.baidu.adp.lib.util.k.b(d);
-        this.d = com.baidu.adp.lib.util.k.c(d);
-        this.e = d.getResources().getDisplayMetrics().density;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public be(bc bcVar) {
+        this.a = bcVar;
     }
 
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void a() {
-        if (this.a == null) {
-            this.a = new bf(this, null);
-            this.a.setPriority(3);
-            this.a.execute(new Object[0]);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        Runnable runnable;
+        Handler handler4;
+        Runnable runnable2;
+        handler = this.a.j;
+        if (handler != null) {
+            handler4 = this.a.j;
+            runnable2 = this.a.l;
+            handler4.removeCallbacks(runnable2);
+        }
+        if (i == 0) {
+            handler2 = this.a.j;
+            if (handler2 != null) {
+                handler3 = this.a.j;
+                runnable = this.a.l;
+                handler3.postDelayed(runnable, 90L);
+            }
         }
     }
 
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return true;
-        }
-        return true;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

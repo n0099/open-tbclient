@@ -12,18 +12,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.data.ai;
+import com.baidu.tieba.data.am;
 import com.baidu.tieba.z;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     protected Context b;
-    protected ab c;
+    protected aa c;
     protected View.OnClickListener e;
-    protected ArrayList<ai> a = null;
+    protected ArrayList<am> a = null;
     protected View.OnClickListener d = null;
     protected int f = 0;
     protected boolean g = false;
@@ -36,7 +36,7 @@ public class b extends BaseAdapter {
         this.c = null;
         this.e = null;
         this.b = context;
-        this.c = new ab(this.b);
+        this.c = new aa(this.b);
         this.c.f("pb");
         this.e = onClickListener;
     }
@@ -58,11 +58,11 @@ public class b extends BaseAdapter {
         return -1;
     }
 
-    public ab a() {
+    public aa a() {
         return this.c;
     }
 
-    public void a(ArrayList<ai> arrayList) {
+    public void a(ArrayList<am> arrayList) {
         this.a = arrayList;
     }
 
@@ -111,7 +111,7 @@ public class b extends BaseAdapter {
         }
         c cVar = (c) ((SparseArray) view.getTag()).get(com.baidu.tieba.v.tag_holder);
         if (getItem(i) != null) {
-            a(cVar, (ai) getItem(i), !(!this.i && i + 1 >= getCount()), i == 0);
+            a(cVar, (am) getItem(i), !(!this.i && i + 1 >= getCount()), i == 0);
         }
         return view;
     }
@@ -136,24 +136,24 @@ public class b extends BaseAdapter {
         return inflate;
     }
 
-    public void a(c cVar, ai aiVar, boolean z, boolean z2) {
+    public void a(c cVar, am amVar, boolean z, boolean z2) {
         boolean z3;
         boolean z4;
         boolean z5;
         com.baidu.tbadk.widget.richText.c cVar2;
         TextAppearanceSpan textAppearanceSpan;
-        if (cVar != null && aiVar != null) {
+        if (cVar != null && amVar != null) {
             cVar.d.setPadding(0, 0, 0, 0);
             int skinType = TbadkApplication.m252getInst().getSkinType();
-            if (aiVar.o() != null) {
-                String userName = aiVar.o().getUserName();
+            if (amVar.o() != null) {
+                String userName = amVar.o().getUserName();
                 SparseArray sparseArray = (SparseArray) cVar.a.getTag();
                 if (sparseArray == null) {
                     sparseArray = new SparseArray();
                     cVar.a.setTag(sparseArray);
                 }
                 sparseArray.put(com.baidu.tieba.v.tag_photo_username, userName);
-                sparseArray.put(com.baidu.tieba.v.tag_clip_board, aiVar);
+                sparseArray.put(com.baidu.tieba.v.tag_clip_board, amVar);
                 sparseArray.put(com.baidu.tieba.v.tag_is_subpb, true);
             }
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
@@ -161,7 +161,7 @@ public class b extends BaseAdapter {
             } else {
                 cVar.d.setLinkTextColor(this.b.getResources().getColor(com.baidu.tieba.s.common_link_text));
             }
-            com.baidu.tbadk.widget.richText.a p = aiVar.p();
+            com.baidu.tbadk.widget.richText.a p = amVar.p();
             if (p != null) {
                 ArrayList<com.baidu.tbadk.widget.richText.c> a = p.a();
                 if (a.size() > 0) {
@@ -169,7 +169,7 @@ public class b extends BaseAdapter {
                     int a2 = cVar3.a();
                     String str = "";
                     if (a2 == 1) {
-                        str = (a.size() <= 1 || a.get(a.size() + (-2)).a() == a2) ? "  " + bg.a(aiVar.n()) : bg.a(aiVar.n());
+                        str = (a.size() <= 1 || a.get(a.size() + (-2)).a() == a2) ? "  " + bm.a(amVar.n()) : bm.a(amVar.n());
                         SpannableStringBuilder d = cVar3.d();
                         if (p.a) {
                             d.delete(d.length() - p.b, d.length());
@@ -181,7 +181,7 @@ public class b extends BaseAdapter {
                     } else if (p.a) {
                         cVar2 = cVar3;
                     } else {
-                        str = bg.a(aiVar.n());
+                        str = bm.a(amVar.n());
                         com.baidu.tbadk.widget.richText.c cVar4 = new com.baidu.tbadk.widget.richText.c(1);
                         cVar4.a((CharSequence) str);
                         p.a = true;
@@ -199,9 +199,9 @@ public class b extends BaseAdapter {
                 }
                 cVar.d.setVoiceViewRes(com.baidu.tieba.w.voice_play_btn);
                 cVar.d.setIsFromCDN(this.j);
-                cVar.d.setText(aiVar.p());
+                cVar.d.setText(amVar.p());
             }
-            String userId = aiVar.o().getUserId();
+            String userId = amVar.o().getUserId();
             if (this.f != 0) {
                 boolean z6 = userId == null || !userId.equals(TbadkApplication.getCurrentAccount());
                 if (userId == null || userId.equals("0") || userId.length() == 0) {
@@ -254,14 +254,14 @@ public class b extends BaseAdapter {
             if (z4) {
                 sparseArray2.put(com.baidu.tieba.v.tag_del_post_is_self, Boolean.valueOf(z3));
                 sparseArray2.put(com.baidu.tieba.v.tag_del_post_type, 2);
-                sparseArray2.put(com.baidu.tieba.v.tag_del_post_id, aiVar.l());
+                sparseArray2.put(com.baidu.tieba.v.tag_del_post_id, amVar.l());
             } else {
                 sparseArray2.put(com.baidu.tieba.v.tag_del_post_is_self, Boolean.valueOf(z3));
                 sparseArray2.put(com.baidu.tieba.v.tag_del_post_type, 0);
                 sparseArray2.put(com.baidu.tieba.v.tag_del_post_id, "");
             }
             if (z5) {
-                sparseArray2.put(com.baidu.tieba.v.tag_forbid_user_name, aiVar.o().getUserName());
+                sparseArray2.put(com.baidu.tieba.v.tag_forbid_user_name, amVar.o().getUserName());
             } else {
                 sparseArray2.put(com.baidu.tieba.v.tag_forbid_user_name, "");
             }

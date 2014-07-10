@@ -1,87 +1,60 @@
 package com.baidu.tbadk.editortool;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import java.util.Map;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class z extends af {
-    public z() {
-        b();
+public class z extends e {
+    private static z a = new z();
+    private LinkedList<ae> b;
+
+    @Override // com.baidu.tbadk.editortool.e
+    public int a() {
+        return 1;
     }
 
-    private void b() {
-        super.b(7);
-        super.c(3);
-        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkApplication.m252getInst().getApp().getResources(), com.baidu.tieba.u.icon_face_original_s), false);
-        super.b(aVar);
-        super.a(aVar);
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public String a(int i) {
-        int i2;
-        if (i < 0 || i >= w.b.size()) {
-            i2 = 0;
-        } else {
-            i2 = w.b.get(i).intValue();
+    public static synchronized z c() {
+        z zVar;
+        synchronized (z.class) {
+            zVar = a;
         }
-        for (Map.Entry<String, Integer> entry : w.c.entrySet()) {
-            if (entry.getValue().intValue() == i2) {
-                return entry.getKey();
+        return zVar;
+    }
+
+    public List<ae> d() {
+        return this.b;
+    }
+
+    @Override // com.baidu.tbadk.editortool.e
+    public void a(f fVar) {
+        if (this.b == null) {
+            this.b = new LinkedList<>();
+            if (TbFaceManager.a().b() > 0) {
+                y yVar = new y();
+                this.b.add(yVar);
+                if (fVar != null) {
+                    fVar.a(yVar);
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        Iterator<ae> it = this.b.iterator();
+        while (it.hasNext()) {
+            ae next = it.next();
+            if (fVar != null) {
+                fVar.a(next);
             }
         }
-        return null;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
-    public boolean a(String str) {
-        return w.c.get(str) != null;
+    @Override // com.baidu.tbadk.editortool.e
+    public void b() {
     }
 
-    @Override // com.baidu.tbadk.editortool.af
-    public com.baidu.adp.widget.a.a b(String str) {
-        Bitmap a;
-        Integer num = w.c.get(str);
-        if (num != null && (a = com.baidu.adp.lib.util.b.a().a(TbadkApplication.m252getInst().getApp(), num.intValue())) != null) {
-            return new com.baidu.adp.widget.a.a(a, false, str);
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public int d() {
-        return w.b.size();
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public com.baidu.adp.widget.a.a c(String str) {
-        return b(str);
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public EmotionGroupType c() {
-        return EmotionGroupType.LOCAL;
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public String e() {
-        return "_local";
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public String f() {
-        return "_local";
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public int g() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.editortool.af
-    public int h() {
-        return 0;
+    public boolean e() {
+        return this.b == null || this.b.size() == 0;
     }
 }

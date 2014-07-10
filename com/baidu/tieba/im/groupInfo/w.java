@@ -1,22 +1,29 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.DialogInterface;
+import android.text.ClipboardManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.imageManager.d {
+public class w implements DialogInterface.OnClickListener {
     final /* synthetic */ r a;
-    private final /* synthetic */ HeadImageView b;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(r rVar, HeadImageView headImageView) {
+    public w(r rVar, String str) {
         this.a = rVar;
-        this.b = headImageView;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null) {
-            aVar.a(this.b);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        GroupInfoActivity groupInfoActivity;
+        GroupInfoActivity groupInfoActivity2;
+        try {
+            groupInfoActivity = this.a.c;
+            ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.b);
+            groupInfoActivity2 = this.a.c;
+            groupInfoActivity2.showToast(com.baidu.tieba.y.copy_success);
+        } catch (Exception e) {
         }
     }
 }

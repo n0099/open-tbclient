@@ -1,95 +1,27 @@
 package com.baidu.tieba.bubble;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class d extends BaseAdapter {
-    private List<BubbleListData.BubbleData> a = new ArrayList();
-    private BubbleChooseActivity b;
-    private ab c;
-    private int d;
-    private int e;
-    private boolean f;
+class d implements s {
+    final /* synthetic */ BubbleChooseActivity a;
 
-    public void a(boolean z) {
-        this.f = z;
-    }
-
+    /* JADX INFO: Access modifiers changed from: package-private */
     public d(BubbleChooseActivity bubbleChooseActivity) {
-        this.b = bubbleChooseActivity;
-        this.c = new ab(this.b);
-        this.c.d(true);
-        this.d = (int) this.b.getResources().getDimension(t.ds30);
-        this.e = (int) this.b.getResources().getDimension(t.ds30);
+        this.a = bubbleChooseActivity;
     }
 
-    public List<BubbleListData.BubbleData> a() {
-        return this.a;
+    @Override // com.baidu.tieba.bubble.s
+    public void a(int i) {
+        com.baidu.tieba.model.d dVar;
+        dVar = this.a.c;
+        dVar.b(i);
+        TbWebViewActivity.startActivityForResult(this.a, TbadkApplication.m252getInst().getString(y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion(), true, false, true, true, null, 23004);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.a == null) {
-            return 0;
-        }
-        return this.a.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BubbleListData.BubbleData getItem(int i) {
-        if (this.a == null || (i < 0 && i >= this.a.size())) {
-            return null;
-        }
-        return this.a.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.view.a aVar;
-        if (view == null) {
-            aVar = new com.baidu.tieba.view.a(this.b);
-            view = aVar;
-        } else {
-            aVar = (com.baidu.tieba.view.a) view;
-        }
-        if (i == 0 || i == 1) {
-            aVar.setPadding(0, this.e, 0, 0);
-        }
-        if (getCount() % 2 == 0) {
-            if (i == getCount() - 1 || i == getCount() - 2) {
-                aVar.setPadding(0, aVar.getPaddingTop(), 0, this.d);
-            }
-        } else if (i == getCount() - 1) {
-            aVar.setPadding(0, aVar.getPaddingTop(), 0, this.d);
-        }
-        BubbleListData.BubbleData item = getItem(i);
-        if (item != null) {
-            aVar.setShowName(true);
-            aVar.a(item, this.c, this.f);
-        }
-        aVar.b();
-        return view;
-    }
-
-    public void a(List<BubbleListData.BubbleData> list) {
-        this.a.clear();
-        BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-        bubbleData.setBcode(0);
-        this.a.add(bubbleData);
-        this.a.addAll(list);
-        notifyDataSetChanged();
+    @Override // com.baidu.tieba.bubble.s
+    public void a() {
     }
 }

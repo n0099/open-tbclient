@@ -20,16 +20,21 @@ public class BdSocketLinkService extends Service {
     private static final String RE_OPEN = "reopen";
     private static final int TIMEOUT_EVENT = 1;
     private static c connStateCallBack;
+    public static d mCanOpenWebSocket;
     private static int BASE_ERROR_NO = -100001000;
     public static final int CONNECT_OPEN = BASE_ERROR_NO - 1;
     public static final int BEGIN_OPEN = BASE_ERROR_NO - 2;
     public static final int START_SERVICE_ERROR = BASE_ERROR_NO - 3;
     public static final int ALLREADY = BASE_ERROR_NO - 4;
     public static final int STOP_RECONN = BASE_ERROR_NO - 5;
-    private static d reConnStra = new d();
+    private static e reConnStra = new e();
     private static boolean isAvailable = true;
     private static final Handler mHandler = new a(Looper.getMainLooper());
     private static r connCallback = new b();
+
+    public static void setCanOpenWebSocket(d dVar) {
+        mCanOpenWebSocket = dVar;
+    }
 
     public static void setConnStateCallBack(c cVar) {
         connStateCallBack = cVar;
@@ -37,7 +42,7 @@ public class BdSocketLinkService extends Service {
 
     private boolean open(String str) {
         m.a(MODULE_NAME, 0, 0, TbConfig.ST_TYPE_OPEN, 0, str);
-        BdLog.d("启动连接");
+        BdLog.w("启动连接");
         mHandler.removeMessages(1);
         mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.c.c.a().d().b());
         try {
@@ -118,18 +123,19 @@ public class BdSocketLinkService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        BdLog.i("----enter onStart");
-        if (intent != null) {
+        if (mCanOpenWebSocket != null && !mCanOpenWebSocket.a()) {
+            close("exit app");
+        } else if (intent != null) {
             String stringExtra = intent.getStringExtra(REASON);
             if (stringExtra == null) {
                 stringExtra = "--";
             }
             if (intent.getBooleanExtra(RE_OPEN, false)) {
-                BdLog.d("进行重连" + stringExtra);
+                BdLog.w("进行重连" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
             } else if (!com.baidu.adp.lib.webSocket.m.a().d() && !com.baidu.adp.lib.webSocket.m.a().e()) {
-                BdLog.d("进行连接" + stringExtra);
+                BdLog.w("进行连接" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
             }

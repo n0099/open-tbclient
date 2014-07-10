@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -32,7 +31,7 @@ public abstract class a {
             b(new JSONObject(str));
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            BdLog.e("error = " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +57,7 @@ public abstract class a {
             a(jSONObject);
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            BdLog.e("error = " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

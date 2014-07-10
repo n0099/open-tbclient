@@ -8,7 +8,7 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.im.model.be;
+import com.baidu.tieba.im.model.bd;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ NearbyGroupsActivity a;
@@ -20,19 +20,19 @@ class e extends com.baidu.adp.framework.listener.b {
         this.a = nearbyGroupsActivity;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [356=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [346=4] */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        be beVar;
+        bd bdVar;
+        bd bdVar2;
+        bd bdVar3;
         m mVar;
         m mVar2;
-        be beVar2;
-        be beVar3;
         m mVar3;
         m mVar4;
-        be beVar4;
+        bd bdVar4;
         if (socketResponsedMessage == null) {
             return;
         }
@@ -40,8 +40,8 @@ class e extends com.baidu.adp.framework.listener.b {
             if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
                 ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
                 if (responseUpgradeMemberGroupMessage.getError() == 0 || responseUpgradeMemberGroupMessage.getError() == 2230110) {
-                    beVar4 = this.a.c;
-                    beVar4.d();
+                    bdVar4 = this.a.c;
+                    bdVar4.d();
                 }
             }
         } else if (socketResponsedMessage.getCmd() != 103009) {
@@ -66,11 +66,11 @@ class e extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else {
-            beVar = this.a.c;
-            beVar.a(false);
+            bdVar = this.a.c;
+            bdVar.a(false);
             if (!(socketResponsedMessage instanceof ResponseNearbyGroupsMessage)) {
                 mVar4 = this.a.b;
-                mVar4.e();
+                mVar4.f();
                 return;
             }
             com.baidu.tieba.im.e.a().a(System.currentTimeMillis());
@@ -80,22 +80,18 @@ class e extends com.baidu.adp.framework.listener.b {
             } else {
                 NearbyGroupsData nearbyGroups = responseNearbyGroupsMessage.getNearbyGroups();
                 if (nearbyGroups != null) {
-                    beVar2 = this.a.c;
-                    beVar2.b(nearbyGroups.getHasMore());
-                    beVar3 = this.a.c;
-                    beVar3.a(nearbyGroups.getGeo());
-                } else {
-                    nearbyGroups = new NearbyGroupsData();
-                }
-                mVar = this.a.b;
-                mVar.a(nearbyGroups);
-                if (nearbyGroups != null && nearbyGroups.size() > 0) {
-                    mVar2 = this.a.b;
-                    mVar2.a();
+                    bdVar2 = this.a.c;
+                    bdVar2.b(nearbyGroups.getHasMore());
+                    bdVar3 = this.a.c;
+                    bdVar3.a(nearbyGroups.getGeo());
+                    mVar = this.a.b;
+                    mVar.a(nearbyGroups);
                 }
             }
+            mVar2 = this.a.b;
+            mVar2.f();
             mVar3 = this.a.b;
-            mVar3.e();
+            mVar3.c();
         }
     }
 }

@@ -1,27 +1,30 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.chat.receiveChatMsgHandler.ab;
-import java.util.LinkedHashMap;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ f b;
-    private final /* synthetic */ LinkedHashMap c;
-    private final /* synthetic */ LinkedHashMap d;
+public class g extends CustomMessageListener {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar, LinkedHashMap linkedHashMap, LinkedHashMap linkedHashMap2) {
-        this.b = fVar;
-        this.c = linkedHashMap;
-        this.d = linkedHashMap2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(b bVar, int i) {
+        super(i);
+        this.a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        if (this.c.size() > 0) {
-            ab.a().a(this.c);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.g();
+            } else {
+                this.a.f();
+            }
         }
-        return com.baidu.tieba.im.db.c.a().a(this.d);
     }
 }

@@ -177,7 +177,7 @@ public class AntiData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e("AntiData", "parserJson", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -204,18 +204,12 @@ public class AntiData implements Serializable {
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
             } catch (Exception e) {
-                BdLog.e("AntiData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        BdLog.v("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        BdLog.v("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        BdLog.v("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        BdLog.v("AntiData", "logPrint", "tbs = " + this.tbs);
-        BdLog.v("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        BdLog.v("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

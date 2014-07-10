@@ -9,12 +9,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.view.NoSwipeableViewPager;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.base.c {
+public class n extends com.baidu.adp.base.f {
     private int A;
     private boolean B;
     private String C;
@@ -374,17 +374,17 @@ public class n extends com.baidu.adp.base.c {
     private void R() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.m) {
-                be.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg_1);
+                bk.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.s.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            be.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            bk.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.s.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.m) {
-            be.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg);
+            bk.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg);
             this.s.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            be.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d);
+            bk.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.s.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
@@ -476,6 +476,8 @@ public class n extends com.baidu.adp.base.c {
             }
             if (i == 0) {
                 this.j.d().setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.group_create_info_count_color));
+            } else if (i < 0) {
+                this.j.a(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
             } else {
                 this.j.f();
             }
@@ -519,7 +521,7 @@ public class n extends com.baidu.adp.base.c {
     public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.q);
-        be.a(this.q, i);
+        bk.a(this.q, i);
         this.p.c(i);
         R();
     }

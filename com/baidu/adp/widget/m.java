@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class m implements ad {
     final /* synthetic */ IndicatorView a;
@@ -65,11 +64,11 @@ public class m implements ad {
         Drawable drawable4;
         Drawable drawable5;
         Drawable drawable6;
-        Drawable drawable7;
-        Drawable drawable8;
         int i5;
         int i6;
         int i7;
+        Drawable drawable7;
+        Drawable drawable8;
         Drawable drawable9;
         Drawable drawable10;
         Drawable drawable11;
@@ -78,8 +77,6 @@ public class m implements ad {
         Drawable drawable14;
         Drawable drawable15;
         Drawable drawable16;
-        Drawable drawable17;
-        Drawable drawable18;
         int i8 = i & (-1073741824);
         int i9 = 1073741823 & i;
         Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i9);
@@ -92,45 +89,39 @@ public class m implements ad {
         int max = Math.max(intrinsicWidth, drawable2.getIntrinsicWidth());
         i4 = this.a.c;
         int i11 = i10 + (max * i4);
-        StringBuilder sb = new StringBuilder("drawable intrinsic width = ");
-        drawable3 = this.a.f;
-        BdLog.d("IndicatorView$IndicatorView", "@measureWidth", sb.append(drawable3.getIntrinsicWidth()).toString());
-        StringBuilder sb2 = new StringBuilder("selector intrinsic width = ");
-        drawable4 = this.a.g;
-        BdLog.d("IndicatorView$IndicatorView", "@measureWidth", sb2.append(drawable4.getIntrinsicWidth()).toString());
         switch (i8) {
             case Integer.MIN_VALUE:
                 int min = Math.min(i9, i11);
+                drawable11 = this.a.f;
+                drawable12 = this.a.f;
+                int intrinsicWidth2 = drawable12.getIntrinsicWidth();
                 drawable13 = this.a.f;
-                drawable14 = this.a.f;
-                int intrinsicWidth2 = drawable14.getIntrinsicWidth();
-                drawable15 = this.a.f;
-                drawable13.setBounds(0, 0, intrinsicWidth2, drawable15.getBounds().height());
+                drawable11.setBounds(0, 0, intrinsicWidth2, drawable13.getBounds().height());
+                drawable14 = this.a.g;
+                drawable15 = this.a.g;
+                int intrinsicWidth3 = drawable15.getIntrinsicWidth();
                 drawable16 = this.a.g;
-                drawable17 = this.a.g;
-                int intrinsicWidth3 = drawable17.getIntrinsicWidth();
-                drawable18 = this.a.g;
-                drawable16.setBounds(0, 0, intrinsicWidth3, drawable18.getBounds().height());
+                drawable14.setBounds(0, 0, intrinsicWidth3, drawable16.getBounds().height());
                 return min;
             case 0:
-                drawable5 = this.a.f;
-                drawable6 = this.a.f;
+                drawable3 = this.a.f;
+                drawable4 = this.a.f;
+                drawable3.setBounds(0, 0, drawable4.getIntrinsicWidth(), 0);
+                drawable5 = this.a.g;
+                drawable6 = this.a.g;
                 drawable5.setBounds(0, 0, drawable6.getIntrinsicWidth(), 0);
-                drawable7 = this.a.g;
-                drawable8 = this.a.g;
-                drawable7.setBounds(0, 0, drawable8.getIntrinsicWidth(), 0);
                 return i11;
             case 1073741824:
                 i5 = this.a.b;
                 i6 = this.a.c;
                 i7 = this.a.c;
                 int i12 = (int) ((i9 - (i5 * (i6 - 1))) / i7);
-                drawable9 = this.a.g;
-                drawable10 = this.a.g;
+                drawable7 = this.a.g;
+                drawable8 = this.a.g;
+                drawable7.setBounds(0, 0, i12, drawable8.getBounds().height());
+                drawable9 = this.a.f;
+                drawable10 = this.a.f;
                 drawable9.setBounds(0, 0, i12, drawable10.getBounds().height());
-                drawable11 = this.a.f;
-                drawable12 = this.a.f;
-                drawable11.setBounds(0, 0, i12, drawable12.getBounds().height());
                 return i9;
             default:
                 return i9;

@@ -4,23 +4,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private LiveRoomIntroActivity a;
     private List<LiveCardData> b = null;
-    private ab c;
+    private aa c;
 
-    public ab a() {
+    public aa a() {
         return this.c;
     }
 
     public b(LiveRoomIntroActivity liveRoomIntroActivity) {
         this.a = null;
         this.a = liveRoomIntroActivity;
-        this.c = new ab(liveRoomIntroActivity);
-        this.c.d(true);
+        this.c = new aa(liveRoomIntroActivity);
+        this.c.b(true);
     }
 
     public void a(List<LiveCardData> list) {

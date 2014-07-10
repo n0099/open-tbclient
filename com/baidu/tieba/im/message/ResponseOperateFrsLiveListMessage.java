@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.ForumOwnerManageLivegroup.ForumOwnerManageLivegroupResIdl;
@@ -9,15 +8,11 @@ public class ResponseOperateFrsLiveListMessage extends TbSocketReponsedMessage {
     private int groupId;
 
     public ResponseOperateFrsLiveListMessage() {
-        super(MessageTypes.CMD_LIVE_OPERATE_FRSLIVE_LIST);
+        super(107110);
     }
 
     public int getGroupId() {
         return this.groupId;
-    }
-
-    public void setGroupId(int i) {
-        this.groupId = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +22,7 @@ public class ResponseOperateFrsLiveListMessage extends TbSocketReponsedMessage {
         setError(forumOwnerManageLivegroupResIdl.error.errorno.intValue());
         setErrorString(forumOwnerManageLivegroupResIdl.error.usermsg);
         if (getError() == 0 && forumOwnerManageLivegroupResIdl.data != null && forumOwnerManageLivegroupResIdl.data.group != null) {
-            setGroupId(forumOwnerManageLivegroupResIdl.data.group.groupId.intValue());
+            this.groupId = forumOwnerManageLivegroupResIdl.data.group.groupId.intValue();
         }
     }
 }

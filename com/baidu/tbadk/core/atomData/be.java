@@ -1,14 +1,11 @@
 package com.baidu.tbadk.core.atomData;
 
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.Context;
+import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
 public class be extends com.baidu.tbadk.core.frameworkData.a {
-    @Override // com.baidu.tbadk.core.frameworkData.a
-    public boolean isValid() {
-        if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            com.baidu.adp.lib.util.k.a(getContext(), getContext().getString(com.baidu.tieba.y.web_view_corrupted));
-            return false;
-        }
-        return true;
+    public be(Context context, PluginsConfig.PluginConfig pluginConfig) {
+        super(context);
+        getIntent().putExtra("plugin_config", pluginConfig);
     }
 }

@@ -51,7 +51,7 @@ class a extends com.baidu.adp.framework.listener.b {
                     return;
                 }
             }
-            com.baidu.tieba.im.data.g liveBlackMembersListData = responseLiveBlackMembersMessage.getLiveBlackMembersListData();
+            com.baidu.tieba.im.data.e liveBlackMembersListData = responseLiveBlackMembersMessage.getLiveBlackMembersListData();
             if (liveBlackMembersListData != null) {
                 List<UserData> b = liveBlackMembersListData.b();
                 iVar = this.a.a;

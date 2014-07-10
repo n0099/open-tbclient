@@ -11,7 +11,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
     private static b a = null;
@@ -95,19 +94,11 @@ public class b {
         return cVar;
     }
 
-    public SocketResponsedMessage a(int i, byte[] bArr, int i2, int i3, SocketMessage socketMessage) {
-        if (i2 != 0 || i3 != bArr.length) {
-            if (i3 <= 0) {
-                bArr = null;
-            } else {
-                bArr = ByteBuffer.wrap(bArr, i2, i3).array();
-            }
-        }
+    public SocketResponsedMessage a(int i, byte[] bArr, SocketMessage socketMessage) {
         try {
             SocketResponsedMessage newInstance = ((SocketMessageTask) MessageManager.getInstance().findTask(i)).c().newInstance();
             newInstance.setOrginalMessage(socketMessage);
             newInstance.decodeInBackGround(i, bArr);
-            newInstance.processInBackGround(i, bArr);
             return newInstance;
         } catch (Exception e) {
             throw new CoderException(l.d);

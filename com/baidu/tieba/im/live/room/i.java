@@ -1,8 +1,10 @@
 package com.baidu.tieba.im.live.room;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseSubscribeLiveGroupMessage;
+import com.baidu.tieba.im.message.RequestLiveGroupOwnerGagMessage;
+import com.baidu.tieba.im.message.ResponseLiveGroupOwnerGagMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -18,41 +20,31 @@ class i extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        LiveRoomChatView z;
-        LiveRoomChatView z2;
-        LiveRoomChatView z3;
-        LiveRoomChatView z4;
-        LiveRoomChatView z5;
-        if (socketResponsedMessage.getCmd() != 107105) {
-            z5 = this.a.z();
-            z5.g(false);
-        } else if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
-            z4 = this.a.z();
-            z4.g(false);
+        this.a.hideProgressBar();
+        if (!(socketResponsedMessage instanceof ResponseLiveGroupOwnerGagMessage)) {
             this.a.showToast(com.baidu.tieba.y.neterror);
-        } else {
-            ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
-            if (responseSubscribeLiveGroupMessage.getError() != 0) {
-                z3 = this.a.z();
-                z3.g(false);
-                if (responseSubscribeLiveGroupMessage.getError() > 0) {
-                    if (!TextUtils.isEmpty(responseSubscribeLiveGroupMessage.getErrorString())) {
-                        this.a.showToast(responseSubscribeLiveGroupMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.showToast(com.baidu.tieba.y.neterror);
-            } else if (this.a.x().f) {
-                this.a.x().f = false;
-                z2 = this.a.z();
-                z2.g(false);
-                this.a.showToast(com.baidu.tieba.y.live_room_cancel_attention);
+            return;
+        }
+        ResponseLiveGroupOwnerGagMessage responseLiveGroupOwnerGagMessage = (ResponseLiveGroupOwnerGagMessage) socketResponsedMessage;
+        if (responseLiveGroupOwnerGagMessage.hasError()) {
+            if (responseLiveGroupOwnerGagMessage.getError() > 0 && !TextUtils.isEmpty(responseLiveGroupOwnerGagMessage.getErrorString())) {
+                this.a.showToast(responseLiveGroupOwnerGagMessage.getErrorString());
+                return;
             } else {
-                this.a.x().f = true;
-                z = this.a.z();
-                z.g(true);
-                this.a.showToast(com.baidu.tieba.y.live_room_attentioned);
+                this.a.showToast(com.baidu.tieba.y.neterror);
+                return;
+            }
+        }
+        Message<?> orginalMessage = responseLiveGroupOwnerGagMessage.getOrginalMessage();
+        if (orginalMessage instanceof RequestLiveGroupOwnerGagMessage) {
+            RequestLiveGroupOwnerGagMessage requestLiveGroupOwnerGagMessage = (RequestLiveGroupOwnerGagMessage) orginalMessage;
+            if (requestLiveGroupOwnerGagMessage.getType() == 1) {
+                String userNames = requestLiveGroupOwnerGagMessage.getUserNames();
+                if (!TextUtils.isEmpty(userNames)) {
+                    this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.y.live_chat_room_mute_success));
+                } else {
+                    this.a.showToast(com.baidu.tieba.y.live_chat_room_mute_success);
+                }
             }
         }
     }

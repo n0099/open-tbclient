@@ -1,37 +1,103 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.FileObserver;
+import android.net.TrafficStats;
+import android.os.Build;
+import android.os.Handler;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class i extends FileObserver {
-    private Context a;
-    private com.baidu.android.systemmonitor.devicestatistic.a.a b;
-    private String c;
+public final class i {
+    private static i b = null;
+    private boolean a;
+    private Context d;
+    private com.baidu.android.systemmonitor.devicestatistic.a.d c = null;
+    private Handler e = new Handler();
+    private int f = 0;
+    private long g = 0;
+    private long h = 0;
+    private Runnable i = new b(this);
 
-    public i(String str, Context context) {
-        super(str, 1280);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = context.getApplicationContext();
-        this.c = str;
+    public i(Context context) {
+        this.a = false;
+        this.d = null;
+        if (Build.VERSION.SDK_INT < 8) {
+            this.a = false;
+            return;
+        }
+        this.a = TrafficStats.getTotalRxBytes() != -1;
+        this.d = context.getApplicationContext();
     }
 
-    @Override // android.os.FileObserver
-    public void onEvent(int i, String str) {
-        switch (i & 4095) {
-            case 256:
-                this.b = new com.baidu.android.systemmonitor.devicestatistic.a.a(System.currentTimeMillis(), this.c, str);
-                g.a(this.a).a(this.b);
-                return;
-            case 1024:
-                Intent intent = new Intent("com.baidu.moplus.systemmonitor.pathdeleted");
-                intent.putExtra("path", this.c);
-                this.a.sendBroadcast(intent);
-                return;
-            default:
-                return;
+    public static synchronized i a(Context context) {
+        i iVar;
+        synchronized (i.class) {
+            if (b == null) {
+                b = new i(context);
+            }
+            iVar = b;
         }
+        return iVar;
+    }
+
+    public static void c() {
+        if (b != null) {
+            b.d();
+            b = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        if (this.a && a() > this.h) {
+            this.h = a();
+        }
+    }
+
+    public long a() {
+        if (this.a) {
+            return TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes();
+        }
+        return -1L;
+    }
+
+    public void b() {
+        if (this.a) {
+            int b2 = com.baidu.android.systemmonitor.c.d.b(this.d);
+            if (b2 == 0) {
+                this.e.removeCallbacks(this.i);
+                if (this.c != null) {
+                    this.c.a = System.currentTimeMillis();
+                    this.c.c = this.h - this.g;
+                    d.a(this.d).a(this.c);
+                }
+                this.c = null;
+                this.g = 0L;
+                this.f = 0;
+                this.h = 0L;
+            } else if (this.c == null) {
+                this.f = b2;
+                this.c = new com.baidu.android.systemmonitor.devicestatistic.a.d(System.currentTimeMillis());
+                this.c.b = this.f;
+                this.g = a();
+                this.e.postDelayed(this.i, TbConfig.USE_TIME_INTERVAL);
+            } else if (b2 != this.f) {
+                this.e.removeCallbacks(this.i);
+                this.c.a = System.currentTimeMillis();
+                this.c.c = this.h - this.g;
+                d.a(this.d).a(this.c);
+                this.c = null;
+                this.g = 0L;
+                this.f = 0;
+                this.h = 0L;
+                b();
+            }
+        }
+    }
+
+    public void d() {
+        if (this.e != null) {
+            this.e.removeCallbacks(this.i);
+        }
+        this.e = null;
     }
 }

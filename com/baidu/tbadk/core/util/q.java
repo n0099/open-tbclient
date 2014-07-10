@@ -22,7 +22,7 @@ public class q {
             } else {
                 c = str;
                 a = Toast.makeText(context, str, 0);
-                a.setGravity(17, 0, com.baidu.adp.lib.util.k.a(context, 100.0f));
+                a.setGravity(17, 0, com.baidu.adp.lib.util.j.a(context, 100.0f));
             }
             b.postDelayed(d, i);
             a.show();

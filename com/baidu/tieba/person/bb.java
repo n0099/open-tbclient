@@ -1,17 +1,18 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ PersonChangeActivity a;
+public class bb implements AbsListView.RecyclerListener {
+    final /* synthetic */ az a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bb(az azVar) {
+        this.a = azVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null) {
-            aVar.a(this.a.a);
-        }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
     }
 }

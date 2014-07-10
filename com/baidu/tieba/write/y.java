@@ -1,28 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ x a;
+public class y implements DialogInterface.OnCancelListener {
+    final /* synthetic */ VcodeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.a = xVar;
+    public y(VcodeActivity vcodeActivity) {
+        this.a = vcodeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        v vVar;
-        w wVar;
-        v vVar2;
-        w wVar2;
-        vVar = this.a.a;
-        wVar = vVar.d;
-        if (wVar != null) {
-            vVar2 = this.a.a;
-            wVar2 = vVar2.d;
-            wVar2.a();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ab abVar;
+        ab abVar2;
+        this.a.destroyWaitingDialog();
+        abVar = this.a.g;
+        if (abVar != null) {
+            abVar2 = this.a.g;
+            abVar2.cancel();
         }
     }
 }

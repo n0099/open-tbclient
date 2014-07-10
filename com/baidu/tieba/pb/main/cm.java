@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm implements DialogInterface.OnKeyListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(bq bqVar) {
-        this.a = bqVar;
+    public cm(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -20,10 +20,10 @@ public class cm implements DialogInterface.OnKeyListener {
         EditText editText;
         Dialog dialog;
         if (i == 4) {
-            pbActivity = this.a.m;
-            editText = this.a.P;
-            com.baidu.adp.lib.util.k.a(pbActivity, editText);
-            dialog = this.a.L;
+            pbActivity = this.a.k;
+            editText = this.a.N;
+            com.baidu.adp.lib.util.j.a(pbActivity, editText);
+            dialog = this.a.J;
             dialog.dismiss();
             return true;
         }

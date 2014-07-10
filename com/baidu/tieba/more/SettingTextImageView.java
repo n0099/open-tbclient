@@ -72,7 +72,7 @@ public class SettingTextImageView extends FrameLayout {
             this.d.setDefaultResource(0);
             this.d.setIsRound(true);
             this.d.setNightDefaultResource(0);
-            this.d.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.person_photo));
+            this.d.setImageBitmap(com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.person_photo));
         }
     }
 

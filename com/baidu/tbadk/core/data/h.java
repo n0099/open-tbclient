@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h extends n {
+public class h extends m {
     private ArrayList<LiveCardData> c;
 
     public ArrayList<LiveCardData> a() {

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class f implements com.baidu.tbadk.download.a {
     @Override // com.baidu.tbadk.download.a
     public void a(DownloadData downloadData) {
-        com.baidu.tbadk.editortool.ac.a().b();
+        com.baidu.tbadk.editortool.ab.a().b();
         try {
             File file = new File(downloadData.getPath());
             if (file.exists()) {
@@ -36,22 +36,19 @@ public class f implements com.baidu.tbadk.download.a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 88=4, 89=4, 90=4] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00f3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.tbadk.download.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean d(DownloadData downloadData) {
         FileInputStream fileInputStream;
-        if (downloadData == null) {
-            return false;
-        }
+        FileInputStream fileInputStream2 = null;
         try {
-            fileInputStream = new FileInputStream(downloadData.getPath());
+            if (downloadData == null) {
+                return false;
+            }
             try {
+                fileInputStream = new FileInputStream(downloadData.getPath());
                 try {
                     int a = d.a().a(downloadData.getId(), fileInputStream);
-                    EmotionGroupData a2 = com.baidu.tbadk.editortool.v.a().a(downloadData.getId());
+                    EmotionGroupData a2 = com.baidu.tbadk.editortool.u.a().a(downloadData.getId());
                     if (a2 == null) {
                         if (a == 0) {
                             if (fileInputStream != null) {
@@ -59,7 +56,7 @@ public class f implements com.baidu.tbadk.download.a {
                                     fileInputStream.close();
                                     return false;
                                 } catch (IOException e) {
-                                    BdLog.d("download:after load::error:" + e.getMessage());
+                                    BdLog.detailException(e);
                                     return false;
                                 }
                             }
@@ -77,52 +74,48 @@ public class f implements com.baidu.tbadk.download.a {
                         a2.setGroupDesc(downloadData.getDescription());
                         a2.setGroupName(downloadData.getName());
                         a2.setStatus(1);
-                        com.baidu.tbadk.editortool.v.a().a(a2);
+                        com.baidu.tbadk.editortool.u.a().a(a2);
                     }
-                    com.baidu.tbadk.editortool.v.a().a(downloadData.getStatusMsg(), a2);
+                    com.baidu.tbadk.editortool.u.a().a(downloadData.getStatusMsg(), a2);
                     downloadData.setStatusMsg(null);
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                         } catch (IOException e2) {
-                            BdLog.d("download:after load::error:" + e2.getMessage());
+                            BdLog.detailException(e2);
                         }
                     }
                     return true;
                 } catch (Exception e3) {
                     e = e3;
-                    BdLog.d("download:after load::error:" + e.getMessage());
+                    BdLog.detailException(e);
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                             return false;
                         } catch (IOException e4) {
-                            BdLog.d("download:after load::error:" + e4.getMessage());
+                            BdLog.detailException(e4);
                             return false;
                         }
                     }
                     return false;
                 }
+            } catch (Exception e5) {
+                e = e5;
+                fileInputStream = null;
             } catch (Throwable th) {
                 th = th;
-                if (fileInputStream != null) {
+                if (0 != 0) {
                     try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                        BdLog.d("download:after load::error:" + e5.getMessage());
+                        fileInputStream2.close();
+                    } catch (IOException e6) {
+                        BdLog.detailException(e6);
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
-            fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
-            }
-            throw th;
         }
     }
 
@@ -138,9 +131,9 @@ public class f implements com.baidu.tbadk.download.a {
         if (downloadData == null) {
             return false;
         }
-        EmotionGroupData a = com.baidu.tbadk.editortool.v.a().a(downloadData.getId());
+        EmotionGroupData a = com.baidu.tbadk.editortool.u.a().a(downloadData.getId());
         if (a != null && e.a(downloadData.getId())) {
-            com.baidu.tbadk.editortool.v.a().a(downloadData.getStatusMsg(), a);
+            com.baidu.tbadk.editortool.u.a().a(downloadData.getStatusMsg(), a);
             downloadData.setStatusMsg(null);
             return false;
         }

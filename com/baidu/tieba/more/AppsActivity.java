@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
 public class AppsActivity extends BaseActivity {
@@ -72,12 +72,12 @@ public class AppsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        be.a(this.h, i);
-        be.a(this.b, i);
-        be.d(this.i, i);
-        be.a(this.c, i);
-        be.d(this.j, i);
-        be.b(this.g, i);
+        bk.a(this.h, i);
+        bk.a(this.b, i);
+        bk.d(this.i, i);
+        bk.a(this.c, i);
+        bk.d(this.j, i);
+        bk.b(this.g, i);
     }
 
     private void c() {

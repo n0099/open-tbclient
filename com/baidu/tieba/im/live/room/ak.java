@@ -1,16 +1,27 @@
 package com.baidu.tieba.im.live.room;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.im.chat.GroupMsgImageActivity;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements Runnable {
-    final /* synthetic */ ag a;
+public class ak implements View.OnClickListener {
+    final /* synthetic */ ah a;
+    private final /* synthetic */ ChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ag agVar) {
-        this.a = agVar;
+    public ak(ah ahVar, ChatMessage chatMessage) {
+        this.a = ahVar;
+        this.b = chatMessage;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.x = System.currentTimeMillis();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LiveRoomChatActivity liveRoomChatActivity;
+        String a = com.baidu.tieba.im.e.r.a(this.b.getContent(), true);
+        Context context = this.a.getContext();
+        liveRoomChatActivity = this.a.g;
+        GroupMsgImageActivity.a(context, a, liveRoomChatActivity.x().c().getGroupId(), false, String.valueOf(this.b.getMsgId()));
     }
 }

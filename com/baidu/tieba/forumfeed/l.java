@@ -1,10 +1,11 @@
 package com.baidu.tieba.forumfeed;
 
-import android.os.Handler;
+import android.view.View;
 import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.v;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class l implements AbsListView.OnScrollListener {
+class l implements AbsListView.RecyclerListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,31 +13,11 @@ public class l implements AbsListView.OnScrollListener {
         this.a = jVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Runnable runnable;
-        Handler handler4;
-        Runnable runnable2;
-        handler = this.a.g;
-        if (handler != null) {
-            handler4 = this.a.g;
-            runnable2 = this.a.o;
-            handler4.removeCallbacks(runnable2);
-        }
-        if (i == 0) {
-            handler2 = this.a.g;
-            if (handler2 != null) {
-                handler3 = this.a.g;
-                runnable = this.a.o;
-                handler3.postDelayed(runnable, 90L);
-            }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(v.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.d();
         }
     }
 }

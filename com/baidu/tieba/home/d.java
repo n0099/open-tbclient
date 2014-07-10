@@ -6,12 +6,12 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private an b;
+    private aq b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -44,7 +44,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: a */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             this.b.a("fid", "0");
             this.b.a("pub_type", "0");
             this.b.a("fname", "");
@@ -60,12 +60,12 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
                 if (this.c) {
                     return null;
                 }
-                this.b = new an(fVar.b());
-                return com.baidu.tbadk.core.util.g.a(this.b.h());
+                this.b = new aq(fVar.b());
+                return com.baidu.tbadk.core.util.h.a(this.b.h());
             }
             return null;
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }

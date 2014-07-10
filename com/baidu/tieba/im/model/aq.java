@@ -2,9 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends CustomMessageListener {
@@ -21,16 +19,11 @@ public class aq extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.base.e eVar;
-        if (customResponsedMessage.getCmd() == 2003113) {
-            this.a.k();
-        } else if (customResponsedMessage.getCmd() == 501126) {
-            BdLog.d("simon", "onMessage", "msg = " + customResponsedMessage);
-            if (customResponsedMessage instanceof ResponsedMessage) {
-                this.a.s.getChatMessages().add((ChatMessage) customResponsedMessage.getOrginalMessage());
-                eVar = this.a.mLoadDataCallBack;
-                eVar.a(this.a.s);
-            }
+        com.baidu.adp.base.h hVar;
+        if (customResponsedMessage instanceof ResponseUnLoginMessage) {
+            this.a.mLoadDataMode = 11;
+            hVar = this.a.mLoadDataCallBack;
+            hVar.a(null);
         }
     }
 }

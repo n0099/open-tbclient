@@ -24,7 +24,7 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Object data;
         JSONArray optJSONArray;
-        if (customResponsedMessage.getCmd() == 2003145 && (data = customResponsedMessage.getData()) != null && (data instanceof JSONObject) && (optJSONArray = ((JSONObject) data).optJSONArray("recmd_face")) != null) {
+        if (customResponsedMessage.getCmd() == 2001145 && (data = customResponsedMessage.getData()) != null && (data instanceof JSONObject) && (optJSONArray = ((JSONObject) data).optJSONArray("recmd_face")) != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < optJSONArray.length() && i < 2; i++) {
                 try {

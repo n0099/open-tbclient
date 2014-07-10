@@ -2,15 +2,15 @@ package com.baidu.tieba.im.e;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.groupInfo.aa;
+import com.baidu.tieba.im.groupInfo.y;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class i {
     public static void a(ImMessageCenterPojo imMessageCenterPojo) {
-        com.baidu.tbadk.coreExtra.messageCenter.e.a().b(com.baidu.adp.lib.f.b.a(imMessageCenterPojo.getGid(), 0), bv.c(imMessageCenterPojo.getPulled_msgId()));
+        com.baidu.tbadk.coreExtra.messageCenter.e.a().b(com.baidu.adp.lib.f.b.a(imMessageCenterPojo.getGid(), 0), bw.c(imMessageCenterPojo.getPulled_msgId()));
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put(imMessageCenterPojo.getGid(), 0L);
         com.baidu.tieba.im.i.a(new j(imMessageCenterPojo, linkedHashMap), new k(imMessageCenterPojo));
@@ -19,7 +19,7 @@ public class i {
     public static void a(String str) {
         com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(str, 0));
         com.baidu.tieba.im.db.i.a().b(str);
-        com.baidu.tieba.im.pushNotify.a.f().b((ImMessageCenterShowItemData) null);
+        com.baidu.tieba.im.pushNotify.a.i().b((ImMessageCenterShowItemData) null);
         com.baidu.tieba.im.i.a(new l(str), null);
     }
 
@@ -35,9 +35,9 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean d(String str) {
-        if (aa.a().c(TbadkApplication.getCurrentAccount(), str)) {
-            aa.a().a(TbadkApplication.getCurrentAccount(), str, false);
-            aa.a().b(TbadkApplication.getCurrentAccount(), str, false);
+        if (y.a().c(TbadkApplication.getCurrentAccount(), str)) {
+            y.a().a(TbadkApplication.getCurrentAccount(), str, false);
+            y.a().b(TbadkApplication.getCurrentAccount(), str, false);
             return true;
         }
         return false;

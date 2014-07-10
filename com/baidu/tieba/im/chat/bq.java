@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public class bq extends com.baidu.adp.base.c {
+public class bq extends com.baidu.adp.base.f {
     private GroupSettingActivity a;
     private RelativeLayout b;
     private AlertDialog c;

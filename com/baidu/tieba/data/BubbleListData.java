@@ -44,6 +44,8 @@ public class BubbleListData implements Serializable, Cloneable {
         private String icon_url;
         private int is_def;
         private int is_free;
+        private String level_name;
+        private int time_interval;
 
         public int getBcode() {
             return this.bcode;
@@ -111,6 +113,22 @@ public class BubbleListData implements Serializable, Cloneable {
 
         public void setBname(String str) {
             this.bname = str;
+        }
+
+        public String getLevel_name() {
+            return this.level_name;
+        }
+
+        public void setLevel_name(String str) {
+            this.level_name = str;
+        }
+
+        public int getTime_interval() {
+            return this.time_interval;
+        }
+
+        public void setTime_interval(int i) {
+            this.time_interval = i;
         }
     }
 

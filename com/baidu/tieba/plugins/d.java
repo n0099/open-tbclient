@@ -1,24 +1,34 @@
 package com.baidu.tieba.plugins;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.Intent;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-class d {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    View e;
-    View f;
-    ImageView g;
-
-    private d() {
-    }
+class d implements Runnable {
+    final /* synthetic */ PluginDetailActivity a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(d dVar) {
-        this();
+    public d(PluginDetailActivity pluginDetailActivity, int i, String str) {
+        this.a = pluginDetailActivity;
+        this.b = i;
+        this.c = str;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.b == 0) {
+            this.a.showToast(this.a.getString(y.plugin_installation_finished));
+            com.baidu.tbadk.tbplugin.m.a().q();
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
+                this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
+            }
+            this.a.a();
+            return;
+        }
+        this.a.showToast(String.valueOf(this.a.getString(y.plugin_installation_failed)) + this.c);
+        this.a.a();
     }
 }

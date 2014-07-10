@@ -1,47 +1,40 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.tieba.editortool.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bq a;
+public class cr implements View.OnClickListener {
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(bq bqVar) {
-        this.a = bqVar;
+    public cr(bt btVar) {
+        this.a = btVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        com.baidu.tieba.pb.sub.m mVar;
-        com.baidu.tieba.pb.sub.m mVar2;
-        bdListView = this.a.o;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (aVar == null) {
-            if (imageView != null && (imageView instanceof TbImageView)) {
-                ((TbImageView) imageView).e();
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        View view3;
+        View view4;
+        PbActivity pbActivity;
+        com.baidu.tieba.bubble.t tVar;
+        if (this.a.h != null) {
+            this.a.h.n();
+            this.a.z();
+            this.a.aP = false;
+            pbActivity = this.a.k;
+            PbEditor pbEditor = this.a.h;
+            tVar = this.a.aX;
+            com.baidu.tieba.bubble.h.a(pbActivity, pbEditor, false, tVar);
         }
-        if (imageView != null) {
-            if (imageView instanceof TbImageView) {
-                ((TbImageView) imageView).e();
-            }
-            imageView.invalidate();
-        }
-        if (this.a.D()) {
-            mVar = this.a.N;
-            if (mVar != null) {
-                mVar2 = this.a.N;
-                ImageView imageView2 = (ImageView) mVar2.n().findViewWithTag(str);
-                if (imageView2 != null) {
-                    imageView2.invalidate();
-                }
-            }
+        view2 = this.a.aJ;
+        if (view2 != null) {
+            view3 = this.a.aJ;
+            view3.setVisibility(8);
+            view4 = this.a.aI;
+            view4.setVisibility(8);
+            this.a.aP = false;
         }
     }
 }

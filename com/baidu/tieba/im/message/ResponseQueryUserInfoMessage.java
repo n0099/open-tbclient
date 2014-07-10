@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.QueryUserInfosResIdl;
@@ -10,7 +9,7 @@ public class ResponseQueryUserInfoMessage extends SocketResponsedMessage {
     private DataRes resData;
 
     public ResponseQueryUserInfoMessage() {
-        super(MessageTypes.CMD_QUERY_USER_INFO);
+        super(205003);
         this.resData = null;
     }
 

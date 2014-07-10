@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
 public class k {
     private DataRes c;
-    private ab g;
+    private aa g;
     private PersonalTalkSettingActivity h;
     private p i;
     private com.baidu.tbadk.coreExtra.b.a b = new com.baidu.tbadk.coreExtra.b.a(null);
@@ -30,10 +30,6 @@ public class k {
     }
 
     public boolean c() {
-        return this.d;
-    }
-
-    public boolean d() {
         return this.e;
     }
 
@@ -42,14 +38,8 @@ public class k {
         this.i = pVar;
         this.a.setUniqueId(personalTalkSettingActivity.getUniqueId());
         personalTalkSettingActivity.showProgressBar();
-        this.g = new ab(personalTalkSettingActivity);
+        this.g = new aa(personalTalkSettingActivity);
         com.baidu.tieba.im.i.a(new n(this, j), new o(this, j, personalTalkSettingActivity));
-    }
-
-    public void e() {
-        if (this.b != null && this.c != null) {
-            this.b.a(!this.d, this.c.portrait, String.valueOf(this.c.id));
-        }
     }
 
     public void b(boolean z) {
@@ -61,11 +51,11 @@ public class k {
         }
     }
 
-    public ab f() {
+    public aa d() {
         return this.g;
     }
 
-    public void g() {
+    public void e() {
         if (this.g != null) {
             this.g.d();
         }
@@ -77,11 +67,11 @@ public class k {
         }
     }
 
-    public com.baidu.adp.framework.listener.b h() {
+    public com.baidu.adp.framework.listener.b f() {
         return this.j;
     }
 
-    public CustomMessageListener i() {
+    public CustomMessageListener g() {
         return this.k;
     }
 }

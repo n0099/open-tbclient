@@ -8,17 +8,16 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.by;
+import com.baidu.tieba.im.model.bx;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends BaseActivity {
-    private by d;
+    private bx d;
     private a c = null;
     private int e = 1;
     DialogInterface.OnClickListener a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
-    private com.baidu.adp.framework.listener.b f = new d(this, MessageTypes.CMD_UPDATE_GROUP);
+    private com.baidu.adp.framework.listener.b f = new d(this, 103102);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
         Intent intent = new Intent(activity, UpdateGroupActivity.class);
@@ -46,7 +45,7 @@ public class UpdateGroupActivity extends BaseActivity {
         int intExtra2 = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new by();
+        this.d = new bx();
         this.d.setUniqueId(getUniqueId());
         this.c.a(stringExtra);
         this.c.a(this.b);

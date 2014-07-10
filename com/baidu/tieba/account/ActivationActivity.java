@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.topRec.TopRecActivity;
@@ -150,11 +150,11 @@ public class ActivationActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        be.a(this.s, i);
-        be.d(this.t, i);
-        be.a(this.u, i);
-        be.a(this.h, i);
-        be.b(this.v, i);
+        bk.a(this.s, i);
+        bk.d(this.t, i);
+        bk.a(this.u, i);
+        bk.a(this.h, i);
+        bk.b(this.v, i);
         this.a.c(i);
     }
 

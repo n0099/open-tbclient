@@ -14,23 +14,22 @@ import java.util.List;
 public class p extends BaseAdapter {
     private FrsLiveListActivity a;
     private List<LiveCardData> b = new ArrayList();
-    private com.baidu.tbadk.editortool.ab c;
+    private boolean c;
     private boolean d;
     private boolean e;
     private boolean f;
-    private boolean g;
-    private s h;
+    private s g;
 
     public void a(boolean z) {
-        this.e = z;
-    }
-
-    public void b(boolean z) {
         this.d = z;
     }
 
+    public void b(boolean z) {
+        this.c = z;
+    }
+
     public void c(boolean z) {
-        this.g = z;
+        this.f = z;
     }
 
     public void a(int i, boolean z) {
@@ -42,16 +41,15 @@ public class p extends BaseAdapter {
     }
 
     public void d(boolean z) {
-        this.f = z;
+        this.e = z;
     }
 
     public void a(s sVar) {
-        this.h = sVar;
+        this.g = sVar;
     }
 
-    public p(FrsLiveListActivity frsLiveListActivity, com.baidu.tbadk.editortool.ab abVar) {
+    public p(FrsLiveListActivity frsLiveListActivity) {
         this.a = frsLiveListActivity;
-        this.c = abVar;
     }
 
     public void a(List<LiveCardData> list) {
@@ -106,13 +104,13 @@ public class p extends BaseAdapter {
                 view.setTag(rVar);
             }
             r rVar2 = (r) view.getTag();
-            if (this.g || this.e) {
+            if (this.f || this.d) {
                 rVar2.d.setVisibility(0);
                 rVar2.e.setVisibility(8);
             } else {
                 rVar2.d.setVisibility(8);
                 rVar2.e.setVisibility(0);
-                if (this.d) {
+                if (this.c) {
                     rVar2.f.setText(com.baidu.tieba.y.live_frs_list_hasmore);
                     rVar2.g.setVisibility(0);
                 } else {
@@ -135,9 +133,9 @@ public class p extends BaseAdapter {
                 rVar4.a.setStatisticsKey("forum_live_list");
                 rVar4.a.setIsTopTipShow(liveCardData.getFlag() == 1);
                 rVar4.a.setIsHideSHow(liveCardData.getFlag() == 2);
-                rVar4.a.a(liveCardData, this.c);
+                rVar4.a.setData(liveCardData);
                 rVar4.c.setVisibility(i == 0 ? 8 : 0);
-                rVar4.b.setVisibility(this.f ? 0 : 8);
+                rVar4.b.setVisibility(this.e ? 0 : 8);
                 rVar4.b.setTag(liveCardData);
                 rVar4.b.setOnClickListener(new q(this));
             }

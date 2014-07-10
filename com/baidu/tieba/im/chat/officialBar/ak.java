@@ -1,37 +1,19 @@
 package com.baidu.tieba.im.chat.officialBar;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak extends BdAsyncTask<Void, Void, Void> {
+public class ak implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ OfficialBarInfoActivity a;
-    private final /* synthetic */ BdSwitchView.SwitchState b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(OfficialBarInfoActivity officialBarInfoActivity, BdSwitchView.SwitchState switchState) {
+    public ak(OfficialBarInfoActivity officialBarInfoActivity) {
         this.a = officialBarInfoActivity;
-        this.b = switchState;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        int i;
-        int i2;
-        if (this.b == BdSwitchView.SwitchState.OFF) {
-            az a = az.a();
-            String currentAccount = TbadkApplication.getCurrentAccount();
-            i2 = this.a.c;
-            a.d(currentAccount, String.valueOf(i2), false);
-            return null;
-        }
-        az a2 = az.a();
-        String currentAccount2 = TbadkApplication.getCurrentAccount();
-        i = this.a.c;
-        a2.d(currentAccount2, String.valueOf(i), true);
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        aq aqVar;
+        aqVar = this.a.f;
+        aqVar.a(bool.booleanValue());
     }
 }

@@ -1,41 +1,24 @@
 package com.baidu.tieba.discover;
 
-import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ak;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ DiscoverItemView a;
-
+class h extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(DiscoverItemView discoverItemView) {
-        this.a = discoverItemView;
+    public h(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View.OnClickListener onClickListener;
-        boolean z;
-        boolean z2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImageView imageView;
-        View.OnClickListener onClickListener2;
-        onClickListener = this.a.q;
-        if (onClickListener != null) {
-            onClickListener2 = this.a.q;
-            onClickListener2.onClick(view);
-        }
-        z = this.a.n;
-        if (z) {
-            z2 = this.a.o;
-            if (z2) {
-                String a = ak.a(this.a.c);
-                if (!com.baidu.tbadk.f.a().a(a, false)) {
-                    com.baidu.tbadk.f.a().b(a, true);
-                    imageView = this.a.k;
-                    imageView.setVisibility(8);
-                }
-            }
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
+            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).a;
+            imageView = DiscoverDelegateStatic.c;
+            imageView.setVisibility(z ? 0 : 8);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.im.live.mylive;
 import android.widget.ProgressBar;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
+import com.baidu.tieba.im.live.p;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,6 +26,11 @@ public class d extends com.baidu.adp.framework.listener.b {
         int i;
         MyLiveListAdapter myLiveListAdapter;
         LiveCardData liveCardData;
+        boolean z;
+        MyLiveActivity myLiveActivity;
+        MyLiveActivity myLiveActivity2;
+        MyLiveActivity myLiveActivity3;
+        MyLiveActivity myLiveActivity4;
         progressBar = this.a.e;
         progressBar.setVisibility(8);
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103104 && (socketResponsedMessage instanceof ResponseDismissGroupMessage)) {
@@ -36,8 +42,28 @@ public class d extends com.baidu.adp.framework.listener.b {
                 if (i == 1) {
                     this.a.a(y.live_mylive_dismiss_success);
                     myLiveListAdapter = this.a.h;
-                    liveCardData = this.a.j;
+                    liveCardData = this.a.k;
                     myLiveListAdapter.a(liveCardData);
+                    z = this.a.j;
+                    if (z) {
+                        p a = p.a();
+                        myLiveActivity4 = this.a.b;
+                        a.a(myLiveActivity4);
+                        this.a.j = false;
+                    }
+                    if (!this.a.i()) {
+                        this.a.l();
+                        return;
+                    }
+                    this.a.m();
+                    myLiveActivity = this.a.b;
+                    if (myLiveActivity != null) {
+                        myLiveActivity2 = this.a.b;
+                        if (myLiveActivity2.g() != null) {
+                            myLiveActivity3 = this.a.b;
+                            myLiveActivity3.g().a(false);
+                        }
+                    }
                 }
             } else {
                 this.a.a(y.neterror);

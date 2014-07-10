@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.base.e {
+class l extends com.baidu.adp.base.h {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,41 +8,41 @@ class l extends com.baidu.adp.base.e {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        bq bqVar;
-        com.baidu.tieba.model.v vVar;
-        com.baidu.tieba.model.v vVar2;
-        com.baidu.tieba.model.v vVar3;
-        bj bjVar;
+        bt btVar;
+        com.baidu.tieba.model.t tVar;
+        com.baidu.tieba.model.t tVar2;
+        com.baidu.tieba.model.t tVar3;
+        bm bmVar;
         if (obj != null) {
-            vVar2 = this.a.C;
-            switch (vVar2.getLoadDataMode()) {
+            tVar2 = this.a.C;
+            switch (tVar2.getLoadDataMode()) {
                 case 0:
-                    bjVar = this.a.x;
-                    bjVar.A();
-                    this.a.a((com.baidu.tieba.model.x) obj);
+                    bmVar = this.a.x;
+                    bmVar.D();
+                    this.a.a((com.baidu.tieba.model.v) obj);
                     return;
                 case 1:
-                    this.a.a((com.baidu.tieba.model.z) obj);
+                    this.a.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                     PbActivity pbActivity = this.a;
-                    vVar3 = this.a.C;
-                    pbActivity.a(vVar3.getLoadDataMode(), (com.baidu.tieba.model.ab) obj);
+                    tVar3 = this.a.C;
+                    pbActivity.a(tVar3.getLoadDataMode(), (com.baidu.tieba.model.z) obj);
                     return;
                 case 6:
-                    this.a.a((com.baidu.tieba.model.ab) obj);
+                    this.a.a((com.baidu.tieba.model.z) obj);
                     return;
                 default:
                     return;
             }
         }
-        bqVar = this.a.D;
-        vVar = this.a.C;
-        bqVar.a(vVar.getLoadDataMode(), false, (String) null, false);
+        btVar = this.a.D;
+        tVar = this.a.C;
+        btVar.a(tVar.getLoadDataMode(), false, (String) null, false);
     }
 }

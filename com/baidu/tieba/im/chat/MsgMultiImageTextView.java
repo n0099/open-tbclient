@@ -7,8 +7,8 @@ import com.baidu.tieba.im.chat.officialBar.MultiContentView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class MsgMultiImageTextView extends cc {
-    private MultiContentView o;
+public class MsgMultiImageTextView extends cd {
+    private MultiContentView p;
 
     public MsgMultiImageTextView(Context context) {
         super(context, com.baidu.tieba.w.msg_multi_pictext_view);
@@ -17,18 +17,18 @@ public class MsgMultiImageTextView extends cc {
 
     private void c() {
         this.h = (TextView) a(com.baidu.tieba.v.tex_msgitem_time);
-        this.o = (MultiContentView) a(com.baidu.tieba.v.msg_content);
+        this.p = (MultiContentView) a(com.baidu.tieba.v.msg_content);
     }
 
     public void a(ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<com.baidu.tieba.im.chat.officialBar.t> a = com.baidu.tieba.im.chat.officialBar.s.a(chatMessage.getContent());
-            this.o.setPosition(this.e);
-            this.o.setOnItemViewLongClickListener(this.c);
-            this.o.setNeedNightMode(false);
-            this.o.setType(1);
-            this.o.a(a, view);
+            List<com.baidu.tieba.im.chat.officialBar.t> a = com.baidu.tieba.im.chat.officialBar.s.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId());
+            this.p.setPosition(this.e);
+            this.p.setOnItemViewLongClickListener(this.c);
+            this.p.setNeedNightMode(false);
+            this.p.setType(1);
+            this.p.a(a, view);
         }
     }
 }

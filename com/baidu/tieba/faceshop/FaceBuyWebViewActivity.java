@@ -29,7 +29,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     private int f;
     private AlertDialog g;
     private final Handler i = new Handler();
-    private final Runnable j = new ad(this);
+    private final Runnable j = new ac(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i, int i2) {
         Intent intent = new Intent(activity, FaceBuyWebViewActivity.class);
@@ -53,7 +53,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
         setContentView(com.baidu.tieba.w.face_buy_webview_activity);
         this.a = (BaseWebView) findViewById(com.baidu.tieba.v.webview);
         this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ae(this));
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ad(this));
         this.b.a("");
         this.a.setOnLoadUrlListener(this);
         this.a.setOnPageFinishedListener(this);
@@ -87,7 +87,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -113,7 +113,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
             this.b.c(i);
         }
         if (this.a != null) {
-            com.baidu.tbadk.core.util.be.a(this.a, i);
+            com.baidu.tbadk.core.util.bk.a(this.a, i);
         }
     }
 
@@ -148,17 +148,17 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
             builder.setMessage(com.baidu.tieba.y.quit_buy_confirm);
-            builder.setPositiveButton(com.baidu.tieba.y.alert_yes_button, new af(this));
-            builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, new ag(this));
+            builder.setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ae(this));
+            builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, new af(this));
             this.g = builder.create();
         }
         this.g.show();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.g
-    public boolean a(WebView webView, String str) {
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         if (str != null) {
-            if (com.baidu.tbadk.core.util.bg.c(str) || com.baidu.tbadk.core.util.bg.c(this.d)) {
+            if (com.baidu.tbadk.core.util.bm.c(str) || com.baidu.tbadk.core.util.bm.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {
@@ -173,7 +173,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
                         closeActivity();
                         return true;
                     } catch (Exception e) {
-                        BdLog.e(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                        BdLog.detailException(e);
                     }
                 }
             }
@@ -182,12 +182,12 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.h
-    public void b(WebView webView, String str) {
+    public void a(WebView webView, String str) {
         hideProgressBar();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.i
-    public void c(WebView webView, String str) {
+    public void b(WebView webView, String str) {
         showProgressBar();
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.android.systemmonitor;
 
 import android.content.Context;
+import com.baidu.android.nebula.util.BDLocationManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
@@ -15,6 +16,6 @@ public class b implements Runnable {
     public void run() {
         Context context;
         context = this.a.mContext;
-        com.baidu.android.nebula.a.e.a(context).b();
+        BDLocationManager.b(context).c();
     }
 }

@@ -49,12 +49,8 @@ public final class c {
     public void a(Camera camera, boolean z) {
         Camera.Parameters parameters = camera.getParameters();
         if (parameters == null) {
-            BdLog.w(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
+            BdLog.e("Device error: no camera parameters are available. Proceeding without configuration.");
             return;
-        }
-        BdLog.i(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
-        if (z) {
-            BdLog.w(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
         }
         String a = a(parameters.getSupportedFocusModes(), "auto");
         if (!z && a == null) {
@@ -86,7 +82,6 @@ public final class c {
     private Point a(Camera.Parameters parameters, Point point) {
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null) {
-            BdLog.w(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
             Camera.Size previewSize = parameters.getPreviewSize();
             return new Point(previewSize.width, previewSize.height);
         }
@@ -104,9 +99,7 @@ public final class c {
                 int i4 = z ? i2 : i;
                 int i5 = z ? i : i2;
                 if (i4 == point.x && i5 == point.y) {
-                    Point point3 = new Point(i, i2);
-                    BdLog.i(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point3);
-                    return point3;
+                    return new Point(i, i2);
                 }
                 float abs = Math.abs((i4 / i5) - f);
                 if (abs < f2) {
@@ -117,27 +110,19 @@ public final class c {
         }
         if (point2 == null) {
             Camera.Size previewSize2 = parameters.getPreviewSize();
-            point2 = new Point(previewSize2.width, previewSize2.height);
-            BdLog.i(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point2);
+            return new Point(previewSize2.width, previewSize2.height);
         }
-        BdLog.i(getClass().getName(), "sort", "Found best approximate preview size: " + point2);
         return point2;
     }
 
     private static String a(Collection<String> collection, String... strArr) {
-        String str;
-        BdLog.i("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
         if (collection != null) {
-            int length = strArr.length;
-            for (int i = 0; i < length; i++) {
-                str = strArr[i];
+            for (String str : strArr) {
                 if (collection.contains(str)) {
-                    break;
+                    return str;
                 }
             }
         }
-        str = null;
-        BdLog.i("CameraConfiguration", "findSettableValue", "Settable value: " + str);
-        return str;
+        return null;
     }
 }

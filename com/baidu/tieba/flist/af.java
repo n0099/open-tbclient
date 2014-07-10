@@ -18,7 +18,7 @@ public class af implements com.baidu.adp.widget.ListView.d {
         agVar = this.a.b;
         if (!agVar.LoadData()) {
             bdListView = this.a.a;
-            bdListView.c();
+            bdListView.d();
         }
     }
 }

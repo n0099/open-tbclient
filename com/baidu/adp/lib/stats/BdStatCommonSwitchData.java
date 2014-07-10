@@ -59,9 +59,9 @@ public class BdStatCommonSwitchData implements Serializable {
                 setPercent(optInt);
                 boolean z2 = jSONObject.optInt("is_open", 0) != 0;
                 if (z2) {
-                    String b = h.a().b();
-                    if (!TextUtils.isEmpty(b)) {
-                        if (b.hashCode() % 100 >= optInt) {
+                    String c = d.b().c();
+                    if (!TextUtils.isEmpty(c)) {
+                        if (c.hashCode() % 100 >= optInt) {
                             z = false;
                         }
                         setIs_open(z);
@@ -70,7 +70,7 @@ public class BdStatCommonSwitchData implements Serializable {
                 z = z2;
                 setIs_open(z);
             } catch (Exception e) {
-                BdLog.e(getClass(), "parserJson", e);
+                BdLog.e(e);
             }
         }
     }

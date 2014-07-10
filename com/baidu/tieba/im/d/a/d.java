@@ -3,13 +3,12 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.RequestMarkReadedMessage;
 /* loaded from: classes.dex */
 public class d implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(MessageTypes.CMD_GROUP_MARK_READED);
+        CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(2001110);
         if (customMessage == null || !(customMessage instanceof RequestMarkReadedMessage)) {
             return null;
         }

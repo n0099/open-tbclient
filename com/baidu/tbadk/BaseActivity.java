@@ -13,12 +13,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.u;
@@ -40,6 +42,10 @@ public class BaseActivity extends BdBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        if (i.a().a("is_exit_app_not_start_websocket", false)) {
+            i.a().c("is_exit_app_not_start_websocket", false);
+            BdSocketLinkService.startService(false, "app start");
+        }
         MenuKeyUtils.hideSmartBarMenu(this);
         this.customToast = o.a();
         super.onCreate(bundle);
@@ -51,12 +57,12 @@ public class BaseActivity extends BdBaseActivity {
             CompatibleUtile.getInstance().openGpu(this);
         }
         TbadkApplication.setIsAppRunning(true);
-        bi.a(getClass().getName());
+        bo.a(getClass().getName());
         if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
                 StatService.setAppChannel(TbConfig.getFrom());
             } catch (Throwable th) {
-                BdLog.e(getClass().getName(), "onCreate", th.getMessage());
+                BdLog.e(th.getMessage());
             }
         }
     }
@@ -112,7 +118,7 @@ public class BaseActivity extends BdBaseActivity {
             this.mGuidPage.a();
         }
         if (this.mLayoutMode != null) {
-            this.mLayoutMode.b();
+            this.mLayoutMode.a();
         }
         hideListMenu();
         super.onDestroy();
@@ -139,7 +145,7 @@ public class BaseActivity extends BdBaseActivity {
         } else if (this.mProgressBar != null) {
             this.mProgressBar.bringToFront();
         }
-        this.mProgressBar.setPadding(k.a(this, i), k.a(this, i2), 0, 0);
+        this.mProgressBar.setPadding(com.baidu.adp.lib.util.j.a(this, i), com.baidu.adp.lib.util.j.a(this, i2), 0, 0);
         this.mProgressBar.setVisibility(0);
     }
 
@@ -163,7 +169,7 @@ public class BaseActivity extends BdBaseActivity {
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
         }
-        this.mProgressBar.setPadding(k.a(this, i), k.a(this, i2), 0, 0);
+        this.mProgressBar.setPadding(com.baidu.adp.lib.util.j.a(this, i), com.baidu.adp.lib.util.j.a(this, i2), 0, 0);
         this.mProgressBar.setVisibility(0);
     }
 
@@ -216,7 +222,7 @@ public class BaseActivity extends BdBaseActivity {
                     this.mWaitingDialog.dismiss();
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                BdLog.e(e.getMessage());
             }
             this.mWaitingDialog = null;
         }
@@ -226,6 +232,22 @@ public class BaseActivity extends BdBaseActivity {
         return this.mWaitingDialog;
     }
 
+    protected void showToastWithIcon(String str, int i) {
+        BdToast.a(this, str, i).b();
+    }
+
+    protected void showToastWithIconDuration(String str, int i, int i2) {
+        BdToast.a(this, str, i, i2).b();
+    }
+
+    protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
+        BdToast.a(this, str, defaultIcon).b();
+    }
+
+    protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
+        BdToast.a(this, str, defaultIcon, i).b();
+    }
+
     @Override // com.baidu.adp.base.BdBaseActivity
     public void showToast(String str) {
         String name = getClass().getName();
@@ -233,7 +255,7 @@ public class BaseActivity extends BdBaseActivity {
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
             this.customToast.a(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
         } else {
-            k.a((Context) this, str);
+            com.baidu.adp.lib.util.j.a((Context) this, str);
         }
     }
 
@@ -251,7 +273,7 @@ public class BaseActivity extends BdBaseActivity {
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
             this.customToast.a(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
         } else {
-            k.a((Context) this, i);
+            com.baidu.adp.lib.util.j.a((Context) this, i);
         }
     }
 
@@ -259,7 +281,7 @@ public class BaseActivity extends BdBaseActivity {
         if (z) {
             showToast(str);
         } else {
-            k.a((Context) this, str);
+            com.baidu.adp.lib.util.j.a((Context) this, str);
         }
     }
 
@@ -267,7 +289,7 @@ public class BaseActivity extends BdBaseActivity {
         if (z) {
             showToast(i);
         } else {
-            k.a((Context) this, i);
+            com.baidu.adp.lib.util.j.a((Context) this, i);
         }
     }
 
@@ -276,7 +298,7 @@ public class BaseActivity extends BdBaseActivity {
         try {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -336,7 +358,7 @@ public class BaseActivity extends BdBaseActivity {
             try {
                 StatService.onPause((Context) this);
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onPause", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -347,7 +369,7 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
@@ -357,11 +379,11 @@ public class BaseActivity extends BdBaseActivity {
             try {
                 StatService.onResume((Context) this);
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onResume", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
         TbadkApplication.m252getInst().AddResumeNum();
-        bi.a(getClass().getName());
+        bo.a(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -372,7 +394,7 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         onResourceRecycle();
@@ -436,8 +458,9 @@ public class BaseActivity extends BdBaseActivity {
         this.mLayoutInflateFactory = aVar;
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
         super.onPreLoad(bdListView);
+        be.a(bdListView, getUniqueId());
     }
 }

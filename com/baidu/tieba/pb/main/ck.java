@@ -4,16 +4,16 @@ import android.os.Handler;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class ck implements Animation.AnimationListener {
-    final /* synthetic */ bq a;
-    private final /* synthetic */ com.baidu.tieba.data.ap b;
+    final /* synthetic */ bt a;
+    private final /* synthetic */ com.baidu.tieba.data.at b;
     private final /* synthetic */ boolean c;
     private final /* synthetic */ String d;
     private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bq bqVar, com.baidu.tieba.data.ap apVar, boolean z, String str, String str2) {
-        this.a = bqVar;
-        this.b = apVar;
+    public ck(bt btVar, com.baidu.tieba.data.at atVar, boolean z, String str, String str2) {
+        this.a = btVar;
+        this.b = atVar;
         this.c = z;
         this.d = str;
         this.e = str2;

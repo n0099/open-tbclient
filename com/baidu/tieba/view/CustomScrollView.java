@@ -21,7 +21,7 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new h(this));
+        this.b = new GestureDetector(context, new i(this));
         setFadingEdgeLength(0);
     }
 
@@ -42,7 +42,7 @@ public class CustomScrollView extends ScrollView {
         if (i2 == 0 || z) {
             try {
                 if (this.a == null) {
-                    this.a = com.baidu.adp.lib.util.k.a(this, "mScroller");
+                    this.a = com.baidu.adp.lib.util.j.a(this, "mScroller");
                 }
                 Object obj = this.a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
@@ -51,7 +51,7 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onScrollChanged", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
@@ -60,14 +60,14 @@ public class CustomScrollView extends ScrollView {
     private void a() {
         try {
             if (this.a == null) {
-                this.a = com.baidu.adp.lib.util.k.a(this, "mScroller");
+                this.a = com.baidu.adp.lib.util.j.a(this, "mScroller");
             }
             Object obj = this.a.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "stopAnim", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 

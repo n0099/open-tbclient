@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class PlayProgressChangedMessage extends CustomResponsedMessage<Object> {
     private int currentPosition;
@@ -9,7 +8,7 @@ public class PlayProgressChangedMessage extends CustomResponsedMessage<Object> {
     private String url;
 
     public PlayProgressChangedMessage(String str) {
-        super(MessageTypes.CMD_PLAY_PROGRESS_CHANGED);
+        super(2001160);
         this.url = str;
     }
 

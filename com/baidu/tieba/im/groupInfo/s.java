@@ -22,7 +22,7 @@ public class s extends Handler {
             if (this.a != 0) {
                 if (this.a >= 3) {
                     this.b.A();
-                    handler = this.b.ah;
+                    handler = this.b.ag;
                     handler.removeMessages(0);
                     return;
                 }
@@ -31,7 +31,7 @@ public class s extends Handler {
                 this.b.y();
             }
             this.a++;
-            handler2 = this.b.ah;
+            handler2 = this.b.ag;
             handler2.sendEmptyMessageDelayed(0, 1000L);
         }
     }

@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -162,7 +161,7 @@ public final class LocationClient {
                 case 12:
                     LocationClient.this.m33try();
                     return;
-                case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+                case 21:
                     LocationClient.this.a(message, 21);
                     return;
                 case 26:

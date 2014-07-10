@@ -12,6 +12,6 @@ class t implements Runnable {
     public void run() {
         g gVar;
         gVar = this.a.a;
-        gVar.W();
+        gVar.X();
     }
 }

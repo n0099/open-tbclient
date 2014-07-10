@@ -2,6 +2,8 @@ package com.baidu.android.nebula.d;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.common.net.ProxyHttpClient;
+import com.baidu.android.moplus.e;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -14,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
     private static a d = null;
-    private String a = "^http[s]?:\\/\\/[^\\/]+(\\.baidu\\.com|\\.hao123\\.com|\\.hiapk\\.com|\\.91\\.com)(:\\d+)?(\\/.*|)$";
+    private String a = "^http[s]?:\\/\\/[^\\/]+(\\.baidu\\.com|\\.hao123\\.com)(:\\d+)?(\\/.*|)$";
     private byte b = 0;
     private Context c;
 
@@ -41,19 +43,19 @@ public final class a {
         }
         if (this.b == 0) {
             this.b = (byte) 1;
-            c cVar = new c(this);
-            cVar.setName("ServerAuth");
-            cVar.setPriority(10);
-            cVar.start();
+            d dVar = new d(this);
+            dVar.setName("ServerAuth");
+            dVar.setPriority(10);
+            dVar.start();
         }
         return z;
     }
 
     public String b(Context context) {
         String str = null;
-        com.baidu.android.nebula.a.a aVar = new com.baidu.android.nebula.a.a(context);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
         try {
-            HttpPost httpPost = new HttpPost(com.baidu.android.moplus.a.b);
+            HttpPost httpPost = new HttpPost(e.b);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
             ArrayList arrayList = new ArrayList();
             JSONObject jSONObject = new JSONObject();
@@ -61,7 +63,7 @@ public final class a {
             jSONObject.put("format", "json");
             arrayList.add(new BasicNameValuePair("updateversion", jSONObject.toString()));
             httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "UTF-8"));
-            HttpResponse execute = aVar.execute(httpPost);
+            HttpResponse execute = proxyHttpClient.execute(httpPost);
             if (execute.getStatusLine().getStatusCode() == 200) {
                 str = new JSONObject(EntityUtils.toString(execute.getEntity())).getJSONObject("bdapplocatesetting").getString("data");
             } else {
@@ -70,7 +72,7 @@ public final class a {
         } catch (IOException e) {
         } catch (Exception e2) {
         } finally {
-            aVar.a();
+            proxyHttpClient.close();
         }
         return str;
     }

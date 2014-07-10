@@ -10,6 +10,8 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.view.WindowManager;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.be;
 import com.baidu.tbadk.core.service.PluginDownloadService;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
@@ -19,17 +21,21 @@ import com.baidu.tieba.z;
 import java.io.File;
 /* loaded from: classes.dex */
 public class PluginDownloadActivity extends BaseActivity implements com.baidu.tbadk.tbplugin.k {
-    private o a;
+    private m a;
     private PluginsConfig.PluginConfig b;
     private Messenger c;
-    private final Messenger d = new Messenger(new n(this, null));
+    private final Messenger d = new Messenger(new l(this, null));
     private ServiceConnection e;
     private boolean f;
     private boolean g;
 
+    static {
+        TbadkApplication.m252getInst().RegisterIntent(be.class, PluginDownloadActivity.class);
+    }
+
     @Override // com.baidu.tbadk.tbplugin.k
     public void onFinish(int i, String str) {
-        runOnUiThread(new j(this, i));
+        runOnUiThread(new h(this, i));
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
@@ -56,10 +62,10 @@ public class PluginDownloadActivity extends BaseActivity implements com.baidu.tb
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.a = new o(this, this, z.common_alert_dialog);
+        this.a = new m(this, this, z.common_alert_dialog);
         this.a.setCancelable(false);
-        this.a.setOnKeyListener(new k(this));
-        this.a.setOnDismissListener(new l(this));
+        this.a.setOnKeyListener(new i(this));
+        this.a.setOnDismissListener(new j(this));
     }
 
     @Override // android.app.Activity
@@ -81,7 +87,7 @@ public class PluginDownloadActivity extends BaseActivity implements com.baidu.tb
         if (serviceConnection != null) {
             this.e = serviceConnection;
         } else {
-            this.e = new m(this, null, null);
+            this.e = new k(this, null, null);
         }
         bindService(intent, this.e, 1);
     }

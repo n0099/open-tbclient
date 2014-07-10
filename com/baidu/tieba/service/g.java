@@ -1,7 +1,7 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import java.io.FileWriter;
 import org.apache.commons.io.IOUtils;
@@ -14,11 +14,11 @@ class g implements Runnable {
         this.a = performMonitorService;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x0002 */
     /* JADX WARN: Incorrect condition in loop: B:13:0x003a */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v18, types: [android.os.Handler] */
-    /* JADX WARN: Type inference failed for: r1v16, types: [com.baidu.tieba.service.h, java.lang.Runnable] */
+    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.service.h, java.lang.Runnable] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -30,7 +30,7 @@ class g implements Runnable {
         FileWriter fileWriter = null;
         fileWriter = null;
         try {
-            File g = x.g("performance_sample.log");
+            File g = z.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
                 this.a.monitorOff();
             } else {
@@ -85,10 +85,9 @@ class g implements Runnable {
                         try {
                             fileWriter.close();
                         } catch (Exception e) {
-                            BdLog.e(getClass().getName(), "sampleRunnable", th.toString());
+                            BdLog.e(th.toString());
                         }
                     }
-                    BdLog.e(getClass().getName(), "sampleRunnable", th.toString());
                     this.a.stopSelf();
                 }
             }

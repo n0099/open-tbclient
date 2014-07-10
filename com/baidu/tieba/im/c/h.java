@@ -1,45 +1,28 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.groupInfo.aa;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.ac;
+import java.util.LinkedHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.im.b.d {
-    final /* synthetic */ f a;
-    private final /* synthetic */ LinkedList b;
-    private final /* synthetic */ LinkedList c;
+public class h extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ b b;
+    private final /* synthetic */ LinkedHashMap c;
+    private final /* synthetic */ LinkedHashMap d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar, LinkedList linkedList, LinkedList linkedList2) {
-        this.a = fVar;
-        this.b = linkedList;
-        this.c = linkedList2;
+    public h(b bVar, LinkedHashMap linkedHashMap, LinkedHashMap linkedHashMap2) {
+        this.b = bVar;
+        this.c = linkedHashMap;
+        this.d = linkedHashMap2;
     }
 
-    @Override // com.baidu.tieba.im.b.d
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
-        boolean z;
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() != 3) {
-            Iterator it = this.b.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                }
-                String str = (String) it.next();
-                if (imMessageCenterPojo.getGid() != null && imMessageCenterPojo.getGid().equals(str)) {
-                    aa.a().c(TbadkApplication.getCurrentAccount(), str, true);
-                    z = false;
-                    break;
-                }
-            }
-            if (z) {
-                aa.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid(), false);
-                imMessageCenterPojo.setIs_delete(1);
-                this.c.add(imMessageCenterPojo);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        if (this.c.size() > 0) {
+            ac.a().a(this.c);
         }
+        return com.baidu.tieba.im.db.c.a().a(this.d);
     }
 }

@@ -11,29 +11,29 @@ public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
 
     public SnapGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.b = new bx(this, 0);
+        this.b = new bw(this, 0);
         f();
     }
 
     @Override // com.baidu.tieba.im.model.CommonGroupMsglistModel, com.baidu.tieba.im.model.MsglistModel
     public void a() {
         super.a();
-        m();
+        l();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected ChatMessage g() {
         SnapChatMessage snapChatMessage = new SnapChatMessage();
         snapChatMessage.setBornTime(System.currentTimeMillis());
-        if (b() == null) {
+        if (c() == null) {
             return null;
         }
-        snapChatMessage.setGroupId(String.valueOf(b().getGroupId()));
+        snapChatMessage.setGroupId(String.valueOf(c().getGroupId()));
         return snapChatMessage;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean g_() {
+    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
         return true;
     }
 
@@ -53,10 +53,10 @@ public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     private void f() {
-        MessageManager.getInstance().registerListener(2015002, this.b);
+        MessageManager.getInstance().registerListener(2013002, this.b);
     }
 
-    private void m() {
+    private void l() {
         MessageManager.getInstance().unRegisterListener(this.b);
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.tbadk.pay;
 
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.adp.base.c;
+import com.baidu.adp.base.f;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class PayView extends c {
+public class PayView extends f {
     private BaseActivity mActivity;
     private ProgressBar mProgressBar;
     private View mRoot;

@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.g;
+import com.baidu.tbadk.core.util.h;
 import com.baidu.tbadk.plugins.MotuPlugin;
 import com.baidu.tbadk.tbplugin.m;
 /* loaded from: classes.dex */
@@ -47,7 +47,7 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.a().c(g.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.a().c(h.a(bitmap) * 2);
         if ("normal".equals(this.a)) {
             return bitmap;
         }
@@ -55,7 +55,6 @@ public class a extends b {
             try {
                 motuPlugin = (MotuPlugin) m.a().b(MotuPlugin.class);
             } catch (Throwable th) {
-                BdLog.e("motou filter failed." + th.toString());
                 TiebaStatic.imgError("", TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th.toString(), "");
                 if (BdLog.isDebugMode()) {
                     th.printStackTrace();

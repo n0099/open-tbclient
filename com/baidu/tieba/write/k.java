@@ -1,34 +1,23 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.data.MetaData;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements r {
-    final /* synthetic */ AtListActivity a;
+class k {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TbCheckBox d;
+    final /* synthetic */ j e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(AtListActivity atListActivity) {
-        this.a = atListActivity;
+    private k(j jVar) {
+        this.e = jVar;
     }
 
-    @Override // com.baidu.tieba.write.r
-    public void a(View view, Object obj) {
-        BdListView bdListView;
-        if (obj != null) {
-            if (obj instanceof com.baidu.tbadk.core.view.p) {
-                ((com.baidu.tbadk.core.view.p) obj).setChecked(false);
-            }
-            bdListView = this.a.d;
-            View findViewWithTag = bdListView.findViewWithTag(obj);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
-                ((TbCheckBox) findViewWithTag).setChecked(false);
-            } else if (!(obj instanceof MetaData)) {
-            } else {
-                this.a.b((MetaData) obj);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ k(j jVar, k kVar) {
+        this(jVar);
     }
 }

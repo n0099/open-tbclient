@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.e.t;
 import com.baidu.tieba.s;
@@ -18,7 +18,7 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public abstract class g extends com.baidu.adp.base.c implements a {
+public abstract class g extends com.baidu.adp.base.f implements a {
     private DialogInterface.OnClickListener a;
     protected EditText b;
     protected NavigationBar c;
@@ -144,17 +144,17 @@ public abstract class g extends com.baidu.adp.base.c implements a {
     protected void m() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.l) {
-                be.e((View) this.e, u.navi_done_text_bg_1);
+                bk.e((View) this.e, u.navi_done_text_bg_1);
                 this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text_1));
                 return;
             }
-            be.e((View) this.e, u.btn_titlebar_finish_d_1);
+            bk.e((View) this.e, u.btn_titlebar_finish_d_1);
             this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d_1));
         } else if (this.l) {
-            be.e((View) this.e, u.navi_done_text_bg);
+            bk.e((View) this.e, u.navi_done_text_bg);
             this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text));
         } else {
-            be.e((View) this.e, u.btn_titlebar_finish_d);
+            bk.e((View) this.e, u.btn_titlebar_finish_d);
             this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d));
         }
     }
@@ -175,8 +175,8 @@ public abstract class g extends com.baidu.adp.base.c implements a {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.d);
         this.c.c(i);
-        be.b(this.d, i);
-        be.g(this.e, i);
+        bk.b(this.d, i);
+        bk.g(this.e, i);
         m();
         if (i == 1) {
             this.b.setHintTextColor(this.g.getResources().getColor(s.create_group_input_hintcolor_1));

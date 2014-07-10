@@ -1,29 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i {
-    HeadImageView a;
-    TextView b;
-    StringBuffer c;
-    TextView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    TextView h;
-    Button i;
-    ImageView j;
-    final /* synthetic */ g k;
-
-    private i(g gVar) {
-        this.k = gVar;
-    }
+public class i implements DialogInterface.OnClickListener {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(g gVar, i iVar) {
-        this(gVar);
+    public i(h hVar) {
+        this.a = hVar;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        dialog = this.a.j;
+        dialog.dismiss();
     }
 }

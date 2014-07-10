@@ -1,17 +1,36 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ar {
-    private boolean a = false;
-    private String b = null;
-    private String c = null;
-    private long d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private String i = null;
-    private String j = null;
-    private ArrayList<PKInfoData> k = new ArrayList<>();
+    private ArrayList<ae> a;
+
+    public ar() {
+        a(new ArrayList<>());
+    }
+
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    ae aeVar = new ae();
+                    aeVar.a(jSONArray.getJSONObject(i));
+                    this.a.add(aeVar);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return;
+                }
+            }
+        }
+    }
+
+    public ArrayList<ae> a() {
+        return this.a;
+    }
+
+    public void a(ArrayList<ae> arrayList) {
+        this.a = arrayList;
+    }
 }

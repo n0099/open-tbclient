@@ -4,7 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -18,12 +17,13 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     private final int b;
-    private CustomMessageListener c;
+    private int c;
+    private CustomMessageListener d;
 
     public PersonalMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.b = 20;
-        this.c = new bp(this, 0);
+        this.d = new bo(this, 0);
         m();
     }
 
@@ -46,11 +46,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         userData.setUserName(this.a.getUserName());
         userData.setPortrait(this.a.getPortrait());
         personalChatMessage.setToUserInfo(userData);
+        personalChatMessage.setIsFriend(this.c);
         return personalChatMessage;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean g_() {
+    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
         if (this.a == null) {
             return false;
         }
@@ -59,7 +60,9 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         cVar.a = null;
         cVar.b = null;
         cVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
-        super.sendMessage(new LoadPersonalHistoryMessage(cVar));
+        LoadPersonalHistoryMessage loadPersonalHistoryMessage = new LoadPersonalHistoryMessage(cVar);
+        loadPersonalHistoryMessage.setCallback(bvVar);
+        super.sendMessage(loadPersonalHistoryMessage);
         return true;
     }
 
@@ -110,40 +113,37 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void a(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new bq(this, chatMessage), null);
+            com.baidu.tieba.im.i.a(new bp(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void b(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new br(this, chatMessage), null);
+            com.baidu.tieba.im.i.a(new bq(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
-        if (eVar == null || this.a == null) {
-            return null;
-        }
-        return eVar.a(String.valueOf(this.a.getUserId()));
+    protected ImMessageCenterPojo b() {
+        return com.baidu.tieba.im.b.k.a().a(String.valueOf(this.a.getUserId()));
     }
 
     private void m() {
-        MessageManager.getInstance().registerListener(2015001, this.c);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT_PERSONAL, this.c);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY_PERSONAL, this.c);
+        MessageManager.getInstance().registerListener(2013001, this.d);
+        MessageManager.getInstance().registerListener(2001147, this.d);
+        MessageManager.getInstance().registerListener(2001150, this.d);
     }
 
     protected void f() {
-        MessageManager.getInstance().unRegisterListener(this.c);
+        MessageManager.getInstance().unRegisterListener(this.d);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void a(com.baidu.tieba.im.a<Void> aVar) {
         com.baidu.tieba.im.db.i.a().c(PersonalChatActivity.b);
         aVar.a(null);
-        com.baidu.tieba.im.i.a(new bs(this), aVar);
+        com.baidu.tieba.im.i.a(new br(this), aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -165,5 +165,13 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 a(linkedList);
             }
         }
+    }
+
+    public int l() {
+        return this.c;
+    }
+
+    public void d(int i) {
+        this.c = i;
     }
 }

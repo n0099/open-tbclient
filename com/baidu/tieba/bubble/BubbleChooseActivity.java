@@ -1,32 +1,30 @@
 package com.baidu.tieba.bubble;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.model.f;
-import com.baidu.tieba.model.i;
-import com.baidu.tieba.model.j;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class BubbleChooseActivity extends BaseActivity {
-    private e b;
-    private f c;
+    private g b;
+    private com.baidu.tieba.model.d c;
     private final int d = 0;
     private final int e = 50;
-    private i f = new a(this);
-    private j g = new b(this);
-    public CustomMessageListener a = new c(this, CmdConfig.BUBBLE_LIST_REFRESH);
+    private com.baidu.tieba.model.g f = new a(this);
+    private com.baidu.tieba.model.h g = new b(this);
+    private s h = new c(this);
+    private s i = new d(this);
+    public CustomMessageListener a = new e(this, 2010040);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.e.class, BubbleChooseActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.f.class, BubbleChooseActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,7 +37,7 @@ public class BubbleChooseActivity extends BaseActivity {
     }
 
     private void a() {
-        this.c = new f();
+        this.c = new com.baidu.tieba.model.d();
         this.c.a(this.f);
         this.c.a(this.g);
         this.c.a(this.a);
@@ -47,7 +45,7 @@ public class BubbleChooseActivity extends BaseActivity {
     }
 
     private void b() {
-        this.b = new e(this);
+        this.b = new g(this);
         this.b.c().setOnItemClickListener(this);
         this.b.d();
     }
@@ -64,7 +62,7 @@ public class BubbleChooseActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        this.c.a(0, 50, k.b(this), k.c(this));
+        this.c.a(0, 50, com.baidu.adp.lib.util.j.b(this), com.baidu.adp.lib.util.j.c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,15 +71,15 @@ public class BubbleChooseActivity extends BaseActivity {
         super.onDestroy();
         if (this.c != null) {
             this.c.e();
+            this.c.b(this.a);
         }
-        this.c.b(this.a);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.b.b()) {
-            TbWebViewActivity.b(this, getString(y.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
+            TbWebViewActivity.startActivity(this, getString(y.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
         }
     }
 
@@ -96,18 +94,29 @@ public class BubbleChooseActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         BubbleListData.BubbleData a;
         super.onItemClick(adapterView, view, i, j);
-        if (adapterView == this.b.c() && view != null && (view instanceof com.baidu.tieba.view.a) && (a = this.b.a(i)) != null) {
-            if (a.getBcode() == 0 || a.canUse() || a.isFree()) {
-                if (!a.isDef()) {
-                    this.c.a(a.getBcode());
-                    this.c.a(a.getBcode(), k.b(this), k.c(this));
-                    this.b.d();
-                    return;
-                }
-                return;
+        if (adapterView == this.b.c() && view != null && (view instanceof com.baidu.tieba.view.b) && (a = this.b.a(i)) != null) {
+            if (a.getBcode() == 0 || a.canUse()) {
+                a(a.getBcode());
+                this.b.d();
+            } else if (a.isFree()) {
+                h.a(this, a, this.h);
+            } else {
+                h.b(this, a, this.i);
             }
-            this.c.b(a.getBcode());
-            TbWebViewActivity.b(this, getString(y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
+        this.c.a(i, com.baidu.adp.lib.util.j.b(this), com.baidu.adp.lib.util.j.c(this));
+        this.c.a(i);
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i2 == -1 && i == 23004) {
+            d();
         }
     }
 }

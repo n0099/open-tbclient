@@ -11,7 +11,7 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.c {
+public class e extends com.baidu.adp.base.f {
     BaseActivity a;
     private ForumDetailData b;
     private ViewGroup c;

@@ -15,7 +15,7 @@ public class l implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
-        alertDialog = this.a.l;
+        alertDialog = this.a.m;
         alertDialog.dismiss();
     }
 }

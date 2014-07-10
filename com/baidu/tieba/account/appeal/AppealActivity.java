@@ -51,7 +51,7 @@ public class AppealActivity extends BaseActivity {
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        com.baidu.adp.lib.util.k.b(this, this.d);
+        com.baidu.adp.lib.util.j.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         a();
     }

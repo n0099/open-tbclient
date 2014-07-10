@@ -12,11 +12,10 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
@@ -65,19 +64,17 @@ public class GroupImageActivity extends BaseActivity {
         int size = this.b.size();
         int i = 0;
         while (true) {
-            if (i >= size) {
-                break;
-            }
-            String str = this.b.get(i);
-            if (!TextUtils.isEmpty(str)) {
-                BdLog.d("get img url :" + str);
-                if (str.equals(this.r)) {
-                    BdLog.d("get img idx:" + i);
+            if (i < size) {
+                String str = this.b.get(i);
+                if (TextUtils.isEmpty(str) || !str.equals(this.r)) {
+                    i++;
+                } else {
                     this.c = i;
                     break;
                 }
+            } else {
+                break;
             }
-            i++;
         }
         this.q = size;
         this.i.setVisibility(0);
@@ -93,7 +90,7 @@ public class GroupImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(be.d(i));
+            this.j.setBackgroundColor(bk.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -108,7 +105,7 @@ public class GroupImageActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.a();
@@ -161,7 +158,7 @@ public class GroupImageActivity extends BaseActivity {
         this.g.setOnClickListener(this.k);
         this.h.setOnClickListener(this.k);
         this.j = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
-        this.j.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
+        this.j.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.j.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.j.setOnPageChangeListener(this.m);
         this.j.setItemOnclickListener(this.k);
@@ -207,12 +204,10 @@ public class GroupImageActivity extends BaseActivity {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            BdLog.d(" have savedInstanceState");
             this.b = bundle.getStringArrayList("url");
             this.c = bundle.getInt("index", -1);
             this.r = bundle.getString("curImgUrl");
         } else {
-            BdLog.d(" not have savedInstanceState");
             Intent intent = getIntent();
             if (intent != null) {
                 this.b = intent.getStringArrayListExtra("url");

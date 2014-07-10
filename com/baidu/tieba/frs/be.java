@@ -18,11 +18,11 @@ public class be implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         String a = this.b.a();
-        if (!com.baidu.tbadk.core.util.bg.c(a)) {
-            com.baidu.tbadk.core.util.bk a2 = com.baidu.tbadk.core.util.bk.a();
+        if (!com.baidu.tbadk.core.util.bm.c(a)) {
+            com.baidu.tbadk.core.util.bq a2 = com.baidu.tbadk.core.util.bq.a();
             context = this.a.b;
             a2.a(context, new String[]{a});
         }
-        com.baidu.tbadk.f.a().b(this.b.i(), System.currentTimeMillis());
+        com.baidu.tbadk.i.a().b(this.b.i(), System.currentTimeMillis());
     }
 }

@@ -5,16 +5,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.base.f;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.share.g;
+import com.baidu.tbadk.coreExtra.share.i;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.c {
+public class d extends f {
     private View a;
     private GroupCardActivity b;
     private LinearLayout c;
@@ -53,7 +54,7 @@ public class d extends com.baidu.adp.base.c {
         this.c = (LinearLayout) this.b.findViewById(v.groud_card_save);
         this.c.setOnClickListener(this.b);
         this.d = (LinearLayout) this.b.findViewById(v.group_card_share);
-        if (g.a(this.b)) {
+        if (i.a(this.b)) {
             this.d.setOnClickListener(this.b);
         } else {
             this.d.setVisibility(8);
@@ -76,12 +77,12 @@ public class d extends com.baidu.adp.base.c {
 
     public void a(int i, String str) {
         if (str != null) {
-            k.a((Context) this.b, str);
+            j.a((Context) this.b, str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            k.a((Context) this.b, errMsg);
+            j.a((Context) this.b, errMsg);
         }
     }
 
@@ -120,7 +121,7 @@ public class d extends com.baidu.adp.base.c {
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
         this.b.getLayoutMode().a(this.a);
-        be.a(this.a, i);
+        bk.a(this.a, i);
         this.h.c(i);
     }
 }

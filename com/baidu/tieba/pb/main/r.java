@@ -13,19 +13,19 @@ class r implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        bq bqVar;
+        bt btVar;
         WriteImagesInfo writeImagesInfo;
         String str;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
-        bqVar = this.a.D;
-        bqVar.m();
+        btVar = this.a.D;
+        btVar.n();
         if (i == 0) {
-            writeImagesInfo = this.a.n;
+            writeImagesInfo = this.a.l;
             if (writeImagesInfo.getChosedFiles() != null) {
-                writeImagesInfo2 = this.a.n;
+                writeImagesInfo2 = this.a.l;
                 int size = writeImagesInfo2.getChosedFiles().size();
-                writeImagesInfo3 = this.a.n;
+                writeImagesInfo3 = this.a.l;
                 if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
                     this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
@@ -34,9 +34,9 @@ class r implements DialogInterface.OnClickListener {
             this.a.o = String.valueOf(System.currentTimeMillis());
             PbActivity pbActivity = this.a;
             str = this.a.o;
-            com.baidu.tbadk.core.util.bd.a(pbActivity, str);
+            com.baidu.tbadk.core.util.bj.a(pbActivity, str);
         } else if (i == 1) {
-            com.baidu.tbadk.core.util.bd.b(this.a);
+            com.baidu.tbadk.core.util.bj.b(this.a);
         }
     }
 }

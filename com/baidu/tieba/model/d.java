@@ -1,78 +1,115 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
+import com.baidu.tieba.message.ResponseSetBubbleMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d {
-    private int e = 0;
-    private ArrayList<ForumData> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
-    private Date c = null;
-    private boolean d = true;
+public class d extends com.baidu.adp.base.e {
+    private g a;
+    private h b;
+    private int c;
+    private int d;
+    private HttpMessageListener e = new e(this, 1001500);
+    private HttpMessageListener f = new f(this, 1001501);
+
+    public void a(g gVar) {
+        this.a = gVar;
+    }
+
+    public void a(h hVar) {
+        this.b = hVar;
+    }
 
     public int a() {
-        return this.e;
+        return this.c;
     }
 
     public void a(int i) {
-        this.e = i;
+        this.c = i;
     }
 
-    public ArrayList<ForumData> b() {
-        return this.a;
+    public int b() {
+        return this.d;
     }
 
-    public void a(ArrayList<ForumData> arrayList) {
-        this.a = arrayList;
+    public void b(int i) {
+        this.d = i;
     }
 
-    public void a(String str) {
-        if (str != null) {
-            try {
-                a(new JSONObject(str));
-            } catch (Exception e) {
-                this.d = false;
-                BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.e = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.a.add(forumData2);
-                    }
-                }
-                this.b.a(jSONObject.optJSONObject("page"));
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    this.c = new Date(optLong);
-                } else {
-                    this.c = new Date();
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public static boolean a(List<BubbleListData.BubbleData> list) {
+        if (list != null && list.size() > 0) {
+            for (BubbleListData.BubbleData bubbleData : list) {
+                if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
+                    return false;
                 }
             }
-        } catch (Exception e) {
-            this.d = false;
-            BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
+        return true;
+    }
+
+    public void a(CustomMessageListener customMessageListener) {
+        MessageManager.getInstance().registerListener(customMessageListener);
+    }
+
+    public void c() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001500, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
+        tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.e);
+    }
+
+    public void a(int i, int i2, int i3, int i4) {
+        HttpMessage httpMessage = new HttpMessage(1001500);
+        httpMessage.setTag(1001500);
+        httpMessage.addParam("pn", String.valueOf(i));
+        httpMessage.addParam("rn", String.valueOf(i2));
+        httpMessage.addParam("scr_w", String.valueOf(i3));
+        httpMessage.addParam("scr_h", String.valueOf(i4));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void a(int i, int i2, int i3) {
+        HttpMessage httpMessage = new HttpMessage(1001501);
+        httpMessage.setTag(1001501);
+        httpMessage.addParam("bcode", String.valueOf(i));
+        httpMessage.addParam("scr_w", String.valueOf(i2));
+        httpMessage.addParam("scr_h", String.valueOf(i3));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void d() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001501, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
+        tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.f);
+    }
+
+    public void e() {
+        MessageManager messageManager = MessageManager.getInstance();
+        messageManager.unRegisterListener(this.f);
+        messageManager.unRegisterListener(this.e);
+    }
+
+    public void b(CustomMessageListener customMessageListener) {
+        MessageManager.getInstance().unRegisterListener(customMessageListener);
     }
 }

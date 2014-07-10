@@ -1,33 +1,32 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends HttpMessageListener {
-    final /* synthetic */ s a;
+public class u extends com.baidu.adp.framework.listener.b {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(s sVar, int i) {
+    public u(t tVar, int i) {
         super(i);
-        this.a = sVar;
+        this.a = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        f fVar;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.a.a(null, false);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        g gVar;
+        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
+                this.a.a((PersonPostModel) null, false);
                 return;
             }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
-            if (userPostPageRequestMessage.isThread() && (fVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                fVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (gVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                gVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

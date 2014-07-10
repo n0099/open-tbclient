@@ -1,89 +1,83 @@
 package com.baidu.tbadk.core.util;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.service.NetworkChangeReceiver;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as {
-    public static int a;
-    private static as b;
-    private static long d;
-    private static volatile int c = 0;
-    private static int e = 300000;
-    private static int f = 10;
+public class as implements com.baidu.adp.lib.network.willdelete.d {
+    final /* synthetic */ NetWorkCoreByBdHttp a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ long c;
 
-    private as() {
-        a = TbadkApplication.m252getInst().getNetWorkCoreType();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public as(NetWorkCoreByBdHttp netWorkCoreByBdHttp, String str, long j) {
+        this.a = netWorkCoreByBdHttp;
+        this.b = str;
+        this.c = j;
     }
 
-    public static synchronized as a() {
-        as asVar;
-        synchronized (as.class) {
-            if (b == null) {
-                b = new as();
-            }
-            asVar = b;
-        }
-        return asVar;
-    }
-
-    public aa a(com.baidu.tbadk.core.util.a.a aVar) {
-        switch (a) {
-            case 0:
-                return new NetWorkCore(aVar);
-            case 1:
-                return new NetWorkCoreByBdHttp(aVar);
-            default:
-                return new NetWorkCore(aVar);
-        }
-    }
-
-    public static synchronized void b() {
-        synchronized (as.class) {
-            if (a == 1) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - d < e) {
-                    c++;
-                    BdLog.w(as.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
-                    if (c > f) {
-                        a = 0;
-                        BdLog.e(as.class.getName(), "addError", "切换会老的网络内核");
-                        TbadkApplication.m252getInst().setNetWorkCoreType(a);
-                        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp().getApplicationContext(), "network_core", "current Net：" + UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.willdelete.h.d() + ", wap:" + c(), 1, new Object[0]);
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        com.baidu.tbadk.core.util.httpNet.c cVar;
+        com.baidu.tbadk.core.util.httpNet.c cVar2;
+        com.baidu.tbadk.core.util.httpNet.c cVar3;
+        com.baidu.tbadk.core.util.httpNet.c cVar4;
+        com.baidu.tbadk.core.util.httpNet.c cVar5;
+        boolean z = false;
+        if (httpURLConnection != null) {
+            try {
+                if (httpURLConnection.getInputStream() != null) {
+                    String headerField = httpURLConnection.getHeaderField("imgsrc");
+                    if (headerField != null && headerField.length() > 0) {
+                        z = true;
                     }
-                } else {
-                    c = 0;
-                    d = currentTimeMillis;
-                }
-            }
-        }
-    }
-
-    public static String c() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkApplication.m252getInst().getApp().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
-                    return "wifi";
-                }
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null) {
-                    if (defaultHost.length() > 0) {
-                        return "wap";
+                    cVar = this.a.d;
+                    if (cVar.a().a().e || z) {
+                        byte[] bArr = new byte[23];
+                        int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
+                        if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                            outputStream.write(bArr, 0, read);
+                        }
                     }
+                    if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
+                        cVar3 = this.a.d;
+                        cVar3.b().e = true;
+                        cVar4 = this.a.d;
+                        if (cVar4.a().h == 1) {
+                            cVar5 = this.a.d;
+                            cVar5.a().h = 2;
+                            return;
+                        }
+                        return;
+                    }
+                    cVar2 = this.a.d;
+                    cVar2.b().e = false;
+                    return;
                 }
-                return "net";
+            } catch (IOException e) {
+                com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), "0", e.getMessage(), "connection failed."));
+                try {
+                    com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), String.valueOf(httpURLConnection.getContentLength()), String.valueOf(httpURLConnection.getResponseCode()) + ":" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                } catch (IOException e2) {
+                    com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), String.valueOf(httpURLConnection.getContentLength()), "cann't get responseCode:" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                }
+                e.printStackTrace();
+                return;
             }
-            return null;
-        } catch (Exception e2) {
-            return null;
         }
+        com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), "0", "failed to open connection.", "connection failed."));
     }
 
-    public static void a(int i) {
-        a = i;
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    }
+
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(com.baidu.adp.lib.network.willdelete.f fVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a() {
     }
 }

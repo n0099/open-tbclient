@@ -1,27 +1,22 @@
 package com.baidu.tieba.im.live.room;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.LiveMsglistModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-public class m implements DialogInterface.OnClickListener {
-    final /* synthetic */ LiveRoomChatActivity a;
-    private final /* synthetic */ ChatMessage b;
+class m extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ LiveRoomChatActivity b;
+    private final /* synthetic */ GroupData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(LiveRoomChatActivity liveRoomChatActivity, ChatMessage chatMessage) {
-        this.a = liveRoomChatActivity;
-        this.b = chatMessage;
+    public m(LiveRoomChatActivity liveRoomChatActivity, GroupData groupData) {
+        this.b = liveRoomChatActivity;
+        this.c = groupData;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        LiveMsglistModel liveMsglistModel;
-        this.a.showProgressBar();
-        String[] strArr = {this.b.getUserInfo().getUserId()};
-        String[] strArr2 = {String.valueOf(this.b.getUserInfo().getUserName())};
-        liveMsglistModel = this.a.q;
-        liveMsglistModel.a(this.b.getGroupId(), 1, strArr, strArr2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.y.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getGroupId())));
     }
 }

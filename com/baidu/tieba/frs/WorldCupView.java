@@ -75,97 +75,97 @@ public class WorldCupView extends RelativeLayout {
         setLotteryGameLayVisible(false);
     }
 
-    public void setData(com.baidu.tbadk.core.data.q qVar) {
-        if (qVar == null) {
+    public void setData(com.baidu.tbadk.core.data.p pVar) {
+        if (pVar == null) {
             setNewsLayVisible(false);
             setPkLayVisible(false);
             setLotteryGameLayVisible(false);
             return;
         }
-        setNewsData(qVar.a());
-        setPkData(qVar.b());
-        a(qVar.c(), qVar.d());
+        setNewsData(pVar.a());
+        setPkData(pVar.b());
+        a(pVar.c(), pVar.d());
     }
 
-    private void setNewsData(com.baidu.tbadk.core.data.t tVar) {
-        if (tVar == null) {
+    private void setNewsData(com.baidu.tbadk.core.data.s sVar) {
+        if (sVar == null) {
             setNewsLayVisible(false);
-        } else if (!TextUtils.isEmpty(tVar.b())) {
+        } else if (!TextUtils.isEmpty(sVar.b())) {
             setNewsLayVisible(true);
-            this.c.setText(tVar.b());
-            this.b.setOnClickListener(new du(this, tVar));
+            this.c.setText(sVar.b());
+            this.b.setOnClickListener(new du(this, sVar));
         } else {
             setNewsLayVisible(false);
         }
     }
 
-    private void setPkData(com.baidu.tbadk.core.data.u uVar) {
-        if (uVar == null) {
+    private void setPkData(com.baidu.tbadk.core.data.t tVar) {
+        if (tVar == null) {
             setPkLayVisible(false);
-        } else if (TextUtils.isEmpty(uVar.a()) || TextUtils.isEmpty(uVar.b())) {
+        } else if (TextUtils.isEmpty(tVar.a()) || TextUtils.isEmpty(tVar.b())) {
             setPkLayVisible(false);
         } else {
             setPkLayVisible(true);
             String str = "";
-            if (!TextUtils.isEmpty(uVar.a())) {
-                str = uVar.a();
+            if (!TextUtils.isEmpty(tVar.a())) {
+                str = tVar.a();
             }
             this.f.setText(str);
             String str2 = "";
-            if (!TextUtils.isEmpty(uVar.b())) {
-                str2 = uVar.b();
+            if (!TextUtils.isEmpty(tVar.b())) {
+                str2 = tVar.b();
             }
             this.g.setText(str2);
-            if (TextUtils.isEmpty(uVar.c())) {
+            if (TextUtils.isEmpty(tVar.c())) {
                 this.j.setVisibility(8);
             } else {
                 this.j.setVisibility(0);
             }
-            this.h.a(uVar.c(), 10, false);
-            this.e.setOnClickListener(new dv(this, uVar));
+            this.h.a(tVar.c(), 10, false);
+            this.e.setOnClickListener(new dv(this, tVar));
         }
     }
 
-    private void a(com.baidu.tbadk.core.data.s sVar, com.baidu.tbadk.core.data.r rVar) {
+    private void a(com.baidu.tbadk.core.data.r rVar, com.baidu.tbadk.core.data.q qVar) {
         String str;
         String str2;
-        if (sVar == null || rVar == null) {
+        if (rVar == null || qVar == null) {
             setLotteryGameLayVisible(false);
             return;
         }
         setLotteryGameLayVisible(true);
-        this.l.setOnClickListener(new dw(this, sVar));
-        ArrayList<com.baidu.tbadk.core.data.v> a = rVar.a();
+        this.l.setOnClickListener(new dw(this, rVar));
+        ArrayList<com.baidu.tbadk.core.data.u> a = qVar.a();
         if (a != null && a.size() == 2) {
-            com.baidu.tbadk.core.data.v vVar = a.get(0);
+            com.baidu.tbadk.core.data.u uVar = a.get(0);
             this.n.setDrawBorder(true);
-            this.n.a(vVar.b(), 10, false);
-            if (TextUtils.isEmpty(vVar.a())) {
+            this.n.a(uVar.b(), 10, false);
+            if (TextUtils.isEmpty(uVar.a())) {
                 str = "";
             } else {
-                str = vVar.a();
+                str = uVar.a();
             }
             this.o.setText(str);
-            com.baidu.tbadk.core.data.v vVar2 = a.get(1);
+            com.baidu.tbadk.core.data.u uVar2 = a.get(1);
             this.p.setDrawBorder(true);
-            this.p.a(vVar2.b(), 10, false);
-            if (TextUtils.isEmpty(vVar2.a())) {
+            this.p.a(uVar2.b(), 10, false);
+            if (TextUtils.isEmpty(uVar2.a())) {
                 str2 = "";
             } else {
-                str2 = vVar2.a();
+                str2 = uVar2.a();
             }
             this.q.setText(str2);
             String str3 = "";
-            if (!TextUtils.isEmpty(rVar.b())) {
-                str3 = rVar.b();
+            if (!TextUtils.isEmpty(qVar.b())) {
+                str3 = qVar.b();
             }
             this.r.setText(str3);
             String str4 = "";
-            if (!TextUtils.isEmpty(rVar.c())) {
-                str4 = rVar.c();
+            if (!TextUtils.isEmpty(qVar.c())) {
+                str4 = qVar.c();
             }
             this.s.setText(str4);
-            this.m.setOnClickListener(new dx(this, rVar));
+            this.m.setOnClickListener(new dx(this, qVar));
             return;
         }
         setLotteryGameLayVisible(false);
@@ -206,8 +206,8 @@ public class WorldCupView extends RelativeLayout {
             ((BaseActivity) this.a).getLayoutMode().a(i == 1);
             ((BaseActivity) this.a).getLayoutMode().a((View) this);
         } else if (this.a instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.a).a().a(i == 1);
-            ((BaseFragmentActivity) this.a).a().a((View) this);
+            ((BaseFragmentActivity) this.a).c().a(i == 1);
+            ((BaseFragmentActivity) this.a).c().a((View) this);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.data;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class VersionData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.detailException(e);
         }
     }
 
@@ -49,7 +49,7 @@ public class VersionData implements Serializable {
                 this.newVer = jSONObject.optString("new_version", null);
                 this.size = jSONObject.optString("size", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!bg.c(optString)) {
+                if (!bm.c(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");
@@ -65,7 +65,7 @@ public class VersionData implements Serializable {
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.detailException(e);
             }
         }
     }
@@ -75,10 +75,6 @@ public class VersionData implements Serializable {
     }
 
     public void logPrint() {
-        BdLog.v("VersionData", "logPrint", "force_update = " + String.valueOf(this.forceUpdate));
-        BdLog.v("VersionData", "logPrint", "new_ver = " + this.newVer);
-        BdLog.v("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.hasNewVer));
-        BdLog.v("VersionData", "logPrint", "url = " + this.url);
     }
 
     public String getNewVersionDesc() {

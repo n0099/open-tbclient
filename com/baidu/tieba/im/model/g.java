@@ -1,28 +1,25 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.framework.listener.b {
+public class g implements com.baidu.tieba.im.chat.bt {
     final /* synthetic */ CommonPersonalMsglistModel a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(CommonPersonalMsglistModel commonPersonalMsglistModel, int i) {
-        super(i);
+    private g(CommonPersonalMsglistModel commonPersonalMsglistModel) {
         this.a = commonPersonalMsglistModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage == null) {
-            BdLog.e("msg == null");
-        } else if (socketResponsedMessage.getCmd() != 205004) {
-        } else {
-            this.a.a(socketResponsedMessage);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(CommonPersonalMsglistModel commonPersonalMsglistModel, g gVar) {
+        this(commonPersonalMsglistModel);
+    }
+
+    @Override // com.baidu.tieba.im.chat.bt
+    public void a(ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage != null && responsedMessage.getCmd() == 205001 && (responsedMessage instanceof ResponseCommitPersonalMessage)) {
+            this.a.a((ResponseCommitPersonalMessage) responsedMessage);
         }
     }
 }

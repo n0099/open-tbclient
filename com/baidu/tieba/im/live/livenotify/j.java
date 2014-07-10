@@ -3,7 +3,6 @@ package com.baidu.tieba.im.live.livenotify;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,6 @@ public class j extends BaseAdapter {
     public void a(List<UpdatesItemData> list) {
         if (list != null) {
             this.b = list;
-            BdLog.d("size:" + this.b.size());
             notifyDataSetChanged();
         }
     }

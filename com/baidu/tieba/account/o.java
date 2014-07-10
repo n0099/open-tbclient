@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class o implements View.OnClickListener {
     final /* synthetic */ ActivationActivity a;
@@ -80,6 +79,5 @@ class o implements View.OnClickListener {
         }
         this.a.setResult(0);
         this.a.finish();
-        BdLog.i("ActivationActivity", "mBack", "onClick");
     }
 }

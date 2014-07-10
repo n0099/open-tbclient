@@ -8,39 +8,42 @@ import android.widget.ListAdapter;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.x {
     private HotLiveListActivity b;
-    private com.baidu.tieba.im.model.p c;
+    private com.baidu.tieba.im.model.n c;
     private ad d;
     private BdListView e;
     private com.baidu.tbadk.core.view.q f;
     private HotLiveInitGuideView g;
     private View h;
     private HotLiveListAdapter i;
-    private final com.baidu.adp.framework.listener.b j = new aa(this, MessageTypes.CMD_REQUEST_LIVE_LIST_ALL);
-    private final CustomMessageListener k = new ab(this, MessageTypes.CMD_CACHE_LIVE_HOT_LIST_ALL);
+    private final com.baidu.adp.framework.listener.b j = new aa(this, 107003);
+    private final CustomMessageListener k = new ab(this, 2001205);
+
+    public BdListView f() {
+        return this.e;
+    }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (HotLiveListActivity) getActivity();
-        this.c = this.b.e();
-        this.d = this.b.f();
+        this.c = this.b.g();
+        this.d = this.b.h();
         this.c.registerListener(this.j);
         this.c.registerListener(this.k);
-    }
-
-    private void f() {
-        this.c.registerListener(this.j);
-        this.c.registerListener(this.k);
-        if (!this.c.a(b())) {
-            h();
-        }
     }
 
     private void g() {
+        this.c.registerListener(this.j);
+        this.c.registerListener(this.k);
+        if (!this.c.a(b())) {
+            i();
+        }
+    }
+
+    private void h() {
         this.c.a(this.j);
         this.c.a(this.k);
     }
@@ -48,9 +51,9 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         if (z) {
-            g();
+            h();
         } else {
-            f();
+            g();
         }
     }
 
@@ -79,7 +82,7 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     @Override // com.baidu.tbadk.core.d
     public void e() {
         if (!this.c.a(b())) {
-            i();
+            j();
         }
     }
 
@@ -114,38 +117,38 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
+    public void i() {
         this.i.b(false);
         this.c.b(0);
         this.c.d(0);
-        this.e.d();
+        this.e.e();
         a(true);
     }
 
-    private void i() {
+    private void j() {
         this.g.a();
         this.i.b(true);
         this.c.b(0);
         this.c.d(0);
-        this.e.d();
+        this.e.e();
         a(false);
     }
 
     @Override // com.baidu.adp.widget.ListView.x
-    public void f_() {
-        j();
+    public void g_() {
+        k();
     }
 
-    private void j() {
+    private void k() {
         if (this.i.a()) {
             a(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void l() {
         if (this.c.d()) {
-            this.e.c();
+            this.e.d();
         }
     }
 
@@ -153,21 +156,21 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     public void c(int i) {
         super.c(i);
         this.d.d(i);
-        this.b.a().a(i == 1);
-        this.b.a().a(this.h);
+        this.b.c().a(i == 1);
+        this.b.c().a(this.h);
         this.f.a(i);
         this.g.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         if (this.g.b()) {
             this.g.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void n() {
         this.g.g();
         switch (this.c.c()) {
             case 1:

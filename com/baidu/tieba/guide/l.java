@@ -1,85 +1,35 @@
 package com.baidu.tieba.guide;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.InterestFrsData;
+import com.baidu.tieba.view.RightSlideViewPager;
 /* loaded from: classes.dex */
-public class l extends Dialog implements a {
-    private Context a;
-    private TextView b;
-    private TextView c;
-    private View d;
-    private View e;
-    private InterestFrsData.Tag f;
-    private h g;
-    private GridView h;
-    private LinearLayout i;
+class l implements View.OnClickListener {
+    final /* synthetic */ j a;
 
-    public l(Context context, int i) {
-        super(context, i);
-        this.a = context;
-        b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(j jVar) {
+        this.a = jVar;
     }
 
-    private void b() {
-        this.e = View.inflate(this.a, com.baidu.tieba.w.new_user_img_box, null);
-        this.g = new h(this.a);
-        setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.v.box_close_layout);
-        this.h = (GridView) this.e.findViewById(com.baidu.tieba.v.layout_content);
-        this.h.setAdapter((ListAdapter) this.g);
-        this.h.setSelector(com.baidu.tieba.s.transparent);
-        setContentView(this.e);
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_title);
-        this.c = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_sub_title);
-        this.d = this.e.findViewById(com.baidu.tieba.v.view_layout);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_orange_up));
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public void a(InterestFrsData.Tag tag) {
-        this.f = tag;
-        if (this.f != null) {
-            this.b.setText(tag.getBname());
-            this.c.setText(tag.getBdesc());
-            this.g.a(tag.getCard_list());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        NewUserGuideActivity newUserGuideActivity;
+        NewUserGuideActivity newUserGuideActivity2;
+        NewUserGuideActivity newUserGuideActivity3;
+        NewUserGuideActivity newUserGuideActivity4;
+        newUserGuideActivity = this.a.c;
+        if (newUserGuideActivity != null) {
+            newUserGuideActivity2 = this.a.c;
+            if (newUserGuideActivity2.j().a()) {
+                newUserGuideActivity4 = this.a.c;
+                newUserGuideActivity4.k();
+                return;
+            }
+            newUserGuideActivity3 = this.a.c;
+            RightSlideViewPager h = newUserGuideActivity3.h();
+            if (h != null) {
+                h.setCurrentItem(1, true);
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public void a(int i) {
-        this.g.notifyDataSetChanged();
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public void b(int i) {
-        this.g.notifyDataSetChanged();
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public void a(View.OnClickListener onClickListener) {
-        this.i.setOnClickListener(onClickListener);
-        this.g.a(onClickListener);
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public void a(ab abVar) {
-        this.g.a(abVar);
-    }
-
-    @Override // com.baidu.tieba.guide.a
-    public View a() {
-        return this.e;
-    }
-
-    @Override // android.app.Dialog, com.baidu.tieba.guide.a
-    public void hide() {
-        super.dismiss();
     }
 }

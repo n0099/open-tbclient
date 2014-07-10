@@ -12,21 +12,21 @@ class bg implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.bu buVar;
-        com.baidu.tieba.im.model.bu buVar2;
+        com.baidu.tieba.im.model.bt btVar;
+        com.baidu.tieba.im.model.bt btVar2;
         bn bnVar;
-        com.baidu.tieba.im.model.bu buVar3;
-        com.baidu.tieba.im.model.bu buVar4;
-        buVar = this.a.d;
-        if (buVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.bu();
+        com.baidu.tieba.im.model.bt btVar3;
+        com.baidu.tieba.im.model.bt btVar4;
+        btVar = this.a.d;
+        if (btVar == null) {
+            this.a.d = new com.baidu.tieba.im.model.bt();
         }
-        buVar2 = this.a.d;
+        btVar2 = this.a.d;
         bnVar = this.a.b;
-        buVar2.a(Integer.parseInt(bnVar.b()));
-        buVar3 = this.a.d;
-        buVar3.b(i);
-        buVar4 = this.a.d;
-        buVar4.a();
+        btVar2.a(Integer.parseInt(bnVar.b()));
+        btVar3 = this.a.d;
+        btVar3.b(i);
+        btVar4 = this.a.d;
+        btVar4.a();
     }
 }

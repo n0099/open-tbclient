@@ -1,44 +1,23 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.v;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ b a;
+public class j implements CustomMessageTask.CustomRunnable<AccountData> {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(b bVar) {
-        this.a = bVar;
+    public j(d dVar) {
+        this.a = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        if (view.getId() == v.chat_head) {
-            HeadImageView headImageView = (HeadImageView) view;
-            String userId = headImageView.getUserId();
-            String userName = headImageView.getUserName();
-            String userName2 = headImageView.getUserName();
-            if (TextUtils.isEmpty(userName2)) {
-                if (userId != null && userId.length() > 0) {
-                    MessageManager messageManager = MessageManager.getInstance();
-                    activity2 = this.a.e;
-                    messageManager.sendMessage(new CustomMessage(2003003, new as(activity2, userId, userName)));
-                }
-            } else if (!userName2.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK) && !userName2.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT) && !userName2.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE) && !userName2.equals("6") && userId != null && userId.length() > 0) {
-                MessageManager messageManager2 = MessageManager.getInstance();
-                activity = this.a.e;
-                messageManager2.sendMessage(new CustomMessage(2003003, new as(activity, userId, userName)));
-            }
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        this.a.i();
+        return null;
     }
 }

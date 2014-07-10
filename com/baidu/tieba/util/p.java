@@ -24,7 +24,7 @@ public class p {
                 this.c.put(valueOf, Integer.valueOf(this.a));
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "addThread", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -56,7 +56,7 @@ public class p {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "getThread", e.getMessage());
+            BdLog.e(e.getMessage());
         }
         return z;
     }

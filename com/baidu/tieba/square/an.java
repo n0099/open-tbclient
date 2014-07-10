@@ -1,37 +1,21 @@
 package com.baidu.tieba.square;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ListView;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class an implements View.OnKeyListener {
-    final /* synthetic */ ak a;
+public class an {
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(ak akVar) {
-        this.a = akVar;
-    }
-
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (view instanceof ListView) {
-            ListView listView = (ListView) view;
-            if (keyEvent.getAction() == 0) {
-                if (i == 21) {
-                    if (listView.getSelectedView() == null) {
-                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
-                        return true;
-                    }
-                    return false;
-                } else if (i == 22 && listView.getSelectedView() == null) {
-                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return false;
+    public void a(JSONObject jSONObject) {
+        this.b = jSONObject.optString("title");
+        this.c = jSONObject.optString("sub_title");
+        this.d = jSONObject.optString("link");
+        this.f = jSONObject.optString("is_all", "0");
+        this.e = jSONObject.optString("pic_url", null);
+        this.e = this.e != null ? String.valueOf(this.e) + "?v=2" : null;
     }
 }

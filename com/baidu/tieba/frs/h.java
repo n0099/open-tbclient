@@ -10,7 +10,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     private final String c;
     private final String d;
     private final String e;
-    private com.baidu.tbadk.core.util.an b = null;
+    private com.baidu.tbadk.core.util.aq b = null;
     private final i f = new i();
 
     public h(g gVar, String str, String str2, String str3) {
@@ -26,7 +26,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: a */
     public Boolean doInBackground(String... strArr) {
         try {
-            this.b = new com.baidu.tbadk.core.util.an(strArr[0]);
+            this.b = new com.baidu.tbadk.core.util.aq(strArr[0]);
             this.b.a("fid", this.c);
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);
@@ -49,7 +49,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
                         }
                         this.a.a(this.f);
                     } catch (Exception e) {
-                        BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+                        BdLog.detailException(e);
                     }
                 }
                 if (this.b.a().b().b()) {
@@ -58,13 +58,13 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
                         this.f.c = jSONObject2.optInt("num");
                         this.f.a = true;
                     } catch (Exception e2) {
-                        BdLog.e(getClass().getName(), "doInBackground", e2.getMessage());
+                        BdLog.detailException(e2);
                     }
                 }
             }
             return false;
         } catch (Exception e3) {
-            BdLog.e(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            BdLog.e(e3.getMessage());
             return false;
         }
     }
@@ -75,7 +75,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.n = null;
+        this.a.p = null;
         this.a.a(false);
     }
 
@@ -84,18 +84,18 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
-        dg dgVar;
-        dg dgVar2;
-        this.a.n = null;
+        dh dhVar;
+        dh dhVar2;
+        this.a.p = null;
         this.a.a(false);
         if (this.b != null) {
             j jVar = new j();
             jVar.d = this.b.f();
             jVar.c = this.b.d();
-            dgVar = this.a.k;
-            if (dgVar != null) {
-                dgVar2 = this.a.k;
-                dgVar2.a(this.f, jVar);
+            dhVar = this.a.m;
+            if (dhVar != null) {
+                dhVar2 = this.a.m;
+                dhVar2.a(this.f, jVar);
             }
         }
     }

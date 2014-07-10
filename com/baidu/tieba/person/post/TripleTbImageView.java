@@ -11,13 +11,13 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
     public static final float[] a = {0.5f, 0.33f, 0.25f};
-    private static com.baidu.tbadk.editortool.ab g;
-    private static int h;
+    private static int g;
     public TbImageView b;
     public TbImageView c;
     public TbImageView d;
     public Object[] e;
     public final int f;
+    private int h;
 
     public TripleTbImageView(Context context) {
         this(context, null);
@@ -34,10 +34,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = com.baidu.adp.lib.util.k.a(context, 6.0f);
-        if (g == null) {
-            g = new com.baidu.tbadk.editortool.ab(context);
-        }
+        this.f = com.baidu.adp.lib.util.j.a(context, 6.0f);
     }
 
     public void setTags(Object[] objArr) {
@@ -61,60 +58,50 @@ public class TripleTbImageView extends ViewGroup {
         }
         switch (length) {
             case 1:
-                g.a(480, 480);
+                this.h = 480;
                 break;
             case 2:
-                g.a(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+                this.h = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
                 break;
             case 3:
-                g.a(Constants.MEDIA_INFO, Constants.MEDIA_INFO);
+                this.h = Constants.MEDIA_INFO;
                 break;
         }
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            g.b(str, new aa(this, str));
+            this.b.a(str, 10, this.h, this.h, false);
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            g.b(str2, new ab(this, str2));
+            this.b.a(str2, 10, this.h, this.h, false);
             String str3 = (String) objArr[1];
-            g.b(str3, new ac(this, str3));
+            this.c.setTag(str3);
+            this.c.a(str3, 10, this.h, this.h, false);
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            g.b(str4, new ad(this, str4));
+            this.b.a(str4, 10, this.h, this.h, false);
             String str5 = (String) objArr[1];
-            g.b(str5, new ae(this, str5));
+            this.c.setTag(str5);
+            this.c.a(str5, 10, this.h, this.h, false);
             String str6 = (String) objArr[2];
-            g.b(str6, new af(this, str6));
+            this.d.setTag(str6);
+            this.d.a(str6, 10, this.h, this.h, false);
         }
         requestLayout();
         invalidate();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbImageView tbImageView, com.baidu.adp.widget.a.a aVar) {
-        if (this.e != null && aVar != null && tbImageView != null) {
-            int length = (int) (h / this.e.length);
-            if (aVar.c() < length * 0.3f || aVar.d() < length * a[this.e.length - 1] * 0.3f) {
-                tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
-            } else {
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            }
-            tbImageView.invalidate();
-        }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3 = 1073741823 & i;
-        if (h == 0) {
-            h = i3;
+        if (g == 0) {
+            g = i3;
         }
         if (this.e == null || this.e.length == 0) {
             setMeasuredDimension(0, 0);

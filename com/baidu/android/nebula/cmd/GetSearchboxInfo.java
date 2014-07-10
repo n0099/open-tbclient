@@ -3,13 +3,14 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GetSearchboxInfo implements NoProGuard, d {
+public class GetSearchboxInfo implements NoProGuard, n {
     private static final boolean DEBUG = false;
     public static final int ERROR_NOT_EXIST = 1;
     public static final String PKGNAME_PREFIX = "com.baidu.searchbox";
@@ -22,34 +23,33 @@ public class GetSearchboxInfo implements NoProGuard, d {
         a.a(TAG);
     }
 
-    @Override // com.baidu.android.nebula.cmd.d
-    public com.baidu.android.nebula.b.c execute(com.baidu.android.nebula.b.k kVar, Map map, Map map2, Map map3) {
-        ArrayList<PackageInfo> arrayList;
+    @Override // com.baidu.android.nebula.cmd.n
+    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
         a.a(System.currentTimeMillis());
-        if (map2 == null || map2.size() < 1) {
+        Map a = dVar.a();
+        if (a == null || a.size() < 1) {
             a.a(-1);
-            return null;
+            return;
         }
-        String str = (String) map2.get("callback");
-        a.d((String) map2.get("mcmdf"));
+        String str = (String) a.get("callback");
+        a.d((String) a.get("mcmdf"));
         if (str == null) {
             a.a(-1);
-            return null;
+            return;
         }
-        this.mContext = com.baidu.android.nebula.d.b.a().c();
+        this.mContext = com.baidu.android.nebula.d.c.a().c();
         if (this.mContext == null) {
             a.a(-1);
-            return null;
+            return;
         }
         a.b(this.mContext.getPackageName());
-        if (!com.baidu.android.nebula.d.a.a(this.mContext).a((String) map.get("referer"))) {
+        if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a("Referer"))) {
             this.mErrcode = 4;
         }
+        ArrayList<PackageInfo> arrayList = null;
         if (this.mErrcode != 4) {
             this.mErrcode = 1;
-            arrayList = com.baidu.android.nebula.d.a.a.a(this.mContext).a(PKGNAME_PREFIX, false);
-        } else {
-            arrayList = null;
+            arrayList = com.baidu.android.nebula.d.a.a.a(this.mContext).b(PKGNAME_PREFIX);
         }
         JSONObject jSONObject = new JSONObject();
         if (arrayList != null) {
@@ -71,13 +71,15 @@ public class GetSearchboxInfo implements NoProGuard, d {
             }
         }
         jSONObject.put("error", this.mErrcode);
-        com.baidu.android.nebula.b.c cVar = new com.baidu.android.nebula.b.c(str + " && " + str + "(" + jSONObject.toString() + ");");
+        aVar.a("text/javascript");
+        aVar.a().put("Cache-Control", "no-cache");
+        aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
+        aVar.a(Constants.MEDIA_INFO);
         a.a(this.mErrcode);
-        return cVar;
     }
 
-    @Override // com.baidu.android.nebula.cmd.d
+    @Override // com.baidu.android.nebula.cmd.n
     public void writeToStatic() {
-        k.a().a(this.mContext, a.toString());
+        m.a().a(this.mContext, a.toString());
     }
 }

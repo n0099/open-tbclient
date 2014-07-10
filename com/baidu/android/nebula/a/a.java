@@ -1,60 +1,56 @@
 package com.baidu.android.nebula.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import org.apache.http.HttpHost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.params.HttpProtocolParams;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class a extends DefaultHttpClient {
-    private static final String a = a.class.getSimpleName();
-    private String b;
-    private String c;
-    private boolean d;
-    private RuntimeException e;
+public class a {
+    private static final Map a = new HashMap();
+    private Map b = new HashMap();
+    private StringBuilder c = new StringBuilder();
+    private int d = 404;
+    private String e = "HTTP/1.1";
 
-    public a(Context context) {
-        this(context, null, null);
+    static {
+        a.put(new Integer((int) Constants.MEDIA_INFO), "OK");
+        a.put(new Integer(404), "Page Not Found");
+        a.put(new Integer(500), "Intenal Error");
     }
 
-    public a(Context context, String str, h hVar) {
-        this.e = new IllegalStateException("ProxyHttpClient created and never closed");
-        hVar = hVar == null ? new h(context) : hVar;
-        this.d = hVar.a();
-        this.b = hVar.b();
-        this.c = hVar.c();
-        if (this.b != null && this.b.length() > 0) {
-            getParams().setParameter("http.route.default-proxy", new HttpHost(this.b, Integer.valueOf(this.c).intValue()));
-        }
-        HttpConnectionParams.setConnectionTimeout(getParams(), 30000);
-        HttpConnectionParams.setSoTimeout(getParams(), 30000);
-        HttpConnectionParams.setSocketBufferSize(getParams(), 8192);
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        HttpProtocolParams.setUserAgent(getParams(), str);
+    public a() {
+        this.b.put("Content-Type", "text/html");
+        this.b.put("Content-Encoding", "utf-8");
     }
 
-    public void a() {
-        if (this.e != null) {
-            getConnectionManager().shutdown();
-            this.e = null;
-        }
+    public Map a() {
+        return this.b;
     }
 
-    protected HttpParams createHttpParams() {
-        HttpParams createHttpParams = super.createHttpParams();
-        HttpProtocolParams.setUseExpectContinue(createHttpParams, false);
-        return createHttpParams;
+    public void a(int i) {
+        this.d = i;
     }
 
-    protected void finalize() {
-        super/*java.lang.Object*/.finalize();
-        if (this.e != null) {
-            Log.e(a, "Leak found", this.e);
+    public void a(String str) {
+        this.b.put("Content-Type", str);
+    }
+
+    public void b(String str) {
+        this.c.append(str);
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        String str = (String) a.get(Integer.valueOf(this.d));
+        if (str == null) {
+            str = "Unknown";
         }
+        sb.append(this.e + " " + this.d + " " + str + IOUtils.LINE_SEPARATOR_WINDOWS);
+        this.b.put("Content-Length", String.valueOf(this.c.toString().getBytes().length));
+        for (String str2 : this.b.keySet()) {
+            sb.append(str2 + ": " + ((String) this.b.get(str2)) + IOUtils.LINE_SEPARATOR_WINDOWS);
+        }
+        sb.append(IOUtils.LINE_SEPARATOR_WINDOWS + this.c.toString());
+        return sb.toString();
     }
 }

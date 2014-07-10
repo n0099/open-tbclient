@@ -1,8 +1,11 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements DialogInterface.OnClickListener {
+public class r implements View.OnClickListener {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +13,14 @@ class r implements DialogInterface.OnClickListener {
         this.a = mainTabActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.view.i iVar;
+        MainTabActivity mainTabActivity;
+        iVar = this.a.o;
+        iVar.dismiss();
+        MainTabActivity mainTabActivity2 = this.a;
+        mainTabActivity = this.a.G;
+        mainTabActivity2.a(new CustomMessage(2002001, new ar(mainTabActivity)));
     }
 }

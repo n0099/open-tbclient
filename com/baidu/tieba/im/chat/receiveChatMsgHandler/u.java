@@ -1,21 +1,17 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
-
-import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends com.baidu.tieba.im.b<Boolean> {
-    private final /* synthetic */ String b;
-    private final /* synthetic */ LinkedList c;
+public class u implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(String str, LinkedList linkedList) {
-        this.b = str;
-        this.c = linkedList;
+    public u(t tVar) {
+        this.a = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.b, this.c, true));
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r2) {
+        com.baidu.tieba.im.pushNotify.q.a().d();
     }
 }

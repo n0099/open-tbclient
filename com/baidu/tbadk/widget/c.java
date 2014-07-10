@@ -27,8 +27,46 @@ public class c extends GestureDetector.SimpleOnGestureListener {
         return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        int i;
+        int i2;
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        i = this.a.x;
+        if (i != 1) {
+            i2 = this.a.x;
+            if (i2 != 2) {
+                this.a.y = 2;
+                f = this.a.j;
+                f2 = this.a.h;
+                if (f > f2) {
+                    a aVar = this.a;
+                    f4 = this.a.h;
+                    aVar.j = f4;
+                    a aVar2 = this.a;
+                    f5 = this.a.j;
+                    aVar2.k = f5;
+                    this.a.w();
+                    this.a.s();
+                    return true;
+                }
+                a aVar3 = this.a;
+                f3 = this.a.h;
+                aVar3.j = f3 * 2.0f;
+                this.a.a(true, (int) motionEvent.getX(), (int) motionEvent.getY());
+                this.a.s();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
@@ -40,7 +78,7 @@ public class c extends GestureDetector.SimpleOnGestureListener {
                 onClickListener2.onClick(this.a);
             }
         }
-        return super.onSingleTapUp(motionEvent);
+        return super.onSingleTapConfirmed(motionEvent);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */

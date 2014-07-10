@@ -11,25 +11,23 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ak;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.model.ao;
-import com.baidu.tieba.model.aq;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.model.an;
+import com.baidu.tieba.model.ap;
 import com.baidu.tieba.view.RightSlideViewPager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
-    private ao c;
-    private ab d;
+    private an c;
+    private aa d;
     private boolean f;
     private RightSlideViewPager h;
     private boolean e = false;
     private boolean g = false;
-    private aq i = new c(this);
+    private ap i = new c(this);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.NEW_USER_GUIDE_PAGE, new b());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2012116, new b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -38,7 +36,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         this.g = z;
     }
 
-    public boolean e() {
+    public boolean g() {
         return this.g;
     }
 
@@ -49,7 +47,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         context.startActivity(intent);
     }
 
-    public RightSlideViewPager f() {
+    public RightSlideViewPager h() {
         return this.h;
     }
 
@@ -57,40 +55,40 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        l();
+        n();
         setContentView(com.baidu.tieba.w.guide_activity_interestfrs);
-        k();
-        j();
+        m();
+        l();
     }
 
     public void b(boolean z) {
         this.e = z;
     }
 
-    private void j() {
+    private void l() {
         this.f = getIntent().getBooleanExtra("is_new_user", false);
         this.e = getIntent().getBooleanExtra("has_like_bar", false);
         int i = this.f ? 1 : 2;
-        this.c = new ao();
+        this.c = new an();
         this.c.a(i, 0, 100, this.i);
     }
 
-    public ab g() {
+    public aa i() {
         if (this.d == null) {
-            this.d = new ab(this);
+            this.d = new aa(this);
         }
         return this.d;
     }
 
-    private void k() {
+    private void m() {
         this.h = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
-        this.h.setAdapter(new u(getSupportFragmentManager()));
+        this.h.setAdapter(new r(getSupportFragmentManager()));
         this.h.setTag("canScroll");
         this.h.setOnPageChangeListener(new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -107,7 +105,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public ao h() {
+    public an j() {
         return this.c;
     }
 
@@ -118,13 +116,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            i();
+            k();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void l() {
+    private void n() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -137,8 +135,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void i() {
-        a(new CustomMessage(2017001, new ak(this).a(1, this.f)));
+    public void k() {
+        a(new CustomMessage(2015001, new com.baidu.tbadk.core.atomData.ap(this).a(1, this.f)));
         finish();
     }
 }

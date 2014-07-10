@@ -202,8 +202,4 @@ public class DownloadData implements Serializable {
     public void setNotifyId(int i) {
         this.notifyId = i;
     }
-
-    public String toString() {
-        return "DownloadData{id='" + this.id + "', name='" + this.name + "', description='" + this.description + "', url='" + this.url + "', path='" + this.path + "', status=" + this.status + ", type=" + this.type + ", length=" + this.length + ", size=" + this.size + ", width=" + this.width + ", height=" + this.height + ", check='" + this.check + "', statusMsg='" + this.statusMsg + "', callback=" + this.a + ", position=" + this.position + ", notifyId=" + this.notifyId + '}';
-    }
 }

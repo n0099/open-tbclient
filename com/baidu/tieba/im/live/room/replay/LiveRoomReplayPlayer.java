@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -34,7 +33,7 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
         super(context);
         this.k = false;
         this.l = 0;
-        this.m = new j(this);
+        this.m = new i(this);
         a(context);
     }
 
@@ -42,7 +41,7 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
         super(context, attributeSet);
         this.k = false;
         this.l = 0;
-        this.m = new j(this);
+        this.m = new i(this);
         a(context);
     }
 
@@ -50,7 +49,7 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
         super(context, attributeSet, i);
         this.k = false;
         this.l = 0;
-        this.m = new j(this);
+        this.m = new i(this);
         a(context);
     }
 
@@ -65,7 +64,7 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
         this.g = (TextView) this.c.findViewById(v.live_chat_room_player_position);
         this.i = (TextView) this.c.findViewById(v.live_chat_room_player_duration);
         this.j = (ImageView) this.c.findViewById(v.live_room_replay_player_pauseorplay);
-        k.a(this.a, this.j, 10, 10, 10, 10);
+        j.a(this.a, this.j, 10, 10, 10, 10);
         this.h = (SeekBar) this.c.findViewById(v.live_room_replay_player_seekbar);
         this.h.setOnSeekBarChangeListener(this.m);
     }
@@ -108,7 +107,6 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getNextStartPosition() {
         int i = this.l;
-        BdLog.d("mNextStartPostion is: " + i);
         this.l = 0;
         return i;
     }

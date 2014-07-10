@@ -56,8 +56,6 @@ public final class e {
         try {
             this.b.a(camera2, false);
         } catch (RuntimeException e) {
-            BdLog.w(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
-            BdLog.i(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
             if (flatten != null) {
                 Camera.Parameters parameters2 = camera2.getParameters();
                 parameters2.unflatten(flatten);
@@ -65,7 +63,7 @@ public final class e {
                     camera2.setParameters(parameters2);
                     this.b.a(camera2, true);
                 } catch (RuntimeException e2) {
-                    BdLog.w(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
+                    BdLog.detailException(e2);
                 }
             }
         }
@@ -123,7 +121,6 @@ public final class e {
                     int i = (b.x - dimensionPixelSize) / 2;
                     int i2 = (b.y - dimensionPixelSize) / 2;
                     this.e = new Rect(i, i2, i + dimensionPixelSize, dimensionPixelSize + i2);
-                    BdLog.d(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
                 }
             }
             rect = this.e;
@@ -166,7 +163,6 @@ public final class e {
             int i3 = (b.x - i) / 2;
             int i4 = (b.y - i2) / 2;
             this.e = new Rect(i3, i4, i3 + i, i4 + i2);
-            BdLog.d(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
             this.f = null;
         } else {
             this.i = i;

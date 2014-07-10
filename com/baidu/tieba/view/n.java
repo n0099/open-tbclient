@@ -1,32 +1,34 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class n implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ FrsCommonImageLayout a;
+public class n {
+    public LinearLayout a;
+    public RelativeLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public CommonImageLayout i;
+    public PlayVoiceBnt j;
+    public String k;
+    public String l;
+    public int m;
+    public boolean n;
+    public UserIconBox o;
+    public UserIconBox p = null;
+    public LinearLayout q;
+    public LiveBroadcastCard r;
+    final /* synthetic */ l s;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(FrsCommonImageLayout frsCommonImageLayout) {
-        this.a = frsCommonImageLayout;
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.a.p;
-            if (bVar != null) {
-                bVar2 = this.a.p;
-                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    public n(l lVar) {
+        this.s = lVar;
     }
 }

@@ -14,7 +14,7 @@ public class j implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         this.a.g();
-        this.a.R();
-        this.a.T();
+        this.a.S();
+        this.a.U();
     }
 }

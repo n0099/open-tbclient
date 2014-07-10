@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.IncrLiveGroupLike.DataReq;
 import protobuf.IncrLiveGroupLike.IncrLiveGroupLikeReqIdl;
@@ -10,7 +9,7 @@ public class RequestIncrLiveGroupLikeMessage extends TbSocketMessage {
     public int type;
 
     public RequestIncrLiveGroupLikeMessage() {
-        super(MessageTypes.CMD_INCR_LIVE_GROUP_LIKE);
+        super(107108);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

@@ -19,8 +19,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,8 +32,8 @@ public class LiveBroadcastCard extends RelativeLayout {
     private String D;
     private int E;
     private CustomMessageListener F;
-    private ab a;
-    private ae b;
+    private ad a;
+    private ag b;
     private Context c;
     private ViewGroup d;
     private HeadImageView e;
@@ -60,12 +59,12 @@ public class LiveBroadcastCard extends RelativeLayout {
     private boolean y;
     private boolean z;
 
-    public void setCardClickListener(ab abVar) {
-        this.a = abVar;
+    public void setCardClickListener(ad adVar) {
+        this.a = adVar;
     }
 
-    public void setDeleteButtonClickListener(ae aeVar) {
-        this.b = aeVar;
+    public void setDeleteButtonClickListener(ag agVar) {
+        this.b = agVar;
     }
 
     public String getStatisticsKey() {
@@ -87,21 +86,21 @@ public class LiveBroadcastCard extends RelativeLayout {
     public LiveBroadcastCard(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.E = 0;
-        this.F = new y(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.F = new aa(this, 2012113);
         a(context, attributeSet);
     }
 
     public LiveBroadcastCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.E = 0;
-        this.F = new y(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.F = new aa(this, 2012113);
         a(context, attributeSet);
     }
 
     public LiveBroadcastCard(Context context) {
         super(context);
         this.E = 0;
-        this.F = new y(this, CmdConfig.LIVE_CARD_TIME_UPDATE);
+        this.F = new aa(this, 2012113);
         a(context, (AttributeSet) null);
     }
 
@@ -146,14 +145,14 @@ public class LiveBroadcastCard extends RelativeLayout {
             this.m.setLayoutParams(layoutParams);
             this.l.setSingleLine();
         }
-        setOnClickListener(new z(this));
-        this.t.setOnClickListener(new aa(this));
+        setOnClickListener(new ab(this));
+        this.t.setOnClickListener(new ac(this));
     }
 
-    public void a(LiveCardData liveCardData, com.baidu.tbadk.editortool.ab abVar) {
+    public void setData(LiveCardData liveCardData) {
         int color;
         if (liveCardData != null) {
-            ac.a().b(this);
+            ae.a().b(this);
             b();
             this.C = liveCardData.getGroupId();
             this.g.setText(liveCardData.getName());
@@ -163,15 +162,13 @@ public class LiveBroadcastCard extends RelativeLayout {
             this.l.setText(liveCardData.getIntro());
             this.t.setTag(liveCardData);
             this.e.setTag(null);
-            if (abVar != null) {
-                if (!TextUtils.isEmpty(liveCardData.getPortrait())) {
-                    this.e.a(liveCardData.getPortrait(), 10, false);
-                } else if (!TextUtils.isEmpty(liveCardData.getPublisherPortrait())) {
-                    this.e.a(liveCardData.getPublisherPortrait(), 12, false);
-                } else {
-                    this.e.a((String) null, 10, false);
-                    this.e.a((String) null, 12, false);
-                }
+            if (!TextUtils.isEmpty(liveCardData.getPortrait())) {
+                this.e.a(liveCardData.getPortrait(), 10, false);
+            } else if (!TextUtils.isEmpty(liveCardData.getPublisherPortrait())) {
+                this.e.a(liveCardData.getPublisherPortrait(), 12, false);
+            } else {
+                this.e.a((String) null, 10, false);
+                this.e.a((String) null, 12, false);
             }
             int status = liveCardData.getStatus();
             if (!this.x || status == 1) {
@@ -201,13 +198,13 @@ public class LiveBroadcastCard extends RelativeLayout {
             }
             this.u.setVisibility(this.z ? 0 : 8);
             if (this.A) {
-                be.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
-                be.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
-                be.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
-                be.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
-                be.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
-                be.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
-                be.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
+                bk.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
+                bk.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
+                bk.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
+                bk.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
+                bk.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
+                bk.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
+                bk.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
                 HeadImageView headImageView = this.e;
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
                     color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask_1);
@@ -217,13 +214,13 @@ public class LiveBroadcastCard extends RelativeLayout {
                 headImageView.setForegroundColor(color);
                 return;
             }
-            be.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
-            be.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
-            be.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
-            be.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
-            be.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
-            be.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
-            be.c(this.w, com.baidu.tieba.u.icon_live_list_like);
+            bk.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
+            bk.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
+            bk.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
+            bk.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
+            bk.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
+            bk.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
+            bk.c(this.w, com.baidu.tieba.u.icon_live_list_like);
             this.e.setForegroundColor(0);
         }
     }
@@ -268,7 +265,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.q.setVisibility(8);
         this.s.setVisibility(8);
         this.E = 3;
-        ac.a().b(this);
+        ae.a().b(this);
         b();
     }
 
@@ -280,7 +277,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.E = 0;
         i();
         a();
-        ac.a().a(this);
+        ae.a().a(this);
     }
 
     private void d() {
@@ -288,7 +285,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.q.setVisibility(8);
         this.s.setVisibility(0);
         this.s.setText(com.baidu.tieba.y.live_card_close);
-        be.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
         this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28));
         this.E = 4;
     }
@@ -298,33 +295,33 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.q.setVisibility(8);
         this.s.setVisibility(0);
         this.s.setText(com.baidu.tieba.y.live_card_hide);
-        be.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
         this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
         this.E = 5;
     }
 
     private void f() {
         this.r.setText(com.baidu.tieba.y.live_card_count_down);
-        be.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
+        bk.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
         this.E = 2;
     }
 
     private void g() {
         this.p.setText(c(this.B));
         this.r.setText(com.baidu.tieba.y.live_card_foreshowt);
-        be.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
+        bk.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
         this.E = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(this.c, this.C)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(this.c, this.C)));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ac.a().b(this);
+        ae.a().b(this);
         b();
     }
 
@@ -364,8 +361,8 @@ public class LiveBroadcastCard extends RelativeLayout {
             baseActivity.getLayoutMode().a((View) this.d);
         } else if (this.c instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.c;
-            baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a((View) this.d);
+            baseFragmentActivity.c().a(i == 1);
+            baseFragmentActivity.c().a((View) this.d);
         }
     }
 

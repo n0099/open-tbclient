@@ -22,9 +22,15 @@ public class g implements DialogInterface.OnClickListener {
         dialogInterface.dismiss();
         progressBar = this.a.e;
         progressBar.setVisibility(0);
+        liveCardData = this.a.k;
+        int groupId = liveCardData.getGroupId();
+        if (com.baidu.adp.lib.f.b.a(com.baidu.tieba.im.live.d.b().i(), 0) == groupId) {
+            this.a.j = true;
+        } else {
+            this.a.j = false;
+        }
         RequestDismissGroupMessage requestDismissGroupMessage = new RequestDismissGroupMessage();
-        liveCardData = this.a.j;
-        requestDismissGroupMessage.setGroupId(liveCardData.getGroupId());
+        requestDismissGroupMessage.setGroupId(groupId);
         MessageManager.getInstance().sendMessage(requestDismissGroupMessage);
     }
 }

@@ -58,10 +58,6 @@ public class ShareModel implements Parcelable {
         }
     }
 
-    LoginShareStrategy b() {
-        return this.e;
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(LoginShareStrategy loginShareStrategy) {
         this.e = loginShareStrategy;
@@ -73,7 +69,7 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareEvent c() {
+    public ShareEvent b() {
         return this.c;
     }
 
@@ -83,12 +79,7 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SapiAccount d() {
-        return this.a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String e() {
+    public String c() {
         return this.d;
     }
 

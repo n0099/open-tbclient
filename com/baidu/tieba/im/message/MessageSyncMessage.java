@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import android.util.SparseArray;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
@@ -19,7 +18,7 @@ public class MessageSyncMessage extends TbSocketMessage {
     private int width;
 
     public MessageSyncMessage() {
-        super(MessageTypes.CMD_MESSAGE_SYNC);
+        super(202003);
         this.mMids = null;
     }
 

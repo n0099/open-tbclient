@@ -16,6 +16,8 @@ public final class MsgInfo extends Message {
     public final Integer duration;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer groupId;
+    @ProtoField(tag = 16, type = Message.Datatype.INT32)
+    public final Integer isFriend;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String link;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
@@ -48,6 +50,7 @@ public final class MsgInfo extends Message {
     public static final Long DEFAULT_RECORDID = 0L;
     public static final Long DEFAULT_TOUID = 0L;
     public static final Long DEFAULT_TASKID = 0L;
+    public static final Integer DEFAULT_ISFRIEND = 0;
 
     /* synthetic */ MsgInfo(Builder builder, boolean z, MsgInfo msgInfo) {
         this(builder, z);
@@ -120,9 +123,14 @@ public final class MsgInfo extends Message {
             }
             if (builder.taskId == null) {
                 this.taskId = DEFAULT_TASKID;
-                return;
             } else {
                 this.taskId = builder.taskId;
+            }
+            if (builder.isFriend == null) {
+                this.isFriend = DEFAULT_ISFRIEND;
+                return;
+            } else {
+                this.isFriend = builder.isFriend;
                 return;
             }
         }
@@ -141,6 +149,7 @@ public final class MsgInfo extends Message {
         this.link = builder.link;
         this.stat = builder.stat;
         this.taskId = builder.taskId;
+        this.isFriend = builder.isFriend;
     }
 
     /* loaded from: classes.dex */
@@ -149,6 +158,7 @@ public final class MsgInfo extends Message {
         public Integer createTime;
         public Integer duration;
         public Integer groupId;
+        public Integer isFriend;
         public String link;
         public Long msgId;
         public Integer msgType;
@@ -179,6 +189,7 @@ public final class MsgInfo extends Message {
                 this.link = msgInfo.link;
                 this.stat = msgInfo.stat;
                 this.taskId = msgInfo.taskId;
+                this.isFriend = msgInfo.isFriend;
             }
         }
 

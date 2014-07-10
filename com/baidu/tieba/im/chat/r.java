@@ -16,6 +16,6 @@ public class r implements View.OnClickListener {
         this.a.f();
         this.a.h();
         this.a.g();
-        this.a.S();
+        this.a.T();
     }
 }

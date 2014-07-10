@@ -1,24 +1,28 @@
 package com.baidu.tieba.pb.main;
 
+import android.content.Context;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements View.OnClickListener {
-    final /* synthetic */ az a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ com.baidu.tieba.data.ai d;
+public class bh implements View.OnClickListener {
+    final /* synthetic */ bc a;
+    private final /* synthetic */ com.baidu.tieba.data.ah b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(az azVar, int i, int i2, com.baidu.tieba.data.ai aiVar) {
-        this.a = azVar;
-        this.b = i;
-        this.c = i2;
-        this.d = aiVar;
+    public bh(bc bcVar, com.baidu.tieba.data.ah ahVar) {
+        this.a = bcVar;
+        this.b = ahVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.d.d(Math.min(this.b + 5, this.c));
-        this.a.notifyDataSetChanged();
+        Context context;
+        String f = this.b.f();
+        if (!com.baidu.tbadk.core.util.bm.c(f)) {
+            com.baidu.tbadk.i.a().b(this.b.d(), System.currentTimeMillis());
+            com.baidu.tbadk.core.util.bq a = com.baidu.tbadk.core.util.bq.a();
+            context = this.a.b;
+            a.a(context, new String[]{f});
+        }
     }
 }

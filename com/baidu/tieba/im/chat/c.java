@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.chat;
 
 import android.support.v4.view.ViewPager;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ViewPager.OnPageChangeListener {
@@ -30,25 +30,25 @@ public class c implements ViewPager.OnPageChangeListener {
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         long j;
-        ArrayList arrayList;
+        LinkedHashMap linkedHashMap;
         int i2;
-        ArrayList arrayList2;
+        LinkedHashMap linkedHashMap2;
         HashMap hashMap;
-        ArrayList arrayList3;
+        LinkedHashMap linkedHashMap3;
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.a.t;
+            j = this.a.u;
             if (nanoTime - j > 300000000) {
-                arrayList = this.a.b;
-                if (arrayList != null) {
+                linkedHashMap = this.a.b;
+                if (linkedHashMap != null) {
                     i2 = this.a.c;
-                    arrayList2 = this.a.b;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.a.u;
-                        arrayList3 = this.a.b;
+                    linkedHashMap2 = this.a.b;
+                    if (i2 < linkedHashMap2.size()) {
+                        hashMap = this.a.v;
+                        linkedHashMap3 = this.a.b;
                         i3 = this.a.c;
-                        hashMap.put((String) arrayList3.get(i3), true);
+                        hashMap.put((String) linkedHashMap3.get(Integer.valueOf(i3)), true);
                     }
                 }
             }

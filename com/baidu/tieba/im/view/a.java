@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.data.ChatRoomTopicData;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import com.baidu.tieba.z;
@@ -53,9 +52,9 @@ public class a extends Dialog implements View.OnClickListener {
         setContentView(w.chatterbox_dialog);
         this.g = this.c.getResources().getString(y.chat_default_tip);
         this.h = null;
-        this.b = (Button) findViewById(v.chatterbox_custom);
+        this.b = (Button) findViewById(com.baidu.tieba.v.chatterbox_custom);
         this.b.setOnClickListener(new b(this));
-        this.a = (LinearLayout) findViewById(v.chatterbox_layout);
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.v.chatterbox_layout);
         this.e = new e(this.c, z.NobackDialog);
     }
 

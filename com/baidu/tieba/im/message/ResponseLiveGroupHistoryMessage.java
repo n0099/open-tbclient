@@ -2,27 +2,20 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.data.h;
-import com.baidu.tieba.im.data.i;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import protobuf.QueryLiveGroupHistory.History;
 import protobuf.QueryLiveGroupHistory.QueryLiveGroupHistoryResIdl;
 /* loaded from: classes.dex */
 public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
-    private h liveGroupHistoryData;
+    private com.baidu.tieba.im.data.f liveGroupHistoryData;
 
     public ResponseLiveGroupHistoryMessage() {
-        super(MessageTypes.CMD_LIVE_GROUP_HISTORY);
+        super(107005);
     }
 
-    public h getLiveGroupHistoryData() {
+    public com.baidu.tieba.im.data.f getLiveGroupHistoryData() {
         return this.liveGroupHistoryData;
-    }
-
-    public void setLiveGroupHistoryData(h hVar) {
-        this.liveGroupHistoryData = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +27,7 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
             setError(queryLiveGroupHistoryResIdl.error.errorno.intValue());
             setErrorString(queryLiveGroupHistoryResIdl.error.usermsg);
             if (getError() == 0 && queryLiveGroupHistoryResIdl.data != null) {
-                this.liveGroupHistoryData = new h();
+                this.liveGroupHistoryData = new com.baidu.tieba.im.data.f();
                 this.liveGroupHistoryData.a(queryLiveGroupHistoryResIdl.data.hasMore.intValue());
                 LiveCardData liveCardData = new LiveCardData();
                 liveCardData.setAuthorId(queryLiveGroupHistoryResIdl.data.group.authorId.intValue());
@@ -62,15 +55,15 @@ public class ResponseLiveGroupHistoryMessage extends SocketResponsedMessage {
                     int i3 = i2;
                     if (i3 < queryLiveGroupHistoryResIdl.data.historys.size()) {
                         History history = queryLiveGroupHistoryResIdl.data.historys.get(i3);
-                        i iVar = new i();
-                        iVar.a(history.groupId.intValue());
-                        iVar.a(history.startTime.intValue());
-                        iVar.b(history.endTime.intValue());
-                        iVar.b(history.userId.intValue());
-                        iVar.c(history.listeners.intValue());
-                        iVar.d(history.likers.intValue());
-                        iVar.a(history.playUrl);
-                        this.liveGroupHistoryData.b().add(iVar);
+                        com.baidu.tieba.im.data.g gVar = new com.baidu.tieba.im.data.g();
+                        gVar.a(history.groupId.intValue());
+                        gVar.a(history.startTime.intValue());
+                        gVar.b(history.endTime.intValue());
+                        gVar.b(history.userId.intValue());
+                        gVar.c(history.listeners.intValue());
+                        gVar.d(history.likers.intValue());
+                        gVar.a(history.playUrl);
+                        this.liveGroupHistoryData.b().add(gVar);
                         i2 = i3 + 1;
                     } else {
                         return;

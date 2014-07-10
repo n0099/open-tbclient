@@ -1,149 +1,420 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.download.QueryDownloadMessage;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.compatible.menukey.MenuKeyUtils;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ao extends BdAsyncTask<Object, String, FacePackageDetailData> {
-    final /* synthetic */ an a;
-    private com.baidu.tbadk.core.util.an b;
-    private volatile boolean c;
+public class ao {
+    private int A;
+    private int B;
+    private boolean C;
+    private boolean D;
+    private final ScrollView E;
+    private int F;
+    private final TbImageView H;
+    private int I;
+    private int J;
+    private final BaseActivity a;
+    private final int b;
+    private final LinearLayout c;
+    private final NavigationBar d;
+    private final NoNetworkView e;
+    private final TbImageView f;
+    private final TextView g;
+    private TextView h;
+    private final TextView i;
+    private final TextView j;
+    private final TextView k;
+    private final TextView l;
+    private final FrameLayout m;
+    private final ImageView n;
+    private final ImageView o;
+    private final LinearLayout p;
+    private final int q;
+    private final int r;
+    private final int s;
+    private final GridView t;
+    private at u;
+    private final Handler v;
+    private final x w;
+    private GifView x;
+    private WindowManager y;
+    private WindowManager.LayoutParams z;
+    private int G = -1;
+    private final Runnable K = new ap(this);
 
-    private ao(an anVar) {
-        this.a = anVar;
-        this.c = false;
+    public ao(BaseActivity baseActivity) {
+        this.a = baseActivity;
+        baseActivity.setContentView(com.baidu.tieba.w.face_package_detail_activity);
+        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.v.face_package);
+        this.d = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.h = this.d.a("");
+        this.e = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.v.view_no_network);
+        this.p = (LinearLayout) this.c.findViewById(com.baidu.tieba.v.face_package_container);
+        this.f = (TbImageView) this.c.findViewById(com.baidu.tieba.v.face_package_cover);
+        this.g = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_title);
+        this.i = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_price);
+        this.j = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_status);
+        this.k = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_btn);
+        this.l = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_info);
+        this.t = (GridView) this.c.findViewById(com.baidu.tieba.v.face_package_faces);
+        this.H = (TbImageView) this.c.findViewById(com.baidu.tieba.v.face_package_title_tag);
+        this.t.setSelection(-1);
+        this.t.setOnItemLongClickListener(baseActivity);
+        this.m = (FrameLayout) this.c.findViewById(com.baidu.tieba.v.face_package_downloading);
+        this.n = (ImageView) this.c.findViewById(com.baidu.tieba.v.face_package_downloading_up);
+        this.o = (ImageView) this.c.findViewById(com.baidu.tieba.v.face_package_downloading_cancel);
+        this.b = TbadkApplication.m252getInst().getSkinType();
+        this.I = baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_cover_width);
+        this.J = baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_cover_height);
+        this.v = new Handler();
+        this.k.setOnClickListener(baseActivity);
+        this.o.setOnClickListener(baseActivity);
+        Bitmap a = com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.bg_content_buy_bar_down);
+        Bitmap a2 = com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.bg_content_buy_bar_up);
+        this.r = a.getWidth();
+        this.q = a2.getWidth();
+        this.s = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_page_padding);
+        this.w = new x(baseActivity, com.baidu.tieba.z.common_alert_dialog);
+        this.E = (ScrollView) this.c.findViewById(com.baidu.tieba.v.container_scrollview);
+        a(baseActivity);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ao(an anVar, ao aoVar) {
-        this(anVar);
+    private void a(Context context) {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        this.x = new GifView(context);
+        if (skinType == 1) {
+            this.x.setBackgroundResource(com.baidu.tieba.u.bg_expression_bubble_1);
+        } else {
+            this.x.setBackgroundResource(com.baidu.tieba.u.bg_expression_bubble);
+        }
+        this.x.setVisibility(8);
+        this.y = (WindowManager) context.getSystemService("window");
+        this.z = new WindowManager.LayoutParams();
+        this.A = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.face_tab_content_float_width);
+        this.B = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.face_tab_content_float_height);
+        this.z.width = this.A;
+        this.z.height = this.B;
+        this.z.gravity = 51;
+        this.z.format = -3;
+        this.z.type = 1000;
+        this.z.flags |= 56;
+        this.F = com.baidu.adp.lib.util.j.a((Activity) context);
+        if (MenuKeyUtils.hasSmartBar()) {
+            this.z.type = 1000;
+            this.z.flags = 25165832;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public FacePackageDetailData doInBackground(Object... objArr) {
-        FacePackageDetailData facePackageDetailData;
-        Exception e;
-        String str;
-        String str2;
-        int i;
-        int i2;
-        float f;
-        String str3;
-        String str4;
-        GsonBuilder gsonBuilder;
-        String str5;
-        try {
-            str = this.a.d;
-            if (str != null) {
-                str2 = this.a.d;
-                if (str2.length() > 0 && !this.c) {
-                    com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
-                    if (B != null) {
-                        StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-                        str5 = this.a.d;
-                        String a = B.a(sb.append(str5).toString());
-                        if (!com.baidu.tbadk.core.util.bg.c(a)) {
-                            publishProgress(a);
-                        }
-                    }
-                    this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getfacelist");
-                    com.baidu.tbadk.core.util.an anVar = this.b;
-                    i = this.a.j;
-                    anVar.a("scr_w", String.valueOf(i));
-                    com.baidu.tbadk.core.util.an anVar2 = this.b;
-                    i2 = this.a.k;
-                    anVar2.a("scr_h", String.valueOf(i2));
-                    com.baidu.tbadk.core.util.an anVar3 = this.b;
-                    f = this.a.l;
-                    anVar3.a("scr_dip", String.valueOf(f));
-                    com.baidu.tbadk.core.util.an anVar4 = this.b;
-                    str3 = this.a.d;
-                    anVar4.a("pid", str3);
-                    com.baidu.tbadk.core.util.an anVar5 = this.b;
-                    str4 = this.a.c;
-                    anVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
-                    String i3 = this.b.i();
-                    gsonBuilder = this.a.g;
-                    facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(i3, (Class<Object>) FacePackageDetailData.class);
-                    if (facePackageDetailData != null) {
-                        try {
-                            if (facePackageDetailData.facePackage != null) {
-                                a(i3);
-                                return facePackageDetailData;
-                            }
-                            return facePackageDetailData;
-                        } catch (Exception e2) {
-                            e = e2;
-                            BdLog.e(getClass().getName(), "doInBackground", e.toString());
-                            return facePackageDetailData;
-                        }
-                    }
-                    return facePackageDetailData;
-                }
+    public void a(am amVar) {
+        if (amVar != null) {
+            b(amVar);
+        }
+    }
+
+    private void b(FacePackageData facePackageData) {
+        if (facePackageData != null && facePackageData.faceList != null) {
+            this.t.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.util.j.b(this.a) - (this.s * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
+        }
+    }
+
+    public void a(String str) {
+        if (str != null && str.length() > 0) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(str);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new QueryDownloadMessage(linkedList));
+        }
+    }
+
+    public void a(FacePackageData facePackageData) {
+        if (facePackageData != null) {
+            if (this.u == null) {
+                this.u = new at(this.a, facePackageData.faceList);
+                this.t.setAdapter((ListAdapter) this.u);
+                return;
             }
-            return null;
-        } catch (Exception e3) {
-            facePackageDetailData = null;
-            e = e3;
+            this.u.a(facePackageData.faceList);
+            this.u.notifyDataSetChanged();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(FacePackageDetailData facePackageDetailData) {
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        super.onPostExecute(facePackageDetailData);
-        this.a.i = null;
-        if (facePackageDetailData != null) {
-            this.a.h = facePackageDetailData;
-        }
-        loadDataCallBack = this.a.m;
-        loadDataCallBack.callback(facePackageDetailData, false);
-    }
-
-    private void a(String str) {
-        String str2;
-        com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
-        if (B != null) {
-            StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-            str2 = this.a.d;
-            B.a(sb.append(str2).toString(), str, 604800000L);
+    public void b(am amVar) {
+        FacePackageData facePackageData;
+        if (amVar != null && amVar.a() != null && (facePackageData = amVar.a().facePackage) != null) {
+            if (amVar.c()) {
+                facePackageData.downloading = 1;
+            } else {
+                facePackageData.downloading = 0;
+            }
+            this.p.setVisibility(0);
+            this.f.setTag(facePackageData.coverUrl);
+            this.g.setText(facePackageData.pname);
+            this.H.setTag(facePackageData.tagUrl);
+            this.i.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.y.price_tip)) + facePackageData.price);
+            this.l.setText(facePackageData.pdesc);
+            this.h.setText(facePackageData.pname);
+            b(facePackageData);
+            a(amVar.e());
+            a(facePackageData);
+            o();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(String... strArr) {
-        GsonBuilder gsonBuilder;
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        String str = strArr[0];
-        gsonBuilder = this.a.g;
-        FacePackageDetailData facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(str, (Class<Object>) FacePackageDetailData.class);
-        this.a.h = facePackageDetailData;
-        loadDataCallBack = this.a.m;
-        loadDataCallBack.callback(facePackageDetailData, true);
-        super.onProgressUpdate(strArr);
+    private void o() {
+        if (this.v != null) {
+            this.v.removeCallbacks(this.K);
+            this.v.postDelayed(this.K, 90L);
+        }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.c = true;
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
+    public void a() {
+        if (this.f != null) {
+            this.f.a(this.f.getTag().toString(), 10, this.I, this.J, false);
+            String obj = this.H.getTag().toString();
+            this.H.setVisibility(8);
+            this.H.setEvent(new aq(this));
+            this.H.a(obj, 10, this.I, this.J, false);
         }
-        this.a.i = null;
+    }
+
+    public void a(com.baidu.tbadk.core.view.m mVar) {
+        this.e.a(mVar);
+    }
+
+    public void b(com.baidu.tbadk.core.view.m mVar) {
+        this.e.b(mVar);
+    }
+
+    public void c(am amVar) {
+        if (amVar != null && amVar.a() != null && amVar.a().facePackage != null) {
+            FacePackageData facePackageData = amVar.a().facePackage;
+            if (facePackageData.buyStatus == 1) {
+                this.j.setText(this.a.getResources().getString(com.baidu.tieba.y.has_buy));
+                this.j.setVisibility(0);
+            } else {
+                this.j.setVisibility(8);
+            }
+            switch (amVar.d()) {
+                case 1:
+                    b();
+                    return;
+                case 2:
+                case 3:
+                    d();
+                    return;
+                case 4:
+                    c();
+                    return;
+                case 5:
+                    a(facePackageData.downloadTotal, facePackageData.downloadNow);
+                    return;
+                case 6:
+                    p();
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    public void b() {
+        this.k.setVisibility(0);
+        this.m.setVisibility(8);
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.downloaded));
+        if (this.b == 1) {
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d_1);
+            return;
+        }
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d);
+    }
+
+    public void a(long j, long j2) {
+        this.k.setVisibility(8);
+        this.m.setVisibility(0);
+        int i = (int) ((((float) j2) / ((float) j)) * this.r);
+        int i2 = i < this.q ? this.q : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.n.getLayoutParams();
+        layoutParams.width = i2;
+        this.n.setLayoutParams(layoutParams);
+    }
+
+    public void c() {
+        this.k.setVisibility(0);
+        this.m.setVisibility(8);
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.buy_package));
+        if (this.b == 1) {
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector_1);
+        } else {
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector);
+        }
+    }
+
+    public void d() {
+        this.k.setVisibility(0);
+        this.m.setVisibility(8);
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.can_download));
+        if (this.b == 1) {
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_package_btn_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector_1);
+            return;
+        }
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_package_btn_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector);
+    }
+
+    private void p() {
+        this.k.setVisibility(0);
+        this.m.setVisibility(8);
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.off_the_shelf));
+        if (this.b == 1) {
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d_1);
+            return;
+        }
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d);
+    }
+
+    public void e() {
+        if (this.w != null) {
+            this.w.a();
+            this.w.show();
+        }
+    }
+
+    public void f() {
+        if (this.w != null) {
+            this.w.b();
+        }
+    }
+
+    public void g() {
+        if (this.w != null) {
+            this.w.dismiss();
+        }
+    }
+
+    public void a(int i) {
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a((View) this.c);
+        if (this.d != null) {
+            this.d.c(i);
+        }
+        if (this.e != null) {
+            this.e.a(i);
+        }
+    }
+
+    public void h() {
+        if (this.e != null && this.e.getVisibility() == 0 && UtilHelper.isNetOk()) {
+            this.e.a(false);
+        }
+    }
+
+    public TextView i() {
+        return this.k;
+    }
+
+    public ImageView j() {
+        return this.o;
+    }
+
+    public void a(int i, Rect rect, FacePackageData facePackageData) {
+        if (i != this.G && facePackageData.faceDynamicList != null && i >= 0 && i <= facePackageData.faceDynamicList.size()) {
+            if (this.G != -1) {
+                a(this.G, false);
+            }
+            this.G = i;
+            this.t.setSelection(i);
+            a(i, true);
+            this.D = true;
+            this.x.setVisibility(0);
+            String str = "#(" + facePackageData.faceNameList.get(i) + ")";
+            this.x.setTag(str);
+            if (com.baidu.tbadk.editortool.aa.c()) {
+                com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
+                aVar.e = new StringBuilder(String.valueOf(facePackageData.pid)).toString();
+                aVar.b = str;
+                aVar.g = this.J;
+                aVar.f = this.I;
+                aVar.d = facePackageData.faceDynamicList.get(i);
+                this.x.a(aVar);
+            } else {
+                com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
+                aVar2.e = new StringBuilder(String.valueOf(facePackageData.pid)).toString();
+                aVar2.g = this.J;
+                aVar2.f = this.I;
+                aVar2.b = str;
+                aVar2.c = facePackageData.faceList.get(i);
+                this.x.a(aVar2);
+            }
+            this.z.x = rect.left - ((this.A - rect.width()) / 2);
+            this.z.y = rect.top - this.z.height;
+            if (this.z.y < this.F) {
+                this.E.scrollBy(0, this.z.y - this.F);
+                this.z.y = this.F;
+            }
+            this.z.y += this.t.getChildAt(i - this.t.getFirstVisiblePosition()).getPaddingTop();
+            if (!this.C) {
+                this.y.addView(this.x, this.z);
+                this.C = true;
+                return;
+            }
+            this.y.updateViewLayout(this.x, this.z);
+        }
+    }
+
+    public boolean k() {
+        return this.D;
+    }
+
+    public void l() {
+        this.D = false;
+        this.x.setVisibility(8);
+        this.t.setSelection(-1);
+        a(this.G, false);
+        this.G = -1;
+    }
+
+    private void a(int i, boolean z) {
+        ((ViewGroup) this.t.getChildAt(i - this.t.getFirstVisiblePosition())).getChildAt(0).setSelected(z);
+    }
+
+    public void m() {
+        this.D = false;
+        if (this.C) {
+            this.C = false;
+            this.y.removeView(this.x);
+        }
+    }
+
+    public GridView n() {
+        return this.t;
     }
 }

@@ -18,11 +18,11 @@ public class i implements View.OnTouchListener {
             this.a.d.setCursorVisible(true);
             this.a.g();
         } else if (motionEvent.getAction() == 0) {
-            this.a.V();
+            this.a.W();
             if (this.a.e.getVisibility() == 0) {
                 this.a.h();
                 this.a.i();
-                this.a.U();
+                this.a.V();
                 return true;
             }
         }

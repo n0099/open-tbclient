@@ -20,7 +20,7 @@ public class a extends DiskFileOperate {
         return this.g != null;
     }
 
-    public NSGif s() {
+    public NSGif u() {
         return this.g;
     }
 }

@@ -10,23 +10,26 @@ class h implements e {
 
     @Override // com.baidu.tieba.signall.e
     public void a(a aVar) {
-        y yVar;
-        y yVar2;
-        yVar = this.a.a;
-        yVar.b();
-        com.baidu.tieba.home.s k = aVar.k();
+        x xVar;
+        x xVar2;
+        xVar = this.a.a;
+        xVar.b();
+        com.baidu.tieba.home.r k = aVar.k();
         if (k != null && k.a() == 0) {
-            yVar2 = this.a.a;
-            yVar2.a(aVar);
+            xVar2 = this.a.a;
+            xVar2.a(aVar);
             return;
         }
-        this.a.showToast(k.b());
+        this.a.showToast(k.b(), false);
         this.a.finish();
     }
 
     @Override // com.baidu.tieba.signall.e
     public void a(String str) {
-        this.a.showToast(str);
+        x xVar;
+        xVar = this.a.a;
+        xVar.b();
+        this.a.showToast(str, false);
         this.a.finish();
     }
 }

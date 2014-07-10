@@ -20,6 +20,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
     private String groupId;
     public boolean hasRepeat;
     private int height;
+    private int isFriend;
     private boolean isGifLoadSuccess;
     private boolean isUploading;
     private String link;
@@ -290,8 +291,12 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
         this.logTime = j;
     }
 
-    public String toString() {
-        return "ChatMessage{msgType=" + this.msgType + ", objContent=" + this.objContent + ", content='" + this.content + "', recordId=" + this.recordId + ", msgId=" + this.msgId + ", time=" + this.time + ", width=" + this.width + ", height=" + this.height + ", userId=" + this.userId + ", userInfo=" + this.userInfo + ", toUserInfo=" + this.toUserInfo + ", localData=" + this.localData + ", cacheData=" + this.cacheData + ", progressValue=" + this.progressValue + ", mToUserId=" + this.mToUserId + ", isGifLoadSuccess=" + this.isGifLoadSuccess + ", isUploading=" + this.isUploading + ", logTime=" + this.logTime + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
     }
 
     @Override // com.baidu.adp.framework.client.socket.a

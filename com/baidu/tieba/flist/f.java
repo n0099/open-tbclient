@@ -3,7 +3,6 @@ package com.baidu.tieba.flist;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
 class f implements u {
@@ -26,11 +25,11 @@ class f implements u {
         int i4;
         r rVar;
         r rVar2;
-        com.baidu.tieba.model.af afVar;
+        com.baidu.tieba.model.ae aeVar;
         r rVar3;
         r rVar4;
         r rVar5;
-        com.baidu.tieba.model.af afVar2;
+        com.baidu.tieba.model.ae aeVar2;
         r rVar6;
         Handler handler;
         Runnable runnable;
@@ -40,11 +39,9 @@ class f implements u {
         int i6;
         r rVar7;
         ForumListModel.RequestParams requestParams5;
-        BdLog.d("ForunListActivity", "ForumListDetailCallBack", "callback start");
         if (!z) {
             rVar7 = this.a.D;
             if (rVar7.a() == null) {
-                BdLog.d("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
                 this.a.showToast(str);
                 this.a.c.d();
                 this.a.c.c();
@@ -57,7 +54,6 @@ class f implements u {
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            BdLog.d("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
             requestParams = this.a.A;
             if (requestParams.menu_type == 2 && !z2) {
                 this.a.showToast(this.a.getString(com.baidu.tieba.y.no_forum_data));
@@ -101,8 +97,8 @@ class f implements u {
         rVar = this.a.D;
         rVar.a(min);
         rVar2 = this.a.D;
-        afVar = this.a.q;
-        rVar2.a(afVar);
+        aeVar = this.a.q;
+        rVar2.a(aeVar);
         rVar3 = this.a.D;
         rVar3.a(this.a.a.forum_list);
         this.a.c.i.setSelection(1);
@@ -115,8 +111,8 @@ class f implements u {
         rVar4 = this.a.E;
         rVar4.a(min2);
         rVar5 = this.a.E;
-        afVar2 = this.a.q;
-        rVar5.a(afVar2);
+        aeVar2 = this.a.q;
+        rVar5.a(aeVar2);
         rVar6 = this.a.E;
         rVar6.a(this.a.b.forum_list);
         this.a.c.j.setSelection(1);

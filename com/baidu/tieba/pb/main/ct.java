@@ -1,17 +1,25 @@
 package com.baidu.tieba.pb.main;
 
+import android.util.SparseArray;
 import android.view.View;
 /* loaded from: classes.dex */
 class ct implements View.OnClickListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(bq bqVar) {
-        this.a = bqVar;
+    public ct(bt btVar) {
+        this.a = btVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.m();
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.v.tag_del_post_id))) {
+                this.a.a(view);
+            } else {
+                this.a.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
+            }
+        }
     }
 }

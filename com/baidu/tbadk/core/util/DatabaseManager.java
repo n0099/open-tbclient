@@ -35,11 +35,10 @@ public class DatabaseManager {
         if (th != null) {
             TiebaStatic.printDBExceptionLog(th, str, new Object[0]);
             if ((th instanceof SQLiteException) && (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException)) {
-                BdLog.w("database corrupted.  recreate!");
                 try {
                     s.a(TbadkApplication.m252getInst().getApp());
                 } catch (Throwable th2) {
-                    BdLog.e("failed to drop database. msg:" + th2.getMessage());
+                    th2.printStackTrace();
                 }
                 a = null;
             }
@@ -54,7 +53,7 @@ public class DatabaseManager {
                     a = new s(TbadkApplication.m252getInst().getApp()).getWritableDatabase();
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "DatabaseService", new Object[0]);
-                    BdLog.e("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                    BdLog.e(e.getMessage());
                 }
             }
         }
@@ -79,7 +78,7 @@ public class DatabaseManager {
                         }
                     } catch (Exception e) {
                         TiebaStatic.printDBExceptionLog(e, "DatabaseService", new Object[0]);
-                        BdLog.e("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                        BdLog.e(e.getMessage());
                     }
                 }
             }
@@ -98,7 +97,7 @@ public class DatabaseManager {
                 return true;
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "ExecSQL", String.valueOf(str) + "   error = " + e.getMessage());
+            BdLog.e(e.getMessage());
             throw e;
         }
     }
@@ -117,8 +116,7 @@ public class DatabaseManager {
             }
             return true;
         } catch (Exception e) {
-            BdLog.e("DatabaseService", "ExecSQL", "error = " + e.getMessage());
-            BdLog.e("DatabaseService", "ExecSQL", str);
+            BdLog.e(String.valueOf(str) + e.getMessage());
             throw e;
         }
     }
@@ -133,7 +131,7 @@ public class DatabaseManager {
             }
             return a.rawQuery(str, strArr);
         } catch (Exception e) {
-            BdLog.e("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
+            BdLog.e(String.valueOf(e.getMessage()) + str);
             throw e;
         }
     }
@@ -145,7 +143,7 @@ public class DatabaseManager {
             } catch (Exception e) {
             }
             try {
-                x.j(TbConfig.TMP_DATABASE_NAME);
+                z.j(TbConfig.TMP_DATABASE_NAME);
             } catch (Exception e2) {
             }
             b = null;
@@ -161,7 +159,7 @@ public class DatabaseManager {
             try {
                 context.deleteDatabase(TbConfig.PHONE_DATEBASE_NAME);
             } catch (Exception e2) {
-                BdLog.e("DatabaseService", "deletDatebase", "error = " + e2.getMessage());
+                BdLog.e(e2.getMessage());
             }
             a = null;
         }

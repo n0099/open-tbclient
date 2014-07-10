@@ -1,27 +1,56 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends CustomMessageListener {
+public class s extends BdAsyncTask<List<String>, Integer, Boolean> {
     final /* synthetic */ EmotionManageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(EmotionManageActivity emotionManageActivity, int i) {
-        super(i);
+    private s(EmotionManageActivity emotionManageActivity) {
         this.a = emotionManageActivity;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(EmotionManageActivity emotionManageActivity, s sVar) {
+        this(emotionManageActivity);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        w wVar;
-        if (customResponsedMessage.getCmd() == 2003120) {
-            this.a.c = new w(this.a, null);
-            wVar = this.a.c;
-            wVar.execute(new String[0]);
+    public Boolean doInBackground(List<String>... listArr) {
+        List<String> list = listArr[0];
+        if (list == null || list.isEmpty()) {
+            return false;
+        }
+        int i = 0;
+        for (String str : list) {
+            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+            myEmotionGroupData.setGroupId(str);
+            myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
+            if (d.a().a(myEmotionGroupData)) {
+                i++;
+            }
+        }
+        if (i > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        super.onPostExecute(bool);
+        if (bool.booleanValue()) {
+            com.baidu.tbadk.editortool.ab.a().b();
+            this.a.p = true;
+            this.a.a(true);
         }
     }
 }

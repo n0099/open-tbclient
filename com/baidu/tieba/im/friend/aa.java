@@ -1,33 +1,32 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bt;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.TbCheckBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements bt {
-    final /* synthetic */ z a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+public class aa implements l {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = zVar;
-        this.b = str;
-        this.c = aVar;
+    public aa(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if ((view instanceof ImageView) && view.getTag() != null) {
-            Object tag = view.getTag();
-            if (tag instanceof com.baidu.tieba.im.data.e) {
-                ImageView imageView = (ImageView) view;
-                com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) tag;
-                if (this.b != null && this.b.equals(eVar.c())) {
-                    this.c.a(imageView);
-                }
+    @Override // com.baidu.tieba.im.friend.l
+    public void a(View view, Object obj) {
+        BdListView bdListView;
+        if (obj != null) {
+            if (obj instanceof com.baidu.tbadk.core.view.p) {
+                ((com.baidu.tbadk.core.view.p) obj).setChecked(false);
+            }
+            bdListView = this.a.e;
+            View findViewWithTag = bdListView.findViewWithTag(obj);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
+                ((TbCheckBox) findViewWithTag).setChecked(false);
+            } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.b) {
+                this.a.b((com.baidu.tbadk.coreExtra.relationship.b) obj);
             }
         }
-        return false;
     }
 }

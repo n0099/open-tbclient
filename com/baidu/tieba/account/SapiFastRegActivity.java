@@ -6,16 +6,16 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bi;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity {
-    private com.baidu.tbadk.coreExtra.view.q a = null;
+    private com.baidu.tbadk.coreExtra.view.s a = null;
     private String b = null;
     private final com.baidu.tbadk.core.account.g c = new aa(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(aw.class, SapiFastRegActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bi.class, SapiFastRegActivity.class);
     }
 
     public static void a(Activity activity, int i) {
@@ -41,7 +41,7 @@ public class SapiFastRegActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountData accountData) {
         if (this.a == null) {
-            this.a = new com.baidu.tbadk.coreExtra.view.q(this);
+            this.a = new com.baidu.tbadk.coreExtra.view.s(this);
             this.a.a(new ad(this));
         }
         this.a.e();

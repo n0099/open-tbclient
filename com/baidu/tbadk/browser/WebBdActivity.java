@@ -22,7 +22,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.k.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
+            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
@@ -83,7 +83,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
             this.c.setCallback(new r(this));
             this.c.onCreate(bundle);
         } catch (Throwable th) {
-            BdLog.e("Exception: " + th.getMessage());
+            BdLog.e(th.getMessage());
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
         }
@@ -122,16 +122,20 @@ public class WebBdActivity extends BaseActivity implements Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.c != null) {
-            this.c.onResume();
+            try {
+                this.c.onResume();
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         if (this.c != null) {

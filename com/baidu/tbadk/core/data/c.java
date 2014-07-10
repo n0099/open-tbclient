@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.App;
-import tbclient.FrsPage.BannerList;
+import tbclient.App;
+import tbclient.BannerList;
 /* loaded from: classes.dex */
 public class c {
     private ArrayList<b> a = new ArrayList<>();
@@ -27,7 +27,7 @@ public class c {
                     }
                 }
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

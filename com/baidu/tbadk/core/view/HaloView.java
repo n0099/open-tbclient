@@ -55,10 +55,10 @@ public class HaloView extends View {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
         if (!this.d) {
-            int c = com.baidu.adp.lib.util.k.c(this.c, com.baidu.tieba.t.ds70);
-            int c2 = com.baidu.adp.lib.util.k.c(this.c, com.baidu.tieba.t.ds90);
-            int c3 = com.baidu.adp.lib.util.k.c(this.c, com.baidu.tieba.t.ds30);
-            int c4 = com.baidu.adp.lib.util.k.c(this.c, com.baidu.tieba.t.ds60);
+            int c = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.t.ds70);
+            int c2 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.t.ds90);
+            int c3 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.t.ds30);
+            int c4 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.t.ds60);
             if (this.e >= 1) {
                 this.b.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.b.setStrokeWidth(c3);
@@ -75,7 +75,7 @@ public class HaloView extends View {
                 canvas.drawCircle(width, height, c + c3, this.b);
             }
         } else {
-            int c5 = com.baidu.adp.lib.util.k.c(this.c, com.baidu.tieba.t.ds120);
+            int c5 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.t.ds120);
             this.b.setARGB(102, 0, 0, 0);
             this.b.setStrokeWidth(c5);
             canvas.drawCircle(width, height, c5, this.b);

@@ -5,7 +5,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import java.io.File;
@@ -17,8 +16,8 @@ public class g {
     private j b;
     private List<String> c;
     private int d = 5;
-    private CustomMessageListener e = new h(this, MessageTypes.CMD_CANCEL_FILE_DOWNLOAD);
-    private CustomMessageListener f = new i(this, MessageTypes.CMD_QEURY_FILE_DOWNLOAD);
+    private CustomMessageListener e = new h(this, 2001144);
+    private CustomMessageListener f = new i(this, 2001123);
 
     private g() {
         MessageManager.getInstance().registerListener(this.f);
@@ -36,7 +35,7 @@ public class g {
     }
 
     public void a(String str, String str2, String str3) {
-        if (!com.baidu.tbadk.core.util.bg.c(str) && !com.baidu.tbadk.core.util.bg.c(str3)) {
+        if (!com.baidu.tbadk.core.util.bm.c(str) && !com.baidu.tbadk.core.util.bm.c(str3)) {
             DownloadData downloadData = new DownloadData(str, str2, str3, new f());
             downloadData.setStatusMsg(TbadkApplication.getCurrentAccount());
             downloadData.setType(11);
@@ -67,8 +66,8 @@ public class g {
                 downloadData.setStatus(2);
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(com.baidu.tbadk.core.util.x.d());
-            sb.append(com.baidu.tbadk.core.util.x.a(2));
+            sb.append(com.baidu.tbadk.core.util.z.d());
+            sb.append(com.baidu.tbadk.core.util.z.a(2));
             File file = new File(sb.toString());
             if (!file.exists()) {
                 file.mkdirs();

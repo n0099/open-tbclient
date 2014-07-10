@@ -4,67 +4,104 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
-    private int a = 0;
-    private int b = 0;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
+    private int a;
+    private int b;
+    private int c;
+    private int d;
+    private String e;
+    private int f;
+    private int g;
+    private String h;
 
-    public void a(int i) {
-        this.a = i;
+    public ab() {
+        b(0);
+        c(0);
+        d(0);
+        this.d = 0;
+        c("");
+        e(0);
+        f(0);
     }
 
-    public int a() {
-        return this.a;
-    }
-
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public void c(int i) {
-        this.c = i;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public void d(int i) {
-        this.d = i;
-    }
-
-    public int e() {
-        return this.e;
+    public String a() {
+        return this.h;
     }
 
     public void a(String str) {
+        this.h = str;
+    }
+
+    public int b() {
+        return this.d;
+    }
+
+    public void a(int i) {
+        if (i >= 0) {
+            this.d = i;
+        }
+    }
+
+    public void b(String str) {
         try {
-            a(new JSONObject(str).optJSONObject("message"));
+            a(new JSONObject(str).optJSONObject("info"));
         } catch (Exception e) {
-            BdLog.e("MessageData", "parserJson", "error = " + e.getMessage());
+            BdLog.detailException(e);
         }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("replyme", 0);
-                this.b = jSONObject.optInt("atme", 0);
-                this.c = jSONObject.optInt("fans", 0);
-                this.d = jSONObject.optInt("pletter", 0);
-                this.e = jSONObject.optInt("bookmark", 0);
+                b(jSONObject.optInt("is_like", 0));
+                c(jSONObject.optInt("is_black", 0));
+                d(jSONObject.optInt("like_num", 0));
+                this.d = jSONObject.optInt("level_id", 0);
+                c(jSONObject.optString("level_name", ""));
+                f(jSONObject.optInt("levelup_score", 0));
+                e(jSONObject.optInt("cur_score", 0));
             } catch (Exception e) {
-                BdLog.e("MessageData", "parserJson", "error = " + e.getMessage());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public void b(int i) {
+        this.a = i;
+    }
+
+    public int c() {
+        return this.a;
+    }
+
+    public void c(int i) {
+        this.b = i;
+    }
+
+    public void d(int i) {
+        this.c = i;
+    }
+
+    public void c(String str) {
+        this.e = str;
+    }
+
+    public String d() {
+        return this.e;
+    }
+
+    public void e(int i) {
+        this.f = i;
+    }
+
+    public int e() {
+        return this.f;
+    }
+
+    public void f(int i) {
+        this.g = i;
+    }
+
+    public int f() {
+        return this.g;
     }
 }

@@ -2,9 +2,7 @@ package com.baidu.tieba.im.chat.snapGroup;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e.s;
@@ -31,18 +29,15 @@ class b extends com.baidu.adp.framework.listener.b {
         boolean z;
         int i;
         int i2;
-        int i3;
         com.baidu.tieba.im.chat.g gVar;
         switch (socketResponsedMessage.getCmd()) {
-            case MessageTypes.CMD_QUERY_CHAT_ROOM_INFO /* 106001 */:
-                if (socketResponsedMessage instanceof ResponseChatRoomInfoMessage) {
-                    ResponseChatRoomInfoMessage responseChatRoomInfoMessage = (ResponseChatRoomInfoMessage) socketResponsedMessage;
-                    BdLog.d(responseChatRoomInfoMessage.toString());
-                    this.a.a(s.a(responseChatRoomInfoMessage.getUserList()));
+            case 106001:
+                if (!(socketResponsedMessage instanceof ResponseChatRoomInfoMessage)) {
                     return;
                 }
+                this.a.a(s.a(((ResponseChatRoomInfoMessage) socketResponsedMessage).getUserList()));
                 return;
-            case MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM /* 106101 */:
+            case 106101:
                 this.a.closeLoadingDialog();
                 if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
                     this.a.showToast(y.neterror);
@@ -64,7 +59,7 @@ class b extends com.baidu.adp.framework.listener.b {
                 if (randChatRoomData != null && randChatRoomData.e() > 0) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-                    imMessageCenterPojo.setPulled_msgId(bv.b(randChatRoomData.k()));
+                    imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
                     imMessageCenterPojo.setCustomGroupType(3);
                     imMessageCenterPojo.setGroup_name("聊天室");
                     imMessageCenterPojo.setIs_delete(0);
@@ -73,23 +68,20 @@ class b extends com.baidu.adp.framework.listener.b {
                     z = this.a.u;
                     if (!z) {
                         SnapGroupChatActivity snapGroupChatActivity = this.a;
-                        i3 = snapGroupChatActivity.s;
-                        snapGroupChatActivity.s = i3 + 1;
+                        i2 = snapGroupChatActivity.s;
+                        snapGroupChatActivity.s = i2 + 1;
                     }
-                    StringBuilder sb = new StringBuilder("restart time = ");
-                    i = this.a.s;
-                    BdLog.d("simon", "onMessage", sb.append(i).toString());
                     SnapGroupChatActivity snapGroupChatActivity2 = this.a;
-                    i2 = this.a.s;
-                    WaittingActivity.a(snapGroupChatActivity2, randChatRoomData, i2);
+                    i = this.a.s;
+                    WaittingActivity.a(snapGroupChatActivity2, randChatRoomData, i);
                     this.a.finish();
                     return;
                 }
                 return;
-            case MessageTypes.CMD_QUIT_CHAT_ROOM /* 106102 */:
+            case 106102:
                 if (socketResponsedMessage instanceof ResponseQuitChatRoomMessage) {
                     gVar = this.a.d;
-                    gVar.Q();
+                    gVar.R();
                     return;
                 }
                 return;

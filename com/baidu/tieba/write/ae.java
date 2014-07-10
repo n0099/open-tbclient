@@ -1,117 +1,44 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
+import android.app.TimePickerDialog;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Date;
 /* loaded from: classes.dex */
-public class ae extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tbadk.core.util.an a;
-    com.baidu.tbadk.coreExtra.data.f b;
-    final /* synthetic */ VcodeActivity c;
-    private volatile boolean d;
-
-    private ae(VcodeActivity vcodeActivity) {
-        this.c = vcodeActivity;
-        this.a = null;
-        this.b = null;
-        this.d = false;
-    }
+class ae implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(VcodeActivity vcodeActivity, ae aeVar) {
-        this(vcodeActivity);
+    public ae(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.c.h = null;
-        if (this.a != null) {
-            this.a.g();
-        }
-        this.d = true;
-        progressBar = this.c.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(String... strArr) {
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
         WriteData writeData;
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
+        TextView textView;
         WriteData writeData5;
         WriteData writeData6;
-        String str = strArr[0];
-        if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.an anVar = this.a;
-            writeData = this.c.b;
-            anVar.a("fid", writeData.getForumId());
-            com.baidu.tbadk.core.util.an anVar2 = this.a;
-            writeData2 = this.c.b;
-            anVar2.a("kw", writeData2.getForumName());
-            this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            com.baidu.tbadk.core.util.an anVar3 = this.a;
-            writeData3 = this.c.b;
-            anVar3.a("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.an anVar4 = this.a;
-            writeData4 = this.c.b;
-            anVar4.a("content", writeData4.getContent());
-            writeData5 = this.c.b;
-            if (writeData5.getType() == 0) {
-                this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            } else {
-                this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                com.baidu.tbadk.core.util.an anVar5 = this.a;
-                writeData6 = this.c.b;
-                anVar5.a("tid", writeData6.getThreadId());
+        writeData = this.a.a;
+        if (writeData.getLiveCardData() != null) {
+            Date date = new Date();
+            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
+            writeData2 = this.a.a;
+            long startTime = writeData2.getLiveCardData().getStartTime();
+            writeData3 = this.a.a;
+            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
+            writeData4 = this.a.a;
+            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
+                writeData6 = this.a.a;
+                writeData6.getLiveCardData().setModifyTime(true);
             }
-            String i = this.a.i();
-            if (!this.a.a().b().b()) {
-                return null;
-            }
-            this.b = new com.baidu.tbadk.coreExtra.data.f();
-            this.b.a(i);
-            str = this.b.b();
+            textView = this.a.T;
+            writeData5 = this.a.a;
+            textView.setText(com.baidu.tbadk.core.util.bm.b(writeData5.getLiveCardData().getStartTime() * 1000));
         }
-        if (this.d) {
-            return null;
-        }
-        this.a = new com.baidu.tbadk.core.util.an(str);
-        return com.baidu.tbadk.core.util.g.a(this.a.h());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        ProgressBar progressBar;
-        WriteData writeData;
-        WriteData writeData2;
-        ImageView imageView;
-        this.c.h = null;
-        if (bitmap != null) {
-            imageView = this.c.d;
-            imageView.setImageBitmap(bitmap);
-        }
-        progressBar = this.c.f;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            writeData = this.c.b;
-            writeData.setVcodeMD5(this.b.a());
-            writeData2 = this.c.b;
-            writeData2.setVcodeUrl(this.b.b());
-        }
-        super.onPostExecute(bitmap);
     }
 }

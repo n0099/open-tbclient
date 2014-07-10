@@ -1,28 +1,36 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class co implements com.baidu.tbadk.imageManager.d {
+public class co extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FrsImageActivity a;
+    private final String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public co(FrsImageActivity frsImageActivity) {
+    public co(FrsImageActivity frsImageActivity, String str) {
         this.a = frsImageActivity;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        cq cqVar;
-        try {
-            cqVar = this.a.o;
-            View findViewWithTag = cqVar.l().a(2).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "imageLoaded", e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        boolean b;
+        b = this.a.b(this.b);
+        return Boolean.valueOf(b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.a.showToast(com.baidu.tieba.y.shortcut_has_add);
+        } else {
+            this.a.c(this.b);
         }
     }
 }

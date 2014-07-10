@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +31,7 @@ public class g implements View.OnClickListener {
         if (z) {
             this.b.finish();
         } else {
-            this.b.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.b).a(this.c, BarDetailForDirSwitchStatic.BAR_DETAIL_DIR)));
+            this.b.sendMessage(new CustomMessage(2003000, new r(this.b).a(this.c, BarDetailForDirSwitchStatic.BAR_DETAIL_DIR)));
         }
     }
 }

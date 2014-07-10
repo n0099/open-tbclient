@@ -4,61 +4,58 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.c {
+public class j extends com.baidu.adp.base.f {
     private g a;
     private BdListView b;
     private final BaseFragmentActivity c;
-    private com.baidu.tbadk.core.view.q d;
+    private q d;
     private final RelativeLayout e;
     private final View f;
     private Handler g;
-    private ab h;
-    private n i;
+    private aa h;
+    private m i;
     private final NoNetworkView j;
-    private final o k;
+    private final n k;
     private final LinearLayout l;
     private NavigationBar m;
     private boolean n;
-    private final Runnable o;
 
     public j(BaseFragmentActivity baseFragmentActivity, com.baidu.tbadk.core.d dVar) {
         super(baseFragmentActivity);
         this.n = false;
-        this.o = new k(this);
         this.c = baseFragmentActivity;
         this.f = dVar.getView();
         this.e = (RelativeLayout) this.f.findViewById(v.content);
         this.j = (NoNetworkView) this.f.findViewById(v.view_no_network);
-        this.m = (NavigationBar) this.c.findViewById(v.view_navigation_bar);
+        this.m = (NavigationBar) this.f.findViewById(v.view_navigation_bar);
         this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.m.a(this.c.getString(y.ba_dongtai));
         this.l = (LinearLayout) this.f.findViewById(v.content_with_data);
-        this.k = new o(this, baseFragmentActivity, this.e);
-        o();
+        this.k = new n(this, baseFragmentActivity, this.e);
+        m();
         a(TbadkApplication.m252getInst().getSkinType());
     }
 
     public void a() {
         if (this.a == null) {
-            m();
-            n();
+            k();
+            l();
         }
-        this.b.d();
+        this.b.e();
     }
 
     public void a(com.baidu.tbadk.core.view.m mVar) {
@@ -67,15 +64,15 @@ public class j extends com.baidu.adp.base.c {
 
     public void b() {
         this.n = false;
-        l();
+        j();
         if (this.a == null) {
-            m();
+            k();
         }
         if (this.b != null) {
             this.b.setBackgroundColor(0);
         }
         this.k.b();
-        this.a.a((com.baidu.tieba.data.p) null);
+        this.a.a((com.baidu.tieba.data.q) null);
         this.a.notifyDataSetChanged();
         if (this.i != null) {
             this.i.c();
@@ -98,7 +95,7 @@ public class j extends com.baidu.adp.base.c {
 
     public void d() {
         this.i.g();
-        this.b.c();
+        this.b.d();
     }
 
     public void e() {
@@ -120,25 +117,24 @@ public class j extends com.baidu.adp.base.c {
         this.i.a(onClickListener);
     }
 
-    public void a(com.baidu.tieba.data.p pVar) {
-        if (pVar != null) {
+    public void a(com.baidu.tieba.data.q qVar) {
+        if (qVar != null) {
             if (this.a == null) {
-                m();
-                n();
+                k();
+                l();
             }
-            if (pVar.a() == 1) {
+            if (qVar.a() == 1) {
                 this.a.a(true);
             } else {
                 this.a.a(false);
             }
             this.k.a();
             this.n = true;
-            this.a.a(pVar);
+            this.a.a(qVar);
             this.a.notifyDataSetChanged();
             if (this.i != null) {
                 this.i.d();
             }
-            h();
             d();
             if (this.a.getCount() > 0) {
                 this.i.h();
@@ -147,9 +143,9 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public void a(int i) {
-        be.e(this.e, s.forumfeed_frs_bg);
-        this.c.a().a(i == 1);
-        this.c.a().a((View) this.e);
+        bk.e(this.e, s.forumfeed_frs_bg);
+        this.c.c().a(i == 1);
+        this.c.c().a((View) this.e);
         this.b.setBackgroundColor(0);
         if (!this.k.a) {
             this.l.setBackgroundResource(i == 1 ? s.forumfeed_frs_bg_1 : s.forumfeed_frs_bg);
@@ -170,53 +166,40 @@ public class j extends com.baidu.adp.base.c {
             this.m.c(i);
         }
         if (!this.n) {
-            l();
+            j();
         }
     }
 
-    public void h() {
-        if (this.g != null) {
-            this.g.removeCallbacks(this.o);
-            this.g.postDelayed(this.o, 0L);
-        }
-    }
-
-    public void i() {
-        if (com.baidu.tbadk.core.h.a().f()) {
-            ag.a(this.b, this.a.b(), 0, -1);
-        }
-    }
-
-    private void l() {
+    private void j() {
         if (this.b == null) {
         }
     }
 
-    private void m() {
+    private void k() {
         this.a = new g(this.c);
         this.b.setAdapter((ListAdapter) this.a);
-        this.h = new ab(this.c);
+        this.h = new aa(this.c);
     }
 
-    private void n() {
+    private void l() {
         this.g = new Handler();
-        this.b.setOnScrollListener(new l(this));
+        this.b.setOnScrollListener(new k(this));
     }
 
-    private void o() {
-        this.d = new com.baidu.tbadk.core.view.q(this.c);
+    private void m() {
+        this.d = new q(this.c);
         this.b = (BdListView) this.f.findViewById(v.forum_feed_list);
         this.b.setPullRefresh(this.d);
-        this.i = new n(this, this.c);
+        this.i = new m(this, this.c);
         this.b.setNextPage(this.i);
-        this.b.setRecyclerListener(new m(this));
+        this.b.setRecyclerListener(new l(this));
     }
 
-    public ListView j() {
+    public BdListView h() {
         return this.b;
     }
 
-    public int k() {
+    public int i() {
         return v.user_icon_box;
     }
 }

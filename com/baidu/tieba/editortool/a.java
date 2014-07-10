@@ -4,33 +4,36 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tieba.data.BubbleListData;
 /* loaded from: classes.dex */
-public class a extends ag {
-    com.baidu.tieba.model.f a;
+public class a extends ai {
+    com.baidu.tieba.model.d a;
     BubbleListData b;
-    com.baidu.tbadk.editortool.ab c;
+    com.baidu.tbadk.editortool.aa c;
     Context d;
     int e;
     String f;
     public CustomMessageListener g;
     private boolean h;
-    private com.baidu.tieba.model.i i;
-    private com.baidu.tieba.model.j j;
+    private com.baidu.tieba.model.g i;
+    private com.baidu.tieba.model.h j;
     private View.OnClickListener k;
+    private com.baidu.tieba.bubble.s l;
+    private com.baidu.tieba.bubble.s m;
 
-    public a(al alVar) {
-        super(alVar);
+    public a(an anVar) {
+        super(anVar);
         this.e = 0;
         this.h = false;
         this.i = new b(this);
         this.j = new c(this);
-        this.g = new d(this, CmdConfig.BUBBLE_LIST_REFRESH);
+        this.g = new d(this, 2010040);
         this.k = new e(this);
+        this.l = new f(this);
+        this.m = new g(this);
     }
 
-    @Override // com.baidu.tieba.editortool.ag
+    @Override // com.baidu.tieba.editortool.ai
     public void a(Context context) {
         if (this.h) {
             if (i() != null) {
@@ -41,19 +44,19 @@ public class a extends ag {
         }
         this.h = true;
         this.d = context;
-        ai aiVar = new ai();
-        aiVar.a = com.baidu.tieba.u.icon_bubble;
-        aiVar.b = 0;
+        ak akVar = new ak();
+        akVar.a = com.baidu.tieba.u.icon_bubble;
+        akVar.b = 0;
         c(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26));
         d(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds30));
-        a(aiVar);
+        a(akVar);
         a(2);
         b(2);
-        this.c = new com.baidu.tbadk.editortool.ab(context);
-        this.c.d(false);
-        a(new f(this, context));
+        this.c = new com.baidu.tbadk.editortool.aa(context);
+        this.c.b(false);
+        a(new h(this, context));
         if (this.a == null) {
-            this.a = new com.baidu.tieba.model.f();
+            this.a = new com.baidu.tieba.model.d();
         }
         this.a.a(this.i);
         this.a.a(this.j);
@@ -63,7 +66,16 @@ public class a extends ag {
         if (i() != null) {
             i().a();
         }
-        this.a.a(0, 50, com.baidu.adp.lib.util.k.b(this.d), com.baidu.adp.lib.util.k.c(this.d));
+        this.a.a(0, 50, com.baidu.adp.lib.util.j.b(this.d), com.baidu.adp.lib.util.j.c(this.d));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(int i) {
+        this.a.a(i, com.baidu.adp.lib.util.j.b(this.d), com.baidu.adp.lib.util.j.c(this.d));
+        this.a.a(i);
+        if (i() != null) {
+            i().a();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,14 +109,14 @@ public class a extends ag {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public BubbleListData.BubbleData e(int i) {
+    public BubbleListData.BubbleData f(int i) {
         if (i < 0 || i >= a()) {
             return null;
         }
         return this.b.getB_info().get(i);
     }
 
-    @Override // com.baidu.tieba.editortool.ag
+    @Override // com.baidu.tieba.editortool.ai
     public int a() {
         if (this.b == null || this.b.getB_info() == null) {
             return 0;
@@ -112,7 +124,7 @@ public class a extends ag {
         return this.b.getB_info().size();
     }
 
-    @Override // com.baidu.tieba.editortool.ag
+    @Override // com.baidu.tieba.editortool.ai
     public void b() {
         if (this.a != null) {
             this.a.e();

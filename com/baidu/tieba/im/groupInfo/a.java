@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupInfo;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.b {
@@ -24,10 +23,11 @@ class a extends com.baidu.adp.framework.listener.b {
             int error = responseJoinGroupMessage.getError();
             String errorString = responseJoinGroupMessage.getErrorString();
             if (responseJoinGroupMessage.getError() != 0) {
-                String string = TextUtils.isEmpty(errorString) ? this.a.getString(com.baidu.tieba.y.group_apply_fail) : errorString;
-                BdLog.d("apply add group" + socketResponsedMessage.toString() + "err:" + error + " errMsg" + string);
+                if (TextUtils.isEmpty(errorString)) {
+                    errorString = this.a.getString(com.baidu.tieba.y.group_apply_fail);
+                }
                 this.a.f.setEnabled(true);
-                this.a.showToast(string);
+                this.a.showToast(errorString);
                 return;
             }
             if (TextUtils.isEmpty(errorString)) {
@@ -35,7 +35,7 @@ class a extends com.baidu.adp.framework.listener.b {
             }
             this.a.showToast(errorString, false);
             if (error == 0) {
-                aa.a().a(TbadkApplication.getCurrentAccount(), this.a.k, true);
+                y.a().a(TbadkApplication.getCurrentAccount(), this.a.k, true);
                 this.a.finish();
             }
         }

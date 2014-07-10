@@ -109,7 +109,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        e();
+        f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -125,7 +125,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         }
     }
 
-    private void e() {
+    private void f() {
         if (this.c != null) {
             q qVar = this.m;
             int firstVisiblePosition = getFirstVisiblePosition();
@@ -202,7 +202,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        e();
+        f();
         if (this.a != null) {
             this.a.onScroll(absListView, i, i2, i3);
         }

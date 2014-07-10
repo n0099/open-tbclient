@@ -109,9 +109,9 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
             }
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.g.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tbadk.core.util.h.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.g.f(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tbadk.core.util.h.f(this.c, Integer.parseInt(this.b));
         } else {
             MotuPlugin motuPlugin = (MotuPlugin) com.baidu.tbadk.tbplugin.m.a().b(MotuPlugin.class);
             if (motuPlugin != null) {
@@ -181,15 +181,15 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
                 }
                 EditHeadActivity editHeadActivity = this.a;
                 bitmap3 = this.a.h;
-                editHeadActivity.h = com.baidu.tbadk.core.util.g.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
+                editHeadActivity.h = com.baidu.tbadk.core.util.h.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
                 if (this.d.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.a;
                     bitmap5 = this.a.h;
-                    editHeadActivity2.h = com.baidu.tbadk.core.util.g.d(bitmap5, Integer.parseInt(this.b));
+                    editHeadActivity2.h = com.baidu.tbadk.core.util.h.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.a;
                     bitmap4 = this.a.h;
-                    editHeadActivity3.h = com.baidu.tbadk.core.util.g.f(bitmap4, Integer.parseInt(this.b));
+                    editHeadActivity3.h = com.baidu.tbadk.core.util.h.f(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
                 editHeadsImageView2 = this.a.g;

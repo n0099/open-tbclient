@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     private String list;
 
     public ResponseGetMaskInfoMessage() {
-        super(MessageTypes.CMD_GET_MASK_INFO);
+        super(104103);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +26,8 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         if (getError() == 0) {
             this.blackList = new ArrayList<>();
             if (getMaskInfoResIdl.data != null) {
-                setIsMask(getMaskInfoResIdl.data.isMask.intValue());
-                setList(getMaskInfoResIdl.data.list);
+                this.isMask = getMaskInfoResIdl.data.isMask.intValue();
+                this.list = getMaskInfoResIdl.data.list;
                 List<UserInfo> list = getMaskInfoResIdl.data.users;
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
@@ -46,23 +45,11 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         return this.isMask;
     }
 
-    public void setIsMask(int i) {
-        this.isMask = i;
-    }
-
     public String getList() {
         return this.list;
     }
 
-    public void setList(String str) {
-        this.list = str;
-    }
-
     public ArrayList<com.baidu.tieba.im.data.a> getBlackList() {
         return this.blackList;
-    }
-
-    public void setBlackList(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.blackList = arrayList;
     }
 }

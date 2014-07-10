@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.content.DialogInterface;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* loaded from: classes.dex */
-class k implements ad {
+class k implements ab {
     final /* synthetic */ GroupInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class k implements ad {
         this.a = groupInfoActivity;
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.ad
+    @Override // com.baidu.tieba.im.groupInfo.ab
     public void a(DialogInterface dialogInterface, int i, Object obj, int i2) {
         r rVar;
         if (i == 0) {

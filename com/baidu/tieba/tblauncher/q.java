@@ -1,10 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.DialogInterface;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.message.ExitAppMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements DialogInterface.OnClickListener {
+public class q implements View.OnClickListener {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +12,11 @@ class q implements DialogInterface.OnClickListener {
         this.a = mainTabActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.core.b.b.a(this.a, 12, false);
-        MessageManager.getInstance().dispatchResponsedMessage(new ExitAppMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2 = this.a;
+        mainTabActivity = this.a.G;
+        mainTabActivity2.a(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

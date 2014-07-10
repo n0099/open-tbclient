@@ -10,7 +10,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.groupInfo.aa;
 import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -70,6 +69,6 @@ public final class Invite2GroupView extends LinearLayout {
             }
             return;
         }
-        aa.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this));
+        com.baidu.tieba.im.groupInfo.y.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this));
     }
 }

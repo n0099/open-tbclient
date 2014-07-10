@@ -3,7 +3,7 @@ package com.baidu.tieba.image;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -25,9 +25,9 @@ public class k extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        switch (x.a(this.a, this.b, this.c)) {
+        switch (z.a(this.a, this.b, this.c)) {
             case -2:
-                return x.b();
+                return z.b();
             case -1:
             default:
                 return this.c.getString(y.save_error);
@@ -50,12 +50,6 @@ public class k extends BdAsyncTask<String, Integer, String> {
         textView.setVisibility(0);
         progressBar = this.c.a;
         progressBar.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

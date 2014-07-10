@@ -18,7 +18,7 @@ public class au implements CustomMessageTask.CustomRunnable<Intent> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(TbadkApplication.m252getInst(), customMessage.getData());
+        UtilHelper.commenDealIntent(TbadkApplication.m252getInst().getApp(), customMessage.getData());
         return null;
     }
 }

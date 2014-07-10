@@ -16,17 +16,17 @@ public class ao implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bd bdVar;
+        com.baidu.tieba.model.be beVar;
         g gVar;
         g gVar2;
         dialogInterface.dismiss();
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            bdVar = this.a.K;
-            gVar = this.a.I;
+            beVar = this.a.J;
+            gVar = this.a.H;
             String name = gVar.g().getName();
-            gVar2 = this.a.I;
-            bdVar.a(name, Long.valueOf(gVar2.g().getId()).longValue());
+            gVar2 = this.a.H;
+            beVar.a(name, Long.valueOf(gVar2.g().getId()).longValue());
             return;
         }
         LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.y.login_to_use), true, 11036);

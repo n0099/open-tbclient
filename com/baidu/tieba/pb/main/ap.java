@@ -1,7 +1,9 @@
 package com.baidu.tieba.pb.main;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements Runnable {
+public class ap implements DialogInterface.OnClickListener {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +11,8 @@ public class ap implements Runnable {
         this.a = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.N = System.currentTimeMillis();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

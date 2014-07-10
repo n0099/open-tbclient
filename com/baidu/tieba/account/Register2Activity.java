@@ -18,13 +18,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.av;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.RegistData;
 import java.util.ArrayList;
@@ -78,7 +77,7 @@ public class Register2Activity extends BaseActivity {
     private final RadioGroup.OnCheckedChangeListener T = new w(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(av.class, Register2Activity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bg.class, Register2Activity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,7 +86,7 @@ public class Register2Activity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.account_register2_activity);
         h();
-        new bb(TbConfig.ST_TYPE_REG).start();
+        new bh(TbConfig.ST_TYPE_REG).start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +115,6 @@ public class Register2Activity extends BaseActivity {
         if (this.N != null) {
             this.N.cancel();
         }
-        BdLog.i("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
@@ -174,8 +172,8 @@ public class Register2Activity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        be.a(this.b, i);
-        be.c(this.a, i);
+        bk.a(this.b, i);
+        bk.c(this.a, i);
         n();
         k();
     }
@@ -357,7 +355,6 @@ public class Register2Activity extends BaseActivity {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            BdLog.i("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

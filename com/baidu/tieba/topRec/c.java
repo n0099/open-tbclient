@@ -1,10 +1,10 @@
 package com.baidu.tieba.topRec;
 
 import com.baidu.tieba.ai;
-import com.baidu.tieba.data.z;
-import com.baidu.tieba.model.af;
+import com.baidu.tieba.data.ab;
+import com.baidu.tieba.model.ae;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.base.e {
+class c extends com.baidu.adp.base.h {
     final /* synthetic */ TopRecActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
@@ -16,12 +16,12 @@ class c extends com.baidu.adp.base.e {
         this.c = i2;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         TRForumListData tRForumListData;
         TRForumListData tRForumListData2;
-        af afVar;
-        af afVar2;
+        ae aeVar;
+        ae aeVar2;
         TRForumListData tRForumListData3;
         TRForumListData tRForumListData4;
         e eVar;
@@ -29,13 +29,13 @@ class c extends com.baidu.adp.base.e {
         if (tRForumListData != null) {
             tRForumListData2 = this.a.f;
             if (tRForumListData2.forum_list[this.b] != null) {
-                afVar = this.a.d;
-                if (afVar.getErrorCode() != 22) {
-                    afVar2 = this.a.d;
-                    if (afVar2.getErrorCode() != 0) {
+                aeVar = this.a.d;
+                if (aeVar.getErrorCode() != 22) {
+                    aeVar2 = this.a.d;
+                    if (aeVar2.getErrorCode() != 0) {
                         this.a.b(this.b, this.c);
                         return;
-                    } else if (((z) obj) == null) {
+                    } else if (((ab) obj) == null) {
                         this.a.b(this.b, this.c);
                         return;
                     } else {

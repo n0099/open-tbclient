@@ -22,7 +22,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     private com.baidu.tbadk.img.e h;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.a.class, AlbumActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.b.class, AlbumActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,13 +31,13 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         super.onCreate(bundle);
         try {
             this.h = new com.baidu.tbadk.img.e(this);
-            h();
-            a(bundle);
-            i();
             j();
-            e();
+            a(bundle);
+            k();
+            l();
+            g();
         } catch (Exception e) {
-            BdLog.e(c, "oncreate", "error = " + e.getMessage());
+            BdLog.detailException(e);
         }
     }
 
@@ -64,12 +64,12 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private void h() {
+    private void j() {
         this.e = new v(this);
         this.e.a();
     }
 
-    private void i() {
+    private void k() {
         if (this.d != null && !TextUtils.isEmpty(this.d.c())) {
             d(1);
         } else {
@@ -77,7 +77,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private void j() {
+    private void l() {
         if (this.e != null && this.d != null) {
             this.e.a(this.d.d());
             if (this.d.a() != null) {
@@ -85,11 +85,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                     this.e.a(imageFileInfo);
                 }
             }
-            l();
+            n();
         }
     }
 
-    void e() {
+    void g() {
         int d = this.d.d();
         int h = this.d.h();
         this.e.a(h != 0, getString(com.baidu.tieba.y.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
@@ -114,23 +114,23 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (this.d != null) {
                 this.d.a((String) null);
             }
-            k();
+            m();
         } else if (view == this.e.d()) {
             d(0);
         } else if (view == this.e.e()) {
             d(1);
         } else if (view == this.e.f()) {
-            k();
+            m();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p f() {
+    public p h() {
         return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.tbadk.img.e g() {
+    public com.baidu.tbadk.img.e i() {
         if (this.h == null) {
             this.h = new com.baidu.tbadk.img.e(this);
         }
@@ -171,8 +171,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
             imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
             this.d.a(imageFileInfo2);
-            e();
-            l();
+            g();
+            n();
             this.e.a(imageFileInfo2);
             return true;
         }
@@ -186,8 +186,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             return false;
         }
         this.d.b(imageFileInfo);
-        e();
-        l();
+        g();
+        n();
         this.e.b(imageFileInfo);
         return true;
     }
@@ -199,7 +199,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 if (this.d != null) {
                     this.d.a((String) null);
                 }
-                k();
+                m();
                 return true;
             } else if (this.f == 1) {
                 d(0);
@@ -238,7 +238,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         }
     }
 
-    private void k() {
+    private void m() {
         Intent intent = new Intent();
         String c2 = this.d.c();
         if (TextUtils.isEmpty(c2)) {
@@ -249,7 +249,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         finish();
     }
 
-    private void l() {
+    private void n() {
         if (this.d != null && this.e != null) {
             if (this.d.h() == this.d.d()) {
                 this.e.a(false);

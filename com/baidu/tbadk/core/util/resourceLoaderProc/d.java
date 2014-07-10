@@ -28,18 +28,13 @@ public class d extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int c() {
+    public int d() {
         return this.d;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int d() {
+    public int e() {
         return this.e;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean e() {
-        return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -49,6 +44,11 @@ public class d extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean g() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean h() {
         return false;
     }
 }

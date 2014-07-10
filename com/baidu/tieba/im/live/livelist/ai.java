@@ -18,7 +18,7 @@ public class ai extends BaseAdapter {
     private LiveGroupHistoryActivity a;
     private boolean c;
     private boolean d = true;
-    private List<com.baidu.tieba.im.data.i> b = new ArrayList();
+    private List<com.baidu.tieba.im.data.g> b = new ArrayList();
 
     public boolean a() {
         return this.c;
@@ -36,7 +36,7 @@ public class ai extends BaseAdapter {
         this.a = liveGroupHistoryActivity;
     }
 
-    public void a(List<com.baidu.tieba.im.data.i> list) {
+    public void a(List<com.baidu.tieba.im.data.g> list) {
         this.b.addAll(list);
     }
 
@@ -99,9 +99,9 @@ public class ai extends BaseAdapter {
             aj ajVar2 = (aj) view.getTag();
             Object item = getItem(i);
             if (item != null) {
-                com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) item;
-                ajVar2.a.setText(a(iVar.a()));
-                ajVar2.b.setText(a(iVar.a(), iVar.b()));
+                com.baidu.tieba.im.data.g gVar = (com.baidu.tieba.im.data.g) item;
+                ajVar2.a.setText(a(gVar.a()));
+                ajVar2.b.setText(a(gVar.a(), gVar.b()));
             }
         }
         a(view);

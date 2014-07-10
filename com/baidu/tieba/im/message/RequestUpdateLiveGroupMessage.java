@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateLiveGroup.DataReq;
 import protobuf.UpdateLiveGroup.UpdateLiveGroupReqIdl;
@@ -12,7 +11,7 @@ public class RequestUpdateLiveGroupMessage extends TbSocketMessage {
     private String portrait;
 
     public RequestUpdateLiveGroupMessage() {
-        super(MessageTypes.CMD_UPDATE_LIVE_GROUP);
+        super(107102);
     }
 
     public String getPid() {

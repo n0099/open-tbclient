@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitPusherCount.CommitPusherCountReqIdl;
 import protobuf.CommitPusherCount.DataReq;
@@ -44,7 +43,7 @@ public class PushCountMessage extends TbSocketMessage {
     }
 
     public PushCountMessage() {
-        super(MessageTypes.CMD_PUSH_COUNT);
+        super(202101);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

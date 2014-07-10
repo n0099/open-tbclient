@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tieba.data.MarkData;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class d implements com.baidu.tieba.model.ak {
+class d implements com.baidu.tieba.model.aj {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,33 +11,33 @@ class d implements com.baidu.tieba.model.ak {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.model.ak
+    @Override // com.baidu.tieba.model.aj
     public void a(boolean z, boolean z2, String str) {
-        bq bqVar;
-        com.baidu.tieba.model.ai aiVar;
-        bj bjVar;
-        bj bjVar2;
-        bq bqVar2;
-        bj bjVar3;
-        com.baidu.tieba.model.ai aiVar2;
-        bqVar = this.a.D;
-        bqVar.w();
+        bt btVar;
+        com.baidu.tieba.model.ah ahVar;
+        bm bmVar;
+        bm bmVar2;
+        bt btVar2;
+        bm bmVar3;
+        com.baidu.tieba.model.ah ahVar2;
+        btVar = this.a.D;
+        btVar.x();
         if (z) {
-            aiVar = this.a.y;
-            aiVar.a(z2);
-            bjVar = this.a.x;
-            bjVar.c(z2);
-            bjVar2 = this.a.x;
-            if (!bjVar2.y()) {
-                bqVar2 = this.a.D;
-                bjVar3 = this.a.x;
-                bqVar2.a(bjVar3.q());
+            ahVar = this.a.y;
+            ahVar.a(z2);
+            bmVar = this.a.x;
+            bmVar.c(z2);
+            bmVar2 = this.a.x;
+            if (!bmVar2.B()) {
+                btVar2 = this.a.D;
+                bmVar3 = this.a.x;
+                btVar2.a(bmVar3.r());
             } else {
                 this.a.A();
             }
             if (z2) {
-                aiVar2 = this.a.y;
-                MarkData b = aiVar2.b();
+                ahVar2 = this.a.y;
+                MarkData b = ahVar2.b();
                 if (b != null) {
                     this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.y.add_mark_on_pb), Integer.valueOf(b.getFloor())));
                     return;

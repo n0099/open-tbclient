@@ -1,7 +1,9 @@
 package com.baidu.tieba.im.live.room;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class as implements com.baidu.tbadk.imageManager.d {
+class as implements View.OnTouchListener {
     final /* synthetic */ LiveRoomChatView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +11,9 @@ public class as implements com.baidu.tbadk.imageManager.d {
         this.a = liveRoomChatView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        ag agVar;
-        if (aVar != null) {
-            agVar = this.a.l;
-            agVar.setHeaderImage(aVar);
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.a.ak();
+        return false;
     }
 }

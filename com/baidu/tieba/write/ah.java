@@ -1,13 +1,13 @@
 package com.baidu.tieba.write;
 
-import android.app.TimePickerDialog;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.Date;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.img.WriteImagesInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements TimePickerDialog.OnTimeSetListener {
+public class ah implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,32 +15,38 @@ class ah implements TimePickerDialog.OnTimeSetListener {
         this.a = writeActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        WriteData writeData4;
-        TextView textView;
-        WriteData writeData5;
-        WriteData writeData6;
-        writeData = this.a.a;
-        if (writeData.getLiveCardData() != null) {
-            Date date = new Date();
-            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.a.a;
-            long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.a.a;
-            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.a.a;
-            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                BdLog.i("更改了预告时间");
-                writeData6 = this.a.a;
-                writeData6.getLiveCardData().setModifyTime(true);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
+        WriteImagesInfo writeImagesInfo5;
+        String str;
+        if (i == 0) {
+            writeImagesInfo4 = this.a.C;
+            int size = writeImagesInfo4.size();
+            writeImagesInfo5 = this.a.C;
+            if (size < writeImagesInfo5.getMaxImagesAllowed()) {
+                this.a.E = String.valueOf(System.currentTimeMillis());
+                WriteActivity writeActivity = this.a;
+                str = this.a.E;
+                com.baidu.tbadk.core.util.bj.a(writeActivity, str);
+                return;
             }
-            textView = this.a.R;
-            writeData5 = this.a.a;
-            textView.setText(com.baidu.tbadk.core.util.bg.b(writeData5.getLiveCardData().getStartTime() * 1000));
+            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+        } else if (i == 1) {
+            writeImagesInfo = this.a.C;
+            if (writeImagesInfo != null) {
+                writeImagesInfo2 = this.a.C;
+                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
+                    WriteActivity writeActivity2 = this.a;
+                    writeImagesInfo3 = this.a.C;
+                    com.baidu.tbadk.core.atomData.b bVar = new com.baidu.tbadk.core.atomData.b(writeActivity2, writeImagesInfo3.toJsonString());
+                    bVar.setRequestCode(12002);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar));
+                }
+            }
         }
     }
 }

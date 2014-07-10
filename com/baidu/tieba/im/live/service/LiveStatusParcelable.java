@@ -32,8 +32,4 @@ public class LiveStatusParcelable implements Parcelable {
         parcel.writeString(this.url);
         parcel.writeString(this.errorString);
     }
-
-    public String toString() {
-        return String.format("gid=%s, status=%d, url=%s, error=%s", this.groupId, Integer.valueOf(this.status), this.url, this.errorString);
-    }
 }

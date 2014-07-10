@@ -13,6 +13,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ap;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
@@ -20,11 +21,11 @@ public class LoginActivity extends BaseActivity {
     private static boolean d = false;
     private SapiWebView a;
     private boolean b = false;
-    private com.baidu.tbadk.coreExtra.view.q c = null;
+    private com.baidu.tbadk.coreExtra.view.s c = null;
     private final com.baidu.tbadk.core.account.g e = new ak(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ai.class, LoginActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.an.class, LoginActivity.class);
         a();
     }
 
@@ -121,8 +122,6 @@ public class LoginActivity extends BaseActivity {
             intent.putExtra("BDUSS", TbadkApplication.getCurrentBduss());
             setResult(-1, intent);
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
                 intExtra = 1;
@@ -142,7 +141,7 @@ public class LoginActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountData accountData) {
         if (this.c == null) {
-            this.c = new com.baidu.tbadk.coreExtra.view.q(this);
+            this.c = new com.baidu.tbadk.coreExtra.view.s(this);
             this.c.a(new ao(this));
         }
         this.c.e();
@@ -152,9 +151,9 @@ public class LoginActivity extends BaseActivity {
 
     private void e() {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this).a("from_logo_page")));
+            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.w(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.ak(this).a(1)));
+            sendMessage(new CustomMessage(2015001, new ap(this).a(1)));
         }
         finish();
     }

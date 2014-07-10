@@ -7,6 +7,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.d;
 import com.baidu.sapi2.shell.callback.FillUsernameCallBack;
+import com.baidu.sapi2.shell.callback.OAuthCallBack;
 import com.baidu.sapi2.shell.callback.QrAppLoginCallBack;
 import com.baidu.sapi2.shell.callback.QrPCLoginCallBack;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
@@ -30,7 +31,6 @@ public final class SapiAccountService {
 
     public SapiAccountService(Context context) {
         this.c = new a(context);
-        this.c.b();
     }
 
     public String a() {
@@ -73,8 +73,8 @@ public final class SapiAccountService {
         this.c.a();
     }
 
-    public boolean fillUsername(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3) {
-        return this.c.a(fillUsernameCallBack, str, str2, str3);
+    public void fillUsername(FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3) {
+        this.c.a(fillUsernameCallBack, str, str2, str3);
     }
 
     public void setPortrait(SapiCallBack<SapiResponse> sapiCallBack, String str, String str2, String str3, byte[] bArr, String str4) {
@@ -196,6 +196,10 @@ public final class SapiAccountService {
         this.c.a(sapiCallBack, reloginCredentials);
     }
 
+    public void i() {
+        this.c.b();
+    }
+
     public boolean isDeviceLoginAvailable() {
         return d.a(this.b.context).b();
     }
@@ -209,5 +213,9 @@ public final class SapiAccountService {
             return this.c.a(sapiCallBack);
         }
         return this.c.d(sapiCallBack, a2);
+    }
+
+    public void oauth(OAuthCallBack oAuthCallBack, String str) {
+        this.c.a(oAuthCallBack, str);
     }
 }

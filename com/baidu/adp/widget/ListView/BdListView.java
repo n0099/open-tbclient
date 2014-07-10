@@ -159,6 +159,10 @@ public class BdListView extends ListView {
         }
     }
 
+    public void c() {
+        removeCallbacks(this.t);
+    }
+
     private void a() {
         setFadingEdgeLength(0);
         this.b = new g(getContext());
@@ -344,7 +348,7 @@ public class BdListView extends ListView {
             getHandler().removeCallbacks(this.s);
             getHandler().removeCallbacks(this.B);
         } catch (Exception e) {
-            BdLog.e(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -406,13 +410,13 @@ public class BdListView extends ListView {
         }
     }
 
-    public void c() {
+    public void d() {
         if (this.C != null) {
             aa.a(this.C);
         }
     }
 
-    public void d() {
+    public void e() {
         if (this.C != null) {
             setSelection(0);
             this.C.a(true);

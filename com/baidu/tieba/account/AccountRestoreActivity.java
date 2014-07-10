@@ -15,7 +15,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.person.bm;
+import com.baidu.tieba.person.cr;
 import com.baidu.tieba.util.AntiHelper;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
@@ -71,9 +71,9 @@ public class AccountRestoreActivity extends BaseActivity {
     @JavascriptInterface
     public void exit(int i) {
         if (AntiHelper.PageType.PERSON_INFO.toString().equals(this.mPageType)) {
-            bm.c(true);
+            cr.c(true);
         } else if (AntiHelper.PageType.FRS.toString().equals(this.mPageType)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005003, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
         }
         finish();
     }

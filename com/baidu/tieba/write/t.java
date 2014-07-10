@@ -1,57 +1,103 @@
 package com.baidu.tieba.write;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<Object, s, s> {
-    final /* synthetic */ s a;
-    private com.baidu.tbadk.core.util.an b;
+public class t {
+    final /* synthetic */ r a;
+    private FrameLayout b;
+    private TbImageView c;
+    private ProgressBar d;
+    private com.baidu.tbadk.img.e e;
+    private int f;
 
-    private t(s sVar) {
-        this.a = sVar;
+    public t(r rVar, int i) {
+        BaseActivity baseActivity;
+        BaseActivity baseActivity2;
+        this.a = rVar;
+        this.d = null;
+        this.f = -1;
+        this.f = i;
+        baseActivity = rVar.a;
+        this.b = (FrameLayout) LayoutInflater.from(baseActivity).inflate(com.baidu.tieba.w.progress_tb_imageview, (ViewGroup) null);
+        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview);
+        this.c.setClickable(true);
+        this.c.setDefaultResource(0);
+        this.c.setNightDefaultResource(0);
+        this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        baseActivity2 = rVar.a;
+        this.e = new com.baidu.tbadk.img.e(baseActivity2);
+        this.c.setOnClickListener(new u(this));
+        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
+        this.d.setVisibility(8);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(s sVar, t tVar) {
-        this(sVar);
+    public View a() {
+        return this.b;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public s doInBackground(Object... objArr) {
-        String obj = objArr[0].toString();
-        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-        this.b.a("kw", obj);
-        String i = this.b.i();
-        if (!this.b.a().b().b()) {
-            return null;
+    public void a(ImageFileInfo imageFileInfo) {
+        b();
+        this.c.setDefaultResource(0);
+        this.c.setNightDefaultResource(0);
+        com.baidu.adp.widget.a.a a = this.e.a(imageFileInfo, false);
+        if (a != null) {
+            a.a(this.c);
+            return;
         }
-        s sVar = new s();
-        sVar.b(i);
-        return sVar;
+        a(false);
+        this.e.a(imageFileInfo, new v(this), false);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(s sVar) {
-        com.baidu.adp.base.e eVar;
-        super.onPostExecute(sVar);
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(sVar);
+    public void b() {
+        if (this.e != null) {
+            this.e.b();
+        }
+        if (this.c != null) {
+            this.c.setImageBitmap(null);
+        }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.a.a = null;
-        if (this.b != null) {
-            this.b.g();
+    public boolean c() {
+        return this.d.getVisibility() != 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        s sVar;
+        com.baidu.tbadk.coreExtra.view.k[] kVarArr;
+        s sVar2;
+        s sVar3;
+        com.baidu.tbadk.coreExtra.view.k[] kVarArr2;
+        s sVar4;
+        if (z) {
+            if (this.d.getVisibility() != 8) {
+                sVar3 = this.a.d;
+                if (sVar3 != null) {
+                    sVar4 = this.a.d;
+                    sVar4.c();
+                }
+                this.d.setVisibility(8);
+                kVarArr2 = this.a.h;
+                kVarArr2[this.f].setCanbeClick(true);
+            }
+        } else if (this.d.getVisibility() != 0) {
+            sVar = this.a.d;
+            if (sVar != null) {
+                sVar2 = this.a.d;
+                sVar2.b();
+            }
+            this.d.setVisibility(0);
+            kVarArr = this.a.h;
+            kVarArr[this.f].setCanbeClick(false);
         }
     }
 }

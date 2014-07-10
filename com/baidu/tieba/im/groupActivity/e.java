@@ -7,8 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.w;
@@ -19,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.c {
+public class e extends com.baidu.adp.base.f {
     private CreateGroupActivityActivity a;
     private View b;
     private NavigationBar c;
@@ -99,10 +98,10 @@ public class e extends com.baidu.adp.base.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        this.j.setText(this.o + "-" + (this.p + 1) + "-" + this.q + " " + bg.a(this.o, this.p, this.q));
+        this.j.setText(this.o + "-" + (this.p + 1) + "-" + this.q + " " + bm.a(this.o, this.p, this.q));
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.f
     public void destroy() {
     }
 
@@ -130,7 +129,6 @@ public class e extends com.baidu.adp.base.c {
         try {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(this.o + "-" + (this.p + 1) + "-" + this.q + " " + this.r + ":" + this.s).getTime() / 1000;
         } catch (ParseException e) {
-            BdLog.e(e.getMessage());
             return 0L;
         }
     }
@@ -159,8 +157,8 @@ public class e extends com.baidu.adp.base.c {
     }
 
     public void a(int i) {
-        this.a.a().a(i == 1);
-        this.a.a().a(this.b);
+        this.a.c().a(i == 1);
+        this.a.c().a(this.b);
         this.c.c(i);
     }
 

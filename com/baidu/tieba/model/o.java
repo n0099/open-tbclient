@@ -1,75 +1,141 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.b {
-    private com.baidu.tieba.data.n b;
-    private q a = null;
-    private boolean c = true;
-    private r d = null;
-    private long e = 0;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
+public class o extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.o> {
+    final /* synthetic */ m a;
+    private com.baidu.tieba.a.a b = null;
+    private int c;
 
-    public o() {
-        this.b = null;
-        this.b = new com.baidu.tieba.data.n();
+    public o(m mVar, int i) {
+        this.a = mVar;
+        this.c = 1;
+        this.c = i;
+        setPriority(3);
     }
 
-    public long a() {
-        return this.h;
-    }
-
-    public long b() {
-        return this.f;
-    }
-
-    public long c() {
-        return this.g;
-    }
-
-    public long d() {
-        return this.e;
-    }
-
-    public com.baidu.tieba.data.n e() {
-        return this.b;
-    }
-
-    public void a(r rVar) {
-        this.d = rVar;
-    }
-
-    @Override // com.baidu.adp.base.b
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.b
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public com.baidu.tieba.data.o doInBackground(Object... objArr) {
+        boolean z;
+        com.baidu.tieba.data.o oVar = new com.baidu.tieba.data.o();
+        this.b = new com.baidu.tieba.a.a();
+        z = this.a.c;
+        if (!z) {
+            oVar.b(true);
+            return oVar;
         }
-        return false;
+        int i = this.c;
+        if (i == 0) {
+            com.baidu.tieba.data.o b = b();
+            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + b.j());
+            return b;
+        } else if (i == 1) {
+            if (UtilHelper.getNetStatusInfo(com.baidu.tieba.ai.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                com.baidu.tieba.data.o a = a();
+                BdLog.d("EnterForumTask,TYPE_NET,netData.isEmpty=" + a.j());
+                return a;
+            }
+            com.baidu.tieba.data.o b2 = b();
+            BdLog.d("EnterForumTask,TYPE_NET,localData.isEmpty=" + b2.j());
+            return b2;
+        } else {
+            return oVar;
+        }
     }
 
-    public boolean a(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    private com.baidu.tieba.data.o a() {
+        com.baidu.tieba.data.o oVar = new com.baidu.tieba.data.o();
+        this.a.e = System.currentTimeMillis();
+        String g = this.b.g();
+        this.a.f = this.b.h();
+        this.a.g = this.b.i();
+        this.a.h = System.currentTimeMillis();
+        if (this.b.c()) {
+            oVar.a(g);
+            a(g);
         }
-        this.a = new q(this, 1);
-        this.a.execute(new Object[0]);
-        return true;
+        return oVar;
     }
 
-    public boolean b(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    private com.baidu.tieba.data.o b() {
+        boolean z;
+        com.baidu.tieba.data.o oVar = new com.baidu.tieba.data.o();
+        oVar.a(true);
+        String str = null;
+        z = this.a.c;
+        if (z) {
+            str = com.baidu.tieba.util.k.a();
         }
-        this.a = new q(this, 0);
-        this.a.execute(new Object[0]);
-        return true;
+        if (str != null) {
+            oVar.a(str);
+            if (oVar.h() && !oVar.i()) {
+                oVar.g().c();
+            }
+        }
+        return oVar;
+    }
+
+    private void a(String str) {
+        boolean z;
+        z = this.a.c;
+        if (z) {
+            com.baidu.tieba.util.k.a(str);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.a.a = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.data.o oVar) {
+        p pVar;
+        p pVar2;
+        com.baidu.tieba.data.o oVar2;
+        p pVar3;
+        com.baidu.tieba.data.o oVar3;
+        p pVar4;
+        this.a.a = null;
+        this.a.b = oVar;
+        n nVar = new n(this.a);
+        nVar.c = this.c;
+        pVar = this.a.d;
+        if (pVar != null) {
+            if (this.c != 0 && (this.b == null || !this.b.c())) {
+                oVar2 = this.a.b;
+                if (oVar2 != null) {
+                    oVar3 = this.a.b;
+                    if (oVar3.h()) {
+                        nVar.b = true;
+                        nVar.d = oVar;
+                        pVar4 = this.a.d;
+                        pVar4.a(nVar);
+                        return;
+                    }
+                }
+                String d = this.b != null ? this.b.d() : null;
+                nVar.b = false;
+                nVar.a = d;
+                nVar.d = oVar;
+                pVar3 = this.a.d;
+                pVar3.a(nVar);
+                return;
+            }
+            nVar.b = true;
+            nVar.d = oVar;
+            pVar2 = this.a.d;
+            pVar2.a(nVar);
+        }
     }
 }

@@ -217,7 +217,6 @@ public class DiskFileOperate {
     public void m() {
         synchronized (this) {
             if (this.j != null) {
-                BdLog.d("mOutputStream released");
                 com.baidu.adp.lib.f.a.a(this.j);
                 this.j = null;
             }
@@ -250,10 +249,14 @@ public class DiskFileOperate {
     }
 
     public boolean p() {
+        return com.baidu.adp.lib.Disk.d.a().a(this);
+    }
+
+    public boolean q() {
         return com.baidu.adp.lib.Disk.d.a().b(this);
     }
 
-    public int q() {
+    public int r() {
         return this.m;
     }
 
@@ -261,7 +264,11 @@ public class DiskFileOperate {
         this.m = i;
     }
 
-    public String r() {
+    public String s() {
+        return this.n;
+    }
+
+    public String t() {
         return this.o;
     }
 }

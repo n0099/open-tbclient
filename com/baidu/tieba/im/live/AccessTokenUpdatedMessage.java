@@ -1,14 +1,13 @@
 package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class AccessTokenUpdatedMessage extends CustomResponsedMessage<String> {
     private String accessToken;
     private String bduss;
 
     public AccessTokenUpdatedMessage() {
-        super(MessageTypes.CMD_ACCESS_TOKEN_UPDATED);
+        super(2001164);
     }
 
     public String getBduss() {

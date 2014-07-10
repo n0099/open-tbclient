@@ -16,7 +16,7 @@ public class h implements q {
     }
 
     @Override // com.baidu.tieba.recommend.q
-    public void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
+    public void a(boolean z, String str, com.baidu.tieba.data.l lVar, int i) {
         r rVar;
         r rVar2;
         r rVar3;
@@ -25,14 +25,14 @@ public class h implements q {
         rVar.a(true, "");
         if (z) {
             rVar3 = this.a.b;
-            rVar3.a(kVar);
+            rVar3.a(lVar);
             if (i == 0) {
                 rVar4 = this.a.b;
                 rVar4.d();
             }
         } else {
             rVar2 = this.a.b;
-            rVar2.a((com.baidu.tieba.data.k) null);
+            rVar2.a((com.baidu.tieba.data.l) null);
             if (i != 1) {
                 if (str.equals("70000")) {
                     this.a.showToast(y.no_more_data);

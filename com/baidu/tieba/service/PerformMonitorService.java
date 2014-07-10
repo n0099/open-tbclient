@@ -51,28 +51,28 @@ public class PerformMonitorService extends Service {
                 new Thread(this.mSRMonitor).start();
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "monitorOn", e.toString());
+            BdLog.e(e.toString());
         }
         try {
             if (!this.mGCMonitor.a()) {
                 this.mGCMonitor.b();
             }
         } catch (Exception e2) {
-            BdLog.e(getClass().getName(), "monitorOn", e2.toString());
+            BdLog.e(e2.toString());
         }
         try {
             if (!this.mLogcatMonitor.a()) {
                 new Thread(this.mLogcatMonitor).start();
             }
         } catch (Exception e3) {
-            BdLog.e(getClass().getName(), "monitorOn", e3.toString());
+            BdLog.e(e3.toString());
         }
         try {
             if (!this.mFpsMonitor.a()) {
                 this.mFpsMonitor.b();
             }
         } catch (Exception e4) {
-            BdLog.e(getClass().getName(), "monitorOn", e4.toString());
+            BdLog.e(e4.toString());
         }
         this.isSampling = true;
         new Thread(this.sampleRunnable).start();
@@ -85,28 +85,28 @@ public class PerformMonitorService extends Service {
                 this.mSRMonitor.c();
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "monitorOff", e.toString());
+            BdLog.e(e.toString());
         }
         try {
             if (this.mGCMonitor.a()) {
                 this.mGCMonitor.c();
             }
         } catch (Exception e2) {
-            BdLog.e(getClass().getName(), "monitorOff", e2.toString());
+            BdLog.e(e2.toString());
         }
         try {
             if (this.mLogcatMonitor.a()) {
                 this.mLogcatMonitor.c();
             }
         } catch (Exception e3) {
-            BdLog.e(getClass().getName(), "monitorOff", e3.toString());
+            BdLog.e(e3.toString());
         }
         try {
             if (this.mFpsMonitor.a()) {
                 this.mFpsMonitor.c();
             }
         } catch (Exception e4) {
-            BdLog.e(getClass().getName(), "monitorOff", e4.toString());
+            BdLog.e(e4.toString());
         }
         this.isSampling = false;
     }

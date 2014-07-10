@@ -1,74 +1,39 @@
 package com.baidu.tieba.faceshop;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
-    final /* synthetic */ au a;
-    private com.baidu.tbadk.core.util.an b;
-    private String c;
+class av extends com.baidu.adp.base.h {
+    final /* synthetic */ FacePurchaseRecordsActivity a;
 
-    public av(au auVar, String str) {
-        this.a = auVar;
-        this.c = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
+        this.a = facePurchaseRecordsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public FacePackageDownloadData doInBackground(Object... objArr) {
-        FacePackageDownloadData facePackageDownloadData;
-        int i;
-        int i2;
-        float f;
-        try {
-            if (this.c != null && this.c.length() > 0) {
-                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/dpack");
-                this.b.a("pid", this.c);
-                com.baidu.tbadk.core.util.an anVar = this.b;
-                i = this.a.c;
-                anVar.a("scr_w", String.valueOf(i));
-                com.baidu.tbadk.core.util.an anVar2 = this.b;
-                i2 = this.a.d;
-                anVar2.a("scr_h", String.valueOf(i2));
-                com.baidu.tbadk.core.util.an anVar3 = this.b;
-                f = this.a.e;
-                anVar3.a("scr_dip", String.valueOf(f));
-                String i3 = this.b.i();
-                Gson create = new GsonBuilder().create();
-                this.a.b = (FacePackageDownloadData) create.fromJson(i3, (Class<Object>) FacePackageDownloadData.class);
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        bc bcVar;
+        bc bcVar2;
+        bc bcVar3;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
+            bcVar = this.a.a;
+            if (bcVar != null) {
+                FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
+                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
+                    bcVar3 = this.a.a;
+                    bcVar3.a(facePurchaseRecordsData);
+                    return;
+                } else if (facePurchaseRecordsData.usermsg != null) {
+                    this.a.showToast(facePurchaseRecordsData.usermsg);
+                    bcVar2 = this.a.a;
+                    bcVar2.c();
+                    return;
+                } else {
+                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    return;
+                }
             }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.toString());
+            return;
         }
-        facePackageDownloadData = this.a.b;
-        return facePackageDownloadData;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
-        com.baidu.adp.base.e eVar;
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(facePackageDownloadData);
-        super.onPostExecute(facePackageDownloadData);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.g();
-            this.b = null;
-        }
-        this.a.a = null;
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

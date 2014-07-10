@@ -1,78 +1,22 @@
 package com.baidu.tieba.bubble;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.c {
-    private NavigationBar a;
-    private ViewGroup b;
-    private GridView c;
-    private View d;
-    private d e;
-    private BubbleChooseActivity f;
-    private ProgressBar g;
+class e extends CustomMessageListener {
+    final /* synthetic */ BubbleChooseActivity a;
 
-    public e(BubbleChooseActivity bubbleChooseActivity) {
-        super(bubbleChooseActivity);
-        this.f = bubbleChooseActivity;
-        bubbleChooseActivity.setContentView(w.bubble_activity_view);
-        this.a = (NavigationBar) bubbleChooseActivity.findViewById(v.lay_title_bar);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(y.bubble_choose);
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.bubble_explain, bubbleChooseActivity);
-        this.b = (ViewGroup) bubbleChooseActivity.findViewById(v.container);
-        this.c = (GridView) bubbleChooseActivity.findViewById(v.gv_bubble_list);
-        this.e = new d(bubbleChooseActivity);
-        this.c.setAdapter((ListAdapter) this.e);
-        this.g = (ProgressBar) bubbleChooseActivity.findViewById(v.bubble_progress);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(BubbleChooseActivity bubbleChooseActivity, int i) {
+        super(i);
+        this.a = bubbleChooseActivity;
     }
 
-    public void a(List<BubbleListData.BubbleData> list, boolean z) {
-        if (this.e != null) {
-            this.e.a(z);
-            this.e.a(list);
-        }
-    }
-
-    public d a() {
-        return this.e;
-    }
-
-    public View b() {
-        return this.d;
-    }
-
-    public GridView c() {
-        return this.c;
-    }
-
-    public BubbleListData.BubbleData a(int i) {
-        if (this.e == null) {
-            return null;
-        }
-        return this.e.getItem(i);
-    }
-
-    public void b(int i) {
-        this.a.c(i);
-        this.f.getLayoutMode().a(i == 1);
-        this.f.getLayoutMode().a((View) this.b);
-    }
-
-    public void d() {
-        this.g.setVisibility(0);
-    }
-
-    public void e() {
-        this.g.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.a.d();
     }
 }

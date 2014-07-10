@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class df implements DialogInterface.OnClickListener {
-    final /* synthetic */ TalkableActivity a;
-    private final /* synthetic */ int b;
+public class df implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ View a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public df(TalkableActivity talkableActivity, int i) {
-        this.a = talkableActivity;
-        this.b = i;
+    public df(View view) {
+        this.a = view;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.a.a(this.b);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tbadk.core.util.bx.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bz) new dg(this, str, aVar));
+        }
     }
 }

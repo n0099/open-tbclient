@@ -135,8 +135,8 @@ public class b {
         return a(httpURLConnection, z, bArr, gVar, dVar, aVar, (com.baidu.adp.lib.network.http.d) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [507=4] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x0015 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [509=4] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0015 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x001a  */
     /* JADX WARN: Removed duplicated region for block: B:17:0x001f  */
     /*
@@ -257,7 +257,7 @@ public class b {
                     if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                         throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
                     }
-                    if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
+                    if (responseCode == 502 || responseCode == 503 || responseCode == 504 || responseCode == 404) {
                         throw new BdHttpErrorException("close not retry, errorCode:" + responseCode, responseCode, false);
                     }
                     throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
@@ -575,8 +575,8 @@ public class b {
         throw e3;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1095=5] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1098=5] */
+    /* JADX WARN: Removed duplicated region for block: B:170:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x003e  */
     /*
@@ -712,7 +712,7 @@ public class b {
                                     if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                                         throw new BdHttpErrorException("doGetOrPost retry, errorCode:" + responseCode, responseCode, true);
                                     }
-                                    if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
+                                    if (responseCode == 502 || responseCode == 503 || responseCode == 504 || responseCode == 404) {
                                         throw new BdHttpErrorException("close not retry, errorCode:" + responseCode, responseCode, false);
                                     }
                                     throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
@@ -840,9 +840,9 @@ public class b {
         return fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1367=4, 1369=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1371=4, 1373=5] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0024  */
-    /* JADX WARN: Removed duplicated region for block: B:180:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0029  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1074,7 +1074,7 @@ public class b {
                             if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                                 throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
                             }
-                            if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
+                            if (responseCode == 502 || responseCode == 503 || responseCode == 504 || responseCode == 404) {
                                 throw new BdHttpErrorException("close not retry, errorCode:" + responseCode, responseCode, false);
                             }
                             throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);

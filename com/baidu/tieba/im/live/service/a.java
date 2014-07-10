@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.live.service;
 
-import android.app.NotificationManager;
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tieba.im.live.service.ILiveGroupManagerService;
 /* loaded from: classes.dex */
@@ -72,12 +71,8 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void connectAndPublish(String str, String str2, String str3, String str4, String str5, String str6) {
-        int i;
         Handler handler;
         Handler handler2;
-        StringBuilder sb = new StringBuilder("connectAndStartPublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).toString());
         f fVar = new f(null);
         fVar.a = str;
         fVar.b = str2;
@@ -92,13 +87,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void pausePublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("pausePublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -116,13 +107,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void resumePublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("resumePublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -140,13 +127,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void startRecordInPublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("startRecordInPublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -164,13 +147,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void stopRecordInPublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("stopRecordInPublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -188,13 +167,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void closePublish(String str, boolean z) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("closePublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -209,22 +184,15 @@ class a extends ILiveGroupManagerService.Stub {
         handler = this.a.mHandler;
         handler.sendEmptyMessage(15);
         if (!z) {
-            try {
-                ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
-            } catch (Exception e) {
-            }
+            bb.a(this.a, 20);
         }
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void startPublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("startPublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -242,13 +210,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void stopPublish(String str) {
-        int i;
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
-        StringBuilder sb = new StringBuilder("stopPublish in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -266,13 +230,9 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void startPlay(String str, String str2, int i) {
-        int i2;
         LivePlayerControl livePlayerControl;
         Handler handler;
         Handler handler2;
-        StringBuilder append = new StringBuilder("startPlay URL:").append(str2).append(" in status: ");
-        i2 = this.a.mStatus;
-        BdLog.d(append.append(i2).append(" startPos: ").append(i).toString());
         if (str == null || str2 == null) {
             return;
         }
@@ -290,12 +250,8 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void stopPlay(String str, boolean z) {
-        int i;
         String str2;
         Handler handler;
-        StringBuilder sb = new StringBuilder("stopPlay in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -306,21 +262,14 @@ class a extends ILiveGroupManagerService.Stub {
         handler = this.a.mHandler;
         handler.sendEmptyMessage(19);
         if (!z && !LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
-            try {
-                ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
-            } catch (Exception e) {
-            }
+            bb.a(this.a, 20);
         }
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void pausePlay(String str) {
-        int i;
         String str2;
         Handler handler;
-        StringBuilder sb = new StringBuilder("pausePlay in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -334,12 +283,8 @@ class a extends ILiveGroupManagerService.Stub {
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
     public void resumePlay(String str) {
-        int i;
         String str2;
         Handler handler;
-        StringBuilder sb = new StringBuilder("resumePlay in status: ");
-        i = this.a.mStatus;
-        BdLog.d(sb.append(i).append("group: ").append(str).toString());
         if (str == null) {
             return;
         }
@@ -355,7 +300,6 @@ class a extends ILiveGroupManagerService.Stub {
     public void seekPlayRecord(int i) {
         Handler handler;
         Handler handler2;
-        BdLog.d("seekPlayRecord to: " + i);
         handler = this.a.mHandler;
         handler2 = this.a.mHandler;
         handler.sendMessage(handler2.obtainMessage(22, i, i));

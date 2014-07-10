@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ r a;
+    final /* synthetic */ p a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.tieba.im.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(r rVar, String str, com.baidu.tieba.im.a aVar) {
-        this.a = rVar;
+    public v(p pVar, String str, com.baidu.tieba.im.a aVar) {
+        this.a = pVar;
         this.b = str;
         this.c = aVar;
     }
@@ -39,7 +39,7 @@ public class v implements com.baidu.tieba.im.a<Void> {
             list2 = this.a.b;
             list2.remove(imMessageCenterShowItemData);
         }
-        com.baidu.tieba.im.pushNotify.a.f().b(this.b);
-        com.baidu.tieba.im.pushNotify.a.f().b(false, this.c);
+        com.baidu.tieba.im.pushNotify.a.i().b(this.b);
+        com.baidu.tieba.im.pushNotify.a.i().b(false, this.c);
     }
 }

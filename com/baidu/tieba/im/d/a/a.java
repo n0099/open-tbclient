@@ -3,17 +3,16 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.a> {
-    private com.baidu.tieba.im.pushNotify.n a;
+    private com.baidu.tieba.im.pushNotify.o a;
     private int b;
 
-    public a(com.baidu.tieba.im.pushNotify.n nVar, int i) {
-        this.a = nVar;
+    public a(com.baidu.tieba.im.pushNotify.o oVar, int i) {
+        this.a = oVar;
         this.b = i;
     }
 
@@ -22,7 +21,6 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            BdLog.e("message error");
             return a(this.b);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
@@ -32,9 +30,8 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
         com.baidu.tieba.im.message.a data = loadDraftMessage.getData();
-        com.baidu.tieba.im.pushNotify.m b = this.a.b(str, data.a);
+        com.baidu.tieba.im.pushNotify.n b = this.a.b(str, data.a);
         if (b == null) {
-            BdLog.e("read DB error");
             return a(loadDraftMessage.getCmd());
         }
         String draft = b.getDraft();

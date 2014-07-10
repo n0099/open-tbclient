@@ -1,6 +1,9 @@
 package com.baidu.tieba.im.chat.officialBar;
+
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class aa implements com.baidu.tieba.im.a<Boolean> {
+class aa implements com.baidu.tieba.im.chat.v {
     final /* synthetic */ OfficialBarChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,19 +11,16 @@ class aa implements com.baidu.tieba.im.a<Boolean> {
         this.a = officialBarChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        com.baidu.tieba.im.chat.g gVar;
-        com.baidu.tieba.im.chat.g gVar2;
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                gVar2 = this.a.d;
-                gVar2.L();
-                return;
-            }
-            gVar = this.a.d;
-            gVar.M();
+    @Override // com.baidu.tieba.im.chat.v
+    public void a(VoiceData.VoiceModel voiceModel) {
+        MsglistModel msglistModel;
+        if (voiceModel != null) {
+            msglistModel = this.a.e;
+            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.v
+    public void a() {
     }
 }

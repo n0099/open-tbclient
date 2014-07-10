@@ -11,10 +11,10 @@ public class i implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        com.baidu.tieba.model.o oVar;
+        com.baidu.tieba.model.m mVar;
         Boolean bool;
-        oVar = this.a.d;
+        mVar = this.a.d;
         bool = this.a.g;
-        oVar.a(bool.booleanValue());
+        mVar.a(bool.booleanValue());
     }
 }

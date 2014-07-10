@@ -1,119 +1,154 @@
 package com.baidu.tieba.mention;
 
-import android.app.AlertDialog;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.model.am;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
-    ArrayList<BasicNameValuePair> a;
-    final /* synthetic */ PostActivity b;
-    private an c = null;
-    private String d;
+public class ac extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
+    private com.baidu.tbadk.core.view.q d;
+    private LinearLayout e;
+    private com.baidu.tbadk.core.view.b f;
+    private com.baidu.tbadk.core.view.k g;
+    private NoNetworkView h;
+    private l b = null;
+    private BdListView c = null;
+    private boolean i = false;
 
-    public ac(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.b = postActivity;
-        this.d = null;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View inflate = layoutInflater.inflate(com.baidu.tieba.w.reply_me_activity, (ViewGroup) null);
+        this.d = new com.baidu.tbadk.core.view.q(getActivity());
+        this.d.a(this);
+        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
+        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.u.pic_blank_page_search, com.baidu.tieba.u.pic_blank_page_search_1, com.baidu.tieba.v.no_data_container, com.baidu.tieba.v.no_data_image, com.baidu.tieba.v.no_data_image_text);
+        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.v.replyme_lv);
+        this.c.setDividerHeight(0);
+        this.c.setPullRefresh(this.d);
+        this.b = new l(this, 1, new ad(this));
+        this.b.a(this.c);
+        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.v.mention_layout_replyme1));
+        this.b.a(this.g);
+        this.b.a("c/u/feed/replyme");
+        this.b.c();
+        this.h = (NoNetworkView) inflate.findViewById(com.baidu.tieba.v.view_no_network_reply);
+        return inflate;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.b.f;
-        progressBar.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.data.af doInBackground(Object... objArr) {
-        com.baidu.tieba.data.af afVar = null;
-        try {
-            this.c = new an(this.d);
-            this.c.a(this.a);
-            String i = this.c.i();
-            if (this.c.a().b().b()) {
-                com.baidu.tieba.data.af afVar2 = new com.baidu.tieba.data.af();
-                try {
-                    afVar2.b(i);
-                    int size = afVar2.e().size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        afVar2.e().get(i2).b(this.b);
-                        afVar2.e().get(i2).a((ArrayList<com.baidu.tieba.data.f>) null);
-                    }
-                    return afVar2;
-                } catch (Exception e) {
-                    afVar = afVar2;
-                    e = e;
-                    BdLog.e("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return afVar;
-                }
+    @Override // com.baidu.tbadk.core.d
+    public void c(int i) {
+        super.c(i);
+        if (isAdded()) {
+            this.g.a(i);
+            if (this.d != null) {
+                this.d.a(i);
             }
-            return null;
-        } catch (Exception e2) {
-            e = e2;
+            if (this.f != null) {
+                this.f.b(i);
+            }
+            if (this.b != null) {
+                this.b.f();
+            }
+            if (this.h != null) {
+                this.h.a(i);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.af afVar) {
-        ProgressBar progressBar;
-        am amVar;
-        try {
-            progressBar = this.b.f;
-            progressBar.setVisibility(8);
-            if (afVar != null) {
-                amVar = this.b.l;
-                amVar.a(afVar);
-            } else if (this.c != null) {
-                if (this.c.c()) {
-                    this.b.showToast(this.c.f());
-                    if (this.c.d() == 4 || this.c.d() == 28 || this.c.d() == 29) {
-                        this.b.finish();
-                        return;
-                    }
-                } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
-                    builder.setTitle(this.b.getString(com.baidu.tieba.y.error));
-                    builder.setMessage(this.c.f());
-                    builder.setPositiveButton(this.b.getString(com.baidu.tieba.y.retry), new ad(this));
-                    builder.setNegativeButton(this.b.getString(com.baidu.tieba.y.cancel), new ae(this));
-                    builder.create().show();
-                }
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+        if (TbadkApplication.isLogin()) {
+            this.c.setVisibility(0);
+            this.e.setVisibility(8);
+            if (this.i) {
+                this.i = false;
+                a();
+            }
+            this.b.e();
+        } else {
+            this.g.b(8);
+            g();
+        }
+        c(TbadkApplication.m252getInst().getSkinType());
+    }
+
+    public void a() {
+        if (this.b == null) {
+            this.i = true;
+            return;
+        }
+        this.i = false;
+        if (TbadkApplication.isLogin()) {
+            this.c.setVisibility(0);
+            this.e.setVisibility(8);
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().k() > 0) {
+                this.b.a(2);
+            } else {
+                this.b.a(1);
             }
             this.b.d();
+            this.b.e();
+            return;
+        }
+        g();
+    }
+
+    private void g() {
+        if (this.f == null) {
+            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
+            this.e.addView(this.f.b());
+            this.f.b(TbadkApplication.m252getInst().getSkinType());
+        } else {
+            ((ViewGroup) this.f.b().getParent()).removeAllViews();
+            this.e.addView(this.f.b());
+            this.f.b(TbadkApplication.m252getInst().getSkinType());
+        }
+        this.c.setVisibility(8);
+        this.e.setVisibility(0);
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onStop() {
+        super.onStop();
+        this.g.b();
+        if (this.f != null) {
+            this.f.d();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onStart() {
+        super.onStart();
+        this.g.a();
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            if (this.b != null) {
+                this.b.a();
+            }
+            System.gc();
         } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        this.b.k = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
+    public void f() {
+        this.b.b();
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.g();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        if (!z) {
+            f();
         }
-        progressBar = this.b.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 }

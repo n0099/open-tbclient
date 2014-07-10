@@ -18,8 +18,8 @@ class z extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage customResponsedMessage) {
         if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2003124) {
-                if (customResponsedMessage.getCmd() != 2003122) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
                     return;
                 }
                 this.a.b(customResponsedMessage);

@@ -28,7 +28,7 @@ public class a {
                 this.b = jSONObject.optString("badge_url", "");
                 this.c = jSONObject.optString("webview");
             } catch (Exception e) {
-                BdLog.e("BadgeData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

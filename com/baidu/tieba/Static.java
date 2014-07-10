@@ -8,11 +8,11 @@ public class Static {
 
     static {
         ai.a();
-        MessageManager.getInstance().registerListener(2007009, a);
-        MessageManager.getInstance().registerListener(2007010, a);
-        MessageManager.getInstance().registerListener(2007011, a);
-        MessageManager.getInstance().registerListener(2007012, a);
-        MessageManager.getInstance().registerListener(2007013, a);
-        MessageManager.getInstance().registerListener(2007015, a);
+        MessageManager.getInstance().registerListener(2005009, a);
+        MessageManager.getInstance().registerListener(2005010, a);
+        MessageManager.getInstance().registerListener(2005011, a);
+        MessageManager.getInstance().registerListener(2005012, a);
+        MessageManager.getInstance().registerListener(2005013, a);
+        MessageManager.getInstance().registerListener(2005015, a);
     }
 }

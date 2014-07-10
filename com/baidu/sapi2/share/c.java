@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.Arrays;
@@ -56,14 +57,14 @@ class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, Intent intent, LoginShareStrategy loginShareStrategy, e eVar) {
+    public static void a(Context context, Intent intent, LoginShareStrategy loginShareStrategy, d dVar) {
         boolean z = false;
         Bundle extras = intent.getExtras();
         if (extras != null && loginShareStrategy != LoginShareStrategy.DISABLED) {
             String string = extras.getString(g);
             if (!TextUtils.isEmpty(string)) {
                 String b2 = com.baidu.sapi2.share.a.b(context, string);
-                String string2 = extras.getString(h);
+                String string2 = extras.getString("from");
                 if (!TextUtils.isEmpty(string2)) {
                     String packageName = context.getPackageName();
                     String b3 = com.baidu.sapi2.share.a.b(context, string2);
@@ -117,8 +118,8 @@ class c {
                                     aVar.c = parseLong;
                                     aVar.d = hashMap;
                                     ShareModel a2 = a(context, aVar);
-                                    if (eVar != null && a2 != null) {
-                                        eVar.a(a2);
+                                    if (dVar != null && a2 != null) {
+                                        dVar.a(a2);
                                     }
                                 } catch (Exception e3) {
                                 }
@@ -150,8 +151,9 @@ class c {
         SapiAccount b2 = b(context, aVar);
         if (b2 != null) {
             shareModel.a(LoginShareStrategy.SILENT);
-            shareModel.a(com.baidu.sapi2.share.a.a(context, b2));
-            shareModel.a(Arrays.asList(shareModel.d()));
+            SapiAccount a2 = com.baidu.sapi2.share.a.a(context, b2);
+            shareModel.a(a2);
+            shareModel.a(Arrays.asList(a2));
             return shareModel;
         }
         return null;
@@ -163,7 +165,7 @@ class c {
         }
         Map<String, String> map = aVar.d;
         SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.app = com.baidu.sapi2.utils.c.a(context, aVar.b);
+        sapiAccount.app = SapiUtils.getAppName(context, aVar.b);
         for (String str : map.keySet()) {
             if (l.equals(str)) {
                 if (a(map.get(str))) {
@@ -221,14 +223,10 @@ class c {
                 }
             }
         }
-        if (a(sapiAccount)) {
+        if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
         }
         return null;
-    }
-
-    static boolean a(SapiAccount sapiAccount) {
-        return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
     }
 
     static boolean a(String str) {
@@ -237,16 +235,16 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static SapiAccount a(Context context) {
-        com.baidu.sapi2.share.a.a.a aVar = new com.baidu.sapi2.share.a.a.a(context);
+        e eVar = new e(context);
         SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.displayname = aVar.a("displayname");
-        sapiAccount.username = aVar.a(l);
-        sapiAccount.email = aVar.a(n);
-        sapiAccount.phone = aVar.a(o);
-        sapiAccount.bduss = aVar.a("bduss");
-        sapiAccount.ptoken = aVar.a("ptoken");
-        sapiAccount.extra = aVar.a(s);
-        a(sapiAccount, aVar.a(t));
+        sapiAccount.displayname = eVar.a("displayname");
+        sapiAccount.username = eVar.a(l);
+        sapiAccount.email = eVar.a(n);
+        sapiAccount.phone = eVar.a(o);
+        sapiAccount.bduss = eVar.a("bduss");
+        sapiAccount.ptoken = eVar.a("ptoken");
+        sapiAccount.extra = eVar.a(s);
+        a(sapiAccount, eVar.a(t));
         if (!TextUtils.isEmpty(sapiAccount.extra)) {
             try {
                 JSONObject jSONObject = new JSONObject(sapiAccount.extra);
@@ -276,7 +274,7 @@ class c {
                 L.e(e2);
             }
         }
-        if (a(sapiAccount)) {
+        if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
         }
         return null;

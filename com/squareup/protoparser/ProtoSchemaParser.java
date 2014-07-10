@@ -1,7 +1,6 @@
 package com.squareup.protoparser;
 
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.squareup.protoparser.EnumType;
 import com.squareup.protoparser.MessageType;
 import com.squareup.protoparser.Service;
@@ -509,7 +508,7 @@ public final class ProtoSchemaParser {
                     switch (c) {
                         case '0':
                         case '1':
-                        case TbadkApplication.MEMORY_FOURM_COUNT /* 50 */:
+                        case '2':
                         case '3':
                         case '4':
                         case '5':

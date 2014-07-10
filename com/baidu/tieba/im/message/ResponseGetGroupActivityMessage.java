@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.squareup.wire.Wire;
@@ -13,15 +12,11 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
     private GroupActivityData activityData;
 
     public ResponseGetGroupActivityMessage() {
-        super(MessageTypes.CMD_GET_GROUP_ACTIVITY);
+        super(103015);
     }
 
     public GroupActivityData getActivityData() {
         return this.activityData;
-    }
-
-    public void setActivityData(GroupActivityData groupActivityData) {
-        this.activityData = groupActivityData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,13 +38,13 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
             groupActivityData.setUserId(dataRes.userId.intValue());
             groupActivityData.setUserName(dataRes.userName);
             groupActivityData.setIsEnd(dataRes.isEnd.intValue());
-            setActivityData(groupActivityData);
+            this.activityData = groupActivityData;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         if (getActivityData() != null && getError() == 0) {
             String str = "";
             if (TbadkApplication.getCurrentAccountObj() != null) {

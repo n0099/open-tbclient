@@ -139,10 +139,6 @@ public class b {
         return a2;
     }
 
-    public Object a(String str, int i, a aVar, Context context, e eVar) {
-        return a(str, i, aVar, context, eVar, null, 1);
-    }
-
     public Object a(String str, int i, a aVar, Context context, e eVar, int i2) {
         return a(str, i, aVar, context, eVar, null, i2);
     }

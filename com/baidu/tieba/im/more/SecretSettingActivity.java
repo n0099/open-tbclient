@@ -4,85 +4,52 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.adp.widget.BdSwitchView.c;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ax;
-import com.baidu.tbadk.core.atomData.t;
-import com.baidu.tieba.im.model.ac;
+import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.y;
 /* loaded from: classes.dex */
-public class SecretSettingActivity extends BaseActivity implements View.OnClickListener, c {
-    private ac a;
-    private b b;
-    private final com.baidu.adp.framework.listener.b c = new a(this, 0);
+public class SecretSettingActivity extends BaseActivity implements View.OnClickListener {
+    private a a;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ax.class, SecretSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bk.class, SecretSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new b(this);
-        this.b.a(this);
-        b();
-        a();
-        c();
-    }
-
-    private void a() {
-        this.a.a(this.c);
-    }
-
-    private void b() {
-        this.a = new ac();
-    }
-
-    private void c() {
-        this.b.a();
-        this.a.a(8);
-    }
-
-    private void a(boolean z) {
-        this.b.c();
-        this.a.a(8, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        this.a.b(this.c);
+        this.a = new a(this);
+        this.a.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.a(i);
+        this.a.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.b.b();
+        this.a.a();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.b.e().performClick();
+        this.a.b().performClick();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.b.e()) {
+        if (view == this.a.b()) {
             finish();
-        } else if (view == this.b.g()) {
-            d();
+        } else if (view == this.a.c()) {
+            a();
         }
     }
 
@@ -97,16 +64,7 @@ public class SecretSettingActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-    private void d() {
-        sendMessage(new CustomMessage(2010001, new t(this)));
-    }
-
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            a(true);
-        } else {
-            a(false);
-        }
+    private void a() {
+        sendMessage(new CustomMessage(2008001, new y(this)));
     }
 }

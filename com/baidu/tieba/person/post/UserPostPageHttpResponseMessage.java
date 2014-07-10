@@ -30,11 +30,6 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
         this.personPostModel.setErrorString(parseProtobuf.error.usermsg);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
-    }
-
     public PersonPostModel getPersonPostModel() {
         return this.personPostModel;
     }

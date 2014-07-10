@@ -1,43 +1,30 @@
 package com.baidu.tbadk.coreExtra.view;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements TextWatcher {
-    final /* synthetic */ SearchBar a;
+public class aq extends com.baidu.tbadk.coreExtra.c.c {
+    final /* synthetic */ ProgressCountDownView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(SearchBar searchBar) {
-        this.a = searchBar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.a = progressCountDownView;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // com.baidu.tbadk.coreExtra.c.c
+    public void a(long j) {
+        this.a.a(j);
+        this.a.b(j);
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        at atVar;
-        at atVar2;
-        Button button2;
-        if (this.a.getSearchText().length() > 0) {
-            button2 = this.a.c;
-            button2.setVisibility(0);
-        } else {
-            button = this.a.c;
-            button.setVisibility(8);
-        }
-        atVar = this.a.e;
-        if (atVar != null) {
-            atVar2 = this.a.e;
-            atVar2.a(this.a.getSearchText());
+    @Override // com.baidu.tbadk.coreExtra.c.c
+    public void c() {
+        ar arVar;
+        ar arVar2;
+        arVar = this.a.g;
+        if (arVar != null) {
+            arVar2 = this.a.g;
+            arVar2.a();
         }
     }
 }

@@ -6,17 +6,16 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
 /* loaded from: classes.dex */
 public class LiveGroupLikeListActivity extends BaseActivity {
     private static int a;
-    private f b = null;
-    private e c = null;
-    private com.baidu.adp.framework.listener.b d = new a(this, MessageTypes.CMD_LIVE_LIKE_LIST);
+    private e b = null;
+    private d c = null;
+    private com.baidu.adp.framework.listener.b d = new a(this, 107006);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ab.class, LiveGroupLikeListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ag.class, LiveGroupLikeListActivity.class);
         a = 5;
     }
 
@@ -24,9 +23,9 @@ public class LiveGroupLikeListActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = new e();
+        this.c = new d();
         this.c.a(getIntent(), bundle);
-        this.b = new f(this, this.c.c(), this.c.e());
+        this.b = new e(this, this.c.c(), this.c.e());
         registerListener(this.d);
         showProgressBar();
         this.c.f();
@@ -56,7 +55,7 @@ public class LiveGroupLikeListActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         LikeUserInfo a2 = this.c.a(i);
         if (a2 != null) {
-            sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, String.valueOf(a2.userId), a2.userName)));
+            sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(this, String.valueOf(a2.userId), a2.userName)));
         }
     }
 }

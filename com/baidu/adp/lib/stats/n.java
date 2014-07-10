@@ -1,116 +1,137 @@
 package com.baidu.adp.lib.stats;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.BdCacheService;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
+import java.security.MessageDigest;
+import java.util.Random;
 /* loaded from: classes.dex */
 public class n {
-    private static n b;
-    private com.baidu.adp.lib.cache.s<String> a = null;
+    private static Random a = new Random();
 
-    public static n a() {
-        if (b == null) {
-            synchronized (n.class) {
-                if (b == null) {
-                    b = new n();
+    public static String a() {
+        try {
+            return Long.toHexString(Math.abs(a.nextLong()));
+        } catch (Exception e) {
+            return Long.toHexString(System.currentTimeMillis());
+        }
+    }
+
+    public static String a(Context context) {
+        NetworkInfo activeNetworkInfo;
+        if (context == null) {
+            return null;
+        }
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
+                int type = activeNetworkInfo.getType();
+                if (type == 1) {
+                    return NetworkChangeReceiver.WIFI_STRING;
+                }
+                if (type == 0) {
+                    int d = com.baidu.adp.lib.network.willdelete.h.d();
+                    StringBuilder sb = new StringBuilder();
+                    switch (d) {
+                        case 1:
+                            sb.append('M');
+                            break;
+                        case 2:
+                            sb.append('U');
+                            break;
+                        case 3:
+                            sb.append('T');
+                            break;
+                        default:
+                            sb.append('N');
+                            break;
+                    }
+                    if (activeNetworkInfo.getExtraInfo() != null && activeNetworkInfo.getExtraInfo().contains("wap")) {
+                        sb.append("_WAP_");
+                    } else {
+                        sb.append("_NET_");
+                    }
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        switch (telephonyManager.getNetworkType()) {
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 5:
+                                sb.append("2G");
+                                break;
+                            case 3:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                                sb.append("3G");
+                                break;
+                            default:
+                                sb.append('N');
+                                break;
+                        }
+                    } else {
+                        sb.append('N');
+                    }
+                    return sb.toString();
                 }
             }
-        }
-        return b;
-    }
-
-    private com.baidu.adp.lib.cache.s<String> c() {
-        if (this.a == null) {
-            this.a = BdCacheService.c().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
-        }
-        return this.a;
-    }
-
-    public void a(String str) {
-        if (!com.baidu.adp.lib.util.j.b(str)) {
-            c().a("adp.stat.switch_data", str);
+            return "unknown";
+        } catch (Exception e) {
+            return null;
         }
     }
 
-    public String b() {
-        return c().a("adp.stat.switch_data");
-    }
-
-    public void a(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_upload_time ";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
+    public static String b(Context context) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
+                    return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                }
+                String defaultHost = Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT;
+                    }
+                }
+                return TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
             }
-            c().a(str2, String.valueOf(j));
+            return null;
+        } catch (Exception e) {
+            return null;
         }
     }
 
-    public long b(String str) {
-        String str2 = "adp.stat.stat_upload_time ";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
-        }
-        String a = c().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                BdLog.i(e.getMessage());
+    public static String a(byte[] bArr) {
+        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr2 = new char[32];
+            int i = 0;
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr2[i] = cArr[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr2[i3] = cArr[b & 15];
             }
+            return new String(cArr2);
+        } catch (Exception e) {
+            BdLog.e(e);
+            return null;
         }
-        return 0L;
-    }
-
-    public void b(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_debug_time";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_debug_time") + str;
-            }
-            c().a(str2, String.valueOf(j));
-        }
-    }
-
-    public long c(String str) {
-        String str2 = "adp.stat.stat_debug_time";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_debug_time") + str;
-        }
-        String a = c().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                BdLog.i(e.getMessage());
-            }
-        }
-        return 0L;
-    }
-
-    public void c(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_error_time";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_error_time") + str;
-            }
-            c().a(str2, String.valueOf(j));
-        }
-    }
-
-    public long d(String str) {
-        String str2 = "adp.stat.stat_error_time";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_error_time") + str;
-        }
-        String a = c().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                BdLog.i(e.getMessage());
-            }
-        }
-        return 0L;
     }
 }

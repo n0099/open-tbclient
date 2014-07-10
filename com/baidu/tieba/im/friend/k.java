@@ -1,21 +1,32 @@
 package com.baidu.tieba.im.friend;
 
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class k implements AbsListView.OnScrollListener {
-    final /* synthetic */ i a;
+class k implements View.OnClickListener {
+    final /* synthetic */ InviteFriendCandidateList a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar) {
-        this.a = iVar;
+    public k(InviteFriendCandidateList inviteFriendCandidateList) {
+        this.a = inviteFriendCandidateList;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LinearLayout linearLayout;
+        boolean f;
+        l lVar;
+        l lVar2;
+        linearLayout = this.a.b;
+        linearLayout.removeView(view);
+        f = this.a.f();
+        if (!f) {
+            this.a.d();
+        }
+        lVar = this.a.i;
+        if (lVar != null) {
+            lVar2 = this.a.i;
+            lVar2.a(view, view.getTag());
+        }
     }
 }

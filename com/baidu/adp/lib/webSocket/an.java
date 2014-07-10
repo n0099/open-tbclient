@@ -39,9 +39,6 @@ public class an extends Thread {
         this.e = new e(amVar.c());
         this.k = null;
         this.h = 1;
-        if (h()) {
-            BdLog.d("created");
-        }
     }
 
     protected void a(Object obj) {
@@ -309,7 +306,6 @@ public class an extends Thread {
                 String[] split2 = str2.split(": ");
                 if (split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
-                    BdLog.w(String.format("'%s'='%s'", split2[0], split2[1]));
                 }
             }
         }
@@ -339,11 +335,7 @@ public class an extends Thread {
         byte[] bArr = new byte[i8];
         this.d.position(i6);
         this.d.get(bArr, 0, i8);
-        String str = new String(bArr, "UTF-8");
-        if (h()) {
-            BdLog.w(String.format("Status: %d (%s)", Integer.valueOf(i4), str));
-        }
-        return new Pair<>(Integer.valueOf(i4), str);
+        return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
     private boolean g() {
@@ -363,19 +355,13 @@ public class an extends Thread {
         try {
             this.b.a();
         } catch (Exception e) {
-            BdLog.e("error:" + e.getMessage());
-        }
-        if (h()) {
-            BdLog.d("quit");
+            BdLog.e(e);
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [734=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [736=6] */
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (h()) {
-            BdLog.d("running");
-        }
         try {
             this.d.clear();
             do {
@@ -390,9 +376,6 @@ public class an extends Thread {
                         do {
                         } while (g());
                     } else if (a < 0) {
-                        if (h()) {
-                            BdLog.d("run() : ConnectionLost");
-                        }
                         a(new w(new SocketException("len < 0")));
                         this.g = true;
                     }
@@ -405,31 +388,14 @@ public class an extends Thread {
                 }
             } while (!this.g);
         } catch (WebSocketException e2) {
-            if (h()) {
-                BdLog.d("run() : WebSocketException (" + e2.toString() + ")");
-            }
             a(new ae(e2));
         } catch (SocketException e3) {
-            if (h()) {
-                BdLog.d("run() : SocketException (" + e3.toString() + ")");
-            }
             a(new w(e3));
         } catch (Exception e4) {
-            if (h()) {
-                BdLog.d("run() : Exception (" + e4.toString() + ")");
-                BdLog.i("----WebSocketReader.handleMessage error. e:" + e4.getMessage());
-            }
             a(new y(e4));
         } finally {
             this.g = true;
         }
-        if (h()) {
-            BdLog.d("quit");
-        }
-    }
-
-    private boolean h() {
-        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public void b() {

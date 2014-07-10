@@ -2,7 +2,6 @@ package com.baidu.adp.lib.Disk;
 
 import android.os.Environment;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -39,11 +38,7 @@ public class b {
         }
         File file = new File(str2);
         if (!file.exists()) {
-            if (z) {
-                if (!file.mkdirs()) {
-                    BdLog.e("checkDir error = " + str2);
-                    return null;
-                }
+            if (z && file.mkdirs()) {
                 return str2;
             }
             return null;

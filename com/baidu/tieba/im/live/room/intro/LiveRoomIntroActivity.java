@@ -6,8 +6,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.af;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.core.atomData.ak;
 /* loaded from: classes.dex */
 public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private e a = null;
@@ -15,7 +14,7 @@ public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickL
     private final com.baidu.adp.framework.listener.b c = new a(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(af.class, LiveRoomIntroActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ak.class, LiveRoomIntroActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +27,7 @@ public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickL
             this.b = new d(getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0), getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID, 0), getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME));
         }
         this.a = new e(this);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_QUERY_LIVE_ROOM_INTRO, this.c);
+        MessageManager.getInstance().registerListener(107004, this.c);
         this.b.a(this);
         this.a.a(true);
         this.a.a(this.b.a());

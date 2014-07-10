@@ -1,8 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -26,6 +25,7 @@ public class CommonMsgPojo implements Serializable {
     private String ext;
     private String gid;
     Gson gson;
+    private int isFriend;
     private boolean isPrivate;
     boolean isSelf;
     private int is_delete;
@@ -98,6 +98,7 @@ public class CommonMsgPojo implements Serializable {
             this.is_delete = 0;
             this.rid = chatMessage.getRecordId();
             checkRidAndSelf();
+            this.isFriend = chatMessage.getIsFriend();
         }
     }
 
@@ -138,7 +139,7 @@ public class CommonMsgPojo implements Serializable {
     /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00b2  */
     /* JADX WARN: Removed duplicated region for block: B:35:0x00e1  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0118  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x011d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -156,43 +157,44 @@ public class CommonMsgPojo implements Serializable {
         long j5 = 0;
         try {
             j = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
-        } catch (Exception e2) {
-            e = e2;
-            j = 0;
-        }
-        try {
+            try {
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                j2 = j;
+                j3 = 0;
+                if (TextUtils.isEmpty(this.toUid)) {
+                }
+                personalChatMessage.setMsgId(this.mid);
+                personalChatMessage.setUserId(j2);
+                personalChatMessage.setToUserId(j3);
+                personalChatMessage.setRecordId(this.rid);
+                if (this.user_info_data == null) {
+                }
+                personalChatMessage.setUserInfo(this.user_info_data);
+                if (this.to_user_info_data == null) {
+                }
+                personalChatMessage.setToUserInfo(this.to_user_info_data);
+                personalChatMessage.setToUserInfo((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+                personalChatMessage.setTime(this.create_time);
+                personalChatMessage.setMsgType((short) this.msg_type);
+                MsgLocalData msgLocalData = new MsgLocalData();
+                msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
+                personalChatMessage.setLocalData(msgLocalData);
+                personalChatMessage.setContent(this.content);
+                userInfo = personalChatMessage.getUserInfo();
+                if (userInfo != null) {
+                }
+                toUserInfo = personalChatMessage.getToUserInfo();
+                if (toUserInfo != null) {
+                }
+                r.g(personalChatMessage);
+                personalChatMessage.setIsFriend(this.isFriend);
+                return personalChatMessage;
+            }
         } catch (Exception e3) {
             e = e3;
-            e.printStackTrace();
-            j2 = j;
-            j3 = 0;
-            if (TextUtils.isEmpty(this.toUid)) {
-            }
-            personalChatMessage.setMsgId(this.mid);
-            personalChatMessage.setUserId(j2);
-            personalChatMessage.setToUserId(j3);
-            personalChatMessage.setRecordId(this.rid);
-            if (this.user_info_data == null) {
-            }
-            personalChatMessage.setUserInfo(this.user_info_data);
-            if (this.to_user_info_data == null) {
-            }
-            personalChatMessage.setToUserInfo(this.to_user_info_data);
-            personalChatMessage.setToUserInfo((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
-            personalChatMessage.setTime(this.create_time);
-            personalChatMessage.setMsgType((short) this.msg_type);
-            MsgLocalData msgLocalData = new MsgLocalData();
-            msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
-            personalChatMessage.setLocalData(msgLocalData);
-            personalChatMessage.setContent(this.content);
-            userInfo = personalChatMessage.getUserInfo();
-            if (userInfo != null) {
-            }
-            toUserInfo = personalChatMessage.getToUserInfo();
-            if (toUserInfo != null) {
-            }
-            r.g(personalChatMessage);
-            return personalChatMessage;
+            j = 0;
         }
         if (this.toUid != null && this.toUid.length() > 0) {
             j3 = Long.parseLong(this.toUid);
@@ -224,30 +226,29 @@ public class CommonMsgPojo implements Serializable {
             personalChatMessage.setContent(this.content);
             userInfo = personalChatMessage.getUserInfo();
             if (userInfo != null) {
-                if (j.b(userInfo.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(this.user_info, (Class<Object>) OldUserData.class)) != null) {
+                if (i.b(userInfo.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(this.user_info, (Class<Object>) OldUserData.class)) != null) {
                     oldUserData2.setToUserData(userInfo);
                 }
                 try {
                     j4 = Long.parseLong(userInfo.getUserId());
                 } catch (Exception e4) {
-                    BdLog.e("error" + e4.getMessage());
                     j4 = 0;
                 }
                 personalChatMessage.setUserId(j4);
             }
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
-                if (j.b(toUserInfo.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(this.to_user_info, (Class<Object>) OldUserData.class)) != null) {
+                if (i.b(toUserInfo.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(this.to_user_info, (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(toUserInfo);
                 }
                 try {
                     j5 = Long.parseLong(toUserInfo.getUserId());
                 } catch (Exception e5) {
-                    BdLog.e("error" + e5.getMessage());
                 }
                 personalChatMessage.setToUserId(j5);
             }
             r.g(personalChatMessage);
+            personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
         j2 = j;
@@ -278,6 +279,7 @@ public class CommonMsgPojo implements Serializable {
         if (toUserInfo != null) {
         }
         r.g(personalChatMessage);
+        personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }
 
@@ -390,5 +392,13 @@ public class CommonMsgPojo implements Serializable {
         } else if (this.rid == 0) {
             this.rid = this.mid;
         }
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
     }
 }

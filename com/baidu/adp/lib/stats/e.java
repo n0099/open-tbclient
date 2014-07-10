@@ -1,35 +1,46 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.lib.Disk.ops.e {
-    final /* synthetic */ c g;
-    private final /* synthetic */ f h;
-    private final /* synthetic */ boolean i;
+public class e extends Handler {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(c cVar, String str, String str2, DiskFileOperate.Action action, f fVar, boolean z) {
-        super(str, str2, action);
-        this.g = cVar;
-        this.h = fVar;
-        this.i = z;
+    public e(d dVar) {
+        this.a = dVar;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void c(boolean z) {
-        long j;
-        long j2;
-        super.c(z);
-        if (z && n() != null) {
-            j = this.g.t;
-            if (j == 0) {
-                this.g.t = n().length();
-            }
-            c cVar = this.g;
-            j2 = cVar.t;
-            cVar.t = j2 + s().length();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        BdStatLog bdStatLog;
+        BdDebugLog bdDebugLog;
+        BdErrorLog bdErrorLog;
+        switch (message.what) {
+            case 1:
+                this.a.b((BdStatBase) message.obj, message.arg1 > 0, message.arg2 > 0);
+                return;
+            case 2:
+                d dVar = this.a;
+                bdStatLog = this.a.v;
+                dVar.a((BdStatBase) bdStatLog, true, true);
+                d dVar2 = this.a;
+                bdDebugLog = this.a.w;
+                dVar2.a((BdStatBase) bdDebugLog, true, true);
+                d dVar3 = this.a;
+                bdErrorLog = this.a.x;
+                dVar3.a((BdStatBase) bdErrorLog, true, true);
+                this.a.m();
+                return;
+            case 3:
+                this.a.c((BdStatBase) message.obj, message.arg1 > 0);
+                return;
+            case 4:
+                this.a.b((BdStatBase) message.obj);
+                return;
+            default:
+                return;
         }
-        h.a().a(this.h, this.i);
     }
 }

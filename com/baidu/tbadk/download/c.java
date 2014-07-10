@@ -2,7 +2,6 @@ package com.baidu.tbadk.download;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Handler {
@@ -29,7 +28,6 @@ public class c extends Handler {
                 downloadData2.setLength(message.arg1);
                 downloadData3 = b.b;
                 downloadData3.setSize(message.arg2);
-                BdLog.d("download_file:" + message.arg1 + "/" + message.arg2);
                 downloadData4 = b.b;
                 if (downloadData4.getCallback() != null) {
                     downloadData5 = b.b;

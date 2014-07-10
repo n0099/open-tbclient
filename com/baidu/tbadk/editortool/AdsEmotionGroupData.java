@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AdsEmotionGroupData implements y, Serializable {
+public class AdsEmotionGroupData implements x, Serializable {
     private static final long serialVersionUID = 1;
     private String colorCoverUrl;
     private String groupId;
@@ -16,7 +16,7 @@ public class AdsEmotionGroupData implements y, Serializable {
         }
     }
 
-    @Override // com.baidu.tbadk.editortool.y
+    @Override // com.baidu.tbadk.editortool.x
     public String getGroupId() {
         return this.groupId;
     }
@@ -33,7 +33,7 @@ public class AdsEmotionGroupData implements y, Serializable {
         this.colorCoverUrl = str;
     }
 
-    @Override // com.baidu.tbadk.editortool.y
+    @Override // com.baidu.tbadk.editortool.x
     public boolean IsValid() {
         return !TextUtils.isEmpty(this.colorCoverUrl);
     }

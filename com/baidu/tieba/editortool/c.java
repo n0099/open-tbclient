@@ -7,7 +7,7 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.model.j {
+public class c implements com.baidu.tieba.model.h {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class c implements com.baidu.tieba.model.j {
         this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.model.j
+    @Override // com.baidu.tieba.model.h
     public void a(SetBubbleResultData setBubbleResultData) {
         if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
             this.a.i().b();
@@ -50,7 +50,7 @@ public class c implements com.baidu.tieba.model.j {
         this.a.i().a(this.a);
     }
 
-    @Override // com.baidu.tieba.model.j
+    @Override // com.baidu.tieba.model.h
     public void b(SetBubbleResultData setBubbleResultData) {
         if (setBubbleResultData != null) {
             if (!setBubbleResultData.getError_code().equals("0")) {

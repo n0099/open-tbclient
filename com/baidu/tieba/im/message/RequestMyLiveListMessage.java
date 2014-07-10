@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryLiveGroupsByUid.DataReq;
 import protobuf.QueryLiveGroupsByUid.QueryLiveGroupsByUidReqIdl;
@@ -11,7 +10,7 @@ public class RequestMyLiveListMessage extends TbSocketMessage {
     private int type;
 
     public RequestMyLiveListMessage() {
-        super(MessageTypes.CMD_QUERY_MYLIVE);
+        super(107002);
     }
 
     public int getType() {

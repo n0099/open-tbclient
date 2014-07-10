@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ao;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.bu;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.util.AntiHelper;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class v extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
     private WriteData b;
-    private an c = null;
+    private aq c = null;
     private boolean d = false;
 
     public v(ImagePbActivity imagePbActivity, WriteData writeData) {
@@ -35,12 +35,19 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
+        this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
         this.c.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         this.c.a("content", this.b.getContent());
+        if (this.b.getIsBaobaoImageUploaded()) {
+            this.c.a("tail_type", String.valueOf(com.baidu.tieba.a.e.a));
+            this.c.a("tail_content", this.b.getBaobaoContent());
+            this.b.setBabaoPosted(true);
+        } else {
+            this.b.setBabaoPosted(false);
+        }
         this.c.a("tid", this.b.getThreadId());
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
@@ -78,12 +85,12 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
                 this.b.setVcodeUrl(fVar.b());
                 if (fVar.c().equals("4")) {
                     if (this.b != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ao(this.a, 12006, this.b, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new at(this.a, 12006, this.b, false)));
                         return;
                     }
                     return;
                 } else if (this.b != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bg(this.a, this.b, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bu(this.a, this.b, 12006)));
                     return;
                 } else {
                     return;

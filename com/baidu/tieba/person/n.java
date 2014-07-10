@@ -1,10 +1,7 @@
 package com.baidu.tieba.person;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
+public class n extends com.baidu.adp.base.h {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +9,17 @@ public class n implements DialogInterface.OnClickListener {
         this.a = mVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        dialog = this.a.j;
-        dialog.dismiss();
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        q qVar;
+        q qVar2;
+        o oVar;
+        m.f = true;
+        qVar = this.a.c;
+        if (qVar != null) {
+            qVar2 = this.a.c;
+            oVar = this.a.d;
+            qVar2.a(oVar, ((Boolean) obj).booleanValue());
+        }
     }
 }

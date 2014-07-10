@@ -4,11 +4,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ a a;
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.a = aVar;
+    public c(b bVar) {
+        this.a = bVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.d
@@ -16,11 +16,11 @@ public class c implements com.baidu.tbadk.imageManager.d {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         TbImageView tbImageView3;
-        tbImageView = this.a.m;
+        tbImageView = this.a.c;
         if (tbImageView.getTag() != null) {
-            tbImageView2 = this.a.m;
+            tbImageView2 = this.a.c;
             if (((String) tbImageView2.getTag()).equals(str)) {
-                tbImageView3 = this.a.m;
+                tbImageView3 = this.a.c;
                 tbImageView3.invalidate();
             }
         }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.person.post;
-
-import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends TimerTask {
-    final /* synthetic */ s a;
+class w implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(s sVar) {
-        this.a = sVar;
+    public w(t tVar) {
+        this.a = tVar;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        if (this.a.getActivity() != null && !this.a.getActivity().isFinishing()) {
-            this.a.getActivity().finish();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        q qVar;
+        q qVar2;
+        qVar = this.a.c;
+        if (qVar != null) {
+            qVar2 = this.a.c;
+            qVar2.a(true);
         }
     }
 }

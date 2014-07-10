@@ -1,17 +1,16 @@
 package com.baidu.tbadk.core.account;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, AccountData> {
-    private volatile an a = null;
+    private volatile aq a = null;
     private final String b;
     private final String c;
     private final String d;
@@ -39,14 +38,13 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
     /* renamed from: a */
     public AccountData doInBackground(String... strArr) {
         AccountLoginHelper.OurToken a;
-        this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOGIN_ADDRESS);
+        this.a = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOGIN_ADDRESS);
         this.a.a().a().c = false;
         this.a.a("bdusstoken", String.valueOf(this.c) + "|" + this.d);
         this.a.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
         this.a.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
         this.a.a().a().b = false;
         String i = this.a.i();
-        BdLog.d("simon", "ReLoginModel", i);
         if (this.a.a().b().b() || (this.a.c() && this.a.d() == 1)) {
             com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
             iVar.a(i);
@@ -67,7 +65,6 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
             }
             return accountData;
         }
-        BdLog.d(getClass().getName(), "doInBackground", "reLogin fail");
         return null;
     }
 

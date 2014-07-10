@@ -1,43 +1,80 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.message.RequestEnterChatRoomMessage;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.im.message.RequestFrsLiveListMessage;
+import com.baidu.tieba.im.message.RequestOperateFrsLiveListMessage;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.b {
-    private int a;
-    private RequestEnterChatRoomMessage b;
+public class j extends com.baidu.adp.base.e {
+    private String a;
+    private boolean b;
+    private int c;
+    private int d;
 
-    public int a() {
+    public String a() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.b
+    public boolean b() {
+        return this.b;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public void b(int i) {
+        this.d = i;
+    }
+
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
-    private RequestEnterChatRoomMessage b(long j) {
-        RequestEnterChatRoomMessage requestEnterChatRoomMessage = new RequestEnterChatRoomMessage();
-        requestEnterChatRoomMessage.setLastGroupId(j);
-        return requestEnterChatRoomMessage;
+    public void a(Bundle bundle) {
     }
 
-    public void a(long j) {
-        this.b = b(j);
-        super.sendMessage(this.b);
+    private RequestFrsLiveListMessage b(String str, int i, int i2, int i3) {
+        RequestFrsLiveListMessage requestFrsLiveListMessage = new RequestFrsLiveListMessage();
+        requestFrsLiveListMessage.setForumId(com.baidu.adp.lib.f.b.a(str, 0));
+        requestFrsLiveListMessage.setType(i3);
+        requestFrsLiveListMessage.setOffset(i);
+        requestFrsLiveListMessage.setRn(i2);
+        return requestFrsLiveListMessage;
     }
 
-    public void b() {
+    public void a(String str, int i, int i2, int i3) {
+        super.sendMessage(b(str, i, i2, i3));
     }
 
-    @Override // com.baidu.adp.base.b
-    public void registerListener(MessageListener<?> messageListener) {
-        super.registerListener(MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM, messageListener);
+    public void a(String str, String str2, int i, int i2) {
+        RequestOperateFrsLiveListMessage requestOperateFrsLiveListMessage = new RequestOperateFrsLiveListMessage();
+        requestOperateFrsLiveListMessage.setForumId(com.baidu.adp.lib.f.b.a(str, 0));
+        requestOperateFrsLiveListMessage.setGroupId(com.baidu.adp.lib.f.b.a(str2, 0));
+        requestOperateFrsLiveListMessage.setType(i);
+        requestOperateFrsLiveListMessage.setOldType(i2);
+        super.sendMessage(requestOperateFrsLiveListMessage);
+    }
+
+    public void a(Intent intent) {
+        this.a = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+        this.b = intent.getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.FRS_MANAGER, false);
+    }
+
+    public void b(Bundle bundle) {
     }
 }

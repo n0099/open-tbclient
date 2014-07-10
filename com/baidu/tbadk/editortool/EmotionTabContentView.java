@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
     private ViewPager a;
-    private af b;
+    private ae b;
     private WindowManager c;
     private WindowManager.LayoutParams d;
     private GifView e;
@@ -35,9 +35,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     private int m;
     private IndicatorView n;
     private final Point o;
-    private x p;
+    private w p;
     private int q;
-    private ab r;
+    private aa r;
     private LayoutInflater s;
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
@@ -62,7 +62,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         setOrientation(1);
         this.s = (LayoutInflater) context.getSystemService("layout_inflater");
         this.s.inflate(com.baidu.tieba.w.emotion_tab_content, (ViewGroup) this, true);
-        this.r = new ab(context);
+        this.r = new aa(context);
         this.a = (ViewPager) findViewById(com.baidu.tieba.v.face_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);
@@ -92,15 +92,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
     }
 
-    public void a(af afVar) {
+    public void a(ae aeVar) {
         int i;
-        this.b = afVar;
+        this.b = aeVar;
         int d = this.b.d();
-        int j = afVar.j();
-        int k = afVar.k();
-        if (j != 0 && k != 0) {
-            int i2 = d / (j * k);
-            int i3 = d % (j * k) == 0 ? i2 : i2 + 1;
+        int k = aeVar.k();
+        int l = aeVar.l();
+        if (k != 0 && l != 0) {
+            int i2 = d / (k * l);
+            int i3 = d % (k * l) == 0 ? i2 : i2 + 1;
             if (i3 > 1) {
                 this.n.setVisibility(0);
                 this.n.setCount(i3);
@@ -113,34 +113,33 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             ArrayList arrayList = new ArrayList();
             for (int i4 = 0; i4 < i3; i4++) {
                 GridView gridView = new GridView(getContext());
-                gridView.setNumColumns(afVar.j());
+                gridView.setNumColumns(aeVar.k());
                 gridView.setVerticalSpacing(0);
                 gridView.setHorizontalSpacing(0);
                 gridView.setSelector(com.baidu.tieba.s.transparent);
                 gridView.setSelection(-1);
                 if (i4 < i3 - 1) {
-                    i = j * k;
+                    i = k * l;
                 } else {
-                    i = d - ((j * k) * (i3 - 1));
+                    i = d - ((k * l) * (i3 - 1));
                 }
-                int i5 = i4 * j * k;
+                int i5 = i4 * k * l;
                 gridView.setOnItemLongClickListener(new h(this));
                 gridView.setOnItemClickListener(new i(this, i5));
-                gridView.setAdapter((ListAdapter) new k(this, getContext(), i, i5));
+                gridView.setAdapter((ListAdapter) new j(this, getContext(), i, i5));
                 arrayList.add(gridView);
             }
-            this.a.setAdapter(new m(this, arrayList));
+            this.a.setAdapter(new l(this, arrayList));
         }
     }
 
     public void a(int i, GridView gridView) {
         if (this.m != i) {
-            String a = this.b.a(((k) gridView.getAdapter()).a() + i);
+            String a = this.b.a(((j) gridView.getAdapter()).a() + i);
             this.e.setTag(a);
-            com.baidu.adp.widget.a.a a2 = this.r.a(a, ab.c(), new j(this));
-            if (a2 != null) {
-                this.e.setGif(a2);
-            }
+            com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
+            aVar.b = a;
+            this.e.a(aVar);
             LinearLayout linearLayout = (LinearLayout) gridView.getChildAt(i - gridView.getFirstVisiblePosition());
             linearLayout.getDrawingRect(this.g);
             this.h.offsetDescendantRectToMyCoords(linearLayout, this.g);
@@ -271,7 +270,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         b();
     }
 
-    public void setOnDataSelected(x xVar) {
-        this.p = xVar;
+    public void setOnDataSelected(w wVar) {
+        this.p = wVar;
     }
 }

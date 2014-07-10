@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ MsglistModel b;
-    private final /* synthetic */ PersonalChatMessage c;
-    private final /* synthetic */ LinkedList d;
+public class az implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ PersonalChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(MsglistModel msglistModel, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.b = msglistModel;
-        this.c = personalChatMessage;
-        this.d = linkedList;
+    public az(MsglistModel msglistModel, PersonalChatMessage personalChatMessage) {
+        this.a = msglistModel;
+        this.b = personalChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.c(this.b);
     }
 }

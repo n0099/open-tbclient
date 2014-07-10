@@ -1,25 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PersonChangeActivity a;
+class ay {
+    LinearLayout a;
+    RelativeLayout b;
+    RelativeLayout c;
+    RelativeLayout d;
+    RelativeLayout e;
+    TextView f;
+    TextView g;
+    TextView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    final /* synthetic */ aw l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        bg bgVar;
-        bg bgVar2;
-        this.a.destroyWaitingDialog();
-        bgVar = this.a.x;
-        if (bgVar != null) {
-            bgVar2 = this.a.x;
-            bgVar2.cancel();
-        }
+    public ay(aw awVar) {
+        this.l = awVar;
     }
 }

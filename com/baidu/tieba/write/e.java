@@ -15,9 +15,7 @@ public class e implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        com.baidu.adp.lib.util.k.a(atListActivity, editText);
-        this.a.finish();
+        editText.getText().clear();
     }
 }

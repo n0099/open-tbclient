@@ -1,21 +1,19 @@
 package com.baidu.tieba.write;
 
-import java.util.Date;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements Runnable {
+public class bd implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ Date b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(WriteActivity writeActivity, Date date) {
+    public bd(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = date;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.view.d dVar;
-        dVar = this.a.Z;
-        dVar.updateTime(this.b.getHours(), this.b.getMinutes());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a();
+        this.a.p();
     }
 }

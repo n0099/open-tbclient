@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.b;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
@@ -17,7 +16,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends c {
     private static a c;
-    private String d = x.a + File.separator + TbConfig.getTempDirName() + File.separator + "GroupChatMemoryCache.";
+    private String d = z.a + File.separator + TbConfig.getTempDirName() + File.separator + "GroupChatMemoryCache.";
 
     public static synchronized a a() {
         a aVar;
@@ -34,8 +33,7 @@ public class a extends c {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x006b  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0171  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00b2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -49,7 +47,7 @@ public class a extends c {
             UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
             String str2 = "";
             if (userData != null) {
-                if (com.baidu.adp.lib.util.j.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (com.baidu.adp.lib.util.i.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData);
                 }
                 str2 = userData.getUserName();
@@ -57,16 +55,11 @@ public class a extends c {
                     String currentAccount = TbadkApplication.getCurrentAccount();
                     if (!TextUtils.isEmpty(currentAccount) && currentAccount.equals(String.valueOf(userData.getUserId()))) {
                         z2 = true;
-                        if (BdLog.isDebugMode()) {
-                            BdLog.d("see gid:" + str + " content:" + i2);
-                            BdLog.d("see pojo1:" + commonMsgPojo);
-                        }
                         a = a(str);
                         if (a == null) {
                             long rid = commonMsgPojo.getRid();
                             long last_rid = a.getLast_rid();
-                            BdLog.d("gid:" + str + "curLastMid:" + rid + "orginalLastMid:" + last_rid + " cur unRead:" + a.getUnread_count() + " add unread:" + i + "content:" + commonMsgPojo + " readableContent:" + i2);
-                            if (rid > last_rid) {
+                            if (rid >= last_rid) {
                                 a.setLast_rid(rid);
                                 a.setLast_content(i2);
                                 a.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
@@ -89,7 +82,6 @@ public class a extends c {
                                 }
                                 return;
                             }
-                            BdLog.d("curRid(" + rid + ") <= orginalLastRid(" + last_rid + "), 所以没有更新消息中心。消息： " + commonMsgPojo.getContent());
                             return;
                         }
                         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -107,8 +99,6 @@ public class a extends c {
                 }
             }
             z2 = false;
-            if (BdLog.isDebugMode()) {
-            }
             a = a(str);
             if (a == null) {
             }
@@ -124,46 +114,48 @@ public class a extends c {
             Iterator<ImMessageCenterPojo> it = b.iterator();
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
-                next.setUnread_count(com.baidu.tieba.im.db.c.a().a(next.getGid()));
-                next.setPulled_msgId(com.baidu.tieba.im.db.c.a().c(next.getGid()));
-                CommonMsgPojo d = com.baidu.tieba.im.db.c.a().d(next.getGid());
-                if (d != null) {
-                    d.checkRidAndSelf();
-                    String i = r.i(d.toChatMessage());
-                    UserData userData = (UserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) UserData.class);
-                    if (userData == null) {
-                        str = "";
-                    } else {
-                        if (com.baidu.adp.lib.util.j.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
-                            oldUserData.setToUserData(userData);
+                if (next.getCustomGroupType() != 2 && next.getCustomGroupType() != 4) {
+                    next.setUnread_count(com.baidu.tieba.im.db.c.a().a(next.getGid()));
+                    next.setPulled_msgId(com.baidu.tieba.im.db.c.a().c(next.getGid()));
+                    CommonMsgPojo d = com.baidu.tieba.im.db.c.a().d(next.getGid());
+                    if (d != null) {
+                        d.checkRidAndSelf();
+                        String i = r.i(d.toChatMessage());
+                        UserData userData = (UserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) UserData.class);
+                        if (userData == null) {
+                            str = "";
+                        } else {
+                            if (com.baidu.adp.lib.util.i.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                                oldUserData.setToUserData(userData);
+                            }
+                            str = userData.getUserName();
                         }
-                        str = userData.getUserName();
+                        next.setLast_content(i);
+                        next.setLast_user_name(str);
+                        next.setLast_rid(d.getRid());
+                        next.setLast_content_time(d.getCreate_time() * 1000);
+                    } else {
+                        next.setLast_content("");
+                        next.setPulled_msgId(0L);
+                        next.setLast_rid(0L);
+                        next.setLast_user_name("");
+                        next.setLast_content_time(0L);
                     }
-                    next.setLast_content(i);
-                    next.setLast_user_name(str);
-                    next.setLast_rid(d.getRid());
-                    next.setLast_content_time(d.getCreate_time() * 1000);
-                } else {
-                    next.setLast_content("");
-                    next.setPulled_msgId(0L);
-                    next.setLast_rid(0L);
-                    next.setLast_user_name("");
-                    next.setLast_content_time(0L);
+                    a(next);
                 }
-                a(next);
             }
         }
     }
 
     public void c() {
-        if (x.a()) {
+        if (z.a()) {
             this.b.a(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
         }
     }
 
     @Override // com.baidu.tieba.im.b.c
     public void d() {
-        if (x.a()) {
+        if (z.a()) {
             this.b.b(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
         }
     }

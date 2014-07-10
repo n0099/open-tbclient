@@ -9,15 +9,13 @@ import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ag;
+import com.baidu.tbadk.core.atomData.al;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tieba.v;
@@ -33,17 +31,17 @@ public class LiveRoomReplayActivity extends BaseActivity {
     private LiveRoomReplayPlayer e;
     private BdListView f = null;
     private com.baidu.tieba.im.live.room.intro.d g = null;
-    private i h = null;
+    private h h = null;
     private String i = null;
     private String j = null;
     private int k = -1;
     private final Handler l = new a(this);
-    private final CustomMessageListener m = new b(this, MessageTypes.CMD_PLAY_PROGRESS_CHANGED);
+    private final CustomMessageListener m = new b(this, 2001160);
     private final com.baidu.adp.framework.listener.b n = new c(this, 0);
-    private final CustomMessageListener o = new d(this, MessageTypes.CMD_LIVE_STATUS_CHANGE);
+    private final CustomMessageListener o = new d(this, 2001161);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ag.class, LiveRoomReplayActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(al.class, LiveRoomReplayActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,7 +50,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
         int i;
         int i2 = 0;
         super.onCreate(bundle);
-        com.baidu.tieba.im.live.b.b().c();
+        com.baidu.tieba.im.live.d.b().c();
         MessageManager.getInstance().registerListener(this.m);
         MessageManager.getInstance().registerListener(this.o);
         String str = "";
@@ -76,7 +74,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
             return;
         }
         this.g = new com.baidu.tieba.im.live.room.intro.d(i, i2, str);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_QUERY_LIVE_ROOM_INTRO, this.n);
+        MessageManager.getInstance().registerListener(107004, this.n);
         this.g.a(this);
         a();
         c();
@@ -85,7 +83,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.live.b.b().k();
+        com.baidu.tieba.im.live.d.b().k();
         MessageManager.getInstance().unRegisterListener(this.n);
         MessageManager.getInstance().unRegisterListener(this.m);
         if (this.a != null) {
@@ -98,13 +96,12 @@ public class LiveRoomReplayActivity extends BaseActivity {
         if (view == this.d) {
             finish();
         } else if (view == this.e.getPauseOrPlayView()) {
-            BdLog.d("PP clicked when playing is " + this.k);
             if (this.k == 19) {
-                com.baidu.tieba.im.live.b.b().l();
+                com.baidu.tieba.im.live.d.b().l();
             } else if (this.k == 20) {
-                com.baidu.tieba.im.live.b.b().m();
+                com.baidu.tieba.im.live.d.b().m();
             } else if (this.k == 17) {
-                com.baidu.tieba.im.live.b.b().a(this.j, this.e.getNextStartPosition());
+                com.baidu.tieba.im.live.d.b().a(this.j, this.e.getNextStartPosition());
             }
         }
     }
@@ -130,7 +127,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
         this.e = (LiveRoomReplayPlayer) findViewById(v.view_player);
         this.e.getPauseOrPlayView().setOnClickListener(this);
         this.f = (BdListView) findViewById(v.layout_other_live_list);
-        this.h = new i(this);
+        this.h = new h(this);
         this.f.setAdapter((ListAdapter) this.h);
     }
 
@@ -158,20 +155,20 @@ public class LiveRoomReplayActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        switch (com.baidu.tieba.im.live.b.b().r()) {
+        switch (com.baidu.tieba.im.live.d.b().r()) {
             case -1:
                 showToast(y.live_error_system_not_support);
                 finish();
                 return;
             case 0:
-                com.baidu.tieba.im.live.b.b().a(this.j, 0);
+                com.baidu.tieba.im.live.d.b().a(this.j, 0);
                 return;
             case 1:
             case 2:
-                com.baidu.tieba.im.live.b.b().a(null, LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, null, this.j, false);
+                com.baidu.tieba.im.live.d.b().a(null, LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, null, this.j, false);
                 return;
             case 3:
-                com.baidu.tieba.im.live.b.b().a(null, LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, null, this.j, false);
+                com.baidu.tieba.im.live.d.b().a(null, LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, null, this.j, false);
                 return;
             default:
                 return;
@@ -179,10 +176,10 @@ public class LiveRoomReplayActivity extends BaseActivity {
     }
 
     private void c() {
-        BdNetUtil.NetworkStateInfo a = BdNetUtil.a();
-        if (a == BdNetUtil.NetworkStateInfo.UNAVAIL) {
+        BdNetUtil.NetworkStateInfo statusInfo = BdNetUtil.getStatusInfo();
+        if (statusInfo == BdNetUtil.NetworkStateInfo.UNAVAIL) {
             showToast(y.neterror);
-        } else if (a != BdNetUtil.NetworkStateInfo.WIFI) {
+        } else if (statusInfo != BdNetUtil.NetworkStateInfo.WIFI) {
             new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(y.live_chat_room_nonwifi_prompts_play).setPositiveButton(y.live_chat_room_nonwifi_prompts_play_yes, new f(this)).setNegativeButton(y.live_chat_room_nonwifi_prompts_play_no, new g(this)).create().show();
         } else {
             this.l.sendEmptyMessage(1);
@@ -191,16 +188,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, int i) {
-        if (this.a == null) {
-            this.a = new com.baidu.tbadk.core.util.b(this);
-        }
-        com.baidu.adp.widget.a.a c = this.a.c(str);
-        if (c != null) {
-            c.a(this.e.getHeadView());
-        } else {
-            this.e.getHeadView().setTag(str);
-            this.a.c(str, new h(this));
-        }
+        this.e.getHeadView().a(str, 10, false);
         if (!StringUtils.isNull(str2)) {
             this.e.getNameView().setText(String.valueOf(getString(y.live_chat_room_host_name_prefix)) + str2);
         }

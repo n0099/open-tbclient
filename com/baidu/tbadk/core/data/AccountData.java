@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
@@ -56,11 +55,6 @@ public class AccountData implements Serializable {
     }
 
     public void logPrint() {
-        BdLog.v(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
-        BdLog.v(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
-        BdLog.v(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
-        BdLog.v(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        BdLog.v(getClass().getName(), "logPrint", "portrait = " + this.portrait);
     }
 
     public void setTbs(String str) {

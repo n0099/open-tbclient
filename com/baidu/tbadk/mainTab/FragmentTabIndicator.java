@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -60,11 +60,11 @@ public class FragmentTabIndicator extends LinearLayout {
             int measuredHeight3 = value.a.getMeasuredHeight();
             if (value.b) {
                 measuredWidth = (getMeasuredWidth() / 2) + value.c + (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - k.a(getContext(), 3.0f)) / 2;
+                measuredHeight = (getMeasuredHeight() - j.a(getContext(), 3.0f)) / 2;
                 measuredHeight2 = value.a.getMeasuredHeight();
             } else {
                 measuredWidth = ((getMeasuredWidth() / 2) - value.c) - (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - k.a(getContext(), 3.0f)) / 2;
+                measuredHeight = (getMeasuredHeight() - j.a(getContext(), 3.0f)) / 2;
                 measuredHeight2 = value.a.getMeasuredHeight();
             }
             int i5 = measuredHeight - (measuredHeight2 / 2);

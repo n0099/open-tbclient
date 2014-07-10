@@ -1,45 +1,45 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.adp.widget.ListView.d {
+public class w implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ MembersActivity a;
-    private final /* synthetic */ BdListView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(MembersActivity membersActivity, BdListView bdListView) {
+    public w(MembersActivity membersActivity) {
         this.a = membersActivity;
-        this.b = bdListView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        ah ahVar;
-        boolean i;
-        com.baidu.tieba.im.model.ad adVar;
-        com.baidu.tieba.im.model.ad adVar2;
-        com.baidu.tieba.im.model.ad adVar3;
-        com.baidu.tieba.im.model.ad adVar4;
-        com.baidu.tieba.im.model.ad adVar5;
-        ahVar = this.a.b;
-        if (ahVar.f().d()) {
-            this.b.c();
-            return;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ag agVar;
+        com.baidu.tieba.im.model.ac acVar;
+        ag agVar2;
+        agVar = this.a.b;
+        if (agVar.f().d()) {
+            return false;
         }
-        i = this.a.i();
-        if (i) {
-            adVar = this.a.c;
-            adVar2 = this.a.c;
-            long f = adVar2.f();
-            adVar3 = this.a.c;
-            int d = adVar3.d();
-            adVar4 = this.a.c;
-            int e = adVar4.e();
-            adVar5 = this.a.c;
-            adVar.a(f, d, e, adVar5.a());
-            return;
+        acVar = this.a.c;
+        if (acVar.b()) {
+            agVar2 = this.a.b;
+            UserData userData = (UserData) agVar2.f().getItem(i);
+            if (userData != null) {
+                if (userData.getPermission().isController()) {
+                    return false;
+                }
+                long userIdLong = userData.getUserIdLong();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Long.valueOf(userIdLong));
+                com.baidu.tieba.im.e.b.a((Activity) this.a, (DialogInterface.OnClickListener) new x(this, arrayList), (DialogInterface.OnClickListener) new y(this));
+            }
+            return true;
         }
-        this.a.g();
+        return false;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.sapi2.shell;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
-import com.baidu.sapi2.utils.g;
+import com.baidu.sapi2.utils.f;
 import java.io.ByteArrayInputStream;
 import java.security.Key;
 import java.security.PublicKey;
@@ -15,7 +15,7 @@ import org.json.JSONArray;
 public class b {
     public static final String a = "RSA/ECB/PKCS1Padding";
     private String b;
-    private g c = new g();
+    private f c = new f();
 
     public b() {
         this.b = "kf1t9tsczk16vc8z";

@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryChatroomInfo.DataReq;
 import protobuf.QueryChatroomInfo.QueryChatroomInfoReqIdl;
@@ -9,7 +8,7 @@ public class RequestChatRoomInfoMessage extends TbSocketMessage {
     private int groupId;
 
     public RequestChatRoomInfoMessage() {
-        super(MessageTypes.CMD_QUERY_CHAT_ROOM_INFO);
+        super(106001);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

@@ -15,9 +15,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -45,7 +44,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     private String q = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.DAILY_CLASSICLA_CUSTOM_CMD, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010021, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -86,18 +85,18 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        be.a(this.b, i);
-        be.d(this.c, i);
-        be.d(this.d, i);
-        be.a(this.a, i);
+        bk.a(this.b, i);
+        bk.d(this.c, i);
+        bk.d(this.d, i);
+        bk.a(this.a, i);
         if (this.f != null) {
-            be.a(this.f, i);
+            bk.a(this.f, i);
             a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -132,7 +131,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.g
-    public boolean a(WebView webView, String str) {
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         if (!com.baidu.tbadk.b.e.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
@@ -172,7 +171,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
                     super.showToast(getString(y.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    be.a(this.f, TbadkApplication.m252getInst().getSkinType());
+                    bk.a(this.f, TbadkApplication.m252getInst().getSkinType());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);
@@ -183,7 +182,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
                 }
                 return z;
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 return z;
             }
         }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
@@ -11,15 +10,11 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
     private AddGroupInfoData groupInfo;
 
     public ResponseAddGroupMessage() {
-        super(MessageTypes.CMD_ADD_GROUP);
+        super(103101);
     }
 
     public AddGroupInfoData getAddGroupInfo() {
         return this.groupInfo;
-    }
-
-    public void setAddGroupInfo(AddGroupInfoData addGroupInfoData) {
-        this.groupInfo = addGroupInfoData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +43,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
             addGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
             addGroupInfoData.setMemberNum(groupInfo.memberNum.intValue());
             addGroupInfoData.setGroupType(groupInfo.groupType.intValue());
-            setAddGroupInfo(addGroupInfoData);
+            this.groupInfo = addGroupInfoData;
         }
     }
 }

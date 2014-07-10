@@ -4,9 +4,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.k> {
+public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
     final /* synthetic */ o a;
-    private com.baidu.tieba.a.e b;
+    private com.baidu.tieba.a.f b;
     private int c;
     private String d;
 
@@ -34,22 +34,22 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.k> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.data.k doInBackground(String... strArr) {
+    public com.baidu.tieba.data.l doInBackground(String... strArr) {
         String str;
         String a;
         switch (this.c) {
             case 0:
             case 2:
-                this.b = new com.baidu.tieba.a.e(this.c == 0);
-                com.baidu.tieba.a.e eVar = this.b;
+                this.b = new com.baidu.tieba.a.f(this.c == 0);
+                com.baidu.tieba.a.f fVar = this.b;
                 String str2 = this.d;
                 str = this.a.g;
-                a = eVar.a(str2, str);
+                a = fVar.a(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.s<String> K = ai.c().K();
-                if (K != null) {
-                    a = K.a("dailyrecommend");
+                com.baidu.adp.lib.cache.s<String> H = ai.c().H();
+                if (H != null) {
+                    a = H.a("dailyrecommend");
                     break;
                 }
             default:
@@ -71,69 +71,69 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.k> {
         return null;
     }
 
-    private com.baidu.tieba.data.k a(String str) {
-        com.baidu.tieba.data.k kVar = new com.baidu.tieba.data.k();
-        kVar.a(str);
-        if (this.c == 0 && kVar.a().size() > 0) {
-            kVar.a().get(0).a(true);
+    private com.baidu.tieba.data.l a(String str) {
+        com.baidu.tieba.data.l lVar = new com.baidu.tieba.data.l();
+        lVar.a(str);
+        if (this.c == 0 && lVar.a().size() > 0) {
+            lVar.a().get(0).a(true);
         }
-        return kVar;
+        return lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.k kVar) {
+    public void onPostExecute(com.baidu.tieba.data.l lVar) {
         q qVar;
         q qVar2;
-        com.baidu.tieba.data.k kVar2;
+        com.baidu.tieba.data.l lVar2;
         q qVar3;
-        com.baidu.tieba.data.k kVar3;
+        com.baidu.tieba.data.l lVar3;
         boolean z;
-        com.baidu.tieba.data.k kVar4;
+        com.baidu.tieba.data.l lVar4;
         q qVar4;
         q qVar5;
-        com.baidu.tieba.data.k kVar5;
-        super.onPostExecute(kVar);
-        if (kVar == null) {
+        com.baidu.tieba.data.l lVar5;
+        super.onPostExecute(lVar);
+        if (lVar == null) {
             qVar = this.a.b;
             if (qVar != null) {
                 if (this.c != 1) {
                     qVar3 = this.a.b;
                     String sb = new StringBuilder(String.valueOf(this.b.c())).toString();
-                    kVar3 = this.a.c;
-                    qVar3.a(false, sb, kVar3, this.c);
+                    lVar3 = this.a.c;
+                    qVar3.a(false, sb, lVar3, this.c);
                     return;
                 }
                 qVar2 = this.a.b;
-                kVar2 = this.a.c;
-                qVar2.a(false, "db no data!", kVar2, this.c);
+                lVar2 = this.a.c;
+                qVar2.a(false, "db no data!", lVar2, this.c);
                 return;
             }
             return;
         }
         if (this.c == 1) {
-            this.a.c = kVar;
+            this.a.c = lVar;
             this.a.f = true;
         } else {
             z = this.a.f;
             if (z) {
-                this.a.c = new com.baidu.tieba.data.k();
+                this.a.c = new com.baidu.tieba.data.l();
                 this.a.f = false;
             }
             if (this.c == 0) {
-                this.a.c = kVar;
+                this.a.c = lVar;
             } else {
-                kVar4 = this.a.c;
-                kVar4.a(kVar);
+                lVar4 = this.a.c;
+                lVar4.a(lVar);
             }
         }
         qVar4 = this.a.b;
         if (qVar4 != null) {
             qVar5 = this.a.b;
-            kVar5 = this.a.c;
-            qVar5.a(true, null, kVar5, this.c);
+            lVar5 = this.a.c;
+            qVar5.a(true, null, lVar5, this.c);
         }
     }
 

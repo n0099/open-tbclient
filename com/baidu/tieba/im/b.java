@@ -20,19 +20,18 @@ public abstract class b<T> implements Runnable {
         try {
             t = a();
         } catch (Throwable th) {
-            th.printStackTrace();
+            BdLog.detailException(th);
         }
         try {
             if (this.b != null) {
                 a.a(t, this.b);
             }
         } catch (Throwable th2) {
-            th2.printStackTrace();
+            BdLog.detailException(th2);
         }
         long nanoTime2 = System.nanoTime() - nanoTime;
         if (nanoTime2 > 3000000000L) {
             TiebaStatic.imLog("use too long time:" + getClass().getName(), "background", String.valueOf(nanoTime2 / 1000000) + "ms");
-            BdLog.e("后台" + getClass().getName() + "执行时间较长：" + (nanoTime2 / 1000000) + "ms");
         }
     }
 }

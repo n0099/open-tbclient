@@ -26,7 +26,7 @@ public class m extends com.baidu.tbadk.core.d implements AdapterView.OnItemClick
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.h = (AlbumActivity) getActivity();
-        this.j = this.h.f();
+        this.j = this.h.h();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -96,8 +96,8 @@ public class m extends com.baidu.tbadk.core.d implements AdapterView.OnItemClick
     @Override // com.baidu.tbadk.core.d
     public void c(int i) {
         super.c(i);
-        this.h.a().a(i == 1);
-        this.h.a().a(this.b);
+        this.h.c().a(i == 1);
+        this.h.c().a(this.b);
         this.d.c(i);
     }
 

@@ -1,38 +1,66 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
-    final /* synthetic */ k a;
-    private com.baidu.tbadk.core.util.an b = null;
-    private String c;
-    private int d;
-    private com.baidu.tieba.data.as e;
+public class l extends BdAsyncTask<i, Integer, Boolean> {
+    final /* synthetic */ i a;
+    private com.baidu.tbadk.core.util.aq b;
+    private com.baidu.tieba.data.av c;
 
-    public l(k kVar, String str, int i) {
-        this.a = kVar;
+    private l(i iVar) {
+        this.a = iVar;
+        this.b = null;
         this.c = null;
-        this.d = 0;
-        this.e = null;
-        this.c = str;
-        this.d = i;
-        this.e = new com.baidu.tieba.data.as();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(i iVar, l lVar) {
+        this(iVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        this.c = new com.baidu.tieba.data.av();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public Boolean doInBackground(Boolean... boolArr) {
-        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
-        this.b.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
-        this.b.a("tid", this.c);
-        this.e.a(this.b.i());
-        return this.b.a().b().b() && this.e.a() == 0;
+    public Boolean doInBackground(i... iVarArr) {
+        i iVar = new i();
+        try {
+            iVar.i();
+            this.b = new com.baidu.tbadk.core.util.aq();
+            this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
+            int k = this.a.k();
+            if (iVar.g() - 1 <= k) {
+                k = iVar.g() - 1;
+            }
+            while (k >= 0) {
+                String a = iVar.a(k, 20);
+                this.b.a(new ArrayList<>());
+                this.b.a("data", a);
+                this.c.a(this.b.i());
+                if (!this.b.a().b().b() || this.c.a() != 0) {
+                    break;
+                }
+                k -= 20;
+            }
+            this.a.c(k);
+            if (k >= 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
+        }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -41,9 +69,9 @@ public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
         if (this.b != null) {
             this.b.g();
         }
-        this.a.d = null;
+        this.a.c = null;
         if (this.a.a != null) {
-            this.a.a.callback(2, false, null);
+            this.a.a.callback(1, false, null, false);
         }
     }
 
@@ -52,28 +80,24 @@ public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
+        String str;
+        boolean z;
         ArrayList arrayList;
-        ArrayList arrayList2;
-        int i;
-        String str = null;
-        this.a.d = null;
+        this.a.c = null;
         if (bool.booleanValue()) {
-            int i2 = this.d;
             arrayList = this.a.e;
-            if (i2 < arrayList.size()) {
-                arrayList2 = this.a.e;
-                arrayList2.remove(this.d);
-                k kVar = this.a;
-                i = kVar.g;
-                kVar.g = i - 1;
-            }
+            arrayList.clear();
+            str = null;
+            z = false;
         } else if (this.b.a().b().b()) {
-            str = this.e.b();
+            str = this.c.b();
+            z = false;
         } else {
-            str = this.b.f();
+            str = null;
+            z = true;
         }
         if (this.a.a != null) {
-            this.a.a.callback(2, bool, str);
+            this.a.a.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

@@ -2,25 +2,27 @@ package com.baidu.tieba.topRec;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.w;
+import android.widget.ImageView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class p implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ o a;
+    final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.a = oVar;
+    public p(n nVar) {
+        this.a = nVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(w.top_cover, (ViewGroup) null);
+        ImageView imageView = new ImageView(this.a.a);
+        imageView.setBackgroundResource(u.lead_metadata);
+        return imageView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int a() {
-        return 5;
+        return 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -30,11 +32,11 @@ class p implements com.baidu.adp.lib.guide.b {
 
     @Override // com.baidu.adp.lib.guide.b
     public int c() {
-        return 0;
+        return -100;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int d() {
-        return 0;
+        return -30;
     }
 }

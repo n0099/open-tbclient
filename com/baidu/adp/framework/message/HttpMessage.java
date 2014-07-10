@@ -162,7 +162,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                 return (byte[]) invoke;
             }
         } catch (Exception e) {
-            BdLog.e("getByte error");
+            BdLog.detailException(e);
         }
         return null;
     }

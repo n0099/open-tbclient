@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.sub;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
 public class a {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/floor";
-    private an b = null;
+    private aq b = null;
 
     public String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
-        this.b = new an(a);
+        this.b = new aq(a);
         this.b.a().a().a = true;
         this.b.a("kz", str);
-        int b = com.baidu.adp.lib.util.k.b(ai.c().d());
-        int c = com.baidu.adp.lib.util.k.c(ai.c().d());
+        int b = com.baidu.adp.lib.util.j.b(ai.c().d());
+        int c = com.baidu.adp.lib.util.j.c(ai.c().d());
         float f = ai.c().d().getResources().getDisplayMetrics().density;
         this.b.a("scr_w", String.valueOf(b));
         this.b.a("scr_h", String.valueOf(c));
@@ -56,10 +56,17 @@ public class a {
         if (this.b == null) {
             return 0;
         }
+        return this.b.b();
+    }
+
+    public int d() {
+        if (this.b == null) {
+            return 0;
+        }
         return this.b.d();
     }
 
-    public void d() {
+    public void e() {
         if (this.b != null) {
             this.b.g();
         }

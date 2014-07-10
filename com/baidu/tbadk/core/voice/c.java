@@ -69,7 +69,7 @@ public class c implements Runnable {
             this.b = new AudioTrack(VoiceManager.CURR_STREAM_TYPE, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2, Math.min(AudioTrack.getMinBufferSize(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2) * 8, 4096), 1);
         } catch (IllegalArgumentException e) {
             this.b = null;
-            BdLog.e("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
         a = 1;
     }
@@ -106,8 +106,8 @@ public class c implements Runnable {
         a = 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00bd  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0168  */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -191,7 +191,6 @@ public class c implements Runnable {
                     try {
                         fileInputStream2.close();
                         this.e.decoderDeinit();
-                        BdLog.i("-----gf : decoderDeinit");
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         if (this.f != null) {
@@ -201,7 +200,7 @@ public class c implements Runnable {
                             try {
                                 fileInputStream.close();
                             } catch (Exception e2) {
-                                BdLog.e("AudioPlayer", "play", "error = " + e2.getMessage());
+                                BdLog.e(e2.getMessage());
                             }
                         }
                         a = 3;

@@ -17,6 +17,6 @@ class b extends CustomMessageListener {
         if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
             return;
         }
-        a.l = ((Boolean) data).booleanValue();
+        a.j = ((Boolean) data).booleanValue();
     }
 }

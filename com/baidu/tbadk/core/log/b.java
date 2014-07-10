@@ -26,7 +26,7 @@ public class b implements Runnable {
                     wait(3000L);
                 }
             } catch (Exception e) {
-                BdLog.e("BdLogger", "write error ", e);
+                BdLog.e(e);
             }
         }
         atomicBoolean = this.a.a;

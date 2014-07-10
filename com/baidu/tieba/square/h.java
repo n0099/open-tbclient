@@ -1,32 +1,47 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bq;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.data.a {
-    private ArrayList<ab> a = new ArrayList<>();
+public class h implements View.OnClickListener {
+    final /* synthetic */ g a;
 
-    public ArrayList<ab> d() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(g gVar) {
+        this.a = gVar;
     }
 
-    public void a(ArrayList<ab> arrayList) {
-        this.a = arrayList;
-        a((String) null);
-    }
-
-    @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
-        ArrayList<ab> arrayList = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                ab abVar = new ab();
-                abVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(abVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        an anVar;
+        Context context;
+        String str;
+        Context context2;
+        String str2;
+        Object tag = view.getTag();
+        if ((tag instanceof i) && (anVar = ((i) tag).d) != null) {
+            int i = anVar.a;
+            if (anVar.f.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
+                context2 = this.a.b;
+                TiebaStatic.eventStat(context2, "sq_all_category", "click", 1, new Object[0]);
+                this.a.d = af.a("forum_browse", "all");
+                str2 = this.a.d;
+                BarFolderFirstDirActivity.a((Activity) this.a.a(), str2);
+                return;
             }
+            this.a.d = af.a("forum_browse", String.valueOf(i));
+            bq a = bq.a();
+            context = this.a.b;
+            String[] strArr = new String[3];
+            strArr[0] = anVar.d;
+            str = this.a.d;
+            strArr[2] = str;
+            a.a(context, strArr);
         }
-        a(arrayList);
     }
 }

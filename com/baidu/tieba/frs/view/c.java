@@ -17,13 +17,13 @@ public class c implements Runnable {
         PopupWindow popupWindow2;
         boolean z;
         PopupWindow popupWindow3;
-        popupWindow = this.a.x;
+        popupWindow = this.a.y;
         if (popupWindow != null) {
-            popupWindow2 = this.a.x;
+            popupWindow2 = this.a.y;
             if (popupWindow2.isShowing()) {
                 z = this.a.al;
                 if (!z) {
-                    popupWindow3 = this.a.x;
+                    popupWindow3 = this.a.y;
                     popupWindow3.dismiss();
                 }
             }

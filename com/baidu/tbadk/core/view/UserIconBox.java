@@ -13,8 +13,7 @@ public class UserIconBox extends LinearLayout {
     private com.baidu.adp.lib.d.b<TbImageView> b;
     private v c;
     private Context d;
-    private com.baidu.tbadk.core.util.b e;
-    private LinearLayout.LayoutParams f;
+    private LinearLayout.LayoutParams e;
 
     public UserIconBox(Context context) {
         super(context);
@@ -36,7 +35,6 @@ public class UserIconBox extends LinearLayout {
         this.d = context;
         setOrientation(0);
         setGravity(16);
-        this.e = new com.baidu.tbadk.core.util.b(this.d);
         if (this.d instanceof w) {
             w wVar = (w) this.d;
             this.b = wVar.c();
@@ -49,16 +47,15 @@ public class UserIconBox extends LinearLayout {
     }
 
     private LinearLayout.LayoutParams a(int i, int i2, int i3) {
-        this.f = new LinearLayout.LayoutParams(i, i2);
-        this.f.leftMargin = i3;
-        return this.f;
+        this.e = new LinearLayout.LayoutParams(i, i2);
+        this.e.leftMargin = i3;
+        return this.e;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
         removeAllViews();
         if (list == null || list.size() != 1 || !TextUtils.isEmpty(list.get(0).getIcon())) {
             if (list != null && list.size() > 0) {
-                this.e.a(i2, i3);
                 LinearLayout.LayoutParams a = a(i2, i3, i4);
                 LinearLayout.LayoutParams a2 = a(i2, i3, 0);
                 setVisibility(0);

@@ -6,24 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.model.af;
+import com.baidu.tieba.model.ae;
 import com.baidu.tieba.u;
 import com.baidu.tieba.y;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TopRecActivity extends BaseActivity {
-    private h a;
+    private g a;
     private e b;
-    private l c;
-    private af d;
+    private k c;
+    private ae d;
     private d e;
     private TRForumListData f;
     private List<d> h;
-    private List<af> i;
+    private List<ae> i;
     private int g = 0;
     private int j = 0;
-    private n k = new a(this);
+    private m k = new a(this);
     private com.baidu.adp.widget.ListView.d l = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,14 +35,14 @@ public class TopRecActivity extends BaseActivity {
     }
 
     private void a() {
-        this.a = new h(this);
+        this.a = new g(this);
         this.a.a(true);
     }
 
     private void b() {
         this.b = new e(this);
         this.a.a(this.b);
-        this.c = new l();
+        this.c = new k();
         this.c.a(this.k);
         this.c.LoadData();
         this.h = new LinkedList();
@@ -107,7 +107,7 @@ public class TopRecActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.b != null) {
@@ -175,7 +175,7 @@ public class TopRecActivity extends BaseActivity {
                     this.e.execute(Integer.valueOf(intValue));
                     return;
                 }
-                this.d = new af();
+                this.d = new ae();
                 if (!this.d.b()) {
                     this.i.add(this.d);
                     a(a, intValue);

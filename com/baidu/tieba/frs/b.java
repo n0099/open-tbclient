@@ -1,11 +1,7 @@
 package com.baidu.tieba.frs;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.content.Context;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
@@ -16,21 +12,17 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static b a = null;
-    private static e h = null;
-    private static List<e> i = new LinkedList();
-    private NotificationManager f;
-    private Notification g;
+    private static e f = null;
+    private static List<e> g = new LinkedList();
     private final int b = 5;
     private int c = 0;
     private c d = null;
     private d e = null;
-    private int j = 1000;
+    private int h = 1000;
+    private int i = 0;
+    private String j = null;
 
     private b() {
-        this.f = null;
-        this.g = null;
-        this.f = (NotificationManager) com.baidu.tieba.ai.c().d().getSystemService("notification");
-        this.g = b();
     }
 
     public static b a() {
@@ -42,7 +34,7 @@ public class b {
         return a;
     }
 
-    public void a(String str, String str2, String str3, int i2) {
+    public void a(String str, String str2, String str3, int i) {
         DownloadData downloadData = new DownloadData(str);
         downloadData.setType(12);
         if (this.c <= 5) {
@@ -58,19 +50,19 @@ public class b {
         eVar.a(str);
         eVar.b(str2);
         eVar.c(str3);
-        eVar.a(i2);
-        i.add(eVar);
-        e();
+        eVar.a(i);
+        g.add(eVar);
+        c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (h == null && !i.isEmpty()) {
-            h = i.get(0);
-            if (h != null) {
+    public void c() {
+        if (f == null && !g.isEmpty()) {
+            f = g.get(0);
+            if (f != null) {
                 this.d = new c(this, null);
                 this.d.setPriority(3);
-                this.d.execute(h);
+                this.d.execute(f);
             }
         }
     }
@@ -96,20 +88,6 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
     }
 
-    public Notification b() {
-        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.ai.c().d(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(com.baidu.tieba.ai.c().d().getPackageName(), com.baidu.tieba.w.notify_item);
-        notification.contentView.setProgressBar(com.baidu.tieba.v.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        return notification;
-    }
-
-    public NotificationManager c() {
-        return this.f;
-    }
-
     public void a(ArrayList<com.baidu.tbadk.core.data.b> arrayList) {
         this.e = new d(this, null);
         this.e.execute(arrayList);
@@ -118,7 +96,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public String d(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.tbadk.core.util.x.d());
+        sb.append(com.baidu.tbadk.core.util.z.d());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -129,27 +107,18 @@ public class b {
     }
 
     public void b(DownloadData downloadData) {
-        if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_will_begin);
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.info, downloadData.getName());
-            this.g.contentView.setProgressBar(com.baidu.tieba.v.progress, 100, (int) ((downloadData.getLength() * 100) / downloadData.getSize()), false);
-            StringBuilder sb = new StringBuilder(20);
-            sb.append(String.valueOf(downloadData.getLength() / 1000));
-            sb.append("K/");
-            sb.append(String.valueOf(downloadData.getSize() / 1000));
-            sb.append("K");
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.schedule, sb);
-            this.f.notify(downloadData.getNotifyId(), this.g);
-        }
+        this.i = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
+        StringBuilder sb = new StringBuilder(20);
+        sb.append(String.valueOf(downloadData.getLength() / 1000));
+        sb.append("K/");
+        sb.append(String.valueOf(downloadData.getSize() / 1000));
+        sb.append("K");
+        this.j = sb.toString();
+        com.baidu.tbadk.core.util.bb.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_will_begin), this.i, this.j, downloadData.getName(), true);
     }
 
     public void c(DownloadData downloadData) {
-        if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_fail_tip);
-            this.g.contentView.setTextViewText(com.baidu.tieba.v.info, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.error_sd_error));
-            this.g.flags = 16;
-            this.f.notify(downloadData.getNotifyId(), this.g);
-        }
+        com.baidu.tbadk.core.util.bb.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_fail_tip), this.i, this.j, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.error_sd_error), false);
     }
 
     public boolean b(String str) {
@@ -162,6 +131,6 @@ public class b {
     }
 
     public boolean c(String str) {
-        return (TextUtils.isEmpty(str) || com.baidu.tbadk.core.util.x.d(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || com.baidu.tbadk.core.util.z.d(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 }

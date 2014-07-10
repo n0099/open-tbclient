@@ -4,11 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class h {
     private static h a;
@@ -106,12 +106,12 @@ public class h {
                             e = e;
                             e.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getAllRecentMsg", new Object[0]);
-                            com.baidu.tbadk.core.util.m.a(cursor);
+                            com.baidu.adp.lib.util.m.a(cursor);
                             return null;
                         }
                     }
                 }
-                com.baidu.tbadk.core.util.m.a(cursor);
+                com.baidu.adp.lib.util.m.a(cursor);
                 return linkedList;
             } catch (Exception e2) {
                 e = e2;
@@ -119,7 +119,7 @@ public class h {
             } catch (Throwable th) {
                 a2 = 0;
                 th = th;
-                com.baidu.tbadk.core.util.m.a((Cursor) a2);
+                com.baidu.adp.lib.util.m.a((Cursor) a2);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -163,11 +163,11 @@ public class h {
                         e = e2;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
-                        com.baidu.tbadk.core.util.m.a(cursor);
+                        com.baidu.adp.lib.util.m.a(cursor);
                         return imMessageCenterPojo;
                     }
                 }
-                com.baidu.tbadk.core.util.m.a(cursor);
+                com.baidu.adp.lib.util.m.a(cursor);
                 return imMessageCenterPojo;
             } catch (Exception e3) {
                 cursor = null;
@@ -175,7 +175,7 @@ public class h {
             } catch (Throwable th) {
                 a2 = 0;
                 th = th;
-                com.baidu.tbadk.core.util.m.a((Cursor) a2);
+                com.baidu.adp.lib.util.m.a((Cursor) a2);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -202,15 +202,8 @@ public class h {
                     contentValues.put("is_delete", Integer.valueOf(next.getIs_delete()));
                     contentValues.put("type", Integer.valueOf(next.getType()));
                     contentValues.put("orderCol", Long.valueOf(next.getOrderCol()));
-                    BdLog.d(" update recent group chat gid:" + next.getGid());
                     if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{next.getGid()}) == 0) {
-                        if (a2.insert("tb_message_center", null, contentValues) == 0) {
-                            BdLog.d("表：tb_message_center[insert error] " + next);
-                        } else {
-                            BdLog.d("表：tb_message_center[insert] " + next);
-                        }
-                    } else {
-                        BdLog.d("表：tb_message_center[update] " + next);
+                        a2.insert("tb_message_center", null, contentValues);
                     }
                 }
                 a2.setTransactionSuccessful();
@@ -237,6 +230,27 @@ public class h {
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
+        }
+    }
+
+    public void a(List<String> list, boolean z) {
+        SQLiteDatabase a2;
+        if (list != null) {
+            try {
+                if (list.size() != 0 && (a2 = g.a()) != null) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("is_hidden", Integer.valueOf(z ? 1 : 0));
+                    for (String str : list) {
+                        if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{str}) == 0) {
+                            contentValues.put("gid", str);
+                            a2.insert("tb_message_center", null, contentValues);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
+            }
         }
     }
 

@@ -1,24 +1,26 @@
 package com.baidu.tieba.pb.main;
-
-import android.content.Intent;
-import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements com.baidu.tbadk.core.dialog.c {
+public class al implements Runnable {
     final /* synthetic */ PbActivity a;
-    private final /* synthetic */ MarkData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PbActivity pbActivity, MarkData markData) {
+    public al(PbActivity pbActivity) {
         this.a = pbActivity;
-        this.b = markData;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        Intent intent = new Intent();
-        intent.putExtra("mark", this.b);
-        this.a.setResult(-1, intent);
-        this.a.w();
+    @Override // java.lang.Runnable
+    public void run() {
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        btVar = this.a.D;
+        if (!btVar.E()) {
+            btVar3 = this.a.D;
+            btVar3.b(false);
+            return;
+        }
+        btVar2 = this.a.D;
+        btVar2.b(true);
     }
 }

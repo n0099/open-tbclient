@@ -1,18 +1,23 @@
 package com.baidu.tbadk.editortool;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+class p implements View.OnClickListener {
     final /* synthetic */ EmotionTabHorizonScrollView a;
+    private final int b;
+
+    private p(EmotionTabHorizonScrollView emotionTabHorizonScrollView, int i) {
+        this.a = emotionTabHorizonScrollView;
+        this.b = i;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.a = emotionTabHorizonScrollView;
+    public /* synthetic */ p(EmotionTabHorizonScrollView emotionTabHorizonScrollView, int i, p pVar) {
+        this(emotionTabHorizonScrollView, i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.k.a(this.a.getContext(), com.baidu.tieba.y.emotion_cant_show);
+        EmotionTabHorizonScrollView.a(this.a).a(this.b);
     }
 }

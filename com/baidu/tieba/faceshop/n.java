@@ -1,40 +1,125 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ EmotionImageActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(EmotionImageActivity emotionImageActivity) {
-        this.a = emotionImageActivity;
+public class n implements com.baidu.adp.lib.e.f {
+    @Override // com.baidu.adp.lib.e.f
+    public Object a(String str, com.baidu.adp.lib.e.e eVar) {
+        com.baidu.tbadk.core.util.e eVar2;
+        if (eVar != null && (eVar2 = (com.baidu.tbadk.core.util.e) eVar.a("ImageAsyncTaskInfo")) != null) {
+            com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(str);
+            if (c != null) {
+                eVar2.i = c;
+            }
+            return c;
+        }
+        return null;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        String str;
-        String str2;
-        i = this.a.r;
-        switch (i) {
-            case 1:
-                str = "faceshop_from_forum_detail";
-                break;
-            case 2:
-                str = "faceshop_from_pchat_detail";
-                break;
-            case 3:
-                str = "faceshop_from_gchat_detail";
-                break;
-            default:
-                str = "emotion_image";
-                break;
+    @Override // com.baidu.adp.lib.e.f
+    public Object a(String str, com.baidu.adp.lib.e.d dVar) {
+        com.baidu.adp.widget.a.a a;
+        com.baidu.adp.lib.e.e a2 = dVar.a();
+        if (a2 != null && ((com.baidu.tbadk.editortool.aa) a2.a("AsyncImageLoader")) != null) {
+            com.baidu.tbadk.core.util.e eVar = (com.baidu.tbadk.core.util.e) a2.a("ImageAsyncTaskInfo");
+            String str2 = (String) a2.a("em_group_id");
+            String str3 = (String) a2.a("em_sharp_text");
+            Boolean bool = (Boolean) a2.a("em_load_gif");
+            if (eVar == null || str3 == null || bool == null) {
+                return null;
+            }
+            if (eVar.n) {
+                return null;
+            }
+            if (bool.booleanValue()) {
+                a = com.baidu.tbadk.editortool.ab.a().b(str2, str3);
+            } else {
+                a = com.baidu.tbadk.editortool.ab.a().a(str2, str3);
+            }
+            eVar.i = a;
+            return a;
         }
-        EmotionImageActivity emotionImageActivity = this.a;
-        str2 = this.a.f;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.j(emotionImageActivity, str2, false, str)));
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.e.f
+    public Object b(String str, com.baidu.adp.lib.e.d dVar) {
+        com.baidu.adp.lib.e.e a = dVar.a();
+        if (a == null || ((com.baidu.tbadk.editortool.aa) a.a("AsyncImageLoader")) == null) {
+            return null;
+        }
+        com.baidu.tbadk.core.util.e eVar = (com.baidu.tbadk.core.util.e) a.a("ImageAsyncTaskInfo");
+        String str2 = (String) a.a("em_group_id");
+        String str3 = (String) a.a("em_sharp_text");
+        Boolean bool = (Boolean) a.a("em_load_gif");
+        String str4 = (String) a.a("em_img_url");
+        if (str2 == null || eVar == null || str3 == null || bool == null || str4 == null || eVar.n) {
+            return null;
+        }
+        eVar.a = new com.baidu.tbadk.core.util.httpNet.i();
+        long currentTimeMillis = System.currentTimeMillis();
+        byte[] a2 = eVar.a.a(str4, false);
+        if (a2 == null || !eVar.a.b()) {
+            if (!eVar.n) {
+                com.baidu.tbadk.core.log.a.b(com.baidu.tbadk.core.log.k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(eVar.a.g), String.valueOf(eVar.a.h) + ":" + eVar.a.e, "IS_CDN=true|download error"));
+            }
+            return null;
+        } else if (eVar.n) {
+            return null;
+        } else {
+            synchronized (com.baidu.tbadk.core.util.h.a) {
+                if (eVar.n) {
+                    return null;
+                }
+                if (bool.booleanValue()) {
+                    String a3 = e.a(str3, bool.booleanValue());
+                    String a4 = com.baidu.tbadk.editortool.ab.a().a(str3, bool.booleanValue());
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(a2);
+                    if (e.a(str2, a3, byteArrayInputStream)) {
+                        e.a(str2, a3, a4);
+                    }
+                    com.baidu.adp.lib.util.m.a((InputStream) byteArrayInputStream);
+                    eVar.i = com.baidu.tbadk.editortool.ab.a().b(str2, str3);
+                    if (eVar.i == null) {
+                        if (!eVar.n) {
+                            com.baidu.tbadk.core.log.a.b(com.baidu.tbadk.core.log.k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(eVar.a.g), String.valueOf(eVar.a.h) + ":" + eVar.a.e, "IS_CDN=true|gif decode error"));
+                        }
+                        return null;
+                    }
+                } else {
+                    com.baidu.tbadk.imageManager.e.a().c(80000);
+                    eVar.e = com.baidu.tbadk.core.util.h.a(a2);
+                    if (eVar.e == null) {
+                        if (!eVar.n) {
+                            com.baidu.tbadk.core.log.a.b(com.baidu.tbadk.core.log.k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(eVar.a.g), String.valueOf(eVar.a.h) + ":" + eVar.a.e, "IS_CDN=true|decode error"));
+                        }
+                        return null;
+                    } else if (eVar.n) {
+                        return null;
+                    } else {
+                        eVar.i = new com.baidu.adp.widget.a.a(eVar.e, eVar.h, str4);
+                        com.baidu.tbadk.editortool.ab.a().a(str3, eVar.i, false);
+                    }
+                }
+                if (eVar.n) {
+                    return null;
+                }
+                dVar.a(eVar);
+                if (eVar.n) {
+                    return null;
+                }
+                if (!bool.booleanValue()) {
+                    ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(a2);
+                    try {
+                        e.a(str2, com.baidu.tbadk.editortool.ab.a().a(str3, bool.booleanValue()), byteArrayInputStream2);
+                        com.baidu.adp.lib.util.m.a((InputStream) byteArrayInputStream2);
+                    } catch (Throwable th) {
+                        com.baidu.adp.lib.util.m.a((InputStream) byteArrayInputStream2);
+                    }
+                }
+                return eVar.i;
+            }
+        }
     }
 }

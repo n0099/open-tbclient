@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.c {
+public class b extends com.baidu.adp.base.f {
     private final Activity a;
     private final View b;
     private final LinearLayout c;
@@ -44,8 +45,8 @@ public class b extends com.baidu.adp.base.c {
         this.f.setOnClickListener(new c(this, activity, i, str2));
         this.g = (Button) this.b.findViewById(com.baidu.tieba.v.reg_btn);
         this.g.setOnClickListener(new d(this, activity));
-        int a = com.baidu.adp.lib.util.k.a((Context) activity, 7.0f);
-        int a2 = com.baidu.adp.lib.util.k.a((Context) activity, 5.0f);
+        int a = com.baidu.adp.lib.util.j.a((Context) activity, 7.0f);
+        int a2 = com.baidu.adp.lib.util.j.a((Context) activity, 5.0f);
         this.c.setPadding(a, a2, a, a2);
     }
 
@@ -60,6 +61,17 @@ public class b extends com.baidu.adp.base.c {
         }
         a(i);
         return true;
+    }
+
+    public void c() {
+        b(TbadkApplication.m252getInst().getSkinType());
+    }
+
+    public void d() {
+        this.h = -1;
+        this.e.setBackgroundDrawable(null);
+        this.f.setBackgroundDrawable(null);
+        this.g.setBackgroundDrawable(null);
     }
 
     public void b(int i) {

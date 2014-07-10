@@ -1,9 +1,18 @@
 package com.baidu.tieba.mention;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface t {
-    String a();
+public class t implements View.OnClickListener {
+    final /* synthetic */ PostActivity a;
 
-    void a(String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(PostActivity postActivity) {
+        this.a = postActivity;
+    }
 
-    void b();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
+    }
 }

@@ -1,34 +1,23 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bt;
+import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
-class v implements bt {
-    final /* synthetic */ u a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+class v {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TbCheckBox d;
+    final /* synthetic */ r e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = uVar;
-        this.b = str;
-        this.c = aVar;
+    private v(r rVar) {
+        this.e = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if (view instanceof HeadImageView) {
-            HeadImageView headImageView = (HeadImageView) view;
-            if (this.b.equals(headImageView.getTag())) {
-                if (this.c != null) {
-                    headImageView.setImageBitmap(this.c.h());
-                } else {
-                    headImageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
-                }
-                headImageView.invalidate();
-            }
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(r rVar, v vVar) {
+        this(rVar);
     }
 }

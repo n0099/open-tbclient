@@ -1,43 +1,29 @@
 package com.baidu.tbadk.editortool;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView a;
-    private final String b;
-
-    private r(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str) {
-        this.a = emotionTabHorizonScrollView;
-        this.b = str;
-    }
+class r extends CustomMessageListener {
+    final /* synthetic */ EmotionTabHost a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str, r rVar) {
-        this(emotionTabHorizonScrollView, str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(EmotionTabHost emotionTabHost, int i) {
+        super(i);
+        this.a = emotionTabHost;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        String str;
-        i = this.a.l;
-        switch (i) {
-            case 1:
-                str = "faceshop_from_write_promotion";
-                break;
-            case 2:
-                str = "faceshop_from_pchat_promotion";
-                break;
-            case 3:
-                str = "faceshop_from_gchat_promotion";
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        switch (customResponsedMessage.getCmd()) {
+            case 2001120:
+                this.a.a();
+                this.a.b();
+                return;
             default:
-                str = "";
-                break;
+                return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.j(this.a.getContext(), this.b, false, str)));
     }
 }

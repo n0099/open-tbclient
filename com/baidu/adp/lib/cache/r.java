@@ -7,7 +7,7 @@ public interface r<T> {
 
     T c(String str, String str2);
 
-    t<T> d(String str, String str2);
+    u<T> d(String str, String str2);
 
     void d(String str);
 

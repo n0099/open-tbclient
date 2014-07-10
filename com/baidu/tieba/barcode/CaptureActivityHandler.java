@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.v;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -57,42 +56,33 @@ public final class CaptureActivityHandler extends Handler {
     public void handleMessage(Message message) {
         Bitmap bitmap;
         float f;
-        String str = null;
         if (message.what == v.restart_preview) {
-            BdLog.d(getClass().getName(), "handleMessage", "Got restart preview message");
             b();
         } else if (message.what == v.decode_succeeded) {
-            BdLog.d(getClass().getName(), "handleMessage", "Got decode succeeded message");
             this.c = State.SUCCESS;
             Bundle data = message.getData();
-            if (data != null) {
+            if (data == null) {
+                bitmap = null;
+                f = 1.0f;
+            } else {
                 byte[] byteArray = data.getByteArray("barcode_bitmap");
                 Bitmap copy = byteArray != null ? BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length, null).copy(Bitmap.Config.ARGB_8888, true) : null;
                 f = data.getFloat("barcode_scaled_factor");
                 bitmap = copy;
-            } else {
-                bitmap = null;
-                f = 1.0f;
             }
             this.a.a((Result) message.obj, bitmap, f);
         } else if (message.what == v.decode_failed) {
             this.c = State.PREVIEW;
             this.d.a(this.b.a(), v.decode);
         } else if (message.what == v.return_scan_result) {
-            BdLog.d(getClass().getName(), "handleMessage", "Got return scan result message");
             this.a.setResult(-1, (Intent) message.obj);
             this.a.finish();
         } else if (message.what == v.launch_product_query) {
-            BdLog.d(getClass().getName(), "handleMessage", "Got product query message");
-            String str2 = (String) message.obj;
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
-            intent.setData(Uri.parse(str2));
+            intent.setData(Uri.parse((String) message.obj));
             ResolveInfo resolveActivity = this.a.getPackageManager().resolveActivity(intent, AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED);
-            if (resolveActivity.activityInfo != null) {
-                str = resolveActivity.activityInfo.packageName;
-                BdLog.d(getClass().getName(), "handleMessage", "Using browser in package " + str);
-            }
+            String str = resolveActivity.activityInfo != null ? resolveActivity.activityInfo.packageName : null;
             if ("com.android.browser".equals(str) || "com.android.chrome".equals(str)) {
                 intent.setPackage(str);
                 intent.addFlags(268435456);
@@ -101,7 +91,7 @@ public final class CaptureActivityHandler extends Handler {
             try {
                 this.a.startActivity(intent);
             } catch (ActivityNotFoundException e) {
-                BdLog.d(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
+                e.printStackTrace();
             }
         }
     }

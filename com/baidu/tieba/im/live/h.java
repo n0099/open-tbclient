@@ -1,60 +1,46 @@
 package com.baidu.tieba.im.live;
 
-import android.os.Handler;
-import com.baidu.tieba.im.live.service.IRemoteCallback;
-import com.baidu.tieba.im.live.service.LiveStatusParcelable;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
+import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends IRemoteCallback.Stub {
-    final /* synthetic */ b a;
+public class h extends CustomMessageListener {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(b bVar) {
-        this.a = bVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(d dVar, int i) {
+        super(i);
+        this.a = dVar;
     }
 
-    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
-    public void onLiveStatusChangeEvent(LiveStatusParcelable liveStatusParcelable) {
-        Handler handler;
-        Handler handler2;
-        handler = this.a.v;
-        handler2 = this.a.v;
-        handler.sendMessage(handler2.obtainMessage(1, liveStatusParcelable));
-    }
-
-    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
-    public void onLiveErrorEvent(String str) {
-        Handler handler;
-        Handler handler2;
-        handler = this.a.v;
-        handler2 = this.a.v;
-        handler.sendMessage(handler2.obtainMessage(2, str));
-    }
-
-    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
-    public void onLivePlayProgressUpdate(String str, int i, int i2) {
-        Handler handler;
-        Handler handler2;
-        handler = this.a.v;
-        handler2 = this.a.v;
-        handler.sendMessage(handler2.obtainMessage(3, i, i2, str));
-    }
-
-    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
-    public void onLiveRecordTimeUpdate(int i) {
-        Handler handler;
-        Handler handler2;
-        handler = this.a.v;
-        handler2 = this.a.v;
-        handler.sendMessage(handler2.obtainMessage(4, i, i));
-    }
-
-    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
-    public void onLivePlayWarning(int i) {
-        Handler handler;
-        Handler handler2;
-        handler = this.a.v;
-        handler2 = this.a.v;
-        handler.sendMessage(handler2.obtainMessage(5, i, i));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LiveChatRoomEventData parseFromEventContent;
+        if (customResponsedMessage.getCmd() == 2001166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
+            LiveChatRoomEventResponseMessage liveChatRoomEventResponseMessage = (LiveChatRoomEventResponseMessage) customResponsedMessage;
+            if (!liveChatRoomEventResponseMessage.hasError()) {
+                String data = liveChatRoomEventResponseMessage.getData();
+                if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && parseFromEventContent.mEventId != null) {
+                    if ("309".equals(parseFromEventContent.mEventId) || "310".equals(parseFromEventContent.mEventId)) {
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                            this.a.s();
+                            this.a.u();
+                        }
+                    } else if ("308".equals(parseFromEventContent.mEventId)) {
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                            this.a.a(true);
+                        }
+                    } else if ("318".equals(parseFromEventContent.mEventId) && String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                        this.a.a(false);
+                    }
+                }
+            }
+        }
     }
 }

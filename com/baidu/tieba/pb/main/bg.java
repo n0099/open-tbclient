@@ -1,28 +1,23 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.Context;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class bg implements DialogInterface.OnClickListener {
     final /* synthetic */ bf a;
-    private final /* synthetic */ com.baidu.tieba.data.ae b;
-    private final /* synthetic */ String c;
+    private final /* synthetic */ com.baidu.tieba.data.ah b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(bf bfVar, com.baidu.tieba.data.ae aeVar, String str) {
+    public bg(bf bfVar, com.baidu.tieba.data.ah ahVar, int i) {
         this.a = bfVar;
-        this.b = aeVar;
-        this.c = str;
+        this.b = ahVar;
+        this.c = i;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        az azVar;
-        Context context;
-        com.baidu.tbadk.f.a().b(this.b.d(), System.currentTimeMillis());
-        com.baidu.tbadk.core.util.bk a = com.baidu.tbadk.core.util.bk.a();
-        azVar = this.a.a;
-        context = azVar.b;
-        a.a(context, new String[]{this.c});
+        bc bcVar;
+        bcVar = this.a.a;
+        bcVar.a(this.b, this.c);
     }
 }

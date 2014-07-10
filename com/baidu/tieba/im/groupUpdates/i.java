@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -14,7 +14,7 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.a<UpdatesItemData> {
+public class i extends com.baidu.adp.base.d<UpdatesItemData> {
     private View b;
     private HeadImageView c;
     private TextView d;
@@ -77,7 +77,7 @@ public class i extends com.baidu.adp.base.a<UpdatesItemData> {
             }
             Date date = new Date();
             date.setTime(this.l.getTime());
-            this.g.setText(bg.e(date));
+            this.g.setText(bm.e(date));
             if (!TextUtils.isEmpty(this.l.getContent())) {
                 this.e.setText(this.l.getContent());
             } else {

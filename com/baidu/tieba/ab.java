@@ -15,26 +15,26 @@ class ab extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
-                case 2007009:
+                case 2005009:
+                    ai.c().J();
+                    return;
+                case 2005010:
+                    ai.c().K();
+                    return;
+                case 2005011:
                     ai.c().M();
                     return;
-                case 2007010:
+                case 2005012:
                     ai.c().N();
                     return;
-                case 2007011:
-                    ai.c().P();
+                case 2005013:
+                    ai.c().I();
                     return;
-                case 2007012:
-                    ai.c().Q();
-                    return;
-                case 2007013:
-                    ai.c().L();
-                    return;
-                case 2007014:
+                case 2005014:
                 default:
                     return;
-                case 2007015:
-                    ai.c().O();
+                case 2005015:
+                    ai.c().L();
                     return;
             }
         }

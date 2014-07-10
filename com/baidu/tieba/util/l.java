@@ -5,7 +5,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.aw;
 /* loaded from: classes.dex */
 public class l extends ClickableSpan {
     private Context a;
@@ -13,10 +13,6 @@ public class l extends ClickableSpan {
     public l(Context context) {
         this.a = null;
         this.a = context;
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
     }
 
     public Context a() {
@@ -28,6 +24,10 @@ public class l extends ClickableSpan {
     }
 
     public void b(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(this.a).a(str, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this.a).a(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

@@ -1,14 +1,12 @@
 package com.baidu.tieba.im.message.chat;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.w;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
 /* loaded from: classes.dex */
 public class OfficialChatMessage extends ChatMessage {
     public OfficialChatMessage() {
-        super(MessageTypes.CMD_COMMIT_PERSONAL_MSG);
+        super(205001);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -25,7 +23,6 @@ public class OfficialChatMessage extends ChatMessage {
             builder2.data = builder.build(false);
             return builder2.build(false);
         } catch (Exception e) {
-            BdLog.d("data convert error");
             return null;
         }
     }

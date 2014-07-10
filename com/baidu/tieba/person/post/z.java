@@ -1,30 +1,24 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout a;
+public class z {
+    BdListView a;
+    EnterGuideCenterView b;
+    ProgressBar c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(ReplyLinearLayout replyLinearLayout) {
-        this.a = replyLinearLayout;
+    public BdListView a() {
+        return this.a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String[] strArr = (String[]) view.getTag();
-        if (strArr != null) {
-            Context context = this.a.getContext();
-            if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(context).a(strArr[1], strArr[2], "person_post_reply")));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(context).b(strArr[1], strArr[2], "person_post_reply")));
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(View view) {
+        this.b = null;
+        this.a = (BdListView) view.findViewById(com.baidu.tieba.v.list);
+        this.b = (EnterGuideCenterView) view.findViewById(com.baidu.tieba.v.post_guid_center_root);
+        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
     }
 }

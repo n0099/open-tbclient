@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.groupInfo;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.squareup.wire.Wire;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupResIdl;
 /* loaded from: classes.dex */
@@ -9,15 +8,11 @@ public class ResponseJoinGroupMessage extends SocketResponsedMessage {
     private int groupId;
 
     public ResponseJoinGroupMessage() {
-        super(MessageTypes.CMD_JOIN_GROUP);
+        super(103110);
     }
 
     public int getGroupId() {
         return this.groupId;
-    }
-
-    public void setGroupId(int i) {
-        this.groupId = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

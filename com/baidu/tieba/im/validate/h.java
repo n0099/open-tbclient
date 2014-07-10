@@ -3,20 +3,19 @@ package com.baidu.tieba.im.validate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.aa;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
     ValidateActivity a;
-    ab b;
+    aa b;
     List<ValidateItemData> c = new ArrayList();
 
     public h(ValidateActivity validateActivity) {
         this.b = null;
         this.a = validateActivity;
-        this.b = new ab(this.a);
+        this.b = new aa(this.a);
     }
 
     public void a() {
@@ -26,7 +25,6 @@ public class h extends BaseAdapter {
     public void a(List<ValidateItemData> list) {
         if (list != null) {
             this.c.addAll(list);
-            BdLog.d("size:" + this.c.size());
             notifyDataSetChanged();
         }
     }

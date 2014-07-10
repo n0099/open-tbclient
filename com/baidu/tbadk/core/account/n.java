@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bm;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -46,14 +46,14 @@ public class n {
             jSONObject.put("clientid", TbadkApplication.m252getInst().getImei());
             arrayList.add(new BasicNameValuePair("userinfo", new b().a(a[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", a(arrayList, "6e93e7659ae637845c7f83abee68a740")));
-            an anVar = new an("http://passport.baidu.com/v2/sapi/bdusslogin");
-            anVar.a().a().d = false;
-            anVar.a().a().c = false;
-            anVar.a(arrayList);
-            anVar.a().a().a().d = true;
-            anVar.a().a().a().f = false;
-            String i = anVar.i();
-            if (anVar.a().b().b() && !bg.c(i)) {
+            aq aqVar = new aq("http://passport.baidu.com/v2/sapi/bdusslogin");
+            aqVar.a().a().d = false;
+            aqVar.a().a().c = false;
+            aqVar.a(arrayList);
+            aqVar.a().a().a().d = true;
+            aqVar.a().a().a().f = false;
+            String i = aqVar.i();
+            if (aqVar.a().b().b() && !bm.c(i)) {
                 JSONObject jSONObject2 = new JSONObject(i);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     ourToken2 = new AccountLoginHelper.OurToken();
@@ -71,10 +71,10 @@ public class n {
 
     private static String[] a() {
         try {
-            an anVar = new an("http://passport.baidu.com/sslcrypt/get_last_cert");
-            anVar.a().a().d = false;
-            anVar.a().a().c = false;
-            JSONObject jSONObject = new JSONObject(new String(anVar.h()));
+            aq aqVar = new aq("http://passport.baidu.com/sslcrypt/get_last_cert");
+            aqVar.a().a().d = false;
+            aqVar.a().a().c = false;
+            JSONObject jSONObject = new JSONObject(new String(aqVar.h()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
@@ -114,6 +114,6 @@ public class n {
             stringBuffer.append("&");
         }
         stringBuffer.append("sign_key=" + str);
-        return ak.a(stringBuffer.toString());
+        return an.a(stringBuffer.toString());
     }
 }

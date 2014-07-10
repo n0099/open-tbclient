@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.VersionData;
 import java.util.Date;
@@ -75,7 +75,7 @@ public class bc {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", bg.d(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", bm.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", String.valueOf(str) + context.getString(y.app_name));

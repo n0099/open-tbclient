@@ -8,18 +8,20 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.L;
-import com.baidu.sapi2.utils.g;
 /* loaded from: classes.dex */
-public final class a {
+final class a {
     private static final String a = "0123456789ABCDEF";
     private static String b = null;
+
+    a() {
+    }
 
     public static String a(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return a(new g(com.baidu.sapi2.utils.f.q, com.baidu.sapi2.utils.f.p).a(str, com.baidu.sapi2.utils.f.r, a(context)));
+            return a(new com.baidu.sapi2.utils.f(com.baidu.sapi2.utils.e.q, com.baidu.sapi2.utils.e.p).a(str, com.baidu.sapi2.utils.e.r, a(context)));
         } catch (Exception e) {
             L.e(e);
             return null;
@@ -31,7 +33,7 @@ public final class a {
             return null;
         }
         try {
-            return new String(new g(com.baidu.sapi2.utils.f.q, com.baidu.sapi2.utils.f.p).a(a(str), com.baidu.sapi2.utils.f.r, a(context))).trim();
+            return new String(new com.baidu.sapi2.utils.f(com.baidu.sapi2.utils.e.q, com.baidu.sapi2.utils.e.p).a(a(str), com.baidu.sapi2.utils.e.r, a(context))).trim();
         } catch (Exception e) {
             L.e(e);
             return null;

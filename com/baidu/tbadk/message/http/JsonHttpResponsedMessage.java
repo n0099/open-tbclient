@@ -17,9 +17,9 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public final void decodeInBackGround(int i, byte[] bArr) {
         JSONObject jSONObject = null;
-        String str = new String(bArr, getCharset());
-        if (!TextUtils.isEmpty(str)) {
-            jSONObject = parseServerCode(str);
+        String parseToString = parseToString(bArr);
+        if (!TextUtils.isEmpty(parseToString)) {
+            jSONObject = parseServerResponsedData(parseToString);
         }
         decodeLogicInBackGround(i, jSONObject);
     }
@@ -33,7 +33,15 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         TiebaStatic.netJson(eVar, getError(), getErrorString());
     }
 
-    private JSONObject parseServerCode(String str) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String parseToString(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        return new String(bArr, getCharset());
+    }
+
+    protected JSONObject parseServerResponsedData(String str) {
         JSONObject jSONObject;
         Exception e;
         if (str == null) {
@@ -53,7 +61,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 return jSONObject;
             } catch (Exception e2) {
                 e = e2;
-                BdLog.e("NetWork", "parseServerCode", "error = " + e.getMessage());
+                BdLog.e(e.getMessage());
                 setErrorString(TbadkApplication.m252getInst().getApp().getString(y.error_unkown_try_again));
                 return jSONObject;
             }
@@ -63,7 +71,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    private String getCharset() {
+    protected String getCharset() {
         int indexOf;
         String contentType = getContentType();
         if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {

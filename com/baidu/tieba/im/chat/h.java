@@ -20,8 +20,8 @@ public class h extends Handler {
             case 1:
                 handler = this.a.N;
                 handler.removeMessages(1);
-                this.a.t();
-                this.a.r();
+                this.a.u();
+                this.a.s();
                 return;
             default:
                 return;

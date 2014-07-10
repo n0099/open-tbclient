@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.g;
+import com.baidu.tbadk.core.util.h;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
@@ -21,7 +21,7 @@ public class a {
         return a("user_icon", str, 0L);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00e6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00d0 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tbadk.core.util.DatabaseManager$DatabaseLocation] */
     /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
@@ -39,11 +39,11 @@ public class a {
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
-                                    bitmap = g.a(cursor.getBlob(1));
+                                    bitmap = h.a(cursor.getBlob(1));
                                 }
                             } catch (Exception e) {
                                 e = e;
-                                BdLog.e("DatabaseManager", "getPhoto", "error = " + e.getMessage());
+                                BdLog.e(e.getMessage());
                                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getPhoto" + str, new Object[0]);
                                 if (cursor != null) {
                                     try {
@@ -99,6 +99,10 @@ public class a {
         a("friend_photo", 500, str, bitmap);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:53:0x017a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private static void a(String str, int i, String str2, Bitmap bitmap) {
         int i2;
         Cursor cursor;
@@ -106,17 +110,17 @@ public class a {
         Cursor cursor2 = null;
         if (str2 != null) {
             DatabaseManager databaseManager = new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD);
-            try {
-                if (databaseManager != null) {
-                    try {
-                        Cursor a2 = databaseManager.a("select count(*) from " + str, (String[]) null);
-                        if (a2 != null) {
+            if (databaseManager != null) {
+                try {
+                    Cursor a2 = databaseManager.a("select count(*) from " + str, (String[]) null);
+                    if (a2 != null) {
+                        try {
                             try {
                                 i2 = a2.moveToFirst() ? a2.getInt(0) : 0;
                                 a2.close();
                             } catch (Exception e) {
                                 e = e;
-                                BdLog.e("DatabaseManager", "cashPhoto", "error = " + e.getMessage());
+                                BdLog.e(e.getMessage());
                                 TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashPhoto" + str, new Object[0]);
                                 if (0 != 0) {
                                     try {
@@ -129,48 +133,52 @@ public class a {
                                 }
                                 return;
                             }
-                        } else {
-                            i2 = 0;
-                        }
-                        if (i2 >= i && (a = databaseManager.a("select * from " + str + " order by date asc limit 1", (String[]) null)) != null) {
-                            a.moveToFirst();
-                            databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{a.getString(0)});
-                            a.close();
-                        }
-                        Cursor a3 = databaseManager.a("select * from " + str + " where key = ?", new String[]{str2});
-                        if (a3 != null) {
-                            if (a3.moveToFirst()) {
-                                databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{str2});
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = null;
+                            if (cursor2 != null) {
+                                try {
+                                    cursor2.close();
+                                } catch (Exception e3) {
+                                    TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
+                                }
                             }
-                            a3.close();
+                            throw th;
                         }
-                        databaseManager.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, g.c(bitmap, 80), Long.valueOf(new Date().getTime()), 0});
-                        cursor = null;
-                    } catch (Exception e3) {
-                        e = e3;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (0 != 0) {
-                            try {
-                                cursor2.close();
-                            } catch (Exception e4) {
-                                TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
-                            }
-                        }
-                        throw th;
+                    } else {
+                        i2 = 0;
                     }
-                } else {
+                    if (i2 >= i && (a = databaseManager.a("select * from " + str + " order by date asc limit 1", (String[]) null)) != null) {
+                        a.moveToFirst();
+                        databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{a.getString(0)});
+                        a.close();
+                    }
+                    Cursor a3 = databaseManager.a("select * from " + str + " where key = ?", new String[]{str2});
+                    if (a3 != null) {
+                        if (a3.moveToFirst()) {
+                            databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{str2});
+                        }
+                        a3.close();
+                    }
+                    databaseManager.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, h.c(bitmap, 80), Long.valueOf(new Date().getTime()), 0});
                     cursor = null;
-                }
-                if (0 != 0) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e5) {
-                        TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
+                } catch (Exception e4) {
+                    e = e4;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (cursor2 != null) {
                     }
+                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } else {
+                cursor = null;
+            }
+            if (0 != 0) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                    TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
+                }
             }
         }
     }

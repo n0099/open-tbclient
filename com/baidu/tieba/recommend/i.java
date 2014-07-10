@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -103,26 +103,26 @@ public class i extends com.baidu.adp.widget.q {
     }
 
     private void a(n nVar) {
-        be.a(nVar.a, com.baidu.tieba.s.cp_cont_i, 1);
-        be.a(nVar.b, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(nVar.a, com.baidu.tieba.s.cp_cont_i, 1);
+        bk.a(nVar.b, com.baidu.tieba.s.cp_cont_d, 1);
     }
 
     public void a(n nVar, int i) {
         if (this.h.get(i).a == 0) {
-            com.baidu.tieba.data.m mVar = (com.baidu.tieba.data.m) this.h.get(i).b;
+            com.baidu.tieba.data.n nVar2 = (com.baidu.tieba.data.n) this.h.get(i).b;
             Date date = new Date();
             try {
-                date = this.e.parse(mVar.b());
+                date = this.e.parse(nVar2.b());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             nVar.a.setText(this.f.format(date));
-            if (mVar.d()) {
-                be.f((View) nVar.a, u.icon_daily_sentence_bar_red);
+            if (nVar2.d()) {
+                bk.f((View) nVar.a, u.icon_daily_sentence_bar_red);
             } else {
-                be.f((View) nVar.a, u.icon_daily_sentence_bar_gray);
+                bk.f((View) nVar.a, u.icon_daily_sentence_bar_gray);
             }
-            nVar.b.setText(String.valueOf(mVar.a()) + this.b.getResources().getString(y.hot_count));
+            nVar.b.setText(String.valueOf(nVar2.a()) + this.b.getResources().getString(y.hot_count));
             if (this.a < i) {
                 nVar.a.setVisibility(0);
             }
@@ -130,53 +130,53 @@ public class i extends com.baidu.adp.widget.q {
     }
 
     private void a(k kVar) {
-        be.f(kVar.a, com.baidu.tieba.s.cp_bg_line_c);
-        be.f(kVar.b, u.daily_recommend_item_selector);
-        be.f(kVar.c, com.baidu.tieba.s.cp_bg_line_b);
-        be.a(kVar.d, com.baidu.tieba.s.cp_cont_b, 1);
+        bk.f(kVar.a, com.baidu.tieba.s.cp_bg_line_c);
+        bk.f(kVar.b, u.daily_recommend_item_selector);
+        bk.f(kVar.c, com.baidu.tieba.s.cp_bg_line_b);
+        bk.a(kVar.d, com.baidu.tieba.s.cp_cont_b, 1);
         int paddingLeft = kVar.f.getPaddingLeft();
         int paddingRight = kVar.f.getPaddingRight();
-        be.a(kVar.f, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(kVar.f, com.baidu.tieba.s.cp_cont_d, 1);
         kVar.f.setCompoundDrawablesWithIntrinsicBounds(this.g ? u.icon_comment_s_1 : u.icon_comment_s, 0, 0, 0);
         kVar.f.setPadding(paddingLeft, 0, paddingRight, 0);
         int paddingLeft2 = kVar.h.getPaddingLeft();
         int paddingRight2 = kVar.h.getPaddingRight();
-        be.a(kVar.h, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(kVar.h, com.baidu.tieba.s.cp_cont_d, 1);
         kVar.h.setCompoundDrawablesWithIntrinsicBounds(this.g ? u.icon_name_1 : u.icon_name, 0, 0, 0);
         kVar.h.setPadding(paddingLeft2, 0, paddingRight2, 0);
-        be.a(kVar.e, com.baidu.tieba.s.cp_cont_c, 1);
-        be.a(kVar.g, com.baidu.tieba.s.cp_cont_d, 1);
+        bk.a(kVar.e, com.baidu.tieba.s.cp_cont_c, 1);
+        bk.a(kVar.g, com.baidu.tieba.s.cp_cont_d, 1);
     }
 
     public void a(k kVar, int i) {
         if (this.h.get(i).a == 1) {
-            com.baidu.tieba.data.l lVar = (com.baidu.tieba.data.l) this.h.get(i).b;
-            kVar.d.setText(lVar.b());
-            kVar.f.setText(lVar.g());
-            kVar.h.setText(lVar.e());
-            kVar.e.setText(lVar.c());
-            kVar.g.setText(String.valueOf(lVar.d()) + "吧");
-            kVar.a.setOnClickListener(new j(this, lVar));
+            com.baidu.tieba.data.m mVar = (com.baidu.tieba.data.m) this.h.get(i).b;
+            kVar.d.setText(mVar.b());
+            kVar.f.setText(mVar.g());
+            kVar.h.setText(mVar.e());
+            kVar.e.setText(mVar.c());
+            kVar.g.setText(String.valueOf(mVar.d()) + "吧");
+            kVar.a.setOnClickListener(new j(this, mVar));
         }
     }
 
-    public void a(com.baidu.tieba.data.k kVar) {
-        if (kVar != null) {
+    public void a(com.baidu.tieba.data.l lVar) {
+        if (lVar != null) {
             this.h.clear();
-            if (kVar.a() != null && kVar.a().size() > 0) {
-                ArrayList<com.baidu.tieba.data.m> a = kVar.a();
+            if (lVar.a() != null && lVar.a().size() > 0) {
+                ArrayList<com.baidu.tieba.data.n> a = lVar.a();
                 for (int i = 0; i < a.size(); i++) {
-                    com.baidu.tieba.data.m mVar = a.get(i);
-                    String b = mVar.b();
+                    com.baidu.tieba.data.n nVar = a.get(i);
+                    String b = nVar.b();
                     if (this.d != null) {
                         this.d.a(b);
                     }
-                    this.h.add(new m(this, 0, mVar, b));
-                    if (mVar.c() != null && mVar.c().size() > 0) {
-                        for (int i2 = 0; i2 < mVar.c().size(); i2++) {
-                            com.baidu.tieba.data.l lVar = mVar.c().get(i2);
-                            if (lVar.f().equals("0")) {
-                                this.h.add(new m(this, 1, lVar, b));
+                    this.h.add(new m(this, 0, nVar, b));
+                    if (nVar.c() != null && nVar.c().size() > 0) {
+                        for (int i2 = 0; i2 < nVar.c().size(); i2++) {
+                            com.baidu.tieba.data.m mVar = nVar.c().get(i2);
+                            if (mVar.f().equals("0")) {
+                                this.h.add(new m(this, 1, mVar, b));
                             }
                         }
                     }
@@ -219,11 +219,11 @@ public class i extends com.baidu.adp.widget.q {
             date = date2;
         }
         textView.setText(this.f.format(date));
-        be.a(textView, com.baidu.tieba.s.cp_cont_i, 1);
+        bk.a(textView, com.baidu.tieba.s.cp_cont_i, 1);
         if (i <= 0) {
-            be.f((View) textView, u.icon_daily_sentence_bar_red_s);
+            bk.f((View) textView, u.icon_daily_sentence_bar_red_s);
         } else {
-            be.f((View) textView, u.icon_daily_sentence_bar_gray_s);
+            bk.f((View) textView, u.icon_daily_sentence_bar_gray_s);
         }
         this.a = i;
         View findViewWithTag2 = adapterView.findViewWithTag(Integer.valueOf(b(i)));

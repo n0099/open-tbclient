@@ -4,13 +4,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.core.atomData.r;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.s;
 import com.baidu.tieba.topRec.TRForumListData;
@@ -21,35 +20,32 @@ import com.baidu.tieba.y;
 public class e extends BaseAdapter implements View.OnClickListener {
     private TRForumListData a;
     private TopRecActivity c;
-    private ab d;
     private boolean b = false;
+    private int d = 0;
     private int e = 0;
     private int f = 0;
-    private int g = 0;
-    private boolean h = true;
+    private boolean g = true;
 
     public e(TopRecActivity topRecActivity) {
         this.c = topRecActivity;
-        this.d = new ab(this.c);
-        this.d.a(400, 400);
     }
 
     public void a(TRForumListData tRForumListData) {
         this.a = tRForumListData;
-        if (this.h && this.a.forum_list.length >= 20) {
-            this.g = 20;
-            this.h = false;
+        if (this.g && this.a.forum_list.length >= 20) {
+            this.f = 20;
+            this.g = false;
         }
         notifyDataSetChanged();
     }
 
     public void a() {
         if (this.a != null) {
-            if (this.a.forum_list.length - this.g > 20) {
-                this.g += 20;
+            if (this.a.forum_list.length - this.f > 20) {
+                this.f += 20;
                 this.b = false;
             } else {
-                this.g = this.a.forum_list.length;
+                this.f = this.a.forum_list.length;
                 this.b = true;
             }
             notifyDataSetChanged();
@@ -61,8 +57,8 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public void a(int i, int i2) {
-        this.e = i;
-        this.f = i2;
+        this.d = i;
+        this.e = i2;
         notifyDataSetChanged();
     }
 
@@ -71,7 +67,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
         if (this.a == null) {
             return 0;
         }
-        return this.g < this.a.forum_list.length ? this.g : this.a.forum_list.length;
+        return this.f < this.a.forum_list.length ? this.f : this.a.forum_list.length;
     }
 
     @Override // android.widget.Adapter
@@ -94,28 +90,28 @@ public class e extends BaseAdapter implements View.OnClickListener {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.c, w.top_recommended_list_item, null);
-            g gVar = new g(this);
-            gVar.a = (ImageView) view.findViewById(v.forum_avatar);
-            gVar.b = (TextView) view.findViewById(v.name);
-            gVar.c = (TextView) view.findViewById(v.member_count);
-            gVar.d = (TextView) view.findViewById(v.thread_count);
-            gVar.e = (TextView) view.findViewById(v.slogan);
-            gVar.f = (TextView) view.findViewById(v.like);
-            view.setTag(gVar);
+            f fVar = new f(this);
+            fVar.a = (HeadImageView) view.findViewById(v.forum_avatar);
+            fVar.b = (TextView) view.findViewById(v.name);
+            fVar.c = (TextView) view.findViewById(v.member_count);
+            fVar.d = (TextView) view.findViewById(v.thread_count);
+            fVar.e = (TextView) view.findViewById(v.slogan);
+            fVar.f = (TextView) view.findViewById(v.like);
+            view.setTag(fVar);
             view.setOnClickListener(this);
         }
-        g gVar2 = (g) view.getTag();
+        f fVar2 = (f) view.getTag();
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        be.c(gVar2.b, skinType);
-        be.c(gVar2.c, skinType);
-        be.c(gVar2.d, skinType);
-        be.c(gVar2.e, skinType);
-        be.c(gVar2.f, skinType);
+        bk.c(fVar2.b, skinType);
+        bk.c(fVar2.c, skinType);
+        bk.c(fVar2.d, skinType);
+        bk.c(fVar2.e, skinType);
+        bk.c(fVar2.f, skinType);
         if (skinType != 1) {
-            gVar2.b.setTextColor(-14277082);
-            gVar2.c.setTextColor(-6775644);
-            gVar2.d.setTextColor(-6775644);
-            gVar2.e.setTextColor(-6842215);
+            fVar2.b.setTextColor(-14277082);
+            fVar2.c.setTextColor(-6775644);
+            fVar2.d.setTextColor(-6775644);
+            fVar2.e.setTextColor(-6842215);
         }
         if (skinType == 1) {
             view.setBackgroundColor(this.c.getResources().getColor(s.flist_item_color_night));
@@ -123,38 +119,37 @@ public class e extends BaseAdapter implements View.OnClickListener {
             view.setBackgroundColor(this.c.getResources().getColor(s.flist_item_color_even_day));
         }
         TRForumListData.TRForum tRForum = this.a.forum_list[i];
-        BdLog.d("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
         String str = tRForum.avatar;
-        this.d.e(str, new f(this, str, gVar2.a));
-        gVar2.a.setTag(str);
-        gVar2.b.setText(tRForum.forum_name);
-        gVar2.c.setText(String.valueOf(this.c.getString(y.forum_list_attention_tv)) + " " + String.valueOf(tRForum.member_count));
-        gVar2.d.setText(String.valueOf(this.c.getString(y.forum_list_thread_tv)) + " " + String.valueOf(tRForum.thread_count));
-        gVar2.e.setText(tRForum.slogan);
+        fVar2.a.setTag(str);
+        fVar2.a.a(str, 10, 400, 400, false);
+        fVar2.b.setText(tRForum.forum_name);
+        fVar2.c.setText(String.valueOf(this.c.getString(y.forum_list_attention_tv)) + " " + String.valueOf(tRForum.member_count));
+        fVar2.d.setText(String.valueOf(this.c.getString(y.forum_list_thread_tv)) + " " + String.valueOf(tRForum.thread_count));
+        fVar2.e.setText(tRForum.slogan);
         if (tRForum.is_like == 1) {
-            if (this.f != 0) {
-                gVar2.f.setBackgroundResource(this.f);
-            }
-            gVar2.f.setText(y.attention_y);
-            gVar2.f.setGravity(17);
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                gVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_already_attention_night));
-            } else {
-                gVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_attention));
-            }
-            gVar2.f.setPadding(0, 0, 0, com.baidu.adp.lib.util.k.a((Context) this.c, 2.0f));
-            gVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
-            gVar2.f.setOnClickListener(this.c);
-        } else {
             if (this.e != 0) {
-                gVar2.f.setBackgroundResource(this.e);
+                fVar2.f.setBackgroundResource(this.e);
             }
-            gVar2.f.setText(y.attention_n);
-            gVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_attention));
-            gVar2.f.setPadding(com.baidu.adp.lib.util.k.a((Context) this.c, 30.0f), 0, com.baidu.adp.lib.util.k.a((Context) this.c, 10.0f), com.baidu.adp.lib.util.k.a((Context) this.c, 2.0f));
-            gVar2.f.setGravity(16);
-            gVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
-            gVar2.f.setOnClickListener(this.c);
+            fVar2.f.setText(y.attention_y);
+            fVar2.f.setGravity(17);
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                fVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_already_attention_night));
+            } else {
+                fVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_attention));
+            }
+            fVar2.f.setPadding(0, 0, 0, com.baidu.adp.lib.util.j.a((Context) this.c, 2.0f));
+            fVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
+            fVar2.f.setOnClickListener(this.c);
+        } else {
+            if (this.d != 0) {
+                fVar2.f.setBackgroundResource(this.d);
+            }
+            fVar2.f.setText(y.attention_n);
+            fVar2.f.setTextColor(this.c.getResources().getColor(s.forum_list_attention));
+            fVar2.f.setPadding(com.baidu.adp.lib.util.j.a((Context) this.c, 30.0f), 0, com.baidu.adp.lib.util.j.a((Context) this.c, 10.0f), com.baidu.adp.lib.util.j.a((Context) this.c, 2.0f));
+            fVar2.f.setGravity(16);
+            fVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
+            fVar2.f.setOnClickListener(this.c);
         }
         return view;
     }
@@ -181,6 +176,6 @@ public class e extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.c.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.c).a(((g) view.getTag()).b.getText().toString(), null)));
+        this.c.sendMessage(new CustomMessage(2003000, new r(this.c).a(((f) view.getTag()).b.getText().toString(), null)));
     }
 }

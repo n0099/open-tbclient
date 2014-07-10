@@ -20,7 +20,7 @@ class i implements Runnable {
         Bitmap bitmap2;
         ImageView imageView3;
         AlphaAnimation alphaAnimation;
-        this.a.d = com.baidu.tbadk.core.util.g.a(this.a, u.logo);
+        this.a.d = com.baidu.tbadk.core.util.h.a(this.a, u.logo);
         bitmap = this.a.d;
         if (bitmap != null) {
             imageView = this.a.c;

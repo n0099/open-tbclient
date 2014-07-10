@@ -9,8 +9,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,7 +21,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     private TextView d;
     private TextView e;
     private boolean g;
-    private ArrayList<q> h;
+    private ArrayList<u> h;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -45,10 +43,10 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(Context context) {
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.shut_down_validate_tip, (ViewGroup) null));
-        this.c = (ImageView) findViewById(v.no_network_icon);
-        this.d = (TextView) findViewById(v.no_network_guide1);
-        this.e = (TextView) findViewById(v.no_network_guide2);
-        this.b = (TextView) findViewById(v.no_network_showmore);
+        this.c = (ImageView) findViewById(com.baidu.tieba.v.no_network_icon);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.no_network_guide1);
+        this.e = (TextView) findViewById(com.baidu.tieba.v.no_network_guide2);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
@@ -81,7 +79,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new o(this));
+                alphaAnimation.setAnimationListener(new s(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.h.size(); i++) {
@@ -91,7 +89,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new p(this));
+                alphaAnimation2.setAnimationListener(new t(this));
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.h.size(); i2++) {
                     this.h.get(i2).a(true);
@@ -115,15 +113,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setImageResource(u.icon_error_1);
-            findViewById(v.no_network_parent).setBackgroundResource(u.bg_no_network_1);
+            this.c.setImageResource(com.baidu.tieba.u.icon_error_1);
+            findViewById(com.baidu.tieba.v.no_network_parent).setBackgroundResource(com.baidu.tieba.u.bg_no_network_1);
             this.d.setTextColor(-10523526);
             this.e.setTextColor(-8682095);
             this.b.setTextColor(-10523526);
             return;
         }
-        this.c.setImageResource(u.icon_error);
-        findViewById(v.no_network_parent).setBackgroundResource(u.bg_no_network);
+        this.c.setImageResource(com.baidu.tieba.u.icon_error);
+        findViewById(com.baidu.tieba.v.no_network_parent).setBackgroundResource(com.baidu.tieba.u.bg_no_network);
         this.d.setTextColor(-14277082);
         this.e.setTextColor(-5065030);
         this.b.setTextColor(-14277082);

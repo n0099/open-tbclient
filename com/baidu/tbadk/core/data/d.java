@@ -10,7 +10,7 @@ public abstract class d {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

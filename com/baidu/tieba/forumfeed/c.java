@@ -11,6 +11,6 @@ public class c implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        this.a.n();
+        this.a.o();
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 import com.baidu.tieba.im.message.ResponseQueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
@@ -17,7 +16,7 @@ public class x implements CustomMessageTask.CustomRunnable<Object> {
         ResponseQueryGroupCountLocalMessage responseQueryGroupCountLocalMessage = new ResponseQueryGroupCountLocalMessage();
         if (a != null) {
             try {
-                responseQueryGroupCountLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_COUNT_LOCAL, a);
+                responseQueryGroupCountLocalMessage.decodeInBackGround(2001114, a);
             } catch (Exception e) {
                 e.printStackTrace();
             }

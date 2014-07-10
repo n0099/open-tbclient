@@ -10,6 +10,6 @@ class f implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.b();
+        this.a.refresh();
     }
 }

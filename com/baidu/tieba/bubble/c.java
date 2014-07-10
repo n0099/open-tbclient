@@ -1,24 +1,22 @@
 package com.baidu.tieba.bubble;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
+class c implements s {
     final /* synthetic */ BubbleChooseActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(BubbleChooseActivity bubbleChooseActivity, int i) {
-        super(i);
+    public c(BubbleChooseActivity bubbleChooseActivity) {
         this.a = bubbleChooseActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.showToast(y.bubble_purchase_success);
-        this.a.d();
+    @Override // com.baidu.tieba.bubble.s
+    public void a(int i) {
+        g gVar;
+        this.a.a(i);
+        gVar = this.a.b;
+        gVar.d();
+    }
+
+    @Override // com.baidu.tieba.bubble.s
+    public void a() {
     }
 }

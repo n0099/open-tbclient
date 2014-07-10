@@ -1,6 +1,6 @@
 package com.baidu.tieba.discover;
 
-import android.widget.ImageView;
+import android.os.Bundle;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
@@ -14,11 +14,13 @@ class g extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).a;
-            imageView = DiscoverDelegateStatic.c;
-            imageView.setVisibility(z ? 0 : 8);
+        com.baidu.tbadk.mainTab.d b;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
+            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(discoverDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).b() != null && (b = discoverDelegateStatic.b()) != null) {
+                b.a.setArguments(new Bundle());
+            }
         }
     }
 }

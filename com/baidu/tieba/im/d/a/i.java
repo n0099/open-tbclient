@@ -4,7 +4,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.RequestGroupInfoLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoLocalMessage;
 /* loaded from: classes.dex */
@@ -23,7 +22,7 @@ public class i implements CustomMessageTask.CustomRunnable<Object> {
         if (a != null) {
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
             try {
-                responseGroupInfoLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, a);
+                responseGroupInfoLocalMessage.decodeInBackGround(2001102, a);
                 return responseGroupInfoLocalMessage;
             } catch (Exception e) {
                 e.printStackTrace();

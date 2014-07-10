@@ -7,23 +7,22 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity {
     private com.baidu.tieba.im.model.b a;
-    private i b;
+    private h b;
     private com.baidu.tieba.im.data.a c;
     private AlertDialog d;
-    private com.baidu.adp.framework.listener.b e = new c(this, 0);
+    private com.baidu.adp.framework.listener.b e = new b(this, 0);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010001, new b());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008001, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     private void a() {
-        this.b = new i(this);
+        this.b = new h(this);
     }
 
     private void b() {
@@ -40,8 +39,8 @@ public class IMBlackListActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_GET_MASK_INFO, this.e);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_MASK_INFO, this.e);
+        MessageManager.getInstance().registerListener(104103, this.e);
+        MessageManager.getInstance().registerListener(104102, this.e);
         a();
         b();
         c();
@@ -59,13 +58,13 @@ public class IMBlackListActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         if (this.a != null) {
@@ -80,7 +79,7 @@ public class IMBlackListActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        showLoadingDialog(null, new d(this));
+        showLoadingDialog(null, new c(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
@@ -93,7 +92,7 @@ public class IMBlackListActivity extends BaseActivity {
 
     private void e() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setPositiveButton(com.baidu.tieba.y.confirm, new e(this));
+        builder.setPositiveButton(com.baidu.tieba.y.confirm, new d(this));
         builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, (DialogInterface.OnClickListener) null);
         this.d = builder.create();
     }

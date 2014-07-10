@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -19,7 +18,7 @@ import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 /* loaded from: classes.dex */
 public class r extends BaseAdapter implements View.OnClickListener {
     private BaseActivity b;
-    private com.baidu.tieba.model.af c;
+    private com.baidu.tieba.model.ae c;
     private int e;
     public int a = -1;
     private int d = 0;
@@ -49,8 +48,8 @@ public class r extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void a(com.baidu.tieba.model.af afVar) {
-        this.c = afVar;
+    public void a(com.baidu.tieba.model.ae aeVar) {
+        this.c = aeVar;
     }
 
     public void a(int i, int i2) {
@@ -142,7 +141,6 @@ public class r extends BaseAdapter implements View.OnClickListener {
         this.b.getLayoutMode().a(skinType == 1);
         this.b.getLayoutMode().a(view);
         ForumInfoData forumInfoData = this.h[i];
-        BdLog.d("ForumListAdapter", "getView", "forum name:" + this.h[i].forum_name + "forum avatar:" + this.h[i].avatar);
         sVar2.a.setTag(this.h[i].avatar);
         sVar2.a.invalidate();
         sVar2.d.setText(forumInfoData.forum_name);
@@ -181,11 +179,6 @@ public class r extends BaseAdapter implements View.OnClickListener {
             sVar2.c.setCompoundDrawablesWithIntrinsicBounds(skinType != 1 ? com.baidu.tieba.u.icon_rise : com.baidu.tieba.u.icon_rise_1, 0, 0, 0);
             sVar2.c.setText(String.valueOf(this.b.getString(com.baidu.tieba.y.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(com.baidu.tieba.y.number));
         }
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            sVar2.h.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.enterforum_name_txt_1));
-        } else {
-            sVar2.h.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.enterforum_name_txt));
-        }
         sVar2.h.setOnClickListener(this);
         view.setOnClickListener(this);
         return view;
@@ -195,7 +188,7 @@ public class r extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == com.baidu.tieba.v.like) {
             TiebaStatic.eventStat(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-            this.b.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.b).a((String) view.getTag(), null)));
+            this.b.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(this.b).a((String) view.getTag(), null)));
             return;
         }
         s sVar = (s) view.getTag();
@@ -204,7 +197,7 @@ public class r extends BaseAdapter implements View.OnClickListener {
             return;
         }
         TiebaStatic.eventStat(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-        this.b.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.b).a(sVar.d.getText().toString(), null)));
+        this.b.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(this.b).a(sVar.d.getText().toString(), null)));
     }
 
     public String b(int i) {

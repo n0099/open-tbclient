@@ -1,78 +1,21 @@
 package com.baidu.android.nebula.cmd;
 
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.regex.Pattern;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements FilenameFilter {
-    final /* synthetic */ e a;
+public class f extends TimerTask {
+    final /* synthetic */ GeoLocation a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.a = eVar;
+    public f(GeoLocation geoLocation) {
+        this.a = geoLocation;
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        File file2;
-        String str2;
-        File file3;
-        File file4;
-        File file5;
-        File file6;
-        File file7;
-        String str3;
-        File file8;
-        File file9;
-        File file10;
-        File file11;
-        String lowerCase = str.toLowerCase();
-        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith(TbConfig.TMP_PIC_DIR_NAME) || lowerCase.startsWith(TbConfig.TMP_PIC_DIR_NAME) || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
-            return false;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        synchronized (this.a) {
+            this.a.mErrcode = 3;
+            this.a.notifyAll();
         }
-        this.a.b = new File(file, lowerCase);
-        file2 = this.a.f;
-        if (file2 == null) {
-            e eVar = this.a;
-            file11 = this.a.b;
-            eVar.f = file11;
-        }
-        if (file.isDirectory()) {
-            file6 = this.a.b;
-            if (file6.isFile()) {
-                str3 = this.a.e;
-                if (Pattern.compile(str3).matcher(lowerCase).find()) {
-                    file8 = this.a.b;
-                    long lastModified = file8.lastModified();
-                    file9 = this.a.f;
-                    if (lastModified >= file9.lastModified()) {
-                        e eVar2 = this.a;
-                        file10 = this.a.b;
-                        eVar2.f = file10;
-                        return true;
-                    }
-                    return true;
-                }
-            } else {
-                file7 = this.a.b;
-                file7.listFiles(this);
-            }
-        } else {
-            str2 = this.a.e;
-            if (Pattern.compile(str2).matcher(lowerCase).find()) {
-                file3 = this.a.b;
-                long lastModified2 = file3.lastModified();
-                file4 = this.a.f;
-                if (lastModified2 >= file4.lastModified()) {
-                    e eVar3 = this.a;
-                    file5 = this.a.b;
-                    eVar3.f = file5;
-                    return true;
-                }
-                return true;
-            }
-        }
-        return false;
     }
 }

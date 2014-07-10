@@ -1,8 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -21,6 +20,7 @@ public class ImMessageCenterPojo implements Serializable {
     String group_head;
     String group_name;
     int group_type;
+    int isFriend;
     private boolean isSelf;
     int is_delete;
     int is_hidden;
@@ -172,27 +172,19 @@ public class ImMessageCenterPojo implements Serializable {
         this.orderCol = j;
     }
 
-    public String toString() {
-        return "ImMessageCenterPojo [gid=" + this.gid + ", group_name=" + this.group_name + ", group_head=" + this.group_head + ", group_type=" + this.group_type + ", group_ext=" + this.group_ext + ", is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_rid=" + this.last_rid + ", pulled_msgId=" + this.pulled_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name=" + this.last_user_name + ", last_content=" + this.last_content + ", type=" + this.type + ", ext=" + this.ext + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + "]";
-    }
-
     public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
         boolean z;
         OldUserData oldUserData;
         OldUserData oldUserData2;
         if (commonMsgPojo == null) {
-            BdLog.d("see init cmpojo is null");
             return null;
         }
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
-            BdLog.d("see init not login:");
             return null;
         }
-        BdLog.d("see init private cmpojo:" + commonMsgPojo);
         String gid = commonMsgPojo.getGid();
         if (TextUtils.isEmpty(gid)) {
-            BdLog.e("see init private uid  is null uid:" + gid);
             return null;
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -200,21 +192,19 @@ public class ImMessageCenterPojo implements Serializable {
         UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
         UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
         if (userData == null) {
-            BdLog.d("see init private userinfo:" + commonMsgPojo.getUser_info());
             return null;
         }
-        if (j.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+        if (i.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
             oldUserData2.setToUserData(userData);
         }
         String toUid = commonMsgPojo.getToUid();
         if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && currentAccount.equals(gid)) {
-            BdLog.e("see init private : send msg to self");
             return null;
         }
         String uid = commonMsgPojo.getUid();
         if (currentAccount.equals(uid)) {
             if (userData2 != null) {
-                if (j.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (i.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -240,14 +230,11 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        if (currentAccount.equals(uid)) {
-            imMessageCenterPojo.setLast_content(r.h(commonMsgPojo.toChatMessage()));
-        } else {
-            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + r.h(commonMsgPojo.toChatMessage()));
-        }
+        imMessageCenterPojo.setLast_content(r.i(commonMsgPojo.toChatMessage()));
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
-        BdLog.d("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        imMessageCenterPojo.setIsFriend(commonMsgPojo.getIsFriend());
+        imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
         return imMessageCenterPojo;
     }
 
@@ -257,5 +244,13 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setCustomGroupType(int i) {
         this.mCustomGroupType = i;
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
     }
 }

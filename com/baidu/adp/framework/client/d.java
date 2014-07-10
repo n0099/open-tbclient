@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.stats.h;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import java.util.List;
@@ -44,7 +43,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0159 -> B:31:0x006e). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x017a -> B:37:0x0070). Please submit an issue!!! */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public HttpResponsedMessage doInBackground(HttpMessage... httpMessageArr) {
@@ -85,7 +84,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
             if (newInstance.isSuccess()) {
                 try {
                     newInstance.decodeInBackGround(this.b.getCmd(), this.d.b().g);
-                    newInstance.processInBackGround(this.b.getCmd(), this.d.b().g);
+                    newInstance.beforeDispatchInBackGround(this.b.getCmd(), this.d.b().g);
                 } catch (Exception e2) {
                     newInstance.setError(TbErrInfo.ERR_IMG_URL_IS_NULL);
                     newInstance.setErrorString(BdBaseApplication.getInst().getString(f.error_unkown_try_again));
@@ -93,10 +92,18 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
                 }
             }
             newInstance.logStatInBackground(this.b.getCmd(), this.d);
-            return newInstance;
-        } catch (Exception e3) {
+            publishProgress(newInstance);
+            try {
+                if (newInstance.isSuccess()) {
+                    newInstance.afterDispatchInBackGround(this.b.getCmd(), this.d.b().g);
+                }
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+            return null;
+        } catch (Exception e4) {
             if (BdLog.isDebugMode()) {
-                BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
+                BdLog.detailException("responsedMessage create error reason = " + e4.toString(), e4);
             }
             HttpClient.ErrorHttpResponsedMessage errorHttpResponsedMessage = new HttpClient.ErrorHttpResponsedMessage(this.b.getCmd(), this.b);
             b();
@@ -108,7 +115,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
         String b = this.d.a().b("sid");
         if (this.d.c().size() > 0) {
             com.baidu.adp.lib.network.http.d dVar = this.d.c().get(this.d.c().size() - 1);
-            h.a().b(this.d.a().b(), b, "", dVar.b, dVar.a, dVar.f, dVar.c, dVar.d, dVar.e, TbErrInfo.ERR_IMG_CACHE, "init " + this.c.getResponsedClass() + " error", new Object[0]);
+            com.baidu.adp.lib.stats.d.b().b(this.d.a().b(), b, "", dVar.b, dVar.a, dVar.f, dVar.c, dVar.d, dVar.e, TbErrInfo.ERR_IMG_CACHE, "init " + this.c.getResponsedClass() + " error", new Object[0]);
         }
     }
 
@@ -121,9 +128,12 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(HttpResponsedMessage httpResponsedMessage) {
-        this.a.a.dispatchResponsedMessage(httpResponsedMessage);
+    public void onProgressUpdate(HttpResponsedMessage... httpResponsedMessageArr) {
+        if (httpResponsedMessageArr != null && httpResponsedMessageArr.length > 0) {
+            this.a.a.dispatchResponsedMessage(httpResponsedMessageArr[0]);
+        }
     }
 }

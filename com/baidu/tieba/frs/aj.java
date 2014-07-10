@@ -22,37 +22,42 @@ public class aj extends Handler {
         g gVar3;
         boolean z;
         ct ctVar;
+        ct ctVar2;
         g gVar4;
         g gVar5;
-        ct ctVar2;
+        ct ctVar3;
         switch (message.what) {
             case 1:
                 removeMessages(1);
-                gVar = this.a.I;
+                gVar = this.a.H;
                 if (gVar != null) {
-                    gVar2 = this.a.I;
+                    gVar2 = this.a.H;
                     long g = gVar2.l().g();
-                    j = this.a.N;
+                    j = this.a.M;
                     long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        ctVar2 = this.a.w;
-                        CustomTimerView customTimerView = (CustomTimerView) ctVar2.a(com.baidu.tieba.v.open_timer);
+                        ctVar3 = this.a.v;
+                        CustomTimerView customTimerView = (CustomTimerView) ctVar3.a(com.baidu.tieba.v.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
                         }
                         sendMessageDelayed(obtainMessage(1), 1000L);
                         return;
                     }
-                    gVar3 = this.a.I;
+                    gVar3 = this.a.H;
                     gVar3.l().a(1);
-                    z = this.a.l;
+                    z = this.a.k;
                     if (!z) {
-                        ctVar = this.a.w;
-                        com.baidu.tieba.frs.view.j x = ctVar.x();
-                        gVar4 = this.a.I;
-                        ForumData g2 = gVar4.g();
-                        gVar5 = this.a.I;
-                        x.a(g2, gVar5);
+                        ctVar = this.a.v;
+                        if (ctVar.w() != null) {
+                            ctVar2 = this.a.v;
+                            com.baidu.tieba.frs.view.j w = ctVar2.w();
+                            gVar4 = this.a.H;
+                            ForumData g2 = gVar4.g();
+                            gVar5 = this.a.H;
+                            w.a(g2, gVar5);
+                            return;
+                        }
                         return;
                     }
                     return;

@@ -1,6 +1,9 @@
 package com.baidu.tieba.im.live.room;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements Runnable {
+public class y implements DialogInterface.OnClickListener {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,13 +11,9 @@ class y implements Runnable {
         this.a = liveRoomChatActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        LiveRoomChatView z;
-        String str;
-        z = this.a.z();
-        ag R = z.R();
-        str = this.a.x;
-        R.setRecordTime(str);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.a.H();
     }
 }

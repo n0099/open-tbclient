@@ -24,23 +24,23 @@ public class aa extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tieba.im.model.p pVar;
-        com.baidu.tieba.im.model.p pVar2;
+        com.baidu.tieba.im.model.n nVar;
+        com.baidu.tieba.im.model.n nVar2;
         HotLiveListAdapter hotLiveListAdapter;
         HotLiveListAdapter hotLiveListAdapter2;
         HotLiveListAdapter hotLiveListAdapter3;
-        com.baidu.tieba.im.model.p pVar3;
-        com.baidu.tieba.im.model.p pVar4;
-        com.baidu.tieba.im.model.p pVar5;
+        com.baidu.tieba.im.model.n nVar3;
+        com.baidu.tieba.im.model.n nVar4;
+        com.baidu.tieba.im.model.n nVar5;
         HotLiveListAdapter hotLiveListAdapter4;
         HotLiveListAdapter hotLiveListAdapter5;
-        com.baidu.tieba.im.model.p pVar6;
+        com.baidu.tieba.im.model.n nVar6;
         HotLiveListAdapter hotLiveListAdapter6;
         HotLiveListAdapter hotLiveListAdapter7;
         HotLiveListAdapter hotLiveListAdapter8;
         HotLiveListAdapter hotLiveListAdapter9;
         ad adVar;
-        this.a.k();
+        this.a.l();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseHotLiveListMessage)) {
             this.a.a(com.baidu.tieba.y.neterror);
             return;
@@ -55,8 +55,8 @@ public class aa extends com.baidu.adp.framework.listener.b {
             }
         }
         String b = this.a.b();
-        pVar = this.a.c;
-        pVar.a(b, true);
+        nVar = this.a.c;
+        nVar.a(b, true);
         if (responseHotLiveListMessage.hasError()) {
             if (!TextUtils.isEmpty(responseHotLiveListMessage.getErrorString())) {
                 this.a.b(responseHotLiveListMessage.getErrorString());
@@ -69,20 +69,20 @@ public class aa extends com.baidu.adp.framework.listener.b {
         com.baidu.tieba.im.data.d hotLiveListData = responseHotLiveListMessage.getHotLiveListData();
         if (hotLiveListData != null && hotLiveListData.b() != null) {
             List<LiveCardData> b2 = hotLiveListData.b();
-            pVar2 = this.a.c;
-            if (pVar2.d()) {
+            nVar2 = this.a.c;
+            if (nVar2.d()) {
                 hotLiveListAdapter9 = this.a.i;
                 hotLiveListAdapter9.b(true);
             }
             if (!hotLiveListData.a()) {
-                pVar6 = this.a.c;
-                if (!pVar6.d()) {
+                nVar6 = this.a.c;
+                if (!nVar6.d()) {
                     hotLiveListAdapter6 = this.a.i;
                     hotLiveListAdapter6.a(HotLiveListAdapter.BOTTOM_TYPE.NO_MORE);
                 } else if (b2.size() == 0) {
                     hotLiveListAdapter8 = this.a.i;
                     hotLiveListAdapter8.c(false);
-                    this.a.m();
+                    this.a.n();
                     return;
                 } else {
                     hotLiveListAdapter7 = this.a.i;
@@ -92,16 +92,16 @@ public class aa extends com.baidu.adp.framework.listener.b {
                 hotLiveListAdapter = this.a.i;
                 hotLiveListAdapter.a(HotLiveListAdapter.BOTTOM_TYPE.HAVE_MORE);
             }
-            this.a.l();
+            this.a.m();
             hotLiveListAdapter2 = this.a.i;
             hotLiveListAdapter2.c(true);
             hotLiveListAdapter3 = this.a.i;
             hotLiveListAdapter3.a(hotLiveListData.a());
-            pVar3 = this.a.c;
-            pVar3.c(b2.size());
-            pVar4 = this.a.c;
-            pVar5 = this.a.c;
-            pVar4.d(pVar5.g() + 1);
+            nVar3 = this.a.c;
+            nVar3.c(b2.size());
+            nVar4 = this.a.c;
+            nVar5 = this.a.c;
+            nVar4.d(nVar5.g() + 1);
             hotLiveListAdapter4 = this.a.i;
             hotLiveListAdapter4.a(b2);
             hotLiveListAdapter5 = this.a.i;

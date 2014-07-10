@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener {
             if (cVar == null) {
                 str2 = this.a.j;
                 if (!TextUtils.isEmpty(str2)) {
-                    bk a = bk.a();
+                    bq a = bq.a();
                     Context context3 = this.a.getContext();
                     str3 = this.a.j;
                     a.a(context3, new String[]{str3});

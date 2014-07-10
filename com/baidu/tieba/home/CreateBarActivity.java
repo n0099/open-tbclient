@@ -14,8 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -111,20 +112,20 @@ public class CreateBarActivity extends BaseActivity {
     private void e() {
         this.q = new a(this);
         this.r = new b(this);
-        this.e = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.e = (NavigationBar) findViewById(v.view_navigation_bar);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.a(getString(y.create_bar));
-        this.a = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
-        this.c = findViewById(com.baidu.tieba.v.title);
-        this.d = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.t = (TextView) findViewById(com.baidu.tieba.v.error);
-        this.f = (TextView) findViewById(com.baidu.tieba.v.info);
-        this.j = (RelativeLayout) findViewById(com.baidu.tieba.v.create);
+        this.a = (RelativeLayout) findViewById(v.container);
+        this.c = findViewById(v.title);
+        this.d = (TextView) findViewById(v.text);
+        this.t = (TextView) findViewById(v.error);
+        this.f = (TextView) findViewById(v.info);
+        this.j = (RelativeLayout) findViewById(v.create);
         this.j.setOnClickListener(this.q);
-        this.g = (TextView) findViewById(com.baidu.tieba.v.info2);
-        this.h = (EditText) findViewById(com.baidu.tieba.v.edit_name);
+        this.g = (TextView) findViewById(v.info2);
+        this.h = (EditText) findViewById(v.edit_name);
         this.h.addTextChangedListener(this.r);
-        this.i = (EditText) findViewById(com.baidu.tieba.v.edit_vcode);
+        this.i = (EditText) findViewById(v.edit_vcode);
         this.i.addTextChangedListener(this.r);
         if (this.v) {
             this.g.setText(getString(y.bar_name_valid));
@@ -132,13 +133,13 @@ public class CreateBarActivity extends BaseActivity {
         } else {
             this.g.setText(getString(y.bar_name_invalid));
         }
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.v.create);
-        this.k = (FrameLayout) findViewById(com.baidu.tieba.v.image_button);
+        this.b = (RelativeLayout) findViewById(v.create);
+        this.k = (FrameLayout) findViewById(v.image_button);
         this.k.setOnClickListener(this.q);
-        this.l = (ImageView) findViewById(com.baidu.tieba.v.image);
+        this.l = (ImageView) findViewById(v.image);
         this.j.setEnabled(false);
-        this.m = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.n = (ProgressBar) findViewById(com.baidu.tieba.v.progress_image);
+        this.m = (ProgressBar) findViewById(v.progress);
+        this.n = (ProgressBar) findViewById(v.progress_image);
         if (this.v) {
             this.i.requestFocus();
         }
@@ -150,8 +151,8 @@ public class CreateBarActivity extends BaseActivity {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a((View) this.a);
-        be.a(this.d, i);
-        be.b(this.g, i);
+        bk.a(this.d, i);
+        bk.b(this.g, i);
         String str = String.valueOf(this.u) + getString(y.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {

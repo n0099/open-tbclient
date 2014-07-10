@@ -30,6 +30,6 @@ public class a implements View.OnClickListener {
         inviteMsgData2 = this.a.e;
         long fromUid = inviteMsgData2.getFromUid();
         inviteMsgData3 = this.a.e;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2010014, new com.baidu.tbadk.core.atomData.b(context, sb2, fromUid, inviteMsgData3.getText())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(context, sb2, fromUid, inviteMsgData3.getText())));
     }
 }

@@ -5,11 +5,14 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.s;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
     private static b a = null;
     private s<byte[]> A;
     private s<String> B;
+    private s<byte[]> C;
+    private s<byte[]> D;
     private s<String> b;
     private s<String> c;
     private s<String> d;
@@ -44,7 +47,7 @@ public class b extends CustomMessageListener {
     }
 
     private b() {
-        super(2002998);
+        super(2000998);
         this.b = null;
         this.c = null;
         this.d = null;
@@ -72,6 +75,8 @@ public class b extends CustomMessageListener {
         this.z = null;
         this.A = null;
         this.B = null;
+        this.C = null;
+        this.D = null;
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
@@ -80,6 +85,10 @@ public class b extends CustomMessageListener {
             this.b = BdCacheService.c().a("tb.pb_mark", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.b;
+    }
+
+    public s<String> a(String str) {
+        return BdCacheService.c().a("tb.pb_history" + str, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
     }
 
     public s<String> c() {
@@ -96,67 +105,67 @@ public class b extends CustomMessageListener {
         return this.B;
     }
 
-    public s<String> e() {
+    public s<byte[]> e() {
+        if (this.C == null) {
+            this.C = BdCacheService.c().b("tb.friend_feed", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        }
+        return this.C;
+    }
+
+    public s<byte[]> f() {
+        if (this.D == null) {
+            this.D = BdCacheService.c().b("tb.official_bar_menu", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 1000);
+        }
+        return this.D;
+    }
+
+    public s<String> g() {
         if (this.c == null) {
             this.c = BdCacheService.c().a("tb.pb_editor", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.c;
     }
 
-    public s<byte[]> f() {
+    public s<byte[]> h() {
         if (this.m == null) {
             this.m = BdCacheService.c().b("tb.im_frsgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.m;
     }
 
-    public s<byte[]> g() {
+    public s<byte[]> i() {
         if (this.n == null) {
             this.n = BdCacheService.c().b("tb.live_hotlist", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
         }
         return this.n;
     }
 
-    public s<byte[]> h() {
+    public s<byte[]> j() {
         if (this.o == null) {
             this.o = BdCacheService.c().b("tb.live_hotlist", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
         }
         return this.o;
     }
 
-    public s<byte[]> i() {
-        if (this.x == null) {
-            this.x = BdCacheService.c().b("tb.im_hotgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
-        }
-        return this.x;
-    }
-
-    public s<String> j() {
+    public s<String> k() {
         if (this.e == null) {
             this.e = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
         }
         return this.e;
     }
 
-    public s<String> k() {
+    public s<String> l() {
         if (this.r == null) {
             this.r = BdCacheService.c().a("tb.im_group_search_history", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.r;
     }
 
-    public void l() {
+    public void m() {
         if (this.r != null) {
             BdCacheService.c().a(this.r);
             this.r = null;
         }
-    }
-
-    public s<String> m() {
-        if (this.f == null) {
-            this.f = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
-        }
-        return this.f;
     }
 
     public s<String> n() {

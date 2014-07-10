@@ -3,14 +3,13 @@ package com.baidu.tieba.im.validate;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.a<ValidateItemData> {
+public class i extends com.baidu.adp.base.d<ValidateItemData> {
     private View b;
     private HeadImageView c;
     private TextView d;
@@ -62,7 +61,6 @@ public class i extends com.baidu.adp.base.a<ValidateItemData> {
                 this.g.setEnabled(true);
                 this.g.setText(this.h.getString(y.validate_im_btn_pass));
             }
-            BdLog.d("isShown:" + this.i.isShown());
             if (!this.i.isShown()) {
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
                     this.b.setBackgroundResource(com.baidu.tieba.s.validate_item_background_sean_1);

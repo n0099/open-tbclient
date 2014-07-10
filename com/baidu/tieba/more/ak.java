@@ -1,56 +1,35 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.model.MoreModel;
+import android.os.Handler;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.message.http.ResponseLocationJsonHttpMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ aj a;
-
-    private ak(aj ajVar) {
-        this.a = ajVar;
-    }
+public class ak extends HttpMessageListener {
+    final /* synthetic */ SystemHelpSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(aj ajVar, ak akVar) {
-        this(ajVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ak(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
+        super(i);
+        this.a = systemHelpSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onPostExecute(String str) {
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        BaseActivity.LoadDataCallBack loadDataCallBack2;
-        super.onPostExecute(str);
-        this.a.a = null;
-        loadDataCallBack = this.a.e;
-        if (loadDataCallBack == null) {
-            return;
-        }
-        loadDataCallBack2 = this.a.e;
-        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD).b();
-        com.baidu.tbadk.core.voice.a.e.a();
-        try {
-            bf.a().b();
-            bf.a().c();
-            return null;
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        at atVar;
+        at atVar2;
+        atVar = this.a.a;
+        if (atVar != null) {
+            atVar2 = this.a.a;
+            if (atVar2.a() != null && httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0 && (httpResponsedMessage instanceof ResponseLocationJsonHttpMessage)) {
+                TbadkApplication.m252getInst().setLocationShared(((ResponseLocationJsonHttpMessage) httpResponsedMessage).isLocationShared);
+                new Handler().postDelayed(new al(this), 500L);
+            }
         }
     }
 }

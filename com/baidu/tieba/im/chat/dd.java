@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd implements com.baidu.tbadk.img.b<ChatMessage> {
-    final /* synthetic */ TalkableActivity a;
+public class dd implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ dc a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(TalkableActivity talkableActivity) {
-        this.a = talkableActivity;
+    public dd(dc dcVar) {
+        this.a = dcVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.img.b
-    public void a(int i, ChatMessage chatMessage) {
-        this.a.d.a(i, chatMessage);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        String a;
+        if (aVar != null) {
+            dc dcVar = this.a;
+            a = this.a.a(str, aVar.l());
+            dcVar.a(a);
+            return;
+        }
+        this.a.a(this.a.b.getString(com.baidu.tieba.y.save_error));
     }
 }

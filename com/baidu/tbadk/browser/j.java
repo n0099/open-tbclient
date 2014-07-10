@@ -13,6 +13,6 @@ public class j implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b();
+        this.a.refresh();
     }
 }

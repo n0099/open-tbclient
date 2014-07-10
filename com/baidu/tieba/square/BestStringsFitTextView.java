@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class BestStringsFitTextView extends TextView {
     private String[] a;
@@ -46,7 +45,6 @@ public class BestStringsFitTextView extends TextView {
             }
             sb.append(this.a[i]);
             String sb2 = sb.toString();
-            BdLog.i(sb2);
             if (this.c < getPaint().measureText(sb2)) {
                 break;
             }

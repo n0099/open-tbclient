@@ -1,31 +1,123 @@
 package com.baidu.tbadk.core.util;
+
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k {
-    StringBuffer a;
-    final /* synthetic */ h b;
+public class k extends BdAsyncTask<Object, Integer, JSONObject> {
+    final /* synthetic */ i a;
+    private final aq b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
+    private final int c;
+    private final int d;
+    private final String e;
+    private final String f;
+    private final int g;
+    private final int h;
 
-    private k(h hVar) {
-        this.b = hVar;
-        this.a = new StringBuffer(100);
+    public k(i iVar, int i, int i2, int i3, String str, int i4, String str2) {
+        this.a = iVar;
+        this.c = i3;
+        this.d = i4;
+        this.e = str;
+        this.f = str2;
+        this.g = i;
+        this.h = i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(h hVar, k kVar) {
-        this(hVar);
-    }
-
-    public void a(int i) {
-        if (this.a.length() != 0) {
-            this.a.append(",");
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public JSONObject doInBackground(Object... objArr) {
+        if (this.a.b() == null || !this.a.b().d() || this.g == 0) {
+            return null;
         }
-        this.a.append(i);
+        this.b.a("number", String.valueOf(this.h));
+        if (this.g == 1) {
+            this.b.a("ab_num_error", String.valueOf(this.c));
+            this.b.a("error", this.e);
+            this.b.a("ab_num_slow", String.valueOf(this.d));
+            this.b.a("time", this.f);
+        } else if (this.g == 3) {
+            this.b.a("ab_num_slow", new StringBuilder(String.valueOf(this.d)).toString());
+            this.b.a("time", this.f);
+        } else if (this.g == 2) {
+            this.b.a("ab_num_error", new StringBuilder(String.valueOf(this.c)).toString());
+            this.b.a("error", this.e);
+        }
+        String i = this.b.i();
+        if (!this.b.c() || TextUtils.isEmpty(i)) {
+            return null;
+        }
+        try {
+            return new JSONObject(i);
+        } catch (JSONException e) {
+            BdLog.e(e.getMessage());
+            return null;
+        }
     }
 
-    public void a() {
-        this.a.setLength(0);
-    }
-
-    public String toString() {
-        return this.a.toString();
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [398=6] */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(JSONObject jSONObject) {
+        int i;
+        com.baidu.tbadk.core.data.e eVar;
+        com.baidu.tbadk.core.data.e eVar2;
+        super.onPostExecute(jSONObject);
+        try {
+            if (jSONObject == null) {
+                com.baidu.adp.lib.stats.o a = ae.a();
+                a.a("act", "fallback");
+                a.a("result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                a.a("type", "end");
+                com.baidu.adp.lib.stats.d.b().a("img", a);
+                return;
+            }
+            i iVar = this.a;
+            i = iVar.i;
+            int i2 = i + 1;
+            iVar.i = i2;
+            if (i2 >= 5) {
+                eVar2 = this.a.h;
+                eVar2.a(false);
+                this.a.l = System.currentTimeMillis();
+                return;
+            }
+            if (jSONObject.optJSONObject("ret").optInt("err_no", -1) != 0) {
+                com.baidu.adp.lib.stats.o a2 = ae.a();
+                a2.a("act", "fallback");
+                a2.a("result", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                a2.a("type", "end");
+                com.baidu.adp.lib.stats.d.b().a("img", a2);
+            } else {
+                com.baidu.adp.lib.stats.o a3 = ae.a();
+                a3.a("act", "fallback");
+                a3.a("result", "0");
+                a3.a("type", "end");
+                com.baidu.adp.lib.stats.d.b().a("img", a3);
+                this.a.c();
+                eVar = this.a.h;
+                eVar.a(false);
+                this.a.l = System.currentTimeMillis();
+            }
+            String optString = jSONObject.optString("photo_strategy");
+            com.baidu.tbadk.core.data.e eVar3 = new com.baidu.tbadk.core.data.e();
+            eVar3.a(optString);
+            if (eVar3.d() == this.a.b().d() && eVar3.g() == this.a.b().g() && eVar3.e() == this.a.b().e() && eVar3.f() == this.a.b().f()) {
+                return;
+            }
+            this.a.a(eVar3);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        } finally {
+            this.a.k = false;
+        }
     }
 }

@@ -1,12 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.content.DialogInterface;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
+public class al implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,23 +12,20 @@ public class al implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.c;
-        editText = this.a.e;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.c;
-        editText2 = this.a.h;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.m();
-        this.a.l();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        writeData = this.a.a;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.a.a;
+            com.baidu.tieba.util.m.a(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.a.a;
+            com.baidu.tieba.util.m.b(writeData2.getThreadId(), (WriteData) null);
+        }
+        this.a.finish();
     }
 }

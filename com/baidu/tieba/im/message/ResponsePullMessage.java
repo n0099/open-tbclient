@@ -1,14 +1,11 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.e.r;
@@ -24,6 +21,7 @@ import com.squareup.wire.Wire;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import org.json.JSONArray;
 import protobuf.GetGroupMsg.GetGroupMsgResIdl;
 import protobuf.GetGroupMsg.GroupMsg;
 import protobuf.GroupInfo;
@@ -36,7 +34,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
     private List<GroupMsgData> groupMsg;
 
     public ResponsePullMessage() {
-        super(MessageTypes.CMD_MESSAGE_SYNC);
+        super(202003);
     }
 
     public List<GroupMsgData> getGroupMsg() {
@@ -53,7 +51,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void processInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         List<GroupMsgData> groupMsg = getGroupMsg();
         if (groupMsg != null) {
             for (GroupMsgData groupMsgData : groupMsg) {
@@ -91,16 +89,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 groupIdTypeData.setGroupType(groupInfo.groupType.intValue());
                 List<MsgInfo> list = groupMsg.msgList;
                 if (list != null && (size = list.size()) > 0) {
-                    BdLog.i("----transform list size:" + size);
                     for (int i3 = 0; i3 < size; i3++) {
                         try {
                             MsgInfo msgInfo = list.get(i3);
                             ChatMessage obtainMessage = obtainMessage(groupInfo, msgInfo);
-                            long b = bv.b(msgInfo.msgId.longValue());
+                            long b = bw.b(msgInfo.msgId.longValue());
                             obtainMessage.setMsgId(b);
                             obtainMessage.setGroupId(String.valueOf(msgInfo.groupId));
                             obtainMessage.setMsgType(msgInfo.msgType.intValue());
-                            BdLog.d("msgType:" + obtainMessage.getMsgType());
                             long longValue = msgInfo.userId.longValue();
                             obtainMessage.setUserId(longValue);
                             if (TbadkApplication.isLogin() && String.valueOf(longValue).equals(TbadkApplication.getCurrentAccount())) {
@@ -145,14 +141,24 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             obtainMessage.setToUserId(msgInfo.toUid.longValue());
                             obtainMessage.setContent(msgInfo.content);
                             obtainMessage.setTime(msgInfo.createTime.intValue());
+                            obtainMessage.setIsFriend(msgInfo.isFriend.intValue());
                             obtainMessage.setLink(msgInfo.link);
                             obtainMessage.setStat(msgInfo.stat);
                             obtainMessage.setTaskId(msgInfo.taskId.longValue());
                             linkedList.add(obtainMessage);
                             r.g(obtainMessage);
+                            if (obtainMessage.getMsgType() == 9 && obtainMessage.getContent() != null) {
+                                JSONArray jSONArray = new JSONArray(obtainMessage.getContent());
+                                if (jSONArray.length() >= 2) {
+                                    String optString = jSONArray.optString(0);
+                                    if (1 != jSONArray.optInt(1)) {
+                                        obtainMessage.setMsgType(1);
+                                        obtainMessage.setContent(optString);
+                                    }
+                                }
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            BdLog.i("----transform error!");
                         }
                     }
                 }
@@ -163,18 +169,18 @@ public class ResponsePullMessage extends SocketResponsedMessage {
     private GroupMsgData obtainGroupData(GroupInfo groupInfo) {
         switch (groupInfo.groupType.intValue()) {
             case 1:
-                return new GroupMsgData(2015000);
+                return new GroupMsgData(2013000);
             case 2:
             case 3:
             case 4:
             case 5:
-                return new GroupMsgData(2015005);
+                return new GroupMsgData(2013005);
             case 6:
-                return new GroupMsgData(2015001);
+                return new GroupMsgData(2013001);
             case 7:
-                return new GroupMsgData(2015002);
+                return new GroupMsgData(2013002);
             case 8:
-                return new GroupMsgData(2015004);
+                return new GroupMsgData(2013004);
             case 9:
             case 13:
             case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
@@ -189,9 +195,9 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             case 10:
             case 11:
             case 12:
-                return new GroupMsgData(2015006);
-            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
-                return new GroupMsgData(2015007);
+                return new GroupMsgData(2013006);
+            case 21:
+                return new GroupMsgData(2013007);
         }
     }
 
@@ -234,7 +240,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             case 11:
             case 12:
                 return new YYMessage();
-            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+            case 21:
                 return new GroupChatMessage();
         }
     }

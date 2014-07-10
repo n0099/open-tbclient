@@ -1,35 +1,109 @@
 package com.baidu.android.defense.push;
 
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import java.io.UnsupportedEncodingException;
+import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
+    private static final String a = b.class.getSimpleName();
+
     private b() {
     }
 
-    public static Intent a(Context context) {
-        return b(context);
+    public static void a(Context context, int i) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putInt("push_bind", i);
+        edit.commit();
     }
 
-    public static String a(String str) {
-        try {
-            return com.baidu.android.nebula.a.k.a(com.baidu.android.nebula.a.i.a(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n", 1024), "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
+    public static void a(Context context, long j) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putLong("register_time", j);
+        edit.commit();
+    }
+
+    public static void a(Context context, String str) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putString("push_access_token", str);
+        edit.commit();
+    }
+
+    public static void a(Context context, boolean z) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putBoolean("registered", z);
+        edit.commit();
+    }
+
+    public static boolean a(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getInt("push_bind", 0) != 0;
+    }
+
+    public static int b(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getInt("push_bind", 0);
+    }
+
+    public static void b(Context context, String str) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putString("channel_id", str);
+        edit.commit();
+    }
+
+    public static String c(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getString("push_access_token", "");
+    }
+
+    public static void c(Context context, String str) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putString(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
+        edit.commit();
+    }
+
+    public static String d(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getString("channel_id", "");
+    }
+
+    public static String e(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getString(com.baidu.tbadk.core.frameworkData.a.USER_ID, "");
+    }
+
+    public static long f(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getLong("register_time", 0L);
+    }
+
+    public static boolean g(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getBoolean("registered", false);
+    }
+
+    public static void h(Context context) {
+        a(context, true);
+        a(context, System.currentTimeMillis());
+    }
+
+    public static long i(Context context) {
+        return context.getSharedPreferences("moplus_psetting", 0).getLong("last_bind_time", 0L);
+    }
+
+    public static void j(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
+        edit.putLong("last_bind_time", System.currentTimeMillis());
+        edit.commit();
+    }
+
+    public static boolean k(Context context) {
+        boolean z = false;
+        Iterator<ResolveInfo> it = context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.RECEIVE"), 0).iterator();
+        while (true) {
+            boolean z2 = z;
+            if (!it.hasNext()) {
+                return z2;
+            }
+            ResolveInfo next = it.next();
+            if (context.getPackageName().equals(next.activityInfo.packageName) && !PushMsgReceiver.class.getName().equals(next.activityInfo.name)) {
+                z2 = true;
+            }
+            z = z2;
         }
-    }
-
-    public static Intent b(Context context) {
-        Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");
-        intent.addFlags(32);
-        intent.putExtra("app", PendingIntent.getBroadcast(context, 0, new Intent(), 0));
-        intent.putExtra("method_version", "V2");
-        return intent;
     }
 }

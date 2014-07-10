@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
 public class al implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
+    private final /* synthetic */ com.baidu.tbadk.core.data.m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsActivity frsActivity, com.baidu.tbadk.core.data.n nVar) {
+    public al(FrsActivity frsActivity, com.baidu.tbadk.core.data.m mVar) {
         this.a = frsActivity;
-        this.b = nVar;
+        this.b = mVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,14 +22,14 @@ public class al implements DialogInterface.OnClickListener {
         ct ctVar;
         switch (i) {
             case 0:
-                str = this.a.u;
+                str = this.a.t;
                 if (str != null) {
                     FrsActivity frsActivity = this.a;
-                    com.baidu.tbadk.core.atomData.ar arVar = new com.baidu.tbadk.core.atomData.ar(this.a);
-                    com.baidu.tbadk.core.data.n nVar = this.b;
-                    str2 = this.a.n;
-                    z = this.a.v;
-                    frsActivity.sendMessage(new CustomMessage(2006001, arVar.a(nVar, str2, null, 18003, true, false, z)));
+                    com.baidu.tbadk.core.atomData.aw awVar = new com.baidu.tbadk.core.atomData.aw(this.a);
+                    com.baidu.tbadk.core.data.m mVar = this.b;
+                    str2 = this.a.m;
+                    z = this.a.u;
+                    frsActivity.sendMessage(new CustomMessage(2004001, awVar.a(mVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
@@ -44,7 +44,7 @@ public class al implements DialogInterface.OnClickListener {
         if (C != null && !C.b(this.b.p())) {
             C.a(this.b.p());
         }
-        ctVar = this.a.w;
-        ctVar.z();
+        ctVar = this.a.v;
+        ctVar.y();
     }
 }

@@ -8,6 +8,13 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.be;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.plugins.MotuPlugin;
+import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
 public class k extends HorizontalScrollView {
     private int a;
@@ -17,11 +24,11 @@ public class k extends HorizontalScrollView {
     private ImageView[] e;
     private View f;
     private View g;
-    private n h;
+    private p h;
     private boolean i;
     private String j;
 
-    public k(Context context, n nVar, String str) {
+    public k(Context context, p pVar, String str) {
         super(context);
         this.a = 0;
         this.b = 0;
@@ -34,7 +41,7 @@ public class k extends HorizontalScrollView {
         this.i = true;
         this.j = "normal";
         this.d = context;
-        this.h = nVar;
+        this.h = pVar;
         if (str != null) {
             this.j = str;
         }
@@ -101,7 +108,7 @@ public class k extends HorizontalScrollView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view) {
-        if (this.i && view != this.g) {
+        if (this.i && view != this.g && b()) {
             if (this.g != null) {
                 this.g.setBackgroundDrawable(null);
                 ((TextView) this.g.getTag()).setSelected(false);
@@ -114,6 +121,23 @@ public class k extends HorizontalScrollView {
             if (this.h != null) {
                 this.h.a(this.j);
             }
+        }
+    }
+
+    private boolean b() {
+        if (((MotuPlugin) com.baidu.tbadk.tbplugin.m.a().b(MotuPlugin.class)) == null) {
+            PluginsConfig.PluginConfig d = com.baidu.tbadk.tbplugin.m.a().d("motusdk");
+            if (d == null) {
+                UtilHelper.showToast(getContext(), com.baidu.tieba.y.plugin_config_not_found);
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new be(this.d, d)));
+            return false;
+        } else if (com.baidu.tbadk.tbplugin.m.a().e(MotuPlugin.class)) {
+            com.baidu.tbadk.coreExtra.c.a.a((BaseActivity) this.d, com.baidu.tieba.y.plugin_muto_not_install, new n(this), new o(this));
+            return false;
+        } else {
+            return true;
         }
     }
 

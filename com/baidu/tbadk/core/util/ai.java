@@ -1,23 +1,15 @@
 package com.baidu.tbadk.core.util;
 
-import android.view.View;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class ai implements bt {
-    final /* synthetic */ ah a;
-    private final /* synthetic */ String b;
+public interface ai {
+    LinkedList<String> getForumPhotoUrl();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar, String str) {
-        this.a = ahVar;
-        this.b = str;
-    }
+    LinkedList<String> getImageUrl();
 
-    @Override // com.baidu.tbadk.core.util.bt
-    public boolean a(View view) {
-        if (this.b.equals(view.getTag())) {
-            view.invalidate();
-            return false;
-        }
-        return false;
-    }
+    LinkedList<ad> getImagesWithEmotions();
+
+    LinkedList<String> getPhotoUrl();
+
+    boolean isSupportImageSize();
 }

@@ -1,7 +1,8 @@
 package com.baidu.tieba.im.live.room;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.SendForeNoticeResponseMessage;
+import com.baidu.tieba.im.message.ResponseSubscribeLiveGroupMessage;
 /* loaded from: classes.dex */
 class h extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -17,30 +18,41 @@ class h extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.a.hideProgressBar();
-        if (this.a.o != null) {
-            this.a.o.d.setEnabled(true);
-            this.a.o.c.setEnabled(true);
-        }
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 107107) {
-            if (!(socketResponsedMessage instanceof SendForeNoticeResponseMessage)) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
-                return;
-            }
-            SendForeNoticeResponseMessage sendForeNoticeResponseMessage = (SendForeNoticeResponseMessage) socketResponsedMessage;
-            if (sendForeNoticeResponseMessage.hasError()) {
-                if (com.baidu.adp.lib.util.j.b(sendForeNoticeResponseMessage.getUserMsg())) {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
-                } else {
-                    this.a.showToast(sendForeNoticeResponseMessage.getUserMsg());
+        LiveRoomChatView z;
+        LiveRoomChatView z2;
+        LiveRoomChatView z3;
+        LiveRoomChatView z4;
+        LiveRoomChatView z5;
+        if (socketResponsedMessage.getCmd() != 107105) {
+            z5 = this.a.z();
+            z5.g(false);
+        } else if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
+            z4 = this.a.z();
+            z4.g(false);
+            this.a.showToast(com.baidu.tieba.y.neterror);
+        } else {
+            ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
+            if (responseSubscribeLiveGroupMessage.getError() != 0) {
+                z3 = this.a.z();
+                z3.g(false);
+                if (responseSubscribeLiveGroupMessage.getError() > 0) {
+                    if (!TextUtils.isEmpty(responseSubscribeLiveGroupMessage.getErrorString())) {
+                        this.a.showToast(responseSubscribeLiveGroupMessage.getErrorString());
+                        return;
+                    }
+                    return;
                 }
-                this.a.n = true;
-                return;
-            }
-            this.a.showToast(sendForeNoticeResponseMessage.getUserMsg());
-            this.a.n = false;
-            if (this.a.o != null) {
-                this.a.o.dismiss();
+                this.a.showToast(com.baidu.tieba.y.neterror);
+            } else if (this.a.x().f) {
+                this.a.x().f = false;
+                z2 = this.a.z();
+                z2.g(false);
+                this.a.showToast(com.baidu.tieba.y.live_room_cancel_attention);
+            } else {
+                this.a.x().f = true;
+                z = this.a.z();
+                z.g(true);
+                this.a.showToast(com.baidu.tieba.y.live_room_attentioned);
             }
         }
     }

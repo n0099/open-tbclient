@@ -15,7 +15,11 @@ public class f {
             case 0:
                 return new c();
             case 1:
-                return new h();
+                return new k();
+            case 2:
+                return new g();
+            case 3:
+                return new l();
             default:
                 return new c();
         }

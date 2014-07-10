@@ -2,7 +2,6 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,18 +20,18 @@ public class az extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        GroupData b;
+        GroupData c;
         if (socketResponsedMessage != null) {
             switch (socketResponsedMessage.getCmd()) {
-                case MessageTypes.CMD_ADD_GROUP /* 103101 */:
-                case MessageTypes.CMD_JOIN_GROUP /* 103110 */:
-                case MessageTypes.CMD_REMOVE_MEMBERS /* 103112 */:
+                case 103101:
+                case 103110:
+                case 103112:
                     this.a.d.j();
                     return;
-                case MessageTypes.CMD_DISSMISS_GROUP /* 103104 */:
+                case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                         ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.a.e instanceof CommonGroupMsglistModel) && (b = ((CommonGroupMsglistModel) this.a.e).b()) != null && b.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                        if (responseDismissGroupMessage.getError() == 0 && (this.a.e instanceof CommonGroupMsglistModel) && (c = ((CommonGroupMsglistModel) this.a.e).c()) != null && c.getGroupId() == responseDismissGroupMessage.getGroupId()) {
                             this.a.finish();
                             return;
                         }

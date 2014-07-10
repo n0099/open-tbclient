@@ -25,28 +25,25 @@ public abstract class a<T> {
         this.c = new TreeMap(Collections.reverseOrder());
     }
 
-    /* JADX DEBUG: Type inference failed for r3v11. Raw type applied. Possible types: java.lang.Class<T>, java.lang.Class<U> */
+    /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: java.lang.Class<T>, java.lang.Class<U> */
     public T a() {
         for (Integer num : this.c.keySet()) {
             if (Build.VERSION.SDK_INT >= num.intValue()) {
                 try {
-                    Class<? extends U> asSubclass = Class.forName(this.c.get(num)).asSubclass((Class<T>) this.a);
-                    BdLog.i(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.a + " for SDK " + num);
-                    return (T) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]);
+                    return (T) Class.forName(this.c.get(num)).asSubclass((Class<T>) this.a).getConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException e) {
-                    BdLog.w(getClass().getName(), "build", e.toString());
+                    BdLog.detailException(e);
                 } catch (IllegalAccessException e2) {
-                    BdLog.w(getClass().getName(), "build", e2.toString());
+                    BdLog.detailException(e2);
                 } catch (InstantiationException e3) {
-                    BdLog.w(getClass().getName(), "build", e3.toString());
+                    BdLog.detailException(e3);
                 } catch (NoSuchMethodException e4) {
-                    BdLog.w(getClass().getName(), "build", e4.toString());
+                    BdLog.detailException(e4);
                 } catch (InvocationTargetException e5) {
-                    BdLog.w(getClass().getName(), "build", e5.toString());
+                    BdLog.detailException(e5);
                 }
             }
         }
-        BdLog.i(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.a);
         return this.b;
     }
 }

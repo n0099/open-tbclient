@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupLevelInfo;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
     private GroupLevelInfo groupLevelInfo;
 
     public ResponseGroupLevelMessage() {
-        super(MessageTypes.CMD_REQUEST_GROUPLEVEL_BY_ID);
+        super(103006);
     }
 
     public ResponseGroupLevelMessage(int i) {
@@ -24,10 +23,6 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
         return this.groupLevelInfo;
     }
 
-    public void setGroupLevelInfo(GroupLevelInfo groupLevelInfo) {
-        this.groupLevelInfo = groupLevelInfo;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -35,7 +30,7 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
         setError(queryGroupGradeResIdl.error.errorno.intValue());
         setErrorString(queryGroupGradeResIdl.error.usermsg);
         if (getError() == 0) {
-            setGroupLevelInfo(new GroupLevelInfo());
+            this.groupLevelInfo = new GroupLevelInfo();
             getGroupLevelInfo().setGroupId(queryGroupGradeResIdl.data.groupInfo.groupId.intValue());
             getGroupLevelInfo().setName(queryGroupGradeResIdl.data.groupInfo.name);
             getGroupLevelInfo().setGrade(queryGroupGradeResIdl.data.groupInfo.grade.intValue());

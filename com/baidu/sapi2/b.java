@@ -1,9 +1,12 @@
 package com.baidu.sapi2;
 
+import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.RegistMode;
-import com.baidu.sapi2.utils.f;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,37 +15,44 @@ import org.json.JSONObject;
 public final class b {
     private static final String a = "reg_mode";
     private static final String b = "fast_reg_sms_num";
-    private static final String c = "cache";
-    private static final String d = "enabled";
-    private static final String e = "modules";
-    private static final String f = "id";
-    private static final String g = "ref_entry";
-    private static final String h = "ref";
-    private static final String i = "download_url";
-    private static final String j = "version";
-    private static final String k = "hash";
-    private a l = new a();
-    private RegistMode m = RegistMode.getDefault();
-    private String n = f.n;
+    private static final String c = "voluntary_share_plist";
+    private static final String d = "cache";
+    private static final String e = "enabled";
+    private static final String f = "modules";
+    private static final String g = "id";
+    private static final String h = "ref_entry";
+    private static final String i = "ref";
+    private static final String j = "download_url";
+    private static final String k = "version";
+    private static final String l = "hash";
+    private Map<String, Integer> p = new HashMap();
+    private a m = new a();
+    private RegistMode n = RegistMode.getDefault();
+    private String o = e.n;
 
     public String a() {
+        return this.o;
+    }
+
+    public Map<String, Integer> b() {
+        return this.p;
+    }
+
+    public RegistMode c() {
         return this.n;
     }
 
-    public RegistMode b() {
+    public a d() {
         return this.m;
     }
 
-    public a c() {
-        return this.l;
-    }
-
-    public String d() {
+    public String e() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(c, this.l.c());
-            jSONObject.put(a, this.m.getStrValue());
-            jSONObject.put(b, this.n);
+            jSONObject.put(d, this.m.c());
+            jSONObject.put(a, this.n.getStrValue());
+            jSONObject.put(b, this.o);
+            jSONObject.put(c, new JSONObject(this.p));
             return jSONObject.toString();
         } catch (JSONException e2) {
             return null;
@@ -51,9 +61,17 @@ public final class b {
 
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
-        bVar.l = a.a(jSONObject.optJSONObject(c));
-        bVar.m = RegistMode.mapStrToValue(jSONObject.optString(a));
-        bVar.n = jSONObject.optString(b, f.n);
+        bVar.m = a.a(jSONObject.optJSONObject(d));
+        bVar.n = RegistMode.mapStrToValue(jSONObject.optString(a));
+        bVar.o = jSONObject.optString(b, e.n);
+        JSONObject optJSONObject = jSONObject.optJSONObject(c);
+        if (optJSONObject != null) {
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                bVar.p.put(next, Integer.valueOf(optJSONObject.optInt(next, 0)));
+            }
+        }
         return bVar;
     }
 
@@ -88,9 +106,9 @@ public final class b {
                 JSONObject a() {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put(b.i, this.a);
-                        jSONObject.put(b.j, this.b);
-                        jSONObject.put(b.k, this.c);
+                        jSONObject.put(b.j, this.a);
+                        jSONObject.put(b.k, this.b);
+                        jSONObject.put(b.l, this.c);
                         return jSONObject;
                     } catch (JSONException e) {
                         return null;
@@ -100,9 +118,9 @@ public final class b {
                 public static C0008a a(JSONObject jSONObject) {
                     C0008a c0008a = new C0008a();
                     if (jSONObject != null) {
-                        c0008a.a = jSONObject.optString(b.i);
-                        c0008a.b = jSONObject.optLong(b.j);
-                        c0008a.c = jSONObject.optString(b.k);
+                        c0008a.a = jSONObject.optString(b.j);
+                        c0008a.b = jSONObject.optLong(b.k);
+                        c0008a.c = jSONObject.optString(b.l);
                     }
                     return c0008a;
                 }
@@ -111,9 +129,9 @@ public final class b {
             JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(b.f, this.a);
-                    jSONObject.put(b.h, this.b);
-                    jSONObject.put(b.g, this.c.a());
+                    jSONObject.put(b.g, this.a);
+                    jSONObject.put(b.i, this.b);
+                    jSONObject.put(b.h, this.c.a());
                     return jSONObject;
                 } catch (JSONException e) {
                     return null;
@@ -122,9 +140,9 @@ public final class b {
 
             static C0007a a(JSONObject jSONObject) {
                 C0007a c0007a = new C0007a();
-                c0007a.a = jSONObject.optString(b.f);
-                c0007a.b = jSONObject.optString(b.h);
-                c0007a.c = C0008a.a(jSONObject.optJSONObject(b.g));
+                c0007a.a = jSONObject.optString(b.g);
+                c0007a.b = jSONObject.optString(b.i);
+                c0007a.c = C0008a.a(jSONObject.optJSONObject(b.h));
                 return c0007a;
             }
 
@@ -158,12 +176,12 @@ public final class b {
         JSONObject c() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(b.d, this.b);
+                jSONObject.put(b.e, this.b);
                 JSONArray jSONArray = new JSONArray();
                 for (C0007a c0007a : b()) {
                     jSONArray.put(c0007a.a());
                 }
-                jSONObject.put(b.e, jSONArray);
+                jSONObject.put(b.f, jSONArray);
                 return jSONObject;
             } catch (JSONException e) {
                 return null;
@@ -173,8 +191,8 @@ public final class b {
         static a a(JSONObject jSONObject) {
             a aVar = new a();
             try {
-                aVar.b = jSONObject.optBoolean(b.d, true);
-                JSONArray optJSONArray = jSONObject.optJSONArray(b.e);
+                aVar.b = jSONObject.optBoolean(b.e, true);
+                JSONArray optJSONArray = jSONObject.optJSONArray(b.f);
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     aVar.b().add(C0007a.a(optJSONArray.getJSONObject(i)));
                 }

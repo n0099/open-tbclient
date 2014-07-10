@@ -95,7 +95,7 @@ public class JigsawAlbumActivity extends BaseActivity {
         this.v = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         o = true;
         this.t = false;

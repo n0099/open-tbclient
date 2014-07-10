@@ -331,7 +331,7 @@ public class f {
         } else {
             b = this.b.b(this.d.h(), false, this.d.o());
         }
-        if (b != null) {
+        if (b != null && b.exists()) {
             this.d.b(b);
             this.d.a(true);
             this.d.a();
@@ -345,7 +345,7 @@ public class f {
         boolean z = false;
         try {
             File a = this.b.a(this.d.h(), this.d.c(), false, this.d.o());
-            File a2 = this.b.a(this.d.i(), this.d.r(), true, this.d.o());
+            File a2 = this.b.a(this.d.i(), this.d.t(), true, this.d.o());
             if (a != null) {
                 if (a2 != null) {
                     a2.delete();

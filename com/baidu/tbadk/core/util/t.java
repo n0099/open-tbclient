@@ -9,7 +9,7 @@ public class t {
     private boolean b = false;
     private u e = null;
     private final String c = TbConfig.TMP_DATABASE_NAME;
-    private final String d = x.a + "/" + TbConfig.getTempDirName() + "/" + this.c;
+    private final String d = z.a + "/" + TbConfig.getTempDirName() + "/" + this.c;
 
     public t() {
         this.a = 1;
@@ -20,14 +20,14 @@ public class t {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "ExecSQL", str);
+            BdLog.e(str);
         }
     }
 
     public SQLiteDatabase a() {
         SQLiteDatabase sQLiteDatabase = null;
-        if (x.c()) {
-            this.b = x.b(this.c);
+        if (z.c()) {
+            this.b = z.b(this.c);
             sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
             if (sQLiteDatabase != null) {
                 if (!this.b) {
@@ -80,7 +80,7 @@ public class t {
             try {
                 this.e.a();
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onCreateDatabase", e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }

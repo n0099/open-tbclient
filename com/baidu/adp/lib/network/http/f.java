@@ -1,8 +1,7 @@
 package com.baidu.adp.lib.network.http;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -45,8 +44,13 @@ public class f {
         return this.c != null && this.c.size() > 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public String a(d dVar) {
+        if (this.b.size() == 0) {
+            if (dVar != null) {
+                dVar.a = this.d.length();
+            }
+            return this.d;
+        }
         StringBuilder sb = new StringBuilder(30);
         sb.append(this.d);
         if (this.d.indexOf("?") < 0) {
@@ -65,7 +69,7 @@ public class f {
             }
             sb.append(this.b.get(i2).getName());
             sb.append("=");
-            sb.append(j.c(this.b.get(i2).getValue()));
+            sb.append(i.c(this.b.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
@@ -136,7 +140,6 @@ public class f {
         if (httpURLConnection != null) {
             String sb = e().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-            BdLog.i("POST:" + this.d + "?" + sb);
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
@@ -166,7 +169,7 @@ public class f {
                         sb.append("&");
                     }
                     sb.append(String.valueOf(name) + "=");
-                    sb.append(j.c(value));
+                    sb.append(i.c(value));
                     i++;
                 }
             }

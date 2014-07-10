@@ -18,7 +18,7 @@ import java.util.List;
 public class e extends BaseAdapter {
     public h a;
     private BlackMembersListActivity b;
-    private com.baidu.tbadk.editortool.ab d;
+    private com.baidu.tbadk.editortool.aa d;
     private boolean e;
     private boolean g;
     private boolean f = true;
@@ -50,8 +50,8 @@ public class e extends BaseAdapter {
 
     public e(BlackMembersListActivity blackMembersListActivity) {
         this.b = blackMembersListActivity;
-        this.d = new com.baidu.tbadk.editortool.ab(blackMembersListActivity);
-        this.d.d(false);
+        this.d = new com.baidu.tbadk.editortool.aa(blackMembersListActivity);
+        this.d.b(false);
     }
 
     public void a(List<UserData> list) {

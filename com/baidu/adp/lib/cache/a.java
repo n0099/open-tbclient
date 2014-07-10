@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 public class a extends c<byte[]> {
     private String g;
 
-    public a(com.baidu.adp.base.f fVar, String str) {
-        super(fVar);
+    public a(com.baidu.adp.base.i iVar, String str) {
+        super(iVar);
         this.g = str;
     }
 
@@ -29,7 +29,7 @@ public class a extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v17, types: [byte[], T] */
     @Override // com.baidu.adp.lib.cache.c
     protected m<byte[]> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
@@ -86,7 +86,7 @@ public class a extends c<byte[]> {
             return true;
         } catch (Throwable th) {
             this.a.a(th);
-            BdLog.e(getClass(), "failed to clear from " + str, th);
+            BdLog.e(th);
             return false;
         }
     }

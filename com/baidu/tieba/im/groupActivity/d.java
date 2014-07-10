@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.b {
+public class d extends com.baidu.adp.base.e {
     RequestCreateGroupActivityMessage a;
     private GroupActivityData b = new GroupActivityData();
     private BaseFragmentActivity c;
@@ -33,16 +33,16 @@ public class d extends com.baidu.adp.base.b {
         }
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public void cancelMessage() {
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.b
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }

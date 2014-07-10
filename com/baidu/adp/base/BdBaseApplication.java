@@ -2,7 +2,6 @@ package com.baidu.adp.base;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
     private static BdBaseApplication sApp = null;
@@ -18,7 +17,7 @@ public class BdBaseApplication extends Application {
     public void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        k.a(application);
+        com.baidu.adp.lib.util.j.a(application);
         initWorkMode();
         initBitmapHelper();
         initHttpManager();
@@ -61,5 +60,13 @@ public class BdBaseApplication extends Application {
     }
 
     public void onAppMemoryLow() {
+    }
+
+    public void setActivityStackMaxSize(int i) {
+        a.a().b(i);
+    }
+
+    public int getActivityStackMaxSize() {
+        return a.a().c();
     }
 }

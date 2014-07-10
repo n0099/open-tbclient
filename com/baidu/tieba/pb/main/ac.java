@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.core.dialog.g {
+public class ac implements com.baidu.tbadk.core.dialog.h {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +13,17 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.g
-    public void a(com.baidu.tbadk.core.dialog.d dVar, int i, View view) {
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void a(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
         String str;
         String str2;
         String str3;
         String str4;
-        bj bjVar;
+        bm bmVar;
         String str5;
         String str6;
         String str7;
-        bj bjVar2;
+        bm bmVar2;
         String str8;
         if (i == 0) {
             TiebaStatic.eventStat(this.a, "pb_phone_call", "call");
@@ -33,11 +33,11 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
             PbActivity pbActivity2 = this.a;
             str7 = this.a.I;
             com.baidu.tieba.util.r.b(pbActivity2, str7);
-            bjVar2 = this.a.x;
-            String g = bjVar2.g();
+            bmVar2 = this.a.x;
+            String g = bmVar2.g();
             str8 = this.a.I;
             new a(g, str8, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
-            dVar.c();
+            eVar.c();
         } else if (i == 1) {
             TiebaStatic.eventStat(this.a, "pb_phone_sms", "sms");
             PbActivity pbActivity3 = this.a;
@@ -46,11 +46,11 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
             PbActivity pbActivity4 = this.a;
             str4 = this.a.I;
             com.baidu.tieba.util.r.c(pbActivity4, str4);
-            bjVar = this.a.x;
-            String g2 = bjVar.g();
+            bmVar = this.a.x;
+            String g2 = bmVar.g();
             str5 = this.a.I;
             new a(g2, str5, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT).start();
-            dVar.c();
+            eVar.c();
         } else if (i == 2) {
             PbActivity pbActivity5 = this.a;
             str = this.a.I;
@@ -58,7 +58,7 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
             PbActivity pbActivity6 = this.a;
             str2 = this.a.I;
             com.baidu.tieba.util.r.d(pbActivity6, str2);
-            dVar.c();
+            eVar.c();
         }
     }
 }

@@ -19,10 +19,6 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         return this.groupInfos;
     }
 
-    public void setGroupInfos(List<GroupUpdateMessage> list) {
-        this.groupInfos = list;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -30,7 +26,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         setError(updateClientInfoResIdl.error.errorno.intValue());
         setErrorString(updateClientInfoResIdl.error.usermsg);
         if (getError() == 0) {
-            setGroupInfos(new ArrayList());
+            this.groupInfos = new ArrayList();
             int size = updateClientInfoResIdl.data.groupInfo == null ? 0 : updateClientInfoResIdl.data.groupInfo.size();
             for (int i2 = 0; i2 < size; i2++) {
                 GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);

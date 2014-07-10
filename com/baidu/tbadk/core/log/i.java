@@ -13,8 +13,8 @@ class i extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002999 && (customResponsedMessage.getData() instanceof String)) {
-            com.baidu.adp.lib.stats.h.a().b((String) customResponsedMessage.getData());
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000999 && (customResponsedMessage.getData() instanceof String)) {
+            com.baidu.adp.lib.stats.d.b().b((String) customResponsedMessage.getData());
         }
     }
 }

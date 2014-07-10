@@ -12,23 +12,20 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public abstract class AbsMsgImageActivity extends BaseActivity {
     private FrameLayout g;
     private int q;
-    private String r;
-    private String s;
-    private boolean w;
+    private boolean x;
     private ProgressBar a = null;
-    private ArrayList<String> b = null;
+    private LinkedHashMap<String, String> b = null;
     private int c = 0;
     private f d = null;
     private TextView e = null;
@@ -42,9 +39,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     private AlphaAnimation n = null;
     private boolean o = true;
     private boolean p = false;
-    private long t = 0;
-    private HashMap<String, Boolean> u = null;
-    private int v = 0;
+    private String r = "";
+    private String s = "";
+    private String t = "";
+    private long u = 0;
+    private HashMap<String, Boolean> v = null;
+    private int w = 0;
 
     protected abstract void a(String str, bu buVar);
 
@@ -71,7 +71,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tbadk.core.util.be.d(i));
+            this.j.setBackgroundColor(com.baidu.tbadk.core.util.bk.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -86,7 +86,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.a();
@@ -98,7 +98,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         a(this.c, this.c);
@@ -137,7 +137,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         this.l = new d(this);
         this.i = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
         this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.image_activity_save_button, this.k);
-        if (this.w) {
+        if (this.x) {
             this.g.setVisibility(8);
         }
         this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
@@ -146,7 +146,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         this.h = this.i.a("");
         this.e.setClickable(false);
         this.j = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
-        this.j.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
+        this.j.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.j.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.j.setOnPageChangeListener(this.m);
         this.j.setItemOnclickListener(this.k);
@@ -197,23 +197,36 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         if (intent != null) {
             this.r = intent.getStringExtra("current_url");
             this.s = intent.getStringExtra("id");
-            this.w = intent.getBooleanExtra("isSingle", false);
-            this.b = new ArrayList<>();
-            this.b.add(this.r);
-            this.v = intent.getIntExtra("chat_mode", 0);
+            this.t = intent.getStringExtra("uniqueid");
+            this.x = intent.getBooleanExtra("isSingle", false);
+            if (this.t == null) {
+                this.t = "";
+            }
+            if (this.s == null) {
+                this.s = "";
+            }
+            if (this.r == null) {
+                this.r = "";
+            }
+            this.b = new LinkedHashMap<>();
+            this.b.put(this.t, this.r);
+            this.w = intent.getIntExtra("chat_mode", 0);
             this.c = 0;
-            BdLog.d("curImgUrl:" + this.r + " groupId:" + this.s);
         } else if (bundle != null) {
-            BdLog.d(" have savedInstanceState");
-            this.b = bundle.getStringArrayList("url");
+            this.b = (LinkedHashMap) bundle.getSerializable("url");
             this.c = bundle.getInt("index", -1);
             this.s = bundle.getString("id");
-            this.v = bundle.getInt("chat_mode", 0);
-            this.w = bundle.getBoolean("isSingle", false);
-        } else {
-            BdLog.d(" not have savedInstanceState");
+            this.t = bundle.getString("uniqueid");
+            this.w = bundle.getInt("chat_mode", 0);
+            this.x = bundle.getBoolean("isSingle", false);
+            if (this.t == null) {
+                this.t = "";
+            }
+            if (this.s == null) {
+                this.s = "";
+            }
         }
-        this.u = new HashMap<>();
+        this.v = new HashMap<>();
     }
 
     private void d() {
@@ -226,11 +239,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList("url", this.b);
+        bundle.putSerializable("url", this.b);
         bundle.putInt("index", this.c);
         bundle.putString("id", this.s);
-        bundle.putInt("chat_mode", this.v);
-        bundle.putBoolean("isSingle", this.w);
+        bundle.putString("uniqueid", this.t);
+        bundle.putInt("chat_mode", this.w);
+        bundle.putBoolean("isSingle", this.x);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -241,11 +255,11 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
-        synchronized (this.u) {
-            if (System.nanoTime() - this.t > 300000000 && this.b != null && i < this.b.size()) {
-                this.u.put(this.b.get(i), true);
+        synchronized (this.v) {
+            if (System.nanoTime() - this.u > 300000000 && this.b != null && i < this.b.size()) {
+                this.v.put(this.b.get(Integer.valueOf(i)), true);
             }
-            this.t = System.nanoTime();
+            this.u = System.nanoTime();
         }
     }
 }

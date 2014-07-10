@@ -3,20 +3,19 @@ package com.baidu.tieba.im.groupCard;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.coreExtra.share.f;
-import com.baidu.tbadk.h;
+import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.coreExtra.share.h;
+import com.baidu.tbadk.k;
 import com.baidu.tieba.u;
 import com.baidu.tieba.y;
 import java.text.MessageFormat;
@@ -25,18 +24,17 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     public static String a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
-    private static String j = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
+    private static String i = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
     private d d = null;
     private b e = null;
     private long f = 0;
     private String g = "";
     private String h = "";
-    private Bitmap i = null;
 
-    public static void a(Activity activity, long j2, String str, String str2) {
+    public static void a(Activity activity, long j, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
-        if (j2 != 0) {
-            intent.putExtra(a, j2);
+        if (j != 0) {
+            intent.putExtra(a, j);
             intent.putExtra(b, str);
             intent.putExtra(c, str2);
             activity.startActivity(intent);
@@ -52,7 +50,7 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     }
 
     public boolean a() {
-        if (x.a()) {
+        if (z.a()) {
             return true;
         }
         this.d.a(0, getString(y.voice_error_sdcard));
@@ -61,18 +59,18 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.d.a(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.d.a(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.d.d()) {
-            if (a() && this.i != null) {
+            if (a()) {
                 TiebaStatic.eventStat(this, "group_card_save", "click", 1, new Object[0]);
-                this.e.a(this.i);
+                this.e.b();
             }
         } else if (view == this.d.f()) {
             finish();
@@ -83,37 +81,38 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void b() {
-        f fVar = new f();
-        fVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
-        fVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
-        fVar.c = String.valueOf(h.g) + this.f;
+        h hVar = new h();
+        hVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
+        hVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
+        hVar.c = String.valueOf(k.g) + this.f;
         try {
-            fVar.d = Uri.parse(String.valueOf(j) + this.f + "&w=" + LocalViewSize.a().b());
+            hVar.d = Uri.parse(String.valueOf(i) + this.f + "&w=" + LocalViewSize.a().b());
         } catch (Throwable th) {
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
-        dVar.a(fVar, true);
+        dVar.a(false);
+        dVar.a(hVar, true);
         dVar.a(3, c(), true);
         dVar.a(d());
         dVar.a();
     }
 
-    private f c() {
-        f fVar = new f();
-        fVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
-        fVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
-        fVar.c = String.valueOf(h.g) + this.f;
+    private h c() {
+        h hVar = new h();
+        hVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
+        hVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
+        hVar.c = String.valueOf(k.g) + this.f;
         try {
             if (this.h == null || this.h.equals("")) {
-                fVar.a(BitmapFactory.decodeResource(getResources(), u.icon));
+                hVar.a(BitmapFactory.decodeResource(getResources(), u.icon));
             } else if (this.h.startsWith("http")) {
-                fVar.d = Uri.parse(this.h);
+                hVar.d = Uri.parse(this.h);
             } else {
-                fVar.a(x.c(null, TbConfig.GROUP_HEAD_FILE));
+                hVar.a(z.c(null, TbConfig.GROUP_HEAD_FILE));
             }
         } catch (Throwable th) {
         }
-        return fVar;
+        return hVar;
     }
 
     private SparseArray<String> d() {
@@ -139,10 +138,9 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);
         if (this.e != null) {
-            com.baidu.adp.widget.a.a a2 = this.e.a(this, k.b(this) - k.a((Context) this, 10.0f), (k.c(this) - this.d.g().getHeight()) - this.d.h().getHeight(), new a(this));
+            com.baidu.adp.widget.a.a a2 = this.e.a(this, j.b(this) - j.a((Context) this, 10.0f), (j.c(this) - this.d.g().getHeight()) - this.d.h().getHeight(), new a(this));
             if (a2 != null) {
                 this.d.b();
-                this.i = a2.h();
                 this.d.a(a2);
                 this.d.c();
             }

@@ -20,37 +20,37 @@ public class b extends Thread {
     */
     public void run() {
         int i;
-        h hVar;
+        g gVar;
         byte[] bArr;
-        h hVar2;
-        h hVar3;
+        g gVar2;
+        g gVar3;
         boolean z;
-        h hVar4;
-        h hVar5;
+        g gVar4;
+        g gVar5;
         try {
             a aVar = this.a;
             i = this.a.n;
-            aVar.C = new h(i);
+            aVar.C = new g(i);
             try {
                 try {
-                    hVar = this.a.C;
+                    gVar = this.a.C;
                     bArr = this.a.m;
-                    if (hVar.a(new ByteArrayInputStream(bArr)) == 0) {
-                        hVar2 = this.a.C;
-                        if (hVar2.c != 0) {
-                            hVar5 = this.a.C;
-                            if (hVar5.d != 0) {
+                    if (gVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                        gVar2 = this.a.C;
+                        if (gVar2.c != 0) {
+                            gVar5 = this.a.C;
+                            if (gVar5.d != 0) {
                                 this.a.B = 1;
-                                hVar3 = this.a.C;
-                                if (!hVar3.e()) {
+                                gVar3 = this.a.C;
+                                if (!gVar3.e()) {
                                     this.a.postInvalidate();
                                 }
                                 this.a.F = System.currentTimeMillis();
                                 this.a.a = 2;
                                 z = this.a.H;
                                 if (!z) {
-                                    hVar4 = this.a.C;
-                                    if (!hVar4.a()) {
+                                    gVar4 = this.a.C;
+                                    if (!gVar4.a()) {
                                         this.a.postInvalidate();
                                         return;
                                     }
@@ -60,8 +60,8 @@ public class b extends Thread {
                             }
                         }
                         this.a.B = 0;
-                        hVar3 = this.a.C;
-                        if (!hVar3.e()) {
+                        gVar3 = this.a.C;
+                        if (!gVar3.e()) {
                         }
                         this.a.F = System.currentTimeMillis();
                         this.a.a = 2;

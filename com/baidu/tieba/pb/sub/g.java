@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.sub;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.ap;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.data.at;
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Integer, ap> {
+public class g extends BdAsyncTask<Object, Integer, at> {
     protected a a = null;
     protected int b;
     final /* synthetic */ f c;
@@ -20,32 +20,32 @@ public class g extends BdAsyncTask<Object, Integer, ap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public ap doInBackground(Object... objArr) {
+    public at doInBackground(Object... objArr) {
         this.a = new a();
         try {
             String a = this.a.a(this.c.b, this.c.d, this.b, this.c.c, a());
             if (!this.a.a()) {
                 return null;
             }
-            ap apVar = new ap();
-            apVar.a(a, this.c.e);
-            String userId = (apVar.m() == null || apVar.m().y() == null) ? null : apVar.m().y().getUserId();
+            at atVar = new at();
+            atVar.a(a, this.c.e);
+            String userId = (atVar.m() == null || atVar.m().y() == null) ? null : atVar.m().y().getUserId();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= apVar.c().size()) {
-                    return apVar;
+                if (i2 >= atVar.c().size()) {
+                    return atVar;
                 }
-                boolean equals = userId.equals(apVar.c().get(i2).o().getUserId());
+                boolean equals = userId.equals(atVar.c().get(i2).o().getUserId());
                 if (this.c.i == null) {
-                    this.c.i = new ab(this.c.e);
-                    this.c.i.d(true);
+                    this.c.i = new aa(this.c.e);
+                    this.c.i.b(true);
                 }
-                apVar.c().get(i2).a(this.c.e, equals, this.c.i);
+                atVar.c().get(i2).a(this.c.e, equals, this.c.i);
                 i = i2 + 1;
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "doInBackground", e.toString());
+            BdLog.e(e.toString());
             return null;
         }
     }
@@ -72,44 +72,59 @@ public class g extends BdAsyncTask<Object, Integer, ap> {
         super.cancel(true);
         this.c.g = null;
         if (this.a != null) {
-            this.a.d();
+            this.a.e();
         }
         if (this.c.i != null) {
             this.c.i.d();
             this.c.i = null;
         }
+        this.c.m();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(ap apVar) {
+    public void onPostExecute(at atVar) {
+        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.b.a aVar2;
         this.c.g = null;
-        if (apVar == null) {
+        if (this.a != null) {
+            boolean a = this.a.a();
+            int d = this.a.d();
+            String b = this.a.b();
+            int c = this.a.c();
+            aVar = this.c.j;
+            if (aVar != null) {
+                aVar2 = this.c.j;
+                aVar2.a(true, a, d, b, c);
+                this.c.j = null;
+            }
+        }
+        if (atVar == null) {
             if (this.c.h != null) {
-                this.c.h.a(false, this.a.c(), this.a.b(), null);
+                this.c.h.a(false, this.a.d(), this.a.b(), null);
                 return;
             }
             return;
         }
-        if (apVar.a() != null) {
-            this.c.c = apVar.a().l();
+        if (atVar.a() != null) {
+            this.c.c = atVar.a().l();
         }
-        if (apVar.m() != null) {
-            this.c.b = apVar.m().p();
+        if (atVar.m() != null) {
+            this.c.b = atVar.m().p();
         }
         if (this.b == 1) {
-            this.c.f = apVar;
+            this.c.f = atVar;
         } else if (this.b == 2) {
-            this.c.f.b(apVar, true);
+            this.c.f.b(atVar, true);
         } else if (this.b == 3) {
-            this.c.f.a(apVar, false);
+            this.c.f.a(atVar, false);
         } else {
-            this.c.f.b(apVar, false);
+            this.c.f.b(atVar, false);
         }
         if (this.c.h != null) {
-            this.c.h.a(true, this.a.c(), this.a.b(), this.c.f);
+            this.c.h.a(true, this.a.d(), this.a.b(), this.c.f);
         }
         this.a = null;
     }

@@ -1,9 +1,8 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import org.json.JSONObject;
 public class c extends BdAsyncTask<Object, Integer, Void> {
     final /* synthetic */ a a;
     private b b;
-    private volatile an c = null;
+    private volatile aq c = null;
 
     public c(a aVar, b bVar) {
         this.a = aVar;
@@ -41,7 +40,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         List list5;
         int i = 0;
         try {
-            this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
+            this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
             String i2 = this.c.i();
             if (this.c.a().b().b() && i2 != null) {
                 JSONObject jSONObject = new JSONObject(i2);
@@ -58,10 +57,10 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                             for (int i3 = 0; i3 < list3.size(); i3++) {
                                 list5 = this.a.b;
                                 String str2 = (String) list5.get(i3);
-                                q qVar = new q();
-                                qVar.a(str2);
-                                if (qVar.a()) {
-                                    hashMap.put(str2, Integer.valueOf(qVar.b()));
+                                p pVar = new p();
+                                pVar.a(str2);
+                                if (pVar.a()) {
+                                    hashMap.put(str2, Integer.valueOf(pVar.b()));
                                 }
                             }
                             if (hashMap.size() > 0) {
@@ -94,7 +93,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
             }
             return null;
         } catch (Exception e) {
-            BdLog.e("IpListManager get list exception: " + e.toString());
+            e.printStackTrace();
             return null;
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.tieba.im.live.service;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl;
 import com.baidu.tbadk.TbConfig;
@@ -18,7 +17,7 @@ class b extends Handler {
         this.a = liveGroupManagerService;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0368, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x033c, code lost:
         if (r0 == 4) goto L96;
      */
     @Override // android.os.Handler
@@ -53,44 +52,43 @@ class b extends Handler {
         LiveSenderControl liveSenderControl3;
         boolean z;
         int i10;
-        int i11;
         LiveSenderControl liveSenderControl4;
         LiveSenderControl liveSenderControl5;
         LiveSenderControl liveSenderControl6;
-        int i12;
+        int i11;
         LiveSenderControl liveSenderControl7;
         Timer timer;
         Timer timer2;
+        int i12;
         int i13;
         int i14;
-        int i15;
         boolean z2;
-        int i16;
+        int i15;
         LiveSenderControl liveSenderControl8;
         Timer timer3;
         Timer timer4;
+        int i16;
         int i17;
-        int i18;
         boolean z3;
-        int i19;
+        int i18;
         LiveSenderControl liveSenderControl9;
-        int i20;
+        int i19;
         Timer timer5;
+        int i20;
         int i21;
         int i22;
-        int i23;
         LiveSenderControl liveSenderControl10;
         LiveSenderControl liveSenderControl11;
         boolean z4;
         boolean z5;
         Timer timer6;
-        int i24;
+        int i23;
         LiveSenderControl liveSenderControl12;
         LiveSenderControl liveSenderControl13;
         boolean z6;
         Timer timer7;
         Timer timer8;
-        int i25;
+        int i24;
         LiveSenderControl liveSenderControl14;
         f fVar;
         LiveSenderControl liveSenderControl15;
@@ -140,8 +138,8 @@ class b extends Handler {
                 super.handleMessage(message);
                 return;
             case 10:
-                i25 = this.a.mStatus;
-                if (i25 != 0) {
+                i24 = this.a.mStatus;
+                if (i24 != 0) {
                     return;
                 }
                 liveSenderControl14 = this.a.mLiveSenderControl;
@@ -190,18 +188,16 @@ class b extends Handler {
                 this.a.mExecStartOnceConnected = true;
                 liveSenderControl27 = this.a.mLiveSenderControl;
                 str11 = this.a.mUrl;
-                int connect = liveSenderControl27.connect(str11);
-                if (connect != 0) {
-                    BdLog.e("Connect result is: " + connect);
-                    this.a.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_FAILED;
-                    handler = this.a.mHandler;
-                    handler.sendEmptyMessage(2);
+                if (liveSenderControl27.connect(str11) == 0) {
                     return;
                 }
+                this.a.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_FAILED;
+                handler = this.a.mHandler;
+                handler.sendEmptyMessage(2);
                 return;
             case 11:
-                i24 = this.a.mStatus;
-                if (i24 != 3) {
+                i23 = this.a.mStatus;
+                if (i23 != 3) {
                     return;
                 }
                 liveSenderControl12 = this.a.mLiveSenderControl;
@@ -222,8 +218,8 @@ class b extends Handler {
                 this.a.mRecordTimer = null;
                 return;
             case 12:
-                i23 = this.a.mStatus;
-                if (i23 != 4) {
+                i22 = this.a.mStatus;
+                if (i22 != 4) {
                     return;
                 }
                 liveSenderControl10 = this.a.mLiveSenderControl;
@@ -250,12 +246,12 @@ class b extends Handler {
                 if (z3) {
                     return;
                 }
-                i19 = this.a.mStatus;
-                if (i19 != 2) {
-                    i21 = this.a.mStatus;
-                    if (i21 != 3) {
-                        i22 = this.a.mStatus;
-                        if (i22 != 4) {
+                i18 = this.a.mStatus;
+                if (i18 != 2) {
+                    i20 = this.a.mStatus;
+                    if (i20 != 3) {
+                        i21 = this.a.mStatus;
+                        if (i21 != 4) {
                             return;
                         }
                     }
@@ -265,8 +261,8 @@ class b extends Handler {
                 liveGroupManagerService.mCmdIdStartRecord = liveSenderControl9.sendUserCmd("startRecord", "");
                 this.a.mIsRecording = true;
                 this.a.mRecordTime = 0;
-                i20 = this.a.mStatus;
-                if (i20 == 4) {
+                i19 = this.a.mStatus;
+                if (i19 == 4) {
                     this.a.mIsRecordPaused = true;
                     return;
                 }
@@ -282,12 +278,12 @@ class b extends Handler {
                 if (!z2) {
                     return;
                 }
-                i16 = this.a.mStatus;
-                if (i16 != 2) {
-                    i17 = this.a.mStatus;
-                    if (i17 != 3) {
-                        i18 = this.a.mStatus;
-                        if (i18 != 4) {
+                i15 = this.a.mStatus;
+                if (i15 != 2) {
+                    i16 = this.a.mStatus;
+                    if (i16 != 3) {
+                        i17 = this.a.mStatus;
+                        if (i17 != 4) {
                             return;
                         }
                     }
@@ -308,12 +304,12 @@ class b extends Handler {
             case 15:
                 i9 = this.a.mStatus;
                 if (i9 != 1) {
-                    i13 = this.a.mStatus;
-                    if (i13 != 2) {
-                        i14 = this.a.mStatus;
-                        if (i14 != 3) {
-                            i15 = this.a.mStatus;
-                            if (i15 != 4) {
+                    i12 = this.a.mStatus;
+                    if (i12 != 2) {
+                        i13 = this.a.mStatus;
+                        if (i13 != 3) {
+                            i14 = this.a.mStatus;
+                            if (i14 != 4) {
                                 return;
                             }
                         }
@@ -337,12 +333,9 @@ class b extends Handler {
                     }
                     this.a.mRecordTime = 0;
                 }
-                StringBuilder sb = new StringBuilder("do stopPublish in Handler when status is: ");
                 i10 = this.a.mStatus;
-                BdLog.d(sb.append(i10).toString());
-                i11 = this.a.mStatus;
-                if (i11 != 3) {
-                    i12 = this.a.mStatus;
+                if (i10 != 3) {
+                    i11 = this.a.mStatus;
                     break;
                 }
                 liveSenderControl4 = this.a.mLiveSenderControl;
@@ -382,17 +375,17 @@ class b extends Handler {
                 }
                 this.a.mGroupId = eVar.a;
                 this.a.mUrl = eVar.b;
-                int i26 = eVar.c;
+                int i25 = eVar.c;
                 livePlayerControl9 = this.a.mPlayerCtrl;
                 str2 = this.a.mUrl;
                 livePlayerControl9.setVideoPath(str2);
                 LiveGroupManagerService liveGroupManagerService4 = this.a;
                 this.a.mPlayDuration = 0;
                 liveGroupManagerService4.mPlayPosition = 0;
-                if (i26 > 0) {
+                if (i25 > 0) {
                     livePlayerControl11 = this.a.mPlayerCtrl;
-                    livePlayerControl11.start(i26);
-                    this.a.mPlayDuration = i26;
+                    livePlayerControl11.start(i25);
+                    this.a.mPlayDuration = i25;
                     return;
                 }
                 livePlayerControl10 = this.a.mPlayerCtrl;
@@ -418,7 +411,7 @@ class b extends Handler {
                 livePlayerControl6 = this.a.mPlayerCtrl;
                 livePlayerControl6.pause();
                 return;
-            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+            case 21:
                 livePlayerControl3 = this.a.mPlayerCtrl;
                 if (livePlayerControl3 == null) {
                     return;
@@ -430,25 +423,25 @@ class b extends Handler {
                 livePlayerControl4 = this.a.mPlayerCtrl;
                 livePlayerControl4.play();
                 return;
-            case TbConfig.NOTIFY_LIVE_GROUP_END_EVENT /* 22 */:
+            case 22:
                 str = this.a.mGroupId;
                 if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
                     return;
                 }
                 livePlayerControl = this.a.mPlayerCtrl;
                 if (livePlayerControl != null) {
-                    int i27 = message.arg1;
+                    int i26 = message.arg1;
                     i = this.a.mPlayDuration;
-                    if (i27 < i) {
-                        if (i27 < 0) {
-                            i27 = 0;
+                    if (i26 < i) {
+                        if (i26 < 0) {
+                            i26 = 0;
                         }
                     } else {
                         i2 = this.a.mPlayDuration;
-                        i27 = i2 - 1;
+                        i26 = i2 - 1;
                     }
                     livePlayerControl2 = this.a.mPlayerCtrl;
-                    livePlayerControl2.seekTo(i27);
+                    livePlayerControl2.seekTo(i26);
                     return;
                 }
                 return;

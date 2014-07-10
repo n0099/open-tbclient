@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class c {
     public static void a(String str, String str2, d dVar) {
@@ -15,26 +15,26 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static AccountData b(String str, String str2) {
-        an anVar;
+        aq aqVar;
         String i;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.SERVER_ADDRESS);
             sb.append(TbConfig.LOGIN_ADDRESS);
-            anVar = new an(sb.toString());
-            anVar.a("un", str);
-            anVar.a("passwd", str2);
-            anVar.a("isphone", "0");
-            anVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
-            anVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
-            anVar.a().a().a().d = true;
-            anVar.a().a().d = false;
-            anVar.a().a().c = false;
-            i = anVar.i();
+            aqVar = new aq(sb.toString());
+            aqVar.a("un", str);
+            aqVar.a("passwd", str2);
+            aqVar.a("isphone", "0");
+            aqVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
+            aqVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
+            aqVar.a().a().a().d = true;
+            aqVar.a().a().d = false;
+            aqVar.a().a().c = false;
+            i = aqVar.i();
         } catch (Exception e) {
-            BdLog.e("LoginModel".toString(), TbConfig.ST_TYPE_LOGIN, e.getMessage());
+            BdLog.e(e.getMessage());
         }
-        if (anVar.a().b().b() && i != null) {
+        if (aqVar.a().b().b() && i != null) {
             com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
             iVar.a(i);
             String userId = iVar.a().getUserId();
@@ -58,12 +58,12 @@ public class c {
             }
             return accountData;
         }
-        if (anVar.c()) {
-            switch (anVar.d()) {
+        if (aqVar.c()) {
+            switch (aqVar.d()) {
                 case 1:
                 case 2:
                 case 5:
-                    anVar.g();
+                    aqVar.g();
                     break;
             }
             return null;

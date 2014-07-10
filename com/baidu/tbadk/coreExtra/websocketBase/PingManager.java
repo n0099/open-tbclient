@@ -6,9 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.coreExtra.message.PingMessage;
 /* loaded from: classes.dex */
@@ -81,7 +79,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         this.f = new PingMessage();
         f();
         n nVar = new n(this, 1003);
-        MessageManager.getInstance().registerListener(new o(this, MessageTypes.CMD_BACKGROUND_SWTICH));
+        MessageManager.getInstance().registerListener(new o(this, 2001011));
         MessageManager.getInstance().registerListener(nVar);
     }
 
@@ -102,11 +100,10 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         if (backgroundSwitchMessage != null) {
             if (backgroundSwitchMessage.getData().booleanValue()) {
                 this.e = this.d;
-            } else {
-                this.e = this.c;
-                a("switchToForeground");
+                return;
             }
-            BdLog.d("pingManager mCurrentInterval = " + this.e);
+            this.e = this.c;
+            a("switchToForeground");
         }
     }
 

@@ -8,14 +8,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ DailyClassicalActivity a;
-    private an b;
+    private aq b;
     private String c;
 
     private c(DailyClassicalActivity dailyClassicalActivity) {
@@ -36,23 +36,23 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         String str;
         boolean z;
         long j;
-        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
+        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
         this.b.a().a().a().g = false;
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.b.a("night_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         }
-        an anVar = this.b;
+        aq aqVar = this.b;
         str = this.a.q;
-        anVar.a("pn", str);
+        aqVar.a("pn", str);
         this.b.a("_version_more", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         this.b.a("platform", "android");
         z = DailyClassicalActivity.o;
         if (z) {
             DailyClassicalActivity.o = false;
             this.b.a("msg_click", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            an anVar2 = this.b;
+            aq aqVar2 = this.b;
             j = DailyClassicalActivity.p;
-            anVar2.a("message_id", String.valueOf(j));
+            aqVar2.a("message_id", String.valueOf(j));
         }
         Address b = com.baidu.adp.lib.c.a.a().b(false);
         if (b != null && ai.c().m()) {
@@ -64,7 +64,7 @@ public class c extends BdAsyncTask<Object, Integer, String> {
                 return this.c;
             }
         } catch (Exception e) {
-            BdLog.e("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
         return null;
     }

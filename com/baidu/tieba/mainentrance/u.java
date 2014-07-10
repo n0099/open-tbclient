@@ -38,7 +38,7 @@ class u implements Runnable {
                 }
             }
         } catch (Exception e) {
-            BdLog.e(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 }

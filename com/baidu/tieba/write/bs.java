@@ -1,11 +1,11 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
 class bs implements Runnable {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bn a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bq bqVar) {
-        this.a = bqVar;
+    public bs(bn bnVar) {
+        this.a = bnVar;
     }
 
     @Override // java.lang.Runnable

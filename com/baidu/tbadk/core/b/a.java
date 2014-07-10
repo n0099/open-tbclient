@@ -12,4 +12,6 @@ public interface a {
     void a(Context context, int i, boolean z);
 
     String b();
+
+    int c();
 }

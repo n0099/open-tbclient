@@ -17,6 +17,7 @@ public class g extends com.baidu.adp.lib.webSocket.d {
     private j j;
     private boolean n;
     private int o;
+    private boolean q;
     private volatile int f = 0;
     private Runnable i = null;
     private boolean k = true;
@@ -24,7 +25,7 @@ public class g extends com.baidu.adp.lib.webSocket.d {
     private int m = 0;
     private long p = 0;
 
-    public g(SocketMessage socketMessage, boolean z, int i, boolean z2, j jVar, com.baidu.adp.framework.c.e eVar, boolean z3, int i2) {
+    public g(SocketMessage socketMessage, boolean z, int i, boolean z2, j jVar, com.baidu.adp.framework.c.e eVar, boolean z3, int i2, boolean z4) {
         this.b = null;
         this.d = false;
         this.e = null;
@@ -33,6 +34,7 @@ public class g extends com.baidu.adp.lib.webSocket.d {
         this.j = null;
         this.n = true;
         this.o = 1;
+        this.q = true;
         if (socketMessage == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
@@ -43,6 +45,7 @@ public class g extends com.baidu.adp.lib.webSocket.d {
         this.b = eVar;
         this.j = jVar;
         this.n = z3;
+        this.q = z4;
         if (i2 > 1) {
             this.o = i2;
         }
@@ -59,25 +62,25 @@ public class g extends com.baidu.adp.lib.webSocket.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
+    public void u() {
         if (this.j != null && this.k) {
             this.j.a(this);
         }
     }
 
-    private void u() {
+    private void v() {
         if (this.j != null && this.k) {
             this.j.b(this);
         }
     }
 
-    private void v() {
+    private void w() {
         if (this.j != null && this.k) {
             this.j.c(this);
         }
     }
 
-    private Runnable w() {
+    private Runnable x() {
         if (this.i == null) {
             this.i = new h(this);
         }
@@ -85,7 +88,7 @@ public class g extends com.baidu.adp.lib.webSocket.d {
     }
 
     public void b() {
-        a.removeCallbacks(w());
+        a.removeCallbacks(x());
     }
 
     public void c() {
@@ -102,29 +105,29 @@ public class g extends com.baidu.adp.lib.webSocket.d {
         if (this.p == 0) {
             this.p = System.currentTimeMillis();
         }
-        m.a("SenderData", this.e.getCmd(), this.f, "StartSend", 0, "SenderData: start send size = " + (s() != null ? s().length : 0));
-        a.removeCallbacks(w());
+        m.a("SenderData", this.e.getCmd(), this.f, "StartSend", 0, "SenderData: start send size = " + (t() != null ? t().length : 0));
+        a.removeCallbacks(x());
         if (this.b == null) {
-            a.postDelayed(w(), this.b.b());
+            a.postDelayed(x(), this.b.b());
         } else {
-            a.postDelayed(w(), com.baidu.adp.framework.c.c.a().d().b());
+            a.postDelayed(x(), com.baidu.adp.framework.c.c.a().d().b());
         }
-        v();
+        w();
     }
 
     @Override // com.baidu.adp.lib.webSocket.ap
     public void a(int i) {
-        a.removeCallbacks(w());
+        a.removeCallbacks(x());
         b(i);
     }
 
     @Override // com.baidu.adp.lib.webSocket.ap
     public void f() {
-        m.a("SenderData", this.e.getCmd(), this.f, "FinishSend", 0, "SenderData: finish send  size = " + (s() != null ? s().length : 0));
+        m.a("SenderData", this.e.getCmd(), this.f, "FinishSend", 0, "SenderData: finish send  size = " + (t() != null ? t().length : 0));
         if (!this.d) {
-            a.removeCallbacks(w());
+            a.removeCallbacks(x());
         }
-        u();
+        v();
     }
 
     public CoderException g() {
@@ -189,5 +192,9 @@ public class g extends com.baidu.adp.lib.webSocket.d {
         int i = this.l + 1;
         this.l = i;
         return i;
+    }
+
+    public boolean s() {
+        return this.q;
     }
 }

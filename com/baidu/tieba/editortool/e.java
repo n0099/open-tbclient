@@ -1,9 +1,7 @@
 package com.baidu.tieba.editortool;
 
+import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tieba.data.BubbleListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -17,23 +15,28 @@ public class e implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view instanceof com.baidu.tieba.view.a) {
+        com.baidu.tieba.bubble.s sVar;
+        com.baidu.tieba.bubble.s sVar2;
+        if (view instanceof com.baidu.tieba.view.b) {
             BubbleListData.BubbleData bubbleData = this.a.b.getB_info().get(((Integer) view.getTag()).intValue());
-            if (bubbleData != null) {
-                if (bubbleData.getBcode() == 0 || bubbleData.canUse() || bubbleData.isFree()) {
-                    if (!bubbleData.isDef()) {
-                        this.a.a.a(bubbleData.getBcode(), com.baidu.adp.lib.util.k.b(this.a.d), com.baidu.adp.lib.util.k.c(this.a.d));
-                        this.a.a.a(bubbleData.getBcode());
-                        if (this.a.i() != null) {
-                            this.a.i().a();
+            if (bubbleData != null && !bubbleData.isDef()) {
+                if (bubbleData.getBcode() != 0 && !bubbleData.canUse()) {
+                    if (bubbleData.isFree()) {
+                        if (!(this.a.d instanceof Activity)) {
                             return;
                         }
+                        sVar2 = this.a.l;
+                        com.baidu.tieba.bubble.h.a((Activity) this.a.d, bubbleData, sVar2);
+                        return;
+                    } else if (!(this.a.d instanceof Activity)) {
+                        return;
+                    } else {
+                        sVar = this.a.m;
+                        com.baidu.tieba.bubble.h.b((Activity) this.a.d, bubbleData, sVar);
                         return;
                     }
-                    return;
                 }
-                this.a.a.b(bubbleData.getBcode());
-                TbWebViewActivity.a(this.a.d, TbadkApplication.m252getInst().getString(com.baidu.tieba.y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
+                this.a.e(bubbleData.getBcode());
             }
         }
     }

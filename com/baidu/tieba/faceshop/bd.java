@@ -1,21 +1,22 @@
 package com.baidu.tieba.faceshop;
 
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd {
-    TbImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    final /* synthetic */ bc e;
-
-    private bd(bc bcVar) {
-        this.e = bcVar;
-    }
+public class bd implements Runnable {
+    final /* synthetic */ bc a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bd(bc bcVar, bd bdVar) {
-        this(bcVar);
+    public bd(bc bcVar) {
+        this.a = bcVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            this.a.f();
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

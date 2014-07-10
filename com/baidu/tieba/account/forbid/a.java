@@ -2,7 +2,7 @@ package com.baidu.tieba.account.forbid;
 
 import android.view.View;
 import android.widget.RadioGroup;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
     final /* synthetic */ ForbidActivity a;
@@ -25,7 +25,7 @@ class a implements View.OnClickListener {
         eVar = this.a.j;
         if (eVar != null) {
             eVar2 = this.a.j;
-            if (!bg.c(eVar2.a())) {
+            if (!bm.c(eVar2.a())) {
                 ForbidActivity forbidActivity = this.a;
                 radioGroup = this.a.b;
                 str = this.a.c;

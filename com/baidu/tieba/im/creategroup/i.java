@@ -3,6 +3,7 @@ package com.baidu.tieba.im.creategroup;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 class i extends BdAsyncTask<Object, Integer, Bitmap> {
     final /* synthetic */ h a;
@@ -27,7 +28,7 @@ class i extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Bitmap doInBackground(Object... objArr) {
-        return com.baidu.tbadk.core.util.x.c(null, TbConfig.GROUP_HEAD_FILE);
+        return z.c(null, TbConfig.GROUP_HEAD_FILE);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

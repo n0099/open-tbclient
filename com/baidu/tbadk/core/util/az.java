@@ -1,35 +1,36 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class az extends BdAsyncTask<String, String, String> {
-    final /* synthetic */ ay a;
-    private final String b;
-    private final String c;
-    private final boolean d;
-    private final boolean e;
-    private final boolean f;
+public class az {
+    private static ArrayList<ba> b = new ArrayList<>();
+    public static AtomicInteger a = new AtomicInteger(0);
 
-    public az(ay ayVar, String str, String str2, boolean z, boolean z2, boolean z3) {
-        this.a = ayVar;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = z2;
-        this.f = z3;
-        setParallel(bc.a);
+    public static int a(int i) {
+        return a.getAndSet(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        try {
-            this.a.a(this.b, this.c, this.d, this.e, this.f);
-        } catch (Throwable th) {
-            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
+    public static int b(int i) {
+        return a.addAndGet(i);
+    }
+
+    public static synchronized void a(ba baVar) {
+        synchronized (az.class) {
+            if (baVar != null) {
+                if (b.size() <= 20) {
+                    b.add(baVar);
+                }
+            }
         }
-        return null;
+    }
+
+    public static synchronized ba a() {
+        ba remove;
+        synchronized (az.class) {
+            int size = b.size();
+            remove = size > 0 ? b.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

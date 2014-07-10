@@ -23,11 +23,11 @@ public class d implements View.OnClickListener {
         String str2;
         str = this.a.aj;
         if (!TextUtils.isEmpty(str)) {
-            activity = this.a.B;
-            activity2 = this.a.B;
+            activity = this.a.C;
+            activity2 = this.a.C;
             String string = activity2.getString(y.frs_badge_intro);
             str2 = this.a.aj;
-            TbWebViewActivity.b(activity, string, str2);
+            TbWebViewActivity.startActivity(activity, string, str2);
         }
     }
 }

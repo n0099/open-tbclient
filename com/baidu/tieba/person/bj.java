@@ -1,56 +1,59 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonImageActivity a;
+public class bj implements TextWatcher {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(PersonImageActivity personImageActivity) {
-        this.a = personImageActivity;
+    public bj(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        bl blVar;
-        ProgressBar progressBar;
-        listMenu = this.a.getListMenu();
-        if (dialogInterface == listMenu) {
-            switch (i) {
-                case 0:
-                    try {
-                        multiImageView = this.a.c;
-                        byte[] currentImageData = multiImageView.getCurrentImageData();
-                        if (currentImageData != null) {
-                            multiImageView2 = this.a.c;
-                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.a.b = new bl(this.a, currentImageUrl, currentImageData);
-                            blVar = this.a.b;
-                            blVar.execute(new String[0]);
-                            progressBar = this.a.a;
-                            progressBar.setVisibility(0);
-                        } else {
-                            this.a.showToast(this.a.getString(com.baidu.tieba.y.no_data));
-                        }
-                        return;
-                    } catch (Exception e) {
-                        BdLog.e("PersonImageActivity click save  error" + e.getMessage());
-                        return;
-                    }
-                case 1:
-                    dialogInterface.dismiss();
-                    return;
-                default:
-                    return;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        EditText editText;
+        TextView textView;
+        LinearLayout linearLayout;
+        EditText editText2;
+        EditText editText3;
+        editText = this.a.n;
+        Editable text = editText.getText();
+        String replaceAll = text.toString().replaceAll("\\s*", "");
+        int length = replaceAll.length();
+        textView = this.a.p;
+        textView.setText(String.valueOf(length));
+        linearLayout = this.a.o;
+        linearLayout.setVisibility(0);
+        this.a.a(0);
+        this.a.e();
+        if (length > 50) {
+            this.a.showToast(com.baidu.tieba.y.over_limit_tip);
+            int selectionEnd = Selection.getSelectionEnd(text);
+            String substring = replaceAll.substring(0, 50);
+            editText2 = this.a.n;
+            editText2.setText(substring);
+            editText3 = this.a.n;
+            Editable text2 = editText3.getText();
+            int length2 = text2.length();
+            if (selectionEnd <= length2) {
+                length2 = selectionEnd;
             }
+            Selection.setSelection(text2, length2);
         }
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
     }
 }

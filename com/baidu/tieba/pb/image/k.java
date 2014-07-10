@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.image;
 import android.widget.Button;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class k implements com.baidu.tbadk.widget.j {
+class k implements com.baidu.tbadk.widget.i {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class k implements com.baidu.tbadk.widget.j {
         this.a = imagePbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.j
+    @Override // com.baidu.tbadk.widget.i
     public void a(int i) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;

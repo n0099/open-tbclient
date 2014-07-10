@@ -57,7 +57,7 @@ public class BdStatFirstSwitchData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                BdLog.e(getClass(), "parserJson", e);
+                BdLog.e(e);
             }
         }
     }
@@ -66,7 +66,7 @@ public class BdStatFirstSwitchData implements Serializable {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (com.baidu.adp.lib.util.j.b(this.mAppVersion)) {
+        if (com.baidu.adp.lib.util.i.b(this.mAppVersion)) {
             return false;
         }
         int[] a = a(this.mAppVersion);
@@ -102,7 +102,7 @@ public class BdStatFirstSwitchData implements Serializable {
 
     private int[] a(String str) {
         String[] split;
-        if (com.baidu.adp.lib.util.j.b(str) || (split = str.split("\\.")) == null || split.length <= 0) {
+        if (com.baidu.adp.lib.util.i.b(str) || (split = str.split("\\.")) == null || split.length <= 0) {
             return null;
         }
         int[] iArr = new int[3];

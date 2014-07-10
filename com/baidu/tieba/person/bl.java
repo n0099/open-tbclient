@@ -1,63 +1,44 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl extends BdAsyncTask<String, Integer, String> {
-    String a;
-    byte[] b;
-    final /* synthetic */ PersonImageActivity c;
+public class bl implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
-    public bl(PersonImageActivity personImageActivity, String str, byte[] bArr) {
-        this.c = personImageActivity;
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = bArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bl(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.x.a(this.a, this.b, this.c)) {
-            case -2:
-                return com.baidu.tbadk.core.util.x.b();
-            case -1:
-            default:
-                return this.c.getString(com.baidu.tieba.y.save_error);
-            case 0:
-                return this.c.getString(com.baidu.tieba.y.save_image_to_album);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        com.baidu.tieba.model.at atVar;
+        Boolean bool;
+        com.baidu.tieba.model.at atVar2;
+        com.baidu.tieba.model.at atVar3;
+        Dialog dialog2;
+        dialog = this.a.B;
+        if (dialog != null) {
+            dialog2 = this.a.B;
+            dialog2.dismiss();
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        super.onPostExecute(str);
-        this.c.showToast(str);
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        atVar = this.a.u;
+        if (atVar.a().getPhotoChanged()) {
+            Intent intent = new Intent();
+            bool = this.a.b;
+            if (bool.booleanValue()) {
+                atVar3 = this.a.u;
+                intent.putExtra("person_change_data", atVar3.a());
+            } else {
+                atVar2 = this.a.u;
+                intent.putExtra("data", atVar2.a());
+            }
+            this.a.setResult(-1, intent);
+        }
+        this.a.finish();
     }
 }

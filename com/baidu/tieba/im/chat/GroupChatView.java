@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView k;
-    protected ImageView l;
+    protected TextView l;
+    protected ImageView m;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -21,24 +21,24 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra("group_author_id");
             this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
-            this.k = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
-            this.k.setText(string);
-            this.l = (ImageView) this.b.findViewById(com.baidu.tieba.v.red_dot);
-            this.l.setVisibility(8);
+            this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.l.setText(string);
+            this.m = (ImageView) this.b.findViewById(com.baidu.tieba.v.red_dot);
+            this.m.setVisibility(8);
             if (TbadkApplication.getCurrentAccount().equals(stringExtra)) {
-                R();
+                S();
             }
         }
     }
 
-    public void R() {
+    public void S() {
         if (!com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_group_btn_dot", false)) {
-            this.l.setVisibility(0);
+            this.m.setVisibility(0);
         }
     }
 
-    public void S() {
-        this.l.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_group_btn_dot", true);
+    public void T() {
+        this.m.setVisibility(8);
+        com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_group_btn_dot", true);
     }
 }

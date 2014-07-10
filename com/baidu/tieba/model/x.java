@@ -3,11 +3,9 @@ package com.baidu.tieba.model;
 public class x {
     public boolean a;
     public String b;
-    public int c;
-    public String d;
-    final /* synthetic */ v e;
+    final /* synthetic */ t c;
 
-    public x(v vVar) {
-        this.e = vVar;
+    public x(t tVar) {
+        this.c = tVar;
     }
 }

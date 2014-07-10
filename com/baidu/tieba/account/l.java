@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bk;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
@@ -54,10 +54,10 @@ public class l extends BaseAdapter {
         return -1L;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [138=4] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x010d  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x017c  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x017e  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00fe  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0167  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0169  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -91,7 +91,7 @@ public class l extends BaseAdapter {
                     }
                     if (getItemViewType(i) == 0) {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            mVar.a.setTextColor(be.a(1));
+                            mVar.a.setTextColor(bk.a(1));
                         } else {
                             mVar.a.setTextColor(-12895429);
                         }
@@ -113,13 +113,10 @@ public class l extends BaseAdapter {
                         } else {
                             mVar.e.setVisibility(0);
                         }
+                    } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                        mVar.b.setTextColor(bk.a(1));
                     } else {
-                        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            mVar.b.setTextColor(be.a(1));
-                        } else {
-                            mVar.b.setTextColor(-12895429);
-                        }
-                        mVar.e.setVisibility(8);
+                        mVar.b.setTextColor(-12895429);
                     }
                     this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                     this.a.getLayoutMode().a(view2);
@@ -132,14 +129,14 @@ public class l extends BaseAdapter {
                 }
             } catch (Exception e) {
                 e = e;
-                BdLog.e(getClass().getName(), "getView", e.getMessage());
+                BdLog.detailException(e);
                 this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
                 this.a.getLayoutMode().a(view);
                 return view;
             }
         } catch (Exception e2) {
             e = e2;
-            BdLog.e(getClass().getName(), "getView", e.getMessage());
+            BdLog.detailException(e);
             this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
             this.a.getLayoutMode().a(view);
             return view;

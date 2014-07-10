@@ -27,8 +27,8 @@ class h implements g {
         this.a.socket().connect(inetSocketAddress, amVar.f());
         this.a.socket().setSoTimeout(amVar.e());
         this.a.socket().setTcpNoDelay(amVar.d());
-        this.d = com.baidu.adp.lib.util.k.e();
-        this.e = com.baidu.adp.lib.util.k.f();
+        this.d = com.baidu.adp.lib.util.j.d();
+        this.e = com.baidu.adp.lib.util.j.e();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
