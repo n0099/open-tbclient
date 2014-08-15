@@ -1,11 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class dt {
-    public String a;
-    public String b;
-    final /* synthetic */ dr c;
+public interface dt {
+    void a(String str);
 
-    public dt(dr drVar) {
-        this.c = drVar;
-    }
+    void b(String str);
 }

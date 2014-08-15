@@ -11,13 +11,6 @@ public class cc extends com.baidu.adp.base.h {
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        dj djVar;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ab)) {
-            djVar = this.a.s;
-            djVar.b().setLike(1);
-            this.a.showToast(this.a.getString(com.baidu.tieba.y.like_success));
-            return;
-        }
-        this.a.showToast(this.a.getString(com.baidu.tieba.y.had_liked_forum));
+        this.a.l();
     }
 }

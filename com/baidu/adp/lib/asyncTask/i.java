@@ -14,7 +14,7 @@ class i extends j {
         this.a = fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [136=4] */
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
@@ -35,7 +35,7 @@ class i extends j {
             }
             a();
         } finally {
-            if (!k()) {
+            if (!l()) {
                 handler = this.a.m;
                 handler2 = this.a.m;
                 handler.sendMessage(handler2.obtainMessage(2, this));

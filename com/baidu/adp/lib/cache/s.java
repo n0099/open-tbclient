@@ -1,19 +1,17 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public interface s<T> {
-    T a(String str);
+    f a();
 
-    void a(String str, t<T> tVar);
+    void a(String str, String str2, T t, long j);
 
-    void a(String str, T t);
+    T c(String str, String str2);
 
-    void a(String str, T t, long j);
-
-    u<T> b(String str);
-
-    void b(String str, T t, long j);
-
-    void c(String str);
+    v<T> d(String str, String str2);
 
     void d(String str);
+
+    void e(String str);
+
+    void e(String str, String str2);
 }

@@ -7,14 +7,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
     private final Context a;
-    private List<com.baidu.tbadk.coreExtra.relationship.b> b;
-    private com.baidu.tbadk.core.view.o c;
+    private ArrayList<MetaData> b;
+    private com.baidu.tbadk.core.view.s c;
     private l d = null;
     private ViewGroup e = null;
     private boolean f;
@@ -31,13 +32,13 @@ public class j extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.b = list;
+    public void a(ArrayList<MetaData> arrayList) {
+        this.b = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.tbadk.core.view.o oVar) {
-        this.c = oVar;
+    public void a(com.baidu.tbadk.core.view.s sVar) {
+        this.c = sVar;
     }
 
     @Override // android.widget.Adapter
@@ -48,12 +49,14 @@ public class j extends BaseAdapter {
         return this.b.size();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.b == null) {
-            return null;
+    /* renamed from: a */
+    public MetaData getItem(int i) {
+        if (this.b != null && i < this.b.size()) {
+            return this.b.get(i);
         }
-        return this.b.get(i);
+        return null;
     }
 
     @Override // android.widget.Adapter
@@ -67,9 +70,9 @@ public class j extends BaseAdapter {
         if (this.e == null) {
             this.e = viewGroup;
         }
-        com.baidu.tbadk.coreExtra.relationship.b bVar = (com.baidu.tbadk.coreExtra.relationship.b) getItem(i);
-        if (bVar != null) {
-            kVar = a(view != null ? view.getTag() : null, bVar);
+        MetaData item = getItem(i);
+        if (item != null) {
+            kVar = a(view != null ? view.getTag() : null, item);
         } else {
             kVar = null;
         }
@@ -79,7 +82,7 @@ public class j extends BaseAdapter {
         return null;
     }
 
-    private k a(Object obj, com.baidu.tbadk.coreExtra.relationship.b bVar) {
+    private k a(Object obj, MetaData metaData) {
         k kVar;
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (obj == null) {
@@ -88,18 +91,18 @@ public class j extends BaseAdapter {
             kVar = (k) obj;
         }
         if (this.d != null) {
-            this.d.a(kVar.a, bVar);
+            this.d.a(kVar.a, metaData);
         }
-        String d = bVar.d();
-        kVar.c.setText(bVar.b());
-        kVar.d.setTagData(bVar);
-        kVar.b.setTag(d);
+        String portrait = metaData.getPortrait();
+        kVar.c.setText(metaData.getName_show());
+        kVar.d.setTagData(metaData);
+        kVar.b.setTag(portrait);
         if (this.f) {
             kVar.d.setVisibility(0);
         } else {
             kVar.d.setVisibility(8);
         }
-        kVar.b.a(d, 12, false);
+        kVar.b.a(portrait, 12, false);
         if (this.a instanceof AtListActivity) {
             ((AtListActivity) this.a).getLayoutMode().a(skinType == 1);
             ((AtListActivity) this.a).getLayoutMode().a(kVar.a);
@@ -109,11 +112,11 @@ public class j extends BaseAdapter {
 
     private k a() {
         k kVar = new k(this, null);
-        kVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.invite_friend_list_item, (ViewGroup) null);
-        kVar.b = (HeadImageView) kVar.a.findViewById(com.baidu.tieba.v.photo);
+        kVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.invite_friend_list_item, (ViewGroup) null);
+        kVar.b = (HeadImageView) kVar.a.findViewById(com.baidu.tieba.u.photo);
         kVar.b.setIsRound(false);
-        kVar.c = (TextView) kVar.a.findViewById(com.baidu.tieba.v.txt_user_name);
-        kVar.d = (TbCheckBox) kVar.a.findViewById(com.baidu.tieba.v.ckb_select);
+        kVar.c = (TextView) kVar.a.findViewById(com.baidu.tieba.u.txt_user_name);
+        kVar.d = (TbCheckBox) kVar.a.findViewById(com.baidu.tieba.u.ckb_select);
         if (this.c != null) {
             kVar.d.setStatedChangedListener(this.c);
         }

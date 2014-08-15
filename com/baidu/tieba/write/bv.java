@@ -1,20 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class bv implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity a;
+class bv extends BroadcastReceiver {
+    final /* synthetic */ WriteImageActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.a = writeMultiImgsActivity;
+    private bv(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        r rVar;
-        rVar = this.a.d;
-        rVar.a(Integer.parseInt(view.getTag().toString()));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bv(WriteImageActivity writeImageActivity, bv bvVar) {
+        this(writeImageActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.this$0.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            WriteImageActivity.m(this.this$0);
+            return;
+        }
+        this.this$0.showToast(intent.getStringExtra("error"));
+        if (WriteImageActivity.i(this.this$0) != null) {
+            WriteImageActivity.i(this.this$0).setEnabled(false);
+        }
     }
 }

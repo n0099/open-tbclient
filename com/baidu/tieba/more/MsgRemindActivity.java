@@ -15,13 +15,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
-    private ac a;
+    private ah a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new ac(this);
+        this.a = new ah(this);
         this.a.a(this);
     }
 
@@ -46,13 +46,13 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (view == this.a.e()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tieba.ai.c().m(true);
+                com.baidu.tieba.ai.c().o(true);
                 this.a.b();
                 this.a.e(true);
                 this.a.c(true);
                 return;
             }
-            com.baidu.tieba.ai.c().m(false);
+            com.baidu.tieba.ai.c().o(false);
             this.a.e(false);
             this.a.c(false);
         } else if (view == this.a.f()) {
@@ -87,6 +87,12 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
             } else {
                 com.baidu.tieba.ai.c().h(false);
             }
+        } else if (view == this.a.n()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                com.baidu.tieba.ai.c().i(true);
+            } else {
+                com.baidu.tieba.ai.c().i(false);
+            }
         }
     }
 
@@ -105,13 +111,13 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
                 this.a.g(true);
             }
         } else if (view == this.a.g()) {
-            showDialog(com.baidu.tieba.v.sign_remind);
+            showDialog(com.baidu.tieba.u.sign_remind);
         } else if (view == this.a.i()) {
             this.a.g(false);
         } else if (view == this.a.j()) {
-            showDialog(com.baidu.tieba.v.no_disturb_start_time);
+            showDialog(com.baidu.tieba.u.no_disturb_start_time);
         } else if (view == this.a.k()) {
-            showDialog(com.baidu.tieba.v.no_disturb_end_time);
+            showDialog(com.baidu.tieba.u.no_disturb_end_time);
         }
     }
 
@@ -134,11 +140,11 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
     protected void onPrepareDialog(int i, Dialog dialog) {
         if (dialog instanceof TimePickerDialog) {
             TbadkApplication m252getInst = TbadkApplication.m252getInst();
-            if (i == com.baidu.tieba.v.sign_remind) {
-                ((TimePickerDialog) dialog).updateTime(com.baidu.tieba.ai.c().t(), com.baidu.tieba.ai.c().u());
+            if (i == com.baidu.tieba.u.sign_remind) {
+                ((TimePickerDialog) dialog).updateTime(com.baidu.tieba.ai.c().s(), com.baidu.tieba.ai.c().t());
                 return;
-            } else if (i == com.baidu.tieba.v.no_disturb_start_time || i == com.baidu.tieba.v.no_disturb_end_time) {
-                String[] split = i == com.baidu.tieba.v.no_disturb_start_time ? m252getInst.getNoDisturbStartTime().split(":") : m252getInst.getNoDisturbEndTime().split(":");
+            } else if (i == com.baidu.tieba.u.no_disturb_start_time || i == com.baidu.tieba.u.no_disturb_end_time) {
+                String[] split = i == com.baidu.tieba.u.no_disturb_start_time ? m252getInst.getNoDisturbStartTime().split(":") : m252getInst.getNoDisturbEndTime().split(":");
                 ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
                 return;
             } else {
@@ -150,60 +156,62 @@ public class MsgRemindActivity extends BaseActivity implements View.OnClickListe
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        com.baidu.tieba.view.e eVar = new com.baidu.tieba.view.e(this, new ab(this, i, com.baidu.tieba.ai.c()), 0, 0, true);
-        if (i == com.baidu.tieba.v.sign_remind) {
-            eVar.setTitle(com.baidu.tieba.y.sign_remind);
-        } else if (i == com.baidu.tieba.v.no_disturb_end_time) {
-            eVar.setTitle(com.baidu.tieba.y.no_disturb_end_time);
-        } else if (i == com.baidu.tieba.v.no_disturb_start_time) {
-            eVar.setTitle(com.baidu.tieba.y.no_disturb_start_time);
+        com.baidu.tieba.view.c cVar = new com.baidu.tieba.view.c(this, new ag(this, i, com.baidu.tieba.ai.c()), 0, 0, true);
+        if (i == com.baidu.tieba.u.sign_remind) {
+            cVar.setTitle(com.baidu.tieba.x.sign_remind);
+        } else if (i == com.baidu.tieba.u.no_disturb_end_time) {
+            cVar.setTitle(com.baidu.tieba.x.no_disturb_end_time);
+        } else if (i == com.baidu.tieba.u.no_disturb_start_time) {
+            cVar.setTitle(com.baidu.tieba.x.no_disturb_start_time);
         }
-        eVar.setButton(-1, getString(com.baidu.tieba.y.alert_yes_button), eVar);
-        eVar.setButton(-2, getString(com.baidu.tieba.y.alert_no_button), eVar);
-        return eVar;
+        cVar.setButton(-1, getString(com.baidu.tieba.x.alert_yes_button), cVar);
+        cVar.setButton(-2, getString(com.baidu.tieba.x.alert_no_button), cVar);
+        return cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        com.baidu.tieba.util.k.m();
+        com.baidu.tieba.util.k.k();
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         int id = compoundButton.getId();
-        if (id == com.baidu.tieba.v.check_replyme) {
-            if (z) {
-                com.baidu.tieba.ai.c().k(true);
-            } else {
-                com.baidu.tieba.ai.c().k(false);
-            }
-        } else if (id == com.baidu.tieba.v.check_zan) {
-            if (z) {
-                com.baidu.tieba.ai.c().j(true);
-            } else {
-                com.baidu.tieba.ai.c().j(false);
-            }
-        } else if (id == com.baidu.tieba.v.check_atme) {
-            if (z) {
-                com.baidu.tieba.ai.c().i(true);
-            } else {
-                com.baidu.tieba.ai.c().i(false);
-            }
-        } else if (id == com.baidu.tieba.v.check_chatmessage) {
+        if (id == com.baidu.tieba.u.check_replyme) {
             if (z) {
                 com.baidu.tieba.ai.c().l(true);
             } else {
                 com.baidu.tieba.ai.c().l(false);
             }
-        } else if (id == com.baidu.tieba.v.check_groupmessage) {
+        } else if (id == com.baidu.tieba.u.check_zan) {
+            if (z) {
+                com.baidu.tieba.ai.c().k(true);
+            } else {
+                com.baidu.tieba.ai.c().k(false);
+            }
+        } else if (id == com.baidu.tieba.u.check_atme) {
+            if (z) {
+                com.baidu.tieba.ai.c().j(true);
+            } else {
+                com.baidu.tieba.ai.c().j(false);
+            }
+        } else if (id == com.baidu.tieba.u.check_chatmessage) {
+            if (z) {
+                com.baidu.tieba.ai.c().n(true);
+            } else {
+                com.baidu.tieba.ai.c().n(false);
+            }
+        } else if (id == com.baidu.tieba.u.check_groupmessage) {
             if (z) {
                 TbadkApplication.m252getInst().setGroupMsgOn(true);
                 return;
             }
             TbadkApplication.m252getInst().setGroupMsgOn(false);
             TiebaStatic.eventStat(this, "group_message_remind", "check_click", 1, new Object[0]);
+        } else if (id == com.baidu.tieba.u.check_new_fans) {
+            com.baidu.tieba.ai.c().m(z);
         }
     }
 }

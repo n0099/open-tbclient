@@ -2,12 +2,15 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class HeadImageView extends TbImageView {
+public class HeadImageView extends com.baidu.tbadk.widget.j {
     private String d;
     private String e;
     private String f;
+    private int g;
+    private int h;
+    private int i;
+    private int j;
 
     public HeadImageView(Context context) {
         this(context, null, 0);
@@ -22,6 +25,10 @@ public class HeadImageView extends TbImageView {
         this.d = null;
         this.e = null;
         this.f = null;
+        this.g = com.baidu.tieba.t.icon_default_avatar100;
+        this.h = com.baidu.tieba.t.icon_default_avatar100_1;
+        this.i = com.baidu.tieba.r.cp_cont_e;
+        this.j = com.baidu.tieba.r.cp_cont_e_1;
         g();
     }
 
@@ -29,6 +36,10 @@ public class HeadImageView extends TbImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
+        setDefaultBgResource(this.i);
+        setNightDefaultBgResource(this.j);
+        setDefaultResource(this.g);
+        setNightDefaultResource(this.h);
     }
 
     public void setUrl(String str) {

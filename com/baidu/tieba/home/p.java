@@ -17,8 +17,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.base.f {
     public static String a = "top_nav_all_folder";
@@ -32,25 +31,12 @@ public class p extends com.baidu.adp.base.f {
     private LinearLayout i;
     private ViewGroup j;
     private RelativeLayout k;
-    private com.baidu.tbadk.core.view.q l;
-    private com.baidu.tbadk.core.view.b m;
-    private NoNetworkView n;
+    private com.baidu.tbadk.core.view.u l;
+    private NoNetworkView m;
+    private View n;
     private View o;
-    private View p;
+    private Button p;
     private Button q;
-    private Button r;
-
-    public void a() {
-        if (!TbadkApplication.isLogin()) {
-            this.m.c();
-            this.m.b().setVisibility(0);
-            this.d.setVisibility(8);
-            return;
-        }
-        this.m.b().setVisibility(8);
-        this.m.d();
-        this.d.setVisibility(0);
-    }
 
     public p(BaseFragmentActivity baseFragmentActivity, e eVar, View.OnKeyListener onKeyListener) {
         super(baseFragmentActivity);
@@ -65,15 +51,14 @@ public class p extends com.baidu.adp.base.f {
         this.l = null;
         this.m = null;
         this.n = null;
-        this.o = null;
         this.b = baseFragmentActivity;
         this.c = eVar;
         View view = eVar.getView();
-        this.i = (LinearLayout) view.findViewById(v.container);
-        this.n = (NoNetworkView) view.findViewById(v.view_no_network);
-        this.k = (RelativeLayout) view.findViewById(v.lv_container);
-        this.j = (ViewGroup) view.findViewById(v.search_center);
-        this.d = (BdListView) view.findViewById(v.enter_forum_lv_forum);
+        this.i = (LinearLayout) view.findViewById(com.baidu.tieba.u.container);
+        this.m = (NoNetworkView) view.findViewById(com.baidu.tieba.u.view_no_network);
+        this.k = (RelativeLayout) view.findViewById(com.baidu.tieba.u.lv_container);
+        this.j = (ViewGroup) view.findViewById(com.baidu.tieba.u.search_center);
+        this.d = (BdListView) view.findViewById(com.baidu.tieba.u.enter_forum_lv_forum);
         this.e = new m(baseFragmentActivity);
         this.e.a((View.OnClickListener) eVar);
         this.e.a((View.OnLongClickListener) eVar);
@@ -81,52 +66,51 @@ public class p extends com.baidu.adp.base.f {
         this.d.setOnKeyListener(onKeyListener);
         this.d.setOnItemClickListener(eVar);
         this.d.setOnScrollListener(eVar);
-        this.l = new com.baidu.tbadk.core.view.q(baseFragmentActivity);
+        this.l = new com.baidu.tbadk.core.view.u(baseFragmentActivity);
         this.d.setPullRefresh(this.l);
-        com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this.b);
-        kVar.setHeightDip(30);
-        this.d.addFooterView(kVar);
-        this.m = new com.baidu.tbadk.core.view.b(this.b, this.b.getString(y.login_block_tip), this.b.getResources().getString(y.login_home_tab), 1);
+        com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
+        iVar.setHeightDip(30);
+        this.d.addFooterView(iVar);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14);
-        this.k.addView(this.m.b(), layoutParams);
-        CharSequence[] charSequenceArr = {baseFragmentActivity.getString(y.enter_forum), baseFragmentActivity.getString(y.delete)};
+        layoutParams.addRule(3, com.baidu.tieba.u.net_and_search);
+        CharSequence[] charSequenceArr = {baseFragmentActivity.getString(x.enter_forum), baseFragmentActivity.getString(x.delete)};
         AlertDialog.Builder builder = new AlertDialog.Builder(baseFragmentActivity);
-        builder.setTitle(baseFragmentActivity.getString(y.operation));
+        builder.setTitle(baseFragmentActivity.getString(x.operation));
         builder.setItems(charSequenceArr, eVar);
         this.g = builder.create();
         this.g.setCanceledOnTouchOutside(true);
-        CharSequence[] charSequenceArr2 = {baseFragmentActivity.getString(y.enter_forum), baseFragmentActivity.getString(y.delete)};
+        CharSequence[] charSequenceArr2 = {baseFragmentActivity.getString(x.enter_forum), baseFragmentActivity.getString(x.delete)};
         AlertDialog.Builder builder2 = new AlertDialog.Builder(baseFragmentActivity);
-        builder2.setTitle(baseFragmentActivity.getString(y.operation));
+        builder2.setTitle(baseFragmentActivity.getString(x.operation));
         builder2.setItems(charSequenceArr2, eVar);
         this.h = builder2.create();
         this.h.setCanceledOnTouchOutside(true);
-        this.p = view.findViewById(v.enter_forum_hao123_popup_root);
-        this.q = (Button) view.findViewById(v.enter_forum_hao123_popup_confirm);
-        this.r = (Button) view.findViewById(v.enter_forum_hao123_popup_cancel);
+        this.o = view.findViewById(com.baidu.tieba.u.enter_forum_hao123_popup_root);
+        this.p = (Button) view.findViewById(com.baidu.tieba.u.enter_forum_hao123_popup_confirm);
+        this.q = (Button) view.findViewById(com.baidu.tieba.u.enter_forum_hao123_popup_cancel);
+        this.p.setOnClickListener(eVar);
         this.q.setOnClickListener(eVar);
-        this.r.setOnClickListener(eVar);
     }
 
-    public void b() {
+    public void a() {
         this.d.e();
+    }
+
+    public Button b() {
+        return this.p;
     }
 
     public Button c() {
         return this.q;
     }
 
-    public Button d() {
-        return this.r;
-    }
-
-    public void e() {
+    public void d() {
         this.d.d();
     }
 
     public void a(com.baidu.tieba.data.o oVar) {
-        e();
+        d();
         if (oVar != null) {
             try {
                 this.e.a(oVar);
@@ -139,13 +123,9 @@ public class p extends com.baidu.adp.base.f {
 
     public void a(boolean z) {
         if (!TbadkApplication.isLogin()) {
-            this.m.c();
-            this.m.b().setVisibility(0);
             this.d.setVisibility(8);
             return;
         }
-        this.m.b().setVisibility(8);
-        this.m.d();
         this.d.setVisibility(0);
         if (this.e.b() <= 4 && !z) {
             this.e.a(true);
@@ -154,25 +134,25 @@ public class p extends com.baidu.adp.base.f {
         }
     }
 
-    public boolean f() {
+    public boolean e() {
         return com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_enter_forum_guide_cover", false);
     }
 
-    public ViewGroup g() {
+    public ViewGroup f() {
         return this.j;
     }
 
-    public void h() {
-        com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_enter_forum_guide_cover", true);
+    public void g() {
+        com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_enter_forum_guide_cover", true);
     }
 
-    public void i() {
-        if (f()) {
+    public void h() {
+        if (e()) {
             FrameLayout frameLayout = (FrameLayout) this.b.findViewById(16908290);
-            this.o = ((LayoutInflater) this.b.getSystemService("layout_inflater")).inflate(w.enter_forum_interest_guide, (ViewGroup) null);
-            this.o.setOnClickListener(new q(this, frameLayout));
-            frameLayout.addView(this.o);
-            h();
+            this.n = ((LayoutInflater) this.b.getSystemService("layout_inflater")).inflate(v.enter_forum_interest_guide, (ViewGroup) null);
+            this.n.setOnClickListener(new q(this, frameLayout));
+            frameLayout.addView(this.n);
+            g();
         }
     }
 
@@ -182,90 +162,88 @@ public class p extends com.baidu.adp.base.f {
         }
     }
 
-    public void j() {
+    public void i() {
         this.e.notifyDataSetChanged();
     }
 
-    public void k() {
+    public void j() {
         NetworkInfo activeNetworkInfo;
-        a();
-        if (this.n != null && this.n.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.b.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.n.a(false);
+        if (this.m != null && this.m.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.b.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.m.a(false);
         }
+    }
+
+    public void k() {
     }
 
     public void l() {
-    }
-
-    public void m() {
-        if (this.n != null) {
-            this.n.a(true);
+        if (this.m != null) {
+            this.m.a(true);
         }
     }
 
-    public void a(com.baidu.tbadk.core.view.m mVar) {
-        this.n.a(mVar);
+    public void a(com.baidu.tbadk.core.view.q qVar) {
+        this.m.a(qVar);
     }
 
     public void a(int i) {
         this.b.c().a(i == 1);
         this.b.c().a((View) this.i);
-        this.m.b(i);
-        this.b.c().a(this.p);
+        this.b.c().a(this.o);
         if (i == 1) {
             this.k.setBackgroundColor(-14274755);
         } else {
             this.k.setBackgroundColor(-1);
         }
-        if (this.n != null) {
-            this.n.a(i);
+        if (this.m != null) {
+            this.m.a(i);
         }
         this.e.a(i);
         this.l.a(i);
     }
 
+    public int m() {
+        return com.baidu.tieba.u.item_left;
+    }
+
     public int n() {
-        return v.item_left;
+        return com.baidu.tieba.u.item_right;
     }
 
     public int o() {
-        return v.item_right;
+        return com.baidu.tieba.u.recommend_item_left;
     }
 
     public int p() {
-        return v.recommend_item_left;
+        return com.baidu.tieba.u.recommend_item_right;
     }
 
-    public int q() {
-        return v.recommend_item_right;
+    public void q() {
+        com.baidu.adp.lib.e.d.a(this.g, this.b);
     }
 
     public void r() {
-        this.g.show();
+        com.baidu.adp.lib.e.d.a(this.h, this.b);
     }
 
     public void s() {
-        this.h.show();
-    }
-
-    public void t() {
         if (this.f == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.b.getParent());
-            builder.setTitle(y.alerm_title);
-            builder.setIcon(com.baidu.tieba.u.dialogue_quit);
-            builder.setMessage(y.delete_like_info);
-            builder.setPositiveButton(this.b.getString(y.confirm), this.c);
-            builder.setNegativeButton(this.b.getString(y.cancel), this.c);
+            builder.setTitle(x.alert_title);
+            builder.setIcon(com.baidu.tieba.t.dialogue_quit);
+            builder.setMessage(x.delete_like_info);
+            builder.setPositiveButton(this.b.getString(x.confirm), this.c);
+            builder.setNegativeButton(this.b.getString(x.cancel), this.c);
             this.f = builder.create();
         }
-        this.f.show();
+        com.baidu.adp.lib.e.d.a(this.f, this.b);
     }
 
-    public AlertDialog u() {
+    public AlertDialog t() {
         return this.g;
     }
 
-    public AlertDialog v() {
+    public AlertDialog u() {
         return this.h;
     }
 
@@ -273,15 +251,15 @@ public class p extends com.baidu.adp.base.f {
         this.l.a(dVar);
     }
 
-    public void w() {
-        if (this.p != null) {
-            this.p.setVisibility(0);
+    public void v() {
+        if (this.o != null) {
+            this.o.setVisibility(0);
         }
     }
 
-    public void x() {
-        if (this.p != null) {
-            this.p.setVisibility(8);
+    public void w() {
+        if (this.o != null) {
+            this.o.setVisibility(8);
         }
     }
 }

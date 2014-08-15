@@ -1,17 +1,22 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cs implements View.OnLongClickListener {
-    final /* synthetic */ bt a;
+public class cs implements Runnable {
+    final /* synthetic */ bs a;
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(bt btVar) {
-        this.a = btVar;
+    public cs(bs bsVar, boolean z) {
+        this.a = bsVar;
+        this.b = z;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.a.m;
+        bdListView.setEnabled(this.b);
     }
 }

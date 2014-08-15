@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<String, Integer, String> {
-    aq a;
+    ae a;
     final /* synthetic */ TiebaActiveService b;
 
     private p(TiebaActiveService tiebaActiveService) {
@@ -29,22 +29,22 @@ public class p extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        String i;
+        String h;
         try {
-            this.a = new aq("http://114.113.149.3:8086/partnersService");
+            this.a = new ae("http://114.113.149.3:8086/partnersService");
             this.a.a("apk", ai.c().d().getPackageName());
             this.a.a("imei", TbadkApplication.m252getInst().getImei());
             this.a.a("model", Build.MODEL);
             this.a.a("edition", TbConfig.getVersion());
             this.a.a("system", Build.VERSION.SDK);
             this.a.a().a().a().f = false;
-            i = this.a.i();
+            h = this.a.h();
         } catch (Exception e) {
             com.baidu.tbadk.core.sharedPref.b.a().b("active", 1);
             BdLog.e(e.getMessage());
         }
-        if (this.a.c()) {
-            return i;
+        if (this.a.b()) {
+            return h;
         }
         return null;
     }
@@ -53,7 +53,7 @@ public class p extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         this.b.mActiveTask = null;
         if (this.a != null) {
-            this.a.g();
+            this.a.f();
         }
         super.cancel(true);
     }

@@ -8,13 +8,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i> {
+public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j> {
     final /* synthetic */ ActivationActivity a;
-    private aq b;
+    private ae b;
 
     private r(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -30,7 +30,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tbadk.core.data.i doInBackground(String... strArr) {
+    public com.baidu.tbadk.core.data.j doInBackground(String... strArr) {
         RegistData registData;
         RegistData registData2;
         RegistData registData3;
@@ -40,36 +40,36 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            aq aqVar = this.b;
+            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            ae aeVar = this.b;
             registData = this.a.q;
-            aqVar.a("un", registData.getName());
-            aq aqVar2 = this.b;
+            aeVar.a("un", registData.getName());
+            ae aeVar2 = this.b;
             registData2 = this.a.q;
-            aqVar2.a("phonenum", registData2.getPhone());
-            aq aqVar3 = this.b;
+            aeVar2.a("phonenum", registData2.getPhone());
+            ae aeVar3 = this.b;
             registData3 = this.a.q;
-            aqVar3.a("passwd", registData3.getPsw());
+            aeVar3.a("passwd", registData3.getPsw());
             registData4 = this.a.q;
             if (registData4.getVcode() != null) {
-                aq aqVar4 = this.b;
+                ae aeVar4 = this.b;
                 registData7 = this.a.q;
-                aqVar4.a("vcode", registData7.getVcode());
+                aeVar4.a("vcode", registData7.getVcode());
             }
             registData5 = this.a.q;
             if (registData5.getVcodeMd5() != null) {
-                aq aqVar5 = this.b;
+                ae aeVar5 = this.b;
                 registData6 = this.a.q;
-                aqVar5.a("vcode_md5", registData6.getVcodeMd5());
+                aeVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
-            aq aqVar6 = this.b;
+            ae aeVar6 = this.b;
             editText = this.a.j;
-            aqVar6.a("smscode", editText.getText().toString());
-            String i = this.b.i();
+            aeVar6.a("smscode", editText.getText().toString());
+            String h = this.b.h();
             if (this.b.a().b().b()) {
-                com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
-                iVar.a(i);
-                return iVar;
+                com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
+                jVar.a(h);
+                return jVar;
             }
             return null;
         } catch (Exception e) {
@@ -82,7 +82,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.core.data.i iVar) {
+    public void onPostExecute(com.baidu.tbadk.core.data.j jVar) {
         ProgressBar progressBar;
         boolean z;
         LinearLayout linearLayout;
@@ -92,7 +92,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        super.onPostExecute(iVar);
+        super.onPostExecute(jVar);
         progressBar = this.a.g;
         progressBar.setVisibility(8);
         this.a.n = null;
@@ -102,21 +102,21 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
             relativeLayout = this.a.l;
             relativeLayout.setEnabled(true);
         }
-        if (iVar != null) {
-            this.a.a(iVar);
+        if (jVar != null) {
+            this.a.a(jVar);
             return;
         }
-        String f = this.b.f();
-        if (f != null && f.length() > 0) {
+        String e = this.b.e();
+        if (e != null && e.length() > 0) {
             textView = this.a.i;
             textView.setVisibility(0);
             textView2 = this.a.i;
-            textView2.setText(f);
+            textView2.setText(e);
         }
-        if (this.b.d() == 26) {
+        if (this.b.c() == 26) {
             this.a.y = 26;
             linearLayout = this.a.d;
-            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input_wrong);
+            linearLayout.setBackgroundResource(com.baidu.tieba.t.pass_input_wrong);
             linearLayout2 = this.a.d;
             i = this.a.w;
             i2 = this.a.x;
@@ -145,7 +145,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         textView2 = this.a.i;
         textView2.setText((CharSequence) null);
         linearLayout = this.a.d;
-        linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
+        linearLayout.setBackgroundResource(com.baidu.tieba.t.pass_input);
         linearLayout2 = this.a.d;
         i = this.a.w;
         i2 = this.a.x;
@@ -167,7 +167,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.a(true);
         super.cancel(true);

@@ -47,6 +47,30 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
             i = 2001176;
         } else if (cmd.equals("passed_new_friend")) {
             i = 2001177;
+        } else if (cmd.equals("delete_new_friend")) {
+            i = 2001215;
+        } else if (cmd.equals("live_group_update")) {
+            i = 2001202;
+        } else if (cmd.equals("publisher_update_livegroup")) {
+            i = 2001203;
+        } else if (cmd.equals("dismiss_livegroup")) {
+            i = 2001204;
+        } else if (cmd.equals("livegroup_start")) {
+            i = 2001205;
+        } else if (cmd.equals("livegroup_pause")) {
+            i = 2001206;
+        } else if (cmd.equals("livegroup_resume")) {
+            i = 2001207;
+        } else if (cmd.equals("livegroup_end")) {
+            i = 2001208;
+        } else if (cmd.equals("publisher_enter_livegroup")) {
+            i = 2001209;
+        } else if (cmd.equals("apply_reply_message")) {
+            i = 2001225;
+        } else if (cmd.equals("apply_add_friend")) {
+            i = 2001226;
+        } else if (cmd.equals("apply_pass_friend")) {
+            i = 2001227;
         } else {
             return null;
         }

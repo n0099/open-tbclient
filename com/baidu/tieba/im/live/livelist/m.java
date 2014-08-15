@@ -22,17 +22,17 @@ public class m implements s {
             ArrayList arrayList = new ArrayList();
             switch (flag) {
                 case 0:
-                    arrayList.add(this.a.getString(com.baidu.tieba.y.live_frs_list__operate_top));
-                    arrayList.add(this.a.getString(com.baidu.tieba.y.live_frs_list__operate_hide));
+                    arrayList.add(this.a.getString(com.baidu.tieba.x.live_frs_list__operate_top));
+                    arrayList.add(this.a.getString(com.baidu.tieba.x.live_frs_list__operate_hide));
                     break;
                 case 1:
-                    arrayList.add(this.a.getString(com.baidu.tieba.y.live_frs_list__operate_cancel_top));
+                    arrayList.add(this.a.getString(com.baidu.tieba.x.live_frs_list__operate_cancel_top));
                     break;
                 case 2:
-                    arrayList.add(this.a.getString(com.baidu.tieba.y.live_frs_list__operate_cancel_hide));
+                    arrayList.add(this.a.getString(com.baidu.tieba.x.live_frs_list__operate_cancel_hide));
                     break;
             }
-            com.baidu.tieba.im.e.b.a(this.a, (CharSequence[]) arrayList.toArray(new CharSequence[0]), new n(this, flag, liveCardData));
+            com.baidu.tieba.im.d.b.a(this.a, (CharSequence[]) arrayList.toArray(new CharSequence[0]), new n(this, flag, liveCardData));
         }
     }
 }

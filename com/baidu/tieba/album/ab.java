@@ -26,7 +26,7 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
         this.b = albumActivity;
         this.c = albumActivity.i();
         this.d = pVar;
-        this.g = (int) this.b.getResources().getDimension(com.baidu.tieba.t.album_gridview_item_height);
+        this.g = (int) this.b.getResources().getDimension(com.baidu.tieba.s.album_gridview_item_height);
     }
 
     public void a(List<ImageFileInfo> list) {
@@ -83,19 +83,19 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.album_image_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.album_image_item_view, viewGroup, false);
             agVar = new ag(this, null);
-            agVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.v.pic);
-            agVar.b = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
-            agVar.c = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
+            agVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.u.pic);
+            agVar.b = (ImageView) view.findViewById(com.baidu.tieba.u.select_icon);
+            agVar.c = (RelativeLayout) view.findViewById(com.baidu.tieba.u.lay_select);
             view.setTag(agVar);
         } else {
             agVar = (ag) view.getTag();
         }
         agVar.a.setTag(null);
         agVar.a.setRadius(1);
-        agVar.a.setDefaultResource(com.baidu.tieba.u.pic_image_h_not);
-        agVar.a.setNightDefaultResource(com.baidu.tieba.u.pic_image_h_not_1);
+        agVar.a.setDefaultResource(com.baidu.tieba.t.pic_image_h_not);
+        agVar.a.setNightDefaultResource(com.baidu.tieba.t.pic_image_h_not_1);
         ImageFileInfo item = getItem(i);
         af afVar = new af(this, null);
         afVar.a = true;
@@ -117,14 +117,14 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
         if (this.d != null) {
             if (this.d.c(item)) {
                 if (skinType == 1) {
-                    agVar.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s_1);
+                    agVar.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_s_1);
                 } else {
-                    agVar.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s);
+                    agVar.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_s);
                 }
             } else if (skinType == 1) {
-                agVar.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n_1);
+                agVar.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_n_1);
             } else {
-                agVar.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n);
+                agVar.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_n);
             }
             a(agVar, afVar, i, item, skinType, this.d);
         }

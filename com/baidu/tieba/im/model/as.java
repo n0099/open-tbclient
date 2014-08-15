@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 /* loaded from: classes.dex */
-class as extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ar b;
-    private final /* synthetic */ CommonGroupChatMessage c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(ar arVar, CommonGroupChatMessage commonGroupChatMessage) {
-        this.b = arVar;
-        this.c = commonGroupChatMessage;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 2));
+class as implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Boolean> run(CustomMessage<String> customMessage) {
+        if (customMessage != null) {
+            String data = customMessage.getData();
+            if (!TextUtils.isEmpty(data)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new com.baidu.tieba.im.message.h(data, 4, false)));
+            }
+        }
+        return null;
     }
 }

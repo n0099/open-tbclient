@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -35,20 +35,20 @@ public class e {
     private int k = -1;
     private int l = -1;
     private boolean m = false;
-    private int j = w.dialog_bdlist_item;
+    private int j = v.dialog_bdlist_item;
 
     static {
-        o.put(0, new Integer[]{Integer.valueOf(u.dialg_alert_btn_bg), Integer.valueOf(u.dialog_bdalert_button_textcolor_pressed)});
-        o.put(1, new Integer[]{Integer.valueOf(u.btn_blue_square), Integer.valueOf(s.share_copy_pb_url)});
+        o.put(0, new Integer[]{Integer.valueOf(t.dialg_alert_btn_bg), Integer.valueOf(t.dialog_bdalert_button_textcolor_pressed)});
+        o.put(1, new Integer[]{Integer.valueOf(t.btn_blue_square), Integer.valueOf(r.share_copy_pb_url)});
     }
 
     public e(Activity activity) {
         this.e = activity;
         this.d = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.f = (ViewGroup) this.d.inflate(w.dialog_bdlist, (ViewGroup) null);
-        this.h = (TextView) this.f.findViewById(v.dialog_title_list);
-        this.g = (ViewGroup) this.f.findViewById(v.dialog_content);
-        this.i = this.f.findViewById(v.line_bg);
+        this.f = (ViewGroup) this.d.inflate(v.dialog_bdlist, (ViewGroup) null);
+        this.h = (TextView) this.f.findViewById(u.dialog_title_list);
+        this.g = (ViewGroup) this.f.findViewById(u.dialog_content);
+        this.i = this.f.findViewById(u.line_bg);
     }
 
     public e a(Object[] objArr, h hVar) {
@@ -105,20 +105,21 @@ public class e {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.n != null) {
-            this.n.show();
+            com.baidu.adp.lib.e.d.a(this.n, this.e);
         } else {
             this.n = new AlertDialog.Builder(this.e).create();
             this.n.setCanceledOnTouchOutside(true);
-            this.n.show();
-            Window window = this.n.getWindow();
-            if (this.k == -1) {
-                this.k = g.a;
+            if (com.baidu.adp.lib.e.d.a(this.n, this.e)) {
+                Window window = this.n.getWindow();
+                if (this.k == -1) {
+                    this.k = g.a;
+                }
+                if (this.l == -1) {
+                    this.l = 17;
+                }
+                window.setGravity(this.l);
+                window.setContentView(this.f);
             }
-            if (this.l == -1) {
-                this.l = 17;
-            }
-            window.setGravity(this.l);
-            window.setContentView(this.f);
         }
         return this;
     }
@@ -138,7 +139,7 @@ public class e {
 
     public void c() {
         if (this.n != null) {
-            this.n.dismiss();
+            com.baidu.adp.lib.e.d.b(this.n, this.e);
         }
     }
 
@@ -146,7 +147,7 @@ public class e {
         String valueOf;
         View inflate = LayoutInflater.from(this.e).inflate(this.j, this.g, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
-        TextView textView = (TextView) inflate.findViewById(v.dialog_item_btn);
+        TextView textView = (TextView) inflate.findViewById(u.dialog_item_btn);
         Object obj = this.b.get(i);
         if (obj instanceof Object[]) {
             Object[] objArr = (Object[]) obj;

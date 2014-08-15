@@ -26,9 +26,9 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     private void a(Context context) {
         removeAllViews();
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.emotion_tab_widget, (ViewGroup) this, true);
-        this.a = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.v.face_tab_scroll_view);
-        this.b = (ImageView) findViewById(com.baidu.tieba.v.face_tab_delete);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.emotion_tab_widget, (ViewGroup) this, true);
+        this.a = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.u.face_tab_scroll_view);
+        this.b = (ImageView) findViewById(com.baidu.tieba.u.face_tab_delete);
         this.b.setOnClickListener(new s(this));
     }
 
@@ -38,12 +38,12 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<ae> arrayList) {
+    public void setDatas(ArrayList<ad> arrayList) {
         this.a.setDatas(arrayList);
     }
 
-    public void a(ae aeVar) {
-        this.a.a(aeVar);
+    public void a(ad adVar) {
+        this.a.a(adVar);
     }
 
     public void setCurrentTab(int i) {
@@ -59,11 +59,11 @@ public class EmotionTabWidgetView extends LinearLayout {
     }
 
     public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.s.editor_tool_container_bg_1 : com.baidu.tieba.s.editor_tool_container_bg));
+        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.r.editor_tool_container_bg_1 : com.baidu.tieba.r.editor_tool_container_bg));
         Resources resources = getContext().getResources();
         this.a.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.u.but_face_close_1 : com.baidu.tieba.u.but_face_close;
-        int i3 = i == 1 ? com.baidu.tieba.s.emotion_delete_bg_1 : com.baidu.tieba.s.emotion_delete_bg;
+        int i2 = i == 1 ? com.baidu.tieba.t.but_face_close_1 : com.baidu.tieba.t.but_face_close;
+        int i3 = i == 1 ? com.baidu.tieba.r.emotion_delete_bg_1 : com.baidu.tieba.r.emotion_delete_bg;
         this.b.setImageResource(i2);
         this.b.setBackgroundColor(resources.getColor(i3));
     }

@@ -6,12 +6,12 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
     final /* synthetic */ d a;
-    private final /* synthetic */ p b;
+    private final /* synthetic */ r b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, p pVar) {
+    public e(d dVar, r rVar) {
         this.a = dVar;
-        this.b = pVar;
+        this.b = rVar;
     }
 
     @Override // android.view.View.OnClickListener

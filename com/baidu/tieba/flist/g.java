@@ -1,6 +1,4 @@
 package com.baidu.tieba.flist;
-
-import android.os.Handler;
 /* loaded from: classes.dex */
 class g implements e {
     final /* synthetic */ ForumListActivity a;
@@ -12,10 +10,6 @@ class g implements e {
 
     @Override // com.baidu.tieba.flist.e
     public void a(boolean z, int i, com.baidu.tieba.square.w wVar, String str, boolean z2) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
         if (!z || i != 0) {
             if (!z2) {
                 this.a.c.d();
@@ -29,12 +23,6 @@ class g implements e {
             this.a.a(String.valueOf(this.a.c.h.getText()));
             this.a.c.y.notifyDataSetChanged();
         }
-        handler = this.a.e;
-        runnable = this.a.P;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.P;
-        handler2.post(runnable2);
         this.a.c.z.setClickable(true);
         this.a.c.z.setOnClickListener(this.a);
     }

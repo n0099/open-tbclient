@@ -2,10 +2,10 @@ package com.baidu.tieba.friendfeed;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.message.ResponseFriendFeedMessage;
-import com.baidu.tieba.model.aa;
-import com.baidu.tieba.y;
+import com.baidu.tieba.model.ab;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.b {
+class g extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ FriendFeedActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,14 +21,14 @@ class g extends com.baidu.adp.framework.listener.b {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         t tVar;
         boolean k;
-        aa aaVar;
+        ab abVar;
         boolean k2;
         t tVar2;
         tVar = this.a.c;
         l c = tVar.c();
         this.a.j();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFriendFeedMessage)) {
-            this.a.showToast(y.neterror);
+            this.a.showToast(x.neterror);
             return;
         }
         ResponseFriendFeedMessage responseFriendFeedMessage = (ResponseFriendFeedMessage) socketResponsedMessage;
@@ -37,7 +37,7 @@ class g extends com.baidu.adp.framework.listener.b {
                 this.a.showToast(responseFriendFeedMessage.getErrorString());
                 return;
             } else {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
         }
@@ -58,8 +58,8 @@ class g extends com.baidu.adp.framework.listener.b {
             }
             c.c(true);
             c.a(friendFeedData);
-            aaVar = this.a.d;
-            aaVar.a(c.c());
+            abVar = this.a.d;
+            abVar.a(c.c());
             c.notifyDataSetChanged();
         }
     }

@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e {
-    private ArrayList<com.baidu.tbadk.core.data.m> b;
+    private ArrayList<com.baidu.tbadk.core.data.n> b;
     private p a = null;
     private int c = 0;
 
@@ -16,7 +16,7 @@ public class o extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.m> a() {
+    public ArrayList<com.baidu.tbadk.core.data.n> a() {
         return this.b;
     }
 
@@ -52,9 +52,9 @@ public class o extends com.baidu.adp.base.e {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-                            mVar.a(jSONObject2);
-                            this.b.add(mVar);
+                            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+                            nVar.a(jSONObject2);
+                            this.b.add(nVar);
                         }
                     }
                 }

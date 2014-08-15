@@ -1,10 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.content.DialogInterface;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements TextWatcher {
+public class am implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,20 @@ public class am implements TextWatcher {
         this.a = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.z();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        writeData = this.a.a;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.a.a;
+            com.baidu.tieba.util.m.a(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.a.a;
+            com.baidu.tieba.util.m.b(writeData2.getThreadId(), (WriteData) null);
+        }
+        this.a.finish();
     }
 }

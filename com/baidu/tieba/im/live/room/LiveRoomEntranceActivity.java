@@ -9,26 +9,26 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class LiveRoomEntranceActivity extends BaseActivity {
-    private ba a;
-    private az b;
+    private bb a;
+    private ba b;
     private AnimationSet c;
-    private final Handler d = new aw(this);
-    private final Runnable e = new ax(this);
-    private com.baidu.adp.framework.listener.b f = new ay(this, 107101);
+    private final Handler d = new ax(this);
+    private final Runnable e = new ay(this);
+    private com.baidu.adp.framework.listener.d f = new az(this, 107101);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aj.class, LiveRoomEntranceActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.am.class, LiveRoomEntranceActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new ba(this);
-        this.b = new az(this);
+        this.a = new bb(this);
+        this.b = new ba(this);
         this.b.a(getIntent(), bundle);
         registerListener(this.f);
-        this.c = (AnimationSet) AnimationUtils.loadAnimation(this, com.baidu.tieba.p.live_room_entrance_spot_anim);
+        this.c = (AnimationSet) AnimationUtils.loadAnimation(this, com.baidu.tieba.o.live_room_entrance_spot_anim);
         this.a.e().setAnimation(this.c);
         this.d.post(this.e);
     }

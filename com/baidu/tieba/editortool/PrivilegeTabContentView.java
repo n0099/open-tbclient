@@ -48,11 +48,11 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     private void a(Context context) {
         setOrientation(1);
         this.i = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.i.inflate(com.baidu.tieba.w.privilege_tab_content, (ViewGroup) this, true);
-        this.a = (ViewPager) findViewById(com.baidu.tieba.v.privilege_tab_viewpager);
+        this.i.inflate(com.baidu.tieba.v.privilege_tab_content, (ViewGroup) this, true);
+        this.a = (ViewPager) findViewById(com.baidu.tieba.u.privilege_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);
-        this.e = (IndicatorView) findViewById(com.baidu.tieba.v.privilege_tab_indicator);
+        this.e = (IndicatorView) findViewById(com.baidu.tieba.u.privilege_tab_indicator);
     }
 
     public void a(ai aiVar) {
@@ -82,7 +82,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
                         gridView.setVerticalSpacing(aiVar.g());
                         gridView.setGravity(17);
                         gridView.setHorizontalSpacing(aiVar.h());
-                        gridView.setSelector(com.baidu.tieba.s.transparent);
+                        gridView.setSelector(com.baidu.tieba.r.transparent);
                         gridView.setSelection(-1);
                         if (i5 < i4 - 1) {
                             i = e * f;
@@ -162,7 +162,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     }
 
     public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.s.editor_tool_container_bg_1 : com.baidu.tieba.s.editor_tool_container_bg));
+        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.r.editor_tool_container_bg_1 : com.baidu.tieba.r.editor_tool_container_bg));
         int i2 = 0;
         while (true) {
             int i3 = i2;

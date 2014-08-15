@@ -35,7 +35,7 @@ public class r extends Handler {
             if (viewPager2 != null) {
                 tVar = this.a.e;
                 if (tVar != null) {
-                    arrayList = this.a.m;
+                    arrayList = this.a.p;
                     if (arrayList.size() > 1) {
                         if (currentItem < 1) {
                             viewPager7 = this.a.c;

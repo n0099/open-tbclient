@@ -42,7 +42,7 @@ public class h implements ViewPager.OnPageChangeListener {
         i2 = this.a.d;
         imageViewerActivity.a(i2, i);
         this.a.d = i;
-        this.a.f();
+        this.a.c();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

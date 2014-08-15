@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class h implements x {
     CreateGroupStepActivity a;
@@ -27,10 +26,10 @@ public class h implements x {
         this.d = null;
         this.e = null;
         this.a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.w.create_group_step3_view, (ViewGroup) null);
-        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.v.step3_img_bg);
-        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.v.step3_img_scr);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.create_group3);
+        this.b = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.v.create_group_step3_view, (ViewGroup) null);
+        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.u.step3_img_bg);
+        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.u.step3_img_scr);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.u.create_group3);
         this.h = i;
         this.i = i2;
         this.j = i3;
@@ -72,15 +71,15 @@ public class h implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public String j() {
-        return String.format(this.a.getString(y.group_create_step_photo), Integer.valueOf(this.i));
+        return String.format(this.a.getString(com.baidu.tieba.x.group_create_step_photo), Integer.valueOf(this.i));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public String k() {
         if (this.h != this.j) {
-            return this.a.getString(y.group_create_step_tip);
+            return this.a.getString(com.baidu.tieba.x.group_create_step_tip);
         }
-        return this.a.getString(y.group_create_step_done_tip);
+        return this.a.getString(com.baidu.tieba.x.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

@@ -43,7 +43,7 @@ public class b {
             downloadData.setStatusMsg(null);
         } else {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail_over_max));
+            downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail_over_max));
         }
         a(downloadData);
         e eVar = new e(this);
@@ -88,7 +88,7 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
     }
 
-    public void a(ArrayList<com.baidu.tbadk.core.data.b> arrayList) {
+    public void a(ArrayList<com.baidu.tbadk.core.data.a> arrayList) {
         this.e = new d(this, null);
         this.e.execute(arrayList);
     }
@@ -96,7 +96,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public String d(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.tbadk.core.util.z.d());
+        sb.append(com.baidu.tbadk.core.util.s.d());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -107,23 +107,27 @@ public class b {
     }
 
     public void b(DownloadData downloadData) {
-        this.i = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
-        StringBuilder sb = new StringBuilder(20);
-        sb.append(String.valueOf(downloadData.getLength() / 1000));
-        sb.append("K/");
-        sb.append(String.valueOf(downloadData.getSize() / 1000));
-        sb.append("K");
-        this.j = sb.toString();
-        com.baidu.tbadk.core.util.bb.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_will_begin), this.i, this.j, downloadData.getName(), true);
+        if (downloadData != null) {
+            this.i = (int) ((downloadData.getLength() * 100) / downloadData.getSize());
+            StringBuilder sb = new StringBuilder(20);
+            sb.append(String.valueOf(downloadData.getLength() / 1000));
+            sb.append("K/");
+            sb.append(String.valueOf(downloadData.getSize() / 1000));
+            sb.append("K");
+            this.j = sb.toString();
+            com.baidu.tbadk.core.util.ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.x.download_will_begin), this.i, this.j, downloadData.getName(), false);
+        }
     }
 
     public void c(DownloadData downloadData) {
-        com.baidu.tbadk.core.util.bb.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.y.download_fail_tip), this.i, this.j, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.error_sd_error), false);
+        if (downloadData != null) {
+            com.baidu.tbadk.core.util.ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.x.download_fail_tip), this.i, this.j, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.error_sd_error), false);
+        }
     }
 
     public boolean b(String str) {
         for (DownloadData downloadData : com.baidu.tbadk.download.b.a().b()) {
-            if (downloadData.getId().equals(str)) {
+            if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }
         }
@@ -131,6 +135,6 @@ public class b {
     }
 
     public boolean c(String str) {
-        return (TextUtils.isEmpty(str) || com.baidu.tbadk.core.util.z.d(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || com.baidu.tbadk.core.util.s.d(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 }

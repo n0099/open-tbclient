@@ -11,6 +11,6 @@ public class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.onPreLoad(this.a.h_());
+        this.a.onPreLoad(this.a.p_());
     }
 }

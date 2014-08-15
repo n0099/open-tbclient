@@ -3,14 +3,15 @@ package com.baidu.tieba.im.messageCenter;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ac;
+import com.baidu.tbadk.core.atomData.InvokeUpdateActivityIsOpenConfig;
+import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 /* loaded from: classes.dex */
-class j implements CustomMessageTask.CustomRunnable<ac> {
+class j implements CustomMessageTask.CustomRunnable<InvokeUpdateActivityIsOpenConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<ac> run(CustomMessage<ac> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tieba.im.e.a(customMessage.getData().getContext());
+    public CustomResponsedMessage<Boolean> run(CustomMessage<InvokeUpdateActivityIsOpenConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return null;
+        return new CustomResponsedMessage<>(2008005, Boolean.valueOf(UpdatesActivity.a));
     }
 }

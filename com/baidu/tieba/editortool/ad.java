@@ -2,9 +2,8 @@ package com.baidu.tieba.editortool;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements TextWatcher {
+class ad implements TextWatcher {
     final /* synthetic */ PbEditorToolView a;
     private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 

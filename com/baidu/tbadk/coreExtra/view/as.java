@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements TextWatcher {
@@ -23,16 +23,16 @@ public class as implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        Button button;
+        ImageView imageView;
         au auVar;
         au auVar2;
-        Button button2;
+        ImageView imageView2;
         if (this.a.getSearchText().length() > 0) {
-            button2 = this.a.c;
-            button2.setVisibility(0);
+            imageView2 = this.a.c;
+            imageView2.setVisibility(0);
         } else {
-            button = this.a.c;
-            button.setVisibility(8);
+            imageView = this.a.c;
+            imageView.setVisibility(8);
         }
         auVar = this.a.f;
         if (auVar != null) {

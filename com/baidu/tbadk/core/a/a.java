@@ -1,185 +1,174 @@
 package com.baidu.tbadk.core.a;
 
-import android.database.Cursor;
-import android.graphics.Bitmap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.cache.t;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.h;
-import java.util.Date;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class a {
-    public static Bitmap a(String str, long j) {
-        return a("pb_photo", str, j);
+public class a extends CustomMessageListener {
+    public static a a = null;
+    private static HashMap<String, Integer> b = new HashMap<>();
+    private static ArrayList<String> c;
+    private static HashMap<String, t<byte[]>> d;
+    private static HashMap<String, t<String>> e;
+
+    static {
+        b.put("tb.pb_mark", 50);
+        b.put("tb.pb_history", Integer.valueOf((int) TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI));
+        b.put("tb.pb_normal", 1);
+        b.put("tb.pb_editor", 50);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.my_pages", 5);
+        b.put("tb.my_forums", 3);
+        b.put("tb.my_bookmarks", 3);
+        b.put("tb.my_posts", 3);
+        b.put("tb.im_frsgroup", 50);
+        b.put("tb.im_hotgroup", 30);
+        b.put("tb.im_groupinfo", 50);
+        b.put("tb.im_groupactivity", 50);
+        b.put("tb.im_entergroup", 10);
+        b.put("tb.im_enterforum_groupinfo", 10);
+        b.put("tb.im_group_setting", 3);
+        b.put("tb.im_personal_chat_setting", 3);
+        b.put("tb.im_official_chat_setting", 3);
+        b.put("tb.im_group_search_history", 50);
+        b.put("tb.im_official_history", 50);
+        b.put("tb.square", 1);
+        b.put("tb.first_dir", 1);
+        b.put("tb.pic_gif", 50);
+        b.put("tb.hao123", 1);
+        b.put("tb.official_bar_menu", 1000);
+        b.put("tb.friend_feed", 20);
+        b.put("net_err_record", 30);
+        b.put("tb_face_package", 30);
+        b.put("tb.recommend_friend", 10);
+        b.put("tb.searchperson_history", 10);
+        b.put("tb.game_center_home", 20);
+        c = new ArrayList<>();
+        c.add("tb.square");
+        c.add("tb.first_dir");
+        c.add("tb.im_group_setting");
+        c.add("tb.im_personal_chat_setting");
+        c.add("tb.im_official_chat_setting");
+        c.add("net_err_record");
+        c.add("tb_user_profile");
+        e = new HashMap<>();
+        d = new HashMap<>();
     }
 
-    public static Bitmap b(String str, long j) {
-        return a("friend_photo", str, j);
+    public static a a() {
+        if (a == null) {
+            a = new a();
+        }
+        return a;
     }
 
-    public static Bitmap a(String str) {
-        return a("user_icon", str, 0L);
+    private a() {
+        super(2000998);
+        MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00d0 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tbadk.core.util.DatabaseManager$DatabaseLocation] */
-    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    private static Bitmap a(String str, String str2, long j) {
-        Cursor cursor;
-        Bitmap bitmap = null;
-        if (str2 != null) {
-            ?? r2 = DatabaseManager.DatabaseLocation.SDCARD;
-            DatabaseManager databaseManager = new DatabaseManager(r2);
+    public t<byte[]> a(String str) {
+        return a(str, null);
+    }
+
+    public t<String> b(String str) {
+        return b(str, null);
+    }
+
+    public t<byte[]> a(String str, String str2) {
+        if (str == null) {
+            return null;
+        }
+        String str3 = str2 != null ? String.valueOf(str) + str2 : str;
+        t<byte[]> tVar = d.get(str3);
+        if (tVar == null || !(tVar instanceof t)) {
+            BdCacheService c2 = BdCacheService.c();
+            Integer num = b.get(str);
+            num = (num == null || num.intValue() == 0) ? 20 : 20;
+            BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+            if (c.contains(str)) {
+                cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+            }
             try {
-                if (databaseManager != null) {
-                    try {
-                        cursor = databaseManager.a("select * from " + str + " where key = ?", new String[]{str2});
-                        if (cursor != null) {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    bitmap = h.a(cursor.getBlob(1));
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                BdLog.e(e.getMessage());
-                                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getPhoto" + str, new Object[0]);
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e2) {
-                                        TiebaStatic.printDBExceptionLog(e2, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                                    }
-                                }
-                                return bitmap;
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        cursor = null;
-                    } catch (Throwable th) {
-                        r2 = 0;
-                        th = th;
-                        if (r2 != 0) {
-                            try {
-                                r2.close();
-                            } catch (Exception e4) {
-                                TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                            }
-                        }
-                        throw th;
-                    }
-                } else {
-                    cursor = null;
-                }
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e5) {
-                        TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
+                tVar = c2.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
             }
+            d.put(str3, tVar);
+            return tVar;
         }
-        return bitmap;
+        return tVar;
     }
 
-    public static void a(String str, Bitmap bitmap) {
-        a("pb_photo", 500, str, bitmap);
+    public t<String> b(String str, String str2) {
+        if (str == null) {
+            return null;
+        }
+        String str3 = str2 != null ? String.valueOf(str) + str2 : str;
+        t<String> tVar = e.get(str3);
+        BdCacheService c2 = BdCacheService.c();
+        Integer num = b.get(str);
+        if (num.intValue() == 0) {
+            num = 20;
+        }
+        BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+        if (c.contains(str)) {
+            cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+        }
+        try {
+            return c2.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
+            return tVar;
+        }
     }
 
-    public static void b(String str, Bitmap bitmap) {
-        a("user_icon", 100, str, bitmap);
-    }
-
-    public static void c(String str, Bitmap bitmap) {
-        a("friend_photo", 500, str, bitmap);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:53:0x017a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static void a(String str, int i, String str2, Bitmap bitmap) {
-        int i2;
-        Cursor cursor;
-        Cursor a;
-        Cursor cursor2 = null;
-        if (str2 != null) {
-            DatabaseManager databaseManager = new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD);
-            if (databaseManager != null) {
-                try {
-                    Cursor a2 = databaseManager.a("select count(*) from " + str, (String[]) null);
-                    if (a2 != null) {
-                        try {
-                            try {
-                                i2 = a2.moveToFirst() ? a2.getInt(0) : 0;
-                                a2.close();
-                            } catch (Exception e) {
-                                e = e;
-                                BdLog.e(e.getMessage());
-                                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashPhoto" + str, new Object[0]);
-                                if (0 != 0) {
-                                    try {
-                                        cursor2.close();
-                                        return;
-                                    } catch (Exception e2) {
-                                        TiebaStatic.printDBExceptionLog(e2, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
-                                        return;
-                                    }
-                                }
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = null;
-                            if (cursor2 != null) {
-                                try {
-                                    cursor2.close();
-                                } catch (Exception e3) {
-                                    TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
-                                }
-                            }
-                            throw th;
-                        }
-                    } else {
-                        i2 = 0;
-                    }
-                    if (i2 >= i && (a = databaseManager.a("select * from " + str + " order by date asc limit 1", (String[]) null)) != null) {
-                        a.moveToFirst();
-                        databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{a.getString(0)});
-                        a.close();
-                    }
-                    Cursor a3 = databaseManager.a("select * from " + str + " where key = ?", new String[]{str2});
-                    if (a3 != null) {
-                        if (a3.moveToFirst()) {
-                            databaseManager.a("delete from " + str + " where key=?", (Object[]) new String[]{str2});
-                        }
-                        a3.close();
-                    }
-                    databaseManager.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, h.c(bitmap, 80), Long.valueOf(new Date().getTime()), 0});
-                    cursor = null;
-                } catch (Exception e4) {
-                    e = e4;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor2 != null) {
-                    }
-                    throw th;
-                }
-            } else {
-                cursor = null;
+    public void c(String str, String str2) {
+        if (str != null) {
+            if (str2 != null) {
+                str = String.valueOf(str) + str2;
             }
-            if (0 != 0) {
+            t<String> tVar = e.get(str);
+            if (tVar != null) {
                 try {
-                    cursor.close();
-                } catch (Exception e5) {
-                    TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.cashPhoto" + str + "close cursor", new Object[0]);
+                    BdCacheService.c().a(tVar);
+                    e.remove(str);
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
                 }
             }
         }
+    }
+
+    public void c(String str) {
+        c(str, null);
+    }
+
+    public void d(String str, String str2) {
+        if (str != null) {
+            if (str2 != null) {
+                str = String.valueOf(str) + str2;
+            }
+            t<byte[]> tVar = d.get(str);
+            if (tVar != null) {
+                BdCacheService.c().a((t<?>) tVar);
+                d.remove(str);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        d.clear();
+        e.clear();
     }
 }

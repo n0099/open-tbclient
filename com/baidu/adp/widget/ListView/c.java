@@ -16,11 +16,11 @@ import java.util.Date;
 public class c extends f {
     @SuppressLint({"SimpleDateFormat"})
     private static SimpleDateFormat l = new SimpleDateFormat("MM-dd HH:mm");
-    private View a;
-    private ImageView b;
-    private ProgressBar c;
-    private TextView d;
-    private TextView e;
+    protected ImageView a;
+    protected ProgressBar b;
+    protected TextView c;
+    protected TextView d;
+    private View e;
     private RotateAnimation f;
     private RotateAnimation g;
     private d h;
@@ -30,11 +30,11 @@ public class c extends f {
 
     public c(Context context) {
         super(context);
+        this.e = null;
         this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
-        this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
@@ -60,11 +60,11 @@ public class c extends f {
             str3 = h.getString(com.baidu.adp.f.adp_loading);
         }
         this.k = str3;
-        this.a = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.a.findViewById(com.baidu.adp.d.pull_arrow);
-        this.c = (ProgressBar) this.a.findViewById(com.baidu.adp.d.pull_progress);
-        this.d = (TextView) this.a.findViewById(com.baidu.adp.d.pull_text);
-        this.e = (TextView) this.a.findViewById(com.baidu.adp.d.pull_time);
+        this.e = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
+        this.a = (ImageView) this.e.findViewById(com.baidu.adp.d.pull_arrow);
+        this.b = (ProgressBar) this.e.findViewById(com.baidu.adp.d.pull_progress);
+        this.c = (TextView) this.e.findViewById(com.baidu.adp.d.pull_text);
+        this.d = (TextView) this.e.findViewById(com.baidu.adp.d.pull_time);
         a(g());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
@@ -74,64 +74,64 @@ public class c extends f {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.a;
-    }
-
-    public View b() {
-        if (this.a == null) {
-            this.a = a();
-        }
-        return this.a;
-    }
-
-    public TextView c() {
         return this.e;
     }
 
-    public TextView d() {
+    public View b() {
+        if (this.e == null) {
+            this.e = a();
+        }
+        return this.e;
+    }
+
+    public TextView c() {
         return this.d;
+    }
+
+    public TextView d() {
+        return this.c;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void e() {
-        this.b.setVisibility(0);
-        this.c.setVisibility(4);
+        this.a.setVisibility(0);
+        this.b.setVisibility(4);
+        this.c.setVisibility(0);
         this.d.setVisibility(0);
-        this.e.setVisibility(0);
-        this.b.clearAnimation();
-        this.b.startAnimation(this.f);
-        this.d.setText(this.j);
+        this.a.clearAnimation();
+        this.a.startAnimation(this.f);
+        this.c.setText(this.j);
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void a(boolean z) {
-        this.c.setVisibility(4);
+        this.b.setVisibility(4);
+        this.c.setVisibility(0);
         this.d.setVisibility(0);
-        this.e.setVisibility(0);
-        this.b.setVisibility(0);
-        this.b.clearAnimation();
+        this.a.setVisibility(0);
+        this.a.clearAnimation();
         if (z) {
-            this.b.startAnimation(this.g);
+            this.a.startAnimation(this.g);
         }
-        this.d.setText(this.i);
+        this.c.setText(this.i);
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void f() {
-        this.c.setVisibility(0);
-        this.b.clearAnimation();
-        this.b.setVisibility(4);
-        this.d.setText(this.k);
-        this.e.setVisibility(0);
+        this.b.setVisibility(0);
+        this.a.clearAnimation();
+        this.a.setVisibility(4);
+        this.c.setText(this.k);
+        this.d.setVisibility(0);
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public void b(boolean z) {
-        this.c.setVisibility(4);
-        this.b.clearAnimation();
-        this.b.setImageResource(com.baidu.adp.c.pull_icon);
-        this.d.setText(this.i);
-        this.e.setVisibility(0);
+        this.b.setVisibility(4);
+        this.a.clearAnimation();
+        this.a.setImageResource(com.baidu.adp.c.pull_icon);
+        this.c.setText(this.i);
+        this.d.setVisibility(0);
         if (z) {
             a(g());
         }
@@ -146,7 +146,7 @@ public class c extends f {
     }
 
     public void a(String str) {
-        this.e.setText(String.valueOf(h().getString(com.baidu.adp.f.adp_pull_view_date_tip)) + str);
+        this.d.setText(String.valueOf(h().getString(com.baidu.adp.f.adp_pull_view_date_tip)) + str);
     }
 
     @Override // com.baidu.adp.widget.ListView.f

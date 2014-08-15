@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.live.p;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.listener.b {
+public class d extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,7 +40,7 @@ public class d extends com.baidu.adp.framework.listener.b {
             } else if (responseDismissGroupMessage.getError() >= 0) {
                 i = this.a.i;
                 if (i == 1) {
-                    this.a.a(y.live_mylive_dismiss_success);
+                    this.a.a(x.live_mylive_dismiss_success);
                     myLiveListAdapter = this.a.h;
                     liveCardData = this.a.k;
                     myLiveListAdapter.a(liveCardData);
@@ -51,11 +51,11 @@ public class d extends com.baidu.adp.framework.listener.b {
                         a.a(myLiveActivity4);
                         this.a.j = false;
                     }
-                    if (!this.a.i()) {
-                        this.a.l();
+                    if (!this.a.j()) {
+                        this.a.m();
                         return;
                     }
-                    this.a.m();
+                    this.a.n();
                     myLiveActivity = this.a.b;
                     if (myLiveActivity != null) {
                         myLiveActivity2 = this.a.b;
@@ -66,7 +66,7 @@ public class d extends com.baidu.adp.framework.listener.b {
                     }
                 }
             } else {
-                this.a.a(y.neterror);
+                this.a.a(x.neterror);
             }
         }
     }

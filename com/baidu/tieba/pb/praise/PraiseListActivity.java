@@ -12,8 +12,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aw;
 import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bg;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, g {
@@ -28,7 +28,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str, String str2, String str3, boolean z) {
-        if (!i.b(str2)) {
+        if (!i.c(str2)) {
             Intent intent = new Intent(context, PraiseListActivity.class);
             intent.putExtra("KeyIntentThreadId", str);
             intent.putExtra("KeyIntentPostId", str2);
@@ -55,22 +55,22 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
             this.b = new e();
         }
         this.a = new h(this, this.b.d());
-        this.a.b();
+        this.a.a(false);
         this.b.e();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.f()) {
+        if (view == this.a.e()) {
             a();
             if (this.b.b()) {
                 finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this).a(this.b.a(), null, "praise_list")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this).a(this.b.a(), null, "praise_list")));
             finish();
-        } else if (view == this.a.g() && !this.a.d()) {
-            this.a.b();
+        } else if (view == this.a.f() && !this.a.c()) {
+            this.a.a(true);
             this.b.e();
         }
     }
@@ -79,7 +79,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a b = this.b.b(i);
         if (b != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, b.a(), b.d())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, b.a(), b.d(), null, "favor_list")));
         }
     }
 
@@ -101,10 +101,10 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
 
     @Override // com.baidu.tieba.pb.praise.g
     public void a(String str) {
-        if (!i.b(str)) {
+        if (!i.c(str)) {
             showToast(str, true);
         }
-        this.a.c();
+        this.a.b();
     }
 
     @Override // com.baidu.tieba.pb.praise.g

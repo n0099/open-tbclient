@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.data.f> {
+public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.data.e> {
     final /* synthetic */ VcodeActivity a;
     private WriteData b;
-    private com.baidu.tbadk.core.util.aq c = null;
+    private com.baidu.tbadk.core.util.ae c = null;
     private String d = null;
 
     public ab(VcodeActivity vcodeActivity, WriteData writeData) {
@@ -25,10 +25,10 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tbadk.coreExtra.data.f doInBackground(Integer... numArr) {
+    public com.baidu.tbadk.coreExtra.data.e doInBackground(Integer... numArr) {
         EditText editText;
         Address b;
-        this.c = new com.baidu.tbadk.core.util.aq();
+        this.c = new com.baidu.tbadk.core.util.ae();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -74,7 +74,7 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                 this.c.a("is_addition", this.b.isAddition() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
             }
         }
-        this.d = this.c.i();
+        this.d = this.c.h();
         return null;
     }
 
@@ -83,7 +83,7 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
         this.a.g = null;
         this.a.closeLoadingDialog();
         if (this.c != null) {
-            this.c.g();
+            this.c.f();
         }
         super.cancel(true);
     }
@@ -92,7 +92,7 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.coreExtra.data.f fVar) {
+    public void onPostExecute(com.baidu.tbadk.coreExtra.data.e eVar) {
         EditText editText;
         WriteData writeData;
         WriteData writeData2;
@@ -104,32 +104,32 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success));
+                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.send_success));
                     this.b.deleteUploadedTempImages();
                     if (this.b != null && this.b.isBabaoPosted()) {
-                        com.baidu.tieba.d.a.d();
+                        com.baidu.tieba.e.a.d();
                     }
-                } else if ((this.b.isHasImages() || this.b.getIsBaobao()) && com.baidu.adp.lib.util.i.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
-                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error));
+                } else if ((this.b.isHasImages() || this.b.getIsBaobao()) && com.baidu.adp.lib.util.i.c(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.img_upload_error));
                 } else {
                     this.a.showToast(errorData.getError_msg());
                 }
                 this.a.setResult(-1, this.a.getIntent());
                 if (this.b.getLiveCardData() != null) {
-                    this.a.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.r(this.a).c(this.b.getForumName(), "post live's thread")));
+                    this.a.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.s(this.a).c(this.b.getForumName(), "post live's thread")));
                 }
                 this.a.finish();
-            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.i.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
-                this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error));
+            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.i.c(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.img_upload_error));
             } else {
-                if (this.c.d() == 5 || this.c.d() == 6) {
-                    com.baidu.tbadk.coreExtra.data.f fVar2 = new com.baidu.tbadk.coreExtra.data.f();
-                    fVar2.a(this.d);
-                    if (fVar2.b() != null) {
+                if (this.c.c() == 5 || this.c.c() == 6) {
+                    com.baidu.tbadk.coreExtra.data.e eVar2 = new com.baidu.tbadk.coreExtra.data.e();
+                    eVar2.a(this.d);
+                    if (eVar2.b() != null) {
                         writeData = this.a.b;
-                        writeData.setVcodeMD5(fVar2.a());
+                        writeData.setVcodeMD5(eVar2.a());
                         writeData2 = this.a.b;
-                        writeData2.setVcodeUrl(fVar2.b());
+                        writeData2.setVcodeUrl(eVar2.b());
                         VcodeActivity vcodeActivity = this.a;
                         writeData3 = this.a.b;
                         vcodeActivity.a(writeData3.getVcodeUrl());
@@ -137,9 +137,9 @@ public class ab extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                     editText = this.a.e;
                     editText.setText((CharSequence) null);
                 }
-                this.a.showToast(this.c.f());
+                this.a.showToast(this.c.e());
             }
         }
-        super.onPostExecute(fVar);
+        super.onPostExecute(eVar);
     }
 }

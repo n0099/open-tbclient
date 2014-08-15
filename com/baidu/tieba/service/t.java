@@ -4,12 +4,12 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ TiebaUpdateService a;
-    private aq b;
+    private ae b;
     private volatile boolean c;
 
     private t(TiebaUpdateService tiebaUpdateService) {
@@ -73,15 +73,15 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
                     break;
                 }
                 str2 = this.a.mOtherApkUrl;
-                this.b = new aq(str2);
-                aq aqVar = this.b;
+                this.b = new ae(str2);
+                ae aeVar = this.b;
                 str3 = this.a.mOtherApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
                 handler = this.a.mOtherApkHandler;
-                bool2 = Boolean.valueOf(aqVar.a(str4, handler, 0));
+                bool2 = Boolean.valueOf(aeVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
-                } else if (this.b.d() == -2) {
+                } else if (this.b.c() == -2) {
                     bool = bool2;
                     break;
                 } else {
@@ -125,7 +125,7 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
         this.a.mDowndOtherApkTask = null;
         this.c = true;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
     }
 

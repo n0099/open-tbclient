@@ -17,8 +17,8 @@ public class v implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        ab abVar;
-        abVar = this.a.O;
-        abVar.a(dialogInterface, i, this.b, this.c);
+        ac acVar;
+        acVar = this.a.P;
+        acVar.a(dialogInterface, i, this.b, this.c);
     }
 }

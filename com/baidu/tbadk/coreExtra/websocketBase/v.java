@@ -6,7 +6,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
 /* loaded from: classes.dex */
@@ -56,14 +56,11 @@ public class v {
         if (from != null && from.length() > 0) {
             updateClientInfoMessage.addUserInfo(com.baidu.tbadk.core.frameworkData.a.FROM, from);
         }
-        String str = new aq().a().a().a().j;
+        String str = new ae().a().a().a().j;
         if (str != null) {
             updateClientInfoMessage.addUserInfo("net_type", str);
         }
-        String uniqueIdentifier = TbadkApplication.getUniqueIdentifier();
-        if (uniqueIdentifier != null) {
-            updateClientInfoMessage.addUserInfo("cuid", uniqueIdentifier);
-        }
+        updateClientInfoMessage.addUserInfo("cuid", TbadkApplication.getUniqueIdentifier());
         updateClientInfoMessage.addUserInfo("timestamp", Long.toString(System.currentTimeMillis()));
         updateClientInfoMessage.addUserInfo("model", Build.MODEL);
         updateClientInfoMessage.addUserInfo("_os_version", Build.VERSION.RELEASE);

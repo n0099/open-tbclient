@@ -10,39 +10,39 @@ class l extends com.baidu.adp.base.h {
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        bt btVar;
-        com.baidu.tieba.model.t tVar;
-        com.baidu.tieba.model.t tVar2;
-        com.baidu.tieba.model.t tVar3;
-        bm bmVar;
+        bs bsVar;
+        com.baidu.tieba.model.u uVar;
+        com.baidu.tieba.model.u uVar2;
+        com.baidu.tieba.model.u uVar3;
+        bl blVar;
         if (obj != null) {
-            tVar2 = this.a.C;
-            switch (tVar2.getLoadDataMode()) {
+            uVar2 = this.a.C;
+            switch (uVar2.getLoadDataMode()) {
                 case 0:
-                    bmVar = this.a.x;
-                    bmVar.D();
-                    this.a.a((com.baidu.tieba.model.v) obj);
+                    blVar = this.a.x;
+                    blVar.D();
+                    this.a.a((com.baidu.tieba.model.w) obj);
                     return;
                 case 1:
-                    this.a.a((com.baidu.tieba.model.x) obj);
+                    this.a.a((com.baidu.tieba.model.y) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                     PbActivity pbActivity = this.a;
-                    tVar3 = this.a.C;
-                    pbActivity.a(tVar3.getLoadDataMode(), (com.baidu.tieba.model.z) obj);
+                    uVar3 = this.a.C;
+                    pbActivity.a(uVar3.getLoadDataMode(), (com.baidu.tieba.model.aa) obj);
                     return;
                 case 6:
-                    this.a.a((com.baidu.tieba.model.z) obj);
+                    this.a.a((com.baidu.tieba.model.aa) obj);
                     return;
                 default:
                     return;
             }
         }
-        btVar = this.a.D;
-        tVar = this.a.C;
-        btVar.a(tVar.getLoadDataMode(), false, (String) null, false);
+        bsVar = this.a.D;
+        uVar = this.a.C;
+        bsVar.a(uVar.getLoadDataMode(), false, (String) null, false);
     }
 }

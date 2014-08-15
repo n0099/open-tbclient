@@ -236,7 +236,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     retryPlay();
                     parcel2.writeNoException();
                     return true;
-                case TRANSACTION_getRecordStatus /* 23 */:
+                case 23:
                     parcel.enforceInterface(DESCRIPTOR);
                     int recordStatus = getRecordStatus();
                     parcel2.writeNoException();
@@ -643,7 +643,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(Stub.TRANSACTION_getRecordStatus, obtain, obtain2, 0);
+                    this.mRemote.transact(23, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {

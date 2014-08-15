@@ -16,7 +16,7 @@ public class o extends BdAsyncTask<Void, Void, Void> {
     /* renamed from: a */
     public Void doInBackground(Void... voidArr) {
         if (!h.a().a(this.a)) {
-            com.baidu.tbadk.core.sharedPref.b.a().c("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
+            com.baidu.tbadk.core.sharedPref.b.a().b("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
             return null;
         }
         return null;

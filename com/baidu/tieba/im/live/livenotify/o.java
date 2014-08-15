@@ -16,12 +16,12 @@ public class o {
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
-            com.baidu.tieba.im.i.a(new p(updatesItemData), aVar);
+            com.baidu.tieba.im.e.a(new p(updatesItemData), aVar);
         }
     }
 
     public void a(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.i.a(new q(this), aVar);
+        com.baidu.tieba.im.e.a(new q(this), aVar);
     }
 
     public String a() {
@@ -69,7 +69,7 @@ public class o {
     }
 
     public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.i.a(new r(), aVar);
+        com.baidu.tieba.im.e.a(new r(), aVar);
     }
 
     public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {

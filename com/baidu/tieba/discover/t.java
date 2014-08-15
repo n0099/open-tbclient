@@ -1,21 +1,19 @@
 package com.baidu.tieba.discover;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.square.BestStringsFitTextView;
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ s a;
+class t {
+    public HeadImageView a;
+    public TextView b;
+    public BestStringsFitTextView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar) {
-        this.a = sVar;
+    private t() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        baseActivity = this.a.a;
-        baseActivity.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(t tVar) {
+        this();
     }
 }

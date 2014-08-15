@@ -1,210 +1,84 @@
 package com.baidu.tieba.im.db;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class f extends SQLiteOpenHelper {
-    public f(Context context, String str) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, 6);
-    }
+public class f {
+    private static String b = null;
+    private static volatile SQLiteDatabase c = null;
+    public static HashMap<String, SQLiteDatabase> a = new HashMap<>();
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
-        sQLiteDatabase.execSQL(str);
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase);
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase) {
-        try {
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, custom_group_type int, isread int,group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid INTEGER NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER);");
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.createTables", new Object[0]);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"Override"})
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        try {
-            TbadkApplication.m252getInst().getApp().deleteDatabase(String.valueOf(TbadkApplication.getCurrentAccount()) + ".db");
-            a(sQLiteDatabase);
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
-            e.printStackTrace();
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        switch (i) {
-            case 1:
-                try {
-                    g(sQLiteDatabase);
-                    b(sQLiteDatabase);
-                    c(sQLiteDatabase);
-                    d(sQLiteDatabase);
-                    e(sQLiteDatabase);
-                    return;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onUpgrade", new Object[0]);
-                    TbadkApplication.m252getInst().getApp().deleteDatabase(String.valueOf(TbadkApplication.getCurrentAccount()) + ".db");
-                    a(sQLiteDatabase);
-                    return;
-                }
-            case 2:
-                b(sQLiteDatabase);
-                c(sQLiteDatabase);
-                d(sQLiteDatabase);
-                e(sQLiteDatabase);
-                return;
-            case 3:
-                c(sQLiteDatabase);
-                d(sQLiteDatabase);
-                e(sQLiteDatabase);
-                return;
-            case 4:
-                d(sQLiteDatabase);
-                e(sQLiteDatabase);
-                return;
-            case 5:
-                e(sQLiteDatabase);
-                return;
-            default:
-                return;
-        }
-    }
-
-    private void b(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            LinkedList<String> f = f(sQLiteDatabase);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static synchronized SQLiteDatabase a() {
+        SQLiteDatabase sQLiteDatabase;
+        synchronized (f.class) {
             try {
-                sQLiteDatabase.beginTransaction();
-                Iterator<String> it = f.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
-                        try {
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD rid BIGINT;");
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_delete int default 0;");
-                            sQLiteDatabase.execSQL("UPDATE " + next + " SET read_flag=0 WHERE read_flag is null");
-                            sQLiteDatabase.execSQL("UPDATE " + next + " SET rid=mid WHERE rid is null");
-                        } catch (Exception e) {
-                            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg2to3", new Object[0]);
-                            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                        }
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+            }
+            if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
+                sQLiteDatabase = null;
+            } else {
+                String str = String.valueOf(TbadkApplication.getCurrentAccount()) + ".db";
+                if (a.containsKey(str)) {
+                    sQLiteDatabase = a.get(str);
+                } else if (c != null && str.equals(b) && c.isOpen()) {
+                    sQLiteDatabase = c;
+                } else {
+                    if (c != null) {
+                        com.baidu.adp.lib.util.m.a(c);
                     }
+                    e eVar = new e(TbadkApplication.m252getInst().getApp(), str);
+                    b = str;
+                    c = eVar.getWritableDatabase();
+                    sQLiteDatabase = c;
                 }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
             }
         }
+        return sQLiteDatabase;
     }
 
-    private void c(SQLiteDatabase sQLiteDatabase) {
-        try {
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg3to4", new Object[0]);
-        } finally {
-            sQLiteDatabase.endTransaction();
-        }
-        if (sQLiteDatabase != null) {
-            sQLiteDatabase.beginTransaction();
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
-            sQLiteDatabase.setTransactionSuccessful();
-        }
-    }
-
-    private void d(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD custom_group_type int default 0;");
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD isread int default 0;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg4to5", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    private void e(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid INTEGER NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER);");
-        if (sQLiteDatabase != null) {
-            LinkedList<String> f = f(sQLiteDatabase);
-            try {
-                sQLiteDatabase.beginTransaction();
-                Iterator<String> it = f.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(p.b) || next.startsWith(o.b))) {
-                        try {
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
-                        } catch (Exception e) {
-                            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg5to6", new Object[0]);
-                            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                        }
-                    }
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    private LinkedList<String> f(SQLiteDatabase sQLiteDatabase) {
+    public static LinkedList<String> b() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
+        SQLiteDatabase a2 = a();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (sQLiteDatabase != null) {
+        if (a2 != null) {
             try {
-                cursor2 = sQLiteDatabase.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = a2.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
-                    while (cursor2.moveToNext()) {
-                        try {
+                    try {
+                        cursor2.moveToFirst();
+                        while (cursor2.moveToNext()) {
                             linkedList.add(cursor2.getString(cursor2.getColumnIndex("name")));
-                        } catch (Exception e) {
-                            cursor = cursor2;
-                            exc = e;
-                            try {
-                                TiebaStatic.printDBExceptionLog(exc, "ImDatabaseHelper.getAllTable", new Object[0]);
-                                exc.printStackTrace();
-                                com.baidu.adp.lib.util.m.a(cursor);
-                                return linkedList;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                com.baidu.adp.lib.util.m.a(cursor);
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            cursor = cursor2;
-                            th = th3;
+                        }
+                    } catch (Exception e) {
+                        cursor = cursor2;
+                        exc = e;
+                        try {
+                            TiebaStatic.printDBExceptionLog(exc, "ImDatabaseManager.getAllTables", new Object[0]);
+                            exc.printStackTrace();
+                            com.baidu.adp.lib.util.m.a(cursor);
+                            return linkedList;
+                        } catch (Throwable th2) {
+                            th = th2;
                             com.baidu.adp.lib.util.m.a(cursor);
                             throw th;
                         }
+                    } catch (Throwable th3) {
+                        cursor = cursor2;
+                        th = th3;
+                        com.baidu.adp.lib.util.m.a(cursor);
+                        throw th;
                     }
                 }
             } catch (Exception e2) {
@@ -219,48 +93,29 @@ public class f extends SQLiteOpenHelper {
         return linkedList;
     }
 
-    private void g(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            LinkedList<String> f = f(sQLiteDatabase);
-            try {
-                sQLiteDatabase.beginTransaction();
-                Iterator<String> it = f.iterator();
+    public static void a(String str) {
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                g.a().b();
+                Iterator<String> it = b().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
-                        try {
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_flag int default 0;");
-                        } catch (Exception e) {
-                            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg1to2", new Object[0]);
-                            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
+                    if (next != null) {
+                        if (next.equals("tb_message_center")) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("is_hidden", (Integer) 1);
+                            g.a().a("tb_message_center", contentValues, null, null);
+                        } else if (!next.equals("tb_new_friends")) {
+                            g.a().a(next, (String) null, (String[]) null);
                         }
                     }
                 }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
             }
-        }
-    }
-
-    public static void a(SQLiteStatement sQLiteStatement, int i, String str) {
-        if (str == null) {
-            sQLiteStatement.bindNull(i);
-        } else {
-            sQLiteStatement.bindString(i, str);
-        }
-    }
-
-    public static SQLiteStatement a(String str) {
-        try {
-            SQLiteDatabase a = g.a();
-            if (a == null) {
-                return null;
-            }
-            return a.compileStatement(str);
         } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getStatementForSql", new Object[0]);
-            return null;
+            TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+            e.printStackTrace();
+        } finally {
+            g.a().c();
         }
     }
 }

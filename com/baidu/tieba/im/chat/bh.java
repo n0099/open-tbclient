@@ -1,33 +1,26 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseReportGroupMessage;
 /* loaded from: classes.dex */
-class bh extends com.baidu.adp.framework.listener.b {
+class bh implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bh(GroupSettingActivity groupSettingActivity, int i) {
-        super(i);
+    public bh(GroupSettingActivity groupSettingActivity) {
         this.a = groupSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103103) {
-            if (!(socketResponsedMessage instanceof ResponseReportGroupMessage)) {
-                this.a.showToast(com.baidu.tieba.y.group_report_fail);
-                return;
-            }
-            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) socketResponsedMessage;
-            if (responseReportGroupMessage.getError() != 0) {
-                this.a.a(responseReportGroupMessage.getErrorString(), responseReportGroupMessage.getError());
-            } else {
-                this.a.showToast(com.baidu.tieba.y.group_report_success);
-            }
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        bp bpVar;
+        bp bpVar2;
+        if (bool == null || !bool.equals(true)) {
+            bpVar = this.a.a;
+            bpVar.r().d();
+            this.a.f = false;
+            return;
         }
+        bpVar2 = this.a.a;
+        bpVar2.r().c();
+        this.a.f = true;
     }
 }

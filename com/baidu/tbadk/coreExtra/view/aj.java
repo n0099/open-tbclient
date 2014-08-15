@@ -38,7 +38,7 @@ public class aj extends CustomMessageListener {
                         }
                     }
                 }
-                this.a.a(com.baidu.adp.lib.f.b.a(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                this.a.a(com.baidu.adp.lib.e.b.a(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
             } else if (data.status == 0) {
                 livePlayingStatus4 = this.a.c;
                 if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends a {
     private Paint b;
@@ -58,7 +58,7 @@ public class EditHeadsImageView extends a {
         this.c = new Paint();
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setColor(-1);
-        this.g = getResources().getColor(s.editimage_bg);
+        this.g = getResources().getColor(r.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);

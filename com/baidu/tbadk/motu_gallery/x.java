@@ -21,8 +21,8 @@ public class x extends LinearLayout {
     }
 
     private void a() {
-        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.motu_albums_selected_item, this);
-        this.a = (ImageView) findViewById(com.baidu.tieba.v.image);
+        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.motu_albums_selected_item, this);
+        this.a = (ImageView) findViewById(com.baidu.tieba.u.image);
     }
 
     public Uri getUri() {
@@ -32,7 +32,7 @@ public class x extends LinearLayout {
     public boolean a(Uri uri) {
         boolean z = true;
         this.b = uri;
-        int dimension = (int) this.c.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
+        int dimension = (int) this.c.getResources().getDimension(com.baidu.tieba.s.jigsawSelectedImageWidth);
         if (uri != null) {
             try {
                 this.d = b.b(this.c, uri, dimension, dimension);
@@ -53,7 +53,7 @@ public class x extends LinearLayout {
             z = false;
         }
         if (!z) {
-            y.a(com.baidu.tieba.y.open_error);
+            y.a(com.baidu.tieba.x.open_error);
         }
         return z;
     }

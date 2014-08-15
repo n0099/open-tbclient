@@ -1,13 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements DialogInterface.OnClickListener {
+public class ah extends com.baidu.adp.base.h {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,38 +11,26 @@ public class ah implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        WriteImagesInfo writeImagesInfo4;
-        WriteImagesInfo writeImagesInfo5;
-        String str;
-        if (i == 0) {
-            writeImagesInfo4 = this.a.C;
-            int size = writeImagesInfo4.size();
-            writeImagesInfo5 = this.a.C;
-            if (size < writeImagesInfo5.getMaxImagesAllowed()) {
-                this.a.E = String.valueOf(System.currentTimeMillis());
-                WriteActivity writeActivity = this.a;
-                str = this.a.E;
-                com.baidu.tbadk.core.util.bj.a(writeActivity, str);
-                return;
-            }
-            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
-        } else if (i == 1) {
-            writeImagesInfo = this.a.C;
-            if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.a.C;
-                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    WriteActivity writeActivity2 = this.a;
-                    writeImagesInfo3 = this.a.C;
-                    com.baidu.tbadk.core.atomData.b bVar = new com.baidu.tbadk.core.atomData.b(writeActivity2, writeImagesInfo3.toJsonString());
-                    bVar.setRequestCode(12002);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar));
-                }
-            }
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        FeedBackTopListView feedBackTopListView2;
+        FeedBackTopListView feedBackTopListView3;
+        this.a.hideProgressBar();
+        if (obj == null || !(obj instanceof o)) {
+            feedBackTopListView = this.a.l;
+            feedBackTopListView.setVisibility(8);
+            this.a.showToast(com.baidu.tieba.x.neterror);
+            return;
         }
+        o oVar = (o) obj;
+        if (oVar.b() != 0) {
+            feedBackTopListView2 = this.a.l;
+            feedBackTopListView2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.n> a = oVar.a();
+        feedBackTopListView3 = this.a.l;
+        feedBackTopListView3.setData(a);
     }
 }

@@ -44,7 +44,7 @@ public class a {
         if (this.a == null) {
             this.a = com.baidu.tbadk.core.sharedPref.b.a().a("KeyOfSharedPrefValidIp", (String) null);
         }
-        if (!com.baidu.adp.lib.util.i.b(this.a)) {
+        if (!com.baidu.adp.lib.util.i.c(this.a)) {
             com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefImCount", b + 1);
         } else {
             this.a = null;

@@ -12,7 +12,7 @@ import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tieba.model.i a = null;
+    private com.baidu.tieba.model.j a = null;
     private h b = null;
     private int c = -1;
     private ArrayList<MarkData> d = null;
@@ -27,7 +27,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.i();
+        this.a = new com.baidu.tieba.model.j();
         this.a.a(new f(this, this));
         this.b = new h(this);
         this.b.a(new g(this));
@@ -42,14 +42,12 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     }
 
     private void b() {
-        if (this.a.k() < 0) {
+        if (this.a.g() == 0 || this.a.k() < 0) {
             this.a.a((Boolean) true);
-        } else if (this.a.g() == 0 || this.a.k() < 0) {
-            this.a.a((Boolean) true);
-        } else {
-            this.b.f();
-            this.a.j();
+            return;
         }
+        this.b.f();
+        this.a.j();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,10 +79,10 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
             MarkData markData = this.a.f().get(i);
             MarkData markData2 = this.d.get(i);
             int b = this.a.b();
-            int o = com.baidu.tbadk.coreExtra.messageCenter.a.a().o();
+            int r = com.baidu.tbadk.coreExtra.messageCenter.a.a().r();
             if (markData2.getNewCounts() > 0) {
-                if (o > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(o - 1);
+                if (r > 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(r - 1);
                 } else {
                     com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
                 }
@@ -96,7 +94,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
             }
             markData2.setNewCounts(0);
             if (markData != null) {
-                sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
+                sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
         super.onItemClick(adapterView, view, i, j);
@@ -147,7 +145,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
         if (this.a != null && this.b != null) {
             this.a.d();
             this.b.a(true);
-            this.a.a((Boolean) false);
+            this.a.a((Boolean) true);
         }
     }
 

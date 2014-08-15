@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
@@ -21,12 +20,12 @@ public class d implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         String str2;
-        str = this.a.aj;
+        str = this.a.ao;
         if (!TextUtils.isEmpty(str)) {
-            activity = this.a.C;
-            activity2 = this.a.C;
-            String string = activity2.getString(y.frs_badge_intro);
-            str2 = this.a.aj;
+            activity = this.a.E;
+            activity2 = this.a.E;
+            String string = activity2.getString(com.baidu.tieba.x.frs_badge_intro);
+            str2 = this.a.ao;
             TbWebViewActivity.startActivity(activity, string, str2);
         }
     }

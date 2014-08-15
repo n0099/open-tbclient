@@ -14,7 +14,6 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private static final String c = AlbumActivity.class.getName();
     private p d;
     private v e;
     private int f;
@@ -92,7 +91,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     void g() {
         int d = this.d.d();
         int h = this.d.h();
-        this.e.a(h != 0, getString(com.baidu.tieba.y.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
+        this.e.a(h != 0, getString(com.baidu.tieba.x.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -153,7 +152,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (getSupportFragmentManager().findFragmentByTag(this.e.c(i)) != null) {
                 beginTransaction.show(this.e.b(i));
             } else {
-                beginTransaction.add(com.baidu.tieba.v.fragment, this.e.b(i), this.e.c(i));
+                beginTransaction.add(com.baidu.tieba.u.fragment, this.e.b(i), this.e.c(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -176,7 +175,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             this.e.a(imageFileInfo2);
             return true;
         }
-        a(String.format(getString(com.baidu.tieba.y.album_beyond_max_choose), Integer.valueOf(d)));
+        a(String.format(getString(com.baidu.tieba.x.album_beyond_max_choose), Integer.valueOf(d)));
         return false;
     }
 
@@ -240,11 +239,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     private void m() {
         Intent intent = new Intent();
-        String c2 = this.d.c();
-        if (TextUtils.isEmpty(c2)) {
-            c2 = "";
+        String c = this.d.c();
+        if (TextUtils.isEmpty(c)) {
+            c = "";
         }
-        intent.putExtra("last_album_id", c2);
+        intent.putExtra("last_album_id", c);
         setResult(0, intent);
         finish();
     }

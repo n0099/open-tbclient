@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
 /* loaded from: classes.dex */
 public class au extends com.baidu.adp.base.f {
-    com.baidu.tbadk.core.view.q a;
+    com.baidu.tbadk.core.view.u a;
     private BaseFragmentActivity b;
     private View c;
     private BdListView d;
@@ -30,20 +30,20 @@ public class au extends com.baidu.adp.base.f {
         this.h = null;
         this.b = baseFragmentActivity;
         this.c = dVar.getView();
-        this.e = (LinearLayout) this.c.findViewById(com.baidu.tieba.v.container);
-        this.f = (SearchBoxView) this.c.findViewById(com.baidu.tieba.v.view_searchbox);
-        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.v.square_list);
+        this.e = (LinearLayout) this.c.findViewById(com.baidu.tieba.u.container);
+        this.f = (SearchBoxView) this.c.findViewById(com.baidu.tieba.u.view_searchbox);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.u.square_list);
         this.d.setOnKeyListener(onKeyListener);
         this.d.setOnItemClickListener(dVar);
         this.d.setOnScrollListener(dVar);
         this.h = new at(baseFragmentActivity);
         this.d.setAdapter((ListAdapter) this.h);
-        this.a = new com.baidu.tbadk.core.view.q(baseFragmentActivity);
+        this.a = new com.baidu.tbadk.core.view.u(baseFragmentActivity);
         this.d.setPullRefresh(this.a);
-        this.g = (NoNetworkView) this.c.findViewById(com.baidu.tieba.v.view_no_network);
-        com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this.mContext);
-        kVar.setHeightDip(30);
-        this.d.addFooterView(kVar);
+        this.g = (NoNetworkView) this.c.findViewById(com.baidu.tieba.u.view_no_network);
+        com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.mContext);
+        iVar.setHeightDip(30);
+        this.d.addFooterView(iVar);
     }
 
     public void a(am amVar) {
@@ -97,12 +97,12 @@ public class au extends com.baidu.adp.base.f {
         this.g.setVisibility(8);
     }
 
-    public void a(com.baidu.tbadk.core.view.m mVar) {
-        this.g.a(mVar);
+    public void a(com.baidu.tbadk.core.view.q qVar) {
+        this.g.a(qVar);
     }
 
-    public void b(com.baidu.tbadk.core.view.m mVar) {
-        this.g.b(mVar);
+    public void b(com.baidu.tbadk.core.view.q qVar) {
+        this.g.b(qVar);
     }
 
     public void g() {

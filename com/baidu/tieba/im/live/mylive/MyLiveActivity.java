@@ -9,19 +9,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ai;
-import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.aw;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-    private l c;
-    private boolean d = false;
+    private l d;
     private boolean e = false;
-    private LiveCardData f = null;
+    private boolean f = false;
+    private LiveCardData g = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ar.class, MyLiveActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(aw.class, MyLiveActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,50 +32,50 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
     }
 
     private void a(Bundle bundle) {
-        this.c = new l(this);
-        this.c.c();
+        this.d = new l(this);
+        this.d.c();
     }
 
     public l g() {
-        return this.c;
+        return this.d;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
-        this.c.d(i);
+        this.d.d(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.c.d()) {
-            this.c.b();
+        if (view == this.d.d()) {
+            this.d.b();
         }
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (!this.e) {
-            this.d = true;
-            if (i == v.mylive_activity_radio_mymark) {
-                this.c.b(0);
-                this.c.c(0);
-                this.c.a(0);
-            } else if (i == v.mylive_activity_radio_mylive) {
-                this.c.b(1);
-                this.c.c(1);
-                this.c.a(1);
+        if (!this.f) {
+            this.e = true;
+            if (i == u.mylive_activity_radio_mymark) {
+                this.d.b(0);
+                this.d.c(0);
+                this.d.a(0);
+            } else if (i == u.mylive_activity_radio_mylive) {
+                this.d.b(1);
+                this.d.c(1);
+                this.d.a(1);
             }
-            this.d = false;
+            this.e = false;
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (!this.d) {
-            this.e = true;
-            this.c.b(i);
-            this.c.a(i);
-            this.e = false;
+        if (!this.e) {
+            this.f = true;
+            this.d.b(i);
+            this.d.a(i);
+            this.f = false;
         }
     }
 
@@ -88,15 +88,15 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
     }
 
     public void a(LiveCardData liveCardData) {
-        this.f = liveCardData;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ai(this, liveCardData.getGroupId())));
+        this.g = liveCardData;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this, liveCardData.getGroupId())));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.f != null && i2 == -1 && !intent.getBooleanExtra("subcribed", true)) {
-            this.c.a(this.f);
+        if (this.g != null && i2 == -1 && !intent.getBooleanExtra("subcribed", true)) {
+            this.d.a(this.g);
         }
     }
 }

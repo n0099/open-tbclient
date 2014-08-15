@@ -25,7 +25,7 @@ class x extends CustomMessageListener {
         FragmentTabHost fragmentTabHost2;
         MainTabActivity mainTabActivity;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (a = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a()) != null && a.size() != 0) {
-            fragmentTabHost = this.a.m;
+            fragmentTabHost = this.a.n;
             fragmentTabHost.b();
             Iterator<com.baidu.tbadk.mainTab.b> it = a.iterator();
             while (it.hasNext()) {
@@ -33,11 +33,11 @@ class x extends CustomMessageListener {
                 if (next != null) {
                     com.baidu.tbadk.mainTab.d b = next.b();
                     MainTabActivity mainTabActivity2 = this.a;
-                    mainTabActivity = this.a.G;
+                    mainTabActivity = this.a.I;
                     mainTabActivity2.a(b, next.a(mainTabActivity));
                 }
             }
-            fragmentTabHost2 = this.a.m;
+            fragmentTabHost2 = this.a.n;
             fragmentTabHost2.a();
             this.a.a(this.a.getIntent());
         }

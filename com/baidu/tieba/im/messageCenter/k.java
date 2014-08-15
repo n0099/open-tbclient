@@ -3,14 +3,15 @@ package com.baidu.tieba.im.messageCenter;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ae;
+import com.baidu.tbadk.core.atomData.InvokeLiveNotifyActivityIsOpenConfig;
+import com.baidu.tieba.im.live.livenotify.LiveNotifyActivity;
 /* loaded from: classes.dex */
-class k implements CustomMessageTask.CustomRunnable<ae> {
+class k implements CustomMessageTask.CustomRunnable<InvokeLiveNotifyActivityIsOpenConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<ae> run(CustomMessage<ae> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tieba.im.pushNotify.a.i().b(customMessage.getData().getIntent().getBooleanExtra("isNeedShowNotify", false), (com.baidu.tieba.im.a<Void>) null);
+    public CustomResponsedMessage<Boolean> run(CustomMessage<InvokeLiveNotifyActivityIsOpenConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return null;
+        return new CustomResponsedMessage<>(2008018, Boolean.valueOf(LiveNotifyActivity.a));
     }
 }

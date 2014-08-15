@@ -10,10 +10,9 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.f {
     private int a;
@@ -36,7 +35,7 @@ public class u extends com.baidu.adp.base.f {
     private String r;
     private boolean s;
     private t t;
-    private com.baidu.tieba.im.e.e u;
+    private com.baidu.tieba.im.d.e u;
     private String v;
     private String w;
     private DialogInterface.OnClickListener x;
@@ -104,13 +103,13 @@ public class u extends com.baidu.adp.base.f {
 
     private void a(GroupAddressLocateActivity groupAddressLocateActivity) {
         this.d = groupAddressLocateActivity;
-        groupAddressLocateActivity.setContentView(com.baidu.tieba.w.group_address_locate_activity);
-        this.c = groupAddressLocateActivity.findViewById(com.baidu.tieba.v.parent);
-        TextView textView = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.address_content_currentpos);
-        this.h = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.address_title_currentpos);
-        this.g = groupAddressLocateActivity.findViewById(com.baidu.tieba.v.address_content_container);
+        groupAddressLocateActivity.setContentView(com.baidu.tieba.v.group_address_locate_activity);
+        this.c = groupAddressLocateActivity.findViewById(com.baidu.tieba.u.parent);
+        TextView textView = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.address_content_currentpos);
+        this.h = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.address_title_currentpos);
+        this.g = groupAddressLocateActivity.findViewById(com.baidu.tieba.u.address_content_container);
         this.g.setOnClickListener(this.d);
-        this.i = (ImageView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.group_address_currentpos_content_arrow);
+        this.i = (ImageView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.group_address_currentpos_content_arrow);
         StringBuffer stringBuffer = new StringBuffer();
         if (!TextUtils.isEmpty(this.q)) {
             stringBuffer.append(this.q);
@@ -127,26 +126,26 @@ public class u extends com.baidu.adp.base.f {
             this.g.setVisibility(8);
             this.h.setVisibility(8);
         }
-        this.k = groupAddressLocateActivity.findViewById(com.baidu.tieba.v.group_address_locate_locatearea_layout);
+        this.k = groupAddressLocateActivity.findViewById(com.baidu.tieba.u.group_address_locate_locatearea_layout);
         this.k.setOnClickListener(this.d);
-        this.l = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.group_address_locate_locatearea_textview);
-        this.m = (ImageView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.group_address_locate_locatearea_rightarrow);
+        this.l = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.group_address_locate_locatearea_textview);
+        this.m = (ImageView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.group_address_locate_locatearea_rightarrow);
         this.m.setVisibility(8);
-        this.j = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.address_title_poslist);
-        this.n = (BdListView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.group_address_locate_addresslist_listview);
+        this.j = (TextView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.address_title_poslist);
+        this.n = (BdListView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.group_address_locate_addresslist_listview);
         this.n.setOnItemClickListener(this.d);
-        this.p = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.address_showorhidden);
+        this.p = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.address_showorhidden);
         if (this.s) {
             this.p.b();
         } else {
             this.p.a();
         }
         this.p.setSwitchStateChangeListener(this.d);
-        this.b = (NavigationBar) groupAddressLocateActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.b.a(groupAddressLocateActivity.getResources().getString(y.group_address_edit));
+        this.b = (NavigationBar) groupAddressLocateActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.b.a(groupAddressLocateActivity.getResources().getString(com.baidu.tieba.x.group_address_edit));
         this.b.setSystemClickable(false);
         this.f = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(y.save));
+        this.e = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(com.baidu.tieba.x.save));
     }
 
     private void b(GroupAddressLocateActivity groupAddressLocateActivity) {
@@ -155,22 +154,22 @@ public class u extends com.baidu.adp.base.f {
     }
 
     private void p() {
-        this.u = new com.baidu.tieba.im.e.e(this.d);
+        this.u = new com.baidu.tieba.im.d.e(this.d);
         this.u.a(this.d.getUniqueId());
         a();
     }
 
     public void f() {
-        this.j.setText(y.address_pos_list);
-        this.l.setText(y.address_locating);
+        this.j.setText(com.baidu.tieba.x.address_pos_list);
+        this.l.setText(com.baidu.tieba.x.address_locating);
         this.m.setVisibility(8);
         this.a = 3;
         q();
     }
 
     public void g() {
-        this.j.setText(y.address_locate_noaddresslist);
-        this.l.setText(y.address_locate_failed_tryagain);
+        this.j.setText(com.baidu.tieba.x.address_locate_noaddresslist);
+        this.l.setText(com.baidu.tieba.x.address_locate_failed_tryagain);
         this.m.setVisibility(0);
         this.a = 2;
         q();
@@ -179,19 +178,19 @@ public class u extends com.baidu.adp.base.f {
     public void a(String[] strArr) {
         this.k.setVisibility(8);
         if (strArr != null && strArr.length > 0) {
-            this.j.setText(y.address_pos_list);
+            this.j.setText(com.baidu.tieba.x.address_pos_list);
             this.t = new t(this.d, strArr);
             this.n.setAdapter((ListAdapter) this.t);
             this.n.setVisibility(0);
         } else {
-            this.j.setText(y.address_locate_noaddresslist);
+            this.j.setText(com.baidu.tieba.x.address_locate_noaddresslist);
         }
         q();
     }
 
     public void h() {
-        this.j.setText(y.address_pos_list);
-        this.l.setText(y.address_locate_failed_opengps);
+        this.j.setText(com.baidu.tieba.x.address_pos_list);
+        this.l.setText(com.baidu.tieba.x.address_locate_failed_opengps);
         this.m.setVisibility(0);
         this.a = 1;
         q();
@@ -253,18 +252,18 @@ public class u extends com.baidu.adp.base.f {
     }
 
     public void o() {
-        new AlertDialog.Builder(this.d).setTitle(y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(y.group_update_alert_save).setPositiveButton(y.group_update_canel, new v(this)).setNegativeButton(y.group_update_done, new w(this)).create().show();
+        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.d).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.group_update_alert_save).setPositiveButton(com.baidu.tieba.x.group_update_canel, new v(this)).setNegativeButton(com.baidu.tieba.x.group_update_done, new w(this)).create(), this.d);
     }
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.c);
-        bk.b(this.c, i);
+        ay.b(this.c, i);
         this.b.c(i);
         if (i == 1) {
-            this.c.setBackgroundResource(com.baidu.tieba.s.group_info_bg_1);
+            this.c.setBackgroundResource(com.baidu.tieba.r.group_info_bg_1);
         } else {
-            this.c.setBackgroundResource(com.baidu.tieba.s.group_info_bg);
+            this.c.setBackgroundResource(com.baidu.tieba.r.group_info_bg);
         }
     }
 }

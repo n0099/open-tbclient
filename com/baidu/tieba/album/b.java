@@ -36,17 +36,17 @@ public class b extends com.baidu.tbadk.core.d {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.k = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_view, (ViewGroup) null);
-        this.e = (NavigationBar) this.k.findViewById(com.baidu.tieba.v.navigation_bar);
+        this.k = layoutInflater.inflate(com.baidu.tieba.v.album_big_image_view, (ViewGroup) null);
+        this.e = (NavigationBar) this.k.findViewById(com.baidu.tieba.u.navigation_bar);
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
         this.g = this.e.a("");
-        View inflate = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_choose, (ViewGroup) null);
-        this.l = (ImageView) inflate.findViewById(com.baidu.tieba.v.img_choose);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.v.album_big_image_choose, (ViewGroup) null);
+        this.l = (ImageView) inflate.findViewById(com.baidu.tieba.u.img_choose);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new c(this));
-        this.h = (ViewPager) this.k.findViewById(com.baidu.tieba.v.viewPager);
+        this.h = (ViewPager) this.k.findViewById(com.baidu.tieba.u.viewPager);
         this.d = this.b.i();
         this.h.setOnPageChangeListener(new d(this));
-        this.m = this.k.findViewById(com.baidu.tieba.v.album_no_data);
+        this.m = this.k.findViewById(com.baidu.tieba.u.album_no_data);
         return this.k;
     }
 
@@ -120,14 +120,14 @@ public class b extends com.baidu.tbadk.core.d {
             int skinType = TbadkApplication.m252getInst().getSkinType();
             if (z) {
                 if (skinType == 1) {
-                    imageView.setBackgroundResource(com.baidu.tieba.u.btn_add_finish_s_1);
+                    imageView.setBackgroundResource(com.baidu.tieba.t.btn_add_finish_s_1);
                 } else {
-                    imageView.setBackgroundResource(com.baidu.tieba.u.btn_add_finish_s);
+                    imageView.setBackgroundResource(com.baidu.tieba.t.btn_add_finish_s);
                 }
             } else if (skinType == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.u.btn_add_finish_n_1);
+                imageView.setBackgroundResource(com.baidu.tieba.t.btn_add_finish_n_1);
             } else {
-                imageView.setBackgroundResource(com.baidu.tieba.u.btn_add_finish_n);
+                imageView.setBackgroundResource(com.baidu.tieba.t.btn_add_finish_n);
             }
         }
     }
@@ -135,7 +135,7 @@ public class b extends com.baidu.tbadk.core.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i) {
         if (this.c != null && this.c.f() != null) {
-            String string = this.b.getString(com.baidu.tieba.y.album_big_image_title, new Object[]{Integer.valueOf(i), Integer.valueOf(this.c.f().size())});
+            String string = this.b.getString(com.baidu.tieba.x.album_big_image_title, new Object[]{Integer.valueOf(i), Integer.valueOf(this.c.f().size())});
             if (TextUtils.isEmpty(string)) {
                 string = "";
             }

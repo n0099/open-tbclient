@@ -1,21 +1,30 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements DialogInterface.OnClickListener {
-    final /* synthetic */ SystemHelpSettingActivity a;
+public class am implements Runnable {
+    final /* synthetic */ al a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.a = systemHelpSettingActivity;
+    public am(al alVar) {
+        this.a = alVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        aq aqVar;
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.deleting));
-        aqVar = this.a.b;
-        aqVar.a();
-        dialogInterface.cancel();
+    @Override // java.lang.Runnable
+    public void run() {
+        SystemHelpSettingActivity systemHelpSettingActivity;
+        ay ayVar;
+        SystemHelpSettingActivity systemHelpSettingActivity2;
+        ay ayVar2;
+        if (TbadkApplication.m252getInst().getLocationShared()) {
+            systemHelpSettingActivity2 = this.a.a;
+            ayVar2 = systemHelpSettingActivity2.a;
+            ayVar2.a().a();
+            return;
+        }
+        systemHelpSettingActivity = this.a.a;
+        ayVar = systemHelpSettingActivity.a;
+        ayVar.a().b();
     }
 }

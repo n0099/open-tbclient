@@ -14,7 +14,6 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            com.baidu.tbadk.core.log.a.a(UtilHelper.getNetStatusInfo(context));
             if (UtilHelper.isNetOk()) {
                 TiebaStatic.imLog("net change", TAG, "succ");
                 BdSocketLinkService.setAvailable(true);

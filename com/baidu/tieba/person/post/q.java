@@ -9,9 +9,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter implements b, g {
@@ -78,7 +78,7 @@ public class q extends BaseAdapter implements b, g {
     public View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_post_item_thread, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_post_item_thread, viewGroup, false);
             s sVar2 = new s(view);
             view.setTag(sVar2);
             sVar = sVar2;
@@ -144,7 +144,7 @@ public class q extends BaseAdapter implements b, g {
         }
         sVar.a(this);
         sVar.a(TbadkApplication.m252getInst().getSkinType());
-        bk.f(sVar.n, com.baidu.tieba.s.cp_bg_line_b);
+        ay.f(sVar.n, com.baidu.tieba.r.cp_bg_line_b);
         sVar.m.a(TbadkApplication.m252getInst().getSkinType());
         this.e.c().a(TbadkApplication.m252getInst().getSkinType() == 1);
         this.e.c().a(sVar.g);
@@ -173,17 +173,17 @@ public class q extends BaseAdapter implements b, g {
     public void a(View view) {
         String[] strArr;
         int id = view.getId();
-        if (id == com.baidu.tieba.v.forum_name) {
+        if (id == com.baidu.tieba.u.forum_name) {
             String str = (String) view.getTag();
             if (str != null && (this.e instanceof BaseFragmentActivity)) {
-                this.e.a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(this.e).a(str, "")));
+                this.e.a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(this.e).a(str, "")));
             }
-        } else if (id == com.baidu.tieba.v.portrait) {
+        } else if (id == com.baidu.tieba.u.portrait) {
             this.e.finish();
-        } else if (id == com.baidu.tieba.v.username) {
+        } else if (id == com.baidu.tieba.u.username) {
             this.e.finish();
-        } else if ((id == com.baidu.tieba.v.item_content || id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this.e).a(strArr[0], strArr[1], "person_post", 18003)));
+        } else if ((id == com.baidu.tieba.u.item_content || id == com.baidu.tieba.u.item_header || id == com.baidu.tieba.u.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.e).a(strArr[0], strArr[1], "person_post", 18005)));
         }
     }
 }

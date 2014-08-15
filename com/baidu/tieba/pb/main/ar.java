@@ -1,11 +1,10 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.DialogInterface;
+import com.baidu.tieba.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements View.OnClickListener {
+public class ar implements DialogInterface.OnClickListener {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +12,12 @@ public class ar implements View.OnClickListener {
         this.a = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.a.d != null) {
-            this.a.d.b();
-            this.a.d = null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (!com.baidu.tbadk.core.util.s.a()) {
+            this.a.showToast(com.baidu.tbadk.core.util.s.b());
+        } else {
+            FileDownloader.download(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(com.baidu.tieba.x.download_baidu_video));
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ba(this.a, 23003)));
     }
 }

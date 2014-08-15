@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.framework.listener.b {
+public class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

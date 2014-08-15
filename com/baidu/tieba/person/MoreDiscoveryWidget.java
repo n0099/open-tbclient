@@ -32,12 +32,12 @@ public class MoreDiscoveryWidget extends FrameLayout {
         super(context, attributeSet, i);
         this.f = new int[2];
         this.e = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.more_discovery_widget, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(com.baidu.tieba.v.widget_icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.v.widget_text);
-        this.c = (ImageView) findViewById(com.baidu.tieba.v.widget_new);
-        this.d = (ImageView) findViewById(com.baidu.tieba.v.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.moreTabWidget);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.more_discovery_widget, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(com.baidu.tieba.u.widget_icon);
+        this.b = (TextView) findViewById(com.baidu.tieba.u.widget_text);
+        this.c = (ImageView) findViewById(com.baidu.tieba.u.widget_new);
+        this.d = (ImageView) findViewById(com.baidu.tieba.u.widget_remind);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.z.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);

@@ -1,36 +1,33 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.searchfriend.cache.ResponseRecommendReadMessage;
 /* loaded from: classes.dex */
-public class d implements TextWatcher {
+class d extends CustomMessageListener {
     final /* synthetic */ SearchFriendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(SearchFriendActivity searchFriendActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(SearchFriendActivity searchFriendActivity, int i) {
+        super(i);
         this.a = searchFriendActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        View view;
-        View view2;
-        if (charSequence.toString().length() == 0) {
-            view2 = this.a.g;
-            view2.setVisibility(8);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        l lVar;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseRecommendReadMessage)) {
+            lVar = this.a.d;
+            lVar.a(((ResponseRecommendReadMessage) customResponsedMessage).getData());
+            RequestRecommendMessage requestRecommendMessage = new RequestRecommendMessage();
+            requestRecommendMessage.setHeight(com.baidu.adp.lib.util.j.b(this.a));
+            requestRecommendMessage.setWidth(com.baidu.adp.lib.util.j.c(this.a));
+            requestRecommendMessage.setDpi(this.a.getResources().getDisplayMetrics().density);
+            requestRecommendMessage.setQuality("80");
+            this.a.sendMessage(requestRecommendMessage);
         }
-        view = this.a.g;
-        view.setVisibility(0);
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
     }
 }

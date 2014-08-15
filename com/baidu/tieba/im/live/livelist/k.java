@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.RequestOperateFrsLiveListMessage;
 import com.baidu.tieba.im.message.ResponseOperateFrsLiveListMessage;
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.framework.listener.b {
+class k extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ FrsLiveListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ class k extends com.baidu.adp.framework.listener.b {
         w wVar4;
         this.a.closeLoadingDialog();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseOperateFrsLiveListMessage)) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
             return;
         }
         ResponseOperateFrsLiveListMessage responseOperateFrsLiveListMessage = (ResponseOperateFrsLiveListMessage) socketResponsedMessage;
@@ -40,7 +40,7 @@ class k extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseOperateFrsLiveListMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
             }
@@ -72,6 +72,6 @@ class k extends com.baidu.adp.framework.listener.b {
                     return;
             }
         }
-        this.a.showToast(com.baidu.tieba.y.neterror);
+        this.a.showToast(com.baidu.tieba.x.neterror);
     }
 }

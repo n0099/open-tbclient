@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.message;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 /* loaded from: classes.dex */
 public class CustomMessage<T> extends Message<T> {
@@ -16,8 +17,8 @@ public class CustomMessage<T> extends Message<T> {
         this.mData = t;
     }
 
-    public CustomMessage(int i, int i2) {
-        super(i, i2);
+    public CustomMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         this.mData = null;
     }
 

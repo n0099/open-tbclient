@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.u {
+public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
     final /* synthetic */ q b;
     private Context f;
     private int g;
@@ -20,7 +21,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
     private ArrayList<ap> c = null;
     private int d = 0;
     private ArrayList<View> e = new ArrayList<>();
-    public ArrayList<HeadImageView> a = new ArrayList<>();
+    public ArrayList<TbImageView> a = new ArrayList<>();
     private float i = 0.46875f;
 
     public t(q qVar, Context context) {
@@ -35,23 +36,30 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
         this.h = (int) (0.5f + (this.g * this.i));
     }
 
-    private void a(HeadImageView headImageView, ap apVar, int i) {
-        headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.g, this.h));
-        headImageView.a(apVar.a(), 10, false);
-        headImageView.setOnClickListener(new u(this, apVar, i));
-        this.a.add(headImageView);
+    private void a(TbImageView tbImageView, ap apVar, int i) {
+        tbImageView.a(apVar.a(), 10, this.g, this.h, false);
+        tbImageView.setLayoutParams(new ViewGroup.LayoutParams(this.g, this.h));
+        tbImageView.setOnClickListener(new u(this, apVar, tbImageView, i));
+        this.a.add(tbImageView);
     }
 
     public void a(ArrayList<ap> arrayList) {
+        boolean z;
         a();
         if (arrayList != null && arrayList.size() != 0) {
             this.d = arrayList.size();
             this.c = arrayList;
             int i = 0;
             while (i < this.d) {
-                HeadImageView headImageView = (HeadImageView) this.j.inflate(com.baidu.tieba.w.carousel_topics_recommend_item, (ViewGroup) null);
-                a(headImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
-                this.e.add(headImageView);
+                TbImageView tbImageView = (TbImageView) this.j.inflate(com.baidu.tieba.v.carousel_topics_recommend_item, (ViewGroup) null);
+                z = this.b.m;
+                if (!z) {
+                    tbImageView.setDrawerType(1);
+                    tbImageView.setGifIconSupport(false);
+                    tbImageView.setDrawBorder(true);
+                }
+                a(tbImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
+                this.e.add(tbImageView);
                 i++;
             }
             notifyDataSetChanged();
@@ -69,6 +77,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View view = this.e.get(i);
+        view.setTag(Integer.valueOf(i));
         view.invalidate();
         viewGroup.addView(view);
         return view;
@@ -76,7 +85,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
 
     public void a(int i) {
         if (this.a != null && this.a.size() > 0) {
-            Iterator<HeadImageView> it = this.a.iterator();
+            Iterator<TbImageView> it = this.a.iterator();
             while (it.hasNext()) {
                 it.next().invalidate();
             }
@@ -100,23 +109,12 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
         notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void b() {
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void a(View view, int i, int i2) {
-        this.k = view;
-        if (this.c != null) {
-            for (int i3 = 0; i3 < this.c.size(); i3++) {
-                String a = this.c.get(i3).a();
-                if (this.k != null) {
-                    HeadImageView headImageView = (HeadImageView) this.k.findViewWithTag(a);
-                    headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER);
-                    headImageView.a(a, 10, this.g, this.h, false);
-                }
-            }
-        }
     }
 
     @Override // com.baidu.tbadk.imageManager.d

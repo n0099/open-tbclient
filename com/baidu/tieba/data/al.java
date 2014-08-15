@@ -1,75 +1,36 @@
 package com.baidu.tieba.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al {
-    private ArrayList<UserData> a = new ArrayList<>();
-    private ArrayList<UserData> b = new ArrayList<>();
-    private com.baidu.tbadk.core.data.k c = new com.baidu.tbadk.core.data.k();
-    private int d = 0;
-    private int e = 0;
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
-    public void a(com.baidu.tbadk.core.data.k kVar) {
-        this.c = kVar;
-    }
-
-    public com.baidu.tbadk.core.data.k a() {
-        return this.c;
-    }
-
-    public ArrayList<UserData> b() {
-        return this.a;
-    }
-
-    public ArrayList<UserData> c() {
-        return this.b;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.b.add(userData2);
-                    }
-                }
-                this.c.a(jSONObject.optJSONObject("page"));
-                this.d = jSONObject.optInt("tafriendnum", 0);
-                this.e = jSONObject.optInt("commonfriendnum", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
         }
+    }
+
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
+    }
+
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
     }
 }

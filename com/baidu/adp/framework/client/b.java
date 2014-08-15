@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.client;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,30 +39,30 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         }
     }
 
-    public void a(int i) {
-        a(0, i);
+    public void a(BdUniqueId bdUniqueId) {
+        a(0, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, int i2) {
+    public void a(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
             str = String.valueOf(i);
         }
-        c.removeAllTask(i2, str);
+        c.removeAllTask(bdUniqueId, str);
     }
 
-    public LinkedList<CustomMessage<?>> b(int i) {
-        return b(0, i);
+    public LinkedList<CustomMessage<?>> b(BdUniqueId bdUniqueId) {
+        return b(0, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> b(int i, int i2) {
+    public LinkedList<CustomMessage<?>> b(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
             str = String.valueOf(i);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i2, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, str);
         LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {

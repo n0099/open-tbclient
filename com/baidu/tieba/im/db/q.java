@@ -1,20 +1,25 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class q extends CustomMessageListener {
+class q extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ p a;
+    private final /* synthetic */ CustomResponsedMessage b;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(int i) {
-        super(i);
+    public q(p pVar, CustomResponsedMessage customResponsedMessage) {
+        this.a = pVar;
+        this.b = customResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.im.i.a(new r(this, customResponsedMessage), new s(this));
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        if (this.b.getData() instanceof String) {
+            f.a((String) this.b.getData());
+            return null;
         }
+        return null;
     }
 }

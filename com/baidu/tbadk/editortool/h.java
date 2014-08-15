@@ -16,9 +16,9 @@ public class h implements AdapterView.OnItemLongClickListener {
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ae aeVar;
-        aeVar = this.a.b;
-        if (aeVar.c() == EmotionGroupType.BIG_EMOTION) {
+        ad adVar;
+        adVar = this.a.b;
+        if (adVar.c() == EmotionGroupType.BIG_EMOTION) {
             this.a.a(i, (GridView) adapterView);
             return true;
         }

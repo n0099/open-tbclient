@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, o, o> {
     final /* synthetic */ o a;
-    private com.baidu.tbadk.core.util.aq b;
+    private com.baidu.tbadk.core.util.ae b;
 
     private p(o oVar) {
         this.a = oVar;
@@ -23,14 +23,14 @@ public class p extends BdAsyncTask<Object, o, o> {
     /* renamed from: a */
     public o doInBackground(Object... objArr) {
         String obj = objArr[0].toString();
-        this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
         this.b.a("kw", obj);
-        String i = this.b.i();
+        String h = this.b.h();
         if (!this.b.a().b().b()) {
             return null;
         }
         o oVar = new o();
-        oVar.b(i);
+        oVar.b(h);
         return oVar;
     }
 
@@ -51,7 +51,7 @@ public class p extends BdAsyncTask<Object, o, o> {
         super.cancel(true);
         this.a.a = null;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
     }
 }

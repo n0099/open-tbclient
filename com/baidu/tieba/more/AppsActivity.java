@@ -10,14 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
 public class AppsActivity extends BaseActivity {
     private String a = null;
     private BaseWebView b = null;
     private ImageView c = null;
-    private i d = null;
+    private j d = null;
     private LinearLayout e = null;
     private ProgressBar f = null;
     private ImageView g = null;
@@ -32,7 +31,7 @@ public class AppsActivity extends BaseActivity {
     }
 
     public static void a() {
-        com.baidu.tieba.util.k.a("", 7);
+        com.baidu.adp.lib.e.e.a().a(new f());
         com.baidu.tbadk.core.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
     }
 
@@ -40,7 +39,7 @@ public class AppsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.app_activity);
+        setContentView(com.baidu.tieba.v.app_activity);
         c();
         a(bundle);
     }
@@ -63,7 +62,7 @@ public class AppsActivity extends BaseActivity {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new i(this, this.a);
+        this.d = new j(this, this.a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -72,27 +71,27 @@ public class AppsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bk.a(this.h, i);
-        bk.a(this.b, i);
-        bk.d(this.i, i);
-        bk.a(this.c, i);
-        bk.d(this.j, i);
-        bk.b(this.g, i);
+        com.baidu.tbadk.core.util.ay.a(this.h, i);
+        com.baidu.tbadk.core.util.ay.a(this.b, i);
+        com.baidu.tbadk.core.util.ay.d(this.i, i);
+        com.baidu.tbadk.core.util.ay.a(this.c, i);
+        com.baidu.tbadk.core.util.ay.d(this.j, i);
+        com.baidu.tbadk.core.util.ay.b(this.g, i);
     }
 
     private void c() {
-        this.h = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.i = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
-        this.j = (TextView) findViewById(com.baidu.tieba.v.title_text);
-        this.b = (BaseWebView) findViewById(com.baidu.tieba.v.app_webView);
+        this.h = (RelativeLayout) findViewById(com.baidu.tieba.u.parent);
+        this.i = (RelativeLayout) findViewById(com.baidu.tieba.u.title);
+        this.j = (TextView) findViewById(com.baidu.tieba.u.title_text);
+        this.b = (BaseWebView) findViewById(com.baidu.tieba.u.app_webView);
         this.b.setDownloadEnabled(true);
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
-        this.e.setOnClickListener(new f(this));
-        this.g = (ImageView) findViewById(com.baidu.tieba.v.refresh);
-        this.g.setOnClickListener(new g(this));
-        this.c = (ImageView) findViewById(com.baidu.tieba.v.back);
-        this.c.setOnClickListener(new h(this));
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.u.app_progress);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.u.webview_fail_imageview);
+        this.e.setOnClickListener(new g(this));
+        this.g = (ImageView) findViewById(com.baidu.tieba.u.refresh);
+        this.g.setOnClickListener(new h(this));
+        this.c = (ImageView) findViewById(com.baidu.tieba.u.back);
+        this.c.setOnClickListener(new i(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

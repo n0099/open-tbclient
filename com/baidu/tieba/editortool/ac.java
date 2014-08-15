@@ -2,9 +2,8 @@ package com.baidu.tieba.editortool;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnTouchListener {
+class ac implements View.OnTouchListener {
     final /* synthetic */ PbEditorToolView a;
     private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 

@@ -1,54 +1,37 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.model.p;
-import java.io.File;
+import android.util.SparseArray;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.MessageSyncMessage;
 /* loaded from: classes.dex */
-public class j extends c {
-    private static j c;
-    private String d = z.a + File.separator + TbConfig.getTempDirName() + File.separator + "OfficialBarMsgMemoryCache.";
+public class j extends com.baidu.adp.framework.a.k {
+    public j() {
+        super(202003);
+    }
 
-    public static synchronized j a() {
-        j jVar;
-        synchronized (j.class) {
-            if (c == null) {
-                c = new j();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        String str;
+        StringBuilder sb = new StringBuilder((int) Constants.MEDIA_INFO);
+        if (socketMessage instanceof MessageSyncMessage) {
+            SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
+            for (int i = 0; i < groupMids.size(); i++) {
+                sb.append(groupMids.keyAt(i));
+                sb.append("-");
+                sb.append(groupMids.valueAt(i));
+                sb.append("|");
             }
-            jVar = c;
+            if (((MessageSyncMessage) socketMessage).isForTimer()) {
+                str = "active";
+            } else {
+                str = "passive";
+            }
+            TiebaStatic.imLog(202003, ((MessageSyncMessage) socketMessage).getSquencedId(), str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
         }
-        return jVar;
-    }
-
-    private j() {
-    }
-
-    public void a(String str, int i, CommonMsgPojo commonMsgPojo, boolean z) {
-        e.a(this, str, i, commonMsgPojo);
-    }
-
-    @Override // com.baidu.tieba.im.b.c
-    protected void b() {
-        ImMessageCenterPojo b = com.baidu.tieba.im.db.h.a().b("-1000");
-        if (b != null) {
-            p.a(b.getUnread_count() > 0);
-        }
-        e.b(this);
-    }
-
-    public void c() {
-        if (z.a()) {
-            this.b.a(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
-        }
-    }
-
-    @Override // com.baidu.tieba.im.b.c
-    public void d() {
-        if (z.a()) {
-            this.b.b(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
-        }
+        return socketMessage;
     }
 }

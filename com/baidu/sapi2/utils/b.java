@@ -14,7 +14,6 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class b {
     public static void a(Context context) {
@@ -29,6 +28,7 @@ public class b {
                 } else {
                     com.baidu.sapi2.d.a(context).b(false);
                 }
+                fileInputStream.close();
             } catch (Throwable th) {
                 com.baidu.sapi2.d.a(context).b(false);
                 L.e(th);
@@ -80,7 +80,7 @@ public class b {
     }
 
     public static String d(Context context) {
-        return MD5Util.toMd5((b(context) + c(context)).getBytes(), false).replace(IOUtils.LINE_SEPARATOR_UNIX, "");
+        return MD5Util.toMd5((b(context) + c(context)).getBytes(), false).replace("\n", "");
     }
 
     public static String d() {

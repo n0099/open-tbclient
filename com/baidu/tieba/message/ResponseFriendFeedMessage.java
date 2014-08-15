@@ -3,7 +3,7 @@ package com.baidu.tieba.message;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.a.b;
+import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.data.FriendFeedThreadData;
@@ -68,7 +68,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFriendFeedMessage) && getError() == 0 && TextUtils.isEmpty(((RequestFriendFeedMessage) orginalMessage).getTimeline())) {
-            saveProtocolBufferDataToCache(b.a().e(), FRIEND_FEED_KEY_PRE + TbadkApplication.getCurrentAccount(), bArr);
+            saveProtocolBufferDataToCache(a.a().a("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkApplication.getCurrentAccount(), bArr);
         }
     }
 }

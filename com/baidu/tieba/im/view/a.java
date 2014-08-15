@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.view;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,9 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.data.ChatRoomTopicData;
-import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 import com.baidu.tieba.y;
-import com.baidu.tieba.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,13 +49,13 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void a() {
-        setContentView(w.chatterbox_dialog);
-        this.g = this.c.getResources().getString(y.chat_default_tip);
+        setContentView(com.baidu.tieba.v.chatterbox_dialog);
+        this.g = this.c.getResources().getString(x.chat_default_tip);
         this.h = null;
-        this.b = (Button) findViewById(com.baidu.tieba.v.chatterbox_custom);
+        this.b = (Button) findViewById(com.baidu.tieba.u.chatterbox_custom);
         this.b.setOnClickListener(new b(this));
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.v.chatterbox_layout);
-        this.e = new e(this.c, z.NobackDialog);
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.u.chatterbox_layout);
+        this.e = new e(this.c, y.NobackDialog);
     }
 
     public void a(d dVar) {
@@ -73,7 +73,7 @@ public class a extends Dialog implements View.OnClickListener {
         this.a.removeAllViews();
         this.d.clear();
         c cVar = new c(this, layoutInflater);
-        cVar.b(this.c.getResources().getString(y.chat_default_tip));
+        cVar.b(this.c.getResources().getString(x.chat_default_tip));
         cVar.a(this);
         this.d.add(cVar);
         this.a.addView(cVar.c());
@@ -103,22 +103,24 @@ public class a extends Dialog implements View.OnClickListener {
 
     @Override // android.app.Dialog
     public void show() {
-        super.show();
-        if (TextUtils.isEmpty(this.g)) {
-            if (this.d != null && this.d.size() > 0) {
-                this.d.get(0).a(true);
-                for (int i = 1; i < this.d.size(); i++) {
-                    this.d.get(i).a(false);
+        if (!(this.c instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.c)) {
+            super.show();
+            if (TextUtils.isEmpty(this.g)) {
+                if (this.d != null && this.d.size() > 0) {
+                    this.d.get(0).a(true);
+                    for (int i = 1; i < this.d.size(); i++) {
+                        this.d.get(i).a(false);
+                    }
+                    return;
                 }
                 return;
             }
-            return;
-        }
-        for (c cVar : this.d) {
-            if (cVar.b() != null && cVar.b().equals(this.g)) {
-                cVar.a(true);
-            } else {
-                cVar.a(false);
+            for (c cVar : this.d) {
+                if (cVar.b() != null && cVar.b().equals(this.g)) {
+                    cVar.a(true);
+                } else {
+                    cVar.a(false);
+                }
             }
         }
     }

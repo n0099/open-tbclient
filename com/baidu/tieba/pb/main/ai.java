@@ -1,12 +1,8 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class ai extends BdAsyncTask<Void, Integer, Void> {
+class ai implements com.baidu.adp.lib.d.c<GifView> {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,14 +11,27 @@ public class ai extends BdAsyncTask<Void, Integer, Void> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.o;
-        com.baidu.tbadk.core.util.z.c(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public GifView a() {
+        return new GifView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(GifView gifView) {
+        gifView.e();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public GifView b(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public GifView c(GifView gifView) {
+        return gifView;
     }
 }

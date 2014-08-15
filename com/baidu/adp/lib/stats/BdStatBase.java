@@ -11,7 +11,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public abstract class BdStatBase implements Serializable {
     protected static final int MAX_FILE_EXCEPTION_COUNT = 5;
@@ -58,7 +57,9 @@ public abstract class BdStatBase implements Serializable {
 
     public abstract void refreshFile(boolean z);
 
-    public abstract void uploadSucc(ArrayList<q> arrayList);
+    public abstract void splitFile();
+
+    public abstract void uploadSucc(ArrayList<s> arrayList);
 
     public BdStatBase(Context context, String str, boolean z) {
         this.mLastLogTime = 0L;
@@ -66,7 +67,7 @@ public abstract class BdStatBase implements Serializable {
         this.mContext = context;
         this.mLogDir = str;
         this.mLastLogTime = System.currentTimeMillis();
-        com.baidu.adp.lib.util.c.e(this.mLogDir);
+        com.baidu.adp.lib.util.c.f(this.mLogDir);
         if (TextUtils.isEmpty(mProcessNameMd5)) {
             if (z) {
                 mProcessNameMd5 = "44f94582";
@@ -141,20 +142,20 @@ public abstract class BdStatBase implements Serializable {
         this.mIsEachRefreshFile = z;
     }
 
-    public void add(o oVar) {
-        if (oVar != null) {
+    public void add(q qVar) {
+        if (qVar != null) {
             try {
-                this.mMemCache.append(oVar.toString());
-                this.mMemCache.append(IOUtils.LINE_SEPARATOR_WINDOWS);
+                this.mMemCache.append(qVar.toString());
+                this.mMemCache.append("\r\n");
                 this.mMemCacheCount++;
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
         if (System.currentTimeMillis() - this.mLastLogTime > TbConfig.USE_TIME_INTERVAL) {
-            d.b().a(this, true, false);
+            f.c().a(this, true, false);
         } else {
-            d.b().a(this, false, false);
+            f.c().a(this, false, false);
         }
         this.mLastLogTime = System.currentTimeMillis();
     }
@@ -196,7 +197,7 @@ public abstract class BdStatBase implements Serializable {
     public ArrayList<String> getMemData() {
         if (this.mMemCache != null && this.mMemCache.length() > 0) {
             ArrayList<String> arrayList = new ArrayList<>();
-            String[] split = this.mMemCache.toString().split(IOUtils.LINE_SEPARATOR_WINDOWS);
+            String[] split = this.mMemCache.toString().split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
                     arrayList.add(str);
@@ -234,7 +235,7 @@ public abstract class BdStatBase implements Serializable {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String a = n.a(str.getBytes("UTF-8"));
+                            String a = p.a(str.getBytes("UTF-8"));
                             if (!TextUtils.isEmpty(a) && a.length() > 8) {
                                 return a.substring(a.length() - 8);
                             }

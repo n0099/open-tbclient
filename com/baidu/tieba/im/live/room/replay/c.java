@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.message.ResponseLiveRoomIntroMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.framework.listener.b {
+class c extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomReplayActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,7 +23,7 @@ class c extends com.baidu.adp.framework.listener.b {
         NavigationBar navigationBar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 107004) {
             if (!(socketResponsedMessage instanceof ResponseLiveRoomIntroMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             ResponseLiveRoomIntroMessage responseLiveRoomIntroMessage = (ResponseLiveRoomIntroMessage) socketResponsedMessage;
@@ -35,12 +35,12 @@ class c extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
             } else if (responseLiveRoomIntroMessage.introData != null) {
                 this.a.a(responseLiveRoomIntroMessage.introData.getPublisherPortrait(), responseLiveRoomIntroMessage.introData.getPublisherName(), responseLiveRoomIntroMessage.introData.getLikers());
                 String name = responseLiveRoomIntroMessage.introData.getName();
                 if (name != null) {
-                    navigationBar = this.a.c;
+                    navigationBar = this.a.b;
                     navigationBar.a(name);
                 }
                 this.a.a(responseLiveRoomIntroMessage.otherLiveRoomDataList);

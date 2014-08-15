@@ -3,12 +3,12 @@ package com.baidu.tieba.im.groupUpdates;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.bt;
+import com.baidu.tbadk.core.atomData.cc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements CustomMessageTask.CustomRunnable<bt> {
+public class c implements CustomMessageTask.CustomRunnable<cc> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<bt> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<cc> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
             customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), UpdatesActivity.class);
             customMessage.getData().getIntent().setFlags(268435456);

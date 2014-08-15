@@ -14,10 +14,10 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.g
     public void a(TalkableActivity talkableActivity, boolean z) {
         super.a(talkableActivity, z);
-        String string = talkableActivity.getString(com.baidu.tieba.y.msglist_personInfo);
+        String string = talkableActivity.getString(com.baidu.tieba.x.msglist_personInfo);
         if (string != null) {
-            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
-            this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.group_info_btn, talkableActivity);
+            this.l = (TextView) this.b.findViewById(com.baidu.tieba.u.group_info_btn_txt);
             this.l.setText(string);
         }
     }

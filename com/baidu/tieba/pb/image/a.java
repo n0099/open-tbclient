@@ -31,22 +31,22 @@ class a implements Runnable {
         int i11;
         int i12 = 0;
         try {
-            z = this.a.A;
+            z = this.a.z;
             if (z) {
-                wVar = this.a.F;
+                wVar = this.a.E;
                 if (wVar != null) {
-                    i = this.a.I;
+                    i = this.a.H;
                     if (i > 0) {
-                        i11 = this.a.I;
+                        i11 = this.a.H;
                         i12 = i11 - 1;
                     }
-                    i2 = this.a.I;
-                    wVar2 = this.a.F;
+                    i2 = this.a.H;
+                    wVar2 = this.a.E;
                     if (i2 >= wVar2.j() - 1) {
-                        wVar4 = this.a.F;
+                        wVar4 = this.a.E;
                         i4 = wVar4.j() - 1;
                     } else {
-                        i3 = this.a.I;
+                        i3 = this.a.H;
                         i4 = i3 + 1;
                     }
                     UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.a);
@@ -54,19 +54,19 @@ class a implements Runnable {
                         i5 = i4;
                         i6 = i12;
                     } else {
-                        i9 = this.a.I;
-                        i10 = this.a.I;
+                        i9 = this.a.H;
+                        i10 = this.a.H;
                         i5 = i10;
                         i6 = i9;
                     }
                     for (int i13 = i6; i13 <= i5; i13++) {
                         com.baidu.adp.lib.resourceLoader.d a = com.baidu.adp.lib.resourceLoader.d.a();
-                        wVar3 = this.a.F;
+                        wVar3 = this.a.E;
                         String b = wVar3.g().get(i13).b();
                         b bVar = new b(this);
-                        i7 = this.a.S;
-                        i8 = this.a.T;
-                        a.a(b, 10, bVar, i7, i8, 0, new Object[0]);
+                        i7 = this.a.R;
+                        i8 = this.a.S;
+                        a.a(b, 10, bVar, i7, i8, null, new Object[0]);
                     }
                 }
             }

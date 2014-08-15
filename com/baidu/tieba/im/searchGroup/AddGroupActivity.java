@@ -6,17 +6,19 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.framework.listener.d;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.v;
+import com.baidu.tbadk.core.atomData.y;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tieba.im.model.bv;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.f;
+import com.baidu.tieba.im.model.az;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends BaseActivity {
     private b a = null;
-    private bv b = null;
-    private com.baidu.adp.framework.listener.b c = new a(this, 103007);
+    private az b = null;
+    private d c = new a(this, 103007);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AddGroupActivity.class));
@@ -26,9 +28,8 @@ public class AddGroupActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        getIntent();
         this.a = new b(this);
-        this.b = new bv();
+        this.b = new az(this);
         registerListener(this.c);
     }
 
@@ -45,7 +46,7 @@ public class AddGroupActivity extends BaseActivity {
         if (view == this.a.c()) {
             finish();
         } else if (view == this.a.b()) {
-            com.baidu.tbadk.core.f.a(this, "add_group_searchbtn_click");
+            f.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 a((String) view.getTag());
             }
@@ -81,29 +82,29 @@ public class AddGroupActivity extends BaseActivity {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 this.a.a(false);
-                showToast(y.groupid_error);
+                showToast(x.groupid_error);
                 return;
             }
         }
-        showToast(y.please_input_groupid);
+        showToast(x.please_input_groupid);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        showToast(y.add_group_toast_noresult);
+        showToast(x.add_group_toast_noresult);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BaseGroupData baseGroupData) {
         if (baseGroupData != null) {
-            sendMessage(new CustomMessage(2008011, new v(this, baseGroupData.getGroupId(), 0)));
+            sendMessage(new CustomMessage(2008011, new y(this, baseGroupData.getGroupId(), 0)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(y.neterror);
+            showToast(x.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }

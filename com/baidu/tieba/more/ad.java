@@ -1,60 +1,20 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Scroller;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad {
-    private View a;
-    private Scroller b;
-    private int c;
-    private int d;
-    private int e;
-    private boolean f;
-    private Runnable g = new ae(this);
+public class ad implements View.OnClickListener {
+    final /* synthetic */ ac a;
 
-    public ad(View view, int i) {
-        this.a = view;
-        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
-        this.c = view.getPaddingTop();
-        this.d = -view.getMeasuredHeight();
-        this.e = i;
-        if (view.getVisibility() != 0) {
-            this.f = false;
-        } else {
-            this.f = true;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(ac acVar) {
+        this.a = acVar;
     }
 
-    public void a() {
-        if (!this.f) {
-            this.f = true;
-            int paddingLeft = this.a.getPaddingLeft();
-            int paddingTop = this.a.getPaddingTop() == this.c ? -this.a.getMeasuredHeight() : this.a.getPaddingTop();
-            int paddingRight = this.a.getPaddingRight();
-            int paddingBottom = this.a.getPaddingBottom();
-            this.a.setVisibility(0);
-            this.a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.a.removeCallbacks(this.g);
-            }
-            int paddingTop2 = this.a.getPaddingTop();
-            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
-            this.a.post(this.g);
-        }
-    }
-
-    public void b() {
-        if (this.f) {
-            this.f = false;
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.a.removeCallbacks(this.g);
-            }
-            int paddingTop = this.a.getPaddingTop();
-            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
-            this.a.post(this.g);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        rVar = this.a.b;
+        rVar.a(11);
     }
 }

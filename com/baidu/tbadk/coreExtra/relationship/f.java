@@ -19,7 +19,7 @@ public class f implements CustomMessageTask.CustomRunnable<Object> {
                     a = h.a().a(bVar.c());
                 }
                 if (!a) {
-                    com.baidu.tbadk.core.sharedPref.b.a().c("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
+                    com.baidu.tbadk.core.sharedPref.b.a().b("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
@@ -12,6 +13,7 @@ public class FRSPageRequestMessage extends NetMessage {
     private g forumModel;
     private int isGood;
     private String kw;
+    private String lastId;
     private boolean needCache;
     private int netError;
     private int pn;
@@ -26,7 +28,7 @@ public class FRSPageRequestMessage extends NetMessage {
     private int withGroup;
 
     public FRSPageRequestMessage() {
-        super(1001703, 301001);
+        super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
     }
 
     public boolean isNeedCache() {
@@ -51,6 +53,14 @@ public class FRSPageRequestMessage extends NetMessage {
 
     public void setUpdateType(int i) {
         this.updateType = i;
+    }
+
+    public String getLastId() {
+        return this.lastId;
+    }
+
+    public void setLastId(String str) {
+        this.lastId = str;
     }
 
     public String getStType() {
@@ -192,8 +202,9 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.ctime = Integer.valueOf(this.ctime);
         builder.data_size = Integer.valueOf(this.dataSize);
         builder.net_error = Integer.valueOf(this.netError);
+        builder.lastids = this.lastId;
         if (z) {
-            com.baidu.tbadk.b.c.a(builder, true);
+            com.baidu.tbadk.c.d.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

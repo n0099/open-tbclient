@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.relationship.n;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class AssortView extends View {
     private Paint a;
@@ -54,9 +54,9 @@ public class AssortView extends View {
             this.a.setAntiAlias(true);
             this.a.setTypeface(Typeface.DEFAULT_BOLD);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                this.a.setColor(getResources().getColor(s.cp_cont_c_1));
+                this.a.setColor(getResources().getColor(r.cp_cont_c_1));
             } else {
-                this.a.setColor(getResources().getColor(s.cp_cont_c));
+                this.a.setColor(getResources().getColor(r.cp_cont_c));
             }
             this.a.setTextSize(26.0f * f);
             canvas.drawText(n.a[i], (width / 2) - (this.a.measureText(n.a[i]) / 2.0f), (length * i) + length, this.a);

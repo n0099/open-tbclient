@@ -19,7 +19,7 @@ public class ad {
     }
 
     public static String b(String str) {
-        return com.baidu.tbadk.core.util.z.a(str, 1);
+        return com.baidu.tbadk.core.util.s.a(str, 1);
     }
 
     public static String c(String str) {

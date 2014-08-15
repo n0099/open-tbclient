@@ -1,54 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.text.TextUtils;
+import android.widget.EditText;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.newFriends.RequestApplyLocalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements View.OnClickListener {
-    final /* synthetic */ aw a;
+public class ax implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ as a;
+    private final /* synthetic */ EditText b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(aw awVar) {
-        this.a = awVar;
+    public ax(as asVar, EditText editText, UserData userData) {
+        this.a = asVar;
+        this.b = editText;
+        this.c = userData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         String str;
-        int i;
-        BaseFragmentActivity baseFragmentActivity;
-        Context context2;
         String str2;
-        int i2;
-        BaseFragmentActivity baseFragmentActivity2;
-        Context context3;
         String str3;
-        int i3;
-        BaseFragmentActivity baseFragmentActivity3;
-        if (view.getId() == com.baidu.tieba.v.relationcardlikerelativelayout) {
-            context3 = this.a.a;
-            str3 = this.a.e;
-            i3 = this.a.f;
-            CustomMessage customMessage = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ay(context3, str3, i3, 1));
-            baseFragmentActivity3 = this.a.c;
-            baseFragmentActivity3.a(customMessage);
-        } else if (view.getId() == com.baidu.tieba.v.relationcardfriendrelativelayout) {
-            context2 = this.a.a;
+        this.a.e = this.b.getText().toString().trim();
+        str = this.a.e;
+        if (!TextUtils.isEmpty(str)) {
+            RequestApplyLocalMessage requestApplyLocalMessage = new RequestApplyLocalMessage();
+            requestApplyLocalMessage.setUid(Long.valueOf(TbadkApplication.getCurrentAccount()).longValue());
+            requestApplyLocalMessage.setFriendId(this.c.getUserIdLong());
             str2 = this.a.e;
-            i2 = this.a.f;
-            CustomMessage customMessage2 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.az(context2, str2, i2, 1));
-            baseFragmentActivity2 = this.a.c;
-            baseFragmentActivity2.a(customMessage2);
-        } else if (view.getId() == com.baidu.tieba.v.relationcardgrouprelativelayout) {
-            context = this.a.a;
-            str = this.a.e;
-            i = this.a.f;
-            CustomMessage customMessage3 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ba(context, str, i, 1));
-            baseFragmentActivity = this.a.c;
-            baseFragmentActivity.a(customMessage3);
+            requestApplyLocalMessage.setMessage(str2);
+            str3 = this.a.e;
+            requestApplyLocalMessage.setContent(str3);
+            requestApplyLocalMessage.setName(this.c.getName_show());
+            requestApplyLocalMessage.setPortrait(this.c.getPortrait());
+            requestApplyLocalMessage.setId(this.c.getUserIdLong());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
+            aVar.c();
         }
     }
 }

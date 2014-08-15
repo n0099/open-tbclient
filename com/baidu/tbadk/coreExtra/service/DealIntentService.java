@@ -16,10 +16,13 @@ public class DealIntentService extends Service {
     public static final int CLASS_TYPE_MESSAGE = 5;
     public static final int CLASS_TYPE_MESSAGE_NEW = 11;
     public static final int CLASS_TYPE_MESSAGE_NEW_MENTION = 21;
+    public static final int CLASS_TYPE_NATIVE_PAY = 23;
     public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
     public static final int CLASS_TYPE_OFFICAL_BAR = 22;
     public static final int CLASS_TYPE_PAY = 15;
     public static final int CLASS_TYPE_PB = 1;
+    public static final int CLASS_TYPE_PERSON = 10;
+    public static final int CLASS_TYPE_PERSON_NEW = 12;
     public static final int CLASS_TYPE_PK_AFTER = 7;
     public static final int CLASS_TYPE_PK_BEFORE = 6;
     public static final int CLASS_TYPE_SIGN = 9;

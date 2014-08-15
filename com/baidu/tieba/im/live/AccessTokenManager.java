@@ -2,19 +2,19 @@ package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* loaded from: classes.dex */
 public class AccessTokenManager {
     private static AccessTokenManager _instance = new AccessTokenManager();
-    private com.baidu.adp.framework.listener.b accessTokenListener = new a(this, 107201);
+    private com.baidu.adp.framework.listener.d accessTokenListener = new a(this, 107201);
 
     public static AccessTokenManager getInstance() {
         return _instance;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public s<String> getTokenCache() {
+    public t<String> getTokenCache() {
         return BdCacheService.c().a("accessToken", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
     }
 
@@ -24,14 +24,14 @@ public class AccessTokenManager {
 
     public void asyncLoadAccessToken(String str) {
         if (com.baidu.adp.lib.util.j.b()) {
-            com.baidu.adp.lib.f.d.a().a(new b(this, str));
+            com.baidu.adp.lib.e.e.a().a(new b(this, str));
         } else {
             getAccesssTokenInBackground(str);
         }
     }
 
     public boolean getAccesssTokenInBackground(String str) {
-        if (com.baidu.adp.lib.util.i.b(str)) {
+        if (com.baidu.adp.lib.util.i.c(str)) {
             return false;
         }
         AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(str);

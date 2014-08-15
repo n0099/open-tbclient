@@ -6,9 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.h;
 import com.baidu.tbadk.plugins.MotuPlugin;
-import com.baidu.tbadk.tbplugin.m;
 /* loaded from: classes.dex */
 public class a extends b {
     private String a = "";
@@ -32,89 +30,61 @@ public class a extends b {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4, 99=4] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:57:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4, 105=4] */
     @Override // com.baidu.tbadk.img.effect.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public Bitmap a(Bitmap bitmap, boolean z) {
-        Bitmap bitmap2;
-        MotuPlugin motuPlugin;
-        Bitmap bitmap3 = null;
+        Bitmap bitmap2 = null;
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.a().c(h.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.a().c(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
         if ("normal".equals(this.a)) {
             return bitmap;
         }
-        if (bitmap.isMutable()) {
-            try {
-                motuPlugin = (MotuPlugin) m.a().b(MotuPlugin.class);
-            } catch (Throwable th) {
-                TiebaStatic.imgError("", TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th.toString(), "");
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                    bitmap2 = null;
-                }
-            }
-            if (motuPlugin != null) {
-                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkApplication.m252getInst().getApp(), this.a, bitmap);
-                if (bitmap2 != null) {
-                    if (z && bitmap2 != bitmap) {
-                        bitmap.recycle();
-                    }
-                    return bitmap2;
-                }
-                return bitmap;
-            }
-            bitmap2 = null;
-            if (bitmap2 != null) {
-            }
-        } else {
+        com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("motu");
+        MotuPlugin motuPlugin = a != null ? (MotuPlugin) a.a(MotuPlugin.class) : null;
+        if (!bitmap.isMutable()) {
             Bitmap.Config config = bitmap.getConfig();
             if (config == null) {
                 config = TbConfig.BitmapConfig;
             }
             Bitmap copy = bitmap.copy(config, true);
-            try {
-                if (copy != null) {
+            if (copy != null && motuPlugin != null) {
+                try {
                     try {
-                        MotuPlugin motuPlugin2 = (MotuPlugin) m.a().b(MotuPlugin.class);
-                        if (motuPlugin2 != null) {
-                            bitmap3 = motuPlugin2.createOneKeyFilterAndApply(TbadkApplication.m252getInst().getApp(), this.a, copy);
-                        }
+                        bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkApplication.m252getInst().getApp(), this.a, copy);
                     } catch (IllegalStateException e) {
                         BdLog.e(e.toString());
                         if (copy != null && copy != null) {
                             copy.recycle();
-                            bitmap2 = null;
-                        }
-                    } catch (Throwable th2) {
-                        BdLog.e(th2.toString());
-                        if (copy != null && copy != null) {
-                            copy.recycle();
-                            bitmap2 = null;
                         }
                     }
+                } catch (Throwable th) {
+                    if (copy != null && copy != null) {
+                        copy.recycle();
+                    }
+                    throw th;
                 }
-                if (copy == null || bitmap3 == copy) {
-                    bitmap2 = bitmap3;
-                } else {
-                    copy.recycle();
-                    bitmap2 = bitmap3;
+            }
+            if (copy != null && bitmap2 != copy) {
+                copy.recycle();
+            }
+        } else if (motuPlugin != null) {
+            try {
+                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkApplication.m252getInst().getApp(), this.a, bitmap);
+            } catch (Throwable th2) {
+                TiebaStatic.imgError("", TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th2.toString(), "");
+                if (BdLog.isDebugMode()) {
+                    th2.printStackTrace();
                 }
-                if (bitmap2 != null) {
-                }
-            } catch (Throwable th3) {
-                if (copy != null && copy != null) {
-                    copy.recycle();
-                }
-                throw th3;
             }
         }
+        if (bitmap2 != null) {
+            if (z && bitmap2 != bitmap) {
+                bitmap.recycle();
+            }
+            return bitmap2;
+        }
+        return bitmap;
     }
 }

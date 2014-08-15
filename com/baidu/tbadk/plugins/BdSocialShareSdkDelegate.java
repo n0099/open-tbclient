@@ -3,8 +3,6 @@ package com.baidu.tbadk.plugins;
 import android.content.Context;
 import android.location.Location;
 import android.net.Uri;
-@com.baidu.tbadk.tbplugin.a.a(a = "social_share_sdk.jar", b = "dex.wrapper.BdSocialShareSdkDelegateImpl")
-@com.baidu.tbadk.tbplugin.a.c(a = "BdSocialShareSdk")
 /* loaded from: classes.dex */
 public interface BdSocialShareSdkDelegate {
 

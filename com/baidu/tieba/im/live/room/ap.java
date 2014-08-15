@@ -1,38 +1,43 @@
 package com.baidu.tieba.im.live.room;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.data.MetaData;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ap implements com.baidu.tbadk.core.view.z {
-    final /* synthetic */ ao a;
+class ap implements View.OnTouchListener {
+    final /* synthetic */ aj a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ao aoVar) {
-        this.a = aoVar;
+    private ap(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.z
-    public void a(int i) {
-        List list;
-        List list2;
-        List list3;
-        Activity activity;
-        list = this.a.f;
-        if (list != null) {
-            list2 = this.a.f;
-            if (list2.size() > 0) {
-                list3 = this.a.f;
-                MetaData metaData = (MetaData) list3.get(i);
-                if (metaData != null) {
-                    MessageManager messageManager = MessageManager.getInstance();
-                    activity = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(activity, metaData.getUserId(), metaData.getName_show())));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ap(aj ajVar, ap apVar) {
+        this(ajVar);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view != null) {
+            boolean z = aj.b(this.a) != 1;
+            if (motionEvent.getAction() == 0) {
+                if (System.currentTimeMillis() - aj.c(this.a) > 1000) {
+                    aj.a(this.a, true);
+                    aj.a(this.a, view);
+                } else {
+                    aj.a(this.a, false);
                 }
+            } else if (motionEvent.getAction() == 1) {
+                if (z) {
+                    aj.a(this.a, view, aj.d(this.a));
+                } else {
+                    aj.b(this.a, view, aj.d(this.a));
+                }
+            } else if (motionEvent.getAction() == 2) {
+                aj.b(this.a, view, aj.d(this.a));
+            } else if (motionEvent.getAction() == 3) {
+                aj.b(this.a, view, aj.d(this.a));
             }
         }
+        return false;
     }
 }

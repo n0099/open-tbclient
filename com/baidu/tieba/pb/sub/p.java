@@ -3,30 +3,24 @@ package com.baidu.tieba.pb.sub;
 import android.view.View;
 /* loaded from: classes.dex */
 class p implements Runnable {
-    final /* synthetic */ o a;
-    private final /* synthetic */ String b;
+    final /* synthetic */ l a;
+    private final /* synthetic */ View b;
     private final /* synthetic */ int c;
-    private final /* synthetic */ View d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar, String str, int i, View view) {
-        this.a = oVar;
-        this.b = str;
+    public p(l lVar, View view, int i) {
+        this.a = lVar;
+        this.b = view;
         this.c = i;
-        this.d = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        n nVar;
-        m mVar;
-        n nVar2;
-        m mVar2;
-        nVar = this.a.a;
-        mVar = nVar.a;
-        mVar.b(this.b);
-        nVar2 = this.a.a;
-        mVar2 = nVar2.a;
-        mVar2.a(this.c, this.d);
+        if (this.b != null) {
+            int[] iArr = new int[2];
+            this.a.L.getLocationInWindow(iArr);
+            this.a.d.setSelectionFromTop(this.c + 1, iArr[1] - this.b.getHeight());
+            this.a.d.invalidate();
+        }
     }
 }

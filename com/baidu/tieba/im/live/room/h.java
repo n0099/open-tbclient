@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseSubscribeLiveGroupMessage;
 /* loaded from: classes.dex */
-class h extends com.baidu.adp.framework.listener.b {
+class h extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,23 +18,23 @@ class h extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        LiveRoomChatView z;
-        LiveRoomChatView z2;
-        LiveRoomChatView z3;
-        LiveRoomChatView z4;
-        LiveRoomChatView z5;
+        LiveRoomChatView x;
+        LiveRoomChatView x2;
+        LiveRoomChatView x3;
+        LiveRoomChatView x4;
+        LiveRoomChatView x5;
         if (socketResponsedMessage.getCmd() != 107105) {
-            z5 = this.a.z();
-            z5.g(false);
+            x5 = this.a.x();
+            x5.g(false);
         } else if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
-            z4 = this.a.z();
-            z4.g(false);
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            x4 = this.a.x();
+            x4.g(false);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else {
             ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
             if (responseSubscribeLiveGroupMessage.getError() != 0) {
-                z3 = this.a.z();
-                z3.g(false);
+                x3 = this.a.x();
+                x3.g(false);
                 if (responseSubscribeLiveGroupMessage.getError() > 0) {
                     if (!TextUtils.isEmpty(responseSubscribeLiveGroupMessage.getErrorString())) {
                         this.a.showToast(responseSubscribeLiveGroupMessage.getErrorString());
@@ -42,17 +42,17 @@ class h extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(com.baidu.tieba.y.neterror);
-            } else if (this.a.x().f) {
-                this.a.x().f = false;
-                z2 = this.a.z();
-                z2.g(false);
-                this.a.showToast(com.baidu.tieba.y.live_room_cancel_attention);
+                this.a.showToast(com.baidu.tieba.x.neterror);
+            } else if (this.a.v().f) {
+                this.a.v().f = false;
+                x2 = this.a.x();
+                x2.g(false);
+                this.a.showToast(com.baidu.tieba.x.live_room_cancel_attention);
             } else {
-                this.a.x().f = true;
-                z = this.a.z();
-                z.g(true);
-                this.a.showToast(com.baidu.tieba.y.live_room_attentioned);
+                this.a.v().f = true;
+                x = this.a.x();
+                x.g(true);
+                this.a.showToast(com.baidu.tieba.x.live_room_attentioned);
             }
         }
     }

@@ -17,8 +17,9 @@ public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(View view) {
         this.b = null;
-        this.a = (BdListView) view.findViewById(com.baidu.tieba.v.list);
-        this.b = (EnterGuideCenterView) view.findViewById(com.baidu.tieba.v.post_guid_center_root);
-        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
+        this.a = (BdListView) view.findViewById(com.baidu.tieba.u.list);
+        this.b = (EnterGuideCenterView) view.findViewById(com.baidu.tieba.u.post_guid_center_root);
+        this.b.a(com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1);
+        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.u.progress);
     }
 }

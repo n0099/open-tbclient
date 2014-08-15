@@ -1,34 +1,46 @@
 package com.baidu.tieba.view;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    public UserIconBox p = null;
-    public LinearLayout q;
-    public LiveBroadcastCard r;
-    final /* synthetic */ l s;
+public class n implements com.baidu.adp.lib.d.c<TbImageView> {
+    private final /* synthetic */ Context a;
 
-    public n(l lVar) {
-        this.s = lVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(Context context) {
+        this.a = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public TbImageView a() {
+        return new TbImageView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView b(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView c(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

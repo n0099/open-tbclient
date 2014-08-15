@@ -70,26 +70,38 @@ public class TripleTbImageView extends ViewGroup {
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
+            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.b.a(str, 10, this.h, this.h, false);
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
+            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.b.a(str2, 10, this.h, this.h, false);
             String str3 = (String) objArr[1];
             this.c.setTag(str3);
+            this.c.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.c.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.c.a(str3, 10, this.h, this.h, false);
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
+            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.b.a(str4, 10, this.h, this.h, false);
             String str5 = (String) objArr[1];
             this.c.setTag(str5);
+            this.c.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.c.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.c.a(str5, 10, this.h, this.h, false);
             String str6 = (String) objArr[2];
             this.d.setTag(str6);
+            this.d.setDefaultResource(com.baidu.tieba.t.pic_video);
+            this.d.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
             this.d.a(str6, 10, this.h, this.h, false);
         }
         requestLayout();

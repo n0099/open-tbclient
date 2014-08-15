@@ -1,36 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ay extends BdAsyncTask<String, Integer, Boolean> {
+class ay extends CustomMessageListener {
     final /* synthetic */ FrsActivity a;
-    private final String b;
 
-    public ay(FrsActivity frsActivity, String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ay(FrsActivity frsActivity, int i) {
+        super(i);
         this.a = frsActivity;
-        this.b = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        boolean b;
-        b = this.a.b(this.b);
-        return Boolean.valueOf(b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.a.showToast(com.baidu.tieba.y.shortcut_has_add);
-        } else {
-            this.a.a(this.b);
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cu cuVar;
+        cu cuVar2;
+        if (customResponsedMessage != null) {
+            cuVar = this.a.z;
+            if (cuVar != null) {
+                cuVar2 = this.a.z;
+                cuVar2.S();
+            }
         }
     }
 }

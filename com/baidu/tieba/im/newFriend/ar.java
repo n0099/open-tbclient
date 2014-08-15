@@ -1,25 +1,24 @@
 package com.baidu.tieba.im.newFriend;
 
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ aq b;
-    private final /* synthetic */ List c;
+public class ar implements com.baidu.tieba.im.a<List<com.baidu.tieba.im.data.k>> {
+    final /* synthetic */ NewFriendsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aq aqVar, List list) {
-        this.b = aqVar;
-        this.c = list;
+    public ar(NewFriendsActivity newFriendsActivity) {
+        this.a = newFriendsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        if (this.c != null && this.c.size() > 0) {
-            com.baidu.tieba.im.db.n.a().a(this.c);
-            return null;
-        }
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(List<com.baidu.tieba.im.data.k> list) {
+        av avVar;
+        av avVar2;
+        avVar = this.a.d;
+        avVar.c().a(list);
+        avVar2 = this.a.d;
+        avVar2.c().notifyDataSetChanged();
     }
 }

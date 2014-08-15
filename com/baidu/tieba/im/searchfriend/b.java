@@ -1,25 +1,37 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.searchfriend.cache.RequestRecommendWriteMessage;
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
+class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ SearchFriendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(SearchFriendActivity searchFriendActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(SearchFriendActivity searchFriendActivity, int i) {
+        super(i);
         this.a = searchFriendActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        SearchFriendActivity searchFriendActivity = this.a;
-        inputMethodManager = this.a.a;
-        editText = this.a.d;
-        searchFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        l lVar;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304106) {
+            if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponsedRecommendMessage)) {
+                String errorString = socketResponsedMessage.getErrorString();
+                if (!TextUtils.isEmpty(errorString)) {
+                    this.a.showToast(errorString, false);
+                    return;
+                }
+                return;
+            }
+            com.baidu.tieba.im.searchfriend.a.a recommendFriendInfo = ((ResponsedRecommendMessage) socketResponsedMessage).getRecommendFriendInfo();
+            lVar = this.a.d;
+            lVar.a(recommendFriendInfo);
+            this.a.sendMessage(new RequestRecommendWriteMessage(recommendFriendInfo));
+        }
     }
 }

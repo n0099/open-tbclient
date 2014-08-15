@@ -12,39 +12,36 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
     private IMBlackListActivity a;
-    private com.baidu.tbadk.editortool.aa b;
-    private ArrayList<com.baidu.tieba.im.data.a> c;
-    private View.OnClickListener d = new f(this);
+    private ArrayList<com.baidu.tieba.im.data.a> b;
+    private View.OnClickListener c = new f(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(IMBlackListActivity iMBlackListActivity) {
-        this.b = null;
         this.a = iMBlackListActivity;
-        this.b = new com.baidu.tbadk.editortool.aa(this.a);
     }
 
     public void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.c = arrayList;
+        this.b = arrayList;
     }
 
     public void a(com.baidu.tieba.im.data.a aVar) {
-        if (this.c != null) {
-            this.c.remove(aVar);
+        if (this.b != null) {
+            this.b.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.c != null) {
-            return this.c.size();
+        if (this.b != null) {
+            return this.b.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.c != null) {
-            return this.c.get(i);
+        if (this.b != null) {
+            return this.b.get(i);
         }
         return null;
     }
@@ -69,29 +66,22 @@ public class e extends BaseAdapter {
         return null;
     }
 
-    public com.baidu.tbadk.editortool.aa a() {
-        if (this.b == null) {
-            this.b = new com.baidu.tbadk.editortool.aa(this.a);
-        }
-        return this.b;
-    }
-
-    private g b() {
+    private g a() {
         g gVar = new g(this, null);
-        gVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_black_list_item, (ViewGroup) null);
-        gVar.b = (HeadImageView) gVar.a.findViewById(com.baidu.tieba.v.header_view);
+        gVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_black_list_item, (ViewGroup) null);
+        gVar.b = (HeadImageView) gVar.a.findViewById(com.baidu.tieba.u.header_view);
         gVar.b.setIsRound(true);
-        gVar.c = (TextView) gVar.a.findViewById(com.baidu.tieba.v.user_name);
-        gVar.d = (Button) gVar.a.findViewById(com.baidu.tieba.v.remove_button);
+        gVar.c = (TextView) gVar.a.findViewById(com.baidu.tieba.u.user_name);
+        gVar.d = (Button) gVar.a.findViewById(com.baidu.tieba.u.remove_button);
         gVar.a.setTag(gVar);
-        gVar.d.setOnClickListener(this.d);
+        gVar.d.setOnClickListener(this.c);
         return gVar;
     }
 
     private g a(Object obj, com.baidu.tieba.im.data.a aVar) {
         g gVar;
         if (obj == null) {
-            gVar = b();
+            gVar = a();
         } else {
             gVar = (g) obj;
         }
@@ -104,13 +94,8 @@ public class e extends BaseAdapter {
 
     private void a(g gVar, String str) {
         if (str != null) {
-            com.baidu.adp.widget.a.a c = this.b.c(str);
-            if (c != null) {
-                c.a(gVar.b);
-                return;
-            }
             gVar.b.setTag(str);
-            gVar.b.setImageBitmap(com.baidu.tbadk.core.util.h.a(com.baidu.tieba.u.photo));
+            gVar.b.a(str, 12, false);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.client.socket.coder;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.l;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -29,7 +28,7 @@ public class b {
     private b() {
     }
 
-    public byte[] a(SocketMessage socketMessage, int i, boolean z) {
+    public byte[] a(SocketMessage socketMessage, int i, boolean z, boolean z2) {
         if (socketMessage == null) {
             return null;
         }
@@ -38,11 +37,10 @@ public class b {
             if (encodeInBackGround != null && z) {
                 encodeInBackGround = b(encodeInBackGround, 0, encodeInBackGround.length);
             }
-            boolean b = d.a().b(socketMessage.getCmd());
-            if (encodeInBackGround != null && b) {
+            if (encodeInBackGround != null && z2) {
                 encodeInBackGround = r.a(d.a().c(), encodeInBackGround);
             }
-            return a.a(b, z, socketMessage.getCmd(), i, encodeInBackGround);
+            return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
         } catch (Exception e) {
             throw new CoderException(l.k);
         }
@@ -94,13 +92,19 @@ public class b {
         return cVar;
     }
 
-    public SocketResponsedMessage a(int i, byte[] bArr, SocketMessage socketMessage) {
+    public SocketResponsedMessage a(int i, byte[] bArr, SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketResponsedMessage newInstance;
         try {
-            SocketResponsedMessage newInstance = ((SocketMessageTask) MessageManager.getInstance().findTask(i)).c().newInstance();
+            Class<? extends SocketResponsedMessage> c = socketMessageTask.c();
+            try {
+                newInstance = c.getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e) {
+                newInstance = c.getConstructor(Integer.TYPE).newInstance(Integer.valueOf(i));
+            }
             newInstance.setOrginalMessage(socketMessage);
             newInstance.decodeInBackGround(i, bArr);
             return newInstance;
-        } catch (Exception e) {
+        } catch (Exception e2) {
             throw new CoderException(l.d);
         }
     }
@@ -113,8 +117,8 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+            com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
         }
     }
 
@@ -126,8 +130,8 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+            com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
         }
     }
 }

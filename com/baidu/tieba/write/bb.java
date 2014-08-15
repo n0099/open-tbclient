@@ -1,21 +1,23 @@
 package com.baidu.tieba.write;
-
-import java.util.Date;
 /* loaded from: classes.dex */
-class bb implements Runnable {
+class bb implements com.baidu.tieba.bubble.t {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ Date b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(WriteActivity writeActivity, Date date) {
+    public bb(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = date;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.view.e eVar;
-        eVar = this.a.ab;
-        eVar.updateTime(this.b.getHours(), this.b.getMinutes());
+    @Override // com.baidu.tieba.bubble.t
+    public void a() {
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
+        this.a.m = null;
+        this.a.a(false);
+        writeEditorToolButtonContainer = this.a.B;
+        if (writeEditorToolButtonContainer != null) {
+            writeEditorToolButtonContainer2 = this.a.B;
+            writeEditorToolButtonContainer2.r();
+        }
     }
 }

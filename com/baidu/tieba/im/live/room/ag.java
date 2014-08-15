@@ -1,14 +1,12 @@
 package com.baidu.tieba.im.live.room;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
-import com.baidu.tieba.im.chat.bw;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponseJoinLiveGroupMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
+import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 /* loaded from: classes.dex */
-class ag extends com.baidu.adp.framework.listener.b {
+class ag extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,115 +19,99 @@ class ag extends com.baidu.adp.framework.listener.b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        LiveRoomChatView z;
-        LiveRoomChatView z2;
-        LiveRoomChatView z3;
-        LiveRoomChatView z4;
-        LiveRoomChatView z5;
-        LiveRoomChatView z6;
-        LiveRoomChatView z7;
-        LiveRoomChatView z8;
-        LiveRoomChatView z9;
-        LiveRoomChatView z10;
-        boolean z11;
-        LiveRoomChatView z12;
-        LiveRoomChatView z13;
-        LiveRoomChatView z14;
-        this.a.hideProgressBar();
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107103 && (socketResponsedMessage instanceof ResponseJoinLiveGroupMessage)) {
-            ResponseJoinLiveGroupMessage responseJoinLiveGroupMessage = (ResponseJoinLiveGroupMessage) socketResponsedMessage;
-            if (responseJoinLiveGroupMessage.hasError()) {
-                if (TextUtils.isEmpty(responseJoinLiveGroupMessage.getErrorString())) {
-                    this.a.showToast(com.baidu.tieba.y.neterror, false);
-                } else {
-                    this.a.showToast(responseJoinLiveGroupMessage.getErrorString(), false);
-                }
-                this.a.finish();
-                return;
-            }
-            this.a.x().a(responseJoinLiveGroupMessage);
-            this.a.s = true;
-            this.a.a = this.a.x().o;
-            this.a.x().a(this.a);
-            if (this.a.x().b == null) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
-                return;
-            }
-            if (!com.baidu.tbadk.coreExtra.messageCenter.e.a().b(this.a.x().c().getGroupId())) {
-                ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                imMessageCenterPojo.setGid(String.valueOf(this.a.x().c().getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(bw.b(this.a.x().b.lastMsgId.longValue()));
-                imMessageCenterPojo.setCustomGroupType(3);
-                imMessageCenterPojo.setGroup_name(this.a.x().j);
-                imMessageCenterPojo.setIs_delete(0);
-                imMessageCenterPojo.setIs_hidden(1);
-                com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
-            }
-            z = this.a.z();
-            z.d(this.a.x().j);
-            z2 = this.a.z();
-            z2.d(this.a.x().r);
-            z3 = this.a.z();
-            z3.c(this.a.x().p);
-            z4 = this.a.z();
-            z4.g(this.a.x().b.background);
-            this.a.n = this.a.x().c.canForenoticeMsg.intValue() == 1;
-            z5 = this.a.z();
-            z5.f(this.a.x().l);
-            if (this.a.x().d != null) {
-                z14 = this.a.z();
-                z14.S().setUserCount(this.a.x().b.listeners.intValue());
-            }
-            if (this.a.x().b != null) {
-                z13 = this.a.z();
-                z13.S().setNoteText(this.a.x().b.intro);
-            }
-            z6 = this.a.z();
-            z6.a(this.a.x().d, this.a.x().i, this.a.x().g);
-            switch (this.a.x().n) {
-                case 0:
-                case 1:
-                case 2:
-                    z7 = this.a.z();
-                    z7.d(1);
-                    LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.JOINED);
-                    break;
-                case 3:
-                case 4:
-                    z10 = this.a.z();
-                    z10.d(3);
-                    String i = com.baidu.tieba.im.live.d.b().i();
-                    boolean isNull = StringUtils.isNull(i);
-                    if (com.baidu.tieba.im.live.d.b().g() == 0 || isNull || !i.equals(String.valueOf(this.a.x().c().getGroupId()))) {
-                        this.a.b(this.a.x().b.streamId, String.valueOf(this.a.x().b.groupId), String.valueOf(this.a.x().b.deviceId), this.a.x().b.playUrl, false);
-                        break;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LiveChatRoomEventData parseFromEventContent;
+        LiveRoomChatView x;
+        LiveRoomChatView x2;
+        LiveRoomChatView x3;
+        LiveRoomChatView x4;
+        LiveRoomChatView x5;
+        LiveRoomChatView x6;
+        LiveRoomChatView x7;
+        LiveRoomChatView x8;
+        LiveRoomChatView x9;
+        LiveRoomChatView x10;
+        LiveRoomChatView x11;
+        LiveRoomChatView x12;
+        LiveRoomChatView x13;
+        LiveRoomChatView x14;
+        LiveRoomChatView x15;
+        if (customResponsedMessage.getCmd() == 2001166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
+            String data = ((LiveChatRoomEventResponseMessage) customResponsedMessage).getData();
+            if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null) {
+                String str = parseFromEventContent.mEventId;
+                if (this.a.v().b != null && parseFromEventContent.mGroupId == this.a.v().b.groupId.intValue()) {
+                    if ("302".equals(parseFromEventContent.mEventId)) {
+                        if (parseFromEventContent.mListeners != this.a.v().h) {
+                            this.a.v().h = parseFromEventContent.mListeners;
+                            x15 = this.a.x();
+                            x15.S().setUserCount(this.a.v().h);
+                        }
+                        this.a.v().i = parseFromEventContent.mLikers;
+                        this.a.v().d = parseFromEventContent.mLikeUserList;
+                        x14 = this.a.x();
+                        x14.a(this.a.v().d, this.a.v().i, this.a.v().g);
+                    } else if ("306".equals(parseFromEventContent.mEventId)) {
+                        if (!TextUtils.isEmpty(parseFromEventContent.mPortrait) && !parseFromEventContent.mPortrait.equals(this.a.v().m)) {
+                            this.a.v().m = parseFromEventContent.mPortrait;
+                            x13 = this.a.x();
+                            x13.g(this.a.v().m);
+                        }
+                        if (!TextUtils.isEmpty(parseFromEventContent.mName) && !parseFromEventContent.mName.equals(this.a.v().j)) {
+                            this.a.v().j = parseFromEventContent.mName;
+                            x12 = this.a.x();
+                            x12.d(this.a.v().j);
+                            if (!LiveRoomChatActivity.b) {
+                                this.a.b(com.baidu.tieba.x.live_room_notify);
+                            }
+                        }
+                        if (!TextUtils.isEmpty(parseFromEventContent.mIntro) && !parseFromEventContent.mIntro.equals(this.a.v().k)) {
+                            this.a.v().k = parseFromEventContent.mIntro;
+                            x11 = this.a.x();
+                            x11.S().setNoteText(this.a.v().k);
+                        }
+                    } else if ("310".equals(parseFromEventContent.mEventId)) {
+                        if (this.a.v().b != null && this.a.v().b.groupId.intValue() == parseFromEventContent.mGroupId && !this.a.v().r) {
+                            com.baidu.tieba.im.live.d.b().s();
+                            this.a.showToast(com.baidu.tieba.x.live_group_is_dismiss, false);
+                            x10 = this.a.x();
+                            x10.d(6);
+                            this.a.finish();
+                        }
+                    } else if ("307".equals(parseFromEventContent.mEventId)) {
+                        if (this.a.v().r || this.a.v().b == null) {
+                            return;
+                        }
+                        this.a.b(this.a.v().b.streamId, String.valueOf(this.a.v().b.groupId), String.valueOf(this.a.v().b.deviceId), this.a.v().b.playUrl, true);
+                        x9 = this.a.x();
+                        x9.d(3);
+                    } else if ("308".equals(parseFromEventContent.mEventId)) {
+                        x7 = this.a.x();
+                        if (x7.U() != 5 && !this.a.v().r && this.a.v().b != null) {
+                            x8 = this.a.x();
+                            x8.d(5);
+                        }
+                    } else if ("318".equals(parseFromEventContent.mEventId)) {
+                        x5 = this.a.x();
+                        if (x5.U() != 3 && !this.a.v().r && this.a.v().b != null) {
+                            x6 = this.a.x();
+                            x6.d(3);
+                        }
+                    } else if ("309".equals(parseFromEventContent.mEventId)) {
+                        x3 = this.a.x();
+                        if (x3.U() != 6) {
+                            com.baidu.tieba.im.live.d.b().s();
+                            x4 = this.a.x();
+                            x4.d(6);
+                        }
+                    } else if ("304".equals(parseFromEventContent.mEventId)) {
+                        x = this.a.x();
+                        if (x.U() != 1 && !this.a.v().r) {
+                            x2 = this.a.x();
+                            x2.d(1);
+                        }
                     }
-                case 5:
-                    z8 = this.a.z();
-                    z8.d(5);
-                    this.a.y();
-                    LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.PAUSE);
-                    break;
-                case 6:
-                    z9 = this.a.z();
-                    z9.d(6);
-                    com.baidu.tieba.im.live.d.b().s();
-                    LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
-                    break;
-                default:
-                    LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.JOINED);
-                    break;
-            }
-            if (this.a.x().q) {
-                z12 = this.a.z();
-                z12.W();
-            }
-            z11 = this.a.s;
-            if (z11) {
-                com.baidu.tbadk.core.util.bb.a(this.a, 20);
+                }
             }
         }
     }

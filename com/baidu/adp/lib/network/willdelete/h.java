@@ -4,6 +4,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.telephony.TelephonyManager;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,16 +32,22 @@ public class h {
     }
 
     public static boolean b() {
-        NetworkInfo[] allNetworkInfo = ((ConnectivityManager) e.a().b().getSystemService("connectivity")).getAllNetworkInfo();
-        if (allNetworkInfo != null) {
-            for (int i = 0; i < allNetworkInfo.length; i++) {
-                if (allNetworkInfo[i].isConnected() && allNetworkInfo[i].isAvailable()) {
-                    return true;
+        try {
+            NetworkInfo[] allNetworkInfo = ((ConnectivityManager) e.a().b().getSystemService("connectivity")).getAllNetworkInfo();
+            if (allNetworkInfo != null) {
+                boolean z = false;
+                for (int i = 0; i < allNetworkInfo.length; i++) {
+                    if (allNetworkInfo[i].isConnected() && allNetworkInfo[i].isAvailable()) {
+                        z = true;
+                    }
                 }
+                return z;
             }
             return false;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return true;
         }
-        return false;
     }
 
     public static boolean b(String str) {
@@ -107,7 +114,7 @@ public class h {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [233=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
     public static boolean a(String str, long j, byte[] bArr, int i, int i2) {
         RandomAccessFile randomAccessFile;
         if (str == null || bArr == null || bArr.length <= 0) {
@@ -121,23 +128,23 @@ public class h {
                     try {
                         randomAccessFile.seek(j);
                         randomAccessFile.write(bArr, i, i2);
-                        com.baidu.adp.lib.f.a.a(randomAccessFile);
+                        com.baidu.adp.lib.e.a.a(randomAccessFile);
                     } catch (FileNotFoundException e) {
                         e = e;
                         e.printStackTrace();
-                        com.baidu.adp.lib.f.a.a(randomAccessFile);
+                        com.baidu.adp.lib.e.a.a(randomAccessFile);
                         return true;
                     } catch (IOException e2) {
                         e = e2;
                         randomAccessFile2 = randomAccessFile;
                         e.printStackTrace();
-                        com.baidu.adp.lib.f.a.a(randomAccessFile2);
+                        com.baidu.adp.lib.e.a.a(randomAccessFile2);
                         return true;
                     }
                 } catch (Throwable th) {
                     th = th;
                     randomAccessFile2 = randomAccessFile;
-                    com.baidu.adp.lib.f.a.a(randomAccessFile2);
+                    com.baidu.adp.lib.e.a.a(randomAccessFile2);
                     throw th;
                 }
             } catch (FileNotFoundException e3) {

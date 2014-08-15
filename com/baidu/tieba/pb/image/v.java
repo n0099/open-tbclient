@@ -5,10 +5,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.bu;
+import com.baidu.tbadk.core.atomData.ay;
+import com.baidu.tbadk.core.atomData.cd;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.util.AntiHelper;
@@ -18,7 +17,7 @@ import org.json.JSONObject;
 public class v extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
     private WriteData b;
-    private aq c = null;
+    private com.baidu.tbadk.core.util.ae c = null;
     private boolean d = false;
 
     public v(ImagePbActivity imagePbActivity, WriteData writeData) {
@@ -35,7 +34,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
+        this.c = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -52,45 +51,47 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (ai.c().z() < 3) {
+        if (ai.c().y() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
         this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
         this.c.a().a().a = true;
-        return this.c.i();
+        return this.c.h();
     }
 
     private void a(AntiData antiData, String str) {
-        if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
-            antiData.setBlock_forum_name(this.b.getForumName());
-            antiData.setBlock_forum_id(this.b.getForumId());
-            antiData.setUser_id(TbadkApplication.getCurrentAccount());
-            antiData.setUser_name(TbadkApplication.getCurrentAccountName());
-            AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
-            return;
+        if (antiData != null) {
+            if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
+                antiData.setBlock_forum_name(this.b.getForumName());
+                antiData.setBlock_forum_id(this.b.getForumId());
+                antiData.setUser_id(TbadkApplication.getCurrentAccount());
+                antiData.setUser_name(TbadkApplication.getCurrentAccountName());
+                AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
+                return;
+            }
+            this.a.showToast(str);
         }
-        this.a.showToast(str);
     }
 
     private void a(int i, String str, String str2, AntiData antiData) {
         if (i == 5 || i == 6) {
-            com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-            fVar.a(str2);
+            com.baidu.tbadk.coreExtra.data.e eVar = new com.baidu.tbadk.coreExtra.data.e();
+            eVar.a(str2);
             if (AntiHelper.c(antiData)) {
                 a(antiData, str);
                 return;
-            } else if (fVar.b() != null) {
-                this.b.setVcodeMD5(fVar.a());
-                this.b.setVcodeUrl(fVar.b());
-                if (fVar.c().equals("4")) {
+            } else if (eVar.b() != null) {
+                this.b.setVcodeMD5(eVar.a());
+                this.b.setVcodeUrl(eVar.b());
+                if (eVar.c().equals("4")) {
                     if (this.b != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new at(this.a, 12006, this.b, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ay(this.a, 12006, this.b, false)));
                         return;
                     }
                     return;
                 } else if (this.b != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bu(this.a, this.b, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cd(this.a, this.b, 12006)));
                     return;
                 } else {
                     return;
@@ -123,7 +124,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
                 antiData = null;
             }
             if (!this.c.a().b().b()) {
-                a(this.c.d(), this.c.f(), str, antiData);
+                a(this.c.c(), this.c.e(), str, antiData);
             } else {
                 this.a.h();
             }
@@ -136,7 +137,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         this.a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
-            this.c.g();
+            this.c.f();
         }
         super.cancel(true);
     }

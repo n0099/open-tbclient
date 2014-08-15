@@ -1,5 +1,28 @@
 package com.baidu.tieba.pb.main;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public interface cv {
-    void a(com.baidu.tieba.data.at atVar);
+public class cv implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
+        }
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] b = bk.a().b(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(2004003, b);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
+        }
+    }
 }

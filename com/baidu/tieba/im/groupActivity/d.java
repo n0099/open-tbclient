@@ -6,10 +6,12 @@ import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
     RequestCreateGroupActivityMessage a;
-    private GroupActivityData b = new GroupActivityData();
+    private GroupActivityData b;
     private BaseFragmentActivity c;
 
     public d(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity);
+        this.b = new GroupActivityData();
         this.c = baseFragmentActivity;
     }
 

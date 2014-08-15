@@ -22,12 +22,12 @@ public class ag implements AdapterView.OnItemClickListener {
         akVar = this.a.a;
         Object item = akVar.e().getItem(i);
         if (item instanceof com.baidu.tieba.im.data.g) {
-            this.a.d = ((com.baidu.tieba.im.data.g) item).c();
-            str = this.a.d;
+            this.a.c = ((com.baidu.tieba.im.data.g) item).c();
+            str = this.a.c;
             if (str != null) {
                 int r = com.baidu.tieba.im.live.d.b().r();
                 if (r == 1 || r == 2) {
-                    new AlertDialog.Builder(this.a).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.live_replay_interrupt_other_notice).setPositiveButton(com.baidu.tieba.y.live_replay_interrupt_other_notice_yes, new ah(this)).setNegativeButton(com.baidu.tieba.y.live_replay_interrupt_other_notice_no, (DialogInterface.OnClickListener) null).create().show();
+                    new AlertDialog.Builder(this.a).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.live_replay_interrupt_other_notice).setPositiveButton(com.baidu.tieba.x.live_replay_interrupt_other_notice_yes, new ah(this)).setNegativeButton(com.baidu.tieba.x.live_replay_interrupt_other_notice_no, (DialogInterface.OnClickListener) null).create().show();
                 } else {
                     this.a.g();
                 }

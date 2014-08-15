@@ -3,9 +3,9 @@ package com.baidu.tieba.bubble;
 import android.text.TextUtils;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class b implements com.baidu.tieba.model.h {
+class b implements com.baidu.tieba.model.i {
     final /* synthetic */ BubbleChooseActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +13,15 @@ class b implements com.baidu.tieba.model.h {
         this.a = bubbleChooseActivity;
     }
 
-    @Override // com.baidu.tieba.model.h
+    @Override // com.baidu.tieba.model.i
     public void a(SetBubbleResultData setBubbleResultData) {
         g gVar;
-        com.baidu.tieba.model.d dVar;
+        com.baidu.tieba.model.e eVar;
         g gVar2;
         gVar = this.a.b;
         gVar.e();
-        dVar = this.a.c;
-        int a = dVar.a();
+        eVar = this.a.c;
+        int a = eVar.a();
         gVar2 = this.a.b;
         f a2 = gVar2.a();
         if (a == 0) {
@@ -43,11 +43,11 @@ class b implements com.baidu.tieba.model.h {
             a2.a(false);
             a2.notifyDataSetChanged();
         } else {
-            this.a.showToast(y.bubble_setdefualt_error);
+            this.a.showToast(x.bubble_setdefualt_error);
         }
     }
 
-    @Override // com.baidu.tieba.model.h
+    @Override // com.baidu.tieba.model.i
     public void b(SetBubbleResultData setBubbleResultData) {
         g gVar;
         gVar = this.a.b;
@@ -58,13 +58,13 @@ class b implements com.baidu.tieba.model.h {
                     this.a.showToast(setBubbleResultData.getError_msg());
                     return;
                 } else {
-                    this.a.showToast(y.neterror);
+                    this.a.showToast(x.neterror);
                     return;
                 }
             }
-            this.a.showToast(y.neterror);
+            this.a.showToast(x.neterror);
             return;
         }
-        this.a.showToast(y.neterror);
+        this.a.showToast(x.neterror);
     }
 }

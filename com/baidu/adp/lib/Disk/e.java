@@ -19,7 +19,7 @@ public class e extends Handler {
         AtomicInteger atomicInteger;
         switch (message.what) {
             case 1:
-                atomicInteger = this.a.f;
+                atomicInteger = this.a.g;
                 atomicInteger.decrementAndGet();
                 if (message.obj == null || !(message.obj instanceof DiskFileOperate)) {
                     return;

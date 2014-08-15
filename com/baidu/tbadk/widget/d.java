@@ -37,7 +37,7 @@ public class d extends Animation {
         this.h = Math.abs((f * 1000.0f) / 2500.0f);
         this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
         setDuration(Math.max(this.h, this.i));
-        interpolator = this.a.N;
+        interpolator = this.a.O;
         setInterpolator(interpolator);
         this.f = this.a.getScrollX();
         this.g = this.a.getScrollY();

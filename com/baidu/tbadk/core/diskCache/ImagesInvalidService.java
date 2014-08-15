@@ -28,12 +28,12 @@ public class ImagesInvalidService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void startService() {
-        com.baidu.adp.lib.f.c.a(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
+        com.baidu.adp.lib.e.c.a(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void stopService() {
-        com.baidu.adp.lib.f.c.b(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
+        com.baidu.adp.lib.e.c.b(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
     }
 
     @Override // android.app.Service

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 public class d extends a {
     private final boolean a = false;
@@ -14,12 +14,12 @@ public class d extends a {
         this.d = 0;
         this.e = 0;
         if (z) {
-            this.d = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(t.frs_starheader_photo_width);
+            this.d = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(s.frs_starheader_photo_width);
             this.e = this.d;
             return;
         }
-        this.d = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_width);
-        this.e = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_height);
+        this.d = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(s.frs_header_photo_width);
+        this.e = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(s.frs_header_photo_height);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.h

@@ -2,6 +2,7 @@ package com.baidu.tieba.im.live.livelist;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.al;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,12 +30,12 @@ public class x implements com.baidu.tbadk.coreExtra.view.ad {
                 if (hotLiveListActivity2.g().c() == 2) {
                     MessageManager messageManager = MessageManager.getInstance();
                     hotLiveListActivity4 = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.af(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
+                    messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
                     return;
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
                 hotLiveListActivity3 = this.a.a;
-                messageManager2.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(hotLiveListActivity3, liveCardData.getGroupId())));
+                messageManager2.sendMessage(new CustomMessage(2002001, new al(hotLiveListActivity3, liveCardData.getGroupId())));
             }
         }
     }

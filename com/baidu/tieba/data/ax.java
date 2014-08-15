@@ -4,49 +4,31 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ax {
-    private String a = null;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
-    private int c = 0;
+    private int a = 0;
+    private String b = null;
 
     public int a() {
-        return this.d;
-    }
-
-    public int b() {
-        return this.e;
-    }
-
-    public String c() {
         return this.a;
     }
 
-    public int d() {
+    public String b() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int e() {
-        return this.c;
-    }
-
-    public void b(int i) {
-        this.c = i;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("id");
-                this.d = jSONObject.optInt("width", 0);
-                this.e = jSONObject.optInt("height", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+        try {
+            this.a = jSONObject.optInt("errno");
+            this.b = jSONObject.optString("usermsg");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

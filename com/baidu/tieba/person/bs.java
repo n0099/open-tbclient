@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import android.app.AlertDialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -13,6 +14,8 @@ public class bs implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.f();
+        AlertDialog alertDialog;
+        alertDialog = this.a.c;
+        alertDialog.show();
     }
 }

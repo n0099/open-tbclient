@@ -1,40 +1,29 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tieba.im.model.bi;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-class at implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ OfficialBarTipActivity a;
+class at implements DialogInterface.OnClickListener {
+    final /* synthetic */ as a;
+    private final /* synthetic */ ImMessageCenterShowItemData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = officialBarTipActivity;
+    public at(as asVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.a = asVar;
+        this.b = imMessageCenterShowItemData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
-        bb bbVar;
-        bi biVar;
-        bb bbVar2;
-        bi biVar2;
-        bi biVar3;
-        this.a.closeLoadingDialog();
-        bbVar = this.a.c;
-        if (bbVar.b() != null) {
-            biVar = this.a.b;
-            if (biVar != null) {
-                bbVar2 = this.a.c;
-                az b = bbVar2.b();
-                biVar2 = this.a.b;
-                b.a(biVar2.a());
-                this.a.d();
-                biVar3 = this.a.b;
-                if (biVar3.a().size() == 0) {
-                    this.a.a(true);
-                } else {
-                    this.a.a(false);
-                }
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        OfficialBarTipActivity officialBarTipActivity;
+        com.baidu.tieba.im.model.ar arVar;
+        OfficialBarTipActivity officialBarTipActivity2;
+        com.baidu.tieba.im.chat.notify.a aVar;
+        officialBarTipActivity = this.a.a;
+        arVar = officialBarTipActivity.b;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.b;
+        officialBarTipActivity2 = this.a.a;
+        aVar = officialBarTipActivity2.e;
+        arVar.a(imMessageCenterShowItemData, aVar);
     }
 }

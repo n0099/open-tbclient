@@ -26,7 +26,7 @@ class e implements com.baidu.tbadk.img.d {
         if (imageUploadResult != null) {
             if (imageUploadResult.error_code != 0) {
                 editHeadActivity5 = this.a.a;
-                editHeadActivity5.showToast(com.baidu.tieba.y.upload_pic_error, false);
+                editHeadActivity5.showToast(com.baidu.tieba.x.upload_pic_error, false);
             } else {
                 PhotoUrlData photoUrlData = new PhotoUrlData();
                 photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));

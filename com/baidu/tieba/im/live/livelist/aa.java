@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.ResponseHotLiveListMessage;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.adp.framework.listener.b {
+public class aa extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,7 +42,7 @@ public class aa extends com.baidu.adp.framework.listener.b {
         ad adVar;
         this.a.l();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseHotLiveListMessage)) {
-            this.a.a(com.baidu.tieba.y.neterror);
+            this.a.a(com.baidu.tieba.x.neterror);
             return;
         }
         ResponseHotLiveListMessage responseHotLiveListMessage = (ResponseHotLiveListMessage) socketResponsedMessage;
@@ -62,7 +62,7 @@ public class aa extends com.baidu.adp.framework.listener.b {
                 this.a.b(responseHotLiveListMessage.getErrorString());
                 return;
             } else {
-                this.a.a(com.baidu.tieba.y.neterror);
+                this.a.a(com.baidu.tieba.x.neterror);
                 return;
             }
         }

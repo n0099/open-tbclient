@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.message;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
@@ -40,8 +41,8 @@ public class SocketMessage extends Message<byte[]> {
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
 
-    public SocketMessage(int i, int i2) {
-        super(i, i2);
+    public SocketMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         this.mData = null;
         this.mEncodeName = null;
         this.mStartSendTime = 0L;

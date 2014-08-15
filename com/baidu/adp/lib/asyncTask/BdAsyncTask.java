@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.asyncTask;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
@@ -87,13 +88,15 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         return this.mTag;
     }
 
-    public int setTag(int i) {
+    public int setTag(BdUniqueId bdUniqueId) {
         if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        int i2 = this.mTag;
-        this.mTag = i;
-        return i2;
+        int i = this.mTag;
+        if (bdUniqueId != null) {
+            this.mTag = bdUniqueId.getId();
+        }
+        return i;
     }
 
     public String getKey() {
@@ -117,9 +120,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        if (bdAsyncTaskParallel != null) {
-            this.mParallel = bdAsyncTaskParallel;
-        }
+        this.mParallel = bdAsyncTaskParallel;
     }
 
     public boolean isSelfExecute() {
@@ -245,28 +246,28 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         this.mStatus = BdAsyncTaskStatus.FINISHED;
     }
 
-    public static void removeAllTask(int i) {
-        sDefaultExecutor.a(i);
+    public static void removeAllTask(BdUniqueId bdUniqueId) {
+        sDefaultExecutor.a(bdUniqueId);
     }
 
-    public static void removeAllTask(int i, String str) {
-        sDefaultExecutor.a(i, str);
+    public static void removeAllTask(BdUniqueId bdUniqueId, String str) {
+        sDefaultExecutor.a(bdUniqueId, str);
     }
 
-    public static void removeAllWaitingTask(int i) {
-        sDefaultExecutor.b(i);
+    public static void removeAllWaitingTask(BdUniqueId bdUniqueId) {
+        sDefaultExecutor.b(bdUniqueId);
     }
 
-    public static void removeAllWaitingTask(int i, String str) {
-        sDefaultExecutor.b(i, str);
+    public static void removeAllWaitingTask(BdUniqueId bdUniqueId, String str) {
+        sDefaultExecutor.b(bdUniqueId, str);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
-        return sDefaultExecutor.c(i);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(BdUniqueId bdUniqueId) {
+        return sDefaultExecutor.c(bdUniqueId);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i, String str) {
-        return sDefaultExecutor.c(i, str);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(BdUniqueId bdUniqueId, String str) {
+        return sDefaultExecutor.c(bdUniqueId, str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchTask(String str) {
@@ -277,19 +278,19 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         return sDefaultExecutor.b(str);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(int i) {
-        return sDefaultExecutor.d(i);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(BdUniqueId bdUniqueId) {
+        return sDefaultExecutor.d(bdUniqueId);
     }
 
     public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
         return sDefaultExecutor.c(str);
     }
 
-    public static int getTaskNum(int i) {
-        return getTaskNum(null, i);
+    public static int getTaskNum(BdUniqueId bdUniqueId) {
+        return getTaskNum(null, bdUniqueId);
     }
 
-    public static int getTaskNum(String str, int i) {
-        return sDefaultExecutor.a(str, i);
+    public static int getTaskNum(String str, BdUniqueId bdUniqueId) {
+        return sDefaultExecutor.a(str, bdUniqueId);
     }
 }

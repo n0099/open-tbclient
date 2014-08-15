@@ -6,10 +6,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.resourceLoader.h;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.httpNet.i;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.httpNet.k;
+import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.core.voice.ae;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class c implements h<a> {
     @Override // com.baidu.adp.lib.resourceLoader.h
@@ -52,18 +52,18 @@ public class c implements h<a> {
             str4 = String.valueOf(objArr[0]);
         }
         a aVar2 = new a();
-        i iVar = new i();
+        k kVar = new k();
         if (aVar != null) {
-            aVar.a = iVar;
+            aVar.a = kVar;
         }
-        byte[] a = iVar.a(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!iVar.b()) {
+        byte[] a = kVar.a(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!kVar.b()) {
             aVar2.c = 3;
-            aVar2.d = ae.a(y.neterror);
+            aVar2.d = ae.a(x.neterror);
             return aVar2;
         } else if (a == null || a.length == 0) {
             aVar2.c = 4;
-            aVar2.d = ae.a(y.voice_cache_error_no_file);
+            aVar2.d = ae.a(x.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
@@ -85,7 +85,7 @@ public class c implements h<a> {
                 if (diskFileOperate.g() && diskFileOperate.n() != null) {
                     str5 = diskFileOperate.n().getAbsolutePath();
                     i3 = 0;
-                } else if (z.e() < a.length) {
+                } else if (s.e() < a.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

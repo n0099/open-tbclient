@@ -7,6 +7,7 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
     private long id;
     private String name;
     private String portrait;
+    private String st_type;
 
     public long getId() {
         return this.id;
@@ -40,11 +41,20 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
         this.content = str;
     }
 
-    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3) {
+    public String getSt_type() {
+        return this.st_type;
+    }
+
+    public void setSt_type(String str) {
+        this.st_type = str;
+    }
+
+    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
         super(2001173);
         this.id = j;
         this.name = str;
         this.portrait = str2;
         this.content = str3;
+        this.st_type = str4;
     }
 }

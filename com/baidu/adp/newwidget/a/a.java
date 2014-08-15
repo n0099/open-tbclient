@@ -26,14 +26,14 @@ public abstract class a {
     private PointF n = new PointF();
     protected RectF h = new RectF();
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(Canvas canvas, ImageView imageView);
+
     public abstract void a(d dVar, ImageView imageView);
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void b(Canvas canvas, ImageView imageView);
 
     public abstract void b(Canvas canvas, d dVar, ImageView imageView);
-
-    public abstract void c(Canvas canvas, ImageView imageView);
 
     public a() {
         this.b.setStyle(Paint.Style.STROKE);
@@ -116,25 +116,28 @@ public abstract class a {
             this.g.i.setBounds(0, 0, this.g.i.getIntrinsicWidth(), this.g.i.getIntrinsicHeight());
             this.g.i.draw(canvas);
         }
-        c(canvas, imageView);
+        b(canvas, imageView);
         canvas.restoreToCount(save);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Canvas canvas, ImageView imageView) {
-        Drawable background = imageView.getBackground();
-        if (background != null) {
+    public void a(Canvas canvas, ImageView imageView, Drawable drawable) {
+        if (drawable != null) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
-            background.setBounds(0, 0, imageView.getWidth(), imageView.getHeight());
+            drawable.setBounds(0, 0, imageView.getWidth(), imageView.getHeight());
             if ((scrollX | scrollY) == 0) {
-                background.draw(canvas);
+                a(canvas, drawable);
                 return;
             }
             canvas.translate(scrollX, scrollY);
-            background.draw(canvas);
+            a(canvas, drawable);
             canvas.translate(-scrollX, -scrollY);
         }
+    }
+
+    protected void a(Canvas canvas, Drawable drawable) {
+        drawable.draw(canvas);
     }
 
     public void a(e eVar) {

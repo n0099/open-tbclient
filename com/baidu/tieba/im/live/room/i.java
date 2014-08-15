@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.RequestLiveGroupOwnerGagMessage;
 import com.baidu.tieba.im.message.ResponseLiveGroupOwnerGagMessage;
 /* loaded from: classes.dex */
-class i extends com.baidu.adp.framework.listener.b {
+class i extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +22,7 @@ class i extends com.baidu.adp.framework.listener.b {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         this.a.hideProgressBar();
         if (!(socketResponsedMessage instanceof ResponseLiveGroupOwnerGagMessage)) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
             return;
         }
         ResponseLiveGroupOwnerGagMessage responseLiveGroupOwnerGagMessage = (ResponseLiveGroupOwnerGagMessage) socketResponsedMessage;
@@ -31,7 +31,7 @@ class i extends com.baidu.adp.framework.listener.b {
                 this.a.showToast(responseLiveGroupOwnerGagMessage.getErrorString());
                 return;
             } else {
-                this.a.showToast(com.baidu.tieba.y.neterror);
+                this.a.showToast(com.baidu.tieba.x.neterror);
                 return;
             }
         }
@@ -41,9 +41,9 @@ class i extends com.baidu.adp.framework.listener.b {
             if (requestLiveGroupOwnerGagMessage.getType() == 1) {
                 String userNames = requestLiveGroupOwnerGagMessage.getUserNames();
                 if (!TextUtils.isEmpty(userNames)) {
-                    this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.y.live_chat_room_mute_success));
+                    this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.x.live_chat_room_mute_success));
                 } else {
-                    this.a.showToast(com.baidu.tieba.y.live_chat_room_mute_success);
+                    this.a.showToast(com.baidu.tieba.x.live_chat_room_mute_success);
                 }
             }
         }

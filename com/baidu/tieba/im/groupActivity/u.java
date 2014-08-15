@@ -1,22 +1,31 @@
 package com.baidu.tieba.im.groupActivity;
 
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ s a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(s sVar) {
-        this.a = sVar;
+class u extends Handler {
+    private u() {
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (aVar != null) {
-            headImageView = this.a.b;
-            aVar.a(headImageView);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ u(u uVar) {
+        this();
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                if (s.e() != null) {
+                    s.e().setVisibility(8);
+                    s.a((TextView) null);
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 }

@@ -1,0 +1,42 @@
+package com.baidu.tbadk.core.frameworkData;
+/* loaded from: classes.dex */
+public class CmdConfigHttp {
+    public static final int BG_LOGIN_HTTP_CMD = 1001101;
+    public static final int BUYPROPS_CMD = 1001504;
+    public static final int CDN_IPLIST_CMD = 1002100;
+    public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int COMMON_PRAISE_Y_OR_N = 1001600;
+    public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
+    public static final int FG_LOGIN_HTTP_CMD = 1001102;
+    public static final int FLOOR_HTTP_CMD = 1001502;
+    private static final int FRS_BASE_CMD = 1001700;
+    public static final int FRS_HTTP_CMD = 1001703;
+    public static final int FRS_LIST = 1001700;
+    public static final int FRS_WATER_FALL_LIST_HTTP_CMD = 1001701;
+    public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
+    public static final int GETPAYINFO_CMD = 1001505;
+    public static final int GET_LOCATION_PRI_CMD = 1001507;
+    public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1001520;
+    private static final int LOGIN_HTTP_BASE_CMD = 1001100;
+    public static final int MEMBER_PAY_CMD = 1001532;
+    public static final int MEMBER_PRIVILEGE_CMD = 1001531;
+    public static final int PB_HTTP_CMD = 1001800;
+    public static final int PB_PAGE_HTTP_CMD = 1001801;
+    public static final int PIC_BASE_CMD = 1002000;
+    public static final int PIC_DEL_LIKE_BAR_CMD = 1002002;
+    public static final int PIC_FRIEND_CMD = 1002000;
+    public static final int PIC_LIKE_BAR_CMD = 1002001;
+    public static final int PIC_PERSONAL_LIST = 1002003;
+    public static final int PRAISE_LIST_HTTP_CMD = 1001400;
+    public static final int RECOMMOEND_FRIEND_CMD = 1001900;
+    public static final int REPLYME_HTTP_CMD = 1002200;
+    public static final int REPORT_USER_INFO = 1001522;
+    public static final int REQUEST_BUBBLELIST_CMD = 1001500;
+    public static final int SEARCH_FRIEND_CMD = 1001521;
+    public static final int SET_BUBBLE_CMD = 1001501;
+    public static final int SET_PRIVATE_CMD = 1001506;
+    public static final int SIGNALL_GET_FOURMS = 1001201;
+    private static final int SIGNALL_HTTP_BASE_CMD = 1001200;
+    public static final int SubPb_HTTP_CMD = 1002100;
+    public static final int USER_POST_HTTP_CMD = 1001503;
+}

@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.util.bk;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
+import com.baidu.tieba.im.data.GroupPermData;
+import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
-class n extends HttpMessageListener {
+class n extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ PersonGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,28 +16,31 @@ class n extends HttpMessageListener {
         this.a = personGroupActivity;
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=4] */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        int[] iArr;
-        ImageView imageView;
-        int[] iArr2;
-        int[] iArr3;
-        if (httpResponsedMessage.isSuccess()) {
-            if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonGroupActivity.r;
-                com.baidu.tbadk.core.account.o.a(3, iArr[this.a.c]);
-                imageView = this.a.l;
-                iArr2 = PersonGroupActivity.p;
-                bk.c(imageView, iArr2[this.a.c]);
-                PersonGroupActivity personGroupActivity = this.a;
-                PersonGroupActivity personGroupActivity2 = this.a;
-                iArr3 = PersonGroupActivity.q;
-                personGroupActivity.a(personGroupActivity2.getString(iArr3[this.a.c]), com.baidu.tieba.u.icon_toast_info);
-                return;
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103008 && (socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
+            try {
+                ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
+                if (responseUserPermissionMessage.getError() > 0) {
+                    this.a.a(responseUserPermissionMessage.getErrorString());
+                    return;
+                }
+                GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
+                if (groupPermData != null) {
+                    if (groupPermData.isCreatePersonal()) {
+                        CreateGroupStepActivity.a(this.a, 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                        this.a.finish();
+                    } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
+                        this.a.a(groupPermData.getCreatePersonalTip());
+                    }
+                }
+            } catch (Exception e) {
+            } finally {
+                this.a.e();
             }
-            this.a.a(httpResponsedMessage.getErrorString());
         }
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.bx;
-import com.baidu.tbadk.core.util.bz;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ UserIconBox a;
+public class r implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(UserIconBox userIconBox) {
-        this.a = userIconBox;
+    public r(TbCheckBox tbCheckBox) {
+        this.a = tbCheckBox;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str != null) {
-            bx.a((ViewGroup) this.a, false, (bz) new s(this, str));
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean d;
+        TbCheckBox tbCheckBox = this.a;
+        d = this.a.d();
+        tbCheckBox.setChecked(!d);
     }
 }

@@ -1,25 +1,46 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ UserPhotoLayout a;
-    private final int b;
-
-    private y(UserPhotoLayout userPhotoLayout, int i) {
-        this.a = userPhotoLayout;
-        this.b = i;
-    }
+public class y implements com.baidu.adp.lib.d.c<TbImageView> {
+    private final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ y(UserPhotoLayout userPhotoLayout, int i, y yVar) {
-        this(userPhotoLayout, i);
+    public y(Context context) {
+        this.a = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (UserPhotoLayout.a(this.a) != null) {
-            UserPhotoLayout.a(this.a).a(this.b);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public TbImageView a() {
+        return new TbImageView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView b(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView c(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

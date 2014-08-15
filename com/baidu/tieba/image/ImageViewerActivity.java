@@ -17,18 +17,18 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.data.e {
+public class ImageViewerActivity extends BaseActivity {
     private FrameLayout D;
     private String E;
     private ProgressBar a = null;
@@ -72,10 +72,10 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(w.image_activity_2);
+        setContentView(v.image_activity_2);
         a(bundle);
-        e();
-        d();
+        b();
+        a();
         if (!this.B) {
             String a = a(this.E);
             if (a == null) {
@@ -88,33 +88,18 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.data.e
-    public String a() {
-        return this.x;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.data.e
-    public String b() {
-        return this.y;
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(bk.d(i));
+            this.m.setBackgroundColor(ay.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
         this.l.c(i);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.data.e
-    public String c() {
-        return this.z;
-    }
-
-    private void d() {
+    private void a() {
         if (this.B) {
             this.t = new j(this, null);
             IntentFilter intentFilter = new IntentFilter();
@@ -144,7 +129,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     public void onDestroy() {
         TbadkApplication.m252getInst().delRemoteActivity(this);
         a(this.d, this.d);
-        h();
+        e();
         this.m.c();
         if (this.h != null) {
             this.h.cancel();
@@ -171,33 +156,33 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void e() {
+    private void b() {
         this.n = new f(this);
         this.p = new h(this);
         this.o = new i(this);
-        this.l = (NavigationBar) findViewById(v.navigation_bar);
-        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.image_activity_save_button, this.n);
+        this.l = (NavigationBar) findViewById(u.navigation_bar);
+        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.a = (ProgressBar) findViewById(v.progress);
-        this.i = (TextView) findViewById(v.save);
+        this.a = (ProgressBar) findViewById(u.progress);
+        this.i = (TextView) findViewById(u.save);
         this.i.setClickable(false);
-        this.m = (MultiImageView) findViewById(v.viewpager);
+        this.m = (MultiImageView) findViewById(u.viewpager);
         this.m.setIsFromCDN(this.C);
         this.m.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.m.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.m.setOnPageChangeListener(this.p);
         this.m.setUrlData(this.c);
         this.m.setItemOnclickListener(this.n);
-        this.m.a(g(), false);
+        this.m.a(d(), false);
         this.m.setOnScrollOutListener(this.o);
         this.m.setHasNext(this.f);
         this.m.setNextTitle(this.g);
         a(this.d, this.d);
-        f();
+        c();
     }
 
-    public void f() {
+    public void c() {
         String str;
         if (this.c != null) {
             String str2 = String.valueOf(String.valueOf(this.d + 1 + this.b)) + "/";
@@ -209,7 +194,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
                 str = String.valueOf(str2) + this.c.size();
             }
             if (this.m.getHasNext() && this.d == this.m.getItemNum() - 1) {
-                this.k.setText(getString(y.image_recommend));
+                this.k.setText(getString(x.image_recommend));
                 this.i.setVisibility(4);
                 return;
             }
@@ -218,7 +203,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         }
     }
 
-    public int g() {
+    public int d() {
         if (this.c != null && this.c.size() > 0) {
             int size = this.c.size();
             if (this.d >= size) {
@@ -305,11 +290,11 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
             }
         }
         if (this.w.size() >= 100) {
-            h();
+            e();
         }
     }
 
-    private void h() {
+    private void e() {
         if (this.w != null) {
             synchronized (this.w) {
                 if (this.w.size() > 0) {
@@ -329,7 +314,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = bm.e(str);
+        String e = ba.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

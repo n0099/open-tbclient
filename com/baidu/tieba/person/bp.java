@@ -1,8 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.widget.ScrollView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bp implements DialogInterface.OnClickListener {
+public class bp implements Runnable {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,12 +11,10 @@ class bp implements DialogInterface.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tbadk.core.util.bj.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.bj.c(this.a);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ScrollView scrollView;
+        scrollView = this.a.h;
+        scrollView.fullScroll(130);
     }
 }

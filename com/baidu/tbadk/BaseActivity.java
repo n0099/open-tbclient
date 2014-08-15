@@ -1,5 +1,6 @@
 package com.baidu.tbadk;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,23 +14,22 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bo;
-import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.u;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
+import com.baidu.tieba.v;
+import com.baidu.tieba.x;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class BaseActivity extends BdBaseActivity {
-    private o customToast;
+    private com.baidu.tbadk.core.util.k customToast;
     private com.baidu.tbadk.core.a mLayoutInflateFactory;
     private com.baidu.tbadk.core.c mLayoutMode;
     private ProgressBar mProgressBar;
@@ -37,17 +37,17 @@ public class BaseActivity extends BdBaseActivity {
     private DialogInterface.OnCancelListener mDialogListener = null;
     private AlertDialog mListMenu = null;
     protected int mSkinType = -1;
-    private final com.baidu.tbadk.core.view.e mGuidPage = null;
+    private final com.baidu.tbadk.core.view.f mGuidPage = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (i.a().a("is_exit_app_not_start_websocket", false)) {
-            i.a().c("is_exit_app_not_start_websocket", false);
+        if (h.a().a("is_exit_app_not_start_websocket", false)) {
+            h.a().b("is_exit_app_not_start_websocket", false);
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(this);
-        this.customToast = o.a();
+        this.customToast = com.baidu.tbadk.core.util.k.a();
         super.onCreate(bundle);
         this.mLayoutMode = new com.baidu.tbadk.core.c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -57,14 +57,7 @@ public class BaseActivity extends BdBaseActivity {
             CompatibleUtile.getInstance().openGpu(this);
         }
         TbadkApplication.setIsAppRunning(true);
-        bo.a(getClass().getName());
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.setAppChannel(TbConfig.getFrom());
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-        }
+        be.a(getClass().getName());
     }
 
     public boolean getGpuSwitch() {
@@ -107,7 +100,7 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     protected void InitTitle() {
-        getWindow().setFeatureInt(7, w.title);
+        getWindow().setFeatureInt(7, v.title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,7 +122,11 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     public void showProgressBar() {
-        showProgressBarWithOffset(0, 0);
+        try {
+            showProgressBarWithOffset(0, 0);
+        } catch (OutOfMemoryError e) {
+            BdBaseApplication.getInst().onAppMemoryLow();
+        }
     }
 
     public void showProgressBar(boolean z, int i, int i2) {
@@ -139,7 +136,7 @@ public class BaseActivity extends BdBaseActivity {
         }
         if (this.mProgressBar == null) {
             this.mProgressBar = new ProgressBar(this);
-            this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(u.progressbar));
+            this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(t.progressbar));
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
         } else if (this.mProgressBar != null) {
@@ -165,7 +162,7 @@ public class BaseActivity extends BdBaseActivity {
     public void showProgressBarWithOffset(int i, int i2) {
         if (this.mProgressBar == null) {
             this.mProgressBar = new ProgressBar(this);
-            this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(u.progressbar));
+            this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(t.progressbar));
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
         }
@@ -196,7 +193,7 @@ public class BaseActivity extends BdBaseActivity {
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(this, "", str, true, false, this.mDialogListener);
             } else {
-                this.mWaitingDialog = ProgressDialog.show(this, "", getResources().getString(y.Waiting), true, false, this.mDialogListener);
+                this.mWaitingDialog = ProgressDialog.show(this, "", getResources().getString(x.Waiting), true, false, this.mDialogListener);
             }
         }
     }
@@ -206,11 +203,11 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing()) {
+        if (com.baidu.adp.lib.e.d.a((Activity) this)) {
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(this, "", str, true, true, onCancelListener);
             } else {
-                this.mWaitingDialog = ProgressDialog.show(this, "", getResources().getString(y.Waiting), true, true, onCancelListener);
+                this.mWaitingDialog = ProgressDialog.show(this, "", getResources().getString(x.Waiting), true, true, onCancelListener);
             }
         }
     }
@@ -318,7 +315,7 @@ public class BaseActivity extends BdBaseActivity {
 
     protected AlertDialog newListMenu(String[] strArr, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(y.operation);
+        builder.setTitle(x.operation);
         builder.setItems(strArr, onClickListener);
         this.mListMenu = builder.create();
         this.mListMenu.setCanceledOnTouchOutside(true);
@@ -338,13 +335,13 @@ public class BaseActivity extends BdBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     public void showListMenu() {
         if (this.mListMenu != null && !this.mListMenu.isShowing()) {
-            this.mListMenu.show();
+            com.baidu.adp.lib.e.d.a(this.mListMenu, this);
         }
     }
 
     protected void hideListMenu() {
         if (this.mListMenu != null && this.mListMenu.isShowing()) {
-            this.mListMenu.dismiss();
+            com.baidu.adp.lib.e.d.b(this.mListMenu, this);
         }
     }
 
@@ -354,13 +351,6 @@ public class BaseActivity extends BdBaseActivity {
         super.onPause();
         this.customToast.b();
         TbadkApplication.m252getInst().DelResumeNum();
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.onPause((Context) this);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -375,21 +365,18 @@ public class BaseActivity extends BdBaseActivity {
         super.onResume();
         this.customToast.c();
         changeSkinType(TbadkApplication.m252getInst().getSkinType());
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.onResume((Context) this);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
         TbadkApplication.m252getInst().AddResumeNum();
-        bo.a(getClass().getName());
+        be.a(getClass().getName());
     }
 
     public void changeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            onChangeSkinType(this.mSkinType);
+            try {
+                onChangeSkinType(this.mSkinType);
+            } catch (OutOfMemoryError e) {
+                BdBaseApplication.getInst().onAppMemoryLow();
+            }
         }
     }
 
@@ -458,9 +445,9 @@ public class BaseActivity extends BdBaseActivity {
         this.mLayoutInflateFactory = aVar;
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.i
     public void onPreLoad(BdListView bdListView) {
         super.onPreLoad(bdListView);
-        be.a(bdListView, getUniqueId());
+        at.a(bdListView, getUniqueId());
     }
 }

@@ -36,7 +36,7 @@ public final class GroupInfo extends Message {
     public final String business;
     @ProtoField(tag = 17, type = Message.Datatype.INT32)
     public final Integer createTime;
-    @ProtoField(tag = 23, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_PAY, type = Message.Datatype.INT32)
     public final Integer distance;
     @ProtoField(tag = 13, type = Message.Datatype.INT32)
     public final Integer flag;

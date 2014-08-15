@@ -16,12 +16,12 @@ import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes.dex */
 public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-    private k c;
-    private com.baidu.tieba.im.model.i d;
-    private final com.baidu.adp.framework.listener.b e = new a(this, 103008);
+    private j d;
+    private com.baidu.tieba.im.model.i e;
+    private final com.baidu.adp.framework.listener.d f = new a(this, 103008);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.s.class, FrsGroupActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.t.class, FrsGroupActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,9 +38,9 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.c != null) {
-            this.c.destroy();
-            this.c = null;
+        if (this.d != null) {
+            this.d.destroy();
+            this.d = null;
         }
         a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
@@ -64,76 +64,76 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        this.d.b(bundle);
+        this.e.b(bundle);
     }
 
     private void a(Bundle bundle) {
-        this.c = new k(this);
-        this.c.c();
-        this.c.c(this.d.a());
-        this.c.a(this.d.a());
+        this.d = new j(this);
+        this.d.c();
+        this.d.c(this.e.a());
+        this.d.a(this.e.a());
         if (bundle != null) {
-            this.c.b(this.d.g());
+            this.d.b(this.e.g());
         }
-        this.c.a(j());
-        this.c.b();
+        this.d.a(j());
+        this.d.b();
     }
 
     public com.baidu.tieba.im.model.i g() {
+        return this.e;
+    }
+
+    public j h() {
         return this.d;
     }
 
-    public k h() {
-        return this.c;
-    }
-
     public void a(Bundle bundle, Intent intent) {
-        this.d = new com.baidu.tieba.im.model.i(this);
+        this.e = new com.baidu.tieba.im.model.i(this);
         if (bundle == null) {
-            com.baidu.tieba.im.model.i iVar = this.d;
+            com.baidu.tieba.im.model.i iVar = this.e;
             if (intent == null) {
                 intent = getIntent();
             }
             iVar.a(intent);
         } else {
-            this.d.a(bundle);
+            this.e.a(bundle);
         }
-        this.d.a(this);
+        this.e.a(this);
     }
 
     protected void i() {
-        this.d.b(this.e);
+        this.e.b(this.f);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
-        this.c.c(i);
+        this.d.c(i);
     }
 
     private void a(boolean z) {
-        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.c.a()[j()]);
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.d.a()[j()]);
         if (z || findFragmentByTag == null) {
-            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.v.fragment, this.c.d()[j()], this.c.a()[j()]).commit();
+            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.u.fragment, this.d.d()[j()], this.d.a()[j()]).commit();
         } else {
-            getSupportFragmentManager().beginTransaction().show(this.c.d()[j()]).commit();
+            getSupportFragmentManager().beginTransaction().show(this.d.d()[j()]).commit();
         }
     }
 
     private void l() {
-        if (getSupportFragmentManager().findFragmentByTag(this.c.a()[j()]) != null) {
-            getSupportFragmentManager().beginTransaction().hide(this.c.d()[j()]).commit();
+        if (getSupportFragmentManager().findFragmentByTag(this.d.a()[j()]) != null) {
+            getSupportFragmentManager().beginTransaction().hide(this.d.d()[j()]).commit();
         }
     }
 
     public int j() {
-        return this.d.g() - 1;
+        return this.e.g() - 1;
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.c.e()) {
+        if (view == this.d.e()) {
             m();
-        } else if (view == this.c.f()) {
+        } else if (view == this.d.f()) {
             TiebaStatic.eventStat(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
             k();
         }
@@ -144,8 +144,8 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     }
 
     private void n() {
-        this.c.d(true);
-        this.d.c(this.d.l());
+        this.d.d(true);
+        this.e.c(this.e.l());
     }
 
     public void k() {
@@ -163,11 +163,11 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
                 a(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, b(this.d.l()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                CreateGroupStepActivity.a(this, 3, b(this.e.l()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.d.l()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.e.l()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
     }
 
     private int b(String str) {
@@ -182,14 +182,14 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         l();
-        if (i == com.baidu.tieba.v.radio_recommend) {
-            this.d.a(1);
-        } else if (i == com.baidu.tieba.v.radio_hot) {
-            this.d.a(2);
-        } else if (i == com.baidu.tieba.v.radio_official) {
-            this.d.a(3);
+        if (i == com.baidu.tieba.u.radio_recommend) {
+            this.e.a(1);
+        } else if (i == com.baidu.tieba.u.radio_hot) {
+            this.e.a(2);
+        } else if (i == com.baidu.tieba.u.radio_official) {
+            this.e.a(3);
         }
-        this.c.a(j());
+        this.d.a(j());
         a(false);
     }
 

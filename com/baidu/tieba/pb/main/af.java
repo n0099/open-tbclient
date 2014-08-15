@@ -10,12 +10,8 @@ class af implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bm bmVar;
-        bm bmVar2;
-        bmVar = this.a.x;
-        if (bmVar != null) {
-            bmVar2 = this.a.x;
-            bmVar2.v();
-        }
+        bs bsVar;
+        bsVar = this.a.D;
+        bsVar.A();
     }
 }

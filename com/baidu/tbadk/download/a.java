@@ -5,9 +5,9 @@ public interface a {
 
     void a(DownloadData downloadData, int i, String str);
 
-    void b(DownloadData downloadData);
+    boolean b(DownloadData downloadData);
 
     boolean c(DownloadData downloadData);
 
-    boolean d(DownloadData downloadData);
+    void d(DownloadData downloadData);
 }

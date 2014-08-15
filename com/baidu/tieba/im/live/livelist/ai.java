@@ -69,11 +69,11 @@ public class ai extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_list_foot, viewGroup, false);
-            View findViewById = view.findViewById(com.baidu.tieba.v.bottom_line);
-            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.v.bottom_more);
-            TextView textView = (TextView) view.findViewById(com.baidu.tieba.v.more_title);
-            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.v.more_progress);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_list_foot, viewGroup, false);
+            View findViewById = view.findViewById(com.baidu.tieba.u.bottom_line);
+            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.u.bottom_more);
+            TextView textView = (TextView) view.findViewById(com.baidu.tieba.u.more_title);
+            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.u.more_progress);
             if (this.d) {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(8);
@@ -81,19 +81,19 @@ public class ai extends BaseAdapter {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(0);
                 if (this.c) {
-                    textView.setText(com.baidu.tieba.y.live_frs_list_hasmore);
+                    textView.setText(com.baidu.tieba.x.live_frs_list_hasmore);
                     progressBar.setVisibility(0);
                 } else {
-                    textView.setText(com.baidu.tieba.y.live_frs_list_nomore);
+                    textView.setText(com.baidu.tieba.x.live_frs_list_nomore);
                     progressBar.setVisibility(8);
                 }
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_group_history_list_item, viewGroup, false);
+                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_group_history_list_item, viewGroup, false);
                 aj ajVar = new aj(this);
-                ajVar.a = (TextView) view.findViewById(com.baidu.tieba.v.item_day);
-                ajVar.b = (TextView) view.findViewById(com.baidu.tieba.v.item_timelast);
+                ajVar.a = (TextView) view.findViewById(com.baidu.tieba.u.item_day);
+                ajVar.b = (TextView) view.findViewById(com.baidu.tieba.u.item_timelast);
                 view.setTag(ajVar);
             }
             aj ajVar2 = (aj) view.getTag();

@@ -32,20 +32,20 @@ public class u extends BroadcastReceiver {
         com.baidu.tieba.data.w wVar8;
         int intExtra = intent.getIntExtra("index", -1);
         if (intExtra >= 0) {
-            this.this$0.I = intExtra;
-            wVar4 = this.this$0.F;
+            this.this$0.H = intExtra;
+            wVar4 = this.this$0.E;
             if (wVar4 != null) {
                 int i3 = intExtra + 5;
-                wVar5 = this.this$0.F;
+                wVar5 = this.this$0.E;
                 if (i3 >= wVar5.g().size()) {
-                    wVar6 = this.this$0.F;
+                    wVar6 = this.this$0.E;
                     int size = wVar6.g().size();
-                    wVar7 = this.this$0.F;
+                    wVar7 = this.this$0.E;
                     if (size != wVar7.j()) {
                         rVar = this.this$0.b;
                         if (rVar == null) {
                             ImagePbActivity imagePbActivity = this.this$0;
-                            wVar8 = this.this$0.F;
+                            wVar8 = this.this$0.E;
                             imagePbActivity.a(wVar8.k(), 0, 10, false);
                             return;
                         }
@@ -57,14 +57,14 @@ public class u extends BroadcastReceiver {
             }
             return;
         }
-        i = this.this$0.I;
+        i = this.this$0.H;
         if (i != 0) {
-            i2 = this.this$0.I;
-            wVar = this.this$0.F;
+            i2 = this.this$0.H;
+            wVar = this.this$0.E;
             if (i2 >= wVar.j() - 1) {
-                wVar2 = this.this$0.F;
+                wVar2 = this.this$0.E;
                 int size2 = wVar2.g().size();
-                wVar3 = this.this$0.F;
+                wVar3 = this.this$0.E;
                 if (size2 != wVar3.j()) {
                     return;
                 }

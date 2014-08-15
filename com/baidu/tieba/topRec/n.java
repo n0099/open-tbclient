@@ -17,7 +17,7 @@ public class n {
     }
 
     public static void b() {
-        com.baidu.tbadk.core.sharedPref.b.a().c("toprec_first_in", true);
+        com.baidu.tbadk.core.sharedPref.b.a().b("toprec_first_in", true);
     }
 
     public void a(View view) {

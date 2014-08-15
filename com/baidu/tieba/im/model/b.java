@@ -1,12 +1,18 @@
 package com.baidu.tieba.im.model;
 
+import android.content.Context;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
     private RequestGetMaskInfoMessage a;
     private RequestUpdateMaskInfoMessage b;
-    private int c = 2;
+    private int c;
+
+    public b(Context context) {
+        super(context);
+        this.c = 2;
+    }
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {

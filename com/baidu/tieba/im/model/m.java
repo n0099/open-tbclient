@@ -3,6 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.im.chat.bt;
 import com.baidu.tieba.im.message.LoadGroupHistoryMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,7 +21,7 @@ public class m extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.chat.bv callback;
+        bt callback;
         if (customResponsedMessage != null) {
             if (customResponsedMessage.getCmd() == 2013005) {
                 this.a.a((ResponsedMessage<?>) customResponsedMessage);

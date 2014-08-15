@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
@@ -54,7 +54,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkApplication.m252getInst().getApp().getString(y.error_unkown_try_again));
+                    setErrorString(TbadkApplication.m252getInst().getApp().getString(x.error_unkown_try_again));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
@@ -62,7 +62,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkApplication.m252getInst().getApp().getString(y.error_unkown_try_again));
+                setErrorString(TbadkApplication.m252getInst().getApp().getString(x.error_unkown_try_again));
                 return jSONObject;
             }
         } catch (Exception e3) {

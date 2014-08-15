@@ -66,11 +66,11 @@ public class p extends BaseAdapter {
             q qVar = new q(this);
             if (itemViewType == 0) {
                 TextView textView2 = new TextView(this.a);
-                textView2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.e.r.a(this.a, com.baidu.tieba.t.ds96)));
-                textView2.setTextSize(0, com.baidu.tieba.im.e.r.a(this.a, com.baidu.tieba.t.ds32));
-                textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.official_bar_menu_text_color));
+                textView2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.d.j.a(this.a, com.baidu.tieba.s.ds96)));
+                textView2.setTextSize(0, com.baidu.tieba.im.d.j.a(this.a, com.baidu.tieba.s.ds32));
+                textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_bar_menu_text_color));
                 textView2.setGravity(17);
-                textView2.setBackgroundResource(com.baidu.tieba.u.official_bar_menu_text_bg);
+                textView2.setBackgroundResource(com.baidu.tieba.t.official_bar_menu_text_bg);
                 textView2.setSingleLine();
                 textView2.setEllipsize(TextUtils.TruncateAt.END);
                 qVar.a = textView2;
@@ -79,8 +79,8 @@ public class p extends BaseAdapter {
                 textView = view;
                 if (itemViewType == 1) {
                     ImageView imageView = new ImageView(this.a);
-                    imageView.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.e.r.a(this.a, com.baidu.tieba.t.ds1)));
-                    imageView.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.s.official_bar_menu_bottom_line));
+                    imageView.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.d.j.a(this.a, com.baidu.tieba.s.ds1)));
+                    imageView.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.r.official_bar_menu_bottom_line));
                     textView = imageView;
                 }
             }

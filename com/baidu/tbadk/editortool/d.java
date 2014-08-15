@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d extends ae {
+public class d extends ad {
     private String a;
     private String b;
     private int c;
@@ -22,13 +22,13 @@ public class d extends ae {
     private void b() {
         c(2);
         b(4);
-        Bitmap c = ab.a().c(this.a, "panel.png");
-        Bitmap c2 = ab.a().c(this.a, "panel_momo.png");
-        if (c != null) {
-            a(new com.baidu.adp.widget.a.a(c, false));
+        Bitmap b = aa.a().b(this.a, "panel.png");
+        Bitmap b2 = aa.a().b(this.a, "panel_momo.png");
+        if (b != null) {
+            a(new com.baidu.adp.widget.a.a(b, false));
         }
-        if (c2 != null) {
-            b(new com.baidu.adp.widget.a.a(c2, false));
+        if (b2 != null) {
+            b(new com.baidu.adp.widget.a.a(b2, false));
         }
         this.e.clear();
         for (EmotionData emotionData : u.a().b(this.a)) {
@@ -36,7 +36,7 @@ public class d extends ae {
         }
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public String a(int i) {
         if (i >= this.e.size()) {
             return null;
@@ -44,56 +44,56 @@ public class d extends ae {
         return this.e.get(i);
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public boolean a(String str) {
         return this.e.contains(str);
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public EmotionGroupType c() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public com.baidu.adp.widget.a.a b(String str) {
-        Bitmap c = ab.a().c(this.a, ab.a().a(str, false));
-        if (c == null) {
+        Bitmap b = aa.a().b(this.a, aa.a().a(str, false));
+        if (b == null) {
             return null;
         }
-        return new com.baidu.adp.widget.a.a(c, false, str);
+        return new com.baidu.adp.widget.a.a(b, false, str);
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public com.baidu.adp.widget.a.a c(String str) {
-        return ab.a().d(this.a, ab.a().a(str, true));
+        return aa.a().c(this.a, aa.a().a(str, true));
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public int d() {
         return this.e.size();
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public String e() {
         return this.a;
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public String f() {
         return this.b;
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public int g() {
         return this.c;
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public int h() {
         return this.d;
     }
 
-    @Override // com.baidu.tbadk.editortool.ae
+    @Override // com.baidu.tbadk.editortool.ad
     public boolean i() {
         return false;
     }

@@ -2,15 +2,15 @@ package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.core.util.m;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.i;
+import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private aq a;
+    private ae a;
     private c b;
     private com.baidu.tbadk.coreExtra.data.c c;
     private String d;
@@ -27,7 +27,7 @@ public class b {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.a = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + this.d);
+            this.a = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + this.d);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -37,11 +37,11 @@ public class b {
 
     private com.baidu.tbadk.coreExtra.data.c a(String str, File file) {
         String a;
-        String a2 = bm.a(z.a(file));
+        String a2 = ba.a(s.a(file));
         if (a2 != null && a2.length() > 0) {
             a2 = a2.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.b b = m.b(a2);
+        com.baidu.tbadk.coreExtra.data.b b = i.b(a2);
         if (b == null) {
             b = new com.baidu.tbadk.coreExtra.data.b();
             b.a(a2);
@@ -66,19 +66,19 @@ public class b {
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.a = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + this.e);
+        this.a = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + this.e);
         this.a.a("voice_md5", bVar.a());
-        String i = this.a.i();
-        if (i == null || !this.a.a().b().b()) {
+        String h = this.a.h();
+        if (h == null || !this.a.a().b().b()) {
             bVar.a((int) a(bVar.b()));
-            m.a(bVar);
-            this.c.a(this.a.d());
-            this.c.a(this.a.f());
+            i.a(bVar);
+            this.c.a(this.a.c());
+            this.c.a(this.a.e());
             this.c.a(false);
             return null;
         }
-        m.a(str);
-        return i;
+        i.a(str);
+        return h;
     }
 
     private long a(long j) {

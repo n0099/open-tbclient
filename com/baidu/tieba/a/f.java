@@ -2,7 +2,7 @@ package com.baidu.tieba.a;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.recommend.o;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class f {
     private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/threadrecommend";
     private int a = -1;
-    private aq b = null;
+    private ae b = null;
     private boolean c;
 
     public f(boolean z) {
@@ -18,7 +18,7 @@ public class f {
     }
 
     public String a(String str, String str2) {
-        this.b = new aq();
+        this.b = new ae();
         this.b.a(d);
         this.b.a().a().b = false;
         if (this.c) {
@@ -30,19 +30,19 @@ public class f {
         if (str2 != null) {
             this.b.a(o.a, str2);
         }
-        String i = this.b.i();
-        if (i != null) {
+        String h = this.b.h();
+        if (h != null) {
             try {
-                this.a = new JSONObject(i).optInt("error_code");
+                this.a = new JSONObject(h).optInt("error_code");
             } catch (JSONException e) {
             }
         }
-        return i;
+        return h;
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
     }
 

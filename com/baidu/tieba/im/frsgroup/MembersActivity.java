@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
@@ -18,12 +17,12 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tbadk.core.view.q a;
-    private ag b;
-    private com.baidu.tieba.im.model.ac c;
-    private final com.baidu.adp.framework.listener.b d = new q(this, 103005);
-    private final com.baidu.adp.framework.listener.b e = new s(this, 103112);
-    private final CustomMessageListener f = new t(this, 0);
+    private com.baidu.tbadk.core.view.u a;
+    private af b;
+    private com.baidu.tieba.im.model.u c;
+    private final com.baidu.adp.framework.listener.d d = new p(this, 103005);
+    private final com.baidu.adp.framework.listener.d e = new r(this, 103112);
+    private final CustomMessageListener f = new s(this, 0);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, MembersActivity.class);
@@ -42,8 +41,8 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void c() {
-        MessageManager.getInstance().registerListener(2001132, this.f);
-        MessageManager.getInstance().registerListener(2001130, this.f);
+        registerListener(2001132, this.f);
+        registerListener(2001130, this.f);
     }
 
     @Override // android.app.Activity
@@ -65,25 +64,25 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         super.onDestroy();
     }
 
-    public com.baidu.tieba.im.model.ac b() {
+    public com.baidu.tieba.im.model.u b() {
         return this.c;
     }
 
     private void d() {
-        this.b = new ag(this);
+        this.b = new af(this);
         BdListView i = this.b.i();
-        this.a = new com.baidu.tbadk.core.view.q(this);
-        this.a.a(new u(this, i));
+        this.a = new com.baidu.tbadk.core.view.u(this);
+        this.a.a(new t(this, i));
         i.setPullRefresh(this.a);
         i.setOnScrollListener(this);
         i.setOnSrollToBottomListener(this);
-        i.setOnItemClickListener(new v(this));
-        i.setOnItemLongClickListener(new w(this));
+        i.setOnItemClickListener(new u(this));
+        i.setOnItemLongClickListener(new v(this));
         this.b.a().setOnClickListener(this);
         this.b.b().setOnClickListener(this);
         this.b.c().setOnClickListener(this);
         this.b.b(false);
-        this.b.f().a(new z(this));
+        this.b.f().a(new y(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,15 +137,15 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.ac();
+        this.c = new com.baidu.tieba.im.model.u(this);
         this.c.setUniqueId(getUniqueId());
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
             this.c.a(bundle);
         }
-        this.c.registerListener(this.d);
-        this.c.registerListener(this.e);
+        registerListener(this.d);
+        registerListener(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -187,7 +186,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void j() {
-        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new aa(this));
+        com.baidu.tieba.im.d.b.a((Activity) this, (DialogInterface.OnClickListener) new z(this));
     }
 
     private void k() {
@@ -210,7 +209,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.e.b.b((Activity) this, (DialogInterface.OnClickListener) new ab(this, arrayList), (DialogInterface.OnClickListener) new r(this));
+            com.baidu.tieba.im.d.b.b((Activity) this, (DialogInterface.OnClickListener) new aa(this, arrayList), (DialogInterface.OnClickListener) new q(this));
         }
     }
 

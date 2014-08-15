@@ -1,57 +1,120 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class bb extends com.baidu.adp.base.f {
-    private BdListView a;
-    private az b;
-    private NavigationBar c;
-    private com.baidu.tbadk.core.view.k d;
-    private OfficialBarTipActivity e;
-    private ViewGroup f;
+public class bb extends RelativeLayout {
+    private Context a;
+    private TextView b;
+    private TextView c;
+    private TbImageView d;
+    private View e;
+    private TextView f;
+    private ImageView g;
+    private TextView h;
+    private com.baidu.adp.lib.b.b i;
+    private int j;
 
-    public bb(OfficialBarTipActivity officialBarTipActivity) {
-        super(officialBarTipActivity);
-        officialBarTipActivity.setContentView(com.baidu.tieba.w.officialbar_msg_activity);
-        this.e = officialBarTipActivity;
-        a(officialBarTipActivity);
-        b(officialBarTipActivity);
+    public bb(Context context) {
+        this(context, null);
     }
 
-    private void a(OfficialBarTipActivity officialBarTipActivity) {
-        this.c = (NavigationBar) officialBarTipActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.c.a(officialBarTipActivity.getString(com.baidu.tieba.y.official_message_activity_title));
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bc(this, officialBarTipActivity));
-        this.f = (ViewGroup) officialBarTipActivity.findViewById(com.baidu.tieba.v.root_view);
+    public bb(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
-    public void a(int i) {
-        this.e.getLayoutMode().a(i == 1);
-        this.e.getLayoutMode().a((View) this.f);
-        this.c.c(i);
-        this.d.a(i);
+    public bb(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.i = null;
+        this.a = context;
+        b();
     }
 
-    private void b(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.v.msg_list);
-        this.b = new az(officialBarTipActivity);
-        this.a.setAdapter((ListAdapter) this.b);
-        this.d = new com.baidu.tbadk.core.view.k(officialBarTipActivity.findViewById(com.baidu.tieba.v.root_view), com.baidu.tieba.u.individual_center_news, com.baidu.tieba.u.individual_center_news_1, com.baidu.tieba.v.no_data_container, com.baidu.tieba.v.no_data_image, com.baidu.tieba.v.no_data_image_text);
+    private void b() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.msg_single_pic_text_view, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.u.single_title);
+        this.c = (TextView) findViewById(com.baidu.tieba.u.single_abstract);
+        this.d = (TbImageView) findViewById(com.baidu.tieba.u.single_content_pic);
+        this.f = (TextView) findViewById(com.baidu.tieba.u.read_all);
+        this.g = (ImageView) findViewById(com.baidu.tieba.u.arrow);
+        this.e = findViewById(com.baidu.tieba.u.single_divider);
+        this.h = (TextView) findViewById(com.baidu.tieba.u.show_time_single);
+        setOnLongClickListener(new bc(this));
     }
 
-    public BdListView a() {
-        return this.a;
+    public void a(p pVar, View view) {
+        setPadding(0, (int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_padding_left_right), 0, 0);
+        if (pVar != null) {
+            String str = "";
+            if (!TextUtils.isEmpty(pVar.a)) {
+                str = pVar.a;
+            }
+            this.b.setText(str);
+            String str2 = "";
+            if (!TextUtils.isEmpty(pVar.b)) {
+                str2 = pVar.b;
+            }
+            this.c.setText(str2);
+            if (!TextUtils.isEmpty(pVar.d)) {
+                setOnClickListener(new bd(this, pVar));
+            }
+            if (!TextUtils.isEmpty(pVar.c)) {
+                this.d.setTag(pVar.c);
+                this.d.a(pVar.c, 10, false);
+            }
+        }
     }
 
-    public az b() {
-        return this.b;
+    public void a() {
+        this.b.setText("");
+        this.c.setText("");
+        this.d.setBackgroundDrawable(null);
+        this.d.setImageDrawable(null);
+        this.h.setText("");
+        this.h.setVisibility(8);
     }
 
-    public com.baidu.tbadk.core.view.k c() {
-        return this.d;
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
+        this.i = bVar;
+    }
+
+    public void setPosition(int i) {
+        this.j = i;
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_abstract_1));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text_1));
+            this.g.setBackgroundResource(com.baidu.tieba.t.icon_ba_top_arrow_big_1);
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.official_time_text_1));
+            this.e.setBackgroundResource(com.baidu.tieba.t.multi_single_divider_selector_1);
+            return;
+        }
+        this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text));
+        this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_abstract_1));
+        this.f.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text));
+        this.g.setBackgroundResource(com.baidu.tieba.t.icon_ba_top_arrow_big);
+        this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.official_time_text));
+        this.e.setBackgroundResource(com.baidu.tieba.t.multi_single_divider_selector);
+    }
+
+    public void setTime(String str) {
+        if (TextUtils.isEmpty(str)) {
+            this.h.setVisibility(8);
+            this.h.setText("");
+            return;
+        }
+        this.h.setVisibility(0);
+        this.h.setText(str);
     }
 }

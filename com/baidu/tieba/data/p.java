@@ -1,115 +1,119 @@
 package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.MetaData;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private int k;
-    private String l;
-    private String m;
-    private int n = 0;
-    private int o = 0;
-    private List<y> p = null;
+    private String g;
+    private String h;
     private int a = 0;
-    private long b = 0;
-    private String c = null;
-    private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private String h = null;
-    private MetaData i = new MetaData();
-    private MetaData j = new MetaData();
+    private String b = "";
+    private String c = "";
+    private int d = 0;
+    private int e = 0;
+    private boolean f = false;
+    private ArrayList<q> i = new ArrayList<>();
 
-    public String a() {
-        return this.m;
-    }
-
-    public int b() {
-        return this.n;
-    }
-
-    public List<y> c() {
-        return this.p;
-    }
-
-    public int d() {
-        return this.a;
-    }
-
-    public long e() {
-        return this.b;
-    }
-
-    public String f() {
-        return this.c;
-    }
-
-    public String g() {
-        return this.d;
-    }
-
-    public String h() {
-        return this.e;
-    }
-
-    public String i() {
-        return this.f;
-    }
-
-    public String j() {
-        return this.g;
-    }
-
-    public String k() {
-        return this.h;
-    }
-
-    public MetaData l() {
-        return this.i;
-    }
-
-    public boolean m() {
-        return this.k == 1;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type", 0);
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optLong("time", 0L) * 1000;
-                this.d = jSONObject.optString("fname");
-                this.e = jSONObject.optString("content");
-                this.f = jSONObject.optString("quote_content");
-                this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
-                this.h = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
-                this.k = jSONObject.optInt("is_floor");
-                this.l = jSONObject.optString("quote_pid");
-                this.m = jSONObject.optString("item_type");
-                if (!com.baidu.adp.lib.util.i.b(this.m) && this.m.equals("zan")) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("zan");
-                    this.n = optJSONObject.optInt("num");
-                    this.o = optJSONObject.optInt("is_liked");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
-                    if (optJSONArray != null) {
-                        this.p = new ArrayList();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            y yVar = new y();
-                            yVar.a(optJSONArray.optJSONObject(i));
-                            this.p.add(yVar);
-                        }
-                    }
+                a(jSONObject.optInt("is_new_url", 0));
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    this.a = optJSONObject.optInt("errno", 0);
+                    this.b = optJSONObject.optString("errmsg", "");
+                    this.c = optJSONObject.optString("usermsg", "");
                 }
-                this.i.parserJson(jSONObject.optJSONObject("replyer"));
-                this.j.parserJson(jSONObject.optJSONObject("quote_user"));
+                b(jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL));
+                b(jSONObject.optInt("has_more"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        q qVar = new q();
+                        qVar.a(optJSONArray.optJSONObject(i));
+                        this.i.add(qVar);
+                    }
+                    a(optJSONArray.length() == 0);
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
+    }
+
+    public void a(p pVar, boolean z) {
+        if (pVar != null) {
+            b(pVar.c());
+            b(pVar.e());
+            c(pVar.f());
+            a(pVar.b() == null || pVar.b().size() == 0);
+            if (z) {
+                this.i.addAll(pVar.b());
+            } else {
+                this.i = pVar.b();
+            }
+        }
+    }
+
+    public int a() {
+        return this.d;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void a(boolean z) {
+        this.f = z;
+    }
+
+    public ArrayList<q> b() {
+        return this.i;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public int c() {
+        return this.e;
+    }
+
+    public boolean d() {
+        return this.e > 0;
+    }
+
+    public void b(String str) {
+        this.g = str;
+    }
+
+    public String e() {
+        return this.g;
+    }
+
+    public void c(String str) {
+        this.h = str;
+    }
+
+    public String f() {
+        return this.h;
+    }
+
+    public int g() {
+        return this.a;
+    }
+
+    public String h() {
+        return this.c;
     }
 }

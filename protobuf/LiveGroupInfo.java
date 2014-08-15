@@ -54,7 +54,7 @@ public final class LiveGroupInfo extends Message {
     public final String playUrl;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String portrait;
-    @ProtoField(tag = 23, type = Message.Datatype.STRING)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_PAY, type = Message.Datatype.STRING)
     public final String portraitId;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer publisherId;

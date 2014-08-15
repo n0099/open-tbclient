@@ -131,7 +131,7 @@ public class a {
 
     public void a(ImageView imageView) {
         if (imageView != null && this.e != null) {
-            this.g = true;
+            this.g = false;
             imageView.setImageBitmap(this.e);
         }
     }
@@ -148,24 +148,24 @@ public class a {
     }
 
     public boolean g() {
-        if (this.g || this.j.get()) {
-            return false;
+        if (this.g && !this.j.get()) {
+            if (this.e != null) {
+                Bitmap bitmap = this.e;
+                this.e = null;
+                bitmap.recycle();
+            }
+            if (this.k != null) {
+                c cVar = this.k;
+                this.k = null;
+                cVar.a();
+            }
+            return true;
         }
-        if (this.e != null) {
-            Bitmap bitmap = this.e;
-            this.e = null;
-            bitmap.recycle();
-        }
-        if (this.k != null) {
-            c cVar = this.k;
-            this.k = null;
-            cVar.a();
-        }
-        return true;
+        return false;
     }
 
     public Bitmap h() {
-        this.g = true;
+        this.g = false;
         return this.e;
     }
 
@@ -177,15 +177,11 @@ public class a {
         if (this.e == null) {
             return null;
         }
-        this.g = true;
+        this.g = false;
         return new b(this, this.e);
     }
 
-    public String k() {
-        return this.d;
-    }
-
-    public byte[] l() {
+    public byte[] k() {
         byte[] byteArray;
         if (this.e == null) {
             return null;
@@ -198,14 +194,15 @@ public class a {
         return byteArray;
     }
 
-    public Rect m() {
+    public Rect l() {
         return this.c;
     }
 
-    public BitmapShader n() {
+    public BitmapShader m() {
         if (this.e == null) {
             return null;
         }
+        this.g = false;
         return new BitmapShader(this.e, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
     }
 

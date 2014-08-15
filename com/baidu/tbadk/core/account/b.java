@@ -38,19 +38,19 @@ public class b {
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
-                jSONArray.put(com.baidu.tbadk.core.util.f.a(a(publicKey, bytes)));
+                jSONArray.put(com.baidu.tbadk.core.util.b.a(a(publicKey, bytes)));
             } else if (i != length - 1) {
                 byte[] bArr = new byte[116];
                 System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                jSONArray.put(com.baidu.tbadk.core.util.f.a(a(publicKey, bArr)));
+                jSONArray.put(com.baidu.tbadk.core.util.b.a(a(publicKey, bArr)));
             } else {
                 int length2 = bytes.length - (i * 116);
                 byte[] bArr2 = new byte[length2];
                 System.arraycopy(bytes, i * 116, bArr2, 0, length2);
-                jSONArray.put(com.baidu.tbadk.core.util.f.a(a(publicKey, bArr2)));
+                jSONArray.put(com.baidu.tbadk.core.util.b.a(a(publicKey, bArr2)));
             }
         }
-        return com.baidu.tbadk.core.util.f.a(jSONArray.toString().getBytes("UTF-8"));
+        return com.baidu.tbadk.core.util.b.a(jSONArray.toString().getBytes("UTF-8"));
     }
 
     private String a() {

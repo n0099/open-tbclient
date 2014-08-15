@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-public class ap extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ w b;
-    private final /* synthetic */ long c;
-    private final /* synthetic */ long d;
-    private final /* synthetic */ ResponseCommitPersonalMessage e;
+class ap extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ ak a;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(w wVar, long j, long j2, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
-        this.b = wVar;
-        this.c = j;
-        this.d = j2;
-        this.e = responseCommitPersonalMessage;
+    public ap(ak akVar, OfficialChatMessage officialChatMessage) {
+        this.a = akVar;
+        this.b = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c, this.d, String.valueOf(this.e.getRecordId()), String.valueOf(this.e.getMsgId()), 3));
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.c().a(this.b.getUserId(), this.b.getToUserId(), String.valueOf(this.b.getRecordId()), String.valueOf(this.b.getMsgId()), 2));
     }
 }

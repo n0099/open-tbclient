@@ -1,31 +1,33 @@
 package com.baidu.tieba.data;
+
+import android.text.TextUtils;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class af extends com.baidu.tbadk.core.data.m {
-    private boolean c;
-    private String d;
-    private u e;
+public class af implements com.baidu.tbadk.core.util.av {
+    public ae a;
+    public ae b;
 
-    public boolean a() {
-        return this.c;
+    @Override // com.baidu.tbadk.core.util.av
+    public LinkedList<com.baidu.tbadk.core.util.au> getImages() {
+        com.baidu.tbadk.core.util.au a;
+        com.baidu.tbadk.core.util.au a2;
+        LinkedList<com.baidu.tbadk.core.util.au> linkedList = new LinkedList<>();
+        if (this.a != null && (a2 = a(this.a.c())) != null) {
+            linkedList.add(a2);
+        }
+        if (this.b != null && (a = a(this.b.c())) != null) {
+            linkedList.add(a);
+        }
+        return linkedList;
     }
 
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    public String b() {
-        return this.d;
-    }
-
-    public void e(String str) {
-        this.d = str;
-    }
-
-    public u c() {
-        return this.e;
-    }
-
-    public void a(u uVar) {
-        this.e = uVar;
+    private com.baidu.tbadk.core.util.au a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au();
+        auVar.a = str;
+        auVar.d = 10;
+        return auVar;
     }
 }

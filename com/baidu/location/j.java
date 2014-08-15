@@ -7,7 +7,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import com.baidu.tbadk.TbConfig;
@@ -89,7 +88,7 @@ public class j {
 
     /* renamed from: new  reason: not valid java name */
     public static float f204new = 0.9f;
-    public static int h = KirinConfig.READ_TIME_OUT;
+    public static int h = 5000;
     public static float D = 0.5f;
     public static float S = 0.0f;
     public static float P = 0.1f;

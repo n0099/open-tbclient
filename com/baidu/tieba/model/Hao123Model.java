@@ -14,17 +14,17 @@ public class Hao123Model extends com.baidu.adp.base.e {
     private static final int LIKES_MAX_SIZE = 19;
 
     public static String getHao123Cache() {
-        com.baidu.adp.lib.cache.s<String> d = com.baidu.tbadk.core.a.b.a().d();
-        if (d != null) {
-            return d.a(HAO123_KEY);
+        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.hao123");
+        if (b != null) {
+            return b.a(HAO123_KEY);
         }
         return null;
     }
 
     public static void setHao123Cache(String str) {
-        com.baidu.adp.lib.cache.s<String> d = com.baidu.tbadk.core.a.b.a().d();
-        if (d != null) {
-            d.a(HAO123_KEY, str);
+        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.hao123");
+        if (b != null) {
+            b.a(HAO123_KEY, str);
         }
     }
 
@@ -70,7 +70,7 @@ public class Hao123Model extends com.baidu.adp.base.e {
             for (Hao123Data.BarInfo barInfo : hao123Data.myBa) {
                 if (barInfo.baID.equals(str) && z) {
                     barInfo.qianDao = "yes";
-                    barInfo.level = String.valueOf(com.baidu.adp.lib.f.b.a(barInfo.level, 0) + i);
+                    barInfo.level = String.valueOf(com.baidu.adp.lib.e.b.a(barInfo.level, 0) + i);
                 }
             }
             setHao123Cache(new Gson().toJson(hao123Data));

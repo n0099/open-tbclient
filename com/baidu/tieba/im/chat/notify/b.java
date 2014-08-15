@@ -1,20 +1,17 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.ac;
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+class b implements CustomMessageTask.CustomRunnable<ac> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ac> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImMessageCenterActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

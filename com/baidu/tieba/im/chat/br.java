@@ -5,17 +5,17 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements DialogInterface.OnClickListener {
-    final /* synthetic */ bq a;
+    final /* synthetic */ bp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bq bqVar) {
-        this.a = bqVar;
+    public br(bp bpVar) {
+        this.a = bpVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
-        alertDialog = this.a.d;
+        alertDialog = this.a.m;
         alertDialog.dismiss();
     }
 }

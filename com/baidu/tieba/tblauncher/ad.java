@@ -27,10 +27,18 @@ public class ad extends BroadcastReceiver {
     }
 
     private void refreshNewVersion() {
-        if (TbadkApplication.checkNeedShowNewVersion()) {
-            this.this$0.R = true;
+        boolean z;
+        boolean checkNeedShowNewVersion = TbadkApplication.checkNeedShowNewVersion();
+        if (checkNeedShowNewVersion) {
+            z = this.this$0.P;
+            if (!z) {
+                this.this$0.Q = true;
+            }
+        }
+        if (checkNeedShowNewVersion) {
+            this.this$0.P = true;
         } else {
-            this.this$0.R = false;
+            this.this$0.P = false;
         }
         this.this$0.a(false);
     }

@@ -1,25 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-class ci extends CustomMessageListener {
-    final /* synthetic */ FrsImageActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ci(FrsImageActivity frsImageActivity, int i) {
-        super(i);
-        this.a = frsImageActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
-            FrsImageActivity.a = true;
-            FrsImageActivity.b = true;
+class ci implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.s> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.s> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsImageActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

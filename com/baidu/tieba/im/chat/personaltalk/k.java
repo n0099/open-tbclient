@@ -1,77 +1,37 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.editortool.aa;
-import protobuf.QueryUserInfos.DataRes;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class k {
-    private DataRes c;
-    private aa g;
-    private PersonalTalkSettingActivity h;
-    private p i;
-    private com.baidu.tbadk.coreExtra.b.a b = new com.baidu.tbadk.coreExtra.b.a(null);
-    private boolean d = false;
-    private boolean e = false;
-    private boolean f = false;
-    com.baidu.tieba.im.model.b a = new com.baidu.tieba.im.model.b();
-    private com.baidu.adp.framework.listener.b j = new l(this, 0);
-    private CustomMessageListener k = new m(this, 0);
+class k extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ PersonalTalkSettingActivity a;
+    private final /* synthetic */ BdSwitchView.SwitchState b;
 
-    public boolean a() {
-        return this.f;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(PersonalTalkSettingActivity personalTalkSettingActivity, BdSwitchView.SwitchState switchState) {
+        this.a = personalTalkSettingActivity;
+        this.b = switchState;
     }
 
-    public void a(boolean z) {
-        this.f = z;
-    }
-
-    public DataRes b() {
-        return this.c;
-    }
-
-    public boolean c() {
-        return this.e;
-    }
-
-    public k(PersonalTalkSettingActivity personalTalkSettingActivity, p pVar, long j) {
-        this.h = personalTalkSettingActivity;
-        this.i = pVar;
-        this.a.setUniqueId(personalTalkSettingActivity.getUniqueId());
-        personalTalkSettingActivity.showProgressBar();
-        this.g = new aa(personalTalkSettingActivity);
-        com.baidu.tieba.im.i.a(new n(this, j), new o(this, j, personalTalkSettingActivity));
-    }
-
-    public void b(boolean z) {
-        this.h.showLoadingDialog(null);
-        if (z) {
-            this.a.a(this.c.id.longValue());
-        } else {
-            this.a.b(this.c.id.longValue());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        long j;
+        long j2;
+        if (this.b == BdSwitchView.SwitchState.OFF) {
+            a a = a.a();
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            j2 = this.a.c;
+            a.a(currentAccount, String.valueOf(j2), false);
+            return null;
         }
-    }
-
-    public aa d() {
-        return this.g;
-    }
-
-    public void e() {
-        if (this.g != null) {
-            this.g.d();
-        }
-        if (this.b != null) {
-            this.b.a();
-        }
-        if (this.a != null) {
-            this.a.cancelLoadData();
-        }
-    }
-
-    public com.baidu.adp.framework.listener.b f() {
-        return this.j;
-    }
-
-    public CustomMessageListener g() {
-        return this.k;
+        a a2 = a.a();
+        String currentAccount2 = TbadkApplication.getCurrentAccount();
+        j = this.a.c;
+        a2.a(currentAccount2, String.valueOf(j), true);
+        return null;
     }
 }

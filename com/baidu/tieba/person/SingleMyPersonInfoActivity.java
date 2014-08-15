@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
-    private cr c;
+    private ct d;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -16,10 +16,10 @@ public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         Bundle a = a(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new cr();
-        this.c.setArguments(a);
+        this.d = new ct();
+        this.d.setArguments(a);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        beginTransaction.add(16908290, this.c);
+        beginTransaction.add(16908290, this.d);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -43,8 +43,8 @@ public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.c != null) {
-            this.c.onActivityResult(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
         }
     }
 

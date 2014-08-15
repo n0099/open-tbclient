@@ -1,27 +1,13 @@
 package com.baidu.tbadk.core.util;
-
-import android.os.Handler;
-import android.os.Message;
 /* loaded from: classes.dex */
-class j extends Handler {
-    final /* synthetic */ i a;
+public class j {
+    private static String a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.a = iVar;
+    public static void a(String str) {
+        a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 0:
-                this.a.b(message.arg1, (String) message.obj);
-                return;
-            case 1:
-                this.a.b(message.arg1, (String) message.obj);
-                return;
-            default:
-                return;
-        }
+    public static String a() {
+        return a;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd implements com.baidu.tieba.model.bf {
+public class cd extends com.baidu.adp.base.h {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,14 +9,15 @@ public class cd implements com.baidu.tieba.model.bf {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.model.bf
-    public void a(String str, long j) {
-        dj djVar;
-        djVar = this.a.s;
-        djVar.b().setLike(0);
-    }
-
-    @Override // com.baidu.tieba.model.bf
-    public void b(String str, long j) {
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        dm dmVar;
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ab)) {
+            dmVar = this.a.t;
+            dmVar.b().setLike(1);
+            this.a.showToast(this.a.getString(com.baidu.tieba.x.like_success));
+            return;
+        }
+        this.a.showToast(this.a.getString(com.baidu.tieba.x.had_liked_forum));
     }
 }

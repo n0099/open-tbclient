@@ -21,14 +21,14 @@ public class l implements Runnable {
         }
         Context context = this.a.getContext();
         if (context != null) {
-            ((com.baidu.adp.base.j) context).onPreLoad(this.a);
+            ((com.baidu.adp.base.i) context).onPreLoad(this.a);
         }
     }
 
     private void a(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.h) {
-                ((com.baidu.adp.newwidget.a.h) view).b();
+            if (view instanceof com.baidu.adp.newwidget.a.i) {
+                ((com.baidu.adp.newwidget.a.i) view).b();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

@@ -1,12 +1,15 @@
 package com.baidu.tieba.person;
-/* loaded from: classes.dex */
-public class ca extends d {
-    public ca(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        super(basePersonInfoActivity, z);
-    }
 
-    @Override // com.baidu.tieba.person.d
-    protected com.baidu.tbadk.core.d a() {
-        return new cb();
+import java.util.Date;
+/* loaded from: classes.dex */
+public class ca {
+    int a;
+    int b;
+
+    public String a() {
+        if (this.a == 0 || this.b == 0) {
+            return null;
+        }
+        return String.valueOf(String.format("%.2f", Double.valueOf(this.a / 1000.0d))) + "km | " + com.baidu.tbadk.core.util.ba.a(new Date(), new Date(Long.valueOf(this.b).longValue() * 1000));
     }
 }

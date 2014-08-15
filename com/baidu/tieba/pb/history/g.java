@@ -5,15 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.w;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.v;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private final List<aj> a = new ArrayList();
+    private final List<ak> a = new ArrayList();
 
-    public void a(List<aj> list) {
+    public void a(List<ak> list) {
         this.a.clear();
         if (list != null) {
             this.a.addAll(list);
@@ -29,7 +29,7 @@ public class g extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public aj getItem(int i) {
+    public ak getItem(int i) {
         if (i < 0 || i >= this.a.size()) {
             return null;
         }
@@ -45,7 +45,7 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         h hVar;
         if (view == null) {
-            view = LayoutInflater.from(TbadkApplication.m252getInst()).inflate(w.pb_history_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(TbadkApplication.m252getInst()).inflate(v.pb_history_list_item, (ViewGroup) null);
             hVar = new h(view);
             view.setTag(hVar);
         } else {

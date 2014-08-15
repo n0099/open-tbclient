@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<Object, Integer, o> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tbadk.core.util.aq b;
+    private com.baidu.tbadk.core.util.ae b;
 
     private k(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -31,21 +31,21 @@ public class k extends BdAsyncTask<Object, Integer, o> {
         lVar = this.a.i;
         o a = lVar.a();
         try {
-            this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            com.baidu.tbadk.core.util.aq aqVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
+            com.baidu.tbadk.core.util.ae aeVar = this.b;
             str = this.a.k;
-            aqVar.a("menu_name", str);
-            com.baidu.tbadk.core.util.aq aqVar2 = this.b;
+            aeVar.a("menu_name", str);
+            com.baidu.tbadk.core.util.ae aeVar2 = this.b;
             str2 = this.a.l;
-            aqVar2.a("menu_type", str2);
-            com.baidu.tbadk.core.util.aq aqVar3 = this.b;
+            aeVar2.a("menu_type", str2);
+            com.baidu.tbadk.core.util.ae aeVar3 = this.b;
             str3 = this.a.m;
-            aqVar3.a("menu_id", str3);
-            String i = this.b.i();
+            aeVar3.a("menu_id", str3);
+            String h = this.b.h();
             if (this.b.a().b().b()) {
-                a.b(i);
+                a.b(h);
             } else {
-                a.a(this.b.f());
+                a.a(this.b.e());
             }
         } catch (Exception e) {
             a.a(e.getMessage());
@@ -66,7 +66,7 @@ public class k extends BdAsyncTask<Object, Integer, o> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
             this.b = null;
         }
         this.a.a(null, true);

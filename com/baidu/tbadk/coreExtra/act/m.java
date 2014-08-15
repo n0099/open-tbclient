@@ -33,10 +33,10 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            Bitmap c = com.baidu.tbadk.core.util.z.c(null, TbConfig.IMAGE_RESIZED_FILE);
+            Bitmap c = com.baidu.tbadk.core.util.s.c(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
                 if (c.getWidth() > 750 || c.getHeight() > 750) {
-                    Bitmap a = com.baidu.tbadk.core.util.h.a(c, (int) TbConfig.POST_IMAGE_MIDDLE);
+                    Bitmap a = com.baidu.tbadk.core.util.d.a(c, (int) TbConfig.POST_IMAGE_MIDDLE);
                     try {
                         c.recycle();
                         c = a;
@@ -55,8 +55,8 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (Build.VERSION.SDK_INT >= 7) {
                     z = this.a.A;
                     if (z) {
-                        Bitmap b = com.baidu.tbadk.core.util.h.b(c, a2);
-                        Bitmap a3 = com.baidu.tbadk.core.util.h.a(b, com.baidu.adp.lib.util.j.a((Context) this.a, 5.0f), c != b);
+                        Bitmap b = com.baidu.tbadk.core.util.d.b(c, a2);
+                        Bitmap a3 = com.baidu.tbadk.core.util.d.a(b, com.baidu.adp.lib.util.j.a((Context) this.a, 5.0f), c != b);
                         this.a.F = new HashMap();
                         this.a.G = new HashMap();
                         hashMap = this.a.F;
@@ -109,6 +109,7 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         TextView textView;
         TextView textView2;
         EditHeadsImageView editHeadsImageView;
+        EditHeadsImageView editHeadsImageView2;
         boolean z;
         String[] strArr;
         super.onPostExecute(bitmap);
@@ -120,9 +121,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         textView.setClickable(true);
         textView2 = this.a.j;
         textView2.setEnabled(true);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
+        if (bitmap == null || bitmap.isRecycled()) {
             editHeadsImageView = this.a.g;
-            editHeadsImageView.setImageBitmap(bitmap);
+            editHeadsImageView.setImageDrawable(null);
+        } else if (bitmap != null) {
+            editHeadsImageView2 = this.a.g;
+            editHeadsImageView2.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
                 z = this.a.A;
                 if (z) {

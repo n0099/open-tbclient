@@ -2,7 +2,7 @@ package com.baidu.tieba.im.mygroup;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-class d extends com.baidu.adp.framework.listener.b {
+class d extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

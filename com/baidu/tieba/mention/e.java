@@ -1,33 +1,21 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    TextView a;
-    ProgressBar b;
-    d c;
-    HeadImageView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    View h;
-    TextView i;
-    TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ c m;
-
-    private e(c cVar) {
-        this.m = cVar;
-    }
+public class e implements AbsListView.OnScrollListener {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(c cVar, e eVar) {
-        this(cVar);
+    public e(c cVar) {
+        this.a = cVar;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

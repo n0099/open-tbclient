@@ -308,7 +308,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 this.praise.setUserMap(this.userMap);
                 this.praise.parserProtobuf(friendThreadInfo.zan);
                 this.anchorInfoData.parserProtobuf(friendThreadInfo.anchor_info);
-                if (!com.baidu.adp.lib.util.i.b(this.title)) {
+                if (!com.baidu.adp.lib.util.i.c(this.title)) {
                     this.praise.setTitle(this.title);
                 } else {
                     this.praise.setTitle(this.abstract_text);
@@ -325,29 +325,29 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
             ArrayList arrayList = new ArrayList();
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 if (getIs_livepost() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live_1));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_1));
                 }
                 if (getIs_good() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_elite_1));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_elite_1));
                 }
                 if (this.is_voice_thread == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice_1));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_voice_1));
                 }
                 if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live_on_1));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_on_1));
                 }
             } else {
                 if (this.is_livepost == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live));
                 }
                 if (getIs_good() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_elite));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_elite));
                 }
                 if (this.is_voice_thread == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_voice));
                 }
                 if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live_on));
+                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_on));
                 }
             }
             if (arrayList.size() > 0) {
@@ -358,7 +358,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.title);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a = com.baidu.tbadk.core.util.h.a(((Integer) arrayList.get(i3)).intValue());
+                    Bitmap a = com.baidu.tbadk.core.util.d.a(((Integer) arrayList.get(i3)).intValue());
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
                     bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
@@ -372,7 +372,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getImageUrl() {
         ArrayList<MediaData> medias = getMedias();
         if (medias == null) {
@@ -393,7 +393,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getPhotoUrl() {
         if (this.author == null) {
             return null;

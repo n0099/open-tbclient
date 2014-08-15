@@ -1,57 +1,39 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.editortool.EmotionGroupData;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class br extends com.baidu.adp.base.e {
-    private String d;
-    private int f;
-    private int g;
-    private float h;
-    private bs b = null;
-    private FaceShopData a = null;
-    private boolean e = false;
-    private int c = 0;
+public class br extends com.baidu.tbadk.editortool.e {
+    private LinkedList<com.baidu.tbadk.editortool.ad> a = new LinkedList<>();
 
-    public br() {
-        this.f = 0;
-        this.g = 0;
-        Context e = com.baidu.tieba.ai.c().e();
-        this.f = com.baidu.adp.lib.util.j.b(e);
-        this.g = com.baidu.adp.lib.util.j.c(e);
-        this.h = e.getResources().getDisplayMetrics().density;
+    @Override // com.baidu.tbadk.editortool.e
+    public int a() {
+        return 2;
     }
 
-    public FaceShopData a() {
-        return this.a;
-    }
-
-    public boolean b() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        this.d = str;
-    }
-
-    public void a(int i) {
-        if (this.b == null) {
-            this.b = new bs(this, null);
-            this.b.setPriority(3);
-            this.b.execute(Integer.valueOf(i));
+    @Override // com.baidu.tbadk.editortool.e
+    public void a(com.baidu.tbadk.editortool.f fVar) {
+        if (com.baidu.tbadk.core.util.s.a()) {
+            List<MyEmotionGroupData> a = d.a().a(TbadkApplication.getCurrentAccount());
+            this.a.clear();
+            for (MyEmotionGroupData myEmotionGroupData : a) {
+                EmotionGroupData a2 = com.baidu.tbadk.editortool.u.a().a(myEmotionGroupData.getGroupId());
+                if (a2 != null) {
+                    com.baidu.tbadk.editortool.d dVar = new com.baidu.tbadk.editortool.d(a2);
+                    if (dVar.j() != null) {
+                        this.a.add(dVar);
+                        if (fVar != null) {
+                            fVar.a(dVar);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
-            return true;
-        }
-        return true;
+    @Override // com.baidu.tbadk.editortool.e
+    protected void b() {
     }
 }

@@ -10,13 +10,13 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.im.e.t;
-import com.baidu.tieba.s;
+import com.baidu.tieba.im.d.l;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public abstract class g extends com.baidu.adp.base.f implements a {
     private DialogInterface.OnClickListener a;
@@ -118,13 +118,13 @@ public abstract class g extends com.baidu.adp.base.f implements a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(int i) {
-        this.d = this.g.findViewById(v.parent);
-        this.c = (NavigationBar) this.g.findViewById(v.view_navigation_bar);
+        this.d = this.g.findViewById(u.parent);
+        this.c = (NavigationBar) this.g.findViewById(u.view_navigation_bar);
         this.c.a(this.g.getResources().getString(i));
         this.m = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.g.getResources().getString(y.group_update_done));
-        this.b = (EditText) this.g.findViewById(v.edit_text);
-        this.h = (ProgressBar) this.g.findViewById(v.progress);
+        this.e = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.g.getResources().getString(x.group_update_done));
+        this.b = (EditText) this.g.findViewById(u.edit_text);
+        this.h = (ProgressBar) this.g.findViewById(u.progress);
         b(false);
         this.m.setOnClickListener(this.g);
         this.b.addTextChangedListener(this.n);
@@ -136,26 +136,30 @@ public abstract class g extends com.baidu.adp.base.f implements a {
         this.e.setEnabled(z);
     }
 
-    @Override // com.baidu.tieba.im.updategroup.a
-    public boolean l() {
-        return t.c(this.b) || this.b.length() >= 3;
+    public boolean m() {
+        return this.i != null && this.i.equals(this.b.getText().toString());
     }
 
-    protected void m() {
+    @Override // com.baidu.tieba.im.updategroup.a
+    public boolean l() {
+        return l.c(this.b) || this.b.length() >= 3;
+    }
+
+    protected void n() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.l) {
-                bk.e((View) this.e, u.navi_done_text_bg_1);
-                this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text_1));
+                ay.e((View) this.e, t.navi_done_text_bg_1);
+                this.e.setTextColor(this.g.getResources().getColorStateList(r.navi_done_text_1));
                 return;
             }
-            bk.e((View) this.e, u.btn_titlebar_finish_d_1);
-            this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d_1));
+            ay.e((View) this.e, t.btn_titlebar_finish_d_1);
+            this.e.setTextColor(this.g.getResources().getColor(r.navi_done_text_d_1));
         } else if (this.l) {
-            bk.e((View) this.e, u.navi_done_text_bg);
-            this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text));
+            ay.e((View) this.e, t.navi_done_text_bg);
+            this.e.setTextColor(this.g.getResources().getColorStateList(r.navi_done_text));
         } else {
-            bk.e((View) this.e, u.btn_titlebar_finish_d);
-            this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d));
+            ay.e((View) this.e, t.btn_titlebar_finish_d);
+            this.e.setTextColor(this.g.getResources().getColor(r.navi_done_text_d));
         }
     }
 
@@ -175,16 +179,16 @@ public abstract class g extends com.baidu.adp.base.f implements a {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.d);
         this.c.c(i);
-        bk.b(this.d, i);
-        bk.g(this.e, i);
-        m();
+        ay.b(this.d, i);
+        ay.g(this.e, i);
+        n();
         if (i == 1) {
-            this.b.setHintTextColor(this.g.getResources().getColor(s.create_group_input_hintcolor_1));
-            this.d.setBackgroundResource(s.create_group_pages_background_1);
+            this.b.setHintTextColor(this.g.getResources().getColor(r.create_group_input_hintcolor_1));
+            this.d.setBackgroundResource(r.create_group_pages_background_1);
             return;
         }
-        this.b.setHintTextColor(this.g.getResources().getColor(s.create_group_input_hintcolor));
-        this.d.setBackgroundResource(s.create_group_pages_background);
+        this.b.setHintTextColor(this.g.getResources().getColor(r.create_group_input_hintcolor));
+        this.d.setBackgroundResource(r.create_group_pages_background);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -205,6 +209,6 @@ public abstract class g extends com.baidu.adp.base.f implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a() {
-        new AlertDialog.Builder(this.g).setTitle(y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(y.group_update_alert_save).setPositiveButton(y.group_update_canel, new i(this)).setNegativeButton(y.group_update_done, new j(this)).create().show();
+        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.g).setTitle(x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(x.group_update_alert_save).setPositiveButton(x.group_update_canel, new i(this)).setNegativeButton(x.group_update_done, new j(this)).create(), this.g);
     }
 }

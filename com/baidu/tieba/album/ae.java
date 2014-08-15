@@ -37,16 +37,16 @@ public class ae implements View.OnClickListener {
             if (aaVar2.onClick(this.e, this.d, !c)) {
                 if (!c) {
                     if (this.f == 1) {
-                        this.g.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s_1);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_s_1);
                     } else {
-                        this.g.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_s);
                     }
                     albumActivity = this.a.b;
-                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.p.album_choose_icon));
+                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.o.album_choose_icon));
                 } else if (this.f == 1) {
-                    this.g.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n_1);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_n_1);
                 } else {
-                    this.g.b.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.t.btn_choose_photo_n);
                 }
             }
         }

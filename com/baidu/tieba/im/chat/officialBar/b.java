@@ -17,15 +17,15 @@ public class b implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.d.b bVar;
         com.baidu.adp.lib.d.b bVar2;
         com.baidu.adp.lib.d.b bVar3;
-        if (view2 instanceof h) {
+        if (view2 instanceof f) {
             bVar3 = this.a.d;
-            bVar3.a((com.baidu.adp.lib.d.b) ((h) view2));
+            bVar3.a((com.baidu.adp.lib.d.b) ((f) view2));
         } else if (view2 instanceof c) {
             bVar2 = this.a.e;
             bVar2.a((com.baidu.adp.lib.d.b) ((c) view2));
-        } else if (view2 instanceof bf) {
+        } else if (view2 instanceof bb) {
             bVar = this.a.f;
-            bVar.a((com.baidu.adp.lib.d.b) ((bf) view2));
+            bVar.a((com.baidu.adp.lib.d.b) ((bb) view2));
         }
     }
 

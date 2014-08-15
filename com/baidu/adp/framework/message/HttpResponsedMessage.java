@@ -9,7 +9,6 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     private String contentEncoding;
     private String contentLength;
     private String contentType;
-    private int mDownSize;
     private Map<String, List<String>> mHeader;
     private int mStatusCode;
 
@@ -20,15 +19,6 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         this.contentEncoding = "";
         this.contentType = "";
         this.contentLength = "";
-        this.mDownSize = 0;
-    }
-
-    public int getDownSize() {
-        return this.mDownSize;
-    }
-
-    public void setDownSize(int i) {
-        this.mDownSize = i;
     }
 
     public String getContentEncoding() {

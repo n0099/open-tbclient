@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import java.util.Observable;
-@com.baidu.tbadk.tbplugin.a.a(a = "browser_wrapper.jar", b = "dex.wrapper.BdBrowserDelegateImpl")
-@com.baidu.tbadk.tbplugin.a.c(a = "browser")
 /* loaded from: classes.dex */
 public interface BdBrowserDelegate {
 

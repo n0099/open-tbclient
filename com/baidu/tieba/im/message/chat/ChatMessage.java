@@ -16,6 +16,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
+    private int customGroupType;
     private com.baidu.tbadk.gif.a gifInfo;
     private String groupId;
     public boolean hasRepeat;
@@ -299,11 +300,19 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
         this.isFriend = i;
     }
 
+    public int getCustomGroupType() {
+        return this.customGroupType;
+    }
+
+    public void setCustomGroupType(int i) {
+        this.customGroupType = i;
+    }
+
     @Override // com.baidu.adp.framework.client.socket.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
             ChatMessage chatMessage = (ChatMessage) socketMessage;
-            return chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
+            return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
         }
         return false;
     }

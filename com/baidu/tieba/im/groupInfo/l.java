@@ -28,49 +28,41 @@ class l extends CustomMessageListener {
         com.baidu.tieba.im.model.k kVar6;
         com.baidu.tieba.im.model.k kVar7;
         com.baidu.tieba.im.model.k kVar8;
-        com.baidu.tieba.im.model.k kVar9;
-        com.baidu.tieba.im.model.k kVar10;
-        com.baidu.tieba.im.model.k kVar11;
         r rVar2;
         if (customResponsedMessage == null) {
-            rVar2 = this.a.f;
+            rVar2 = this.a.b;
             rVar2.p();
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else if (customResponsedMessage.getCmd() == 2001102) {
             if (!(customResponsedMessage instanceof ResponseGroupInfoLocalMessage)) {
-                kVar9 = this.a.g;
-                kVar10 = this.a.g;
-                long d = kVar10.d();
-                kVar11 = this.a.g;
-                kVar9.a(d, kVar11.e());
+                kVar6 = this.a.c;
+                kVar7 = this.a.c;
+                long d = kVar7.d();
+                kVar8 = this.a.c;
+                kVar6.a(d, kVar8.e());
                 return;
             }
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = (ResponseGroupInfoLocalMessage) customResponsedMessage;
             if (responseGroupInfoLocalMessage.getOrginalMessage() != null) {
                 long groupId = ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId();
-                kVar8 = this.a.g;
-                if (groupId != kVar8.d()) {
+                kVar5 = this.a.c;
+                if (groupId != kVar5.d()) {
                     return;
                 }
             }
             if (responseGroupInfoLocalMessage.getError() != 0) {
-                kVar5 = this.a.g;
-                kVar6 = this.a.g;
-                long d2 = kVar6.d();
-                kVar7 = this.a.g;
-                kVar5.a(d2, kVar7.e());
+                kVar2 = this.a.c;
+                kVar3 = this.a.c;
+                long d2 = kVar3.d();
+                kVar4 = this.a.c;
+                kVar2.a(d2, kVar4.e());
                 return;
             }
             this.a.f();
-            kVar = this.a.g;
+            kVar = this.a.c;
             kVar.a(responseGroupInfoLocalMessage.getData());
-            rVar = this.a.f;
+            rVar = this.a.b;
             rVar.a(responseGroupInfoLocalMessage.getData());
-            kVar2 = this.a.g;
-            kVar3 = this.a.g;
-            long d3 = kVar3.d();
-            kVar4 = this.a.g;
-            kVar2.a(d3, kVar4.e());
         }
     }
 }

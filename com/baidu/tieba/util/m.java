@@ -1,13 +1,13 @@
 package com.baidu.tieba.util;
 
-import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class m {
     public static void a(String str, n nVar) {
-        if (bm.c(str)) {
+        if (ba.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -18,7 +18,7 @@ public class m {
     }
 
     public static void b(String str, n nVar) {
-        if (bm.c(str)) {
+        if (ba.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -33,32 +33,32 @@ public class m {
     }
 
     public static void a(int i, WriteData writeData) {
-        s<String> g = com.baidu.tbadk.core.a.b.a().g();
+        t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
-            g.b(a(i), writeData.toDraftString(), 604800000L);
+            b.b(a(i), writeData.toDraftString(), 604800000L);
         } else {
-            g.d(a(i));
+            b.d(a(i));
         }
     }
 
     public static void a(String str, WriteData writeData) {
-        if (!bm.c(str)) {
-            s<String> g = com.baidu.tbadk.core.a.b.a().g();
+        if (!ba.c(str)) {
+            t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                g.b(b(str), writeData.toDraftString(), 604800000L);
+                b.b(b(str), writeData.toDraftString(), 604800000L);
             } else {
-                g.d(b(str));
+                b.d(b(str));
             }
         }
     }
 
     public static void b(String str, WriteData writeData) {
-        if (!bm.c(str)) {
-            s<String> g = com.baidu.tbadk.core.a.b.a().g();
+        if (!ba.c(str)) {
+            t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                g.b(a(str), writeData.toDraftString(), 604800000L);
+                b.b(a(str), writeData.toDraftString(), 604800000L);
             } else {
-                g.d(a(str));
+                b.d(a(str));
             }
         }
     }

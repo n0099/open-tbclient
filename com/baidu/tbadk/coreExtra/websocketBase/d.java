@@ -15,6 +15,6 @@ class d implements Comparator<Map.Entry<String, Integer>> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-        return (int) (com.baidu.adp.lib.f.b.a(String.valueOf(entry.getValue()), 0) - com.baidu.adp.lib.f.b.a(String.valueOf(entry2.getValue()), 0));
+        return (int) (com.baidu.adp.lib.e.b.a(String.valueOf(entry.getValue()), 0) - com.baidu.adp.lib.e.b.a(String.valueOf(entry2.getValue()), 0));
     }
 }

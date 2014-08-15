@@ -1,28 +1,34 @@
 package com.baidu.tieba.im.stranger;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
+class e implements DialogInterface.OnClickListener {
+    final /* synthetic */ StrangerListActivity a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ ImMessageCenterShowItemData c;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(int i) {
-        super(i);
+    public e(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.a = strangerListActivity;
+        this.b = i;
+        this.c = imMessageCenterShowItemData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
-            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
-            long friendId = responseNewFriendUpdateUiMsg.getFriendId();
-            int action = responseNewFriendUpdateUiMsg.getAction();
-            if (action == 0) {
-                a.a(new StringBuilder(String.valueOf(friendId)).toString(), 1);
-            } else if (action == 1) {
-                a.a(new StringBuilder(String.valueOf(friendId)).toString());
-            }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        h hVar;
+        com.baidu.tieba.im.chat.notify.a aVar;
+        h hVar2;
+        if (this.b == 1) {
+            hVar2 = this.a.c;
+            hVar2.b();
+            this.a.finish();
+            return;
         }
+        hVar = this.a.c;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.c;
+        aVar = this.a.i;
+        hVar.a(imMessageCenterShowItemData, aVar);
     }
 }

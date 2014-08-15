@@ -12,7 +12,6 @@ class d implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.a.showLoadingDialog(null);
-        com.baidu.tieba.im.i.a(new e(this), new f(this));
+        dialogInterface.dismiss();
     }
 }

@@ -1,10 +1,13 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseIncrLiveGroupLikeMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class af extends com.baidu.adp.framework.listener.b {
+class af extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,26 +20,24 @@ class af extends com.baidu.adp.framework.listener.b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        LiveRoomChatView z;
-        LiveRoomChatView z2;
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107108 && (socketResponsedMessage instanceof ResponseIncrLiveGroupLikeMessage)) {
-            ResponseIncrLiveGroupLikeMessage responseIncrLiveGroupLikeMessage = (ResponseIncrLiveGroupLikeMessage) socketResponsedMessage;
-            if (responseIncrLiveGroupLikeMessage.mLiveGroupInfo != null && this.a.x().b != null && this.a.x().b.groupId.equals(responseIncrLiveGroupLikeMessage.mLiveGroupInfo.groupId)) {
-                if (responseIncrLiveGroupLikeMessage.hasError()) {
-                    if (!TextUtils.isEmpty(responseIncrLiveGroupLikeMessage.getErrorString())) {
-                        this.a.showToast(responseIncrLiveGroupLikeMessage.getErrorString());
-                    }
-                    this.a.x().g = responseIncrLiveGroupLikeMessage.mType != 1 ? 2 : 1;
-                    z2 = this.a.z();
-                    z2.a(this.a.x().d, this.a.x().i, this.a.x().g);
-                    return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo p;
+        LiveRoomChatView x;
+        if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && p.getCmd() == "live_user_mute") {
+            try {
+                JSONObject jSONObject = new JSONObject(p.getContent());
+                String optString = jSONObject.optString("userMsg");
+                int optInt = jSONObject.optJSONObject("eventParam").optInt("type");
+                this.a.showToast(optString);
+                x = this.a.x();
+                if (optInt == 1) {
+                    x.ak();
+                    x.e(true);
+                } else if (optInt == 2) {
+                    x.e(false);
                 }
-                this.a.x().g = responseIncrLiveGroupLikeMessage.mType != 1 ? 2 : 1;
-                z = this.a.z();
-                z.a(this.a.x().d, this.a.x().i, this.a.x().g);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

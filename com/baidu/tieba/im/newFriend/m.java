@@ -1,42 +1,24 @@
 package com.baidu.tieba.im.newFriend;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
-import com.baidu.tbadk.newFriends.ResponsePassFriendMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.RequestAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.framework.listener.b {
+class m implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ k a;
+    private final /* synthetic */ RequestAddFriendMessage b;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(int i) {
-        super(i);
+    public m(k kVar, RequestAddFriendMessage requestAddFriendMessage) {
+        this.a = kVar;
+        this.b = requestAddFriendMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsePassFriendMessage)) {
-            ResponsePassFriendMessage responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage;
-            int error = responsePassFriendMessage.getError();
-            long friendId = responsePassFriendMessage.getFriendId();
-            String name = responsePassFriendMessage.getName();
-            String portrait = responsePassFriendMessage.getPortrait();
-            String key = responsePassFriendMessage.getKey();
-            String quanpin = responsePassFriendMessage.getQuanpin();
-            com.baidu.tieba.im.data.k kVar = new com.baidu.tieba.im.data.k();
-            kVar.a(friendId);
-            kVar.a(2);
-            kVar.b(0);
-            if (error == 0) {
-                com.baidu.tieba.im.i.a(new n(this, friendId, kVar), new o(this, friendId, portrait, name, key, quanpin));
-            } else if (error == 3100098) {
-                Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
-                if (orginalMessage instanceof RequestPassFriendMessage) {
-                    long friendId2 = ((RequestPassFriendMessage) orginalMessage).getFriendId();
-                    com.baidu.tieba.im.i.a(new p(this, friendId2), new q(this, friendId2));
-                }
-            }
-        }
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r9) {
+        ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = new ResponseNewFriendUpdateUiMsg(-1, 0L, "", "", "", "");
+        responseNewFriendUpdateUiMsg.setContent(this.b.getMessage());
+        MessageManager.getInstance().dispatchResponsedMessageToUI(responseNewFriendUpdateUiMsg);
     }
 }

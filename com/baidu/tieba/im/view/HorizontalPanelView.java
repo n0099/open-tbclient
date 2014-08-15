@@ -11,12 +11,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bg;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bx;
-import com.baidu.tbadk.core.util.bz;
+import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bq;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -57,7 +56,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
 
     public void b() {
         if (this.d == null) {
-            this.d = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.p.panel_fold_up);
+            this.d = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.panel_fold_up);
             this.d.setAnimationListener(new i(this));
         }
         startAnimation(this.d);
@@ -66,7 +65,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
 
     public void c() {
         if (this.e == null) {
-            this.e = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.p.panel_fold_down);
+            this.e = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.panel_fold_down);
         }
         this.c.setVisibility(0);
         startAnimation(this.e);
@@ -74,7 +73,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     }
 
     public void a(UserData userData) {
-        bx.a((ViewGroup) this.c, false, (bz) new j(this, userData));
+        bo.a((ViewGroup) this.c, false, (bq) new j(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -91,9 +90,9 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                     headImageView.setUserId(String.valueOf(userData.getUserId()));
                     headImageView.setUserName(userData.getUserName());
                     headImageView.setUrl(userData.getPortrait());
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.horizontal_panel_view_item);
+                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.horizontal_panel_view_item);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-                    layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_6);
+                    layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.default_gap_6);
                     layoutParams.gravity = 16;
                     headImageView.setOnClickListener(this);
                     this.c.addView(headImageView, layoutParams);
@@ -106,9 +105,9 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.horizontal_panel_view, (ViewGroup) this, true);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.horizontal_panel_view, (ViewGroup) this, true);
         setOrientation(1);
-        this.c = (LinearLayout) findViewById(com.baidu.tieba.v.user_layout);
+        this.c = (LinearLayout) findViewById(com.baidu.tieba.u.user_layout);
         setHorizontalScrollBarEnabled(false);
     }
 
@@ -130,7 +129,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
             HeadImageView headImageView = (HeadImageView) view;
             if (!TextUtils.isEmpty(headImageView.getUserId())) {
                 com.baidu.tbadk.core.f.a(getContext(), "snap_chat_member_head_click");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this.a, headImageView.getUserId(), headImageView.getUserName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.a, headImageView.getUserId(), headImageView.getUserName())));
             }
         }
     }

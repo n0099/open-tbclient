@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.core.util.bs {
-    Pattern a = Pattern.compile("http://tieba.baidu.com/f\\?kw=([^&]+)");
+class ae extends HttpMessageListener {
+    final /* synthetic */ FrsActivity a;
 
-    @Override // com.baidu.tbadk.core.util.bs
-    public boolean a(Context context, String[] strArr) {
-        String str;
-        String substring;
-        String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.a.matcher(lowerCase);
-        if (strArr.length <= 1) {
-            str = null;
-        } else {
-            str = strArr[1];
-        }
-        if (matcher.find()) {
-            substring = matcher.group(1);
-        } else if (!lowerCase.startsWith("frs:")) {
-            return false;
-        } else {
-            substring = lowerCase.substring(4);
-        }
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(context).a(substring, str)));
-            return true;
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(context).a(substring, str)));
-            return true;
-        } else {
-            return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(FrsActivity frsActivity, int i) {
+        super(i);
+        this.a = frsActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        dl dlVar;
+        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.b.a aVar2;
+        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
+            FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
+            j jVar = new j();
+            jVar.a = frsPageHttpResponseMessage.getError() < -13 || frsPageHttpResponseMessage.getError() > -10;
+            jVar.b = !frsPageHttpResponseMessage.hasNetworkError();
+            jVar.c = frsPageHttpResponseMessage.getError();
+            jVar.d = frsPageHttpResponseMessage.getErrorString();
+            jVar.e = frsPageHttpResponseMessage.getDownSize();
+            dlVar = this.a.aj;
+            dlVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
+            aVar = this.a.K;
+            if (aVar != null) {
+                boolean z = frsPageHttpResponseMessage.getError() == 0;
+                aVar2 = this.a.K;
+                aVar2.a(true, z, frsPageHttpResponseMessage.getError(), frsPageHttpResponseMessage.getErrorString(), frsPageHttpResponseMessage.getDownSize(), frsPageHttpResponseMessage.getCostTime(), 0L);
+                this.a.K = null;
+            }
         }
     }
 }

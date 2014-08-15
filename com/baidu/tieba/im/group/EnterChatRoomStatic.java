@@ -13,10 +13,10 @@ public class EnterChatRoomStatic {
     private static ProgressDialog c;
 
     static {
-        f fVar = new f(0);
-        a = new com.baidu.tieba.im.model.h();
-        a.registerListener(fVar);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008020, new g());
+        g gVar = new g(0);
+        a = new com.baidu.tieba.im.model.h(b);
+        a.registerListener(gVar);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008020, new h());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -34,7 +34,7 @@ public class EnterChatRoomStatic {
         if (TextUtils.isEmpty(currentAccount) || !currentAccount.equals(str)) {
             return 0;
         }
-        long a3 = com.baidu.adp.lib.f.b.a(str2, 0L) - System.currentTimeMillis();
+        long a3 = com.baidu.adp.lib.e.b.a(str2, 0L) - System.currentTimeMillis();
         if (a3 > 0) {
             int i = (int) ((a3 / 1000) / 60);
             if (i > 0) {

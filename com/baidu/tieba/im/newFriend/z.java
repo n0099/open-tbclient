@@ -1,26 +1,19 @@
 package com.baidu.tieba.im.newFriend;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* loaded from: classes.dex */
-class z {
-    private boolean a;
-    private int b;
+class z implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ x a;
 
-    public z(boolean z, int i) {
-        this.a = z;
-        this.b = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(x xVar) {
+        this.a = xVar;
     }
 
-    public int hashCode() {
-        return (this.a ? 1 : 0) + this.b;
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        z zVar = (z) obj;
-        return this.a == zVar.a && this.b == zVar.b;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r3) {
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(this.a.a));
     }
 }

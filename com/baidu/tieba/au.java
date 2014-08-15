@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.DialogInterface;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tieba.data.VersionData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements CustomMessageTask.CustomRunnable<Intent> {
-    final /* synthetic */ ai a;
+public class au implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(ai aiVar) {
-        this.a = aiVar;
+    public au(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(TbadkApplication.m252getInst().getApp(), customMessage.getData());
-        return null;
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        ab abVar;
+        VersionData versionData;
+        abVar = this.a.h;
+        abVar.dismiss();
+        versionData = this.a.e;
+        if (versionData.forceUpdate()) {
+            com.baidu.tbadk.core.b.b.a(this.a, Constants.MEDIA_INFO);
+        }
     }
 }

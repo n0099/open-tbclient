@@ -18,7 +18,7 @@ public class g implements com.baidu.adp.lib.guide.b {
         WaittingActivity waittingActivity;
         waittingActivity = this.a.b;
         ImageView imageView = new ImageView(waittingActivity);
-        imageView.setBackgroundResource(com.baidu.tieba.u.pic_chatprogress);
+        imageView.setBackgroundResource(com.baidu.tieba.t.pic_chatprogress);
         return imageView;
     }
 

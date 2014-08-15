@@ -18,15 +18,15 @@ class ao implements Runnable {
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText3;
-        editText = this.a.e;
+        editText = this.a.f;
         if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.a.A;
-            editText3 = this.a.e;
+            editorToolComponetContainer2 = this.a.C;
+            editText3 = this.a.f;
             editorToolComponetContainer2.c(editText3);
             return;
         }
-        editorToolComponetContainer = this.a.A;
-        editText2 = this.a.h;
+        editorToolComponetContainer = this.a.C;
+        editText2 = this.a.i;
         editorToolComponetContainer.c(editText2);
     }
 }

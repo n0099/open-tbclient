@@ -8,10 +8,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.widget.ListView.e {
@@ -31,12 +31,12 @@ public class m extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.f = LayoutInflater.from(this.b).inflate(w.new_pb_list_more, (ViewGroup) null);
-        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(t.listview_item_margin));
-        this.c = (TextView) this.f.findViewById(v.pb_more_text);
-        this.g = this.f.findViewById(v.pb_more_view);
+        this.f = LayoutInflater.from(this.b).inflate(v.new_pb_list_more, (ViewGroup) null);
+        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(s.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(s.listview_item_margin));
+        this.c = (TextView) this.f.findViewById(u.pb_more_text);
+        this.g = this.f.findViewById(u.pb_more_view);
         this.g.setVisibility(8);
-        this.d = (ProgressBar) this.f.findViewById(v.progress);
+        this.d = (ProgressBar) this.f.findViewById(u.progress);
         a(TbadkApplication.m252getInst().getSkinType());
         this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.f;
@@ -45,7 +45,7 @@ public class m extends com.baidu.adp.widget.ListView.e {
     public void a(int i) {
         n nVar;
         this.b.c().a(this.g);
-        nVar = this.a.k;
+        nVar = this.a.j;
         nVar.a(i);
     }
 
@@ -63,18 +63,18 @@ public class m extends com.baidu.adp.widget.ListView.e {
 
     public void e() {
         this.d.setVisibility(0);
-        this.c.setText(this.b.getText(y.loading));
+        this.c.setText(this.b.getText(x.loading));
         this.g.setVisibility(0);
     }
 
     public void f() {
         this.d.setVisibility(8);
-        this.c.setText(y.no_more_to_load);
+        this.c.setText(x.no_more_to_load);
     }
 
     public void g() {
         this.d.setVisibility(8);
-        this.c.setText(y.load_more);
+        this.c.setText(x.load_more);
     }
 
     public void h() {

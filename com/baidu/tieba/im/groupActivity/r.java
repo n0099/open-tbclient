@@ -18,6 +18,7 @@ public class r extends com.baidu.adp.base.e {
     private GroupActivityData h;
 
     public r(BaseActivity baseActivity) {
+        super(baseActivity);
         this.g = baseActivity;
     }
 

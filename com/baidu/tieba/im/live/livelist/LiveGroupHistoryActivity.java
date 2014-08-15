@@ -6,18 +6,17 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.ao;
 import com.baidu.tbadk.core.data.LiveCardData;
 /* loaded from: classes.dex */
 public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
     private ak a;
-    private com.baidu.tieba.im.model.z b;
-    private com.baidu.tbadk.editortool.aa c;
-    private String d = null;
-    private final com.baidu.adp.framework.listener.b e = new af(this, 107005);
+    private com.baidu.tieba.im.model.r b;
+    private String c = null;
+    private final com.baidu.adp.framework.listener.d d = new af(this, 107005);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.af.class, LiveGroupHistoryActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ai.class, LiveGroupHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,7 +49,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     }
 
     private void c() {
-        showLoadingDialog(getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
+        showLoadingDialog(getString(com.baidu.tieba.x.group_tab_enterchatroom_loading), null);
         this.b.a(this.b.a(), this.b.b(), 20);
     }
 
@@ -60,15 +59,13 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     }
 
     public void a(Bundle bundle) {
-        this.b = new com.baidu.tieba.im.model.z();
+        this.b = new com.baidu.tieba.im.model.r(this);
         if (bundle == null) {
             this.b.a(getIntent());
         } else {
             this.b.b(bundle);
         }
-        this.c = new com.baidu.tbadk.editortool.aa(this);
-        this.c.b(true);
-        this.b.registerListener(this.e);
+        this.b.registerListener(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +94,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     public void g() {
         LiveCardData d = this.b.d();
         if (d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this, d.getName(), this.d, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao(this, d.getName(), this.c, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
         }
     }
 }

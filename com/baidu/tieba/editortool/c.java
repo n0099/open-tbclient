@@ -1,5 +1,6 @@
 package com.baidu.tieba.editortool;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -7,7 +8,7 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.model.h {
+public class c implements com.baidu.tieba.model.i {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,18 +16,27 @@ public class c implements com.baidu.tieba.model.h {
         this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.model.h
+    @Override // com.baidu.tieba.model.i
     public void a(SetBubbleResultData setBubbleResultData) {
+        String str;
+        com.baidu.tieba.model.e eVar;
+        Context context;
+        BubbleListData bubbleListData;
+        BubbleListData bubbleListData2;
         if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
             this.a.i().b();
             return;
         }
         this.a.f = setBubbleResultData.getB_info().getB_url();
-        TbadkApplication.m252getInst().setDefaultBubble(this.a.f);
-        int a = this.a.a.a();
+        TbadkApplication m252getInst = TbadkApplication.m252getInst();
+        str = this.a.f;
+        m252getInst.setDefaultBubble(str);
+        eVar = this.a.b;
+        int a = eVar.a();
         if (a == 0) {
             TbadkApplication.m252getInst().setDefaultBubble("");
-            for (BubbleListData.BubbleData bubbleData : this.a.b.getB_info()) {
+            bubbleListData2 = this.a.c;
+            for (BubbleListData.BubbleData bubbleData : bubbleListData2.getB_info()) {
                 if (bubbleData.getBcode() != 0) {
                     if (bubbleData.isDef()) {
                         bubbleData.setIs_def(0);
@@ -36,34 +46,43 @@ public class c implements com.baidu.tieba.model.h {
                 }
             }
         } else if (setBubbleResultData.getB_info().canUser()) {
-            for (BubbleListData.BubbleData bubbleData2 : this.a.b.getB_info()) {
+            bubbleListData = this.a.c;
+            for (BubbleListData.BubbleData bubbleData2 : bubbleListData.getB_info()) {
                 if (bubbleData2.getBcode() == a) {
                     bubbleData2.setIs_def(1);
                 } else if (bubbleData2.isDef()) {
                     bubbleData2.setIs_def(0);
                 }
+                if (bubbleData2.getBcode() == a) {
+                    bubbleData2.setCan_use(1);
+                }
             }
         } else {
-            UtilHelper.showToast(this.a.d, com.baidu.tieba.y.bubble_setdefualt_error);
+            context = this.a.d;
+            UtilHelper.showToast(context, com.baidu.tieba.x.bubble_setdefualt_error);
         }
         this.a.k();
         this.a.i().a(this.a);
     }
 
-    @Override // com.baidu.tieba.model.h
+    @Override // com.baidu.tieba.model.i
     public void b(SetBubbleResultData setBubbleResultData) {
-        if (setBubbleResultData != null) {
-            if (!setBubbleResultData.getError_code().equals("0")) {
-                if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-                    UtilHelper.showToast(this.a.d, setBubbleResultData.getError_msg());
-                } else {
-                    UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
-                }
-            } else {
-                UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
-            }
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        if (setBubbleResultData == null) {
+            context = this.a.d;
+            UtilHelper.showToast(context, com.baidu.tieba.x.neterror);
+        } else if (setBubbleResultData.getError_code().equals("0")) {
+            context2 = this.a.d;
+            UtilHelper.showToast(context2, com.baidu.tieba.x.neterror);
+        } else if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
+            context4 = this.a.d;
+            UtilHelper.showToast(context4, setBubbleResultData.getError_msg());
         } else {
-            UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
+            context3 = this.a.d;
+            UtilHelper.showToast(context3, com.baidu.tieba.x.neterror);
         }
         if (this.a.i() != null) {
             this.a.i().b();

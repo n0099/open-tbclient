@@ -20,18 +20,18 @@ public class i extends com.baidu.adp.base.f {
     public i(BlackMembersListActivity blackMembersListActivity) {
         super(blackMembersListActivity);
         this.a = blackMembersListActivity;
-        blackMembersListActivity.setContentView(com.baidu.tieba.w.live_black_members_activity);
+        blackMembersListActivity.setContentView(com.baidu.tieba.v.live_black_members_activity);
         a(blackMembersListActivity);
         b(blackMembersListActivity);
     }
 
     private void a(BlackMembersListActivity blackMembersListActivity) {
-        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.rootView);
-        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.d.a(this.a.getString(com.baidu.tieba.y.live_black_members_title));
+        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.u.rootView);
+        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.d.a(this.a.getString(com.baidu.tieba.x.live_black_members_title));
         this.g = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.g.setOnClickListener(this.a);
-        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.y.members_edit));
+        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.x.members_edit));
         this.h.setOnClickListener(this.a);
     }
 
@@ -44,8 +44,8 @@ public class i extends com.baidu.adp.base.f {
     }
 
     private void b(BlackMembersListActivity blackMembersListActivity) {
-        this.f = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.no_data_container);
-        this.e = (BdListView) this.a.findViewById(com.baidu.tieba.v.black_list);
+        this.f = (ViewGroup) this.a.findViewById(com.baidu.tieba.u.no_data_container);
+        this.e = (BdListView) this.a.findViewById(com.baidu.tieba.u.black_list);
         this.b = new e(this.a);
         this.e.setAdapter((ListAdapter) this.b);
     }

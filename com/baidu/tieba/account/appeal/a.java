@@ -4,7 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
     final /* synthetic */ AppealActivity a;
@@ -34,11 +34,11 @@ class a implements TextWatcher {
         textView2.setText(String.valueOf(length));
         if (length < 0) {
             textView4 = this.a.e;
-            textView4.setTextColor(this.a.getResources().getColor(s.red));
+            textView4.setTextColor(this.a.getResources().getColor(r.red));
             return;
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();
         textView3 = this.a.e;
-        textView3.setTextColor(this.a.getResources().getColor(skinType == 1 ? s.appeal_hint : s.appeal_hint_1));
+        textView3.setTextColor(this.a.getResources().getColor(skinType == 1 ? r.appeal_hint : r.appeal_hint_1));
     }
 }

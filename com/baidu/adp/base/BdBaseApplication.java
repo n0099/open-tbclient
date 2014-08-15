@@ -2,8 +2,10 @@ package com.baidu.adp.base;
 
 import android.app.Application;
 import android.content.Context;
+import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
+    public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
@@ -17,7 +19,7 @@ public class BdBaseApplication extends Application {
     public void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.j.a(application);
+        j.a(application);
         initWorkMode();
         initBitmapHelper();
         initHttpManager();
@@ -60,6 +62,8 @@ public class BdBaseApplication extends Application {
     }
 
     public void onAppMemoryLow() {
+        a.a().c();
+        System.gc();
     }
 
     public void setActivityStackMaxSize(int i) {
@@ -67,6 +71,6 @@ public class BdBaseApplication extends Application {
     }
 
     public int getActivityStackMaxSize() {
-        return a.a().c();
+        return a.a().d();
     }
 }

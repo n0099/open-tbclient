@@ -19,7 +19,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.lang.model.element.Modifier;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class JavaWriter implements Closeable {
     private static final String INDENT = "  ";
@@ -223,7 +222,7 @@ public class JavaWriter implements Closeable {
             emitCompressedType(str3);
         }
         if (strArr.length > 0) {
-            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+            this.out.write("\n");
             indent();
             this.out.write("    implements ");
             for (int i = 0; i < strArr.length; i++) {
@@ -263,10 +262,10 @@ public class JavaWriter implements Closeable {
         this.out.write(str2);
         if (str3 != null) {
             this.out.write(" = ");
-            String[] split = str3.split(IOUtils.LINE_SEPARATOR_UNIX, -1);
+            String[] split = str3.split("\n", -1);
             this.out.write(split[0]);
             for (int i = 1; i < split.length; i++) {
-                this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+                this.out.write("\n");
                 hangingIndent();
                 this.out.write(split[i]);
             }
@@ -305,7 +304,7 @@ public class JavaWriter implements Closeable {
         }
         this.out.write(")");
         if (list2 != null && list2.size() > 0) {
-            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+            this.out.write("\n");
             indent();
             this.out.write("    throws ");
             for (int i3 = 0; i3 < list2.size(); i3++) {
@@ -339,7 +338,7 @@ public class JavaWriter implements Closeable {
         String format = String.format(str, objArr);
         indent();
         this.out.write("/**\n");
-        String[] split = format.split(IOUtils.LINE_SEPARATOR_UNIX);
+        String[] split = format.split("\n");
         for (String str2 : split) {
             indent();
             this.out.write(" *");
@@ -347,7 +346,7 @@ public class JavaWriter implements Closeable {
                 this.out.write(" ");
                 this.out.write(str2);
             }
-            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+            this.out.write("\n");
         }
         indent();
         this.out.write(" */\n");
@@ -358,12 +357,12 @@ public class JavaWriter implements Closeable {
         indent();
         this.out.write("// ");
         this.out.write(String.format(str, objArr));
-        this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+        this.out.write("\n");
         return this;
     }
 
     public JavaWriter emitEmptyLine() {
-        this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+        this.out.write("\n");
         return this;
     }
 
@@ -417,7 +416,7 @@ public class JavaWriter implements Closeable {
         this.out.write("(");
         emitAnnotationValue(obj);
         this.out.write(")");
-        this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+        this.out.write("\n");
         return this;
     }
 
@@ -446,7 +445,7 @@ public class JavaWriter implements Closeable {
                 boolean z = map.size() > 3 || containsArray(map.values());
                 this.out.write("(");
                 this.scopes.push(Scope.ANNOTATION_ATTRIBUTE);
-                String str2 = z ? IOUtils.LINE_SEPARATOR_UNIX : "";
+                String str2 = z ? "\n" : "";
                 String str3 = str2;
                 for (Map.Entry<String, ?> entry : map.entrySet()) {
                     this.out.write(str3);
@@ -461,13 +460,13 @@ public class JavaWriter implements Closeable {
                 }
                 popScope(Scope.ANNOTATION_ATTRIBUTE);
                 if (z) {
-                    this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+                    this.out.write("\n");
                     indent();
                 }
                 this.out.write(")");
                 break;
         }
-        this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+        this.out.write("\n");
         return this;
     }
 
@@ -489,7 +488,7 @@ public class JavaWriter implements Closeable {
             this.scopes.push(Scope.ANNOTATION_ARRAY_VALUE);
             for (Object obj2 : (Object[]) obj) {
                 if (z) {
-                    this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+                    this.out.write("\n");
                     z = false;
                 } else {
                     this.out.write(",\n");
@@ -498,7 +497,7 @@ public class JavaWriter implements Closeable {
                 this.out.write(obj2.toString());
             }
             popScope(Scope.ANNOTATION_ARRAY_VALUE);
-            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+            this.out.write("\n");
             indent();
             this.out.write("}");
         } else {
@@ -509,11 +508,11 @@ public class JavaWriter implements Closeable {
 
     public JavaWriter emitStatement(String str, Object... objArr) {
         checkInMethod();
-        String[] split = String.format(str, objArr).split(IOUtils.LINE_SEPARATOR_UNIX, -1);
+        String[] split = String.format(str, objArr).split("\n", -1);
         indent();
         this.out.write(split[0]);
         for (int i = 1; i < split.length; i++) {
-            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
+            this.out.write("\n");
             hangingIndent();
             this.out.write(split[i]);
         }

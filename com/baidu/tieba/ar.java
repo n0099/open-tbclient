@@ -1,22 +1,23 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements Runnable {
-    final /* synthetic */ aq a;
+public class ar implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.k> {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aq aqVar) {
-        this.a = aqVar;
+    public ar(ai aiVar) {
+        this.a = aiVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.tbplugin.m.a().a("BdSocialShareSdk", "com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("batsdk", "com.baidu.tbadk.plugins.BatSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("motusdk", "com.baidu.tbadk.plugins.MotuPlugin");
-        com.baidu.tbadk.tbplugin.m.a().a("browser", "com.baidu.tbadk.plugins.BdBrowserDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("dqsdk", "com.baidu.tbadk.plugins.DQSdkPlugin");
-        com.baidu.tbadk.tbplugin.m.a().a("hao123", "com.baidu.tbadk.plugins.Hao123Plugin");
-        com.baidu.tbadk.tbplugin.m.a().a("baobaosdk", "com.baidu.tbadk.plugins.BaobaoSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().j();
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.k> customMessage) {
+        UtilHelper.showYYNotification(TbadkApplication.m252getInst(), customMessage.getData(), 13);
+        return null;
     }
 }

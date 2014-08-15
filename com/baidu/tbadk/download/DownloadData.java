@@ -14,6 +14,7 @@ public class DownloadData implements Serializable {
     private transient a a;
     private String check;
     private String description;
+    private int errorCode;
     private int height;
     private String id;
     private long length;
@@ -201,5 +202,13 @@ public class DownloadData implements Serializable {
 
     public void setNotifyId(int i) {
         this.notifyId = i;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
     }
 }

@@ -38,10 +38,10 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     protected void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.pb_editor_tool_view, (ViewGroup) this, true);
-        this.b = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
-        this.c = (EditText) findViewById(com.baidu.tieba.v.reply_content);
-        this.d = (Button) findViewById(com.baidu.tieba.v.pb_reply_post);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_tool_view, (ViewGroup) this, true);
+        this.b = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.u.tool_button_container);
+        this.c = (EditText) findViewById(com.baidu.tieba.u.reply_content);
+        this.d = (Button) findViewById(com.baidu.tieba.u.pb_reply_post);
         this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
@@ -89,18 +89,18 @@ public class PbEditorToolView extends LinearLayout {
     public void e() {
         this.d.setEnabled(true);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.editor_tool_post_enable_text_1));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.editor_tool_post_enable_text_1));
         } else {
-            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.editor_tool_post_enable_text));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.editor_tool_post_enable_text));
         }
     }
 
     public void f() {
         this.d.setEnabled(false);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.editor_tool_post_disable_text_1));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.editor_tool_post_disable_text_1));
         } else {
-            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.editor_tool_post_disable_text));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.editor_tool_post_disable_text));
         }
     }
 
@@ -133,6 +133,14 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void a(int i) {
-        this.c.setHintTextColor(this.a.getResources().getColor(i == 1 ? com.baidu.tieba.s.pb_editor_edittext_hint_text_1 : com.baidu.tieba.s.pb_editor_edittext_hint_text));
+        boolean z = i == 1;
+        this.c.setHintTextColor(this.a.getResources().getColor(z ? com.baidu.tieba.r.pb_editor_edittext_hint_text_1 : com.baidu.tieba.r.pb_editor_edittext_hint_text));
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(z ? com.baidu.tieba.t.btn_post_dl_selector_1 : com.baidu.tieba.t.btn_post_dl_selector));
+        if (this.d.isEnabled()) {
+            e();
+        } else {
+            f();
+        }
+        this.b.a(i);
     }
 }

@@ -1,16 +1,39 @@
 package com.baidu.tieba.mention;
+
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ l a;
+public class o {
+    TextView a;
+    ProgressBar b;
+    l c;
+    n d;
+    HeadImageView e;
+    TextView f;
+    TextView g;
+    TextView h;
+    TextView i;
+    View j;
+    TextView k;
+    TextView l;
+    TextView m;
+    LinearLayout n;
+    ImageView o;
+    TextView p;
+    LinearLayout q;
+    final /* synthetic */ k r;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(l lVar) {
-        this.a = lVar;
+    private o(k kVar) {
+        this.r = kVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        this.a.g();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ o(k kVar, o oVar) {
+        this(kVar);
     }
 }

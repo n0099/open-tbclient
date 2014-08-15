@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bb;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -117,7 +117,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
     }
 
     public void parseJson(String str) {
-        if (!com.baidu.adp.lib.util.i.b(str)) {
+        if (!com.baidu.adp.lib.util.i.c(str)) {
             try {
                 parseJson(new JSONObject(str));
             } catch (JSONException e) {
@@ -183,7 +183,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.a(bn.a().e(), bn.a().e()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.a(bb.a().e(), bb.a().e()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

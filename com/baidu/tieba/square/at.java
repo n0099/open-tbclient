@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class at extends BaseAdapter implements com.baidu.tieba.view.u {
+public class at extends BaseAdapter implements com.baidu.tieba.view.s {
     private ArrayList<BaseAdapter> a;
     private p b;
     private ab c;
@@ -154,23 +154,23 @@ public class at extends BaseAdapter implements com.baidu.tieba.view.u {
         }
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void b() {
         Iterator<BaseAdapter> it = this.a.iterator();
         while (it.hasNext()) {
             BaseAdapter next = it.next();
-            if (next instanceof com.baidu.tieba.view.u) {
-                ((com.baidu.tieba.view.u) next).b();
+            if (next instanceof com.baidu.tieba.view.s) {
+                ((com.baidu.tieba.view.s) next).b();
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void a(View view, int i, int i2) {
         for (int i3 = 0; i3 < this.a.size(); i3++) {
             BaseAdapter baseAdapter = this.a.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.u) {
-                ((com.baidu.tieba.view.u) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
+            if (baseAdapter instanceof com.baidu.tieba.view.s) {
+                ((com.baidu.tieba.view.s) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }
             i -= baseAdapter.getCount();
             i2 -= baseAdapter.getCount();

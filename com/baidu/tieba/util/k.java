@@ -2,11 +2,8 @@ package com.baidu.tieba.util;
 
 import android.database.Cursor;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
@@ -41,379 +38,235 @@ public class k {
     }
 
     public static void d(String str) {
-        a(3, str);
-    }
-
-    public static void d() {
-        c(3);
-    }
-
-    public static String e() {
-        return d(3);
-    }
-
-    public static void e(String str) {
         a(4, str);
     }
 
-    public static void f() {
+    public static void d() {
         c(4);
     }
 
-    public static String g() {
+    public static String e() {
         return d(4);
     }
 
     private static void a(int i, String str) {
-        DatabaseManager databaseManager;
-        if (TbadkApplication.getCurrentAccount() != null && (databaseManager = new DatabaseManager()) != null) {
-            try {
-                databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
-                databaseManager.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TbadkApplication.getCurrentAccount(), Integer.valueOf(i), str});
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashData" + i, new Object[0]);
-            }
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+            b2.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+            b2.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TbadkApplication.getCurrentAccount(), Integer.valueOf(i), str});
         }
     }
 
     private static void c(int i) {
-        DatabaseManager databaseManager;
-        if (TbadkApplication.getCurrentAccount() != null && (databaseManager = new DatabaseManager()) != null) {
-            try {
-                databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delCachData" + i, new Object[0]);
-            }
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.tbadk.j.a().b().a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
         }
     }
 
     private static String d(int i) {
         Cursor cursor;
-        String str;
-        Exception e;
-        Cursor cursor2;
-        if (TbadkApplication.getCurrentAccount() == null) {
-            return null;
-        }
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
+        Throwable th;
+        String str = null;
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
             try {
-                cursor = databaseManager.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+                cursor = b2.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
                 if (cursor != null) {
                     try {
                         try {
-                            str = cursor.moveToFirst() ? cursor.getString(2) : null;
-                        } catch (Exception e2) {
-                            str = null;
-                            e = e2;
-                        }
-                        try {
-                            cursor.close();
-                        } catch (Exception e3) {
-                            e = e3;
-                            BdLog.e(e.getMessage());
-                            TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getCachData" + i, new Object[0]);
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e4) {
-                                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
-                                }
+                            if (cursor.moveToFirst()) {
+                                str = cursor.getString(2);
                             }
+                        } catch (Exception e) {
+                            e = e;
+                            b2.a(e, "getCachData");
+                            com.baidu.adp.lib.e.a.a(cursor);
                             return str;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e5) {
-                                TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
-                            }
-                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.baidu.adp.lib.e.a.a(cursor);
                         throw th;
                     }
-                } else {
-                    str = null;
                 }
-                cursor2 = null;
-            } catch (Exception e6) {
+                com.baidu.adp.lib.e.a.a(cursor);
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                str = null;
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
                 cursor = null;
-            }
-        } else {
-            cursor2 = null;
-            str = null;
-        }
-        if (0 != 0) {
-            try {
-                cursor2.close();
-            } catch (Exception e7) {
-                TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getCachData" + i + "close cursor", new Object[0]);
+                th = th3;
+                com.baidu.adp.lib.e.a.a(cursor);
+                throw th;
             }
         }
         return str;
     }
 
     private static void b(int i, String str) {
-        str = (str == null || str.length() == 0) ? "0" : "0";
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
-            try {
-                databaseManager.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str});
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delCachData" + i, new Object[0]);
-            }
-        }
+        com.baidu.tbadk.j.a().b().a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> h() {
+    public static ArrayList<String> f() {
         return e(0);
     }
 
-    public static ArrayList<String> i() {
+    public static ArrayList<String> g() {
         return e(1);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0014 A[EXC_TOP_SPLITTER, LOOP:0: B:55:0x0014->B:60:0x0014, LOOP_START, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static ArrayList<String> e(int i) {
-        Cursor a2;
         Cursor cursor;
+        Throwable th;
+        Exception e;
         Cursor cursor2 = null;
-        DatabaseManager databaseManager = new DatabaseManager();
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
         ArrayList<String> arrayList = new ArrayList<>();
-        if (databaseManager != null) {
-            try {
+        try {
+            switch (i) {
+                case 0:
+                    cursor = b2.a("select * from search_data order by time desc limit 10", (String[]) null);
+                    break;
+                case 1:
+                    cursor2 = b2.a("select * from search_post_data order by time desc limit 10", (String[]) null);
+                default:
+                    cursor = cursor2;
+                    break;
+            }
+            while (cursor.moveToNext()) {
                 try {
-                    switch (i) {
-                        case 0:
-                            a2 = databaseManager.a("select * from search_data order by time desc limit 10", (String[]) null);
-                            if (a2 != null) {
-                                while (a2.moveToNext()) {
-                                    try {
-                                        String string = a2.getString(0);
-                                        if (string != null && string.length() > 0) {
-                                            arrayList.add(string);
-                                        }
-                                    } catch (Exception e) {
-                                        e = e;
-                                        cursor2 = a2;
-                                        BdLog.e(e.getMessage());
-                                        TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getAllSearchData", new Object[0]);
-                                        if (cursor2 != null) {
-                                            try {
-                                                cursor2.close();
-                                            } catch (Exception e2) {
-                                                TiebaStatic.printDBExceptionLog(e2, "DatabaseManager.getAllSearchData close cursor", new Object[0]);
-                                            }
-                                        }
-                                        return arrayList;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        cursor2 = a2;
-                                        break;
-                                    }
-                                }
-                                a2.close();
-                            }
-                            cursor = null;
-                            break;
-                        case 1:
-                            a2 = databaseManager.a("select * from search_post_data order by time desc limit 10", (String[]) null);
-                            if (a2 != null) {
-                            }
-                            cursor = null;
-                            break;
-                        default:
-                            a2 = null;
-                            if (a2 != null) {
-                            }
-                            cursor = null;
-                            break;
+                    try {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        b2.a(e, "getAllSearchData");
+                        com.baidu.adp.lib.e.a.a(cursor);
+                        return arrayList;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            if (cursor2 != null) {
-                try {
-                    cursor2.close();
-                } catch (Exception e4) {
-                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getAllSearchData close cursor", new Object[0]);
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.e.a.a(cursor);
+                    throw th;
                 }
             }
+            com.baidu.adp.lib.e.a.a(cursor);
+        } catch (Exception e3) {
+            cursor = null;
+            e = e3;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            com.baidu.adp.lib.e.a.a(cursor);
             throw th;
-        }
-        cursor = null;
-        if (0 != 0) {
-            try {
-                cursor.close();
-            } catch (Exception e5) {
-                TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getAllSearchData close cursor", new Object[0]);
-            }
         }
         return arrayList;
     }
 
-    public static void f(String str) {
+    public static void e(String str) {
         c(0, str);
     }
 
-    public static void g(String str) {
+    public static void f(String str) {
         c(1, str);
     }
 
     private static void c(int i, String str) {
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null && str != null) {
-            try {
-                Date date = new Date();
-                switch (i) {
-                    case 0:
-                        databaseManager.a("delete from search_data where key=?", (Object[]) new String[]{str});
-                        databaseManager.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
-                        break;
-                    case 1:
-                        databaseManager.a("delete from search_post_data where key=?", (Object[]) new String[]{str});
-                        databaseManager.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
-                        break;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.saveOneSearchData", new Object[0]);
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+        if (str != null) {
+            Date date = new Date();
+            switch (i) {
+                case 0:
+                    b2.a("delete from search_data where key=?", (Object[]) new String[]{str});
+                    b2.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
+                    return;
+                case 1:
+                    b2.a("delete from search_post_data where key=?", (Object[]) new String[]{str});
+                    b2.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
+                    return;
+                default:
+                    return;
             }
         }
     }
 
-    public static void j() {
+    public static void h() {
         a(0);
     }
 
-    public static void k() {
+    public static void i() {
         a(1);
     }
 
     public static void a(int i) {
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
-            try {
-                switch (i) {
-                    case 0:
-                        databaseManager.a("delete from search_data");
-                        break;
-                    case 1:
-                        databaseManager.a("delete from search_post_data");
-                        break;
-                    default:
-                        return;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.delAllSearchData", new Object[0]);
-            }
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+        switch (i) {
+            case 0:
+                b2.a("delete from search_data");
+                return;
+            case 1:
+                b2.a("delete from search_post_data");
+                return;
+            default:
+                return;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArrayList<MarkData> l() {
+    public static ArrayList<MarkData> j() {
         Cursor cursor;
         Throwable th;
         Exception e;
-        Cursor cursor2;
         if (TbadkApplication.getCurrentAccount() == null) {
             return null;
         }
-        DatabaseManager databaseManager = new DatabaseManager();
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
         ArrayList<MarkData> arrayList = new ArrayList<>();
-        if (databaseManager != null) {
-            try {
-                cursor = databaseManager.a("select * from mark_data where account=? order by time desc", new String[]{TbadkApplication.getCurrentAccount()});
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        try {
-                            try {
-                                MarkData markData = new MarkData();
-                                markData.setId(cursor.getString(0));
-                                markData.setFloor(cursor.getInt(1));
-                                markData.setTime(cursor.getInt(2));
-                                markData.setTitle(cursor.getString(3));
-                                markData.setSequence(Boolean.valueOf(cursor.getInt(4) == 1));
-                                markData.setHostMode(cursor.getInt(5) == 1);
-                                markData.setPostId(cursor.getString(6));
-                                markData.setAccount(cursor.getString(7));
-                                markData.setAuthorName(cursor.getString(8));
-                                markData.setReplyNum(cursor.getInt(9));
-                                markData.setSubPost(cursor.getInt(10));
-                                markData.setForumName(cursor.getString(11));
-                                markData.setForumId(cursor.getString(12));
-                                markData.setThreadId(cursor.getString(13));
-                                arrayList.add(markData);
-                            } catch (Exception e2) {
-                                e = e2;
-                                BdLog.e(e.getMessage());
-                                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getAllMarkData", new Object[0]);
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                        TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.getAllMarkData close cursor", new Object[0]);
-                                    }
-                                }
-                                BdLog.i(String.valueOf(arrayList.size()));
-                                return arrayList;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e4) {
-                                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getAllMarkData close cursor", new Object[0]);
-                                }
-                            }
-                            throw th;
-                        }
+        try {
+            cursor = b2.a("select * from mark_data where account=? order by time desc", new String[]{TbadkApplication.getCurrentAccount()});
+            while (cursor.moveToNext()) {
+                try {
+                    try {
+                        MarkData markData = new MarkData();
+                        markData.setId(cursor.getString(0));
+                        markData.setFloor(cursor.getInt(1));
+                        markData.setTime(cursor.getInt(2));
+                        markData.setTitle(cursor.getString(3));
+                        markData.setSequence(Boolean.valueOf(cursor.getInt(4) == 1));
+                        markData.setHostMode(cursor.getInt(5) == 1);
+                        markData.setPostId(cursor.getString(6));
+                        markData.setAccount(cursor.getString(7));
+                        markData.setAuthorName(cursor.getString(8));
+                        markData.setReplyNum(cursor.getInt(9));
+                        markData.setSubPost(cursor.getInt(10));
+                        markData.setForumName(cursor.getString(11));
+                        markData.setForumId(cursor.getString(12));
+                        markData.setThreadId(cursor.getString(13));
+                        arrayList.add(markData);
+                    } catch (Exception e2) {
+                        e = e2;
+                        b2.a(e, "getAllMarkData");
+                        com.baidu.adp.lib.e.a.a(cursor);
+                        return arrayList;
                     }
-                    cursor.close();
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.e.a.a(cursor);
+                    throw th;
                 }
-                a((Boolean) false);
-                cursor2 = null;
-            } catch (Exception e5) {
-                cursor = null;
-                e = e5;
-            } catch (Throwable th3) {
-                cursor = null;
-                th = th3;
-                if (cursor != null) {
-                }
-                throw th;
             }
-        } else {
-            cursor2 = null;
+            a((Boolean) false);
+            com.baidu.adp.lib.e.a.a(cursor);
+        } catch (Exception e3) {
+            cursor = null;
+            e = e3;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            com.baidu.adp.lib.e.a.a(cursor);
+            throw th;
         }
-        if (0 != 0) {
-            try {
-                cursor2.close();
-            } catch (Exception e6) {
-                TiebaStatic.printDBExceptionLog(e6, "DatabaseManager.getAllMarkData close cursor", new Object[0]);
-            }
-        }
-        BdLog.i(String.valueOf(arrayList.size()));
         return arrayList;
     }
 
@@ -425,213 +278,147 @@ public class k {
         b = bool;
     }
 
-    public static void m() {
+    public static void k() {
         if (TbadkApplication.getCurrentAccount() != null) {
-            DatabaseManager databaseManager = new DatabaseManager();
-            try {
-                databaseManager.a("delete from setting where account=?", new Object[]{TbadkApplication.getCurrentAccount()});
-                Object[] objArr = new Object[10];
-                objArr[0] = TbadkApplication.getCurrentAccount();
-                objArr[1] = Integer.valueOf(TbadkApplication.m252getInst().getMsgFrequency());
-                objArr[2] = Integer.valueOf(TbadkApplication.m252getInst().isMsgZanOn() ? 1 : 0);
-                objArr[3] = Integer.valueOf(TbadkApplication.m252getInst().isMsgReplymeOn() ? 1 : 0);
-                objArr[4] = Integer.valueOf(TbadkApplication.m252getInst().isMsgAtmeOn() ? 1 : 0);
-                objArr[5] = Integer.valueOf(ai.c().r());
-                objArr[6] = Integer.valueOf(TbadkApplication.m252getInst().isMsgChatOn() ? 1 : 0);
-                objArr[7] = Integer.valueOf(TbadkApplication.m252getInst().isNoDisturbOn() ? 1 : 0);
-                objArr[8] = TbadkApplication.m252getInst().getNoDisturbStartTime();
-                objArr[9] = TbadkApplication.m252getInst().getNoDisturbEndTime();
-                databaseManager.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time) values(?,?,?,?,?,?,?,?,?,?)", objArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.saveSettingData", new Object[0]);
-            }
+            com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+            b2.a("delete from setting where account=?", new Object[]{TbadkApplication.getCurrentAccount()});
+            Object[] objArr = new Object[11];
+            objArr[0] = TbadkApplication.getCurrentAccount();
+            objArr[1] = Integer.valueOf(TbadkApplication.m252getInst().getMsgFrequency());
+            objArr[2] = Integer.valueOf(TbadkApplication.m252getInst().isMsgNewFansOn() ? 1 : 0);
+            objArr[3] = Integer.valueOf(TbadkApplication.m252getInst().isMsgReplymeOn() ? 1 : 0);
+            objArr[4] = Integer.valueOf(TbadkApplication.m252getInst().isMsgAtmeOn() ? 1 : 0);
+            objArr[5] = Integer.valueOf(ai.c().q());
+            objArr[6] = Integer.valueOf(TbadkApplication.m252getInst().isMsgChatOn() ? 1 : 0);
+            objArr[7] = Integer.valueOf(TbadkApplication.m252getInst().isNoDisturbOn() ? 1 : 0);
+            objArr[8] = TbadkApplication.m252getInst().getNoDisturbStartTime();
+            objArr[9] = TbadkApplication.m252getInst().getNoDisturbEndTime();
+            objArr[10] = Integer.valueOf(TbadkApplication.m252getInst().isMsgLightOn() ? 1 : 0);
+            b2.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light) values(?,?,?,?,?,?,?,?,?,?,?)", objArr);
         }
     }
 
-    public static void n() {
+    public static void l() {
         if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0 || TbadkApplication.getCurrentAccountName() == null) {
             ai.c().b(0);
             return;
         }
-        Cursor cursor = null;
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
         try {
             try {
-                Cursor a2 = new DatabaseManager().a("select * from setting where account=?", new String[]{TbadkApplication.getCurrentAccount()});
+                Cursor a2 = b2.a("select * from setting where account=?", new String[]{TbadkApplication.getCurrentAccount()});
                 if (a2 != null && a2.moveToFirst()) {
-                    ai.c().b(a2.getInt(1));
-                    ai.c().j(a2.getInt(a2.getColumnIndex("fans_switch")) == 1);
-                    if (a2.getInt(3) == 0) {
-                        ai.c().k(false);
-                    } else {
-                        ai.c().k(true);
-                    }
-                    if (a2.getInt(4) == 0) {
-                        ai.c().i(false);
-                    } else {
-                        ai.c().i(true);
-                    }
-                    ai.c().a(a2.getInt(5));
-                    if (a2.getInt(6) == 0) {
+                    ai.c().b(a2.getInt(a2.getColumnIndex("frequency")));
+                    ai.c().m(a2.getInt(a2.getColumnIndex("fans_switch")) == 1);
+                    if (a2.getInt(a2.getColumnIndex("reply_me_switch")) == 0) {
                         ai.c().l(false);
                     } else {
                         ai.c().l(true);
                     }
-                    if (a2.getInt(7) == 0) {
+                    if (a2.getInt(a2.getColumnIndex("at_me_switch")) == 0) {
+                        ai.c().j(false);
+                    } else {
+                        ai.c().j(true);
+                    }
+                    ai.c().a(a2.getInt(a2.getColumnIndex("remind_tone")));
+                    if (a2.getInt(a2.getColumnIndex("msg_chat_switch")) == 0) {
+                        ai.c().n(false);
+                    } else {
+                        ai.c().n(true);
+                    }
+                    if (a2.getInt(a2.getColumnIndex("nodisturb_switch")) == 0) {
                         ai.c().g(false);
                     } else {
                         ai.c().g(true);
                     }
-                    String string = a2.getString(8);
+                    String string = a2.getString(a2.getColumnIndex("nodisturb_start_time"));
                     if (TextUtils.isEmpty(string)) {
-                        ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        ai.c().g(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                     } else {
-                        ai.c().h(string);
+                        ai.c().g(string);
                     }
-                    String string2 = a2.getString(9);
+                    String string2 = a2.getString(a2.getColumnIndex("nodisturb_end_time"));
                     if (TextUtils.isEmpty(string2)) {
-                        ai.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     } else {
-                        ai.c().i(string2);
+                        ai.c().h(string2);
+                    }
+                    if (a2.getInt(a2.getColumnIndex("remind_light")) == 0) {
+                        ai.c().i(false);
+                    } else {
+                        ai.c().i(true);
                     }
                 } else {
                     ai.c().b(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
-                    ai.c().k(true);
-                    ai.c().i(true);
+                    ai.c().m(true);
+                    ai.c().l(true);
+                    ai.c().j(true);
                     ai.c().f(true);
                     ai.c().h(false);
-                    ai.c().l(true);
+                    ai.c().i(true);
+                    ai.c().n(true);
                     ai.c().g(false);
-                    ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    ai.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    ai.c().g(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                 }
-                if (a2 != null) {
-                    try {
-                        a2.close();
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getSettingData close cursor", new Object[0]);
-                    }
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                TiebaStatic.printDBExceptionLog(e2, "DatabaseManager.getSettingData", new Object[0]);
-                if (0 != 0) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e3) {
-                        TiebaStatic.printDBExceptionLog(e3, "DatabaseManager.getSettingData close cursor", new Object[0]);
-                    }
-                }
+                com.baidu.adp.lib.e.a.a(a2);
+            } catch (Exception e) {
+                b2.a(e, "getSettingData");
+                com.baidu.adp.lib.e.a.a((Cursor) null);
             }
         } catch (Throwable th) {
-            if (0 != 0) {
-                try {
-                    cursor.close();
-                } catch (Exception e4) {
-                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getSettingData close cursor", new Object[0]);
-                }
-            }
+            com.baidu.adp.lib.e.a.a((Cursor) null);
             throw th;
         }
     }
 
-    public static void h(String str) {
-        DatabaseManager databaseManager;
-        if (str != null && (databaseManager = new DatabaseManager()) != null) {
-            try {
-                databaseManager.a("delete from cash_data where account=?", (Object[]) new String[]{str});
-                databaseManager.a("delete from mark_data where account=?", (Object[]) new String[]{str});
-                databaseManager.a("delete from draft_box where account=?", new Object[]{str});
-                databaseManager.a("delete from account_data where id=?", new Object[]{str});
-                databaseManager.a("delete from setting where account=?", new Object[]{str});
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.deleteAccountAllInfo", new Object[0]);
-            }
+    public static void g(String str) {
+        if (str != null) {
+            com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+            b2.a("delete from cash_data where account=?", (Object[]) new String[]{str});
+            b2.a("delete from mark_data where account=?", (Object[]) new String[]{str});
+            b2.a("delete from draft_box where account=?", new Object[]{str});
+            b2.a("delete from account_data where id=?", new Object[]{str});
+            b2.a("delete from setting where account=?", new Object[]{str});
         }
     }
 
     public static boolean a(String str, int i) {
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
-            try {
-                databaseManager.a("delete from cash_data where type=?", (Object[]) new String[]{String.valueOf(i)});
-                return databaseManager.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", (Object[]) new String[]{String.valueOf(i), "", str}).booleanValue();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.printDBExceptionLog(e, "DatabaseManager.cashNoAccountData" + i, new Object[0]);
-                return false;
-            }
-        }
-        return false;
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+        b2.a("delete from cash_data where type=?", (Object[]) new String[]{String.valueOf(i)});
+        return b2.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", (Object[]) new String[]{String.valueOf(i), "", str});
     }
 
     public static String b(int i) {
         Cursor cursor;
-        Exception e;
-        String str;
-        Cursor cursor2;
-        DatabaseManager databaseManager = new DatabaseManager();
-        if (databaseManager != null) {
+        Throwable th;
+        com.baidu.adp.base.a.c b2 = com.baidu.tbadk.j.a().b();
+        try {
+            cursor = b2.a("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
             try {
-                cursor = databaseManager.a("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
-                if (cursor != null) {
-                    try {
-                        try {
-                            str = cursor.moveToFirst() ? cursor.getString(2) : null;
-                        } catch (Exception e2) {
-                            str = null;
-                            e = e2;
-                        }
-                        try {
-                            cursor.close();
-                        } catch (Exception e3) {
-                            e = e3;
-                            BdLog.e(e.getMessage());
-                            TiebaStatic.printDBExceptionLog(e, "DatabaseManager.getNoAccountData" + i, new Object[0]);
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e4) {
-                                    TiebaStatic.printDBExceptionLog(e4, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-                                }
-                            }
-                            return str;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e5) {
-                                TiebaStatic.printDBExceptionLog(e5, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-                            }
-                        }
-                        throw th;
-                    }
-                } else {
-                    str = null;
+                try {
+                    r0 = cursor.moveToFirst() ? cursor.getString(2) : null;
+                    com.baidu.adp.lib.e.a.a(cursor);
+                } catch (Exception e) {
+                    e = e;
+                    b2.a(e, "getNoAccountData");
+                    com.baidu.adp.lib.e.a.a(cursor);
+                    return r0;
                 }
-                cursor2 = null;
-            } catch (Exception e6) {
-                cursor = null;
-                e = e6;
-                str = null;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
+                com.baidu.adp.lib.e.a.a(cursor);
+                throw th;
             }
-        } else {
-            str = null;
-            cursor2 = null;
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            com.baidu.adp.lib.e.a.a(cursor);
+            throw th;
         }
-        if (0 != 0) {
-            try {
-                cursor2.close();
-            } catch (Exception e7) {
-                TiebaStatic.printDBExceptionLog(e7, "DatabaseManager.getNoAccountData" + i + "close cursor", new Object[0]);
-            }
-        }
-        return str;
+        return r0;
     }
 }

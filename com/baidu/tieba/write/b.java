@@ -1,44 +1,23 @@
 package com.baidu.tieba.write;
 
-import android.widget.ProgressBar;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
+public class b implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(AtListActivity atListActivity, int i) {
-        super(i);
+    public b(AtListActivity atListActivity) {
         this.a = atListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        AtomicBoolean atomicBoolean;
-        ProgressBar progressBar;
-        j jVar;
-        if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            atomicBoolean = this.a.m;
-            atomicBoolean.set(false);
-            progressBar = this.a.k;
-            progressBar.setVisibility(8);
-            List<com.baidu.tbadk.coreExtra.relationship.b> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
-            if (contacts == null) {
-                contacts = new LinkedList<>();
-            }
-            this.a.a = contacts;
-            jVar = this.a.i;
-            if (jVar != null) {
-                this.a.c();
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.b;
+        com.baidu.adp.lib.util.j.a(atListActivity, editText);
+        this.a.finish();
     }
 }

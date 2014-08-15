@@ -2,67 +2,67 @@ package com.baidu.adp.lib.Disk;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.asyncTask.l;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class d {
-    private static d c = null;
-    private final int a = 1;
-    private final int b = 6;
-    private b d;
-    private Handler e;
-    private AtomicInteger f;
-    private BdAsyncTaskParallel g;
+    public static BdUniqueId a = BdUniqueId.gen();
+    private static d d = null;
+    private final int b = 1;
+    private final int c = 6;
+    private b e;
+    private Handler f;
+    private AtomicInteger g;
+    private BdAsyncTaskParallel h;
 
     public static d a() {
-        if (c == null) {
+        if (d == null) {
             synchronized (d.class) {
-                if (c == null) {
-                    c = new d();
+                if (d == null) {
+                    d = new d();
                 }
             }
         }
-        return c;
+        return d;
     }
 
     private d() {
-        this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
-        this.g = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, l.a());
-        this.f = new AtomicInteger(0);
-        this.d = new b();
-        this.e = new e(this);
+        this.h = null;
+        this.h = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.g = new AtomicInteger(0);
+        this.e = new b();
+        this.f = new e(this);
     }
 
     public void a(String str) {
-        this.d.a(str);
+        this.e.a(str);
     }
 
     public boolean a(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean b = new f(this.d, diskFileOperate).b();
-        diskFileOperate.c(b);
-        return b;
+        boolean c = new f(this.e, diskFileOperate).c();
+        diskFileOperate.c(c);
+        return c;
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.j() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(TbErrInfo.ERR_IMG_GET_REMOTE) + this.f.get() < diskFileOperate.r() + 6) {
+        if (diskFileOperate.j() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(a) + this.g.get() < diskFileOperate.r() + 6) {
             if (Looper.myLooper() != null && Looper.getMainLooper() == Looper.myLooper()) {
                 e(diskFileOperate);
             } else {
-                this.f.incrementAndGet();
-                this.e.sendMessage(this.e.obtainMessage(1, diskFileOperate));
+                this.g.incrementAndGet();
+                this.f.sendMessage(this.f.obtainMessage(1, diskFileOperate));
             }
             return true;
         }
@@ -70,9 +70,9 @@ public class d {
     }
 
     public void c(DiskFileOperate diskFileOperate) {
-        String d = d(diskFileOperate);
-        if (d != null) {
-            BdAsyncTask.removeAllTask(TbErrInfo.ERR_IMG_GET_REMOTE, d);
+        String d2 = d(diskFileOperate);
+        if (d2 != null) {
+            BdAsyncTask.removeAllTask(a, d2);
         }
     }
 
@@ -88,9 +88,9 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean e(DiskFileOperate diskFileOperate) {
-        c cVar = new c(this.d, diskFileOperate);
-        cVar.setTag(TbErrInfo.ERR_IMG_GET_REMOTE);
-        cVar.setParallel(this.g);
+        c cVar = new c(this.e, diskFileOperate);
+        cVar.setTag(a);
+        cVar.setParallel(this.h);
         cVar.setPriority(4);
         cVar.setKey(d(diskFileOperate));
         cVar.execute(new DiskFileOperate[0]);

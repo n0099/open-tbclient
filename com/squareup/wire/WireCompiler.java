@@ -25,8 +25,6 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import javax.lang.model.element.Modifier;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class WireCompiler {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$protoparser$MessageType$Label = null;
@@ -123,7 +121,7 @@ public class WireCompiler {
                         }
                     }
                 } else {
-                    arrayList.addAll(Arrays.asList(new Scanner(new File(substring), "UTF-8").useDelimiter("\\A").next().split(IOUtils.LINE_SEPARATOR_UNIX)));
+                    arrayList.addAll(Arrays.asList(new Scanner(new File(substring), "UTF-8").useDelimiter("\\A").next().split("\n")));
                 }
             } else if (strArr[i].startsWith(ROOTS_FLAG)) {
                 arrayList2.addAll(Arrays.asList(strArr[i].substring(ROOTS_FLAG.length()).split(",")));
@@ -609,7 +607,7 @@ public class WireCompiler {
         }
         for (String str3 : this.javaSymbolMap.values()) {
             if (str.startsWith(str3)) {
-                return str.substring((String.valueOf(getPackageFromFullyQualifiedJavaName(str)) + FilenameUtils.EXTENSION_SEPARATOR).length());
+                return str.substring((String.valueOf(getPackageFromFullyQualifiedJavaName(str)) + '.').length());
             }
         }
         return str;

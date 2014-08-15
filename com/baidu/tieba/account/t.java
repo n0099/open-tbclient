@@ -26,8 +26,8 @@ class t implements View.OnClickListener {
         RelativeLayout relativeLayout;
         ImageView imageView3;
         y yVar;
-        com.baidu.tbadk.core.data.i iVar;
-        com.baidu.tbadk.core.data.i iVar2;
+        com.baidu.tbadk.core.data.j jVar;
+        com.baidu.tbadk.core.data.j jVar2;
         y yVar2;
         Button button2;
         z zVar;
@@ -62,12 +62,12 @@ class t implements View.OnClickListener {
                             }
                             yVar = this.a.N;
                             if (yVar == null) {
-                                iVar = this.a.P;
-                                if (iVar != null) {
+                                jVar = this.a.P;
+                                if (jVar != null) {
                                     Register2Activity register2Activity = this.a;
                                     Register2Activity register2Activity2 = this.a;
-                                    iVar2 = this.a.P;
-                                    register2Activity.N = new y(register2Activity2, iVar2.b().getVcode_pic_url());
+                                    jVar2 = this.a.P;
+                                    register2Activity.N = new y(register2Activity2, jVar2.b().getVcode_pic_url());
                                     yVar2 = this.a.N;
                                     yVar2.execute(new String[0]);
                                     return;

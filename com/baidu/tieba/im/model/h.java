@@ -1,11 +1,16 @@
 package com.baidu.tieba.im.model;
 
+import android.content.Context;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.tieba.im.message.RequestEnterChatRoomMessage;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.e {
     private int a;
     private RequestEnterChatRoomMessage b;
+
+    public h(Context context) {
+        super(context);
+    }
 
     public int a() {
         return this.a;

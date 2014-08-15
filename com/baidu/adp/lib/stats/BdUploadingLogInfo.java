@@ -3,9 +3,8 @@ package com.baidu.adp.lib.stats;
 import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import java.util.ArrayList;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class BdUploadingLogInfo extends ArrayList<ArrayList<q>> {
+public class BdUploadingLogInfo extends ArrayList<ArrayList<s>> {
     private boolean mCanTrySuccess;
     private String mLogDir;
     private boolean mUseSdCard;
@@ -18,12 +17,12 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<q>> {
     }
 
     public ArrayList<String> getLogStringByIndex(int i) {
-        ArrayList<q> arrayList = get(i);
+        ArrayList<s> arrayList = get(i);
         ArrayList<String> arrayList2 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             String a = a(arrayList.get(i2).b);
             if (!TextUtils.isEmpty(a)) {
-                String[] split = a.split(IOUtils.LINE_SEPARATOR_WINDOWS);
+                String[] split = a.split("\r\n");
                 for (String str : split) {
                     arrayList2.add(str);
                 }
@@ -41,7 +40,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<q>> {
         }
         com.baidu.adp.lib.Disk.d.a().a(eVar);
         if (eVar.g()) {
-            return eVar.u();
+            return eVar.v();
         }
         return null;
     }

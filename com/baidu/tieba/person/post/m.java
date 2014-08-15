@@ -67,7 +67,7 @@ public class m implements g {
                     } else {
                         this.a.k = false;
                         pbListView2 = this.a.i;
-                        pbListView2.a(this.a.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
+                        pbListView2.a(this.a.getResources().getString(com.baidu.tieba.x.person_post_reply_no_more));
                         view2 = this.a.j;
                         view2.setVisibility(0);
                     }

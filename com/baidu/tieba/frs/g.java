@@ -21,62 +21,72 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class g {
     private ForumData a;
-    private ArrayList<com.baidu.tbadk.core.data.m> b;
+    private ArrayList<com.baidu.tbadk.core.data.n> b;
     private AntiData c;
-    private com.baidu.tbadk.core.data.k d;
+    private com.baidu.tbadk.core.data.l d;
     private com.baidu.tieba.data.t e;
     private boolean f;
     private String g;
     private com.baidu.tieba.data.u h;
     private UserData i;
     private com.baidu.tieba.data.c j;
-    private ArrayList<LiveCardData> r;
-    private HashMap<String, MetaData> s;
-    private int k = 0;
-    private di l = null;
-    private dh m = null;
-    private boolean n = false;
-    private k o = null;
-    private h p = null;
-    private boolean q = false;
-    private long t = 0;
-    private long u = 0;
+    private boolean k;
+    private String l;
+    private ArrayList<LiveCardData> t;
+    private HashMap<String, MetaData> u;
+    private int m = 0;
+    private dl n = null;
+    private dk o = null;
+    private boolean p = false;
+    private k q = null;
+    private h r = null;
+    private boolean s = false;
     private long v = 0;
     private long w = 0;
+    private long x = 0;
+    private long y = 0;
 
-    public ArrayList<LiveCardData> a() {
-        return this.r;
+    public boolean a() {
+        return this.k;
     }
 
-    public long b() {
-        return this.w;
+    public String b() {
+        return this.l;
     }
 
-    public long c() {
-        return this.u;
-    }
-
-    public long d() {
-        return this.v;
-    }
-
-    public long e() {
+    public ArrayList<LiveCardData> c() {
         return this.t;
     }
 
-    public boolean f() {
+    public long d() {
+        return this.y;
+    }
+
+    public long e() {
+        return this.w;
+    }
+
+    public long f() {
+        return this.x;
+    }
+
+    public long g() {
+        return this.v;
+    }
+
+    public boolean h() {
         return this.f;
     }
 
     public g() {
-        s();
+        u();
     }
 
-    private void s() {
+    private void u() {
         this.a = new ForumData();
         this.b = new ArrayList<>();
-        this.s = new HashMap<>();
-        this.d = new com.baidu.tbadk.core.data.k();
+        this.u = new HashMap<>();
+        this.d = new com.baidu.tbadk.core.data.l();
         this.e = new com.baidu.tieba.data.t();
         this.i = new UserData();
         this.h = new com.baidu.tieba.data.u();
@@ -85,18 +95,20 @@ public class g {
     }
 
     public void a(com.baidu.tieba.data.ab abVar) {
-        this.a.setCurScore(abVar.e());
-        this.a.setLevelupScore(abVar.f());
-        this.a.setLike(abVar.c());
-        this.a.setUser_level(abVar.b());
-        this.a.setLevelName(abVar.d());
+        if (abVar != null) {
+            this.a.setCurScore(abVar.e());
+            this.a.setLevelupScore(abVar.f());
+            this.a.setLike(abVar.c());
+            this.a.setUser_level(abVar.b());
+            this.a.setLevelName(abVar.d());
+        }
     }
 
     public void a(SignData signData) {
         this.a.setSignData(signData);
     }
 
-    public ForumData g() {
+    public ForumData i() {
         return this.a;
     }
 
@@ -104,18 +116,18 @@ public class g {
         this.a.setAnchorPower(anchorPower);
     }
 
-    public void a(com.baidu.tbadk.core.data.m mVar) {
-        while (!this.b.isEmpty() && this.b.get(0).u() == 2) {
+    public void a(com.baidu.tbadk.core.data.n nVar) {
+        while (!this.b.isEmpty() && this.b.get(0) != null && this.b.get(0).m() == 2) {
             this.b.remove(0);
         }
-        this.b.add(0, mVar);
+        this.b.add(0, nVar);
     }
 
-    public ArrayList<com.baidu.tbadk.core.data.m> h() {
+    public ArrayList<com.baidu.tbadk.core.data.n> j() {
         return this.b;
     }
 
-    public UserData i() {
+    public UserData k() {
         return this.i;
     }
 
@@ -123,24 +135,24 @@ public class g {
         this.c = antiData;
     }
 
-    public AntiData j() {
+    public AntiData l() {
         return this.c;
     }
 
-    public com.baidu.tbadk.core.data.k k() {
+    public com.baidu.tbadk.core.data.l m() {
         return this.d;
     }
 
-    public com.baidu.tieba.data.t l() {
+    public com.baidu.tieba.data.t n() {
         return this.e;
     }
 
     public void a(boolean z) {
-        this.n = z;
+        this.p = z;
     }
 
-    public boolean m() {
-        return this.n;
+    public boolean o() {
+        return this.p;
     }
 
     public FrsPageResIdl a(byte[] bArr) {
@@ -148,7 +160,6 @@ public class g {
             return null;
         }
         try {
-            new String(bArr, "UTF-8");
             FrsPageResIdl frsPageResIdl = (FrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl != null && frsPageResIdl.data != null) {
                 a(frsPageResIdl.data);
@@ -164,7 +175,7 @@ public class g {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             try {
-                s();
+                u();
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -172,23 +183,25 @@ public class g {
                         metaData.parserProtobuf(list.get(i));
                         String userId = metaData.getUserId();
                         if (userId != null && !userId.equals("0")) {
-                            this.s.put(metaData.getUserId(), metaData);
+                            this.u.put(metaData.getUserId(), metaData);
                         }
                     }
                 }
                 a(dataRes.is_new_url.intValue());
                 this.f = dataRes.fortune_bag.intValue() == 1;
                 this.g = dataRes.fortune_desc;
+                this.k = dataRes.forum.has_game.intValue() == 1;
+                this.l = dataRes.forum.game_url;
                 this.h.a(dataRes.gcon_account);
                 this.a.parserProtobuf(dataRes.forum);
                 List<ThreadInfo> list2 = dataRes.thread_list;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-                        mVar.a(this.s);
-                        mVar.a(list2.get(i2));
-                        mVar.L();
-                        this.b.add(mVar);
+                        com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+                        nVar.a(this.u);
+                        nVar.a(list2.get(i2));
+                        nVar.D();
+                        this.b.add(nVar);
                     }
                 }
                 this.c.parserProtobuf(dataRes.anti);
@@ -197,12 +210,12 @@ public class g {
                 this.e.a(dataRes.frs_star);
                 this.i.parserProtobuf(dataRes.user);
                 List<AnchorInfo> list3 = dataRes.forum_livegroup_list;
-                this.r = new ArrayList<>();
+                this.t = new ArrayList<>();
                 if (list3 != null) {
                     for (int i3 = 0; i3 < list3.size(); i3++) {
                         LiveCardData liveCardData = new LiveCardData();
                         liveCardData.parserProtobuf(list3.get(i3));
-                        this.r.add(liveCardData);
+                        this.t.add(liveCardData);
                     }
                 }
             } catch (Exception e) {
@@ -212,35 +225,35 @@ public class g {
     }
 
     public void a(FrsActivity frsActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, boolean z, String str) {
-        if (this.o != null) {
-            this.o.cancel();
-            this.o = null;
+        if (this.q != null) {
+            this.q.cancel();
+            this.q = null;
         }
-        this.q = z;
-        this.o = new k(this, frsActivity, fRSPageRequestMessage, i, str);
-        this.o.setPriority(3);
-        this.o.execute(fRSPageRequestMessage);
+        this.s = z;
+        this.q = new k(this, frsActivity, fRSPageRequestMessage, i, str);
+        this.q.setPriority(3);
+        this.q.execute(fRSPageRequestMessage);
     }
 
     public void a(String str) {
-        if (this.p != null) {
-            this.p.cancel();
-            this.p = null;
+        if (this.r != null) {
+            this.r.cancel();
+            this.r = null;
         }
-        ForumData g = g();
-        this.p = new h(this, g.getId(), g.getName(), str);
-        this.p.setPriority(2);
-        this.p.execute(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/fansno");
+        ForumData i = i();
+        this.r = new h(this, i.getId(), i.getName(), str);
+        this.r.setPriority(2);
+        this.r.execute(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/fansno");
     }
 
-    public void n() {
-        if (this.o != null) {
-            this.o.cancel();
-            this.o = null;
+    public void p() {
+        if (this.q != null) {
+            this.q.cancel();
+            this.q = null;
         }
-        if (this.p != null) {
-            this.p.cancel();
-            this.p = null;
+        if (this.r != null) {
+            this.r.cancel();
+            this.r = null;
         }
     }
 
@@ -254,23 +267,23 @@ public class g {
         a(abVar);
     }
 
-    public void a(di diVar) {
-        this.l = diVar;
+    public void a(dl dlVar) {
+        this.n = dlVar;
     }
 
-    public void a(dh dhVar) {
-        this.m = dhVar;
+    public void a(dk dkVar) {
+        this.o = dkVar;
     }
 
-    public int o() {
-        return this.k;
+    public int q() {
+        return this.m;
     }
 
     public void a(int i) {
-        this.k = i;
+        this.m = i;
     }
 
-    public com.baidu.tieba.data.c p() {
+    public com.baidu.tieba.data.c r() {
         return this.j;
     }
 
@@ -278,11 +291,11 @@ public class g {
         this.j = cVar;
     }
 
-    public com.baidu.tieba.data.u q() {
+    public com.baidu.tieba.data.u s() {
         return this.h;
     }
 
-    public String r() {
+    public String t() {
         return this.g;
     }
 }

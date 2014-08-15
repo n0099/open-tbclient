@@ -1,10 +1,8 @@
 package com.baidu.tieba.im.searchfriend;
 
 import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+class f implements View.OnClickListener {
     final /* synthetic */ SearchFriendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,8 +12,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        EditText editText;
-        editText = this.a.d;
-        editText.setText("");
+        h hVar;
+        hVar = this.a.a;
+        hVar.a();
     }
 }

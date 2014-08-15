@@ -1,10 +1,10 @@
 package com.baidu.tieba.topRec;
 
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 class f {
-    HeadImageView a;
+    BarImageView a;
     TextView b;
     TextView c;
     TextView d;

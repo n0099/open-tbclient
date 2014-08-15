@@ -1,123 +1,95 @@
 package com.baidu.adp.lib.e;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.HashMap;
-import java.util.Map;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.IBinder;
+import android.view.View;
+import android.widget.PopupWindow;
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask<String, Object, Object> {
-    protected final Map<a, e> a = new HashMap();
-    final /* synthetic */ b b;
-    private final String c;
-    private final int d;
-
-    public d(b bVar, String str, int i, a aVar, e eVar) {
-        this.b = bVar;
-        this.c = str;
-        this.d = i;
-        this.a.put(aVar, eVar);
-    }
-
-    public void a(Object... objArr) {
-        publishProgress(objArr);
-    }
-
-    public e a() {
-        if (this.a.isEmpty()) {
-            return null;
+public class d {
+    public static final boolean a(Dialog dialog, Activity activity) {
+        if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !a(activity.getWindow().getDecorView())) {
+            return false;
         }
-        try {
-            return this.a.values().iterator().next();
-        } catch (Exception e) {
-            return null;
-        }
+        dialog.show();
+        return true;
     }
 
-    public void a(a aVar, e eVar) {
-        this.a.put(aVar, eVar);
+    public static final boolean b(Dialog dialog, Activity activity) {
+        if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !a(activity.getWindow().getDecorView())) {
+            return false;
+        }
+        dialog.dismiss();
+        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(a aVar) {
-        if (aVar != null) {
-            aVar.a(this.c, this.a.get(aVar));
-            aVar.a();
-            aVar.c(this.c, this.a.get(aVar));
+    public static final boolean a(PopupWindow popupWindow) {
+        if (popupWindow == null || a(popupWindow.getContentView().getContext()) || !a(popupWindow.getContentView())) {
+            return false;
         }
+        popupWindow.dismiss();
+        return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Object doInBackground(String... strArr) {
-        f a;
-        a = this.b.a(this.d);
-        if (a == null) {
-            return null;
+    public static final boolean a(PopupWindow popupWindow, Activity activity) {
+        if (popupWindow != null && activity != null) {
+            if (!a((Context) activity) && a(activity.getWindow().getDecorView())) {
+                popupWindow.dismiss();
+                return true;
+            }
+            return false;
         }
-        Object a2 = a.a(this.c, this);
-        if (a2 == null) {
-            return a.b(this.c, this);
-        }
-        return a2;
+        return a(popupWindow);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreCancel() {
-        for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            a key = entry.getKey();
-            e value = entry.getValue();
-            if (!key.b()) {
-                key.a(this.c, value);
+    public static final boolean a(PopupWindow popupWindow, View view, int i, int i2, int i3) {
+        if (popupWindow == null || view == null || a(view.getContext()) || !a(view)) {
+            return false;
+        }
+        popupWindow.showAtLocation(view, i, i2, i3);
+        return true;
+    }
+
+    public static final boolean a(PopupWindow popupWindow, View view) {
+        if (popupWindow == null || view == null || a(view.getContext()) || !a(view)) {
+            return false;
+        }
+        popupWindow.showAsDropDown(view);
+        return true;
+    }
+
+    public static final boolean a(PopupWindow popupWindow, View view, int i, int i2) {
+        if (popupWindow == null || view == null || a(view.getContext()) || !a(view)) {
+            return false;
+        }
+        popupWindow.showAsDropDown(view, i, i2);
+        return true;
+    }
+
+    public static final boolean a(Activity activity) {
+        return (activity == null || a((Context) activity) || !a(activity.getWindow().getDecorView())) ? false : true;
+    }
+
+    private static final boolean a(View view) {
+        IBinder windowToken;
+        if (view != null && (windowToken = view.getWindowToken()) != null) {
+            try {
+                if (windowToken.isBinderAlive()) {
+                    if (windowToken.pingBinder()) {
+                        return true;
+                    }
+                }
+            } catch (Exception e) {
             }
         }
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            a key = entry.getKey();
-            e value = entry.getValue();
-            if (!key.b()) {
-                key.b(this.c, value);
-            }
+    private static final boolean a(Context context) {
+        if (context instanceof Activity) {
+            return ((Activity) context).isFinishing();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(Object obj) {
-        for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            a key = entry.getKey();
-            e value = entry.getValue();
-            if (!key.b()) {
-                key.a(obj, this.c, value);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onProgressUpdate(Object... objArr) {
-        for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            a key = entry.getKey();
-            if (!key.b()) {
-                key.a(objArr);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            a key = entry.getKey();
-            e value = entry.getValue();
-            if (!key.b()) {
-                key.c(this.c, value);
-            }
-        }
+        return true;
     }
 }

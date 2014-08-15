@@ -1,129 +1,115 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.graphics.Rect;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public class i extends PopupWindow {
-    private int a;
-    private int b;
-    private int c;
-    private View d;
-    private g e;
-    private View f;
-    private int g;
-    private Activity h;
+class i extends GestureDetector.SimpleOnGestureListener {
+    final /* synthetic */ HorizontalListView a;
 
-    public i(Activity activity, View view, View view2, Drawable drawable, h hVar) {
-        super(activity);
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = 0;
-        this.d = view2;
-        a(activity, view, drawable, hVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(HorizontalListView horizontalListView) {
+        this.a = horizontalListView;
     }
 
-    public i(Activity activity, View view, Drawable drawable, h hVar) {
-        super(activity);
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = 0;
-        a(activity, view, drawable, hVar);
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        return this.a.a(motionEvent);
     }
 
-    private void a(Activity activity, View view, Drawable drawable, h hVar) {
-        this.h = activity;
-        this.f = view;
-        this.e = new g(activity, this.f, hVar);
-        setContentView(this.e);
-        setOutsideTouchable(true);
-        setFocusable(true);
-        setBackgroundDrawable(drawable);
-        c();
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return this.a.a(motionEvent, motionEvent2, f, f2);
     }
 
-    public void a(BaseActivity baseActivity, int i, Drawable drawable, Drawable drawable2) {
-        a(baseActivity.getLayoutMode(), i, drawable, drawable2);
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        synchronized (this.a) {
+            this.a.d += (int) f;
+        }
+        this.a.requestLayout();
+        return true;
     }
 
-    public void a(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable, Drawable drawable2) {
-        a(baseFragmentActivity.c(), i, drawable, drawable2);
-    }
-
-    private void a(com.baidu.tbadk.core.c cVar, int i, Drawable drawable, Drawable drawable2) {
-        if (this.f != null) {
-            if (i == 1) {
-                setBackgroundDrawable(drawable2);
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        AdapterView.OnItemClickListener onItemClickListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        int i;
+        int i2;
+        AdapterView.OnItemClickListener onItemClickListener2;
+        int i3;
+        int i4;
+        int i5 = 0;
+        while (true) {
+            int i6 = i5;
+            if (i6 < this.a.getChildCount()) {
+                View childAt = this.a.getChildAt(i6);
+                if (a(motionEvent, childAt)) {
+                    onItemClickListener = this.a.m;
+                    if (onItemClickListener != null) {
+                        onItemClickListener2 = this.a.m;
+                        HorizontalListView horizontalListView = this.a;
+                        i3 = this.a.f;
+                        ListAdapter listAdapter = this.a.b;
+                        i4 = this.a.f;
+                        onItemClickListener2.onItemClick(horizontalListView, childAt, i3 + 1 + i6, listAdapter.getItemId(i4 + 1 + i6));
+                    }
+                    onItemSelectedListener = this.a.l;
+                    if (onItemSelectedListener != null) {
+                        onItemSelectedListener2 = this.a.l;
+                        HorizontalListView horizontalListView2 = this.a;
+                        i = this.a.f;
+                        ListAdapter listAdapter2 = this.a.b;
+                        i2 = this.a.f;
+                        onItemSelectedListener2.onItemSelected(horizontalListView2, childAt, i + 1 + i6, listAdapter2.getItemId(i2 + 1 + i6));
+                        return true;
+                    }
+                    return true;
+                }
+                i5 = i6 + 1;
             } else {
-                setBackgroundDrawable(drawable);
-            }
-            cVar.a(i == 1);
-            try {
-                cVar.a(this.f);
-            } catch (IllegalArgumentException e) {
-                BdLog.e(e.toString());
+                return true;
             }
         }
     }
 
-    public void a() {
-        this.f.measure(0, 0);
-        int measuredWidth = this.f.getMeasuredWidth();
-        this.b = -(this.g + measuredWidth);
-        setWidth(measuredWidth);
-    }
-
-    public void a(Context context) {
-        int b = com.baidu.adp.lib.util.j.b(context);
-        this.f.getLayoutParams().width = b;
-        setWidth(b);
-    }
-
-    public void a(int i) {
-        setHeight(i);
-    }
-
-    public void b() {
-        if (isShowing()) {
-            dismiss();
-        } else if (this.d != null) {
-            showAsDropDown(this.d, this.a, 0);
-        }
-    }
-
-    public void a(View view, boolean z) {
-        setAnimationStyle(com.baidu.tieba.z.pop_window_anim);
-        setFocusable(z);
-        showAsDropDown(view, this.b, (-this.c) + ((this.c - view.getHeight()) / 2));
-    }
-
-    public void c() {
-        if (this.f != null && this.h != null) {
-            this.f.measure(0, 0);
-            int measuredWidth = this.f.getMeasuredWidth();
-            int measuredHeight = this.f.getMeasuredHeight();
-            setWidth(measuredWidth);
-            this.c = measuredHeight + ((int) this.h.getResources().getDimension(com.baidu.tieba.t.ds4));
-            setHeight(this.c);
-            int[] e = com.baidu.adp.lib.util.j.e(this.h);
-            if (e != null && e.length > 1 && e[1] > measuredWidth) {
-                this.a = e[1] - measuredWidth;
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        AdapterView.OnItemLongClickListener onItemLongClickListener2;
+        int i;
+        int i2;
+        int childCount = this.a.getChildCount();
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = this.a.getChildAt(i3);
+            if (a(motionEvent, childAt)) {
+                onItemLongClickListener = this.a.n;
+                if (onItemLongClickListener != null) {
+                    onItemLongClickListener2 = this.a.n;
+                    HorizontalListView horizontalListView = this.a;
+                    i = this.a.f;
+                    ListAdapter listAdapter = this.a.b;
+                    i2 = this.a.f;
+                    onItemLongClickListener2.onItemLongClick(horizontalListView, childAt, i + 1 + i3, listAdapter.getItemId(i3 + i2 + 1));
+                    return;
+                }
+                return;
             }
-            this.g = 0;
-            this.b = -(measuredWidth + this.g);
         }
+    }
+
+    private boolean a(MotionEvent motionEvent, View view) {
+        Rect rect = new Rect();
+        int[] iArr = new int[2];
+        view.getLocationOnScreen(iArr);
+        int i = iArr[0];
+        int i2 = iArr[1];
+        rect.set(i, i2, view.getWidth() + i, view.getHeight() + i2);
+        return rect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
     }
 }

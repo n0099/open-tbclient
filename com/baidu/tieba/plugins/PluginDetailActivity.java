@@ -2,30 +2,23 @@ package com.baidu.tieba.plugins;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tbadk.core.service.PluginDownloadService;
+import com.baidu.tbadk.core.atomData.bk;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
+import com.baidu.tieba.r;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
-import java.io.File;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class PluginDetailActivity extends BaseActivity implements com.baidu.tbadk.tbplugin.k {
+public class PluginDetailActivity extends BaseActivity {
     private HeadImageView a;
     private TextView b;
     private TextView c;
@@ -33,92 +26,81 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     private TextView e;
     private TextView f;
     private NavigationBar g;
-    private Messenger h;
-    private String j;
-    private PluginsConfig.PluginConfig k;
-    private boolean l;
-    private int m;
-    private ServiceConnection i = new f(this, null);
-    private final Messenger n = new Messenger(new g(this, null));
+    private String h;
+    private ConfigInfos.PluginConfig i;
+    private boolean j;
+    private int k;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bd.class, PluginDetailActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bk.class, PluginDetailActivity.class);
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, PluginDetailActivity.class);
         intent.putExtra("name", str);
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tbadk.tbplugin.k
-    public void onFinish(int i, String str) {
-        runOnUiThread(new d(this, i, str));
-    }
-
-    @Override // com.baidu.tbadk.tbplugin.k
-    public void onProgress(int i) {
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.plugin_detail_activity);
-        this.g = (NavigationBar) findViewById(v.navigation_bar);
-        this.g.a(y.plugin_center);
-        this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (HeadImageView) findViewById(v.icon);
-        this.b = (TextView) findViewById(v.name);
-        this.c = (TextView) findViewById(v.status);
-        this.d = (TextView) findViewById(v.changelog);
-        this.e = (TextView) findViewById(v.size);
-        this.f = (TextView) findViewById(v.enable);
+        setContentView(v.plugin_detail_activity);
+        this.g = (NavigationBar) findViewById(u.navigation_bar);
+        this.g.a(x.plugin_center);
+        this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+        this.a = (HeadImageView) findViewById(u.icon);
+        this.b = (TextView) findViewById(u.name);
+        this.c = (TextView) findViewById(u.status);
+        this.d = (TextView) findViewById(u.changelog);
+        this.e = (TextView) findViewById(u.size);
+        this.f = (TextView) findViewById(u.enable);
         this.f.setOnClickListener(this);
-        this.j = getIntent().getStringExtra("name");
-        this.k = com.baidu.tbadk.tbplugin.m.a().d(this.j);
-        a((ServiceConnection) null);
+        this.h = getIntent().getStringExtra("name");
+        this.i = com.baidu.tbadk.pluginArch.d.a().b(this.h);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.k != null) {
-            this.a.a(this.k.icon, 10, false);
-            this.b.setText(this.k.description);
+        if (this.i != null) {
+            this.a.a(this.i.icon, 10, false);
+            this.b.setText(this.i.description);
             a();
-            this.d.setText(this.k.newest.changelog);
-            this.e.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.k.newest.size / 1024) + "KB");
+            this.d.setText(this.i.newest.changelog);
+            this.e.setText(String.valueOf(getString(x.plugin_size)) + String.valueOf(this.i.newest.size / 1024) + "KB");
             this.f.setOnClickListener(this);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (com.baidu.tbadk.tbplugin.m.a().c(this.j)) {
-            this.c.setText(y.plugin_enabled);
-            this.f.setText(y.plugin_update);
+        if (com.baidu.tbadk.pluginArch.d.a().e(this.h)) {
+            this.c.setText(x.plugin_enabled);
+            this.f.setText(x.plugin_update);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
-            this.m = 1;
-        } else if (com.baidu.tbadk.tbplugin.m.a().b(this.j)) {
+            this.f.setTextColor(getResources().getColor(r.cp_cont_g));
+            this.k = 1;
+        } else if (com.baidu.tbadk.pluginArch.d.a().c(this.h)) {
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
-            Boolean valueOf = Boolean.valueOf(com.baidu.tbadk.tbplugin.m.a().e(this.j));
-            if (valueOf.booleanValue()) {
-                this.c.setText(y.plugin_unenabled);
-                this.f.setText(y.plugin_enable);
-                this.m = 2;
-            } else if (!valueOf.booleanValue()) {
-                this.c.setText(y.plugin_enabled);
-                this.f.setText(y.plugin_unenable);
-                this.m = 3;
+            this.f.setTextColor(getResources().getColor(r.cp_cont_g));
+            boolean d = com.baidu.tbadk.pluginArch.d.a().d(this.h);
+            if (!d) {
+                this.c.setText(x.plugin_unenabled);
+                this.f.setText(x.plugin_enable);
+                this.k = 2;
+            } else if (d) {
+                this.c.setText(x.plugin_enabled);
+                this.f.setText(x.plugin_unenable);
+                this.k = 3;
             }
         } else {
-            this.c.setText(y.plugin_disabled);
-            this.f.setText(y.plugin_enable);
+            this.c.setText(x.plugin_disabled);
+            this.f.setText(x.plugin_enable);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(s.cp_cont_g));
-            this.m = 0;
+            this.f.setTextColor(getResources().getColor(r.cp_cont_g));
+            this.k = 0;
         }
     }
 
@@ -134,13 +116,13 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.f) {
-            if (this.m == 0 || this.m == 1) {
+            if (this.k == 0 || this.k == 1) {
                 b();
-            } else if (this.m == 3) {
-                com.baidu.tbadk.tbplugin.m.a().a(this.j, true);
+            } else if (this.k == 3) {
+                com.baidu.tbadk.pluginArch.d.a().a(this.h, true);
                 a();
-            } else if (this.m == 2) {
-                com.baidu.tbadk.tbplugin.m.a().a(this.j, false);
+            } else if (this.k == 2) {
+                com.baidu.tbadk.pluginArch.d.a().a(this.h, false);
                 a();
             }
         }
@@ -148,61 +130,33 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
 
     private void b() {
         if (UtilHelper.getNetStatusInfo(this) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            showToast(y.neterror);
+            showToast(x.neterror);
             return;
         }
-        this.f.setTextColor(getResources().getColor(s.cp_cont_d));
+        this.f.setTextColor(getResources().getColor(r.cp_cont_d));
         this.f.setEnabled(false);
-        if (this.h != null) {
-            Message obtain = Message.obtain((Handler) null, 3);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("download_data", a(this.k));
-            if (obtain != null) {
-                obtain.setData(bundle);
-                try {
-                    this.h.send(obtain);
-                    return;
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            return;
-        }
-        a(new e(this, this));
+        com.baidu.tbadk.pluginArch.d.a().a(this.i, new d(this));
     }
 
-    private void a(ServiceConnection serviceConnection) {
-        Intent intent = new Intent(this, PluginDownloadService.class);
-        if (serviceConnection != null) {
-            bindService(intent, serviceConnection, 1);
-        } else {
-            bindService(intent, this.i, 1);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeActivity() {
+        setResult(-1);
+        finish();
     }
 
-    private void c() {
-        if (this.h != null) {
-            try {
-                this.h.send(Message.obtain((Handler) null, 2));
-            } catch (RemoteException e) {
-            }
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            closeActivity();
+            return true;
         }
-        unbindService(this.i);
+        return super.onKeyDown(i, keyEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        c();
-    }
-
-    public DownloadData a(PluginsConfig.PluginConfig pluginConfig) {
-        DownloadData downloadData = new DownloadData(pluginConfig.name, pluginConfig.newest.url);
-        String str = String.valueOf(pluginConfig.name) + ".tbplugin";
-        downloadData.setName(str);
-        downloadData.setPath(String.valueOf(com.baidu.tbadk.tbplugin.i.f().getAbsolutePath()) + File.separator + str);
-        return downloadData;
     }
 }

@@ -1,41 +1,72 @@
 package com.baidu.tieba.signall;
 
-import android.content.Context;
-import android.view.View;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ k a;
-    private final /* synthetic */ b b;
-    private final /* synthetic */ n c;
+class l implements u {
+    final /* synthetic */ SignAllForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, b bVar, n nVar) {
-        this.a = kVar;
-        this.b = bVar;
-        this.c = nVar;
+    public l(SignAllForumActivity signAllForumActivity) {
+        this.a = signAllForumActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        HashMap hashMap;
-        Context context;
-        if (!this.b.k()) {
-            this.c.i.setVisibility(4);
-            this.c.j.setVisibility(0);
-            this.c.k.setText(com.baidu.tieba.y.signallforum_resigning);
-            this.b.c(true);
-            z zVar = new z();
-            zVar.a(this.a);
-            String sb = new StringBuilder(String.valueOf(this.b.a())).toString();
-            synchronized (this.a) {
-                hashMap = this.a.e;
-                hashMap.put(sb, zVar);
+    @Override // com.baidu.tieba.signall.u
+    public void a(String str) {
+        this.a.a(str);
+    }
+
+    @Override // com.baidu.tieba.signall.u
+    public void a(r rVar) {
+        aa aaVar;
+        boolean z;
+        aa aaVar2;
+        aa aaVar3;
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        AlertDialog alertDialog3;
+        boolean z2;
+        com.baidu.tieba.home.r c = rVar.c();
+        if (c != null && c.a() == 0) {
+            aaVar = this.a.a;
+            b f = aaVar.f();
+            f.a(rVar);
+            int size = f.i().size();
+            int size2 = f.k().size();
+            z = this.a.e;
+            if (z) {
+                Intent intent = new Intent(this.a, SignAllForumActivity.class);
+                intent.addFlags(805306368);
+                intent.putExtra("signall_noyify_click", true);
+                this.a.a(this.a.getString(com.baidu.tieba.x.signallforum_back_finish, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}), PendingIntent.getActivity(this.a, 0, intent, 134217728), false);
+                z2 = this.a.f;
+                if (z2) {
+                    return;
+                }
             }
-            zVar.a(this.b.b(), sb);
-            context = this.a.c;
-            com.baidu.tbadk.core.f.a(context, "signall_resign_click");
+            aaVar2 = this.a.a;
+            aaVar2.g().notifyDataSetChanged();
+            aaVar3 = this.a.a;
+            w c2 = aaVar3.c();
+            if (!f.q()) {
+                if (rVar.a() != 0) {
+                    alertDialog = this.a.c;
+                    alertDialog.setMessage(rVar.b());
+                    alertDialog2 = this.a.c;
+                    if (!alertDialog2.isShowing()) {
+                        alertDialog3 = this.a.c;
+                        com.baidu.adp.lib.e.d.a(alertDialog3, this.a);
+                    }
+                } else if (rVar.e() != 0) {
+                    this.a.showToast(rVar.f());
+                } else {
+                    this.a.showToast(com.baidu.tieba.x.signallforum_error);
+                }
+            }
+            c2.b();
+            return;
         }
+        this.a.a(c.b());
     }
 }

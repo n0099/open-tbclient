@@ -1,44 +1,22 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
 /* loaded from: classes.dex */
-public abstract class c {
-    final AtomicBoolean a = new AtomicBoolean(false);
-    protected final com.baidu.tieba.im.db.e b = new com.baidu.tieba.im.db.e();
-
-    protected abstract void b();
-
-    public abstract void d();
-
-    public synchronized void e() {
-        this.a.set(false);
-        this.b.a();
-        b();
-        this.a.set(true);
+class c extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
     }
 
-    public synchronized void f() {
-        d();
-    }
-
-    public void g() {
-        this.b.a();
-    }
-
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
-        this.b.a(imMessageCenterPojo);
-    }
-
-    public ImMessageCenterPojo a(String str) {
-        return this.b.a(str);
-    }
-
-    public void b(String str) {
-        this.b.b(str);
-    }
-
-    public void a(d dVar) {
-        this.b.a(dVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
+            PingManager.d().f();
+            b.b().c();
+        }
     }
 }

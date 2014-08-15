@@ -18,7 +18,7 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         View view2;
         FrameLayout frameLayout = this.b;
-        view2 = this.a.o;
+        view2 = this.a.n;
         frameLayout.removeView(view2);
     }
 }

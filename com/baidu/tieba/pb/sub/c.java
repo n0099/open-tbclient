@@ -1,18 +1,18 @@
 package com.baidu.tieba.pb.sub;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class c {
-    public View a;
-    public LinearLayout b;
-    public Button c;
-    public TbRichTextView d;
-    final /* synthetic */ b e;
+class c {
+    int a;
+    View b;
 
-    public c(b bVar) {
-        this.e = bVar;
+    private c(int i, View view) {
+        this.a = i;
+        this.b = view;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ c(int i, View view, c cVar) {
+        this(i, view);
     }
 }

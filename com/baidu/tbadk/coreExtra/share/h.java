@@ -4,11 +4,11 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.s;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class h {
-    public static final String f = z.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public static final String f = s.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
     public String a = null;
     public String b = null;
     public String c = null;

@@ -24,11 +24,11 @@ class w extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
             if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
                 BdLog.e("transform error");
-            } else if (MainTabActivity.c) {
+            } else if (MainTabActivity.d) {
                 NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
                 int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
                 MainTabActivity mainTabActivity = this.a;
-                textView = this.a.C;
+                textView = this.a.E;
                 mainTabActivity.a(textView, msgReplyme);
             }
         }

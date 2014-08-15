@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.live.mylive.MyLiveListAdapter;
 import com.baidu.tieba.im.message.RequestMyLiveListMessage;
 import com.baidu.tieba.im.message.ResponseMyLiveListMessage;
-import com.baidu.tieba.im.model.bc;
-import com.baidu.tieba.y;
+import com.baidu.tieba.im.model.am;
+import com.baidu.tieba.x;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.framework.listener.b {
+public class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,26 +27,26 @@ public class b extends com.baidu.adp.framework.listener.b {
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         int i;
-        bc bcVar;
+        am amVar;
         MyLiveListAdapter myLiveListAdapter;
-        bc bcVar2;
+        am amVar2;
         MyLiveListAdapter myLiveListAdapter2;
         MyLiveListAdapter myLiveListAdapter3;
-        bc bcVar3;
-        bc bcVar4;
-        bc bcVar5;
+        am amVar3;
+        am amVar4;
+        am amVar5;
         MyLiveListAdapter myLiveListAdapter4;
         MyLiveListAdapter myLiveListAdapter5;
-        bc bcVar6;
+        am amVar6;
         MyLiveListAdapter myLiveListAdapter6;
         MyLiveListAdapter myLiveListAdapter7;
         MyLiveListAdapter myLiveListAdapter8;
         MyLiveListAdapter myLiveListAdapter9;
-        this.a.k();
+        this.a.l();
         if (socketResponsedMessage == null) {
-            this.a.a(y.neterror);
+            this.a.a(x.neterror);
         } else if (!(socketResponsedMessage instanceof ResponseMyLiveListMessage)) {
-            this.a.a(y.neterror);
+            this.a.a(x.neterror);
         } else {
             ResponseMyLiveListMessage responseMyLiveListMessage = (ResponseMyLiveListMessage) socketResponsedMessage;
             Message<?> orginalMessage = responseMyLiveListMessage.getOrginalMessage();
@@ -62,26 +62,26 @@ public class b extends com.baidu.adp.framework.listener.b {
                             }
                             return;
                         }
-                        this.a.a(y.neterror);
+                        this.a.a(x.neterror);
                         return;
                     }
                     com.baidu.tieba.im.data.d hotLiveListData = responseMyLiveListMessage.getHotLiveListData();
                     if (hotLiveListData != null && hotLiveListData.b() != null) {
                         List<LiveCardData> b = hotLiveListData.b();
-                        bcVar = this.a.c;
-                        if (!bcVar.a()) {
+                        amVar = this.a.c;
+                        if (!amVar.b()) {
                             myLiveListAdapter9 = this.a.h;
                             myLiveListAdapter9.b(true);
                         }
                         if (!hotLiveListData.a()) {
-                            bcVar6 = this.a.c;
-                            if (bcVar6.a()) {
+                            amVar6 = this.a.c;
+                            if (amVar6.b()) {
                                 myLiveListAdapter6 = this.a.h;
                                 myLiveListAdapter6.a(MyLiveListAdapter.BOTTOM_TYPE.NO_MORE);
                             } else if (b.size() == 0) {
                                 myLiveListAdapter8 = this.a.h;
                                 myLiveListAdapter8.c(false);
-                                this.a.m();
+                                this.a.n();
                                 return;
                             } else {
                                 myLiveListAdapter7 = this.a.h;
@@ -91,25 +91,25 @@ public class b extends com.baidu.adp.framework.listener.b {
                             myLiveListAdapter = this.a.h;
                             myLiveListAdapter.a(MyLiveListAdapter.BOTTOM_TYPE.HAVE_MORE);
                         }
-                        bcVar2 = this.a.c;
-                        bcVar2.a(true);
-                        this.a.l();
+                        amVar2 = this.a.c;
+                        amVar2.b(true);
+                        this.a.m();
                         myLiveListAdapter2 = this.a.h;
                         myLiveListAdapter2.c(true);
                         myLiveListAdapter3 = this.a.h;
                         myLiveListAdapter3.a(hotLiveListData.a());
-                        bcVar3 = this.a.c;
-                        bcVar3.b(b.size());
-                        bcVar4 = this.a.c;
-                        bcVar5 = this.a.c;
-                        bcVar4.c(bcVar5.c() + 1);
+                        amVar3 = this.a.c;
+                        amVar3.b(b.size());
+                        amVar4 = this.a.c;
+                        amVar5 = this.a.c;
+                        amVar4.c(amVar5.d() + 1);
                         myLiveListAdapter4 = this.a.h;
                         myLiveListAdapter4.a(b);
                         myLiveListAdapter5 = this.a.h;
                         myLiveListAdapter5.notifyDataSetChanged();
                         return;
                     }
-                    this.a.m();
+                    this.a.n();
                 }
             }
         }

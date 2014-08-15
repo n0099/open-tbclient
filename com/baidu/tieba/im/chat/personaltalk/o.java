@@ -1,28 +1,22 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tieba.im.message.RequestQueryUserInfoMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements com.baidu.tieba.im.a<PersonalSettingItemData> {
-    final /* synthetic */ k a;
+public class o extends com.baidu.tieba.im.b<PersonalSettingItemData> {
+    final /* synthetic */ l a;
     private final /* synthetic */ long b;
-    private final /* synthetic */ PersonalTalkSettingActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(k kVar, long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.a = kVar;
+    public o(l lVar, long j) {
+        this.a = lVar;
         this.b = j;
-        this.c = personalTalkSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(PersonalSettingItemData personalSettingItemData) {
-        if (personalSettingItemData != null) {
-            this.a.f = personalSettingItemData.isAcceptNotify();
-        }
-        RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-        requestQueryUserInfoMessage.setReqUserId(this.b);
-        this.c.sendMessage(requestQueryUserInfoMessage);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public PersonalSettingItemData a() {
+        return a.a().b(TbadkApplication.getCurrentAccount(), String.valueOf(this.b));
     }
 }

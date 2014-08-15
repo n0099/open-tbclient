@@ -1,15 +1,26 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class de implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.bb> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.bb> run(CustomMessage<com.baidu.tbadk.core.atomData.bb> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            PersonInfoActivityStatic.b(customMessage.getData().getContext(), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FROM));
+public class de extends CustomMessageListener {
+    final /* synthetic */ ct a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public de(ct ctVar, int i) {
+        super(i);
+        this.a = ctVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
+            this.a.i();
         }
-        return null;
     }
 }

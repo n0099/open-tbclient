@@ -3,11 +3,10 @@ package com.baidu.adp.lib.cache;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.i a;
+    protected final com.baidu.adp.base.a.c a;
     protected String b;
     protected h c;
     protected g d;
@@ -29,8 +28,8 @@ public abstract class c<T> {
 
     protected abstract boolean b(String str);
 
-    public c(com.baidu.adp.base.i iVar) {
-        this.a = iVar;
+    public c(com.baidu.adp.base.a.c cVar) {
+        this.a = cVar;
     }
 
     public void a(f fVar, String str) {
@@ -47,8 +46,7 @@ public abstract class c<T> {
         try {
             return a(this.a.a(), str);
         } catch (Throwable th) {
-            this.a.a(th);
-            BdLog.e(th);
+            this.a.a(th, "get");
             return null;
         }
     }
@@ -60,8 +58,9 @@ public abstract class c<T> {
                 this.f.remove(mVar.a);
             }
             ContentValues a2 = a(mVar);
-            if (this.a.a().update(this.b, a2, "m_key = ?", new String[]{mVar.a}) == 0) {
-                this.a.a().insert(this.b, null, a2);
+            SQLiteDatabase a3 = this.a.a();
+            if (a3.update(this.b, a2, "m_key = ?", new String[]{mVar.a}) == 0) {
+                a3.insert(this.b, null, a2);
                 if (this.d != null) {
                     b();
                 }
@@ -70,8 +69,7 @@ public abstract class c<T> {
                 d(a);
             }
         } catch (Throwable th) {
-            this.a.a(th);
-            BdLog.e(th);
+            this.a.a(th, "addOrUpdateTextCacheItem");
         }
     }
 
@@ -80,7 +78,7 @@ public abstract class c<T> {
             this.e++;
             if (this.e >= ((int) Math.min(this.d.a() * 0.2d, 5.0d))) {
                 this.e = 0;
-                com.baidu.adp.lib.f.d.a().a(new d(this));
+                com.baidu.adp.lib.e.e.a().a(new d(this));
             }
         }
     }
@@ -89,8 +87,7 @@ public abstract class c<T> {
         try {
             return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.a.a(th);
-            BdLog.e(th);
+            this.a.a(th, "deleteCacheItem");
             return 0;
         }
     }
@@ -136,10 +133,9 @@ public abstract class c<T> {
                 c();
             } catch (Throwable th) {
                 try {
-                    this.a.a(th);
-                    BdLog.e(th);
+                    this.a.a(th, "performEvict");
                 } finally {
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                     this.d.d();
                 }
             }
@@ -166,10 +162,9 @@ public abstract class c<T> {
                 c();
             } catch (Throwable th) {
                 try {
-                    this.a.a(th);
-                    BdLog.e(th);
+                    this.a.a(th, "performPump");
                 } finally {
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                     this.c.d();
                 }
             }
@@ -196,7 +191,7 @@ public abstract class c<T> {
                     a.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.a.a(th);
+                        this.a.a(th, "performCleanup");
                         return;
                     } finally {
                         a.endTransaction();
@@ -206,7 +201,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.i d() {
+    public com.baidu.adp.base.a.c d() {
         return this.a;
     }
 }

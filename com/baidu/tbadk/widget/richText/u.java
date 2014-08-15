@@ -1,6 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import org.json.JSONObject;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class u {
     private String a;
@@ -9,6 +10,14 @@ public class u {
     private Object d;
 
     public u() {
+    }
+
+    public u(PbContent pbContent) {
+        if (pbContent != null) {
+            this.a = pbContent.voice_md5;
+            this.b = pbContent.during_time.intValue() / 1000;
+            this.c = pbContent.is_sub.intValue();
+        }
     }
 
     public u(JSONObject jSONObject) {

@@ -1,26 +1,27 @@
 package com.baidu.tieba.im.stranger;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class g extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity a;
+class g {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    ImageView f;
+    View g;
+    ViewGroup h;
+    ImageView i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(StrangerListActivity strangerListActivity, int i) {
-        super(i);
-        this.a = strangerListActivity;
+    private g() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        o oVar;
-        com.baidu.tieba.im.a<Void> aVar;
-        oVar = this.a.c;
-        aVar = this.a.f;
-        oVar.a(aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(g gVar) {
+        this();
     }
 }

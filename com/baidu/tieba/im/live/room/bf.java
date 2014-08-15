@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.TextUtils;
+import android.content.Intent;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseLiveGroupInfoByGid;
+import com.baidu.tieba.im.message.ResponseUpdateLiveGroupMessage;
 /* loaded from: classes.dex */
-class bf extends com.baidu.adp.framework.listener.b {
+class bf extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,61 +15,48 @@ class bf extends com.baidu.adp.framework.listener.b {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0085, code lost:
+        if (android.text.TextUtils.isEmpty(r1) == false) goto L22;
+     */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        bk bkVar;
         bj bjVar;
-        bi biVar;
-        bj bjVar2;
-        bj bjVar3;
-        bj bjVar4;
-        bi biVar2;
-        bj bjVar5;
+        bk bkVar2;
+        bk bkVar3;
         String str;
         String str2;
-        bi biVar3;
         String str3;
-        bi biVar4;
-        bj bjVar6;
-        String str4;
-        bjVar = this.a.e;
-        bjVar.m();
+        bkVar = this.a.e;
+        bkVar.m();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107008) {
-            biVar = this.a.f;
-            if (biVar.e() == socketResponsedMessage.getOrginalMessage() && (socketResponsedMessage instanceof ResponseLiveGroupInfoByGid)) {
-                ResponseLiveGroupInfoByGid responseLiveGroupInfoByGid = (ResponseLiveGroupInfoByGid) socketResponsedMessage;
-                if (responseLiveGroupInfoByGid.getError() == 0) {
-                    bjVar2 = this.a.e;
-                    bjVar2.b(responseLiveGroupInfoByGid.getName());
-                    bjVar3 = this.a.e;
-                    bjVar3.c(responseLiveGroupInfoByGid.getIntro());
-                    bjVar4 = this.a.e;
-                    bjVar4.a(responseLiveGroupInfoByGid.getPortrait());
-                    biVar2 = this.a.f;
-                    biVar2.a(responseLiveGroupInfoByGid.getPortraitId());
-                    bjVar5 = this.a.e;
-                    bjVar5.b(responseLiveGroupInfoByGid.getBlackListCount());
-                    str = this.a.h;
-                    if (!TextUtils.isEmpty(str)) {
-                        str2 = this.a.g;
-                        if (!TextUtils.isEmpty(str2)) {
-                            biVar3 = this.a.f;
-                            str3 = this.a.h;
-                            biVar3.a(str3);
-                            biVar4 = this.a.f;
-                            biVar4.a(true);
-                            bjVar6 = this.a.e;
-                            str4 = this.a.g;
-                            bjVar6.a(str4);
-                            return;
-                        }
-                        return;
+            this.a.showToast(com.baidu.tieba.x.neterror);
+        } else if (socketResponsedMessage.getCmd() == 107102) {
+            bjVar = this.a.f;
+            if (bjVar.f() == socketResponsedMessage.getOrginalMessage() && (socketResponsedMessage instanceof ResponseUpdateLiveGroupMessage)) {
+                ResponseUpdateLiveGroupMessage responseUpdateLiveGroupMessage = (ResponseUpdateLiveGroupMessage) socketResponsedMessage;
+                if (responseUpdateLiveGroupMessage.getError() == 0) {
+                    this.a.showToast(com.baidu.tieba.x.group_update_success, false);
+                    Intent intent = new Intent();
+                    bkVar2 = this.a.e;
+                    intent.putExtra("name", bkVar2.e());
+                    bkVar3 = this.a.e;
+                    intent.putExtra("intro", bkVar3.f());
+                    str = this.a.g;
+                    if (str == null) {
+                        str3 = this.a.g;
                     }
+                    str2 = this.a.g;
+                    intent.putExtra("portraitId", str2);
+                    this.a.setResult(10, intent);
+                    this.a.finish();
                     return;
                 }
-                this.a.a(responseLiveGroupInfoByGid.getError(), responseLiveGroupInfoByGid.getErrorString());
+                this.a.a(responseUpdateLiveGroupMessage.getError(), responseUpdateLiveGroupMessage.getErrorString());
             }
         }
     }

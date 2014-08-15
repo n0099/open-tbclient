@@ -1,73 +1,41 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
-    private int a;
-    private String b;
-    private int c;
-    private String d;
-    private com.baidu.tieba.home.r e = new com.baidu.tieba.home.r();
-    private ArrayList<p> f = new ArrayList<>();
+public class o implements View.OnClickListener {
+    final /* synthetic */ n a;
+    private final /* synthetic */ d b;
+    private final /* synthetic */ q c;
 
-    public int a() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(n nVar, d dVar, q qVar) {
+        this.a = nVar;
+        this.b = dVar;
+        this.c = qVar;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public com.baidu.tieba.home.r c() {
-        return this.e;
-    }
-
-    public ArrayList<p> d() {
-        return this.f;
-    }
-
-    public int e() {
-        return this.c;
-    }
-
-    public String f() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            try {
-                a(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        HashMap hashMap;
+        Context context;
+        if (!this.b.l()) {
+            this.c.i.setVisibility(4);
+            this.c.j.setVisibility(0);
+            this.c.k.setText(com.baidu.tieba.x.signallforum_resigning);
+            this.b.c(true);
+            ac acVar = new ac();
+            acVar.a(this.a);
+            String sb = new StringBuilder(String.valueOf(this.b.b())).toString();
+            synchronized (this.a) {
+                hashMap = this.a.e;
+                hashMap.put(sb, acVar);
             }
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.e.a(jSONObject.optJSONObject("error"));
-                this.a = jSONObject.optInt("show_dialog");
-                this.b = jSONObject.optString("sign_notice");
-                this.c = jSONObject.optInt("is_timeout");
-                this.d = jSONObject.optString("timeout_notice");
-                JSONArray optJSONArray = jSONObject.optJSONArray("info");
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        p pVar = new p();
-                        pVar.a(jSONObject2);
-                        this.f.add(pVar);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            acVar.a(this.b.c(), sb);
+            context = this.a.c;
+            com.baidu.tbadk.core.f.a(context, "signall_resign_click");
         }
     }
 }

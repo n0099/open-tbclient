@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Boolean, o, o> {
     final /* synthetic */ o a;
-    private com.baidu.tbadk.core.util.aq b;
+    private com.baidu.tbadk.core.util.ae b;
     private o c;
     private volatile boolean d;
     private boolean e;
@@ -54,16 +54,16 @@ public class p extends BdAsyncTask<Boolean, o, o> {
             }
         }
         if (!this.d && this.a.b() != null) {
-            this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
             this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
             this.b.a("has_plist", "0");
-            String i = this.b.i();
+            String h = this.b.h();
             if (this.b.a().b().b()) {
                 context2 = this.a.e;
                 this.c = new o(context2);
-                this.c.c(i);
+                this.c.c(h);
                 if (this.c.a() != null) {
-                    com.baidu.tieba.util.k.c(i);
+                    com.baidu.tieba.util.k.c(h);
                     AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
                     if (currentAccountObj == null) {
                         return null;
@@ -103,7 +103,7 @@ public class p extends BdAsyncTask<Boolean, o, o> {
         super.cancel();
         this.d = true;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
             this.b = null;
         }
         this.a.b = null;
@@ -118,27 +118,25 @@ public class p extends BdAsyncTask<Boolean, o, o> {
     public void onPostExecute(o oVar) {
         Context context;
         com.baidu.adp.base.h hVar;
-        com.baidu.tbadk.editortool.aa aaVar;
         com.baidu.adp.base.h hVar2;
         super.onPostExecute(oVar);
         this.a.b = null;
         this.a.mLoadDataMode = 1;
         if (oVar != null) {
-            this.a.j = true;
+            this.a.i = true;
             this.a.a(oVar.a());
-            aaVar = this.a.f;
-            aaVar.e(oVar.a().getPortrait());
+            com.baidu.tbadk.imageManager.e.a().a(oVar.a().getPortrait());
             hVar2 = this.a.mLoadDataCallBack;
             hVar2.a(true);
             return;
         }
-        this.a.j = false;
+        this.a.i = false;
         if (this.b != null && this.e) {
-            this.a.setErrorString(this.b.f());
+            this.a.setErrorString(this.b.e());
         } else {
             o oVar2 = this.a;
             context = this.a.e;
-            oVar2.setErrorString(context.getString(com.baidu.tieba.y.neterror));
+            oVar2.setErrorString(context.getString(com.baidu.tieba.x.neterror));
         }
         hVar = this.a.mLoadDataCallBack;
         hVar.a(false);

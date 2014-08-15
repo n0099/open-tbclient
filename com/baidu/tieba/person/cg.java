@@ -1,36 +1,28 @@
 package com.baidu.tieba.person;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-class cg implements AdapterView.OnItemClickListener {
-    final /* synthetic */ cb a;
+class cg implements View.OnClickListener {
+    final /* synthetic */ cd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cb cbVar) {
-        this.a = cbVar;
+    public cg(cd cdVar) {
+        this.a = cdVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cj cjVar;
-        cj cjVar2;
-        cj cjVar3;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         PersonFriendActivity f;
-        cjVar = this.a.d;
-        if (cjVar != null) {
-            cjVar2 = this.a.d;
-            if (cjVar2.getItemViewType(i) == 0) {
-                cjVar3 = this.a.d;
-                UserData userData = (UserData) cjVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    cb cbVar = this.a;
-                    f = this.a.f();
-                    cbVar.a(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(f, userData.getUserId(), userData.getName_show())));
-                }
-            }
+        this.a.c = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            f = this.a.f();
+            LoginActivity.a((Activity) f, this.a.getString(com.baidu.tieba.x.login_to_chat), true, 11028);
+            return;
         }
+        this.a.h();
     }
 }

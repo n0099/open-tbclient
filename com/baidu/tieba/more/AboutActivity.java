@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.bd;
+import com.baidu.tieba.model.be;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity {
@@ -21,6 +21,7 @@ public class AboutActivity extends BaseActivity {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -29,6 +30,7 @@ public class AboutActivity extends BaseActivity {
         b();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
@@ -37,6 +39,7 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
@@ -49,6 +52,7 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
@@ -57,6 +61,7 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.b == null) {
             this.b = new com.baidu.tieba.model.a(this, new b(this));
@@ -69,23 +74,24 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         if (this.a != null) {
             this.a.b();
         }
-        bd bdVar = obj != null ? (bd) obj : null;
-        if (bdVar != null) {
-            com.baidu.tieba.ai.c().a(bdVar.c());
+        be beVar = obj != null ? (be) obj : null;
+        if (beVar != null) {
+            com.baidu.tieba.ai.c().a(beVar.c());
             TbadkApplication.m252getInst().refreshNewVersion(false);
-            if (bdVar.c().hasNewVer()) {
-                if (bdVar.c().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bdVar.c(), bdVar.b());
+            if (beVar.c().hasNewVer()) {
+                if (beVar.c().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), beVar.c(), beVar.b());
                 } else {
                     TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bdVar.c(), bdVar.b());
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), beVar.c(), beVar.b());
                 }
             } else {
-                showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
+                showToast(getResources().getString(com.baidu.tieba.x.neednot_update));
             }
             if (this.a != null) {
                 this.a.c();
@@ -93,7 +99,7 @@ public class AboutActivity extends BaseActivity {
             }
             return;
         }
-        showToast(getResources().getString(com.baidu.tieba.y.neterror));
+        showToast(getResources().getString(com.baidu.tieba.x.neterror));
     }
 
     private void b() {

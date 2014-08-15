@@ -16,7 +16,7 @@ class v implements Runnable {
         voiceManager = this.a.a;
         z zVar = voiceManager.recordView;
         voiceManager2 = this.a.a;
-        zVar.a(4, voiceManager2.context.getString(com.baidu.tieba.y.voice_error_file_md5));
+        zVar.a(4, voiceManager2.context.getString(com.baidu.tieba.x.voice_error_file_md5));
         voiceManager3 = this.a.a;
         voiceManager3.currRecordState = 1;
     }

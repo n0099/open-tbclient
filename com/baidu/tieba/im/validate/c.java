@@ -13,12 +13,11 @@ public class c implements com.baidu.tieba.im.a<Boolean> {
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
         boolean z;
-        t tVar;
-        z = this.a.i;
+        r rVar;
+        z = this.a.g;
         if (!z) {
-            tVar = this.a.b;
-            tVar.a(false);
+            rVar = this.a.b;
+            rVar.a(false);
         }
-        com.baidu.tieba.im.pushNotify.a.b((com.baidu.tieba.im.a<Void>) null);
     }
 }

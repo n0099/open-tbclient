@@ -21,7 +21,7 @@ public class an extends AuthorizationListener {
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         if (TextUtils.isEmpty(str)) {
-            this.a.showToast(com.baidu.tieba.y.data_load_error);
+            this.a.showToast(com.baidu.tieba.x.data_load_error);
         } else {
             this.a.showToast(str);
         }

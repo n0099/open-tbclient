@@ -1,26 +1,22 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ f a;
+public class g implements Runnable {
+    final /* synthetic */ c a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(f fVar, int i) {
-        super(i);
-        this.a = fVar;
+    public g(c cVar, int i) {
+        this.a = cVar;
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
-        }
-        this.a.a(customResponsedMessage);
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.a.e;
+        bdListView.setSelection(this.b);
     }
 }

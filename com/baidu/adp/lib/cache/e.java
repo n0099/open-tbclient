@@ -2,7 +2,7 @@ package com.baidu.adp.lib.cache;
 
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public abstract class e<T> implements r<T> {
+public abstract class e<T> implements s<T> {
     protected final boolean a;
     protected final f b;
 
@@ -46,7 +46,7 @@ public abstract class e<T> implements r<T> {
         }
     }
 
-    @Override // com.baidu.adp.lib.cache.r
+    @Override // com.baidu.adp.lib.cache.s
     public T c(String str, String str2) {
         m<T> b = b(str, str2);
         if (b == null) {
@@ -55,21 +55,21 @@ public abstract class e<T> implements r<T> {
         return b.b;
     }
 
-    @Override // com.baidu.adp.lib.cache.r
-    public u<T> d(String str, String str2) {
+    @Override // com.baidu.adp.lib.cache.s
+    public v<T> d(String str, String str2) {
         m<T> b = b(str, str2);
         if (b == null) {
             return null;
         }
-        u<T> uVar = new u<>();
-        uVar.a = str2;
-        uVar.b = b.b;
-        uVar.d = b.f;
-        uVar.c = b.d;
-        return uVar;
+        v<T> vVar = new v<>();
+        vVar.a = str2;
+        vVar.b = b.b;
+        vVar.d = b.f;
+        vVar.c = b.d;
+        return vVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.r
+    @Override // com.baidu.adp.lib.cache.s
     public void a(String str, String str2, T t, long j) {
         m<T> mVar = new m<>();
         mVar.a = a(str, str2);
@@ -81,12 +81,12 @@ public abstract class e<T> implements r<T> {
         a(mVar);
     }
 
-    @Override // com.baidu.adp.lib.cache.r
+    @Override // com.baidu.adp.lib.cache.s
     public void e(String str, String str2) {
         b(a(str, str2));
     }
 
-    @Override // com.baidu.adp.lib.cache.r
+    @Override // com.baidu.adp.lib.cache.s
     public f a() {
         return this.b;
     }

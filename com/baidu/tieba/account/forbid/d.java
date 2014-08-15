@@ -3,7 +3,7 @@ package com.baidu.tieba.account.forbid;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements n {
@@ -24,8 +24,8 @@ public class d implements n {
         str = this.a.g;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.a.findViewById(v.radio_forbid_3).setVisibility(0);
-            this.a.findViewById(v.radio_forbid_10).setVisibility(0);
+            this.a.findViewById(u.radio_forbid_3).setVisibility(0);
+            this.a.findViewById(u.radio_forbid_10).setVisibility(0);
         }
         this.a.j = new e(forbidTplData.reason);
         bdListView = this.a.i;

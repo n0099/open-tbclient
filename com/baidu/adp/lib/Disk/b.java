@@ -3,7 +3,6 @@ package com.baidu.adp.lib.Disk;
 import android.os.Environment;
 import com.baidu.adp.base.BdBaseApplication;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
     private final String a = Environment.getExternalStorageDirectory().getAbsolutePath();

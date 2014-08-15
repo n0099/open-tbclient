@@ -43,11 +43,12 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x017a -> B:37:0x0070). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x0187 -> B:37:0x0074). Please submit an issue!!! */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public HttpResponsedMessage doInBackground(HttpMessage... httpMessageArr) {
         List<Map.Entry<String, Object>> encodeInBackGround = this.b.encodeInBackGround();
+        long currentTimeMillis = System.currentTimeMillis();
         this.d.a().a(this.c.getUrl());
         this.d.a().a(this.c.getMethod());
         this.d.a().a(this.b.getHeaders());
@@ -84,6 +85,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
             if (newInstance.isSuccess()) {
                 try {
                     newInstance.decodeInBackGround(this.b.getCmd(), this.d.b().g);
+                    newInstance.setCostTime(System.currentTimeMillis() - currentTimeMillis);
                     newInstance.beforeDispatchInBackGround(this.b.getCmd(), this.d.b().g);
                 } catch (Exception e2) {
                     newInstance.setError(TbErrInfo.ERR_IMG_URL_IS_NULL);
@@ -115,7 +117,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
         String b = this.d.a().b("sid");
         if (this.d.c().size() > 0) {
             com.baidu.adp.lib.network.http.d dVar = this.d.c().get(this.d.c().size() - 1);
-            com.baidu.adp.lib.stats.d.b().b(this.d.a().b(), b, "", dVar.b, dVar.a, dVar.f, dVar.c, dVar.d, dVar.e, TbErrInfo.ERR_IMG_CACHE, "init " + this.c.getResponsedClass() + " error", new Object[0]);
+            com.baidu.adp.lib.stats.f.c().b(this.d.a().b(), b, "", dVar.b, dVar.a, dVar.f, dVar.c, dVar.d, dVar.e, TbErrInfo.ERR_IMG_CACHE, "init " + this.c.getResponsedClass() + " error", new Object[0]);
         }
     }
 

@@ -1,10 +1,10 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import org.apache.http.message.BasicNameValuePair;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-class u implements Runnable {
+class u implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,33 +12,50 @@ class u implements Runnable {
         this.a = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         String str;
         String str2;
+        int i;
+        int i2;
         String str3;
-        ab abVar;
-        ab abVar2;
-        try {
-            str = this.a.y;
-            if (str != null) {
-                str2 = this.a.y;
-                if (str2.length() > 0) {
-                    StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(TbConfig.SERVER_ADDRESS);
-                    stringBuffer.append("c/f/forum/search");
+        EditText editText;
+        String str4;
+        String str5;
+        String str6;
+        str = this.a.y;
+        if (str != null) {
+            str2 = this.a.y;
+            if (str2.trim().length() >= 1) {
+                i = this.a.z;
+                if (i != 0) {
+                    i2 = this.a.z;
+                    if (i2 == 3) {
+                        SquareSearchActivity squareSearchActivity = this.a;
+                        editText = this.a.c;
+                        com.baidu.adp.lib.util.j.a(squareSearchActivity, editText);
+                        str4 = this.a.y;
+                        if (!TextUtils.isEmpty(str4)) {
+                            str5 = this.a.y;
+                            if (str5.trim().length() != 0) {
+                                SquareSearchActivity squareSearchActivity2 = this.a;
+                                str6 = this.a.y;
+                                squareSearchActivity2.a(str6);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    SquareSearchActivity squareSearchActivity3 = this.a;
                     str3 = this.a.y;
-                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
-                    this.a.a();
-                    this.a.w = new ab(this.a, stringBuffer.toString(), basicNameValuePair, true);
-                    abVar = this.a.w;
-                    abVar.setPriority(3);
-                    abVar2 = this.a.w;
-                    abVar2.execute(stringBuffer.toString(), basicNameValuePair);
+                    squareSearchActivity3.a(1, str3);
+                    return;
                 }
+                this.a.d();
+                return;
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
+        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.write_keyword));
     }
 }

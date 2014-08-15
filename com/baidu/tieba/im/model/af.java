@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ad b;
-    private final /* synthetic */ PersonalChatMessage c;
+public class af implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ PersonalChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ad adVar, PersonalChatMessage personalChatMessage) {
-        this.b = adVar;
-        this.c = personalChatMessage;
+    public af(MsglistModel msglistModel, PersonalChatMessage personalChatMessage) {
+        this.a = msglistModel;
+        this.b = personalChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.p.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 2));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.d(this.b);
     }
 }

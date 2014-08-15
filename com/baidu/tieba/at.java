@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Intent;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements Runnable {
-    final /* synthetic */ ai a;
-    private final /* synthetic */ Application b;
+public class at implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ai aiVar, Application application) {
-        this.a = aiVar;
-        this.b = application;
+    public at(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.sendBroadcast(new Intent("com.baidu.tieba.action.PLUGIN_DOWNLOAD"));
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ab abVar;
+        abVar = this.a.h;
+        abVar.dismiss();
+        this.a.finish();
     }
 }

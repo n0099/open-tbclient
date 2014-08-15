@@ -33,7 +33,7 @@ public class f extends a {
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(str);
         if (c == null) {
-            Bitmap b = com.baidu.tbadk.core.util.h.b(TbadkApplication.m252getInst().getApplicationContext(), com.baidu.adp.lib.f.b.a(str2, 0));
+            Bitmap b = com.baidu.tbadk.core.util.d.b(TbadkApplication.m252getInst().getApplicationContext(), com.baidu.adp.lib.e.b.a(str2, 0));
             if (b == null) {
                 return null;
             }

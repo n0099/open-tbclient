@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.b;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,21 +35,21 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.fram
         return this.a.getController().a(customMessage, customMessageTask);
     }
 
-    public void a(int i) {
-        this.c.a(i);
+    public void a(BdUniqueId bdUniqueId) {
+        this.c.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, int i2) {
-        this.c.a(i, i2);
+    public void a(int i, BdUniqueId bdUniqueId) {
+        this.c.a(i, bdUniqueId);
     }
 
-    public LinkedList<CustomMessage<?>> b(int i) {
-        return this.c.b(i);
+    public LinkedList<CustomMessage<?>> b(BdUniqueId bdUniqueId) {
+        return this.c.b(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> b(int i, int i2) {
-        return this.c.b(i, i2);
+    public LinkedList<CustomMessage<?>> b(int i, BdUniqueId bdUniqueId) {
+        return this.c.b(i, bdUniqueId);
     }
 }

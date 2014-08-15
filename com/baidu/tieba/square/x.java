@@ -82,22 +82,22 @@ public class x extends BaseAdapter {
         if (count > 2) {
             if (i == 0) {
                 if (skinType == 1) {
-                    zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_up_1);
+                    zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot_up_1);
                 } else {
-                    zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_up);
+                    zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot_up);
                 }
             } else if (i == count - 2) {
                 if (skinType == 1) {
-                    zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_down_1);
+                    zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot_down_1);
                 } else {
-                    zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_down);
+                    zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot_down);
                 }
             }
         } else if (count == 2 && i == 0) {
             if (skinType == 1) {
-                zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_1);
+                zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot_1);
             } else {
-                zVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot);
+                zVar.c.setBackgroundResource(com.baidu.tieba.t.bg_hot);
             }
         }
         if (i >= 0 && this.c != null) {
@@ -119,11 +119,11 @@ public class x extends BaseAdapter {
 
     private View a(int i, int i2) {
         if (i2 == 0) {
-            View inflate = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.forum_list_recommend_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.forum_list_recommend_item, (ViewGroup) null);
             z zVar = new z(this, null);
-            zVar.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.container);
-            zVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_1);
-            zVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_2);
+            zVar.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.container);
+            zVar.a = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_list_title_1);
+            zVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_list_title_2);
             zVar.a.setClickable(true);
             zVar.b.setClickable(true);
             zVar.a.setOnClickListener(this.a);
@@ -131,9 +131,9 @@ public class x extends BaseAdapter {
             inflate.setTag(zVar);
             return inflate;
         } else if (i2 == 1) {
-            com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this.b);
-            kVar.setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_list_paddingBottom));
-            return kVar;
+            com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
+            iVar.setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.square_forum_list_paddingBottom));
+            return iVar;
         } else {
             return null;
         }

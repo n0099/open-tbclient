@@ -6,14 +6,14 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bm;
-import com.baidu.tbadk.core.atomData.bo;
+import com.baidu.tbadk.core.atomData.bv;
+import com.baidu.tbadk.core.atomData.bx;
 /* loaded from: classes.dex */
 public class DiscoverSquareActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    private s a;
+    private u a;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.k.class, DiscoverSquareActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.l.class, DiscoverSquareActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,20 +24,20 @@ public class DiscoverSquareActivity extends BaseActivity implements AdapterView.
     }
 
     private void a() {
-        this.a = new s(this);
+        this.a = new u(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         switch (i) {
             case 0:
-                sendMessage(new CustomMessage(2010010, new bo(this)));
+                sendMessage(new CustomMessage(2010010, new bx(this)));
                 return;
             case 1:
-                sendMessage(new CustomMessage(2010020, new com.baidu.tbadk.core.atomData.i(this, "faxian")));
+                sendMessage(new CustomMessage(2010020, new com.baidu.tbadk.core.atomData.j(this, "faxian")));
                 return;
             case 2:
-                sendMessage(new CustomMessage(2010011, new bm(this)));
+                sendMessage(new CustomMessage(2010011, new bv(this)));
                 return;
             default:
                 return;

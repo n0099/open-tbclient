@@ -34,7 +34,7 @@ public class Amrnb {
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                com.baidu.adp.lib.stats.d.b().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+                com.baidu.adp.lib.stats.f.c().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
             }
         }
     }

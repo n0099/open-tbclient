@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-public abstract class b extends ImageView implements h {
+public abstract class b extends ImageView implements i {
     protected e a;
     protected a b;
     protected boolean c;
@@ -31,6 +31,7 @@ public abstract class b extends ImageView implements h {
     private boolean q;
     private Drawable r;
     private Drawable s;
+    private Drawable t;
 
     protected abstract com.baidu.adp.widget.a.a getBdImage();
 
@@ -40,7 +41,7 @@ public abstract class b extends ImageView implements h {
         super(context);
         this.d = 4;
         this.e = 1;
-        this.f = 637534208;
+        this.f = 201326592;
         this.g = 0;
         this.h = ImageView.ScaleType.CENTER_INSIDE;
         this.i = null;
@@ -61,7 +62,7 @@ public abstract class b extends ImageView implements h {
         super(context, attributeSet, i);
         this.d = 4;
         this.e = 1;
-        this.f = 637534208;
+        this.f = 201326592;
         this.g = 0;
         this.h = ImageView.ScaleType.CENTER_INSIDE;
         this.i = null;
@@ -81,7 +82,7 @@ public abstract class b extends ImageView implements h {
             this.a.b = obtainStyledAttributes.getBoolean(1, false);
             this.a.c = obtainStyledAttributes.getBoolean(2, false);
             this.a.d = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.j.a(getContext(), 1.0f));
-            this.a.e = obtainStyledAttributes.getColor(4, 637534208);
+            this.a.e = obtainStyledAttributes.getColor(4, 201326592);
             this.a.g = obtainStyledAttributes.getBoolean(5, false);
             this.a.h = obtainStyledAttributes.getBoolean(6, true);
             this.a.i = obtainStyledAttributes.getDrawable(7);
@@ -97,7 +98,7 @@ public abstract class b extends ImageView implements h {
         } else {
             this.a.a = com.baidu.adp.lib.util.j.a(getContext(), 4.0f);
             this.a.d = com.baidu.adp.lib.util.j.a(getContext(), 1.0f);
-            this.a.e = 637534208;
+            this.a.e = 201326592;
             if (this.a.i == null) {
                 this.a.i = getResources().getDrawable(com.baidu.adp.c.icon_gif);
             }
@@ -164,24 +165,18 @@ public abstract class b extends ImageView implements h {
             this.p.b = null;
             c();
             this.p.c = false;
-            if (this.s != null) {
-                setBackgroundDrawable(this.s);
-            }
+            this.t = this.s;
         } else if (this.p.b()) {
             this.p.a = null;
             c();
             this.p.c = false;
-            if (this.s != null) {
-                setBackgroundDrawable(this.s);
-            }
+            this.t = this.s;
         } else {
             this.p.a = null;
             this.p.b = getDefaultBdImage();
             this.p.c = true;
             ImageView.ScaleType scaleType2 = this.p.b() ? this.h : scaleType;
-            if (this.r != null) {
-                setBackgroundDrawable(this.r);
-            }
+            this.t = this.r;
             scaleType = scaleType2;
         }
         if (this.i != scaleType) {
@@ -231,9 +226,9 @@ public abstract class b extends ImageView implements h {
             return;
         }
         getDisplayBdImage();
-        this.b.a(canvas, this);
+        this.b.a(canvas, this, this.t);
         a(canvas);
-        this.b.b(canvas, this);
+        this.b.a(canvas, this);
         this.p.f();
     }
 

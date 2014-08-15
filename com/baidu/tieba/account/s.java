@@ -7,13 +7,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ActivationActivity a;
-    private aq b;
+    private ae b;
 
     private s(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -39,7 +39,7 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         super.cancel(true);
     }
@@ -52,11 +52,11 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            aq aqVar = this.b;
+            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            ae aeVar = this.b;
             registData = this.a.q;
-            aqVar.a("phonenum", registData.getPhone());
-            this.b.i();
+            aeVar.a("phonenum", registData.getPhone());
+            this.b.h();
             if (this.b.a().b().b()) {
                 z = true;
             }
@@ -89,12 +89,12 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
             this.a.a();
             return;
         }
-        String f = this.b.f();
-        if (f != null && f.length() > 0) {
+        String e = this.b.e();
+        if (e != null && e.length() > 0) {
             textView = this.a.i;
             textView.setVisibility(0);
             textView2 = this.a.i;
-            textView2.setText(f);
+            textView2.setText(e);
         }
     }
 

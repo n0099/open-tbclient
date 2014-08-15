@@ -196,6 +196,10 @@ public final class SapiAccountService {
         this.c.a(sapiCallBack, reloginCredentials);
     }
 
+    public int blockingRelogin(SapiAccount.ReloginCredentials reloginCredentials) {
+        return this.c.a(reloginCredentials);
+    }
+
     public void i() {
         this.c.b();
     }

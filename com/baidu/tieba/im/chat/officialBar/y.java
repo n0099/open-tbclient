@@ -1,37 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class y extends com.baidu.adp.framework.listener.b {
+class y extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ OfficialBarChatActivity a;
+    private final /* synthetic */ UserData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(OfficialBarChatActivity officialBarChatActivity, int i) {
-        super(i);
+    public y(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
         this.a = officialBarChatActivity;
+        this.b = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        OfficialBarMsglistView officialBarMsglistView;
-        officialBarMsglistView = this.a.m;
-        officialBarMsglistView.d(false);
-        if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-            return;
-        }
-        ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
-        if (responseSendOfficialBarMenuMessage.hasError()) {
-            if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
-                this.a.showToast(responseSendOfficialBarMenuMessage.getErrorString());
-            } else {
-                this.a.showToast(com.baidu.tieba.y.neterror);
-            }
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(ay.a().c(TbadkApplication.getCurrentAccount(), String.valueOf(this.b.getUserId())));
     }
 }

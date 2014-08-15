@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import com.baidu.tieba.account.AccountRestoreActivity;
 import com.baidu.tieba.util.AntiHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements DialogInterface.OnClickListener {
+class a implements DialogInterface.OnClickListener {
     private final /* synthetic */ Context a;
     private final /* synthetic */ AntiHelper.PageType b;
 

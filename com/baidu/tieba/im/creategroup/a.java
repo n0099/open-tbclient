@@ -33,9 +33,9 @@ public class a extends com.baidu.adp.base.f {
     }
 
     private void b() {
-        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.w.address_lbs_item, (ViewGroup) null);
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.v.text);
-        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.v.group_address_list_item_selected);
+        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.v.address_lbs_item, (ViewGroup) null);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.text);
+        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.u.group_address_list_item_selected);
         this.a.setTag(this);
     }
 }

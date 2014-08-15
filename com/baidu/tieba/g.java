@@ -8,7 +8,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 class g extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FileDownloader a;
-    private com.baidu.tbadk.core.util.aq b = null;
+    private com.baidu.tbadk.core.util.ae b = null;
     private volatile boolean c = false;
     private final String d;
     private final String e;
@@ -29,10 +29,10 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool = false;
         while (!this.c) {
             try {
-                this.b = new com.baidu.tbadk.core.util.aq(this.d);
+                this.b = new com.baidu.tbadk.core.util.ae(this.d);
                 handler = this.a.handler;
                 bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
-                if (bool.booleanValue() || this.b.d() == -2) {
+                if (bool.booleanValue() || this.b.c() == -2) {
                     break;
                 } else if (!this.b.a().b().c()) {
                     try {
@@ -44,9 +44,9 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
             }
         }
         if (bool.booleanValue()) {
-            com.baidu.tbadk.core.util.z.j(this.e);
-            File d = com.baidu.tbadk.core.util.z.d(String.valueOf(this.e) + ".tmp");
-            if (d != null && (e = com.baidu.tbadk.core.util.z.e(this.e)) != null) {
+            com.baidu.tbadk.core.util.s.j(this.e);
+            File d = com.baidu.tbadk.core.util.s.d(String.valueOf(this.e) + ".tmp");
+            if (d != null && (e = com.baidu.tbadk.core.util.s.e(this.e)) != null) {
                 d.renameTo(e);
             }
         }
@@ -59,7 +59,7 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         this.a.mDowndingTask = null;
         this.c = true;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
     }
 
@@ -74,7 +74,7 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         super.onPostExecute(bool);
         this.a.mDowndingTask = null;
         if (bool.booleanValue()) {
-            com.baidu.tbadk.core.util.bb.a(this.a.getBaseContext(), 10);
+            com.baidu.tbadk.core.util.ap.a(this.a.getBaseContext(), 10);
             handler = this.a.handler;
             handler2 = this.a.handler;
             handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
@@ -82,7 +82,7 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         }
         Context baseContext = this.a.getBaseContext();
         i = this.a.progress;
-        com.baidu.tbadk.core.util.bb.a(baseContext, 10, (String) null, i, this.d, this.a.getString(y.error_sd_error), false);
+        com.baidu.tbadk.core.util.ap.a(baseContext, 10, (String) null, i, this.d, this.a.getString(x.error_sd_error), false);
         this.a.stopSelf();
     }
 }

@@ -1,21 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
-public class bs implements DialogInterface.OnClickListener {
-    final /* synthetic */ bq a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bq bqVar) {
-        this.a = bqVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.m;
-        alertDialog.dismiss();
-    }
+public interface bs {
+    void a(LinkedHashMap<String, String> linkedHashMap);
 }

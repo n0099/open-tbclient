@@ -13,6 +13,7 @@ public class c {
     private u e = null;
     private d f;
     private e g;
+    private int h;
 
     public c(int i) {
         this.a = 0;
@@ -130,5 +131,9 @@ public class c {
 
     public e g() {
         return this.g;
+    }
+
+    public void a(int i) {
+        this.h = i;
     }
 }

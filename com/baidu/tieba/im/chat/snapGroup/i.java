@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class i implements Runnable {
     final /* synthetic */ h a;
@@ -24,7 +24,7 @@ class i implements Runnable {
         if (z) {
             snapGroupChatActivity3 = this.a.a;
             snapGroupChatActivity4 = this.a.a;
-            snapGroupChatActivity3.showToast(snapGroupChatActivity4.getString(y.snap_group_chat_kick_out_by_silence), false);
+            snapGroupChatActivity3.showToast(snapGroupChatActivity4.getString(x.snap_group_chat_kick_out_by_silence), false);
         }
     }
 }

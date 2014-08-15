@@ -1,28 +1,25 @@
 package com.baidu.tieba.person;
-
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class ck {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    ImageView d;
-    LinearLayout e;
-    ProgressBar f;
-    TextView g;
-    ImageView h;
-    final /* synthetic */ cj i;
-
-    private ck(cj cjVar) {
-        this.i = cjVar;
-    }
+class ck implements com.baidu.adp.widget.ListView.x {
+    final /* synthetic */ cd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ck(cj cjVar, ck ckVar) {
-        this(cjVar);
+    public ck(cd cdVar) {
+        this.a = cdVar;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
+        boolean z;
+        cn cnVar;
+        z = this.a.m;
+        if (!z) {
+            this.a.l = false;
+            cd cdVar = this.a;
+            cnVar = this.a.h;
+            cdVar.n = cnVar.b().a().d() + 1;
+            this.a.m = true;
+            this.a.g();
+        }
     }
 }

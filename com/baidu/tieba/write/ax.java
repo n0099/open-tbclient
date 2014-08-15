@@ -1,12 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask<Void, Integer, Void> {
+class ax implements com.baidu.tbadk.imageManager.a {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,15 +10,18 @@ public class ax extends BdAsyncTask<Void, Integer, Void> {
         this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.E;
-        com.baidu.tbadk.core.util.z.c(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.imageManager.a
+    public ImageSpan a(String str) {
+        com.baidu.adp.widget.a.a b = com.baidu.tbadk.editortool.aa.a().b(str);
+        if (b == null) {
+            b = com.baidu.tbadk.editortool.aa.a().a((String) null, str);
+        }
+        if (b == null) {
+            return null;
+        }
+        com.baidu.tieba.view.v vVar = new com.baidu.tieba.view.v(b.h());
+        vVar.setBounds(0, 0, b.c() + 1, b.d());
+        vVar.setGravity(3);
+        return new ImageSpan(vVar, 0);
     }
 }

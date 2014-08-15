@@ -3,7 +3,7 @@ package com.baidu.tieba.topRec;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class p implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ n a;
@@ -16,7 +16,7 @@ class p implements com.baidu.adp.lib.guide.b {
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         ImageView imageView = new ImageView(this.a.a);
-        imageView.setBackgroundResource(u.lead_metadata);
+        imageView.setBackgroundResource(t.pic_emotion03);
         return imageView;
     }
 

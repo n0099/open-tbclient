@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
@@ -58,24 +58,24 @@ public class ForumListModel extends com.baidu.adp.base.e implements Serializable
 
     public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
         int i;
-        com.baidu.adp.lib.cache.s<String> p;
+        com.baidu.adp.lib.cache.t<String> b2;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         b = requestParams.menu_name;
-        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
-        aqVar.a("rn", String.valueOf(requestParams.rn));
-        aqVar.a("offset", String.valueOf(requestParams.offset));
-        aqVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        aqVar.a("menu_name", requestParams.menu_name);
-        aqVar.a("menu_type", String.valueOf(i));
-        String i2 = aqVar.i();
-        a = aqVar.c();
-        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null)) {
-            p.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
+        ae aeVar = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
+        aeVar.a("rn", String.valueOf(requestParams.rn));
+        aeVar.a("offset", String.valueOf(requestParams.offset));
+        aeVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        aeVar.a("menu_name", requestParams.menu_name);
+        aeVar.a("menu_type", String.valueOf(i));
+        String h = aeVar.h();
+        a = aeVar.b();
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(h, (Class<Object>) ForumListModel.class);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (b2 = com.baidu.tbadk.core.a.a.a().b("tb.my_posts")) != null)) {
+            b2.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", h, 86400000L);
         }
         return forumListModel;
     }

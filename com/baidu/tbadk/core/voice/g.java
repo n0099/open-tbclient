@@ -47,10 +47,10 @@ class g implements Handler.Callback {
                 if (lVar9 != null) {
                     if (com.baidu.adp.lib.util.c.c()) {
                         lVar11 = f.d;
-                        lVar11.a(message.what, ae.a(com.baidu.tieba.y.voice_err_create_file_fail));
+                        lVar11.a(message.what, ae.a(com.baidu.tieba.x.voice_err_create_file_fail));
                     } else {
                         lVar10 = f.d;
-                        lVar10.a(message.what, ae.a(com.baidu.tieba.y.voice_err_sdcard_nospace));
+                        lVar10.a(message.what, ae.a(com.baidu.tieba.x.voice_err_sdcard_nospace));
                     }
                     f.d = null;
                     break;
@@ -60,7 +60,7 @@ class g implements Handler.Callback {
                 lVar3 = f.d;
                 if (lVar3 != null) {
                     lVar4 = f.d;
-                    lVar4.a(message.what, ae.a(com.baidu.tieba.y.voice_err_file_fail));
+                    lVar4.a(message.what, ae.a(com.baidu.tieba.x.voice_err_file_fail));
                     f.d = null;
                     break;
                 }
@@ -77,7 +77,7 @@ class g implements Handler.Callback {
                 lVar5 = f.d;
                 if (lVar5 != null) {
                     lVar6 = f.d;
-                    lVar6.a(message.what, ae.a(com.baidu.tieba.y.voice_err_load_lib_fail));
+                    lVar6.a(message.what, ae.a(com.baidu.tieba.x.voice_err_load_lib_fail));
                     f.d = null;
                     break;
                 }
@@ -86,7 +86,7 @@ class g implements Handler.Callback {
                 lVar = f.d;
                 if (lVar != null) {
                     lVar2 = f.d;
-                    lVar2.a(message.what, ae.a(com.baidu.tieba.y.voice_err_init_fail));
+                    lVar2.a(message.what, ae.a(com.baidu.tieba.x.voice_err_init_fail));
                     f.d = null;
                     break;
                 }
@@ -95,7 +95,7 @@ class g implements Handler.Callback {
                 lVar14 = f.d;
                 if (lVar14 != null) {
                     lVar15 = f.d;
-                    lVar15.a(message.what, ae.a(com.baidu.tieba.y.voice_record_timeout_tip));
+                    lVar15.a(message.what, ae.a(com.baidu.tieba.x.voice_record_timeout_tip));
                     f.d = null;
                     break;
                 }
@@ -104,7 +104,7 @@ class g implements Handler.Callback {
                 lVar12 = f.d;
                 if (lVar12 != null) {
                     lVar13 = f.d;
-                    lVar13.a(message.what, ae.a(com.baidu.tieba.y.voice_record_short_tip));
+                    lVar13.a(message.what, ae.a(com.baidu.tieba.x.voice_record_short_tip));
                     f.d = null;
                     break;
                 }
@@ -129,7 +129,7 @@ class g implements Handler.Callback {
                 lVar22 = f.d;
                 if (lVar22 != null) {
                     lVar23 = f.d;
-                    lVar23.a(message.what, ae.a(com.baidu.tieba.y.voice_err_other));
+                    lVar23.a(message.what, ae.a(com.baidu.tieba.x.voice_err_other));
                     f.d = null;
                     break;
                 }

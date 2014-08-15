@@ -6,16 +6,16 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.data.FriendFeedThreadData;
 import com.baidu.tieba.editortool.PbEditor;
-import com.baidu.tieba.frs.de;
+import com.baidu.tieba.frs.dh;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.base.f {
@@ -29,34 +29,34 @@ public class t extends com.baidu.adp.base.f {
     private ViewGroup h;
     private BdListView i;
     private Handler j;
-    private de k;
+    private dh k;
 
     public t(FriendFeedActivity friendFeedActivity) {
         super(friendFeedActivity);
         this.j = null;
         this.k = null;
         this.b = friendFeedActivity;
-        friendFeedActivity.setContentView(w.friend_feed_view);
+        friendFeedActivity.setContentView(v.friend_feed_view);
         this.j = new Handler();
         a(friendFeedActivity);
         b(friendFeedActivity);
     }
 
     private void a(FriendFeedActivity friendFeedActivity) {
-        this.d = (ViewGroup) this.b.findViewById(v.content);
-        this.e = (NavigationBar) this.b.findViewById(v.view_navigation_bar);
-        this.e.a(this.b.getString(y.friendfeed_title));
+        this.d = (ViewGroup) this.b.findViewById(com.baidu.tieba.u.content);
+        this.e = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.e.a(this.b.getString(x.friendfeed_title));
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     private void b(FriendFeedActivity friendFeedActivity) {
-        this.f = (NoNetworkView) this.b.findViewById(v.view_no_network);
-        this.h = (ViewGroup) this.b.findViewById(v.content_with_data);
-        this.g = (ViewGroup) this.b.findViewById(v.no_data_container);
-        this.i = (BdListView) friendFeedActivity.findViewById(v.friend_feed_list);
-        this.c = new l(this.b, com.baidu.adp.lib.util.j.b(this.b), bn.a().b());
+        this.f = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.view_no_network);
+        this.h = (ViewGroup) this.b.findViewById(com.baidu.tieba.u.content_with_data);
+        this.g = (ViewGroup) this.b.findViewById(com.baidu.tieba.u.no_data_container);
+        this.i = (BdListView) friendFeedActivity.findViewById(com.baidu.tieba.u.friend_feed_list);
+        this.c = new l(this.b, com.baidu.adp.lib.util.j.b(this.b), bb.a().b());
         this.i.setAdapter((ListAdapter) this.c);
-        this.a = (PbEditor) this.b.findViewById(v.friendfeed_editor);
+        this.a = (PbEditor) this.b.findViewById(com.baidu.tieba.u.friendfeed_editor);
         this.a.setHideBaobao(true);
     }
 
@@ -88,7 +88,7 @@ public class t extends com.baidu.adp.base.f {
     }
 
     protected void a(int i, int i2) {
-        this.k = new de(this.b, i, i2, this.a, this.i, this.e.getHeight());
+        this.k = new dh(this.b, i, i2, this.a, this.i, this.e.getHeight());
         this.j.postDelayed(this.k, 300L);
     }
 
@@ -165,7 +165,7 @@ public class t extends com.baidu.adp.base.f {
         this.a.s();
     }
 
-    public void a(com.baidu.tbadk.editortool.w wVar) {
+    public void a(w wVar) {
         if (wVar != null) {
             this.a.setOnActionListener(new u(this, wVar));
         }

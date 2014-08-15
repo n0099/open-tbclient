@@ -12,6 +12,9 @@ class i implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+        l lVar;
+        com.baidu.tbadk.core.f.a(this.a, "personalchat_morepage_addblack");
+        lVar = this.a.b;
+        lVar.b(true);
     }
 }

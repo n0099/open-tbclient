@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class MessageType implements Type {
     private final String documentation;
@@ -109,7 +108,7 @@ public final class MessageType implements Type {
             sb.append("\n  ").append(field);
         }
         for (Type type : this.nestedTypes) {
-            sb.append(type).append(IOUtils.LINE_SEPARATOR_UNIX);
+            sb.append(type).append("\n");
         }
         return sb.toString();
     }

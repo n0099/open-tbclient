@@ -3,17 +3,11 @@ package com.baidu.tieba.im.creategroup;
 import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
-import com.baidu.tieba.y;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.framework.listener.b {
+class j extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ CreateGroupStepActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,11 +21,10 @@ class j extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean z;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103101) {
             this.a.a(false);
             if (!(socketResponsedMessage instanceof ResponseAddGroupMessage)) {
-                this.a.showToast(y.group_create_fail);
+                this.a.showToast(com.baidu.tieba.x.group_create_fail);
                 return;
             }
             ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage;
@@ -42,45 +35,18 @@ class j extends com.baidu.adp.framework.listener.b {
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo == null) {
-                this.a.showToast(y.group_create_fail);
-                return;
-            }
-            int groupId = addGroupInfo.getGroupId();
-            GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
-            groupUpdateMessage.setGroupId(groupId);
-            groupUpdateMessage.setName(requestAddGroupMessage.getName());
-            groupUpdateMessage.setPortrait(requestAddGroupMessage.getPortrait());
-            groupUpdateMessage.setLastMsgId(0L);
-            groupUpdateMessage.setAuthorId(String.valueOf(addGroupInfo.getAuthorId()));
-            List<GroupUpdateMessage> o = com.baidu.tieba.im.pushNotify.a.i().o();
-            if (o != null) {
-                Iterator<GroupUpdateMessage> it = o.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        z = false;
-                        break;
-                    } else if (it.next().getGroupId() == groupId) {
-                        z = true;
-                        break;
-                    }
-                }
-                if (!z) {
-                    o.add(groupUpdateMessage);
-                }
+                this.a.showToast(com.baidu.tieba.x.group_create_fail);
             } else {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(groupUpdateMessage);
-                com.baidu.tieba.im.pushNotify.a.i().a(linkedList);
+                a(addGroupInfo);
             }
-            a(addGroupInfo);
         }
     }
 
     private void a(AddGroupInfoData addGroupInfoData) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.valueOf(this.a.getResources().getString(y.group_create_name)) + ":" + addGroupInfoData.getName() + IOUtils.LINE_SEPARATOR_UNIX);
-        sb.append(String.valueOf(this.a.getResources().getString(y.group_create_number)) + ":" + addGroupInfoData.getGroupId() + IOUtils.LINE_SEPARATOR_UNIX);
-        sb.append(this.a.getResources().getString(y.group_create_share));
-        new AlertDialog.Builder(this.a).setTitle(y.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(y.group_create_step_done_tip, new k(this)).setNegativeButton(y.group_create_step_share_tip, new l(this, addGroupInfoData)).create().show();
+        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_name)) + ":" + addGroupInfoData.getName() + "\n");
+        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_number)) + ":" + addGroupInfoData.getGroupId() + "\n");
+        sb.append(this.a.getResources().getString(com.baidu.tieba.x.group_create_share));
+        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.x.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(com.baidu.tieba.x.group_create_step_done_tip, new k(this)).setNegativeButton(com.baidu.tieba.x.group_create_step_share_tip, new l(this, addGroupInfoData)).create(), this.a);
     }
 }

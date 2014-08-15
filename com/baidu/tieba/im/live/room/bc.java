@@ -1,46 +1,31 @@
 package com.baidu.tieba.im.live.room;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Button;
+import com.baidu.tieba.im.view.LocateScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements TextWatcher {
-    final /* synthetic */ ba a;
+public class bc implements com.baidu.tieba.im.view.k {
+    final /* synthetic */ bb a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ba baVar) {
-        this.a = baVar;
+    public bc(bb bbVar, int i) {
+        this.a = bbVar;
+        this.b = i;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // com.baidu.tieba.im.view.k
+    public void a(int i, int i2, int i3, int i4) {
+        LocateScrollView locateScrollView;
+        LocateScrollView locateScrollView2;
         Button button;
-        LiveRoomEntranceActivity liveRoomEntranceActivity;
-        Button button2;
-        Button button3;
-        LiveRoomEntranceActivity liveRoomEntranceActivity2;
-        Button button4;
-        if (editable == null || editable.toString().length() < 2) {
+        if (i2 - i4 < 0) {
+            locateScrollView2 = this.a.g;
             button = this.a.a;
-            liveRoomEntranceActivity = this.a.c;
-            button.setTextColor(liveRoomEntranceActivity.getResources().getColor(com.baidu.tieba.s.cp_cont_g_4c));
-            button2 = this.a.a;
-            button2.setEnabled(false);
+            locateScrollView2.a(button, this.b);
             return;
         }
-        button3 = this.a.a;
-        liveRoomEntranceActivity2 = this.a.c;
-        button3.setTextColor(liveRoomEntranceActivity2.getResources().getColor(com.baidu.tieba.s.cp_cont_g));
-        button4 = this.a.a;
-        button4.setEnabled(true);
+        locateScrollView = this.a.g;
+        locateScrollView.a(null, 0);
     }
 }

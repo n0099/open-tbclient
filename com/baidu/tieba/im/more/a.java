@@ -6,9 +6,9 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.base.f;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class a extends f {
     private NavigationBar a;
@@ -21,7 +21,7 @@ public class a extends f {
         super(secretSettingActivity);
         this.a = null;
         this.e = secretSettingActivity;
-        secretSettingActivity.setContentView(w.secret_setting_activity);
+        secretSettingActivity.setContentView(v.secret_setting_activity);
     }
 
     public void a(SecretSettingActivity secretSettingActivity) {
@@ -35,11 +35,11 @@ public class a extends f {
     }
 
     void b(SecretSettingActivity secretSettingActivity) {
-        this.b = (RelativeLayout) secretSettingActivity.findViewById(v.parent);
-        this.a = (NavigationBar) secretSettingActivity.findViewById(v.view_navigation_bar);
+        this.b = (RelativeLayout) secretSettingActivity.findViewById(u.parent);
+        this.a = (NavigationBar) secretSettingActivity.findViewById(u.view_navigation_bar);
         this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(secretSettingActivity.getString(y.secretSetting_title));
-        this.d = (TbSettingTextTipView) secretSettingActivity.findViewById(v.black_address_list);
+        this.a.a(secretSettingActivity.getString(x.secretSetting_title));
+        this.d = (TbSettingTextTipView) secretSettingActivity.findViewById(u.black_address_list);
         this.d.setOnClickListener(this.e);
     }
 

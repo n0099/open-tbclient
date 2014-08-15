@@ -1,49 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.WorldCup;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Topic;
 /* loaded from: classes.dex */
 public class p {
-    private s a;
-    private t b;
-    private r c;
-    private q d;
+    private int a = 0;
+    private int b = 0;
+    private String c = "";
 
-    public s a() {
+    public int a() {
         return this.a;
     }
 
-    public t b() {
+    public int b() {
         return this.b;
     }
 
-    public r c() {
+    public String c() {
         return this.c;
     }
 
-    public q d() {
-        return this.d;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("is_lpost", 0);
+                this.b = jSONObject.optInt("topic_type", 0);
+                this.c = jSONObject.optString("link", "");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public void a(WorldCup worldCup) {
-        if (worldCup != null) {
-            if (worldCup.game != null || worldCup.lottery != null || worldCup.news != null || worldCup.pk != null) {
-                if (worldCup.news != null) {
-                    this.a = new s();
-                    this.a.a(worldCup.news);
-                }
-                if (worldCup.pk != null) {
-                    this.b = new t();
-                    this.b.a(worldCup.pk);
-                }
-                if (worldCup.lottery != null) {
-                    this.c = new r();
-                    this.c.a(worldCup.lottery);
-                }
-                if (worldCup.game != null) {
-                    this.d = new q();
-                    this.d.a(worldCup.game);
-                }
-            }
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.a = topic.is_lpost.intValue();
+            this.b = topic.topic_type.intValue();
+            this.c = topic.link;
         }
     }
 }

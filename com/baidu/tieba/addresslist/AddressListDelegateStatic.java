@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.u;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.t;
+import com.baidu.tieba.v;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private static ImageView c;
@@ -35,7 +35,7 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
             dVar.a = new d();
             dVar.c = 4;
-            dVar.b = y.contacts;
+            dVar.b = x.contacts;
             return dVar;
         }
         return null;
@@ -43,14 +43,14 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.fragmenttabindicator, (ViewGroup) null);
+        this.b = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.fragmenttabindicator, (ViewGroup) null);
         c = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.h = this.b;
         cVar.c = com.baidu.adp.lib.util.j.a(context, 7.0f);
         cVar.a = c;
-        cVar.d = u.icon_news_down_bar_one;
-        cVar.e = u.icon_news_down_bar_one_1;
+        cVar.d = t.icon_news_down_bar_one;
+        cVar.e = t.icon_news_down_bar_one_1;
         c.setVisibility(8);
         this.b.a("addresslist", cVar);
         return this.b;

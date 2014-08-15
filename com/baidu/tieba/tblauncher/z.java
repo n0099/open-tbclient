@@ -21,9 +21,9 @@ class z extends CustomMessageListener {
         TextView textView;
         if (customResponsedMessage != null) {
             MainTabActivity mainTabActivity = this.a;
-            textView = this.a.C;
+            textView = this.a.E;
             mainTabActivity.a(textView, 0);
-            MainTabActivity.c = false;
+            MainTabActivity.d = false;
         }
     }
 }

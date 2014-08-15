@@ -5,7 +5,6 @@ import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.location.BDLocation;
-import com.baidu.tbadk.TbConfig;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -420,7 +419,7 @@ public class JsonReader implements Closeable {
                     } else {
                         return 0;
                     }
-                case TbConfig.VIEW_IMAGE_QUALITY_LOW_VALUE /* 45 */:
+                case '-':
                     if (c3 == 0) {
                         c2 = 1;
                         boolean z5 = z4;

@@ -11,32 +11,32 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
-    private com.baidu.tbadk.core.view.q d;
+    private com.baidu.tbadk.core.view.u d;
     private LinearLayout e;
-    private com.baidu.tbadk.core.view.b f;
-    private com.baidu.tbadk.core.view.k g;
+    private com.baidu.tbadk.core.view.c f;
+    private com.baidu.tbadk.core.view.o g;
     private NoNetworkView h;
-    private l b = null;
+    private c b = null;
     private BdListView c = null;
     private boolean i = false;
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.w.at_me_activity, viewGroup, false);
-        this.d = new com.baidu.tbadk.core.view.q(getActivity());
+        View inflate = layoutInflater.inflate(com.baidu.tieba.v.at_me_activity, viewGroup, false);
+        this.d = new com.baidu.tbadk.core.view.u(getActivity());
         this.d.a(this);
-        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.v.atme_lv);
+        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.u.atme_lv);
         this.c.setDividerHeight(0);
         this.c.setPullRefresh(this.d);
-        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
-        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.u.individual_center_news, com.baidu.tieba.u.individual_center_news_1, com.baidu.tieba.v.no_data_container, com.baidu.tieba.v.no_data_image, com.baidu.tieba.v.no_data_image_text);
-        this.b = new l(this, 2, new b(this));
+        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.bodyNotLogin);
+        this.g = new com.baidu.tbadk.core.view.o(inflate, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
+        this.b = new c(this, 2, new b(this));
         this.b.a(this.c);
-        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.v.mention_layout_atme));
+        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.u.mention_layout_atme));
         this.b.a(this.g);
         this.b.a("c/u/feed/atme");
         this.b.c();
-        this.h = (NoNetworkView) inflate.findViewById(com.baidu.tieba.v.view_no_network_at);
+        this.h = (NoNetworkView) inflate.findViewById(com.baidu.tieba.u.view_no_network_at);
         return inflate;
     }
 
@@ -65,7 +65,7 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
         super.onStop();
         this.g.b();
         if (this.f != null) {
-            this.f.d();
+            this.f.c();
         }
     }
 
@@ -102,7 +102,7 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
         if (TbadkApplication.isLogin()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().l() > 0) {
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().n() > 0) {
                 this.b.a(2);
             } else {
                 this.b.a(1);
@@ -116,7 +116,7 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     private void g() {
         if (this.f == null) {
-            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
+            this.f = new com.baidu.tbadk.core.view.c(getActivity(), getString(com.baidu.tieba.x.login_msg_tab), getString(com.baidu.tieba.x.login_msg_form), 3);
             this.e.addView(this.f.b());
             this.f.b(TbadkApplication.m252getInst().getSkinType());
         } else {

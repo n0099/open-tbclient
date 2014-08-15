@@ -10,11 +10,11 @@ import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class QuickSearchActivity extends BaseActivity {
@@ -31,30 +31,30 @@ public class QuickSearchActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.quick_search_activity);
-        this.a = new com.baidu.tieba.addresslist.c.b();
+        setContentView(v.quick_search_activity);
+        this.a = new com.baidu.tieba.addresslist.c.b(this);
         this.a.setUniqueId(getUniqueId());
         a();
     }
 
     private void a() {
-        this.b = findViewById(v.quick_search_parent);
+        this.b = findViewById(u.quick_search_parent);
         b();
-        this.g = (ListView) findViewById(v.quick_search_result);
+        this.g = (ListView) findViewById(u.quick_search_result);
         this.h = new m(this, null);
         this.g.setAdapter((ListAdapter) this.h);
         this.g.setOnItemClickListener(this);
-        this.f = findViewById(v.quick_search_empty_result);
+        this.f = findViewById(u.quick_search_empty_result);
     }
 
     private void b() {
-        this.c = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.c = (NavigationBar) findViewById(u.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new i(this));
-        View a = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.quick_search_navigation, (View.OnClickListener) null);
-        this.d = (EditText) a.findViewById(v.quick_search_input);
+        View a = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, v.quick_search_navigation, (View.OnClickListener) null);
+        this.d = (EditText) a.findViewById(u.quick_search_input);
         this.d.addTextChangedListener(new l(this, null));
         this.d.setOnFocusChangeListener(new j(this));
-        this.e = (TextView) a.findViewById(v.quick_search_delete_button);
+        this.e = (TextView) a.findViewById(u.quick_search_delete_button);
         com.baidu.adp.lib.util.j.a(this, this.e, 10, 10, 10, 10);
         this.e.setOnClickListener(new k(this));
     }
@@ -87,7 +87,7 @@ public class QuickSearchActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.coreExtra.relationship.b item = this.h.getItem(i);
         if (item != null && item.c() > 0) {
-            sendMessage(new CustomMessage(2002005, new bc(TbadkApplication.m252getInst().getApplicationContext(), item.c(), item.b(), item.d(), 0)));
+            sendMessage(new CustomMessage(2002003, new bg(TbadkApplication.m252getInst().getApplicationContext(), String.valueOf(item.c()), item.b())));
         }
     }
 
@@ -95,7 +95,7 @@ public class QuickSearchActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.setBackgroundResource(i == 1 ? s.cp_bg_line_d_1 : s.cp_bg_line_d);
+        this.b.setBackgroundResource(i == 1 ? r.cp_bg_line_d_1 : r.cp_bg_line_d);
         this.c.c(i);
         this.h.notifyDataSetChanged();
     }

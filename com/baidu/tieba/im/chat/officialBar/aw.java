@@ -1,35 +1,53 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.message.RequestSendPVTJMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class aw implements AdapterView.OnItemClickListener {
-    final /* synthetic */ OfficialBarTipActivity a;
+public class aw extends com.baidu.adp.base.f {
+    private BdListView a;
+    private au b;
+    private NavigationBar c;
+    private com.baidu.tbadk.core.view.o d;
+    private OfficialBarTipActivity e;
+    private ViewGroup f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public aw(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = officialBarTipActivity;
+        super(officialBarTipActivity);
+        officialBarTipActivity.setContentView(com.baidu.tieba.v.officialbar_msg_activity);
+        this.e = officialBarTipActivity;
+        a(officialBarTipActivity);
+        b(officialBarTipActivity);
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bb bbVar;
-        bbVar = this.a.c;
-        Object item = bbVar.b().getItem(i);
-        if (item != null) {
-            ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) item;
-            try {
-                long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
-                RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.av(this.a, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    private void a(OfficialBarTipActivity officialBarTipActivity) {
+        this.c = (NavigationBar) officialBarTipActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.c.a(officialBarTipActivity.getString(com.baidu.tieba.x.official_message_activity_title));
+        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ax(this, officialBarTipActivity));
+        this.f = (ViewGroup) officialBarTipActivity.findViewById(com.baidu.tieba.u.root_view);
+    }
+
+    public void a(int i) {
+        this.e.getLayoutMode().a(i == 1);
+        this.e.getLayoutMode().a((View) this.f);
+        this.c.c(i);
+        this.d.a(i);
+    }
+
+    private void b(OfficialBarTipActivity officialBarTipActivity) {
+        this.a = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.u.msg_list);
+        this.b = new au(officialBarTipActivity);
+        this.a.setAdapter((ListAdapter) this.b);
+        this.d = new com.baidu.tbadk.core.view.o(officialBarTipActivity.findViewById(com.baidu.tieba.u.root_view), com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
+    }
+
+    public BdListView a() {
+        return this.a;
+    }
+
+    public au b() {
+        return this.b;
     }
 }

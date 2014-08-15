@@ -13,48 +13,48 @@ class i implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
-        r rVar;
-        r rVar2;
+        p pVar;
+        p pVar2;
         boolean z2;
         boolean z3;
         boolean z4;
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
-        t tVar;
+        r rVar;
         ForumListModel.RequestParams requestParams3;
-        t tVar2;
-        rVar = this.a.D;
-        if (!rVar.c()) {
-            rVar2 = this.a.E;
-            if (!rVar2.c()) {
-                z2 = this.a.x;
+        r rVar2;
+        pVar = this.a.A;
+        if (!pVar.c()) {
+            pVar2 = this.a.B;
+            if (!pVar2.c()) {
+                z2 = this.a.v;
                 if (z2) {
-                    requestParams = this.a.A;
+                    requestParams = this.a.x;
                     requestParams.recommend_type = 0;
-                    requestParams2 = this.a.A;
+                    requestParams2 = this.a.x;
                     requestParams2.rn = Constants.MEDIA_INFO;
-                    tVar = this.a.G;
-                    requestParams3 = this.a.A;
-                    tVar.a(requestParams3);
-                    tVar2 = this.a.G;
-                    tVar2.LoadData();
-                    this.a.x = false;
+                    rVar = this.a.D;
+                    requestParams3 = this.a.x;
+                    rVar.a(requestParams3);
+                    rVar2 = this.a.D;
+                    rVar2.LoadData();
+                    this.a.v = false;
                 } else if (this.a.c.d.getCurrentItem() == 0) {
-                    z4 = this.a.B;
+                    z4 = this.a.y;
                     if (z4) {
+                        this.a.m = 50;
+                    } else {
+                        this.a.m = Constants.MEDIA_INFO;
+                    }
+                    new o(this.a, null).execute(new Void[0]);
+                } else if (this.a.c.d.getCurrentItem() == 1) {
+                    z3 = this.a.z;
+                    if (z3) {
                         this.a.n = 50;
                     } else {
                         this.a.n = Constants.MEDIA_INFO;
                     }
-                    new q(this.a, null).execute(new Void[0]);
-                } else if (this.a.c.d.getCurrentItem() == 1) {
-                    z3 = this.a.C;
-                    if (z3) {
-                        this.a.o = 50;
-                    } else {
-                        this.a.o = Constants.MEDIA_INFO;
-                    }
-                    new p(this.a, null).execute(new Void[0]);
+                    new n(this.a, null).execute(new Void[0]);
                 }
             }
         }

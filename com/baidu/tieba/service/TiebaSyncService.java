@@ -5,19 +5,19 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.br;
-import com.baidu.tieba.model.bd;
+import com.baidu.tbadk.core.atomData.ca;
+import com.baidu.tieba.model.be;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
     private static String mStatistics = null;
     private r mSyncTask = null;
     private int mHaveRetry = 0;
-    private bd mModel = null;
+    private be mModel = null;
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new q(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(br.class, TiebaSyncService.class);
+        TbadkApplication.m252getInst().RegisterIntent(ca.class, TiebaSyncService.class);
     }
 
     public static void setMsgType(String str) {

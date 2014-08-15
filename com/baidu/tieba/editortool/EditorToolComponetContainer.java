@@ -77,33 +77,33 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
 
     protected void a() {
         this.v = LayoutInflater.from(this.a);
-        this.v.inflate(com.baidu.tieba.w.editor_tool_container, (ViewGroup) this, true);
-        this.b = (ToolMoreView) findViewById(com.baidu.tieba.v.tool_view);
-        this.c = (EmotionTabHost) findViewById(com.baidu.tieba.v.face_view);
-        this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.v.record_voice_view);
-        this.n = (PrivilegeTabHost) findViewById(com.baidu.tieba.v.privilege_view);
+        this.v.inflate(com.baidu.tieba.v.editor_tool_container, (ViewGroup) this, true);
+        this.b = (ToolMoreView) findViewById(com.baidu.tieba.u.tool_view);
+        this.c = (EmotionTabHost) findViewById(com.baidu.tieba.u.face_view);
+        this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.u.record_voice_view);
+        this.n = (PrivilegeTabHost) findViewById(com.baidu.tieba.u.privilege_view);
         this.p = new AlertDialog.Builder(this.a);
-        this.p.setTitle(com.baidu.tieba.y.editor_dialog_title);
-        this.p.setNegativeButton(com.baidu.tieba.y.editor_dialog_no, (DialogInterface.OnClickListener) null);
-        this.f = (ImageView) findViewById(com.baidu.tieba.v.pb_foot_down_shadow);
+        this.p.setTitle(com.baidu.tieba.x.editor_dialog_title);
+        this.p.setNegativeButton(com.baidu.tieba.x.editor_dialog_no, (DialogInterface.OnClickListener) null);
+        this.f = (ImageView) findViewById(com.baidu.tieba.u.pb_foot_down_shadow);
         H();
         I();
-        if (com.baidu.tieba.d.a.b()) {
+        if (com.baidu.tieba.e.a.b() && this.b.getBaobao() != null && this.b.getBaobao().isShown()) {
             this.b.c("N");
         }
     }
 
     private void H() {
-        this.g = (DragContainer) findViewById(com.baidu.tieba.v.muti_image_upload);
-        this.h = (DragLayer) findViewById(com.baidu.tieba.v.muti_image_upload_draglayer);
-        this.i = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.muti_image_upload_dragscrollview);
+        this.g = (DragContainer) findViewById(com.baidu.tieba.u.muti_image_upload);
+        this.h = (DragLayer) findViewById(com.baidu.tieba.u.muti_image_upload_draglayer);
+        this.i = (DragHorizonScrollView) findViewById(com.baidu.tieba.u.muti_image_upload_dragscrollview);
         com.baidu.tieba.img.view.a aVar = new com.baidu.tieba.img.view.a(getContext());
         aVar.a(this.h);
         aVar.a((com.baidu.tieba.img.view.g) this.i);
         aVar.a((com.baidu.tieba.img.view.f) this.i);
-        this.m = (TextView) findViewById(com.baidu.tieba.v.muti_image_tips);
-        this.t = getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_muti_image_upload_scrollview_paddingleft);
-        this.u = getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_24);
+        this.m = (TextView) findViewById(com.baidu.tieba.u.muti_image_tips);
+        this.t = getResources().getDimensionPixelSize(com.baidu.tieba.s.editor_muti_image_upload_scrollview_paddingleft);
+        this.u = getResources().getDimensionPixelSize(com.baidu.tieba.s.default_gap_24);
         this.i.setAddView(b(7));
         this.i.setOnSwapDataListener(this);
         this.i.setMaxItemNum(10);
@@ -111,9 +111,9 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     private void I() {
-        this.j = (DragContainer) findViewById(com.baidu.tieba.v.baobao_image_upload);
-        this.k = (DragLayer) findViewById(com.baidu.tieba.v.baobao_image_upload_draglayer);
-        this.l = (DragHorizonScrollView) findViewById(com.baidu.tieba.v.baobao_image_upload_dragscrollview);
+        this.j = (DragContainer) findViewById(com.baidu.tieba.u.baobao_image_upload);
+        this.k = (DragLayer) findViewById(com.baidu.tieba.u.baobao_image_upload_draglayer);
+        this.l = (DragHorizonScrollView) findViewById(com.baidu.tieba.u.baobao_image_upload_dragscrollview);
         com.baidu.tieba.img.view.a aVar = new com.baidu.tieba.img.view.a(getContext());
         aVar.a(this.k);
         aVar.a((com.baidu.tieba.img.view.g) this.l);
@@ -128,7 +128,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.s = z;
         if (this.b != null) {
             this.b.setHideBaobao(z);
-            if (z && com.baidu.tieba.d.a.b()) {
+            if (z && com.baidu.tieba.e.a.b()) {
                 this.b.e();
             }
         }
@@ -307,7 +307,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
         this.y = new j(this, wVar);
-        this.p.setPositiveButton(com.baidu.tieba.y.editor_dialog_yes, new k(this));
+        this.p.setPositiveButton(com.baidu.tieba.x.editor_dialog_yes, new k(this));
         this.b.setOnClickListener(new l(this));
         this.c.setOnDataSelected(new m(this));
         this.d.setCallback(new n(this));
@@ -342,11 +342,11 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.i.a(new q(this, writeImagesInfo), z);
         int maxItemNum = this.i.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!com.baidu.tieba.ai.c().P() && size > 1) {
-            this.m.setText(com.baidu.tieba.y.editor_mutiiamge_drag_tip);
-            com.baidu.tieba.ai.c().q(true);
+        if (!com.baidu.tieba.ai.c().O() && size > 1) {
+            this.m.setText(com.baidu.tieba.x.editor_mutiiamge_drag_tip);
+            com.baidu.tieba.ai.c().s(true);
         } else {
-            this.m.setText(getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.m.setText(getResources().getString(com.baidu.tieba.x.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
             this.b.a(new StringBuilder(String.valueOf(size)).toString());
@@ -371,11 +371,11 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     private View b(int i) {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         ImageView imageView = new ImageView(getContext());
-        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.u.btn_add_photo_selector_1 : com.baidu.tieba.u.btn_add_photo_selector);
+        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.t.btn_add_photo_selector_1 : com.baidu.tieba.t.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         int a = com.baidu.adp.lib.util.j.a(this.a, 3.0f);
-        imageView.setPadding(a, com.baidu.adp.lib.util.j.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.t.default_gap_20) + a, this.u + a, a);
+        imageView.setPadding(a, com.baidu.adp.lib.util.j.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.s.default_gap_20) + a, this.u + a, a);
         imageView.setOnClickListener(new p(this, i));
         return imageView;
     }

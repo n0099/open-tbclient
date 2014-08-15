@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Object, Integer, TRForumListData> {
     TRForumListData a;
     final /* synthetic */ k b;
-    private aq c;
+    private ae c;
 
     private l(k kVar) {
         this.b = kVar;
@@ -28,21 +28,21 @@ public class l extends BdAsyncTask<Object, Integer, TRForumListData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public TRForumListData doInBackground(Object... objArr) {
-        String i;
+        String h;
         try {
-            this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
+            this.c = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
-            i = this.c.i();
+            h = this.c.h();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (i == null) {
+        if (h == null) {
             return null;
         }
         if (!this.c.a().b().b()) {
             this.b.c = false;
         } else {
-            this.a = (TRForumListData) new GsonBuilder().create().fromJson(i, (Class<Object>) TRForumListData.class);
+            this.a = (TRForumListData) new GsonBuilder().create().fromJson(h, (Class<Object>) TRForumListData.class);
             this.b.c = true;
         }
         return this.a;

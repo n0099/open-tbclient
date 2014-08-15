@@ -40,7 +40,7 @@ public class e implements View.OnClickListener {
             editText3 = this.a.k;
             com.baidu.adp.lib.util.j.b(imagePbActivity, editText3);
             button2 = this.a.m;
-            button2.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
+            button2.setBackgroundResource(com.baidu.tieba.t.sub_pb_face);
             return;
         }
         keyboardLayout = this.a.r;
@@ -50,6 +50,6 @@ public class e implements View.OnClickListener {
         com.baidu.adp.lib.util.j.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
         button = this.a.m;
-        button.setBackgroundResource(com.baidu.tieba.u.sub_pb_keyboard);
+        button.setBackgroundResource(com.baidu.tieba.t.sub_pb_keyboard);
     }
 }

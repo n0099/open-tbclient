@@ -6,14 +6,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ac a;
-    private aq b = null;
+    private com.baidu.tbadk.core.util.ae b = null;
     private int c;
     private int d;
     private String e;
@@ -52,23 +51,23 @@ public class af extends BdAsyncTask<String, Integer, String> {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         String str;
-        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
-        aq aqVar = this.b;
+        this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
+        com.baidu.tbadk.core.util.ae aeVar = this.b;
         str = this.a.d;
-        aqVar.a("kw", str);
+        aeVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
         this.b.a("pn", String.valueOf(this.c));
         this.b.a("rn", String.valueOf(this.d));
         this.b.a("alt", "json");
         this.b.a().a().a = true;
-        return this.b.i();
+        return this.b.h();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         super.cancel(true);
     }
@@ -109,7 +108,7 @@ public class af extends BdAsyncTask<String, Integer, String> {
                 if (!this.b.a().b().b() || this.g == null) {
                     context = this.a.b;
                     context2 = this.a.b;
-                    ((BaseActivity) context).showToast(context2.getString(com.baidu.tieba.y.image_pb_comment_fail));
+                    ((BaseActivity) context).showToast(context2.getString(com.baidu.tieba.x.image_pb_comment_fail));
                     return;
                 }
                 if (this.g != null) {

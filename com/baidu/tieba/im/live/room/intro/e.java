@@ -8,12 +8,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f {
@@ -55,30 +54,30 @@ public class e extends com.baidu.adp.base.f {
         this.o = null;
         this.r = new f(this);
         this.mContext = liveRoomIntroActivity;
-        liveRoomIntroActivity.setContentView(w.live_room_intro);
-        this.a = liveRoomIntroActivity.findViewById(v.live_room_intro_root);
-        this.b = (NavigationBar) liveRoomIntroActivity.findViewById(v.live_room_intro_navigationbar);
-        this.b.a(y.live_chat_room_more_intro);
+        liveRoomIntroActivity.setContentView(v.live_room_intro);
+        this.a = liveRoomIntroActivity.findViewById(u.live_room_intro_root);
+        this.b = (NavigationBar) liveRoomIntroActivity.findViewById(u.live_room_intro_navigationbar);
+        this.b.a(x.live_chat_room_more_intro);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.o = (ProgressBar) liveRoomIntroActivity.findViewById(v.live_room_intro_listview_progress);
-        this.c = (BdListView) liveRoomIntroActivity.findViewById(v.live_room_intro_listview);
+        this.o = (ProgressBar) liveRoomIntroActivity.findViewById(u.live_room_intro_listview_progress);
+        this.c = (BdListView) liveRoomIntroActivity.findViewById(u.live_room_intro_listview);
         this.d = new b(liveRoomIntroActivity);
         this.c.setAdapter((ListAdapter) this.d);
         LayoutInflater from = LayoutInflater.from(liveRoomIntroActivity);
-        this.e = from.inflate(w.live_room_intro_head_host, (ViewGroup) null);
-        this.f = (HeadImageView) this.e.findViewById(v.live_room_intro_head_host_head);
-        this.g = (TextView) this.e.findViewById(v.live_room_intro_head_host_name);
-        this.h = (TextView) this.e.findViewById(v.live_room_intro_head_host_count);
+        this.e = from.inflate(v.live_room_intro_head_host, (ViewGroup) null);
+        this.f = (HeadImageView) this.e.findViewById(u.live_room_intro_head_host_head);
+        this.g = (TextView) this.e.findViewById(u.live_room_intro_head_host_name);
+        this.h = (TextView) this.e.findViewById(u.live_room_intro_head_host_count);
         this.f.setIsRound(true);
         this.f.setOnClickListener(this.r);
         this.c.addHeaderView(this.e);
-        this.i = from.inflate(w.live_room_intro_head_room, (ViewGroup) null);
-        this.j = (TextView) this.i.findViewById(v.live_room_intro_root_roonum);
-        this.k = (TextView) this.i.findViewById(v.live_room_intro_root_name);
-        this.l = (TextView) this.i.findViewById(v.live_room_intro_root_notice);
-        this.m = (TextView) this.i.findViewById(v.live_room_intro_root_from);
+        this.i = from.inflate(v.live_room_intro_head_room, (ViewGroup) null);
+        this.j = (TextView) this.i.findViewById(u.live_room_intro_root_roonum);
+        this.k = (TextView) this.i.findViewById(u.live_room_intro_root_name);
+        this.l = (TextView) this.i.findViewById(u.live_room_intro_root_notice);
+        this.m = (TextView) this.i.findViewById(u.live_room_intro_root_from);
         this.c.addHeaderView(this.i);
-        this.n = from.inflate(w.live_room_intro_head_livetitle, (ViewGroup) null);
+        this.n = from.inflate(v.live_room_intro_head_livetitle, (ViewGroup) null);
         this.c.addHeaderView(this.n);
     }
 
@@ -117,15 +116,8 @@ public class e extends com.baidu.adp.base.f {
         this.d.notifyDataSetChanged();
         if (list == null || list.size() < 1) {
             this.n.setVisibility(8);
-            return;
-        }
-        this.n.setVisibility(0);
-        a();
-    }
-
-    private void a() {
-        if (this.c != null && this.d != null) {
-            aj.a(this.c, this.d.a(), 0, -1);
+        } else {
+            this.n.setVisibility(0);
         }
     }
 

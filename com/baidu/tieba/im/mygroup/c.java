@@ -3,12 +3,12 @@ package com.baidu.tieba.im.mygroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.GroupImageView;
 /* loaded from: classes.dex */
 class c {
     LinearLayout a;
     LinearLayout b;
-    HeadImageView c;
+    GroupImageView c;
     TextView d;
     TextView e;
     TextView f;

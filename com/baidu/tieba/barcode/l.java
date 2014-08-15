@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -30,9 +30,9 @@ final class l extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (this.c) {
-            if (message.what == v.decode) {
+            if (message.what == u.decode) {
                 a((byte[]) message.obj, message.arg1, message.arg2);
-            } else if (message.what == v.quit) {
+            } else if (message.what == u.quit) {
                 this.c = false;
                 Looper.myLooper().quit();
             }
@@ -40,7 +40,6 @@ final class l extends Handler {
     }
 
     private void a(byte[] bArr, int i, int i2) {
-        System.currentTimeMillis();
         Result result = null;
         byte[] bArr2 = new byte[bArr.length];
         for (int i3 = 0; i3 < i2; i3++) {
@@ -59,16 +58,15 @@ final class l extends Handler {
         }
         Handler b = this.a.b();
         if (result != null) {
-            System.currentTimeMillis();
             if (b != null) {
-                Message obtain = Message.obtain(b, v.decode_succeeded, result);
+                Message obtain = Message.obtain(b, u.decode_succeeded, result);
                 Bundle bundle = new Bundle();
                 a(a, bundle);
                 obtain.setData(bundle);
                 obtain.sendToTarget();
             }
         } else if (b != null) {
-            Message.obtain(b, v.decode_failed).sendToTarget();
+            Message.obtain(b, u.decode_failed).sendToTarget();
         }
     }
 

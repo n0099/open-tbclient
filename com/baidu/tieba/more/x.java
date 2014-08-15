@@ -1,21 +1,16 @@
 package com.baidu.tieba.more;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ w a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        SettingTextImageView settingTextImageView;
-        if (aVar == null) {
-            return;
+class x implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MoreActivity.class);
+            customMessage.getData().startActivity();
         }
-        settingTextImageView = this.a.f;
-        settingTextImageView.setIcon(aVar);
+        return null;
     }
 }

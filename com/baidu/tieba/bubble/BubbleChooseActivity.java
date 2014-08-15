@@ -10,15 +10,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class BubbleChooseActivity extends BaseActivity {
     private g b;
-    private com.baidu.tieba.model.d c;
+    private com.baidu.tieba.model.e c;
     private final int d = 0;
     private final int e = 50;
-    private com.baidu.tieba.model.g f = new a(this);
-    private com.baidu.tieba.model.h g = new b(this);
+    private com.baidu.tieba.model.h f = new a(this);
+    private com.baidu.tieba.model.i g = new b(this);
     private s h = new c(this);
     private s i = new d(this);
     public CustomMessageListener a = new e(this, 2010040);
@@ -37,7 +37,7 @@ public class BubbleChooseActivity extends BaseActivity {
     }
 
     private void a() {
-        this.c = new com.baidu.tieba.model.d();
+        this.c = new com.baidu.tieba.model.e();
         this.c.a(this.f);
         this.c.a(this.g);
         this.c.a(this.a);
@@ -79,7 +79,7 @@ public class BubbleChooseActivity extends BaseActivity {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.b.b()) {
-            TbWebViewActivity.startActivity(this, getString(y.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
+            TbWebViewActivity.startActivity(this, getString(x.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
         }
     }
 

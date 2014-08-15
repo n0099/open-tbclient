@@ -1,20 +1,10 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    public f() {
-        super(2013005);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof GroupMsgData) {
-            b.a((GroupMsgData) customResponsedMessage, true);
-        }
+public class f {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar) {
+        a.a(groupMsgData, imMessageCenterPojo, bVar, new g(), false);
     }
 }

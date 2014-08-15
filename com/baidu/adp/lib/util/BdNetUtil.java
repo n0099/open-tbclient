@@ -11,7 +11,7 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 public class BdNetUtil {
 
     /* loaded from: classes.dex */
-    public enum NetTpyeEnmu {
+    public enum NetTpyeEnum {
         UNAVAIL,
         WIFI,
         NET,
@@ -19,12 +19,12 @@ public class BdNetUtil {
 
         /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
-        public static NetTpyeEnmu[] valuesCustom() {
-            NetTpyeEnmu[] valuesCustom = values();
+        public static NetTpyeEnum[] valuesCustom() {
+            NetTpyeEnum[] valuesCustom = values();
             int length = valuesCustom.length;
-            NetTpyeEnmu[] netTpyeEnmuArr = new NetTpyeEnmu[length];
-            System.arraycopy(valuesCustom, 0, netTpyeEnmuArr, 0, length);
-            return netTpyeEnmuArr;
+            NetTpyeEnum[] netTpyeEnumArr = new NetTpyeEnum[length];
+            System.arraycopy(valuesCustom, 0, netTpyeEnumArr, 0, length);
+            return netTpyeEnumArr;
         }
     }
 
@@ -88,8 +88,8 @@ public class BdNetUtil {
         }
     }
 
-    public static NetTpyeEnmu getNetType() {
-        NetTpyeEnmu netTpyeEnmu = NetTpyeEnmu.UNAVAIL;
+    public static NetTpyeEnum getNetType() {
+        NetTpyeEnum netTpyeEnum = NetTpyeEnum.UNAVAIL;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = false;
@@ -97,19 +97,19 @@ public class BdNetUtil {
                 z = activeNetworkInfo.isAvailable();
             }
             if (!z) {
-                return NetTpyeEnmu.UNAVAIL;
+                return NetTpyeEnum.UNAVAIL;
             }
             if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
-                return NetTpyeEnmu.WIFI;
+                return NetTpyeEnum.WIFI;
             }
             String defaultHost = Proxy.getDefaultHost();
             if (defaultHost != null && defaultHost.length() > 0) {
-                return NetTpyeEnmu.WAP;
+                return NetTpyeEnum.WAP;
             }
-            return NetTpyeEnmu.NET;
+            return NetTpyeEnum.NET;
         } catch (Exception e) {
             e.printStackTrace();
-            return netTpyeEnmu;
+            return netTpyeEnum;
         }
     }
 }

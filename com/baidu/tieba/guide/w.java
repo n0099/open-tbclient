@@ -1,30 +1,19 @@
 package com.baidu.tieba.guide;
 
-import com.baidu.tieba.model.bf;
-import com.baidu.tieba.y;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class w implements bf {
-    final /* synthetic */ u a;
+class w implements DialogInterface.OnDismissListener {
+    final /* synthetic */ t a;
+    private final /* synthetic */ p b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar) {
-        this.a = uVar;
+    public w(t tVar, p pVar) {
+        this.a = tVar;
+        this.b = pVar;
     }
 
-    @Override // com.baidu.tieba.model.bf
-    public void a(String str, long j) {
-        a aVar;
-        int a = com.baidu.adp.lib.f.b.a(String.valueOf(j), 0);
-        aVar = this.a.c;
-        aVar.b(a);
-        this.a.a(a, false);
-    }
-
-    @Override // com.baidu.tieba.model.bf
-    public void b(String str, long j) {
-        NewUserGuideActivity newUserGuideActivity;
-        newUserGuideActivity = this.a.a;
-        newUserGuideActivity.c(y.error);
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.b.a();
     }
 }

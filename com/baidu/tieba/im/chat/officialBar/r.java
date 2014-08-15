@@ -1,44 +1,21 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.Context;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class r implements com.baidu.adp.lib.d.c<bf> {
-    final /* synthetic */ m a;
-    private final /* synthetic */ Context b;
+class r extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ LinkedList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(m mVar, Context context) {
-        this.a = mVar;
-        this.b = context;
+    public r(q qVar, LinkedList linkedList) {
+        this.a = qVar;
+        this.b = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
+    @Override // com.baidu.tieba.im.b
     /* renamed from: b */
-    public bf a() {
-        return new bf(this.b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(bf bfVar) {
-        if (bfVar instanceof bf) {
-            bfVar.a();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public bf b(bf bfVar) {
-        return bfVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public bf c(bf bfVar) {
-        if (bfVar instanceof bf) {
-            bfVar.a();
-        }
-        return bfVar;
+    public Void a() {
+        return com.baidu.tieba.im.db.n.c().a(this.b);
     }
 }

@@ -9,16 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bx;
-import com.baidu.tbadk.core.util.bz;
+import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bq;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
@@ -61,6 +62,18 @@ public class a {
         return this;
     }
 
+    public a a(String str, d dVar) {
+        this.f = str;
+        this.i = dVar;
+        return this;
+    }
+
+    public a b(String str, d dVar) {
+        this.g = str;
+        this.j = dVar;
+        return this;
+    }
+
     public a b(int i) {
         if (this.a != null) {
             this.e = this.a.getResources().getString(i);
@@ -92,7 +105,7 @@ public class a {
     public a(Activity activity) {
         this.a = activity;
         this.o = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.n = (ViewGroup) this.o.inflate(w.dialog_bdalert, (ViewGroup) null);
+        this.n = (ViewGroup) this.o.inflate(v.dialog_bdalert, (ViewGroup) null);
     }
 
     public a a() {
@@ -102,12 +115,12 @@ public class a {
         if (!this.p) {
             this.p = true;
             d();
-            TextView textView = (TextView) this.n.findViewById(v.title);
-            LinearLayout linearLayout = (LinearLayout) this.n.findViewById(v.content);
-            TextView textView2 = (TextView) this.n.findViewById(v.message);
-            Button button = (Button) this.n.findViewById(v.yes);
-            Button button2 = (Button) this.n.findViewById(v.no);
-            Button button3 = (Button) this.n.findViewById(v.cancel);
+            TextView textView = (TextView) this.n.findViewById(u.title);
+            LinearLayout linearLayout = (LinearLayout) this.n.findViewById(u.content);
+            TextView textView2 = (TextView) this.n.findViewById(u.message);
+            Button button = (Button) this.n.findViewById(u.yes);
+            Button button2 = (Button) this.n.findViewById(u.no);
+            Button button3 = (Button) this.n.findViewById(u.cancel);
             if (!TextUtils.isEmpty(this.c)) {
                 textView.setText(this.c);
             } else {
@@ -216,25 +229,30 @@ public class a {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.m != null) {
-            this.m.show();
+            com.baidu.adp.lib.e.d.a(this.m, this.a);
         } else {
             this.m = new AlertDialog.Builder(this.a).create();
             this.m.setCanceledOnTouchOutside(this.q);
             if (this.l != null) {
                 this.m.setOnCancelListener(this.l);
             }
-            this.m.show();
-            Window window = this.m.getWindow();
-            if (this.b == -1) {
-                this.b = 17;
-            }
-            window.setGravity(this.b);
-            window.setLayout(-2, -2);
-            window.setContentView(this.n);
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bx.a(this.n, false, (bz) new b(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
+            if (com.baidu.adp.lib.e.d.a(this.m, this.a)) {
+                Window window = this.m.getWindow();
+                if (this.b == -1) {
+                    this.b = 17;
+                }
+                window.setGravity(this.b);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.dimAmount = 0.5f;
+                window.setAttributes(attributes);
+                window.addFlags(2);
+                window.setLayout(-2, -2);
+                window.setContentView(this.n);
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                bo.a(this.n, false, (bq) new b(this, atomicBoolean));
+                if (atomicBoolean.get()) {
+                    window.clearFlags(131080);
+                }
             }
         }
         return this;
@@ -242,7 +260,7 @@ public class a {
 
     public void c() {
         if (this.m != null) {
-            this.m.dismiss();
+            com.baidu.adp.lib.e.d.b(this.m, this.a);
         }
     }
 

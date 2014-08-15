@@ -32,12 +32,12 @@ public class n extends RelativeLayout {
         addView(a(new ArrayList<>(), -2));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds14);
+        layoutParams.bottomMargin = com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds14);
         setLayoutParams(layoutParams);
-        setBackgroundResource(com.baidu.tieba.u.bg_bottombar_meun_float);
-        this.a = com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds36);
-        this.c = com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds200);
-        this.b = com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds504);
+        setBackgroundResource(com.baidu.tieba.t.bg_bottombar_meun_float);
+        this.a = com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds36);
+        this.c = com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds200);
+        this.b = com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds504);
     }
 
     private ListView a(List<com.baidu.tieba.im.data.l> list, int i) {
@@ -65,7 +65,7 @@ public class n extends RelativeLayout {
     private int a(List<com.baidu.tieba.im.data.l> list) {
         Paint paint = new Paint(1);
         paint.setColor(this.e.getResources().getColor(17170443));
-        paint.setTextSize(com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds32));
+        paint.setTextSize(com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds32));
         int i = 0;
         float f = 0.0f;
         while (true) {
@@ -89,10 +89,10 @@ public class n extends RelativeLayout {
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.d / 2);
             if (this.g == this.h - 1) {
-                width = ((iArr[0] + view.getWidth()) - com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds20)) - this.d;
+                width = ((iArr[0] + view.getWidth()) - com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds20)) - this.d;
             }
             if (width <= 0) {
-                width = com.baidu.tieba.im.e.r.a(this.e, com.baidu.tieba.t.ds20);
+                width = com.baidu.tieba.im.d.j.a(this.e, com.baidu.tieba.s.ds20);
             }
             layoutParams.leftMargin = width;
             setLayoutParams(layoutParams);
@@ -112,9 +112,9 @@ public class n extends RelativeLayout {
 
     public void a(boolean z) {
         if (z) {
-            startAnimation(AnimationUtils.loadAnimation(this.e, com.baidu.tieba.p.sub_menu_up));
+            startAnimation(AnimationUtils.loadAnimation(this.e, com.baidu.tieba.o.sub_menu_up));
         } else {
-            startAnimation(AnimationUtils.loadAnimation(this.e, com.baidu.tieba.p.sub_menu_down));
+            startAnimation(AnimationUtils.loadAnimation(this.e, com.baidu.tieba.o.sub_menu_down));
         }
     }
 }

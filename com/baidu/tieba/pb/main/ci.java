@@ -5,12 +5,12 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class ci implements Animation.AnimationListener {
-    final /* synthetic */ bt a;
+    final /* synthetic */ bs a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(bt btVar, ImageView imageView) {
-        this.a = btVar;
+    public ci(bs bsVar, ImageView imageView) {
+        this.a = bsVar;
         this.b = imageView;
     }
 

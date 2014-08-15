@@ -3,7 +3,6 @@ package com.baidu.tieba.bubble;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.data.BubbleListData;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,21 +10,18 @@ import java.util.List;
 public class f extends BaseAdapter {
     private List<BubbleListData.BubbleData> a = new ArrayList();
     private BubbleChooseActivity b;
-    private aa c;
+    private int c;
     private int d;
-    private int e;
-    private boolean f;
+    private boolean e;
 
     public void a(boolean z) {
-        this.f = z;
+        this.e = z;
     }
 
     public f(BubbleChooseActivity bubbleChooseActivity) {
         this.b = bubbleChooseActivity;
-        this.c = new aa(this.b);
-        this.c.b(true);
-        this.d = (int) this.b.getResources().getDimension(com.baidu.tieba.t.ds30);
-        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.t.ds30);
+        this.c = (int) this.b.getResources().getDimension(com.baidu.tieba.s.ds30);
+        this.d = (int) this.b.getResources().getDimension(com.baidu.tieba.s.ds30);
     }
 
     public List<BubbleListData.BubbleData> a() {
@@ -65,19 +61,19 @@ public class f extends BaseAdapter {
             bVar = (com.baidu.tieba.view.b) view;
         }
         if (i == 0 || i == 1) {
-            bVar.setPadding(0, this.e, 0, 0);
+            bVar.setPadding(0, this.d, 0, 0);
         }
         if (getCount() % 2 == 0) {
             if (i == getCount() - 1 || i == getCount() - 2) {
-                bVar.setPadding(0, bVar.getPaddingTop(), 0, this.d);
+                bVar.setPadding(0, bVar.getPaddingTop(), 0, this.c);
             }
         } else if (i == getCount() - 1) {
-            bVar.setPadding(0, bVar.getPaddingTop(), 0, this.d);
+            bVar.setPadding(0, bVar.getPaddingTop(), 0, this.c);
         }
         BubbleListData.BubbleData item = getItem(i);
         if (item != null) {
             bVar.setShowName(true);
-            bVar.a(item, this.c, this.f);
+            bVar.a(item, this.e);
         }
         bVar.b();
         return view;

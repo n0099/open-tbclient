@@ -16,11 +16,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes.dex */
@@ -58,19 +58,19 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.day_classical_activity);
+        setContentView(v.day_classical_activity);
         d();
     }
 
     private void d() {
-        this.b = (RelativeLayout) findViewById(v.parent);
-        this.c = (RelativeLayout) findViewById(v.title);
-        this.d = (TextView) findViewById(v.title_text);
-        this.h = (LinearLayout) findViewById(v.tag_webview_item);
-        this.a = (ImageView) findViewById(v.back);
-        this.l = (TextView) this.h.findViewById(v.webview_fail);
-        this.m = (TextView) this.h.findViewById(v.webview_crash_tip);
-        this.g = (ProgressBar) findViewById(v.tag_progress);
+        this.b = (RelativeLayout) findViewById(u.parent);
+        this.c = (RelativeLayout) findViewById(u.title);
+        this.d = (TextView) findViewById(u.title_text);
+        this.h = (LinearLayout) findViewById(u.tag_webview_item);
+        this.a = (ImageView) findViewById(u.back);
+        this.l = (TextView) this.h.findViewById(u.webview_fail);
+        this.m = (TextView) this.h.findViewById(u.webview_crash_tip);
+        this.g = (ProgressBar) findViewById(u.tag_progress);
         this.e = new b(this);
         this.a.setOnClickListener(this.e);
         if (f()) {
@@ -85,12 +85,12 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bk.a(this.b, i);
-        bk.d(this.c, i);
-        bk.d(this.d, i);
-        bk.a(this.a, i);
+        ay.a(this.b, i);
+        ay.d(this.c, i);
+        ay.d(this.d, i);
+        ay.a(this.a, i);
         if (this.f != null) {
-            bk.a(this.f, i);
+            ay.a(this.f, i);
             a();
         }
     }
@@ -123,7 +123,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     public void e() {
         if (this.j) {
             if (!this.k) {
-                showToast(getResources().getString(y.neterror));
+                showToast(getResources().getString(x.neterror));
             }
             this.n = false;
             this.g.setVisibility(8);
@@ -132,7 +132,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
 
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!com.baidu.tbadk.b.e.a(this, str)) {
+        if (!com.baidu.tbadk.c.f.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
                     String a = a(str, "pn=");
@@ -168,10 +168,10 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
         if (this.f == null) {
             try {
                 if (UtilHelper.webViewIsProbablyCorrupt(this)) {
-                    super.showToast(getString(y.web_view_corrupted));
+                    super.showToast(getString(x.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    bk.a(this.f, TbadkApplication.m252getInst().getSkinType());
+                    ay.a(this.f, TbadkApplication.m252getInst().getSkinType());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);

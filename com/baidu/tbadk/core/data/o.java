@@ -1,43 +1,40 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes.dex */
 public class o {
-    private int a = 0;
-    private int b = 0;
-    private String c = "";
+    private String a = null;
+    private String b = null;
+    private String c = null;
+    private int d = 0;
 
-    public int a() {
+    public String a() {
         return this.a;
     }
 
-    public int b() {
+    public String b() {
         return this.b;
     }
 
-    public String c() {
-        return this.c;
-    }
-
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("is_lpost", 0);
-                this.b = jSONObject.optInt("topic_type", 0);
-                this.c = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        try {
+            this.a = jSONObject.getString("title");
+            this.b = jSONObject.getString("title_link");
+            this.c = jSONObject.getString("author");
+            this.d = jSONObject.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.a = topic.is_lpost.intValue();
-            this.b = topic.topic_type.intValue();
-            this.c = topic.link;
+    public void a(TopNotice topNotice) {
+        if (topNotice != null) {
+            this.a = topNotice.title;
+            this.b = topNotice.title_link;
+            this.c = topNotice.author;
+            this.d = topNotice.id.intValue();
         }
     }
 }

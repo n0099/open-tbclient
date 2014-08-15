@@ -1,29 +1,137 @@
 package com.baidu.adp.lib.stats;
 
-import java.util.Comparator;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements Comparator {
+public class c implements com.baidu.adp.lib.Disk.g {
     final /* synthetic */ BdNormalStatBase a;
 
-    private c(BdNormalStatBase bdNormalStatBase) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(BdNormalStatBase bdNormalStatBase) {
         this.a = bdNormalStatBase;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(BdNormalStatBase bdNormalStatBase, c cVar) {
-        this(bdNormalStatBase);
-    }
-
-    @Override // java.util.Comparator
-    public int compare(Object obj, Object obj2) {
-        long j = ((q) obj).c;
-        long j2 = ((q) obj2).c;
-        if (j > j2) {
-            return 1;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [491=4, 492=4] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.adp.lib.Disk.g
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean a(com.baidu.adp.lib.Disk.f fVar, DiskFileOperate diskFileOperate, com.baidu.adp.lib.Disk.b bVar) {
+        FileInputStream fileInputStream;
+        boolean z;
+        File a;
+        FileInputStream fileInputStream2 = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            a = bVar.a(diskFileOperate.d(), diskFileOperate.c(), false, diskFileOperate.o());
+        } catch (Exception e) {
+            e = e;
+        } catch (Throwable th) {
+            th = th;
+            fileInputStream = null;
         }
-        if (j == j2) {
-            return 0;
+        if (a == null || !a.exists() || fVar.b()) {
+            com.baidu.adp.lib.e.a.a((InputStream) null);
+            com.baidu.adp.lib.e.a.a((OutputStream) null);
+            return false;
         }
-        return -1;
+        fileInputStream = new FileInputStream(a);
+        File file = null;
+        int i = 0;
+        int i2 = 0;
+        try {
+            byte[] bArr = new byte[10240];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                i++;
+                if (fileOutputStream == null || file == null) {
+                    file = bVar.a(diskFileOperate.d(), this.a.getUploadingLogFile(), false, diskFileOperate.o());
+                    fileOutputStream = new FileOutputStream(file);
+                }
+                boolean z2 = i * 10240 >= 102400;
+                if (z2) {
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= bArr.length) {
+                            break;
+                        } else if (bArr[i3] == 10) {
+                            i2 = i3;
+                            break;
+                        } else {
+                            i3++;
+                        }
+                    }
+                } else {
+                    i2 = read;
+                }
+                fileOutputStream.write(bArr, 0, i2);
+                fileOutputStream.flush();
+                if (z2) {
+                    com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                    if (i2 != read) {
+                        try {
+                            File a2 = bVar.a(diskFileOperate.d(), this.a.getUploadingLogFile(), false, diskFileOperate.o());
+                            fileOutputStream = new FileOutputStream(a2);
+                            fileOutputStream.write(bArr, i2, read - i2);
+                            fileOutputStream.flush();
+                            i = 0;
+                            file = a2;
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = null;
+                            fileInputStream2 = fileInputStream;
+                            try {
+                                BdLog.e(e);
+                                com.baidu.adp.lib.e.a.a((InputStream) fileInputStream2);
+                                com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                                z = false;
+                                if (z) {
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileInputStream = fileInputStream2;
+                                com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
+                                com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
+                            com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
+                            com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                            throw th;
+                        }
+                    } else {
+                        file = null;
+                        fileOutputStream = null;
+                        i = 0;
+                    }
+                }
+            }
+            z = true;
+            com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
+            com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+        } catch (Exception e3) {
+            e = e3;
+            fileInputStream2 = fileInputStream;
+        } catch (Throwable th4) {
+            th = th4;
+        }
+        if (z) {
+            return z;
+        }
+        this.a.a(diskFileOperate.c());
+        return z;
     }
 }

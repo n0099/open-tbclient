@@ -1,43 +1,48 @@
 package com.baidu.tbadk.core.util;
+
+import android.os.Handler;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public class ah {
-    private static ah f;
-    private long a = 0;
-    private long b = 0;
-    private String c = "";
-    private String d = "";
-    private final long e = 120000;
+class ah implements com.baidu.adp.lib.network.willdelete.d {
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    final /* synthetic */ NetWorkCoreByBdHttp d;
+    private final /* synthetic */ Handler e;
+    private final /* synthetic */ int f;
 
-    public static ah a() {
-        if (f == null) {
-            synchronized (ah.class) {
-                if (f == null) {
-                    f = new ah();
-                }
-            }
-        }
-        return f;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(NetWorkCoreByBdHttp netWorkCoreByBdHttp, Handler handler, int i) {
+        this.d = netWorkCoreByBdHttp;
+        this.e = handler;
+        this.f = i;
     }
 
-    public String b() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.a > 120000) {
-            this.a = currentTimeMillis;
-            this.c = UtilHelper.getIpFromDomain("tieba.baidu.com");
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        if (httpURLConnection != null && i > 0) {
+            this.a = i / 50;
         }
-        return this.c;
     }
 
-    public String a(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.b > 120000) {
-            this.b = currentTimeMillis;
-            int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf > 0) {
-                return UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+        this.b += i - this.c;
+        this.c = i;
+        if (this.e != null) {
+            if (this.b > this.a || i == i2) {
+                this.b = 0;
+                this.e.sendMessage(this.e.obtainMessage(this.f, i, i2));
             }
-            return "";
         }
-        return this.d;
+    }
+
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a(com.baidu.adp.lib.network.willdelete.f fVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.willdelete.d
+    public void a() {
     }
 }

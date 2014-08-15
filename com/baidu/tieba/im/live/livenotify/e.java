@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.live.livenotify;
 
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
+public class e implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     final /* synthetic */ LiveNotifyActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +12,14 @@ public class e implements Runnable {
         this.a = liveNotifyActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<GroupNewsPojo> linkedList) {
         s sVar;
+        s sVar2;
         sVar = this.a.b;
-        aj.a(sVar.f(), this.a.a(), 0, -1);
+        sVar.a(o.a(linkedList));
+        sVar2 = this.a.b;
+        sVar2.a(false);
     }
 }

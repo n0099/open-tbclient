@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
     Context a;
     TbRichTextView b;
     TextView c;
-    TbImageView d;
+    ChatImageWithTailView d;
     LinearLayout e;
 
     public a(Context context) {
@@ -25,24 +25,22 @@ public class a extends LinearLayout {
 
     private void a() {
         setOrientation(1);
-        ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.official_history_item, (ViewGroup) this, true);
+        ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.history_container);
-        this.c = (TextView) findViewById(com.baidu.tieba.v.history_send_time);
-        this.b = (TbRichTextView) findViewById(com.baidu.tieba.v.history_txt);
-        this.d = (TbImageView) findViewById(com.baidu.tieba.v.history_pic);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.u.history_container);
+        this.c = (TextView) findViewById(com.baidu.tieba.u.history_send_time);
+        this.b = (TbRichTextView) findViewById(com.baidu.tieba.u.history_txt);
+        this.d = (ChatImageWithTailView) findViewById(com.baidu.tieba.u.history_pic);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.e.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_single_bg_1);
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.official_time_text_1));
-            this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.official_list_item_content_1));
-            this.d.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
+            this.e.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg_1);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_time_text_1));
+            this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_list_item_content_1));
             return;
         }
-        this.e.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_single_bg);
-        this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.official_time_text));
-        this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.official_list_item_content));
-        this.d.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
+        this.e.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg);
+        this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_time_text));
+        this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_list_item_content));
     }
 
     public void setTime(String str) {
@@ -53,7 +51,7 @@ public class a extends LinearLayout {
         return this.b;
     }
 
-    public TbImageView getImageView() {
+    public ChatImageWithTailView getImageView() {
         return this.d;
     }
 

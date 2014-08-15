@@ -2,13 +2,8 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tbadk.core.frameworkData.a {
-    public w(Context context) {
-        super(context);
-    }
-
-    public w a(String str) {
-        getIntent().putExtra("from_page", str);
-        return this;
+public class w extends cb {
+    public w(Context context, String str, String str2, boolean z) {
+        super(context, str, str2, z);
     }
 }

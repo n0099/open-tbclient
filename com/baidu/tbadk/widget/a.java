@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -20,7 +21,8 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.u;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends ImageView {
@@ -36,8 +38,9 @@ public class a extends ImageView {
     private int J;
     private int K;
     private int L;
-    private boolean M;
-    private Interpolator N;
+    private int M;
+    private boolean N;
+    private Interpolator O;
     public volatile int a;
     private Matrix b;
     private int c;
@@ -66,7 +69,7 @@ public class a extends ImageView {
     private boolean z;
 
     public void setIsHeadImage(boolean z) {
-        this.M = z;
+        this.N = z;
     }
 
     public a(Context context) {
@@ -100,7 +103,8 @@ public class a extends ImageView {
         this.J = 0;
         this.K = 0;
         this.L = 0;
-        this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.M = 0;
+        this.O = AnimationUtils.loadInterpolator(getContext(), 17432582);
         u();
     }
 
@@ -135,7 +139,8 @@ public class a extends ImageView {
         this.J = 0;
         this.K = 0;
         this.L = 0;
-        this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.M = 0;
+        this.O = AnimationUtils.loadInterpolator(getContext(), 17432582);
         u();
     }
 
@@ -170,7 +175,8 @@ public class a extends ImageView {
         this.J = 0;
         this.K = 0;
         this.L = 0;
-        this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.M = 0;
+        this.O = AnimationUtils.loadInterpolator(getContext(), 17432582);
         u();
     }
 
@@ -291,8 +297,12 @@ public class a extends ImageView {
             if (this.p == 0) {
                 float width = this.c / imageBitmap.getWidth();
                 float height = this.d / imageBitmap.getHeight();
-                if (this.M) {
-                    this.h = Math.min(width, height);
+                if (this.N) {
+                    if (this.x == 2) {
+                        this.h = 2.5f;
+                    } else {
+                        this.h = Math.min(width, height);
+                    }
                 } else if ((imageBitmap.getWidth() <= this.c * 0.2f && imageBitmap.getHeight() <= this.d * 0.2f) || this.x == 2) {
                     this.h = 1.0f;
                 } else if (imageBitmap.getWidth() <= this.c * 0.4d && imageBitmap.getHeight() <= this.d * 0.4d) {
@@ -381,27 +391,48 @@ public class a extends ImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
+        if (this.x == 2 && this.M != 0 && !this.u.a()) {
+            int width = getWidth();
+            int height = getHeight();
+            Drawable drawable = getDrawable();
+            float f = 0.0f;
+            float f2 = height * 0.3f;
+            float f3 = width;
+            float f4 = (1.0f - 0.3f) * height;
+            if (this.N && drawable != null) {
+                Rect bounds = drawable.getBounds();
+                int i = bounds.right - bounds.left;
+                int i2 = bounds.bottom - bounds.top;
+                f = (width / 2) - (i * 2.5f);
+                f2 = (height / 2) - (i2 * 2.5f);
+                f3 = (i * 2.5f) + (width / 2);
+                f4 = (i2 * 2.5f) + (height / 2);
+            }
+            this.G.setColor(getResources().getColor(this.M));
+            canvas.drawRect(f, f2, f3, f4, this.G);
+            this.G.setColor(-16777216);
+        }
         super.onDraw(canvas);
         if (this.x == 1 && this.D != null && !this.D.isRecycled()) {
-            int width = this.D.getWidth();
-            int height = this.D.getHeight();
-            int width2 = getWidth();
-            int height2 = getHeight();
-            int i = (width2 - width) >> 1;
-            int i2 = (height2 - height) >> 1;
+            int width2 = this.D.getWidth();
+            int height2 = this.D.getHeight();
+            int width3 = getWidth();
+            int height3 = getHeight();
+            int i3 = (width3 - width2) >> 1;
+            int i4 = (height3 - height2) >> 1;
             boolean z = false;
-            if (i < 0 || i2 < 0) {
-                float min = Math.min(width2 / width, height2 / height);
+            if (i3 < 0 || i4 < 0) {
+                float min = Math.min(width3 / width2, height3 / height2);
                 this.b.setScale(min, min);
-                i = (int) ((width2 - (width * min)) / 2.0f);
-                i2 = (int) ((height2 - (height * min)) / 2.0f);
-                this.b.postTranslate(i, i2);
-                width = (int) (width * min);
-                height = (int) (height * min);
+                i3 = (int) ((width3 - (width2 * min)) / 2.0f);
+                i4 = (int) ((height3 - (height2 * min)) / 2.0f);
+                this.b.postTranslate(i3, i4);
+                width2 = (int) (width2 * min);
+                height2 = (int) (height2 * min);
             } else {
                 z = true;
             }
-            canvas.clipRect(i, i2, width + i, height + i2);
+            canvas.clipRect(i3, i4, width2 + i3, height2 + i4);
             canvas.drawColor(-1);
             if (this.a == 2 && this.B == 1 && this.H && this.C != null) {
                 if (this.F + this.C.a(this.E) < System.currentTimeMillis()) {
@@ -411,14 +442,14 @@ public class a extends ImageView {
                 Bitmap b = this.C.b(this.E);
                 if (b != null) {
                     if (z) {
-                        canvas.drawBitmap(b, i, i2, (Paint) null);
+                        canvas.drawBitmap(b, i3, i4, (Paint) null);
                     } else {
                         canvas.drawBitmap(b, this.b, this.G);
                     }
                 }
                 invalidate();
             } else if (z) {
-                canvas.drawBitmap(this.D, i, i2, (Paint) null);
+                canvas.drawBitmap(this.D, i3, i4, (Paint) null);
             } else {
                 canvas.drawBitmap(this.D, this.b, this.G);
             }
@@ -455,7 +486,7 @@ public class a extends ImageView {
 
     public void g() {
         if (this.x == 1) {
-            super.setImageBitmap(null);
+            super.setImageDrawable(null);
             this.H = false;
             c();
             this.a = 0;
@@ -541,6 +572,7 @@ public class a extends ImageView {
         if (this.u.a()) {
             this.u.b();
         }
+        this.M = 0;
         super.setImageBitmap(bitmap);
         r();
         this.x = 0;
@@ -569,7 +601,7 @@ public class a extends ImageView {
         if (this.u.a()) {
             this.u.b();
         }
-        super.setImageBitmap(null);
+        super.setImageDrawable(null);
         c();
         r();
         this.x = 1;
@@ -585,7 +617,7 @@ public class a extends ImageView {
         if (this.u.a()) {
             this.u.b();
         }
-        super.setImageBitmap(null);
+        super.setImageDrawable(null);
         c();
         this.m = null;
         this.a = 0;
@@ -597,7 +629,7 @@ public class a extends ImageView {
         if (this.u.a()) {
             this.u.b();
         }
-        super.setImageBitmap(null);
+        super.setImageDrawable(null);
         c();
         this.a = 0;
         this.D = null;
@@ -608,12 +640,20 @@ public class a extends ImageView {
         if (this.u.a()) {
             this.u.b();
         }
-        if (this.M) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_black));
-        } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_d_1));
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            if (this.N) {
+                this.M = r.cp_cont_e_1;
+                super.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.icon_default_avatar100_1));
+            } else {
+                this.M = r.cp_bg_line_c_1;
+                super.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.img_default_100_1));
+            }
+        } else if (this.N) {
+            this.M = r.cp_cont_e;
+            super.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.icon_default_avatar100));
         } else {
-            super.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.pic_baidu_logo_d));
+            this.M = r.cp_bg_line_c;
+            super.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.img_default_100));
         }
         this.x = 2;
         r();

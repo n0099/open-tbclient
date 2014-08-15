@@ -57,18 +57,18 @@ public class SettingTextSwitchView extends FrameLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.about_tip_color_1));
+            this.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.r.about_tip_color_1));
             this.e.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             if (this.a != null) {
-                this.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.setting_subtip_color_1));
+                this.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.r.setting_subtip_color_1));
                 return;
             }
             return;
         }
-        this.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.about_tip_color));
+        this.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.r.about_tip_color));
         this.e.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
         if (this.a != null) {
-            this.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.setting_subtip_color));
+            this.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.r.setting_subtip_color));
         }
     }
 
@@ -97,11 +97,11 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     private void d() {
-        LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.setting_text_switch_view, (ViewGroup) this, true);
-        this.c = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.d = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.e = (BdSwitchView) findViewById(com.baidu.tieba.v.button);
-        this.a = (TextView) findViewById(com.baidu.tieba.v.tip);
+        LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.setting_text_switch_view, (ViewGroup) this, true);
+        this.c = (LinearLayout) findViewById(com.baidu.tieba.u.container);
+        this.d = (TextView) findViewById(com.baidu.tieba.u.text);
+        this.e = (BdSwitchView) findViewById(com.baidu.tieba.u.button);
+        this.a = (TextView) findViewById(com.baidu.tieba.u.tip);
         if (this.a != null) {
             this.a.setVisibility(8);
         }
@@ -109,7 +109,7 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.TbSettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);

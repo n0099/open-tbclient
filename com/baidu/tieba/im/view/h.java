@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HaloView;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h extends FrameLayout {
     public LinearLayout a;
@@ -41,13 +40,13 @@ public class h extends FrameLayout {
 
     private void a(Context context) {
         this.c = context;
-        LayoutInflater.from(context).inflate(w.chatterbox_view, (ViewGroup) this, true);
-        this.b = (Button) findViewById(com.baidu.tieba.v.chat_select_btn);
-        this.d = (HaloView) findViewById(com.baidu.tieba.v.haloView);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.chat_view);
-        this.f = (TextView) findViewById(com.baidu.tieba.v.chat_view_content_1);
-        this.g = (TextView) findViewById(com.baidu.tieba.v.chat_view_content_2);
-        this.h = (TextView) findViewById(com.baidu.tieba.v.chat_view_content_3);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.v.chatterbox_view, (ViewGroup) this, true);
+        this.b = (Button) findViewById(com.baidu.tieba.u.chat_select_btn);
+        this.d = (HaloView) findViewById(com.baidu.tieba.u.haloView);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.u.chat_view);
+        this.f = (TextView) findViewById(com.baidu.tieba.u.chat_view_content_1);
+        this.g = (TextView) findViewById(com.baidu.tieba.u.chat_view_content_2);
+        this.h = (TextView) findViewById(com.baidu.tieba.u.chat_view_content_3);
     }
 
     public void a(boolean z, boolean z2) {

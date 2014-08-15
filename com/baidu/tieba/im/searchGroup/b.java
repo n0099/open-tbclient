@@ -5,12 +5,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import com.baidu.adp.base.f;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.f {
+public class b extends f {
     private View a;
     private NavigationBar b;
     private View c;
@@ -63,18 +64,18 @@ public class b extends com.baidu.adp.base.f {
     }
 
     private void e() {
-        this.h.setContentView(w.im_add_group_activity);
-        this.a = this.h.findViewById(v.addgroup_rootlayout);
-        this.b = (NavigationBar) this.h.findViewById(v.addgroup_navigationbar);
+        this.h.setContentView(v.im_add_group_activity);
+        this.a = this.h.findViewById(u.addgroup_rootlayout);
+        this.b = (NavigationBar) this.h.findViewById(u.addgroup_navigationbar);
         this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(this.h.getResources().getString(y.add_group_title_main));
-        this.d = (EditText) this.h.findViewById(v.addgroup_input);
+        this.b.a(this.h.getResources().getString(x.add_group_title_main));
+        this.d = (EditText) this.h.findViewById(u.addgroup_input);
         this.d.setInputType(2);
-        this.e = (ImageButton) this.h.findViewById(v.addgroup_delbtn);
-        this.g = (Button) this.h.findViewById(v.addgroup_searchbutton);
+        this.e = (ImageButton) this.h.findViewById(u.addgroup_delbtn);
+        this.g = (Button) this.h.findViewById(u.addgroup_searchbutton);
         this.d.addTextChangedListener(new c(this));
-        this.g = (Button) this.h.findViewById(v.addgroup_searchbutton);
-        this.f = (ProgressBar) this.h.findViewById(v.addgroup_progress);
+        this.g = (Button) this.h.findViewById(u.addgroup_searchbutton);
+        this.f = (ProgressBar) this.h.findViewById(u.addgroup_progress);
         this.c.setOnClickListener(this.h);
         this.e.setOnClickListener(this.h);
         this.g.setOnClickListener(this.h);

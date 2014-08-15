@@ -10,45 +10,47 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private com.baidu.tieba.im.model.bx c;
+    private com.baidu.tieba.im.model.bb c;
     private com.baidu.tieba.im.a<Boolean> e;
-    private bq a = null;
-    private bn b = null;
-    private com.baidu.tieba.im.model.bt d = null;
-    private com.baidu.adp.framework.listener.b f = new bf(this, 0);
-    private final DialogInterface.OnClickListener g = new bg(this);
-    private com.baidu.adp.framework.listener.b h = new bh(this, 0);
+    private boolean f;
+    private bp a = null;
+    private bm b = null;
+    private com.baidu.tieba.im.model.ax d = null;
+    private com.baidu.adp.framework.listener.d g = new be(this, 0);
+    private final DialogInterface.OnClickListener h = new bf(this);
+    private com.baidu.adp.framework.listener.d i = new bg(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new bq(this);
-        this.b = new bn(this);
-        this.c = new com.baidu.tieba.im.model.bx();
+        this.a = new bp(this);
+        this.b = new bm(this);
+        this.c = new com.baidu.tieba.im.model.bb(this);
         this.b.setUniqueId(getUniqueId());
         this.c.setUniqueId(getUniqueId());
         a();
         this.a.a(this.b.a());
-        this.a.a(this.g);
+        this.a.a(this.h);
         this.a.b(a(this.b.d()));
         this.a.b();
-        this.e = new bi(this);
+        this.e = new bh(this);
         this.b.a(this.e);
         b();
     }
 
     private void b() {
-        registerListener(103103, this.h);
-        registerListener(103102, this.f);
-        registerListener(103112, this.f);
-        registerListener(103104, this.f);
-        registerListener(2001141, this.f);
+        registerListener(103103, this.i);
+        registerListener(103102, this.g);
+        registerListener(103112, this.g);
+        registerListener(103104, this.g);
+        registerListener(2001141, this.g);
     }
 
     public void a() {
@@ -107,7 +109,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
             } else if (view.equals(this.a.a())) {
                 finish();
             } else if (view.equals(this.a.g())) {
-                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bj(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bm(this)).create().show();
+                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new bi(this)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new bl(this)).create().show();
             } else if (view == this.a.e()) {
                 this.a.s();
             }
@@ -130,8 +132,17 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
             } else if (view.equals(this.a.r())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     this.b.a(true);
-                } else {
-                    this.b.a(false);
+                    if (!this.f) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                        this.f = true;
+                        return;
+                    }
+                    return;
+                }
+                this.b.a(false);
+                if (this.f) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                    this.f = false;
                 }
             } else if (view.equals(this.a.q())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
@@ -163,9 +174,9 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(com.baidu.tieba.y.neterror);
+            showToast(com.baidu.tieba.x.neterror);
         } else if (TextUtils.isEmpty(str)) {
-            showToast(com.baidu.tieba.y.group_report_fail);
+            showToast(com.baidu.tieba.x.group_report_fail);
         } else {
             showToast(str);
         }
@@ -189,14 +200,14 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.f);
+        MessageManager.getInstance().unRegisterListener(this.g);
         if (this.b != null) {
             this.b.cancelMessage();
         }
         if (this.d != null) {
             this.d.cancelMessage();
         }
-        MessageManager.getInstance().unRegisterListener(this.h);
+        MessageManager.getInstance().unRegisterListener(this.i);
         if (this.a != null) {
             this.a.u();
         }

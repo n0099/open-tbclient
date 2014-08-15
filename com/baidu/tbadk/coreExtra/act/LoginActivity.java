@@ -13,7 +13,8 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ap;
+import com.baidu.tbadk.core.atomData.aq;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
@@ -25,8 +26,12 @@ public class LoginActivity extends BaseActivity {
     private final com.baidu.tbadk.core.account.g e = new ak(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.an.class, LoginActivity.class);
         a();
+        if (d) {
+            TbadkApplication.m252getInst().RegisterIntent(aq.class, Login2Activity.class);
+        } else {
+            TbadkApplication.m252getInst().RegisterIntent(aq.class, LoginActivity.class);
+        }
     }
 
     public static void a() {
@@ -92,13 +97,13 @@ public class LoginActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.layout_sapi_webview_login);
+        setContentView(com.baidu.tieba.v.layout_sapi_webview_login);
         this.b = getIntent().getBooleanExtra("close", false);
         b();
     }
 
     protected void b() {
-        this.a = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
+        this.a = (SapiWebView) findViewById(com.baidu.tieba.u.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, this.a);
         this.a.setOnFinishCallback(new am(this));
         this.a.setAuthorizationListener(new an(this));
@@ -116,6 +121,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
+        int i = 1;
         TbadkApplication.m252getInst().onUserChanged();
         if (this.b) {
             Intent intent = new Intent();
@@ -123,10 +129,13 @@ public class LoginActivity extends BaseActivity {
             setResult(-1, intent);
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
-            if (intExtra == -1) {
-                intExtra = 1;
+            if (intExtra != -1) {
+                i = intExtra;
+            } else if (com.baidu.tbadk.core.sharedPref.b.a().a("account_first_login_" + TbadkApplication.getCurrentAccount(), true)) {
+                i = 4;
+                com.baidu.tbadk.core.sharedPref.b.a().b("account_first_login_" + TbadkApplication.getCurrentAccount(), false);
             }
-            com.baidu.tbadk.core.b.b.a(this, intExtra, false);
+            com.baidu.tbadk.core.b.b.a(this, i, false);
         }
         finish();
     }
@@ -135,7 +144,9 @@ public class LoginActivity extends BaseActivity {
     public void d() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
-        com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.e);
+        if (session != null) {
+            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.e);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -151,9 +162,9 @@ public class LoginActivity extends BaseActivity {
 
     private void e() {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.w(this).a("from_logo_page")));
+            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.z(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2015001, new ap(this).a(1)));
+            sendMessage(new CustomMessage(2015001, new as(this).a(1)));
         }
         finish();
     }

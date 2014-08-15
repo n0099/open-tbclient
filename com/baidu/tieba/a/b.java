@@ -3,9 +3,9 @@ package com.baidu.tieba.a;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.ai;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.core.e {
     private static final String e = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
@@ -20,23 +20,23 @@ public class b extends com.baidu.tbadk.core.e {
         int b = j.b(ai.c().d());
         int c = j.c(ai.c().d());
         float f = b / 320.0f;
-        int i = bn.a().b() ? 2 : 1;
+        int i = bb.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
         this.a.a("scr_h", String.valueOf(c));
         this.a.a("scr_dip", String.valueOf(f));
         this.a.a("q_type", String.valueOf(i));
-        String i2 = this.a.i();
+        String h = this.a.h();
         if (this.a.a().b().b()) {
             this.b = new NewErrorData();
-            this.b.parserJson(i2);
-            return i2;
-        } else if (this.a.c()) {
-            this.c = this.a.d();
-            this.d = this.a.f();
+            this.b.parserJson(h);
+            return h;
+        } else if (this.a.b()) {
+            this.c = this.a.c();
+            this.d = this.a.e();
             return null;
         } else {
             this.c = -1;
-            this.d = ai.c().d().getResources().getString(y.neterror);
+            this.d = ai.c().d().getResources().getString(x.neterror);
             return null;
         }
     }

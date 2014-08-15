@@ -8,7 +8,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class av extends RelativeLayout {
     protected ProgressBar a;
@@ -65,7 +65,7 @@ public class av extends RelativeLayout {
         this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         addView(this.b);
         this.a = new ProgressBar(this.c, null, 16843399);
-        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(com.baidu.tieba.u.progressbar));
+        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(com.baidu.tieba.t.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
         this.a.setLayoutParams(layoutParams);
@@ -154,7 +154,7 @@ public class av extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] a(String str) {
         byte[] bArr = new byte[0];
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, bm.f(str), DiskFileOperate.Action.READ);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, ba.f(str), DiskFileOperate.Action.READ);
         diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         diskFileOperate.b(true);
         diskFileOperate.d(false);
@@ -181,7 +181,7 @@ public class av extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, byte[] bArr, boolean z) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, bm.f(str), DiskFileOperate.Action.WRITE);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, ba.f(str), DiskFileOperate.Action.WRITE);
         diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         diskFileOperate.b(true);
         diskFileOperate.a(bArr);

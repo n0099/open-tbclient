@@ -39,7 +39,7 @@ class s implements View.OnClickListener {
             }
             if (!z) {
                 editorToolComponetContainer3 = this.a.a;
-                com.baidu.adp.lib.util.j.b(editorToolComponetContainer3.getContext(), com.baidu.tieba.y.editor_mutiiamge_image_error);
+                com.baidu.adp.lib.util.j.b(editorToolComponetContainer3.getContext(), com.baidu.tieba.x.editor_mutiiamge_image_error);
                 return;
             }
             editorToolComponetContainer2 = this.a.a;

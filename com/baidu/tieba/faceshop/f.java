@@ -9,8 +9,8 @@ import java.io.IOException;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.download.a {
     @Override // com.baidu.tbadk.download.a
-    public void a(DownloadData downloadData) {
-        com.baidu.tbadk.editortool.ab.a().b();
+    public void d(DownloadData downloadData) {
+        com.baidu.tbadk.editortool.aa.a().b();
         try {
             File file = new File(downloadData.getPath());
             if (file.exists()) {
@@ -37,7 +37,7 @@ public class f implements com.baidu.tbadk.download.a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 88=4, 89=4, 90=4] */
     @Override // com.baidu.tbadk.download.a
-    public boolean d(DownloadData downloadData) {
+    public boolean c(DownloadData downloadData) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         try {
@@ -120,14 +120,14 @@ public class f implements com.baidu.tbadk.download.a {
     }
 
     @Override // com.baidu.tbadk.download.a
-    public void b(DownloadData downloadData) {
+    public void a(DownloadData downloadData) {
         if (downloadData != null) {
             g.a().a(downloadData);
         }
     }
 
     @Override // com.baidu.tbadk.download.a
-    public boolean c(DownloadData downloadData) {
+    public boolean b(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }

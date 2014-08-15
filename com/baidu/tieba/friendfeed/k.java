@@ -4,11 +4,11 @@ import android.app.AlertDialog;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bx;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements w {
@@ -38,7 +38,7 @@ public class k implements w {
         if (i == 0) {
             tVar = this.a.c;
             if (tVar.e()) {
-                this.a.showToast(y.over_limit_tip);
+                this.a.showToast(x.over_limit_tip);
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.d(this.a, 12004, true)));
             }
@@ -52,10 +52,10 @@ public class k implements w {
                         this.a.h = String.valueOf(System.currentTimeMillis());
                         FriendFeedActivity friendFeedActivity = this.a;
                         str = this.a.h;
-                        bj.a(friendFeedActivity, str);
+                        ax.a(friendFeedActivity, str);
                         return;
                     }
-                    this.a.showToast(String.format(this.a.getString(y.editor_mutiiamge_max), 10));
+                    this.a.showToast(String.format(this.a.getString(x.editor_mutiiamge_max), 10));
                 } else if (i == 23) {
                     writeImagesInfo5 = this.a.k;
                     if (writeImagesInfo5 != null) {
@@ -80,7 +80,7 @@ public class k implements w {
                                 MessageManager messageManager = MessageManager.getInstance();
                                 FriendFeedActivity friendFeedActivity3 = this.a;
                                 writeImagesInfo4 = this.a.k;
-                                messageManager.sendMessage(new CustomMessage(2002001, new bx(friendFeedActivity3, 12012, writeImagesInfo4, intValue)));
+                                messageManager.sendMessage(new CustomMessage(2002001, new cg(friendFeedActivity3, 12012, writeImagesInfo4, intValue)));
                             }
                         }
                     }
@@ -95,7 +95,7 @@ public class k implements w {
                         return;
                     }
                     alertDialog3 = this.a.o;
-                    alertDialog3.show();
+                    com.baidu.adp.lib.e.d.a(alertDialog3, this.a);
                 }
             }
         } else {

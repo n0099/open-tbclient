@@ -1,7 +1,8 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
 public interface l {
-    void a(View view, com.baidu.tbadk.coreExtra.relationship.b bVar);
+    void a(View view, MetaData metaData);
 }

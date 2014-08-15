@@ -1,7 +1,9 @@
 package com.baidu.tieba.view;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
 /* loaded from: classes.dex */
 public interface s {
-    com.baidu.adp.lib.d.b<TbImageView> e();
+    void a(View view, int i, int i2);
+
+    void b();
 }

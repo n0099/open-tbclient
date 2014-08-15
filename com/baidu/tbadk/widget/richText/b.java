@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
-import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class b {
     private String a;
@@ -13,6 +13,15 @@ public class b {
         if (jSONObject != null) {
             this.a = jSONObject.optString("text");
             this.b = jSONObject.optString("link");
+        }
+    }
+
+    public b(PbContent pbContent) {
+        this.a = null;
+        this.b = null;
+        if (pbContent != null) {
+            this.a = pbContent.text;
+            this.b = pbContent.link;
         }
     }
 
@@ -41,10 +50,10 @@ public class b {
 
     public void c() {
         if (this.a != null) {
-            this.a = this.a.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
+            this.a = this.a.replaceAll("\n", "");
         }
         if (this.b != null) {
-            this.b = this.b.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
+            this.b = this.b.replaceAll("\n", "");
         }
     }
 }

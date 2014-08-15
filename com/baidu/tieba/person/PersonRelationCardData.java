@@ -11,21 +11,24 @@ public class PersonRelationCardData extends PersonPostListData.PostList {
     private String commonLike;
     private String distance;
     private Context mContext;
-    private com.baidu.tieba.model.au mModel;
+    private com.baidu.tieba.model.av mModel;
     private int sex;
     private String uId;
 
-    public PersonRelationCardData(Context context, com.baidu.tieba.model.au auVar) {
+    public PersonRelationCardData(Context context, com.baidu.tieba.model.av avVar) {
         this.mContext = context;
-        this.mModel = auVar;
-        if (auVar.a().d() != null) {
-            this.distance = auVar.a().d().a();
+        this.mModel = avVar;
+        if (avVar.a().d() != null) {
+            this.distance = avVar.a().d().a();
         }
-        this.commonLike = listToString(auVar.a().a());
-        this.commonFriend = listToString(auVar.a().c());
-        this.commonGroup = listToString(auVar.a().b());
-        this.uId = auVar.h();
-        this.sex = auVar.j().getSex();
+        this.commonLike = listToString(avVar.a().a());
+        this.commonFriend = listToString(avVar.a().c());
+        this.commonGroup = listToString(avVar.a().b());
+        if (!avVar.j()) {
+            this.commonFriend = "";
+        }
+        this.uId = avVar.i();
+        this.sex = avVar.k().getSex();
     }
 
     public String getDistance() {
@@ -50,6 +53,9 @@ public class PersonRelationCardData extends PersonPostListData.PostList {
 
     public void setCommonFriend(String str) {
         this.commonFriend = str;
+        if (this.mModel != null && !this.mModel.j()) {
+            this.commonFriend = "";
+        }
     }
 
     public String getCommonGroup() {
@@ -76,12 +82,12 @@ public class PersonRelationCardData extends PersonPostListData.PostList {
         this.sex = i;
     }
 
-    public com.baidu.tieba.model.au getmModel() {
+    public com.baidu.tieba.model.av getmModel() {
         return this.mModel;
     }
 
-    public void setmModel(com.baidu.tieba.model.au auVar) {
-        this.mModel = auVar;
+    public void setmModel(com.baidu.tieba.model.av avVar) {
+        this.mModel = avVar;
     }
 
     public String listToString(ArrayList<String> arrayList) {
@@ -89,10 +95,10 @@ public class PersonRelationCardData extends PersonPostListData.PostList {
             return null;
         }
         if (arrayList.size() > 2) {
-            return String.valueOf(arrayList.get(0)) + this.mContext.getString(com.baidu.tieba.y.comma) + arrayList.get(1) + this.mContext.getString(com.baidu.tieba.y.etc);
+            return String.valueOf(arrayList.get(0)) + this.mContext.getString(com.baidu.tieba.x.comma) + arrayList.get(1) + this.mContext.getString(com.baidu.tieba.x.etc);
         }
         if (arrayList.size() == 2) {
-            return String.valueOf(arrayList.get(0)) + this.mContext.getString(com.baidu.tieba.y.comma) + arrayList.get(1);
+            return String.valueOf(arrayList.get(0)) + this.mContext.getString(com.baidu.tieba.x.comma) + arrayList.get(1);
         }
         return arrayList.get(0);
     }

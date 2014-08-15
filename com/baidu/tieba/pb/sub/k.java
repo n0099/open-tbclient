@@ -1,28 +1,30 @@
 package com.baidu.tieba.pb.sub;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortool.w;
 /* loaded from: classes.dex */
-class k implements Runnable {
-    final /* synthetic */ j a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ View c;
+class k implements w {
+    final /* synthetic */ i a;
+    private final /* synthetic */ w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar, int i, View view) {
-        this.a = jVar;
-        this.b = i;
-        this.c = view;
+    public k(i iVar, w wVar) {
+        this.a = iVar;
+        this.b = wVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        NavigationBar navigationBar;
-        int[] iArr = new int[2];
-        this.a.L.getLocationInWindow(iArr);
-        int height = iArr[1] - this.c.getHeight();
-        navigationBar = this.a.Q;
-        this.a.d.setSelectionFromTop(this.b + 1, height - navigationBar.getHeight());
-        this.a.d.invalidate();
+    @Override // com.baidu.tbadk.editortool.w
+    public void a(int i, Object obj) {
+        if (i == 0) {
+            this.b.a(26, obj);
+        } else if (i == 10) {
+            this.b.a(27, obj);
+        } else if (i == 33) {
+            this.a.L.d();
+            this.b.a(33, obj);
+        } else if (i == 34) {
+            this.a.r.setEnabled(true);
+        } else {
+            this.b.a(i, obj);
+        }
     }
 }

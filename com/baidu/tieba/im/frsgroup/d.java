@@ -1,17 +1,16 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.frsgroup.GroupListAdapter;
-import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
-import com.baidu.tieba.im.message.ResponseFrsGroupsMessage;
+import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseFrsGroupsLocalMessage;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.listener.b {
+public class d extends CustomMessageListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,96 +23,41 @@ public class d extends com.baidu.adp.framework.listener.b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        k kVar;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.im.model.i iVar;
+        List<GroupInfoData> groups;
         com.baidu.tieba.im.model.i iVar2;
-        com.baidu.tieba.im.model.i iVar3;
-        com.baidu.tieba.im.model.i iVar4;
         GroupListAdapter groupListAdapter;
         GroupListAdapter groupListAdapter2;
-        com.baidu.tieba.im.model.i iVar5;
-        com.baidu.tieba.im.model.i iVar6;
         GroupListAdapter groupListAdapter3;
         GroupListAdapter groupListAdapter4;
-        com.baidu.tieba.im.model.i iVar7;
-        GroupListAdapter groupListAdapter5;
-        GroupListAdapter groupListAdapter6;
-        GroupListAdapter groupListAdapter7;
-        GroupListAdapter groupListAdapter8;
-        com.baidu.tieba.im.model.i iVar8;
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFrsGroupsMessage)) {
-            this.a.a(com.baidu.tieba.y.neterror);
+        com.baidu.tieba.im.model.i iVar3;
+        this.a.a(true);
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseFrsGroupsLocalMessage)) {
+            this.a.a(com.baidu.tieba.x.neterror);
             return;
         }
-        ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) socketResponsedMessage;
-        Message<?> orginalMessage = responseFrsGroupsMessage.getOrginalMessage();
-        if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage)) {
-            String type = ((RequestFrsGroupsMessage) orginalMessage).getType();
-            iVar8 = this.a.c;
-            if (!type.equals(String.valueOf(iVar8.g()))) {
-                return;
-            }
-        }
-        this.a.l();
-        kVar = this.a.d;
-        kVar.b(true);
-        iVar = this.a.c;
-        iVar.a(this.a.getTag());
-        if (responseFrsGroupsMessage.getError() != 0) {
-            if (responseFrsGroupsMessage.getError() > 0) {
-                if (!TextUtils.isEmpty(responseFrsGroupsMessage.getErrorString())) {
-                    this.a.b(responseFrsGroupsMessage.getErrorString());
-                    return;
-                }
-                return;
-            }
-            this.a.a(com.baidu.tieba.y.neterror);
-            return;
-        }
-        List<GroupInfoData> groups = responseFrsGroupsMessage.getGroups();
-        GroupPermData groupPerm = responseFrsGroupsMessage.getGroupPerm();
-        iVar2 = this.a.c;
-        iVar2.a(groupPerm);
-        if (groups != null) {
+        ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = (ResponseFrsGroupsLocalMessage) customResponsedMessage;
+        Message<?> orginalMessage = responseFrsGroupsLocalMessage.getOrginalMessage();
+        if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsLocalMessage)) {
+            String type = ((RequestFrsGroupsLocalMessage) orginalMessage).getType();
             iVar3 = this.a.c;
-            if (iVar3.h()) {
-                groupListAdapter8 = this.a.i;
-                groupListAdapter8.a(true);
-                this.a.c(true);
+            if (!type.equals(String.valueOf(iVar3.g()))) {
+                return;
             }
-            int size = groups.size();
-            iVar4 = this.a.c;
-            if (size != iVar4.k()) {
-                iVar7 = this.a.c;
-                if (!iVar7.h()) {
-                    groupListAdapter5 = this.a.i;
-                    groupListAdapter5.a(GroupListAdapter.BOTTOM_TYPE.NO_MORE);
-                } else if (groups.size() == 0) {
-                    groupListAdapter7 = this.a.i;
-                    groupListAdapter7.b(false);
-                    this.a.o();
-                    return;
-                } else {
-                    groupListAdapter6 = this.a.i;
-                    groupListAdapter6.a(GroupListAdapter.BOTTOM_TYPE.LINE);
-                }
-            } else {
-                groupListAdapter = this.a.i;
-                groupListAdapter.a(GroupListAdapter.BOTTOM_TYPE.HAVE_MORE);
-            }
-            this.a.m();
+        }
+        iVar = this.a.c;
+        if (!iVar.e() && (groups = responseFrsGroupsLocalMessage.getGroups()) != null && !groups.isEmpty()) {
+            iVar2 = this.a.c;
+            iVar2.a(true);
+            groupListAdapter = this.a.i;
+            groupListAdapter.b(true);
             groupListAdapter2 = this.a.i;
-            groupListAdapter2.b(true);
-            iVar5 = this.a.c;
-            iVar5.c(groups.size());
-            iVar6 = this.a.c;
-            iVar6.d(20);
+            groupListAdapter2.a(GroupListAdapter.BOTTOM_TYPE.LINE);
             groupListAdapter3 = this.a.i;
             groupListAdapter3.a(groups);
             groupListAdapter4 = this.a.i;
             groupListAdapter4.notifyDataSetChanged();
-            this.a.n();
         }
     }
 }

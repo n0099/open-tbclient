@@ -1,75 +1,112 @@
 package com.baidu.tieba.b;
 
-import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
-import com.baidu.adp.lib.stats.o;
-import com.baidu.kirin.KirinConfig;
+import com.baidu.adp.lib.stats.f;
+import com.baidu.adp.lib.stats.q;
+import com.baidu.adp.lib.util.BdNetUtil;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class a {
-    public String a;
-    private final int c = 10;
-    private final int d = KirinConfig.CONNECT_TIME_OUT;
-    private o b = new o("dbg");
+    private q c;
+    private final int d = 10;
+    private final int e = 3000;
+    public String a = null;
+    public boolean b = false;
 
     public a(String str) {
-        this.a = null;
+        a(str, false);
+    }
+
+    public void a(String str, boolean z) {
         this.a = str;
-        b.a(str);
+        this.b = z;
+        this.c = new q("dbg");
+        b.a(str, d(), z);
     }
 
     public void a() {
-        this.b.a();
+        this.c.a();
     }
 
-    public void a(boolean z, boolean z2, int i, String str, long j) {
-        if (this.b != null && BdResourceLoaderNetHelperStatic.a()) {
-            e b = b.b(this.a);
-            long b2 = this.b.b();
+    public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        e c;
+        if (this.c != null && (c = c()) != null) {
             if (z) {
-                b.b.b++;
-                if (z2) {
-                    b.b.a += b2;
-                    b.b.d += j;
+                if (c.d != null) {
+                    c.d.b++;
+                    if (z2) {
+                        c.d.a += j2;
+                        c.d.d += j;
+                    } else {
+                        c.d.c++;
+                    }
                 } else {
-                    b.b.c++;
+                    return;
+                }
+            } else if (c.e != null) {
+                c.e.b++;
+                if (z2) {
+                    c.e.a += j3;
+                    c.e.d += j;
+                    j2 = j3;
+                } else {
+                    c.e.c++;
+                    j2 = j3;
                 }
             } else {
-                b.c.b++;
-                if (z2) {
-                    b.c.a += b2;
-                    b.c.d += j;
-                } else {
-                    b.c.c++;
-                }
+                return;
             }
-            this.b = null;
-            b.a(b, 10);
+            this.c = null;
+            if (z2) {
+                b.a(c, 10);
+            }
             if (this.a == "frsStat") {
-                if (!z2 || b2 > 3000) {
-                    o oVar = new o("dbg");
-                    oVar.a("act", "frs");
-                    oVar.a("result", z2 ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                    oVar.a("isHttp", z ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
-                    oVar.a("timeCost", String.valueOf(b2));
-                    oVar.a("errCode", String.valueOf(i));
-                    oVar.a("errMsg", str);
-                    oVar.a("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.d.b().a("frs", oVar);
+                if (!z2 || j2 > 3000) {
+                    q qVar = new q("dbg");
+                    qVar.a("act", "frs");
+                    qVar.a("result", z2 ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                    qVar.a("isHttp", z ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                    qVar.a("timeCost", String.valueOf(j2));
+                    qVar.a("errCode", String.valueOf(i));
+                    qVar.a("errMsg", str);
+                    qVar.a("down", String.valueOf(j));
+                    f.c().a("frs", qVar);
                 }
             }
         }
     }
 
     public void b() {
-        if (this.b != null && BdResourceLoaderNetHelperStatic.a()) {
-            e b = b.b(this.a);
-            long b2 = this.b.b();
-            if (b2 > 3000) {
-                d dVar = b.d;
-                dVar.a = b2 + dVar.a;
-                b.d.b++;
-                b.a(b, 10);
+        e c;
+        if (this.c != null && (c = c()) != null && c.f != null) {
+            long b = this.c.b();
+            if (b > 3000) {
+                d dVar = c.f;
+                dVar.a = b + dVar.a;
+                c.f.b++;
+                b.a(c, 10);
             }
         }
+    }
+
+    private e c() {
+        return b.b(this.a, d(), this.b);
+    }
+
+    private String d() {
+        BdNetUtil.NetworkStateInfo statusInfo = BdNetUtil.getStatusInfo();
+        if (statusInfo == BdNetUtil.NetworkStateInfo.UNAVAIL) {
+            return "N";
+        }
+        if (statusInfo == BdNetUtil.NetworkStateInfo.WIFI) {
+            return NetworkChangeReceiver.WIFI_STRING;
+        }
+        if (statusInfo == BdNetUtil.NetworkStateInfo.ThreeG) {
+            return "3G";
+        }
+        if (statusInfo != BdNetUtil.NetworkStateInfo.TwoG) {
+            return "N";
+        }
+        return "2G";
     }
 }

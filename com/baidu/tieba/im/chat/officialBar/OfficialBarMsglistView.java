@@ -21,7 +21,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     private LinearLayout p;
     private LinearLayout q;
     private com.baidu.tieba.im.view.n r;
-    private as[] s;
+    private ao[] s;
 
     public OfficialBarMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -31,42 +31,42 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.g
     public void a(TalkableActivity talkableActivity, boolean z) {
         super.a(talkableActivity, z);
-        String string = talkableActivity.getString(com.baidu.tieba.y.msglist_officialInfo);
+        String string = talkableActivity.getString(com.baidu.tieba.x.msglist_officialInfo);
         if (string != null) {
-            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
-            this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.group_info_btn, talkableActivity);
+            this.l = (TextView) this.b.findViewById(com.baidu.tieba.u.group_info_btn_txt);
             this.l.setText(string);
         }
-        this.m = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_toggle_stub)).inflate();
-        this.n = (ImageView) this.m.findViewById(com.baidu.tieba.v.official_bar_toggle_button);
+        this.m = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_toggle_stub)).inflate();
+        this.n = (ImageView) this.m.findViewById(com.baidu.tieba.u.official_bar_toggle_button);
         this.n.setVisibility(0);
-        this.o = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_stub)).inflate();
+        this.o = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_stub)).inflate();
         this.o.setVisibility(0);
-        this.s = new as[3];
-        as asVar = new as();
-        asVar.a = false;
-        asVar.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.v.menu_frist);
-        asVar.c = (TextView) this.o.findViewById(com.baidu.tieba.v.menu_frist_text);
-        asVar.d = (ImageView) this.o.findViewById(com.baidu.tieba.v.menu_frist_tip);
-        this.s[0] = asVar;
-        as asVar2 = new as();
-        asVar2.a = false;
-        asVar2.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.v.menu_second);
-        asVar2.c = (TextView) this.o.findViewById(com.baidu.tieba.v.menu_second_text);
-        asVar2.d = (ImageView) this.o.findViewById(com.baidu.tieba.v.menu_second_tip);
-        this.s[1] = asVar2;
-        as asVar3 = new as();
-        asVar3.a = false;
-        asVar3.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.v.menu_third);
-        asVar3.c = (TextView) this.o.findViewById(com.baidu.tieba.v.menu_third_text);
-        asVar3.d = (ImageView) this.o.findViewById(com.baidu.tieba.v.menu_third_tip);
-        this.s[2] = asVar3;
+        this.s = new ao[3];
+        ao aoVar = new ao();
+        aoVar.a = false;
+        aoVar.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_frist);
+        aoVar.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_frist_text);
+        aoVar.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_frist_tip);
+        this.s[0] = aoVar;
+        ao aoVar2 = new ao();
+        aoVar2.a = false;
+        aoVar2.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_second);
+        aoVar2.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_second_text);
+        aoVar2.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_second_tip);
+        this.s[1] = aoVar2;
+        ao aoVar3 = new ao();
+        aoVar3.a = false;
+        aoVar3.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_third);
+        aoVar3.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_third_text);
+        aoVar3.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_third_tip);
+        this.s[2] = aoVar3;
         for (int i = 0; i < 3; i++) {
             this.s[i].b.setOnClickListener(talkableActivity);
         }
-        this.p = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_down_line)).inflate();
+        this.p = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_down_line)).inflate();
         this.p.setVisibility(0);
-        this.q = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_menu_loading)).inflate();
+        this.q = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_menu_loading)).inflate();
         this.q.setVisibility(8);
         this.g.setVisibility(8);
         this.n.setOnClickListener(talkableActivity);
@@ -100,7 +100,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         this.p.setVisibility(0);
     }
 
-    public as[] T() {
+    public ao[] T() {
         return this.s;
     }
 
@@ -121,9 +121,9 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     public void e(boolean z) {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.p.parent_menu_up);
-        Animation loadAnimation2 = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.p.parent_menu_down);
-        loadAnimation2.setAnimationListener(new ar(this, z, loadAnimation));
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.o.parent_menu_up);
+        Animation loadAnimation2 = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.o.parent_menu_down);
+        loadAnimation2.setAnimationListener(new an(this, z, loadAnimation));
         f();
         if (z()) {
             A();
@@ -132,11 +132,11 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     public void a(int i, boolean z) {
-        as asVar = this.s[i];
+        ao aoVar = this.s[i];
         if (z) {
-            asVar.d.setImageResource(com.baidu.tieba.u.icon_bottombar_arrow_s);
+            aoVar.d.setImageResource(com.baidu.tieba.t.icon_bottombar_arrow_s);
         } else {
-            asVar.d.setImageResource(com.baidu.tieba.u.icon_bottombar_arrow_n);
+            aoVar.d.setImageResource(com.baidu.tieba.t.icon_bottombar_arrow_n);
         }
     }
 

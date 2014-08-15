@@ -238,7 +238,11 @@ public class a {
             if (i3 < this.n.size()) {
                 d dVar = this.n.get(i3).get();
                 if (dVar != null) {
-                    dVar.a(i, str, address);
+                    try {
+                        dVar.a(i, str, address);
+                    } catch (Throwable th) {
+                        BdLog.detailException(th);
+                    }
                 }
                 i2 = i3 + 1;
             } else {

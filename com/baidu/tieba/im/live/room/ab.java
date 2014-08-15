@@ -2,8 +2,7 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.live.LivePublisherSayMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
 /* loaded from: classes.dex */
 class ab extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -19,17 +18,36 @@ class ab extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveRoomChatView liveRoomChatView;
-        LiveRoomChatView liveRoomChatView2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001170 && (customResponsedMessage instanceof LivePublisherSayMessage) && this.a.x() != null && this.a.x().b != null) {
-            liveRoomChatView = this.a.p;
-            if (liveRoomChatView != null) {
-                LivePublisherSayMessage livePublisherSayMessage = (LivePublisherSayMessage) customResponsedMessage;
-                if (livePublisherSayMessage.getChatMsg() != null && (livePublisherSayMessage.getChatMsg() instanceof ChatMessage)) {
-                    ChatMessage chatMessage = (ChatMessage) livePublisherSayMessage.getChatMsg();
-                    if (com.baidu.adp.lib.f.b.a(chatMessage.getGroupId(), 0) == this.a.x().b.groupId.intValue()) {
-                        liveRoomChatView2 = this.a.p;
-                        liveRoomChatView2.a(chatMessage);
+        boolean z;
+        String str;
+        String str2;
+        LiveRoomChatView x;
+        LiveRoomChatView x2;
+        LiveRoomChatView x3;
+        if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage)) {
+            LiveStatusChangeMessage.LiveStatusData data = ((LiveStatusChangeMessage) customResponsedMessage).getData();
+            z = this.a.r;
+            if (z && this.a.v().b != null) {
+                String valueOf = String.valueOf(this.a.v().b.groupId);
+                if (data.status == 19 && valueOf.equals(data.groupId) && !this.a.v().r) {
+                    x2 = this.a.x();
+                    if (x2.U() != 3) {
+                        x3 = this.a.x();
+                        x3.d(3);
+                    }
+                }
+                if (data.status == 4 && valueOf.equals(data.groupId) && this.a.v().r) {
+                    x = this.a.x();
+                    x.d(5);
+                }
+                if (data.status == 0) {
+                    str = this.a.t;
+                    if (str != null) {
+                        str2 = this.a.t;
+                        if (str2.equals(String.valueOf(this.a.v().b.groupId))) {
+                            com.baidu.tieba.im.live.d.b().a(this.a.v().r ? this.a.v().b.streamId : null, String.valueOf(this.a.v().b.groupId), String.valueOf(this.a.v().b.deviceId), this.a.v().b.playUrl, false);
+                        }
+                        this.a.t = null;
                     }
                 }
             }

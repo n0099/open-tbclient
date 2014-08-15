@@ -46,9 +46,9 @@ class s implements View.OnClickListener {
         u uVar = jigsawAlbumListActivity.a;
         jigsawAlbumListActivity2 = this.a.a;
         if (uVar.a(jigsawAlbumListActivity2) >= 10) {
-            y.b(com.baidu.tieba.y.jigsaw_image_most);
+            y.b(com.baidu.tieba.x.jigsaw_image_most);
         } else if (!b.a(this.b.b)) {
-            y.b(com.baidu.tieba.y.photo_size_scale_range_error);
+            y.b(com.baidu.tieba.x.photo_size_scale_range_error);
         } else {
             Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(this.b.c));
             jigsawAlbumListActivity3 = this.a.a;
@@ -60,7 +60,7 @@ class s implements View.OnClickListener {
             jigsawAlbumListActivity4 = this.a.a;
             x xVar = new x(jigsawAlbumListActivity4);
             context = this.a.b;
-            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedWidth);
+            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.s.jigsawSelectedWidth);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimension, dimension);
             layoutParams.setMargins(dimension / 10, 0, 0, 0);
             xVar.setLayoutParams(layoutParams);
@@ -83,7 +83,7 @@ class s implements View.OnClickListener {
                     aVar.setIsSelected(true);
                     xVar.setOnClickListener(new t(this, xVar, aVar));
                 } else {
-                    y.a(com.baidu.tieba.y.open_error);
+                    y.a(com.baidu.tieba.x.open_error);
                 }
                 jigsawAlbumListActivity5 = this.a.a;
                 linearLayout = jigsawAlbumListActivity5.m;

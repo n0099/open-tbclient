@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ Register2Activity a;
-    private aq b = null;
+    private ae b = null;
     private String c;
 
     public y(Register2Activity register2Activity, String str) {
@@ -25,7 +25,7 @@ public class y extends BdAsyncTask<String, Integer, Bitmap> {
         progressBar = this.a.E;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         super.cancel(true);
     }
@@ -36,7 +36,7 @@ public class y extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         imageView = this.a.F;
-        imageView.setImageBitmap(null);
+        imageView.setImageDrawable(null);
         progressBar = this.a.E;
         progressBar.setVisibility(0);
     }
@@ -46,8 +46,8 @@ public class y extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Bitmap doInBackground(String... strArr) {
-        this.b = new aq(this.c);
-        return com.baidu.tbadk.core.util.h.a(this.b.h());
+        this.b = new ae(this.c);
+        return com.baidu.tbadk.core.util.d.a(this.b.g());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,9 @@ public class y extends BdAsyncTask<String, Integer, Bitmap> {
         this.a.N = null;
         progressBar = this.a.E;
         progressBar.setVisibility(8);
-        imageView = this.a.F;
-        imageView.setImageBitmap(bitmap);
+        if (bitmap != null) {
+            imageView = this.a.F;
+            imageView.setImageBitmap(bitmap);
+        }
     }
 }

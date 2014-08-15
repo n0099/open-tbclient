@@ -8,17 +8,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.view.GroupImageView;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.text.DecimalFormat;
 /* loaded from: classes.dex */
 public class l implements a {
     private NearbyGroupsActivity b;
-    private HeadImageView d;
+    private GroupImageView d;
     private TextView e;
     private TextView f;
     private TextView g;
@@ -58,7 +58,6 @@ public class l implements a {
             this.g.setText(jVar.e());
             String f = jVar.f();
             this.d.setTag(null);
-            this.d.setDefaultResource(u.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawBorder(true);
             if (!TextUtils.isEmpty(f)) {
@@ -66,7 +65,7 @@ public class l implements a {
             }
             this.d.a(f, 10, false);
             if (jVar.m()) {
-                bk.a(this.e, s.im_group_vip_text, 1);
+                ay.a(this.e, r.im_group_vip_text, 1);
             } else {
                 this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                 this.b.getLayoutMode().a(this.e);
@@ -110,9 +109,9 @@ public class l implements a {
 
     private void a(ImageView[] imageViewArr, int i, boolean z) {
         if (z) {
-            bk.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
-            bk.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
-            bk.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
+            ay.c(imageViewArr[1], t.icon_vip_grade_big_small_s);
+            ay.c(imageViewArr[2], t.icon_vip_grade_big_small_s);
+            ay.c(imageViewArr[3], t.icon_vip_grade_big_small_s);
         } else {
             this.b.getLayoutMode().a(imageViewArr[1]);
             this.b.getLayoutMode().a(imageViewArr[2]);
@@ -132,22 +131,22 @@ public class l implements a {
     }
 
     public void b() {
-        this.c = LayoutInflater.from(this.b).inflate(w.im_group_list_item, (ViewGroup) null);
-        this.a = (LinearLayout) this.c.findViewById(v.list_item);
-        this.p = (TextView) this.c.findViewById(v.isMeizi);
-        this.q = (TextView) this.c.findViewById(v.isNewCreate);
-        this.r = (TextView) this.c.findViewById(v.isRecentlyReplay);
-        this.o = (LinearLayout) this.c.findViewById(v.list_item_content);
-        this.l = (TextView) this.c.findViewById(v.tv_im_line_bottom);
-        this.m = (TextView) this.c.findViewById(v.tv_distance);
-        this.n = (TextView) this.c.findViewById(v.tv_top_distance);
-        this.d = (HeadImageView) this.c.findViewById(v.item_head);
-        this.e = (TextView) this.c.findViewById(v.item_group_name);
-        this.f = (TextView) this.c.findViewById(v.item_group_num);
-        this.g = (TextView) this.c.findViewById(v.item_introduce);
-        this.h = (ImageView) this.c.findViewById(v.item_grade1);
-        this.i = (ImageView) this.c.findViewById(v.item_grade2);
-        this.j = (ImageView) this.c.findViewById(v.item_grade3);
+        this.c = LayoutInflater.from(this.b).inflate(v.im_group_list_item, (ViewGroup) null);
+        this.a = (LinearLayout) this.c.findViewById(u.list_item);
+        this.p = (TextView) this.c.findViewById(u.isMeizi);
+        this.q = (TextView) this.c.findViewById(u.isNewCreate);
+        this.r = (TextView) this.c.findViewById(u.isRecentlyReplay);
+        this.o = (LinearLayout) this.c.findViewById(u.list_item_content);
+        this.l = (TextView) this.c.findViewById(u.tv_im_line_bottom);
+        this.m = (TextView) this.c.findViewById(u.tv_distance);
+        this.n = (TextView) this.c.findViewById(u.tv_top_distance);
+        this.d = (GroupImageView) this.c.findViewById(u.item_head);
+        this.e = (TextView) this.c.findViewById(u.item_group_name);
+        this.f = (TextView) this.c.findViewById(u.item_group_num);
+        this.g = (TextView) this.c.findViewById(u.item_introduce);
+        this.h = (ImageView) this.c.findViewById(u.item_grade1);
+        this.i = (ImageView) this.c.findViewById(u.item_grade2);
+        this.j = (ImageView) this.c.findViewById(u.item_grade3);
         this.k = new ImageView[4];
         this.k[1] = this.h;
         this.k[2] = this.i;

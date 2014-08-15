@@ -1,21 +1,17 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import android.content.Intent;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class ay extends com.baidu.tbadk.core.frameworkData.a {
-    public ay(Context context, String str, int i) {
+    public ay(Context context, int i, WriteData writeData, boolean z) {
         super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-    }
-
-    public ay(Context context, String str, int i, int i2) {
-        super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-        intent.putExtra("key_current_tab", i2);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+        if (writeData != null) {
+            getIntent().putExtra("model", writeData);
+            getIntent().putExtra("is_ad", z);
+        }
     }
 }

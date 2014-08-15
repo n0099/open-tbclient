@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class a {
     static int a = 0;
@@ -215,7 +214,7 @@ public class a {
             }
             return String.valueOf(str) + " = <already visited>\n";
         }
-        return String.valueOf(str) + " = " + c(obj) + IOUtils.LINE_SEPARATOR_UNIX;
+        return String.valueOf(str) + " = " + c(obj) + "\n";
     }
 
     private static String b(String str, Object obj) {
@@ -234,10 +233,10 @@ public class a {
     public static void a(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
         if (d.e) {
-            stringBuffer.append("Message_Type: " + str + IOUtils.LINE_SEPARATOR_UNIX);
+            stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
-            String[] split = stringBuffer.toString().split(IOUtils.LINE_SEPARATOR_UNIX);
+            String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {
                 Log.i("CP", str2);
             }

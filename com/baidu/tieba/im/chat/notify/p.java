@@ -1,34 +1,37 @@
 package com.baidu.tieba.im.chat.notify;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.u;
 /* loaded from: classes.dex */
-public class p implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ d a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(d dVar) {
-        this.a = dVar;
+public class p extends u {
+    public p(Context context) {
+        super(context);
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        u uVar;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        if (i < 0) {
-            return false;
-        }
-        d dVar = this.a;
-        uVar = this.a.h;
-        dVar.f = (ImMessageCenterShowItemData) uVar.getItem(i);
-        d dVar2 = this.a;
-        imMessageCenterShowItemData = this.a.f;
-        dVar2.a(imMessageCenterShowItemData);
-        if (this.a.b != null) {
-            this.a.b.show();
-        }
-        return true;
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public View a() {
+        View a = super.a();
+        this.a.setVisibility(4);
+        this.b.setVisibility(4);
+        this.c.setVisibility(4);
+        this.d.setVisibility(4);
+        return a;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public void a(boolean z) {
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public void e() {
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public void f() {
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public void b(boolean z) {
     }
 }

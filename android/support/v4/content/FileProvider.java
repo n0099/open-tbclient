@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class FileProvider extends ContentProvider {
@@ -225,7 +224,7 @@ public class FileProvider extends ContentProvider {
                 } else {
                     substring = canonicalPath.substring(path2.length() + 1);
                 }
-                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + IOUtils.DIR_SEPARATOR_UNIX + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }

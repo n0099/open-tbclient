@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.a;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -169,17 +170,17 @@ public class i {
         this.g.remove(eVar);
     }
 
-    public void a(int i, int i2) {
+    public void a(int i, BdUniqueId bdUniqueId) {
         int size = this.g.size();
-        for (int i3 = 0; i3 < size; i3++) {
-            this.g.get(i3).a(i, i2);
+        for (int i2 = 0; i2 < size; i2++) {
+            this.g.get(i2).a(i, bdUniqueId);
         }
     }
 
-    public void a(int i) {
+    public void a(BdUniqueId bdUniqueId) {
         int size = this.g.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            this.g.get(i2).a(i);
+        for (int i = 0; i < size; i++) {
+            this.g.get(i).a(bdUniqueId);
         }
     }
 }

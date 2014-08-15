@@ -26,9 +26,9 @@ public class LiveChatRoomEventData {
             this.mEventId = jSONObject.optString("eventId");
             JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
             if (optJSONObject != null) {
-                this.mGroupId = com.baidu.adp.lib.f.b.a(optJSONObject.optString("groupId"), 0);
-                this.mListeners = com.baidu.adp.lib.f.b.a(optJSONObject.optString("listeners"), 0);
-                this.mLikers = com.baidu.adp.lib.f.b.a(optJSONObject.optString("likes"), 0);
+                this.mGroupId = com.baidu.adp.lib.e.b.a(optJSONObject.optString("groupId"), 0);
+                this.mListeners = com.baidu.adp.lib.e.b.a(optJSONObject.optString("listeners"), 0);
+                this.mLikers = com.baidu.adp.lib.e.b.a(optJSONObject.optString("likes"), 0);
                 JSONArray optJSONArray = optJSONObject.optJSONArray("users");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {

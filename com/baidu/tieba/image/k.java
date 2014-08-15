@@ -3,8 +3,8 @@ package com.baidu.tieba.image;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.s;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Integer, String> {
@@ -25,14 +25,14 @@ public class k extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        switch (z.a(this.a, this.b, this.c)) {
+        switch (s.a(this.a, this.b, this.c)) {
             case -2:
-                return z.b();
+                return s.b();
             case -1:
             default:
-                return this.c.getString(y.save_error);
+                return this.c.getString(x.save_error);
             case 0:
-                return this.c.getString(y.save_image_to_album);
+                return this.c.getString(x.save_image_to_album);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.baidu.tieba.pb.image;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +17,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -126,21 +128,25 @@ public class ac extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
+        Bitmap b;
         if (i == this.e.j()) {
-            View inflate2 = this.a.inflate(com.baidu.tieba.w.image_pb_next, (ViewGroup) null);
-            ((TextView) inflate2.findViewById(com.baidu.tieba.v.thread_name)).setText(this.e.f());
+            View inflate2 = this.a.inflate(com.baidu.tieba.v.image_pb_next, (ViewGroup) null);
+            ((TextView) inflate2.findViewById(com.baidu.tieba.u.thread_name)).setText(this.e.f());
             viewGroup.addView(inflate2);
-            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.v.image);
-            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.v.next);
-            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.thread_name);
+            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.u.image);
+            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.u.next);
+            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.u.thread_name);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textView.setTextColor(bk.c(1));
-                textView2.setTextColor(bk.a(1));
-                imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default_1);
+                textView.setTextColor(ay.c(1));
+                textView2.setTextColor(ay.a(1));
+                b = com.baidu.tbadk.core.util.d.b(this.b, com.baidu.tieba.t.image_pb_next_default_1);
             } else {
                 textView.setTextColor(-9539986);
                 textView2.setTextColor(-6250336);
-                imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default);
+                b = com.baidu.tbadk.core.util.d.b(this.b, com.baidu.tieba.t.image_pb_next_default);
+            }
+            if (b != null) {
+                imageView.setBackgroundDrawable(new BitmapDrawable(this.b.getResources(), b));
             }
             return inflate2;
         }
@@ -149,14 +155,14 @@ public class ac extends PagerAdapter {
             this.p.remove(0);
             inflate = this.p.get(0);
         } else {
-            inflate = this.a.inflate(com.baidu.tieba.w.image_pb_list, (ViewGroup) null);
+            inflate = this.a.inflate(com.baidu.tieba.v.image_pb_list, (ViewGroup) null);
         }
         if (this.q.size() > 5) {
             this.q.clear();
         }
         this.q.add(inflate);
-        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.v.image_pb_listview);
-        bk.a(listView, TbadkApplication.m252getInst().getSkinType());
+        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.u.image_pb_listview);
+        ay.a(listView, TbadkApplication.m252getInst().getSkinType());
         if (vVar == null) {
             if (this.h != null) {
                 this.h.a(i, 0, 0);
@@ -214,11 +220,11 @@ public class ac extends PagerAdapter {
                         stringBuffer.append(String.valueOf(vVar.g()));
                     }
                     stringBuffer.append("&src=");
-                    stringBuffer.append(bm.d(vVar.b()));
+                    stringBuffer.append(ba.d(vVar.b()));
                     arrayList.add(stringBuffer.toString());
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, new com.baidu.tbadk.core.atomData.ab(this.b).a(arrayList, i, this.e.j(), this.e.h(), this.e.i(), this.e.c(), this.e.l() == 1, this.e.j() == arrayList.size() && this.e.b(), this.e.f())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, new com.baidu.tbadk.core.atomData.af(this.b).a(arrayList, i, this.e.j(), this.e.h(), this.e.i(), this.e.c(), this.e.l() == 1, this.e.j() == arrayList.size() && this.e.b(), this.e.f())));
         }
     }
 
@@ -233,9 +239,9 @@ public class ac extends PagerAdapter {
             }
             if (vVar != null) {
                 try {
-                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.v.image_pb_listview)).setVerticalScrollBarEnabled(true);
+                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.u.image_pb_listview)).setVerticalScrollBarEnabled(true);
                     this.k = (x) ((View) obj).getTag();
-                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.v.image_pb_image);
+                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.u.image_pb_image);
                     if (imagePbImageView != null) {
                         if (i == 0 && !this.j) {
                             imagePbImageView.setFirst(true);

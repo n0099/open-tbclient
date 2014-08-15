@@ -1,23 +1,26 @@
 package com.baidu.tieba.im.newFriend;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ NewFriendsActivity a;
-    private final /* synthetic */ com.baidu.tieba.im.data.k b;
+class ae {
+    private boolean a;
+    private int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.k kVar) {
-        this.a = newFriendsActivity;
-        this.b = kVar;
+    public ae(boolean z, int i) {
+        this.a = z;
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        ao aoVar;
-        if (bool.booleanValue()) {
-            aoVar = this.a.d;
-            aoVar.a(this.b);
+    public int hashCode() {
+        return (this.a ? 1 : 0) + this.b;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ae aeVar = (ae) obj;
+        return this.a == aeVar.a && this.b == aeVar.b;
     }
 }

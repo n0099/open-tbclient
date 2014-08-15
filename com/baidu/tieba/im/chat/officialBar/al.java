@@ -1,27 +1,23 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class al implements DialogInterface.OnClickListener {
+class al extends CustomMessageListener {
     final /* synthetic */ OfficialBarInfoActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public al(OfficialBarInfoActivity officialBarInfoActivity) {
+        super(2001155);
         this.a = officialBarInfoActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        String str;
-        OfficialBarInfoActivity officialBarInfoActivity = this.a;
-        i2 = this.a.c;
-        officialBarInfoActivity.sendMessage(new CustomMessage(2001155, String.valueOf(i2)));
-        StringBuilder sb = new StringBuilder("clear cache by official:");
-        str = this.a.d;
-        BdSocketLinkService.startService(true, sb.append(str).toString());
-        dialogInterface.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001155) {
+            this.a.showToast(com.baidu.tieba.x.cash_del_suc);
+        }
     }
 }

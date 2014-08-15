@@ -1,37 +1,61 @@
 package com.baidu.tieba.faceshop;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.base.e {
-    private int c = 3;
-    private ab a = null;
-    private aa b = null;
+public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
+    final /* synthetic */ x a;
+    private com.baidu.tbadk.core.util.ae b;
 
-    public void a(String str) {
-        if (this.a == null) {
-            this.a = new ab(this, null);
-            this.a.setPriority(3);
-            this.a.execute(str);
+    private z(x xVar) {
+        this.a = xVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ z(x xVar, z zVar) {
+        this(xVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public FaceBuyData doInBackground(Object... objArr) {
+        String obj = objArr[0].toString();
+        try {
+            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/buyfacepack");
+            this.b.a("pid", obj);
+            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.h(), (Class<Object>) FaceBuyData.class);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
         }
     }
 
-    public void b(String str) {
-        if (this.b == null) {
-            this.b = new aa(this, null);
-            this.b.setPriority(3);
-            this.b.execute(str);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.h hVar;
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.f();
         }
+        this.a.a = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(null);
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return true;
-        }
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(FaceBuyData faceBuyData) {
+        com.baidu.adp.base.h hVar;
+        super.onPostExecute(faceBuyData);
+        this.a.a = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(faceBuyData);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.i;
 import java.io.File;
 import java.io.RandomAccessFile;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class c {
     private String b;
     private String c;
     private com.baidu.tbadk.coreExtra.data.b d;
-    private aq e;
+    private ae e;
     private boolean f = false;
     private String g;
 
@@ -50,7 +50,7 @@ public class c {
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.e = new aq(this.c);
+                        this.e = new ae(this.c);
                         this.e.a("voice_chunk", bArr);
                         this.e.a("chunk_md5", this.d.a());
                         this.e.a("length", String.valueOf(read));
@@ -62,15 +62,15 @@ public class c {
                         boolean z = false;
                         if (this.f) {
                             z = true;
-                        } else if (this.e.j() == null || !this.e.a().b().b()) {
+                        } else if (this.e.i() == null || !this.e.a().b().b()) {
                             this.d.a(i);
-                            m.a(this.d);
+                            i.a(this.d);
                             randomAccessFile.close();
                             z = true;
                         }
                         if (z) {
-                            cVar.a(this.e.d());
-                            cVar.a(this.e.f());
+                            cVar.a(this.e.c());
+                            cVar.a(this.e.e());
                             cVar.a(this.d);
                             cVar.a(false);
                             return cVar;

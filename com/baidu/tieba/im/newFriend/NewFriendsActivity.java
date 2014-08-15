@@ -9,35 +9,40 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
-import com.baidu.tbadk.core.atomData.bj;
+import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.br;
 /* loaded from: classes.dex */
 public class NewFriendsActivity extends BaseActivity {
-    private ao d;
+    private av d;
     private AlertDialog e;
     private String c = "recommend_new_friend" + TbadkApplication.getCurrentAccount();
-    private aa f = new ac(this);
-    final CustomMessageListener a = new af(this, 2001178);
-    final com.baidu.adp.framework.listener.b b = new ag(this, 304101);
-    private final com.baidu.adp.widget.ListView.d g = new ah(this);
-    private final ap h = new ap(new ai(this));
+    private af f = new ah(this);
+    final CustomMessageListener a = new am(this, 2001178);
+    final com.baidu.adp.framework.listener.d b = new an(this, 304101);
+    private final com.baidu.adp.widget.ListView.d g = new ao(this);
+    private final aw h = new aw(this, new ap(this));
 
     static {
         TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.newFriends.b.class, NewFriendsActivity.class);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        com.baidu.tieba.im.e.a(new aq(this), new ar(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.new_friend_activity);
-        this.d = new ao(this);
+        setContentView(com.baidu.tieba.v.new_friend_activity);
+        this.d = new av(this);
         this.d.a(this.g);
         this.d.a(this.f);
         registerListener(this.a);
         registerListener(this.b);
-        if (com.baidu.tbadk.i.a().a(this.c, false)) {
-            a();
+        if (com.baidu.tbadk.h.a().a(this.c, false)) {
+            b();
             this.d.a();
             return;
         }
@@ -54,19 +59,19 @@ public class NewFriendsActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        com.baidu.tieba.im.i.a(new aj(this), new ak(this));
+    public void b() {
+        com.baidu.tieba.im.e.a(new as(this), new at(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        com.baidu.tieba.im.i.a(new al(this), new am(this));
+    public void c() {
+        com.baidu.tieba.im.e.a(new ai(this), new aj(this));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.v.new_friend_textview_container) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bj(this)));
+        if (view.getId() == com.baidu.tieba.u.new_friend_textview_container) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new br(this)));
         }
     }
 
@@ -76,7 +81,7 @@ public class NewFriendsActivity extends BaseActivity {
         if (item != null && (item instanceof com.baidu.tieba.im.data.k)) {
             com.baidu.tieba.im.data.k kVar = item;
             if (i == j) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, String.valueOf(kVar.a()), kVar.b())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, String.valueOf(kVar.a()), kVar.b())));
             }
         }
     }
@@ -87,21 +92,21 @@ public class NewFriendsActivity extends BaseActivity {
         if (item != null && (item instanceof com.baidu.tieba.im.data.k)) {
             com.baidu.tieba.im.data.k kVar = item;
             if (this.e == null) {
-                this.e = c();
+                this.e = d();
             }
-            an anVar = new an(this, kVar);
-            this.e.setButton(-1, getString(com.baidu.tieba.y.confirm), anVar);
-            this.e.setButton(-2, getString(com.baidu.tieba.y.cancel), anVar);
+            au auVar = new au(this, kVar);
+            this.e.setButton(-1, getString(com.baidu.tieba.x.confirm), auVar);
+            this.e.setButton(-2, getString(com.baidu.tieba.x.cancel), auVar);
             this.e.show();
             return true;
         }
         return true;
     }
 
-    private AlertDialog c() {
+    private AlertDialog d() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(com.baidu.tieba.y.operation);
-        builder.setMessage(com.baidu.tieba.y.delete);
+        builder.setTitle(com.baidu.tieba.x.operation);
+        builder.setMessage(com.baidu.tieba.x.delete);
         AlertDialog create = builder.create();
         create.setCanceledOnTouchOutside(true);
         return create;
@@ -110,18 +115,18 @@ public class NewFriendsActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.im.data.k kVar) {
         if (kVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.a(this, String.valueOf(kVar.a()), kVar.b(), kVar.c(), "", false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.a(this, String.valueOf(kVar.a()), kVar.b(), kVar.c(), "", false, "new_frd")));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.im.data.k kVar) {
-        com.baidu.tbadk.newFriends.a.a().b(kVar.a(), "new_frd");
+        com.baidu.tbadk.newFriends.a.a().a(kVar.a(), "new_frd");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.im.data.k kVar) {
-        com.baidu.tieba.im.i.a(new ad(this, kVar), new ae(this, kVar));
+        com.baidu.tieba.im.e.a(new ak(this, kVar), new al(this, kVar));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

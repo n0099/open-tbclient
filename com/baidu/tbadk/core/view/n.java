@@ -1,21 +1,35 @@
 package com.baidu.tbadk.core.view;
 
+import android.app.Activity;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox a;
+    final /* synthetic */ NavigationBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(TbCheckBox tbCheckBox) {
-        this.a = tbCheckBox;
+    public n(NavigationBar navigationBar) {
+        this.a = navigationBar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean d;
-        TbCheckBox tbCheckBox = this.a;
-        d = this.a.d();
-        tbCheckBox.setChecked(!d);
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.a.b;
+        if (z) {
+            int id = view.getId();
+            if (id == com.baidu.tieba.u.navigationBarGoBack) {
+                activity2 = this.a.g;
+                activity2.finish();
+            } else if (id == com.baidu.tieba.u.navigationBarHome) {
+                MessageManager messageManager = MessageManager.getInstance();
+                activity = this.a.g;
+                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2002004, activity));
+            }
+        }
     }
 }

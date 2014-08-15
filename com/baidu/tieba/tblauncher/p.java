@@ -3,7 +3,7 @@ package com.baidu.tieba.tblauncher;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bn;
+import com.baidu.tbadk.core.atomData.bw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
@@ -19,10 +19,10 @@ public class p implements View.OnClickListener {
         TextView textView;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2 = this.a;
-        textView = this.a.C;
+        textView = this.a.E;
         mainTabActivity2.a(textView, 0);
-        MainTabActivity.c = false;
-        mainTabActivity = this.a.G;
-        this.a.a(new CustomMessage(2002001, new bn(mainTabActivity)));
+        MainTabActivity.d = false;
+        mainTabActivity = this.a.I;
+        this.a.a(new CustomMessage(2002001, new bw(mainTabActivity)));
     }
 }

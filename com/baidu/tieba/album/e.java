@@ -4,16 +4,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.tbadk.TbConfig;
+import java.util.Locale;
 /* loaded from: classes.dex */
 public class e {
-    private final String a = e.class.getName();
-    private final String b = TbConfig.getTempDirName();
-    private f c;
-    private g d;
-    private final Context e;
+    private final String a = TbConfig.getTempDirName();
+    private f b;
+    private g c;
+    private final Context d;
 
     public e(Context context) {
-        this.e = context;
+        this.d = context;
     }
 
     public boolean a(o oVar) {
@@ -21,9 +21,9 @@ public class e {
             return false;
         }
         a();
-        this.c = new f(this, oVar);
-        this.c.setPriority(3);
-        this.c.execute(new Object[0]);
+        this.b = new f(this, oVar);
+        this.b.setPriority(3);
+        this.b.execute(new Object[0]);
         return true;
     }
 
@@ -32,23 +32,23 @@ public class e {
             return false;
         }
         b();
-        this.d = new g(this, str, alVar);
-        this.d.setPriority(3);
-        this.d.execute(new Object[0]);
+        this.c = new g(this, str, alVar);
+        this.c.setPriority(3);
+        this.c.execute(new Object[0]);
         return true;
     }
 
     public void a() {
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
         }
     }
 
     public void b() {
-        if (this.d != null) {
-            this.d.cancel();
-            this.d = null;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
@@ -57,7 +57,7 @@ public class e {
         if (b == null) {
             return null;
         }
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(b);
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(b.toLowerCase(Locale.getDefault()));
     }
 
     private String b(String str) {

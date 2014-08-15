@@ -116,7 +116,7 @@ public class v implements com.baidu.tbadk.imageManager.b {
     public int a(String str) {
         Integer num = a.get(str);
         if ("video_icon".equals(str)) {
-            return Integer.valueOf(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.ico_link_video_1 : com.baidu.tieba.u.ico_link_video).intValue();
+            return Integer.valueOf(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.t.ico_link_video_1 : com.baidu.tieba.t.ico_link_video).intValue();
         } else if (num != null) {
             return num.intValue();
         } else {

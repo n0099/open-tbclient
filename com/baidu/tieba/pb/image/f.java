@@ -32,7 +32,7 @@ public class f implements View.OnTouchListener {
             editText2 = this.a.k;
             com.baidu.adp.lib.util.j.b(imagePbActivity, editText2);
             button = this.a.m;
-            button.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
+            button.setBackgroundResource(com.baidu.tieba.t.sub_pb_face);
             return true;
         }
         return false;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.view.View;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
     final /* synthetic */ SnapGroupChatActivity a;
@@ -13,6 +13,6 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.showToast(this.a.getString(y.snap_group_chat_change_group_limit_tip));
+        this.a.showToast(this.a.getString(x.snap_group_chat_change_group_limit_tip));
     }
 }

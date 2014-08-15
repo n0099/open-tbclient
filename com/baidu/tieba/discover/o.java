@@ -1,12 +1,13 @@
 package com.baidu.tieba.discover;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
+class o {
     String a;
-    boolean b;
+    String b;
+    String c;
 
-    public o(String str, int i) {
+    public o(String str, String str2, String str3) {
         this.a = str;
-        this.b = i == 1;
+        this.b = str2;
+        this.c = str3;
     }
 }

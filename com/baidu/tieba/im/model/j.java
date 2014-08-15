@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.im.message.RequestFrsLiveListMessage;
@@ -10,6 +11,10 @@ public class j extends com.baidu.adp.base.e {
     private boolean b;
     private int c;
     private int d;
+
+    public j(Context context) {
+        super(context);
+    }
 
     public String a() {
         return this.a;
@@ -50,7 +55,7 @@ public class j extends com.baidu.adp.base.e {
 
     private RequestFrsLiveListMessage b(String str, int i, int i2, int i3) {
         RequestFrsLiveListMessage requestFrsLiveListMessage = new RequestFrsLiveListMessage();
-        requestFrsLiveListMessage.setForumId(com.baidu.adp.lib.f.b.a(str, 0));
+        requestFrsLiveListMessage.setForumId(com.baidu.adp.lib.e.b.a(str, 0));
         requestFrsLiveListMessage.setType(i3);
         requestFrsLiveListMessage.setOffset(i);
         requestFrsLiveListMessage.setRn(i2);
@@ -63,8 +68,8 @@ public class j extends com.baidu.adp.base.e {
 
     public void a(String str, String str2, int i, int i2) {
         RequestOperateFrsLiveListMessage requestOperateFrsLiveListMessage = new RequestOperateFrsLiveListMessage();
-        requestOperateFrsLiveListMessage.setForumId(com.baidu.adp.lib.f.b.a(str, 0));
-        requestOperateFrsLiveListMessage.setGroupId(com.baidu.adp.lib.f.b.a(str2, 0));
+        requestOperateFrsLiveListMessage.setForumId(com.baidu.adp.lib.e.b.a(str, 0));
+        requestOperateFrsLiveListMessage.setGroupId(com.baidu.adp.lib.e.b.a(str2, 0));
         requestOperateFrsLiveListMessage.setType(i);
         requestOperateFrsLiveListMessage.setOldType(i2);
         super.sendMessage(requestOperateFrsLiveListMessage);

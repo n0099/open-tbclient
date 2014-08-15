@@ -1,32 +1,33 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseReportGroupMessage;
 /* loaded from: classes.dex */
-class bg implements DialogInterface.OnClickListener {
+class bg extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(GroupSettingActivity groupSettingActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(GroupSettingActivity groupSettingActivity, int i) {
+        super(i);
         this.a = groupSettingActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.bt btVar;
-        com.baidu.tieba.im.model.bt btVar2;
-        bn bnVar;
-        com.baidu.tieba.im.model.bt btVar3;
-        com.baidu.tieba.im.model.bt btVar4;
-        btVar = this.a.d;
-        if (btVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.bt();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103103) {
+            if (!(socketResponsedMessage instanceof ResponseReportGroupMessage)) {
+                this.a.showToast(com.baidu.tieba.x.group_report_fail);
+                return;
+            }
+            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) socketResponsedMessage;
+            if (responseReportGroupMessage.getError() != 0) {
+                this.a.a(responseReportGroupMessage.getErrorString(), responseReportGroupMessage.getError());
+            } else {
+                this.a.showToast(com.baidu.tieba.x.group_report_success);
+            }
         }
-        btVar2 = this.a.d;
-        bnVar = this.a.b;
-        btVar2.a(Integer.parseInt(bnVar.b()));
-        btVar3 = this.a.d;
-        btVar3.b(i);
-        btVar4 = this.a.d;
-        btVar4.a();
     }
 }

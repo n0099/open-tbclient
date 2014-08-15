@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class j extends a implements Runnable {
     public static String a = "logcat ";
@@ -22,7 +21,7 @@ public class j extends a implements Runnable {
     }
 
     public void a(String str) {
-        String[] split = str.split(IOUtils.LINE_SEPARATOR_UNIX);
+        String[] split = str.split("\n");
         int i = 0;
         while (true) {
             int i2 = i;

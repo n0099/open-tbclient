@@ -6,9 +6,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class AccountLoginHelper {
     private static AccountLoginHelper mHelper = null;
@@ -30,8 +31,10 @@ public class AccountLoginHelper {
         }
 
         @Override // com.baidu.tbadk.core.account.g
-        public void onFailure(final String str, String str2) {
-            TbadkApplication.setCurrentAccount(null, AccountLoginHelper.this.mActivity);
+        public void onFailure(final String str, int i, String str2) {
+            if (i == 1) {
+                ReloginManager.a().a((AccountData) null);
+            }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +48,7 @@ public class AccountLoginHelper {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute((C00101) accountData);
-                    if (accountData != null && !bm.c(accountData.getPassword())) {
+                    if (accountData != null && !ba.c(accountData.getPassword())) {
                         c.a(accountData.getAccount(), accountData.getPassword(), AccountLoginHelper.this.mLoginCallBackForCacheAccount);
                     }
                 }
@@ -57,14 +60,17 @@ public class AccountLoginHelper {
     private final d mLoginCallBackForCacheAccount = new d() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.2
         @Override // com.baidu.tbadk.core.account.d
         public void onSuccess(final AccountData accountData) {
-            TbadkApplication.setCurrentAccount(accountData, AccountLoginHelper.this.mActivity);
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.2.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    a.a(accountData);
-                    a.b(accountData);
+                    if (accountData != null) {
+                        a.a(accountData);
+                        a.b(accountData);
+                        TbadkApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
+                        TbadkApplication.setCurrentAccount(accountData, AccountLoginHelper.this.mActivity);
+                    }
                     return null;
                 }
             }.execute(new Void[0]);

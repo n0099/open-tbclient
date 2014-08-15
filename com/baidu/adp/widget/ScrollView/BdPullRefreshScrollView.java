@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Scroller;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
@@ -193,6 +195,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         } else {
             this.o = -getResources().getDimensionPixelSize(com.baidu.adp.b.adp_head_view_height);
         }
+        obtainStyledAttributes.recycle();
         setFadingEdgeLength(0);
         a();
     }
@@ -331,9 +334,15 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     protected void d() {
-        f fVar = new f(0, this.o, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
-        fVar.a(this.i);
-        fVar.a(new j(this));
+        j jVar = new j(this);
+        try {
+            f fVar = new f(0, this.o, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+            fVar.a(this.i);
+            fVar.a(jVar);
+        } catch (OutOfMemoryError e) {
+            BdBaseApplication.getInst().onAppMemoryLow();
+            jVar.a();
+        }
     }
 
     protected void e() {
@@ -554,7 +563,12 @@ public class BdPullRefreshScrollView extends ScrollView {
                 }
                 break;
         }
-        return super.onTouchEvent(motionEvent);
+        try {
+            return super.onTouchEvent(motionEvent);
+        } catch (IllegalArgumentException e) {
+            BdLog.detailException(e);
+            return true;
+        }
     }
 
     private void a(int i) {
@@ -644,9 +658,15 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private void a(int i, int i2) {
-        f fVar = new f(i, i2, this.e);
-        fVar.a(this.i);
-        fVar.a(new k(this));
+        k kVar = new k(this);
+        try {
+            f fVar = new f(i, i2, this.e);
+            fVar.a(this.i);
+            fVar.a(kVar);
+        } catch (OutOfMemoryError e) {
+            BdBaseApplication.getInst().onAppMemoryLow();
+            kVar.a();
+        }
     }
 
     private void u() {

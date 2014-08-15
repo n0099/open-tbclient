@@ -1,25 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ct implements View.OnClickListener {
-    final /* synthetic */ bt a;
+public class ct implements Animation.AnimationListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(bt btVar) {
-        this.a = btVar;
+    public ct(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.v.tag_del_post_id))) {
-                this.a.a(view);
-            } else {
-                this.a.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.a.F;
+        relativeLayout.setVisibility(4);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

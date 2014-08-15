@@ -1,13 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements CompoundButton.OnCheckedChangeListener {
+public class bj implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,36 +14,69 @@ public class bj implements CompoundButton.OnCheckedChangeListener {
         this.a = writeImageActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
-                linearLayout2.setVisibility(8);
-                textView2 = this.a.n;
-                textView2.setText(this.a.getString(com.baidu.tieba.y.beautify));
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean b;
+        boolean z3;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        boolean b2;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                intent.putExtra("delete", true);
+                this.a.setResult(-1, intent);
+            } else {
+                Intent intent2 = new Intent();
+                z2 = this.a.y;
+                if (z2) {
+                    bitmap = this.a.q;
+                    if (bitmap != null) {
+                        bitmap2 = this.a.q;
+                        if (!bitmap2.isRecycled()) {
+                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                            b = this.a.b(str);
+                            if (b) {
+                                intent2.putExtra("change", true);
+                                intent2.putExtra("file_name", str);
+                            } else {
+                                intent2.putExtra("change", false);
+                            }
+                        }
+                    }
+                    intent2.putExtra("change", false);
+                } else {
+                    intent2.setData(this.a.getIntent().getData());
+                    this.a.setResult(-1, intent2);
+                }
+                this.a.setResult(-1, intent2);
             }
-            radioButton2 = this.a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.a.l;
-                linearLayout.setVisibility(0);
-                textView = this.a.n;
-                textView.setText(this.a.getString(com.baidu.tieba.y.rotate));
+            this.a.finish();
+            return;
+        }
+        Intent intent3 = new Intent();
+        z3 = this.a.y;
+        if (z3) {
+            bitmap3 = this.a.q;
+            if (bitmap3 != null) {
+                bitmap4 = this.a.q;
+                if (!bitmap4.isRecycled()) {
+                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                    b2 = this.a.b(str2);
+                    if (b2) {
+                        intent3.putExtra("filename", str2);
+                    }
+                }
             }
         }
+        this.a.setResult(-1, intent3);
+        this.a.finish();
     }
 }

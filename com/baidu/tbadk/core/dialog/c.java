@@ -19,6 +19,5 @@ public class c implements View.OnClickListener {
         if (this.c != null) {
             this.c.onClick(this.b);
         }
-        this.a.c();
     }
 }

@@ -3,20 +3,19 @@ package com.baidu.adp.lib.cache;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a extends c<byte[]> {
     private String g;
 
-    public a(com.baidu.adp.base.i iVar, String str) {
-        super(iVar);
+    public a(com.baidu.adp.base.a.c cVar, String str) {
+        super(cVar);
         this.g = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public String a(String str) {
-        this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.a.a(this.a.a(), "CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
+        this.a.a("CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.a.a("CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
         return this.g;
     }
 
@@ -29,7 +28,7 @@ public class a extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v17, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
     protected m<byte[]> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
@@ -46,14 +45,14 @@ public class a extends c<byte[]> {
                     mVar.e = cursor.getLong(3);
                     mVar.f = cursor.getLong(4);
                     mVar.b = cursor.getBlob(5);
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                 } else {
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                 }
                 return mVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.f.a.a(cursor);
+                com.baidu.adp.lib.e.a.a(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -85,8 +84,7 @@ public class a extends c<byte[]> {
             this.a.a().delete(this.b, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.a.a(th);
-            BdLog.e(th);
+            this.a.a(th, "failed to clear from " + str);
             return false;
         }
     }

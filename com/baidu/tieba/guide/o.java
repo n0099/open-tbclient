@@ -2,7 +2,7 @@ package com.baidu.tieba.guide;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class o implements q {
+class o implements p {
     final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ class o implements q {
         this.a = nVar;
     }
 
-    @Override // com.baidu.tieba.guide.q
+    @Override // com.baidu.tieba.guide.p
     public void a() {
         m mVar;
         View view;

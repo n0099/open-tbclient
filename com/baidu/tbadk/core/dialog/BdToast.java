@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdToast {
@@ -42,15 +42,15 @@ public class BdToast {
     }
 
     static {
-        j.put(DefaultIcon.SUCCESS, Integer.valueOf(u.icon_unite_pass));
-        j.put(DefaultIcon.FAILURE, Integer.valueOf(u.icon_unite_lose));
+        j.put(DefaultIcon.SUCCESS, Integer.valueOf(t.icon_unite_pass));
+        j.put(DefaultIcon.FAILURE, Integer.valueOf(t.icon_unite_lose));
     }
 
     private BdToast(Context context) {
         this.a = context;
-        this.c = (ViewGroup) ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(w.dialog_bdtoast, (ViewGroup) null);
-        this.d = (ImageView) this.c.findViewById(v.toast_icon);
-        this.e = (TextView) this.c.findViewById(v.toast_message);
+        this.c = (ViewGroup) ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(v.dialog_bdtoast, (ViewGroup) null);
+        this.d = (ImageView) this.c.findViewById(u.toast_icon);
+        this.e = (TextView) this.c.findViewById(u.toast_message);
     }
 
     public BdToast a(CharSequence charSequence) {
@@ -74,12 +74,12 @@ public class BdToast {
         }
         b = new Toast(this.a);
         if (this.g != -1) {
-            bk.c(this.d, this.g);
+            ay.c(this.d, this.g);
             this.d.setVisibility(0);
         } else {
             this.d.setVisibility(8);
         }
-        bk.a(this.e, s.toast_text, 1);
+        ay.a(this.e, r.toast_text, 1);
         this.e.setText(this.f);
         b.setView(this.c);
         b.setGravity(this.h, 0, 0);

@@ -1,46 +1,57 @@
 package com.baidu.tieba.plugins;
 
-import android.content.ComponentName;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class e extends f {
-    final /* synthetic */ PluginDetailActivity a;
+class e implements DialogInterface.OnKeyListener {
+    final /* synthetic */ PluginDownloadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(PluginDetailActivity pluginDetailActivity, PluginDetailActivity pluginDetailActivity2) {
-        super(pluginDetailActivity, null, null);
-        this.a = pluginDetailActivity2;
+    public e(PluginDownloadActivity pluginDownloadActivity) {
+        this.a = pluginDownloadActivity;
     }
 
-    @Override // com.baidu.tieba.plugins.f, android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        PluginsConfig.PluginConfig pluginConfig;
-        DownloadData a;
-        Messenger messenger;
-        super.onServiceConnected(componentName, iBinder);
-        Message obtain = Message.obtain((Handler) null, 3);
-        Bundle bundle = new Bundle();
-        PluginDetailActivity pluginDetailActivity = this.a;
-        pluginConfig = this.a.k;
-        a = pluginDetailActivity.a(pluginConfig);
-        bundle.putSerializable("download_data", a);
-        if (obtain != null) {
-            obtain.setData(bundle);
-            try {
-                messenger = this.a.h;
-                messenger.send(obtain);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        boolean z;
+        g gVar;
+        g gVar2;
+        LinearLayout linearLayout;
+        g gVar3;
+        LinearLayout linearLayout2;
+        g gVar4;
+        LinearLayout linearLayout3;
+        g gVar5;
+        LinearLayout linearLayout4;
+        g gVar6;
+        LinearLayout linearLayout5;
+        z = this.a.d;
+        if (!z) {
+            gVar = this.a.a;
+            gVar.dismiss();
+            return true;
+        } else if (i == 4 && keyEvent.getAction() == 1) {
+            gVar2 = this.a.a;
+            linearLayout = gVar2.i;
+            if (linearLayout.getVisibility() == 0) {
+                gVar5 = this.a.a;
+                linearLayout4 = gVar5.i;
+                linearLayout4.setVisibility(8);
+                gVar6 = this.a.a;
+                linearLayout5 = gVar6.b;
+                linearLayout5.setVisibility(0);
+                return true;
             }
+            gVar3 = this.a.a;
+            linearLayout2 = gVar3.i;
+            linearLayout2.setVisibility(0);
+            gVar4 = this.a.a;
+            linearLayout3 = gVar4.b;
+            linearLayout3.setVisibility(8);
+            return true;
+        } else {
+            return false;
         }
     }
 }

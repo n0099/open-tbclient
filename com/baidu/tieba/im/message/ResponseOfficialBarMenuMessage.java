@@ -2,8 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.im.data.l;
-import com.baidu.tieba.im.data.m;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ForumMenu.ForumMenuResIdl;
@@ -12,13 +10,13 @@ import tbclient.ForumMenu.SubMenu;
 /* loaded from: classes.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";
-    private m officialBarMenuDatas;
+    private com.baidu.tieba.im.data.m officialBarMenuDatas;
 
     public ResponseOfficialBarMenuMessage() {
         super(303006);
     }
 
-    public m getOfficialBarMenuDatas() {
+    public com.baidu.tieba.im.data.m getOfficialBarMenuDatas() {
         return this.officialBarMenuDatas;
     }
 
@@ -33,14 +31,14 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         setError(forumMenuResIdl.error.errorno.intValue());
         setErrorString(forumMenuResIdl.error.usermsg);
         if (getError() == 0) {
-            this.officialBarMenuDatas = new m();
+            this.officialBarMenuDatas = new com.baidu.tieba.im.data.m();
             if (forumMenuResIdl.data != null) {
                 getOfficialBarMenuDatas().a(forumMenuResIdl.data.update_time.intValue());
                 getOfficialBarMenuDatas().a(forumMenuResIdl.data.has_menu.intValue());
                 getOfficialBarMenuDatas().a(new ArrayList());
                 int size = forumMenuResIdl.data.parent_menu.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    l lVar = new l();
+                    com.baidu.tieba.im.data.l lVar = new com.baidu.tieba.im.data.l();
                     Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
                     lVar.c(menu.action_type.intValue());
                     lVar.d(menu.content);
@@ -54,7 +52,7 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                         int size2 = menu.sub_menu.size();
                         for (int i3 = 0; i3 < size2; i3++) {
                             SubMenu subMenu = menu.sub_menu.get(i3);
-                            l lVar2 = new l();
+                            com.baidu.tieba.im.data.l lVar2 = new com.baidu.tieba.im.data.l();
                             lVar2.c(subMenu.action_type.intValue());
                             lVar2.d(subMenu.content);
                             lVar2.b(new StringBuilder().append(subMenu.forum_id).toString());
@@ -75,10 +73,10 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        m officialBarMenuDatas;
+        com.baidu.tieba.im.data.m officialBarMenuDatas;
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.a() && officialBarMenuDatas.c() != null && officialBarMenuDatas.c().size() > 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().f(), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
         }
     }
 }

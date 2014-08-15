@@ -16,14 +16,14 @@ public class e implements com.baidu.tieba.im.a<Integer> {
         int i2;
         int i3;
         com.baidu.tieba.im.a aVar;
-        this.a.j = num.intValue();
-        i = this.a.j;
+        this.a.h = num.intValue();
+        i = this.a.h;
         if (i > 0) {
-            this.a.m = true;
-            i2 = this.a.k;
-            i3 = this.a.l;
+            this.a.k = true;
+            i2 = this.a.i;
+            i3 = this.a.j;
             aVar = this.a.c;
-            n.a(i2, i3, aVar);
+            l.a(i2, i3, aVar);
         }
     }
 }

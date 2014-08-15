@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.voice;
 
+import com.baidu.adp.lib.stats.f;
 import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 class a extends h {
@@ -14,7 +15,7 @@ class a extends h {
             Amrnb.bLoadLibrary = true;
         } catch (Throwable th) {
             Amrnb.bLoadLibrary = false;
-            com.baidu.adp.lib.stats.d.b().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+            f.c().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
         }
     }
 }

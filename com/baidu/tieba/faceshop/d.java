@@ -2,9 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import android.database.Cursor;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.util.DatabaseManager;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,23 +30,24 @@ public class d {
         if (myEmotionGroupData == null) {
             return false;
         }
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
         try {
-            DatabaseManager.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+            b.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
         } catch (Throwable th) {
-            BdLog.detailException(th);
-            DatabaseManager.a(th, "EmotionsDBManager.deleteMyEmotion");
+            b.a(th, "EmotionsDBManager.deleteMyEmotion");
             return false;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [99=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
     public MyEmotionGroupData a(String str, String str2) {
         Cursor cursor;
         MyEmotionGroupData myEmotionGroupData = null;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
             try {
-                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+                cursor = b.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
                 try {
                     if (cursor.moveToNext()) {
                         myEmotionGroupData = a(cursor);
@@ -56,8 +55,7 @@ public class d {
                 } catch (Throwable th) {
                     th = th;
                     try {
-                        BdLog.detailException(th);
-                        DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
+                        b.a(th, "EmotionsDBManager.getMyEmotion");
                         return myEmotionGroupData;
                     } finally {
                         com.baidu.adp.lib.util.m.a(cursor);
@@ -74,16 +72,16 @@ public class d {
     public List<MyEmotionGroupData> a(String str) {
         LinkedList linkedList = new LinkedList();
         if (!TextUtils.isEmpty(str)) {
+            com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
             Cursor cursor = null;
             try {
-                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                cursor = b.a().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
                 while (cursor.moveToNext()) {
                     linkedList.add(a(cursor));
                 }
             } catch (Throwable th) {
                 try {
-                    BdLog.detailException(th);
-                    DatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
+                    b.a(th, "EmotionsDBManager.listMyEmotions");
                 } finally {
                     com.baidu.adp.lib.util.m.a(cursor);
                 }

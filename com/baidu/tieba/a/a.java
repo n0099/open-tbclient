@@ -10,7 +10,7 @@ public class a extends com.baidu.tbadk.core.e {
         a("topic", "0");
         a("recommend", "0");
         a(c);
-        return this.a.i();
+        return this.a.h();
     }
 
     public long h() {

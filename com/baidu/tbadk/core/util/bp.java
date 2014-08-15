@@ -1,17 +1,84 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.Date;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp {
-    public static Date a() {
-        return new Date(System.currentTimeMillis());
+public class bp implements bq {
+    private final /* synthetic */ int a;
+    private final /* synthetic */ boolean b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bp(int i, boolean z) {
+        this.a = i;
+        this.b = z;
     }
 
-    public static long a(Date date, Date date2) {
-        return (date.getTime() - date2.getTime()) / 3600000;
-    }
-
-    public static boolean b(Date date, Date date2) {
-        return date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay();
+    @Override // com.baidu.tbadk.core.util.bq
+    public boolean a(View view) {
+        int b;
+        int b2;
+        int b3;
+        int b4;
+        Object tag = view.getTag();
+        if (tag != null) {
+            if ("skin_text_group".equals(tag)) {
+                bo.b((TextView) view, this.a);
+                return false;
+            } else if ("skin_text_content".equals(tag)) {
+                bo.b((TextView) view, this.a);
+                return false;
+            } else if ("skin_text_num".equals(tag)) {
+                bo.a((TextView) view, this.a);
+                return false;
+            } else if ("skin_check_box".equals(tag)) {
+                bo.a((CheckBox) view, this.a);
+                return false;
+            } else if ("skin_sidebar_content".equals(tag)) {
+                ((TextView) view).setTextAppearance(TbadkApplication.m252getInst().getApp(), this.b ? com.baidu.tieba.y.sidebar_content_1 : com.baidu.tieba.y.sidebar_content);
+                return false;
+            } else if ("skin_more_up".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    b4 = bo.b(this.b);
+                    ((RadioButton) view).setTextColor(b4);
+                }
+                ay.e(view, this.b ? com.baidu.tieba.t.more_up_1 : com.baidu.tieba.t.more_up);
+                return false;
+            } else if ("skin_more_middle".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    b3 = bo.b(this.b);
+                    ((RadioButton) view).setTextColor(b3);
+                }
+                ay.e(view, this.b ? com.baidu.tieba.t.more_middle_1 : com.baidu.tieba.t.more_middle);
+                return false;
+            } else if ("skin_more_down".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    b2 = bo.b(this.b);
+                    ((RadioButton) view).setTextColor(b2);
+                }
+                ay.e(view, this.b ? com.baidu.tieba.t.more_down_1 : com.baidu.tieba.t.more_down);
+                return false;
+            } else if ("skin_more_all".equals(tag)) {
+                if (view instanceof RadioButton) {
+                    b = bo.b(this.b);
+                    ((RadioButton) view).setTextColor(b);
+                }
+                ay.e(view, this.b ? com.baidu.tieba.t.more_all_1 : com.baidu.tieba.t.more_all);
+                return false;
+            } else if ("skin_arrow".equals(tag)) {
+                ((ImageView) view).setImageResource(this.b ? com.baidu.tieba.t.icon_ba_top_arrow_big_1 : com.baidu.tieba.t.icon_ba_top_arrow_big);
+                return false;
+            } else if ("skin_list_line".equals(tag)) {
+                bo.a(view, this.a);
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

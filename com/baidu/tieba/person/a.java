@@ -29,18 +29,18 @@ public class a extends HttpMessageListener {
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
                 int s = this.a.s();
-                iArr = BasePersonInfoActivity.m;
-                i = this.a.f;
+                iArr = BasePersonInfoActivity.n;
+                i = this.a.g;
                 com.baidu.tbadk.core.account.o.a(s, iArr[i]);
-                imageView = this.a.p;
-                iArr2 = BasePersonInfoActivity.k;
-                i2 = this.a.f;
-                com.baidu.tbadk.core.util.bk.c(imageView, iArr2[i2]);
+                imageView = this.a.q;
+                iArr2 = BasePersonInfoActivity.l;
+                i2 = this.a.g;
+                com.baidu.tbadk.core.util.ay.c(imageView, iArr2[i2]);
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                iArr3 = BasePersonInfoActivity.l;
-                i3 = this.a.f;
-                basePersonInfoActivity.a(basePersonInfoActivity2.getString(iArr3[i3]), com.baidu.tieba.u.icon_toast_info);
+                iArr3 = BasePersonInfoActivity.m;
+                i3 = this.a.g;
+                basePersonInfoActivity.a(basePersonInfoActivity2.getString(iArr3[i3]), com.baidu.tieba.t.icon_toast_info);
                 return;
             }
             this.a.a(httpResponsedMessage.getErrorString());

@@ -25,7 +25,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class b {
@@ -33,7 +32,7 @@ public class b {
     public static String b = "";
     public static String c = "";
     public static String d = "";
-    private static String e = IOUtils.LINE_SEPARATOR_WINDOWS;
+    private static String e = "\r\n";
     private static String f = "--";
     private static String g = "--------7da3d81520810*";
 

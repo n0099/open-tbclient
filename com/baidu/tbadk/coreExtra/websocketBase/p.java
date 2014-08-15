@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -74,7 +73,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.e.b.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
@@ -130,12 +129,12 @@ public class p {
     private int d() {
         switch (c()[UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()).ordinal()]) {
             case 2:
-                return KirinConfig.CONNECT_TIME_OUT;
+                return 3000;
             case 3:
                 return TbConfig.BIG_IMAGE_MIN_CAPACITY;
             case 4:
             default:
-                return KirinConfig.READ_TIME_OUT;
+                return 5000;
         }
     }
 }

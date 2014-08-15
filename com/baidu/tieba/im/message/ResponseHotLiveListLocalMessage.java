@@ -11,7 +11,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
     private com.baidu.tieba.im.data.d hotLiveListData;
 
     public ResponseHotLiveListLocalMessage() {
-        super(2001205);
+        super(2001214);
     }
 
     public com.baidu.tieba.im.data.d getHotLiveListData() {

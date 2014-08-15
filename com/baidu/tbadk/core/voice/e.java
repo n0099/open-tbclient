@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.voice;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements Runnable {
+public class e implements Runnable {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -22,7 +22,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
+            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.x.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
@@ -67,12 +67,15 @@ public class WebBdActivity extends BaseActivity implements Observer {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        if (com.baidu.tbadk.tbplugin.m.a() == null) {
+        if (com.baidu.tbadk.pluginArch.d.a() == null) {
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
             return;
         }
-        this.c = (BdBrowserDelegate) com.baidu.tbadk.tbplugin.m.a().b(BdBrowserDelegate.class);
+        com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("browser");
+        if (a != null) {
+            this.c = (BdBrowserDelegate) a.a(BdBrowserDelegate.class);
+        }
         if (this.c == null) {
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
@@ -80,7 +83,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
         }
         try {
             this.c.setActivity(this);
-            this.c.setCallback(new r(this));
+            this.c.setCallback(new v(this));
             this.c.onCreate(bundle);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

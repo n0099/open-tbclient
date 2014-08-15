@@ -1,48 +1,144 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
+import java.util.LinkedList;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends HttpMessageListener {
-    final /* synthetic */ c a;
+public class d implements av {
+    private int a;
+    private String b;
+    private String c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+    private int h;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private boolean l;
+    private int m;
+    private String n;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(c cVar, int i) {
-        super(i);
-        this.a = cVar;
+    public int b() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        e eVar;
-        e eVar2;
-        e eVar3;
-        a aVar;
-        e eVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
-            int error = httpResponsedMessage.getError();
-            if (!httpResponsedMessage.isSuccess()) {
-                String errorString = httpResponsedMessage.getErrorString();
-                eVar4 = this.a.b;
-                eVar4.a(errorString);
-            } else if (error == 0) {
-                this.a.a = ((GetForumResponsed) httpResponsedMessage).listData;
-                eVar2 = this.a.b;
-                if (eVar2 != null) {
-                    eVar3 = this.a.b;
-                    aVar = this.a.a;
-                    eVar3.a(aVar);
-                }
-            } else {
-                String errorString2 = httpResponsedMessage.getErrorString();
-                eVar = this.a.b;
-                eVar.a(errorString2);
+    public String c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public int e() {
+        return this.d;
+    }
+
+    public int f() {
+        return this.e;
+    }
+
+    public int g() {
+        return this.f;
+    }
+
+    public int h() {
+        return this.g;
+    }
+
+    public int i() {
+        return this.h;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public boolean j() {
+        return this.i;
+    }
+
+    public void a(boolean z) {
+        this.i = z;
+        this.d = 1;
+    }
+
+    public boolean k() {
+        return this.k;
+    }
+
+    public void b(boolean z) {
+        this.k = z;
+        this.d = 0;
+    }
+
+    public boolean l() {
+        return this.l;
+    }
+
+    public void c(boolean z) {
+        this.l = z;
+    }
+
+    public int m() {
+        return this.m;
+    }
+
+    public void d(int i) {
+        this.m = i;
+    }
+
+    public String n() {
+        return this.n;
+    }
+
+    public void a(String str) {
+        this.n = str;
+    }
+
+    public boolean o() {
+        return this.j;
+    }
+
+    public void d(boolean z) {
+        this.j = z;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+            this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+            this.c = jSONObject.optString("avatar");
+            this.d = jSONObject.optInt("is_sign_in");
+            this.e = jSONObject.optInt("cont_sign_num");
+            this.f = jSONObject.optInt("user_level");
+            this.g = jSONObject.optInt("user_exp");
+            this.h = jSONObject.optInt("need_exp");
+            if (this.d != 0) {
+                this.i = true;
+                this.k = false;
             }
-            this.a.c = null;
         }
+    }
+
+    @Override // com.baidu.tbadk.core.util.av
+    public LinkedList<au> getImages() {
+        LinkedList<au> linkedList = new LinkedList<>();
+        au auVar = new au();
+        auVar.a = this.c;
+        auVar.d = 10;
+        linkedList.add(auVar);
+        return linkedList;
     }
 }

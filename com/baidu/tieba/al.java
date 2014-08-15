@@ -1,33 +1,16 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements com.baidu.adp.lib.c.d {
-    final /* synthetic */ ai a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar) {
-        this.a = aiVar;
-    }
-
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    TbadkApplication.m252getInst().setLocationLat(valueOf);
-                    TbadkApplication.m252getInst().setLocationLng(valueOf2);
-                    TbadkApplication.m252getInst().setLocationPos(address.getAddressLine(0));
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
+public class al implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.ah> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.ah> run(CustomMessage<com.baidu.tbadk.core.atomData.ah> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            ai.c().f();
         }
+        return null;
     }
 }

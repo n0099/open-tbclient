@@ -55,23 +55,23 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.motu_albums_list_activity);
+        setContentView(com.baidu.tieba.v.motu_albums_list_activity);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int i = displayMetrics.widthPixels;
-        this.o = (TextView) findViewById(com.baidu.tieba.v.jigsaw_selected_text);
-        this.e = (int) getResources().getDimension(com.baidu.tieba.t.onedip);
+        this.o = (TextView) findViewById(com.baidu.tieba.u.jigsaw_selected_text);
+        this.e = (int) getResources().getDimension(com.baidu.tieba.s.onedip);
         this.d = (i - (this.e * 16)) / 3;
         this.a = u.a();
         this.b = new r(this, this);
-        this.i = (GridView) findViewById(com.baidu.tieba.v.jigsaw_grid);
+        this.i = (GridView) findViewById(com.baidu.tieba.u.jigsaw_grid);
         this.i.setAdapter((ListAdapter) this.b);
         this.i.setOnScrollListener(this);
-        this.l = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.l = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
-        ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_textbtn, new o(this))).setText(com.baidu.tieba.y.jigsaw_start);
-        this.m = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
-        this.n = (HorizontalScrollView) findViewById(com.baidu.tieba.v.hsv);
+        ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_textbtn, new o(this))).setText(com.baidu.tieba.x.jigsaw_start);
+        this.m = (LinearLayout) findViewById(com.baidu.tieba.u.selected_ll);
+        this.n = (HorizontalScrollView) findViewById(com.baidu.tieba.u.hsv);
         this.l.a(this.a.d());
     }
 
@@ -103,7 +103,7 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
         this.m.removeAllViews();
         for (Uri uri : this.a.c(this)) {
             x xVar = new x(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedHeight));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
             xVar.setLayoutParams(layoutParams);
             if (xVar.a(uri)) {
@@ -162,7 +162,7 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
         if (this.h.size() != 0) {
             for (int i = j; i < j + b; i++) {
                 if (this.h.containsKey(Integer.valueOf(i))) {
-                    this.h.get((Object) Integer.valueOf(i)).setImageBitmap(null);
+                    this.h.get((Object) Integer.valueOf(i)).setImageDrawable(null);
                     this.h.get((Object) Integer.valueOf(i)).setTag("");
                 }
             }
@@ -180,7 +180,7 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
             }
             return;
         }
-        y.a(com.baidu.tieba.y.jigsaw_2_least);
+        y.a(com.baidu.tieba.x.jigsaw_2_least);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

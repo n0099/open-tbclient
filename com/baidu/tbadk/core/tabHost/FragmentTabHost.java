@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -44,14 +44,14 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     private void a(Context context) {
         this.a = context;
         this.b = (LayoutInflater) this.a.getSystemService("layout_inflater");
-        this.b.inflate(w.fragment_tabhost, (ViewGroup) this, true);
+        this.b.inflate(v.fragment_tabhost, (ViewGroup) this, true);
         this.d = -1;
         this.e = null;
     }
 
     public void setup(FragmentManager fragmentManager) {
         this.f = fragmentManager;
-        this.c = (FragmentTabWidget) findViewById(v.tabcontainer);
+        this.c = (FragmentTabWidget) findViewById(u.tabcontainer);
         this.c.setTabSelectionListener(this);
     }
 
@@ -84,7 +84,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
             removeView(this.i);
         }
         this.i = new ViewPager(this.a);
-        this.i.setId(v.tab_content);
+        this.i.setId(u.tab_content);
         this.i.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 1.0f));
         addView(this.i);
         this.i.setOffscreenPageLimit(this.g.size() - 1);

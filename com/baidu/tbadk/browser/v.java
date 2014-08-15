@@ -1,19 +1,17 @@
 package com.baidu.tbadk.browser;
 
-import android.view.View;
+import com.baidu.tbadk.plugins.BdBrowserDelegate;
 /* loaded from: classes.dex */
-class v implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity a;
+class v implements BdBrowserDelegate.Callback {
+    final /* synthetic */ WebBdActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(WebTbActivity webTbActivity) {
-        this.a = webTbActivity;
+    public v(WebBdActivity webBdActivity) {
+        this.a = webBdActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.a.a.canGoForward()) {
-            this.a.a.goForward();
-        }
+    @Override // com.baidu.tbadk.plugins.BdBrowserDelegate.Callback
+    public boolean shouldOverrideUrlLoading(String str) {
+        return com.baidu.tbadk.c.f.a(this.a, str);
     }
 }

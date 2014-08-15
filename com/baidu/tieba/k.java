@@ -14,10 +14,10 @@ class k implements d {
     @Override // com.baidu.tieba.d
     public void a(Object obj) {
         if (obj != null) {
-            this.a.b(com.baidu.adp.lib.f.b.a(String.valueOf(obj), 0));
+            this.a.b(com.baidu.adp.lib.e.b.a(String.valueOf(obj), 0));
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.au(this.a, com.baidu.tbadk.core.atomData.au.c)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.az(this.a, com.baidu.tbadk.core.atomData.az.c)));
         this.a.finish();
     }
 }

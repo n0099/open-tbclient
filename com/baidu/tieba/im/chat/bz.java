@@ -1,23 +1,35 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-class bz implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+public class bz extends com.baidu.adp.base.d<ChatMessage> {
+    private TextView b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(MsgActivityView msgActivityView, String str, String str2) {
-        this.a = msgActivityView;
-        this.b = str;
-        this.c = str2;
+    public bz(Context context) {
+        super(context, com.baidu.tieba.v.msg_msgmid_view);
+        this.b = null;
+        b();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(this.a.getContext(), this.b, this.c)));
+    private void b() {
+        this.b = (TextView) a(com.baidu.tieba.u.tex_msgcontent);
+        this.b.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void a(ChatMessage chatMessage) {
+        if (chatMessage == null) {
+            this.b.setText("");
+            return;
+        }
+        String i = com.baidu.tieba.im.d.j.i(chatMessage);
+        if (!TextUtils.isEmpty(i)) {
+            this.b.setText(i);
+        } else {
+            this.b.setText("");
+        }
     }
 }

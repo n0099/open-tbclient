@@ -1,75 +1,103 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.base.e {
-    private com.baidu.tieba.data.o b;
-    private o a = null;
-    private boolean c = true;
-    private p d = null;
-    private long e = 0;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
+public class m extends BdAsyncTask<j, Integer, Boolean> {
+    final /* synthetic */ j a;
+    private com.baidu.tbadk.core.util.ae b;
+    private com.baidu.tieba.data.ax c;
 
-    public m() {
+    private m(j jVar) {
+        this.a = jVar;
         this.b = null;
-        this.b = new com.baidu.tieba.data.o();
+        this.c = null;
     }
 
-    public long a() {
-        return this.h;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ m(j jVar, m mVar) {
+        this(jVar);
     }
 
-    public long b() {
-        return this.f;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        this.c = new com.baidu.tieba.data.ax();
     }
 
-    public long c() {
-        return this.g;
-    }
-
-    public long d() {
-        return this.e;
-    }
-
-    public com.baidu.tieba.data.o e() {
-        return this.b;
-    }
-
-    public void a(p pVar) {
-        this.d = pVar;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(j... jVarArr) {
+        j jVar = new j();
+        try {
+            jVar.i();
+            this.b = new com.baidu.tbadk.core.util.ae();
+            this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
+            int k = this.a.k();
+            if (jVar.g() - 1 <= k) {
+                k = jVar.g() - 1;
+            }
+            while (k >= 0) {
+                String a = jVar.a(k, 20);
+                this.b.a(new ArrayList<>());
+                this.b.a("data", a);
+                this.c.a(this.b.h());
+                if (!this.b.a().b().b() || this.c.a() != 0) {
+                    break;
+                }
+                k -= 20;
+            }
+            this.a.c(k);
+            if (k >= 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
             return false;
         }
-        return false;
     }
 
-    public boolean a(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.f();
         }
-        this.a = new o(this, 1);
-        this.a.execute(new Object[0]);
-        return true;
+        this.a.c = null;
+        if (this.a.a != null) {
+            this.a.a.callback(1, false, null, false);
+        }
     }
 
-    public boolean b(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        String str;
+        boolean z;
+        ArrayList arrayList;
+        this.a.c = null;
+        if (bool.booleanValue()) {
+            arrayList = this.a.e;
+            arrayList.clear();
+            str = null;
+            z = false;
+        } else if (this.b.a().b().b()) {
+            str = this.c.b();
+            z = false;
+        } else {
+            str = null;
+            z = true;
         }
-        this.a = new o(this, 0);
-        this.a.execute(new Object[0]);
-        return true;
+        if (this.a.a != null) {
+            this.a.a.callback(1, bool, str, Boolean.valueOf(z));
+        }
     }
 }

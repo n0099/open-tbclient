@@ -2,7 +2,7 @@ package com.baidu.tieba.topRec;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
@@ -21,7 +21,7 @@ public class j implements Runnable {
         bdListView = this.a.c;
         if (bdListView.getChildCount() >= 3) {
             bdListView2 = this.a.c;
-            View findViewById = bdListView2.getChildAt(2).findViewById(v.like);
+            View findViewById = bdListView2.getChildAt(2).findViewById(u.like);
             if (findViewById != null) {
                 nVar = this.a.q;
                 nVar.a(findViewById);

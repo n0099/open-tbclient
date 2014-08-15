@@ -17,8 +17,8 @@ public class e implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.a.C;
-        str = this.a.E;
+        activity = this.a.E;
+        str = this.a.G;
         ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

@@ -6,15 +6,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.z;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<z, Integer, String> {
     final /* synthetic */ e a;
-    private aq b = null;
+    private ae b = null;
     private z c;
 
     public k(e eVar, z zVar) {
@@ -32,11 +32,11 @@ public class k extends BdAsyncTask<z, Integer, String> {
         if (zVar != null) {
             try {
                 if (zVar.a() != null && zVar.b() != null) {
-                    this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
+                    this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
                     this.b.a("fid", zVar.a());
                     this.b.a("kw", zVar.b());
                     this.b.a().a().a = true;
-                    this.b.i();
+                    this.b.h();
                     return null;
                 }
                 return null;
@@ -61,15 +61,15 @@ public class k extends BdAsyncTask<z, Integer, String> {
         if (this.b != null) {
             if (this.b.a().b().b()) {
                 baseFragmentActivity2 = this.a.h;
-                baseFragmentActivity2.a(this.a.getString(y.success));
+                baseFragmentActivity2.a(this.a.getString(x.success));
                 ai.c().e(true);
                 pVar = this.a.b;
-                pVar.b();
+                pVar.a();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.c.a()));
                 return;
             }
             baseFragmentActivity = this.a.h;
-            baseFragmentActivity.a(this.b.f());
+            baseFragmentActivity.a(this.b.e());
         }
     }
 
@@ -81,7 +81,7 @@ public class k extends BdAsyncTask<z, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
             this.b = null;
         }
         this.a.c = null;

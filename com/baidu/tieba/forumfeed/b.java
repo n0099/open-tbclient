@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumfeed;
 
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.model.s;
+import com.baidu.tieba.model.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.h {
@@ -26,7 +26,7 @@ public class b extends com.baidu.adp.base.h {
             }
             this.a.i = false;
         }
-        if (!(obj instanceof s)) {
+        if (!(obj instanceof t)) {
             if (obj != null) {
                 this.a.b(obj);
                 return;

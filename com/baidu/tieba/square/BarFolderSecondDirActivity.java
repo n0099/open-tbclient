@@ -19,7 +19,7 @@ public class BarFolderSecondDirActivity extends AutoSkinActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
+        setContentView(com.baidu.tieba.v.bar_folder_dir_activity);
         this.k = getIntent().getStringExtra("menuName");
         this.l = getIntent().getStringExtra("menuType");
         this.m = getIntent().getStringExtra("menuId");
@@ -33,7 +33,7 @@ public class BarFolderSecondDirActivity extends AutoSkinActivity {
         this.i = new l(this, new o(), this.k, this.m);
         this.e.setAdapter((ListAdapter) this.i);
         this.d.setText(this.k);
-        this.h = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.h = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

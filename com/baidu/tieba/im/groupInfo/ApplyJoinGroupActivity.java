@@ -14,7 +14,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class ApplyJoinGroupActivity extends BaseActivity {
@@ -35,7 +35,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
     String o;
     int p;
     private NavigationBar q = null;
-    private com.baidu.adp.framework.listener.b r = new a(this, 103110);
+    private com.baidu.adp.framework.listener.d r = new a(this, 103110);
 
     static {
         d();
@@ -66,13 +66,13 @@ public class ApplyJoinGroupActivity extends BaseActivity {
             this.d.setText("");
             return;
         }
-        String string = getString(com.baidu.tieba.y.group_join_limit_str1);
+        String string = getString(com.baidu.tieba.x.group_join_limit_str1);
         String valueOf = String.valueOf(this.l);
-        String string2 = getString(com.baidu.tieba.y.group_join_limit_str3);
+        String string2 = getString(com.baidu.tieba.x.group_join_limit_str3);
         String valueOf2 = String.valueOf(this.m);
-        String string3 = getString(com.baidu.tieba.y.group_join_limit_str5);
-        int i = g() ? com.baidu.tieba.s.edit_exceed_1 : com.baidu.tieba.s.edit_exceed;
-        int i2 = g() ? com.baidu.tieba.s.edit_normal_1 : com.baidu.tieba.s.edit_normal;
+        String string3 = getString(com.baidu.tieba.x.group_join_limit_str5);
+        int i = g() ? com.baidu.tieba.r.edit_exceed_1 : com.baidu.tieba.r.edit_exceed;
+        int i2 = g() ? com.baidu.tieba.r.edit_normal_1 : com.baidu.tieba.r.edit_normal;
         SpannableString a = a(valueOf, getResources().getColor(i));
         SpannableString a2 = a(valueOf2, getResources().getColor(i));
         this.d.setTextColor(getResources().getColor(i2));
@@ -120,27 +120,28 @@ public class ApplyJoinGroupActivity extends BaseActivity {
     }
 
     void a() {
-        this.a = View.inflate(this, com.baidu.tieba.w.group_apply_activity, null);
+        this.a = View.inflate(this, com.baidu.tieba.v.group_apply_activity, null);
         setContentView(this.a);
-        this.q = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.q.a(com.baidu.tieba.y.group_apply_join);
+        this.q = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.q.a(com.baidu.tieba.x.group_apply_join);
         this.e = this.q.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = this.q.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.group_apply_send));
+        this.f = this.q.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.x.group_apply_send));
         this.e.setOnClickListener(this.i);
-        this.b = (EditText) this.a.findViewById(com.baidu.tieba.v.et_content);
+        this.b = (EditText) this.a.findViewById(com.baidu.tieba.u.et_content);
         this.b.setText(this.o);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.v.tv_word_count);
+        this.b.setSelection(this.o.length());
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.u.tv_word_count);
         int length = 30 - this.o.length();
         if (length < 0) {
             length = 0;
         }
         this.c.setText(String.valueOf(length) + "/30");
-        this.d = (TextView) this.a.findViewById(com.baidu.tieba.v.tv_add_limit);
+        this.d = (TextView) this.a.findViewById(com.baidu.tieba.u.tv_add_limit);
         this.d.setVisibility(8);
         this.f.setOnClickListener(this.i);
-        this.g = (Button) this.a.findViewById(com.baidu.tieba.v.btn_agree);
+        this.g = (Button) this.a.findViewById(com.baidu.tieba.u.btn_agree);
         this.g.setOnClickListener(this.i);
-        this.h = (Button) this.a.findViewById(com.baidu.tieba.v.btn_disagree);
+        this.h = (Button) this.a.findViewById(com.baidu.tieba.u.btn_disagree);
         this.h.setOnClickListener(this.i);
         this.g.setVisibility(8);
         this.h.setVisibility(8);
@@ -155,7 +156,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
         this.q.c(i);
-        bk.f(this.f, 0);
+        ay.f(this.f, 0);
     }
 
     private boolean g() {

@@ -1,30 +1,60 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Scroller;
 /* loaded from: classes.dex */
-public class ai implements Runnable {
-    final /* synthetic */ ag a;
+public class ai {
+    private View a;
+    private Scroller b;
+    private int c;
+    private int d;
+    private int e;
+    private boolean f;
+    private Runnable g = new aj(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar) {
-        this.a = agVar;
+    public ai(View view, int i) {
+        this.a = view;
+        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
+        this.c = view.getPaddingTop();
+        this.d = -view.getMeasuredHeight();
+        this.e = i;
+        if (view.getVisibility() != 0) {
+            this.f = false;
+        } else {
+            this.f = true;
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        SystemHelpSettingActivity systemHelpSettingActivity;
-        at atVar;
-        SystemHelpSettingActivity systemHelpSettingActivity2;
-        at atVar2;
-        if (TbadkApplication.m252getInst().getLocationShared()) {
-            systemHelpSettingActivity2 = this.a.a;
-            atVar2 = systemHelpSettingActivity2.a;
-            atVar2.a().a();
-            return;
+    public void a() {
+        if (!this.f) {
+            this.f = true;
+            int paddingLeft = this.a.getPaddingLeft();
+            int paddingTop = this.a.getPaddingTop() == this.c ? -this.a.getMeasuredHeight() : this.a.getPaddingTop();
+            int paddingRight = this.a.getPaddingRight();
+            int paddingBottom = this.a.getPaddingBottom();
+            this.a.setVisibility(0);
+            this.a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
+            }
+            int paddingTop2 = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
+            this.a.post(this.g);
         }
-        systemHelpSettingActivity = this.a.a;
-        atVar = systemHelpSettingActivity.a;
-        atVar.a().b();
+    }
+
+    public void b() {
+        if (this.f) {
+            this.f = false;
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
+            }
+            int paddingTop = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
+            this.a.post(this.g);
+        }
     }
 }

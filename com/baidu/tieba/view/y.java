@@ -1,22 +1,15 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+public class y extends com.baidu.tbadk.core.view.u {
+    public y(Context context) {
+        super(context);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.g(activity, 16003)));
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
+    public View a() {
+        return a(h().getString(com.baidu.tieba.x.pull_view_pull_more), h().getString(com.baidu.tieba.x.pull_view_release_more), null);
     }
 }

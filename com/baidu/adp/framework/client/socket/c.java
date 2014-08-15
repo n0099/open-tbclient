@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.client.socket;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,7 +44,7 @@ public class c {
         Iterator<g> it = linkedList.iterator();
         while (it.hasNext()) {
             g next = it.next();
-            if (next != null && !next.n()) {
+            if (next != null && !next.o()) {
                 it.remove();
                 return next;
             }
@@ -99,9 +100,9 @@ public class c {
         Iterator<g> it = linkedList.iterator();
         while (it.hasNext()) {
             g next = it.next();
-            if (next != null && next.n()) {
-                next.p();
-                if (next.o() >= next.a()) {
+            if (next != null && next.o()) {
+                next.q();
+                if (next.p() >= next.a()) {
                     return true;
                 }
             }
@@ -128,7 +129,7 @@ public class c {
         Iterator<g> it = linkedList.iterator();
         while (it.hasNext()) {
             g next = it.next();
-            if (next != null && next.m() == i) {
+            if (next != null && next.n() == i) {
                 it.remove();
                 next.c();
                 return next;
@@ -175,13 +176,13 @@ public class c {
         return false;
     }
 
-    public static void a(LinkedList<g> linkedList, int i, int i2) {
+    public static void a(LinkedList<g> linkedList, int i, BdUniqueId bdUniqueId) {
         SocketMessage j;
         if (linkedList != null) {
             Iterator<g> it = linkedList.iterator();
             while (it.hasNext()) {
                 g next = it.next();
-                if (next != null && (j = next.j()) != null && ((i != 0 && j.getTag() == i2 && i == j.getCmd()) || (i == 0 && i2 != 0 && j.getTag() == i2))) {
+                if (next != null && (j = next.j()) != null && ((i != 0 && j.getTag() == bdUniqueId && i == j.getCmd()) || (i == 0 && bdUniqueId != null && j.getTag() == bdUniqueId))) {
                     it.remove();
                     next.c();
                 }

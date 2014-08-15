@@ -1,9 +1,8 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements View.OnClickListener {
+class bx implements View.OnClickListener {
     final /* synthetic */ WriteMultiImgsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +12,7 @@ public class bx implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.e();
+        this.a.setResult(0);
+        this.a.finish();
     }
 }

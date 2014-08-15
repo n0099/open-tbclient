@@ -74,25 +74,25 @@ public class JigsawAlbumActivity extends BaseActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(com.baidu.tieba.w.motu_albums_activity);
+            setContentView(com.baidu.tieba.v.motu_albums_activity);
         } catch (Exception e) {
             e.printStackTrace();
             finish();
-            y.a(com.baidu.tieba.y.oom_retry);
+            y.a(com.baidu.tieba.x.oom_retry);
         }
-        this.a = (TextView) findViewById(com.baidu.tieba.v.jigsaw_selected_text);
+        this.a = (TextView) findViewById(com.baidu.tieba.u.jigsaw_selected_text);
         this.k = u.a();
         this.k.b(this);
-        this.j = (ListView) findViewById(com.baidu.tieba.v.albums_list);
-        this.m = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.m.a(getString(com.baidu.tieba.y.jigsaw_photo_storage));
+        this.j = (ListView) findViewById(com.baidu.tieba.u.albums_list);
+        this.m = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.m.a(getString(com.baidu.tieba.x.jigsaw_photo_storage));
         this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
-        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_textbtn, new g(this))).setText(com.baidu.tieba.y.jigsaw_start);
+        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_textbtn, new g(this))).setText(com.baidu.tieba.x.jigsaw_start);
         this.i = new j(this, this);
         this.u.sendMessage(this.u.obtainMessage(1));
         this.j.setAdapter((ListAdapter) this.i);
         this.j.setOnItemClickListener(new h(this));
-        this.v = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
+        this.v = (LinearLayout) findViewById(com.baidu.tieba.u.selected_ll);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -116,7 +116,7 @@ public class JigsawAlbumActivity extends BaseActivity {
         this.v.removeAllViews();
         for (Uri uri : this.k.c(this)) {
             x xVar = new x(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedHeight));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
             xVar.setLayoutParams(layoutParams);
             if (xVar.a(uri)) {

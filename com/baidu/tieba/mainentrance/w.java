@@ -1,27 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
+public class w implements AbsListView.OnScrollListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
+    public w(SquareSearchActivity squareSearchActivity) {
         this.a = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
-            return;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            com.baidu.adp.lib.util.j.a(this.a, absListView);
         }
-        this.a.a(false, (ArrayList<String>) data);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private o a;
+    private s a;
 
-    public void setTagData(p pVar) {
-        setTag(pVar);
+    public void setTagData(t tVar) {
+        setTag(tVar);
         a();
     }
 
@@ -24,19 +24,19 @@ public class TbCheckBox extends ImageView {
     }
 
     private void c() {
-        setOnClickListener(new n(this));
+        setOnClickListener(new r(this));
         a();
     }
 
-    public void setStatedChangedListener(o oVar) {
-        this.a = oVar;
+    public void setStatedChangedListener(s sVar) {
+        this.a = sVar;
     }
 
     public void a() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            setImageResource(d() ? com.baidu.tieba.u.btn_friend_choose_s_1 : com.baidu.tieba.u.btn_friend_choose_n_1);
+            setImageResource(d() ? com.baidu.tieba.t.btn_friend_choose_s_1 : com.baidu.tieba.t.btn_friend_choose_n_1);
         } else {
-            setImageResource(d() ? com.baidu.tieba.u.btn_friend_choose_s : com.baidu.tieba.u.btn_friend_choose_n);
+            setImageResource(d() ? com.baidu.tieba.t.btn_friend_choose_s : com.baidu.tieba.t.btn_friend_choose_n);
         }
     }
 
@@ -47,16 +47,16 @@ public class TbCheckBox extends ImageView {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof p)) {
+        if (tag == null || !(tag instanceof t)) {
             return false;
         }
-        return ((p) tag).isChecked();
+        return ((t) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof p)) {
-            ((p) tag).setChecked(z);
+        if (tag != null && (tag instanceof t)) {
+            ((t) tag).setChecked(z);
         }
         a();
         if (this.a != null) {

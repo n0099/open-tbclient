@@ -1,29 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class aq extends CustomMessageListener {
-    final /* synthetic */ MsglistModel a;
+class aq extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ OfficialBarMsglistModel a;
+    private final /* synthetic */ ChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq(MsglistModel msglistModel, int i) {
-        super(i);
-        this.a = msglistModel;
+    public aq(OfficialBarMsglistModel officialBarMsglistModel, ChatMessage chatMessage) {
+        this.a = officialBarMsglistModel;
+        this.b = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.base.h hVar;
-        if (customResponsedMessage instanceof ResponseUnLoginMessage) {
-            this.a.mLoadDataMode = 11;
-            hVar = this.a.mLoadDataCallBack;
-            hVar.a(null);
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.c().a(String.valueOf(this.a.a.getUserId()), String.valueOf(this.b.getMsgId())));
     }
 }

@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.im.model.CommonGroupMsglistModel;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.framework.listener.b {
+public class az extends CustomMessageListener {
     final /* synthetic */ CommonGroupChatActiviy a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,20 +20,39 @@ public class az extends com.baidu.adp.framework.listener.b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        GroupData c;
-        if (socketResponsedMessage != null) {
-            switch (socketResponsedMessage.getCmd()) {
-                case 103101:
-                case 103110:
-                case 103112:
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo p;
+        if (customResponsedMessage != null) {
+            switch (customResponsedMessage.getCmd()) {
+                case 2001109:
                     this.a.d.j();
                     return;
-                case 103104:
-                    if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
-                        ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.a.e instanceof CommonGroupMsglistModel) && (c = ((CommonGroupMsglistModel) this.a.e).c()) != null && c.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.a.finish();
+                case 2001130:
+                case 2001132:
+                case 2001134:
+                case 2001136:
+                case 2001137:
+                case 2001138:
+                case 2001141:
+                    if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
+                        String cmd = p.getCmd();
+                        if (!TextUtils.isEmpty(cmd)) {
+                            this.a.d.j();
+                            if (!cmd.equals("apply_join_success")) {
+                                if (!cmd.equals("kick_out")) {
+                                    if (!cmd.equals("group_name_change")) {
+                                        if (!cmd.equals("dismiss_group")) {
+                                            return;
+                                        }
+                                        this.a.c(p);
+                                        return;
+                                    }
+                                    this.a.b(p);
+                                    return;
+                                }
+                                this.a.a(p);
+                                return;
+                            }
                             return;
                         }
                         return;

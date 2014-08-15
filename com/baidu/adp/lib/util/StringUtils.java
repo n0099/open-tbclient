@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class StringUtils {
     private static final String TIMEFORMAT = "yyyy-MM-dd HH:mm";
@@ -89,5 +90,9 @@ public class StringUtils {
         }
         int i4 = i2 % 60;
         return String.valueOf(unitFormat(i3)) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
+    }
+
+    public static boolean isChinese(char c) {
+        return Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find();
     }
 }

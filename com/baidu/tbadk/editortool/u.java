@@ -4,9 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.util.DatabaseManager;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -21,7 +19,8 @@ public class u {
     }
 
     public boolean a(EmotionGroupData emotionGroupData) {
-        SQLiteDatabase a2 = DatabaseManager.a();
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        SQLiteDatabase a2 = b.a();
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("groupId", emotionGroupData.groupId);
@@ -38,43 +37,43 @@ public class u {
             a2.insert("emotion_group", null, contentValues);
             return true;
         } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-            DatabaseManager.a(th, "EmotionsDBManager.addEmotionGroup");
+            b.a(th, "EmotionsDBManager.addEmotionGroup");
             return false;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [121=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4] */
     public EmotionGroupData a(String str) {
         Cursor cursor;
         EmotionGroupData emotionGroupData = null;
         if (!TextUtils.isEmpty(str)) {
+            com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
             try {
-                cursor = DatabaseManager.a().rawQuery("SELECT * FROM emotion_group where groupId = ? ", new String[]{str});
-                try {
-                    if (cursor.moveToNext()) {
-                        emotionGroupData = a(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        BdLog.e(th.getMessage());
-                        DatabaseManager.a(th, "EmotionsDBManager.getEmotionGroup");
-                        return emotionGroupData;
-                    } finally {
-                        com.baidu.adp.lib.util.m.a(cursor);
-                    }
+                cursor = b.a().rawQuery("SELECT * FROM emotion_group where groupId = ? ", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    emotionGroupData = a(cursor);
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
+                try {
+                    b.a(th, "EmotionsDBManager.getEmotionGroup");
+                    return emotionGroupData;
+                } finally {
+                    com.baidu.adp.lib.util.m.a(cursor);
+                }
             }
         }
         return emotionGroupData;
     }
 
     public List<EmotionGroupData> a(int i) {
-        SQLiteDatabase a2 = DatabaseManager.a();
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        SQLiteDatabase a2 = b.a();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
@@ -84,8 +83,7 @@ public class u {
             }
         } catch (Throwable th) {
             try {
-                BdLog.e(th.getMessage());
-                DatabaseManager.a(th, "EmotionsDBManager.listAllEmotionGroups");
+                b.a(th, "EmotionsDBManager.listAllEmotionGroups");
             } finally {
                 com.baidu.adp.lib.util.m.a(cursor);
             }
@@ -118,7 +116,8 @@ public class u {
     }
 
     public boolean a(EmotionData emotionData) {
-        SQLiteDatabase a2 = DatabaseManager.a();
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        SQLiteDatabase a2 = b.a();
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("sharpText", emotionData.sharpText);
@@ -127,14 +126,14 @@ public class u {
             a2.insert("emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-            DatabaseManager.a(th, "EmotionsDBManager.addEmotion");
+            b.a(th, "EmotionsDBManager.addEmotion");
             return false;
         }
     }
 
     public List<EmotionData> b(String str) {
-        SQLiteDatabase a2 = DatabaseManager.a();
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        SQLiteDatabase a2 = b.a();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
@@ -144,8 +143,7 @@ public class u {
             }
         } catch (Throwable th) {
             try {
-                BdLog.e(th.getMessage());
-                DatabaseManager.a(th, "EmotionsDBManager.listEmotionByGroup");
+                b.a(th, "EmotionsDBManager.listEmotionByGroup");
             } finally {
                 com.baidu.adp.lib.util.m.a(cursor);
             }
@@ -165,7 +163,8 @@ public class u {
         if (TextUtils.isEmpty(str) || emotionGroupData == null) {
             return false;
         }
-        SQLiteDatabase a2 = DatabaseManager.a();
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        SQLiteDatabase a2 = b.a();
         try {
             a2.delete("user_emotions", "uid = ? and groupId = ?", new String[]{str, emotionGroupData.groupId});
             ContentValues contentValues = new ContentValues();
@@ -175,8 +174,7 @@ public class u {
             a2.insert("user_emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-            DatabaseManager.a(th, "EmotionsDBManager.addToMyEmotion");
+            b.a(th, "EmotionsDBManager.addToMyEmotion");
             return false;
         }
     }

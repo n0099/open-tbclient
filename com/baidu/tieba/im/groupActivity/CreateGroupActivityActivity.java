@@ -9,13 +9,13 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.data.GroupActivityData;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class CreateGroupActivityActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private e c;
-    private d d;
-    private boolean e = false;
-    private com.baidu.adp.framework.listener.b f = new a(this, 103120);
+    private e d;
+    private d e;
+    private boolean f = false;
+    private com.baidu.adp.framework.listener.d g = new a(this, 103120);
 
     public static void a(Context context, int i) {
         if (context != null) {
@@ -45,32 +45,32 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         g();
-        this.d = new d(this);
-        this.c = new e(this);
-        if (this.d.a() != null) {
+        this.e = new d(this);
+        this.d = new e(this);
+        if (this.e.a() != null) {
             if (bundle != null) {
-                this.d.a().setGroupId(bundle.getInt("gid", 0));
-                this.e = bundle.getBoolean("isedit", false);
-                if (this.e) {
-                    this.d.a().setActivityId(bundle.getInt("aid", 0));
-                    this.d.a().setgActivityTitle(bundle.getString("name"));
-                    this.d.a().setgActivityArea(bundle.getString("area"));
-                    this.d.a().setgActivityContent(bundle.getString("content"));
-                    this.d.a().setgActivityTime(bundle.getLong("time", 0L));
+                this.e.a().setGroupId(bundle.getInt("gid", 0));
+                this.f = bundle.getBoolean("isedit", false);
+                if (this.f) {
+                    this.e.a().setActivityId(bundle.getInt("aid", 0));
+                    this.e.a().setgActivityTitle(bundle.getString("name"));
+                    this.e.a().setgActivityArea(bundle.getString("area"));
+                    this.e.a().setgActivityContent(bundle.getString("content"));
+                    this.e.a().setgActivityTime(bundle.getLong("time", 0L));
                 }
             } else if (getIntent() != null) {
-                this.d.a().setGroupId(getIntent().getIntExtra("gid", 0));
-                this.e = getIntent().getBooleanExtra("isedit", false);
-                if (this.e) {
-                    this.d.a().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.d.a().setgActivityTitle(getIntent().getStringExtra("name"));
-                    this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
-                    this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
-                    this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
+                this.e.a().setGroupId(getIntent().getIntExtra("gid", 0));
+                this.f = getIntent().getBooleanExtra("isedit", false);
+                if (this.f) {
+                    this.e.a().setActivityId(getIntent().getIntExtra("aid", 0));
+                    this.e.a().setgActivityTitle(getIntent().getStringExtra("name"));
+                    this.e.a().setgActivityArea(getIntent().getStringExtra("area"));
+                    this.e.a().setgActivityContent(getIntent().getStringExtra("content"));
+                    this.e.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
                 }
             }
         }
-        this.c.a(this.d.a(), this.e);
+        this.d.a(this.e.a(), this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,27 +78,27 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         g();
-        if (this.d == null) {
-            this.d = new d(this);
+        if (this.e == null) {
+            this.e = new d(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
-        if (intent != null && this.d.a() != null) {
-            this.d.a().setGroupId(intent.getIntExtra("gid", 0));
-            this.e = getIntent().getBooleanExtra("isedit", false);
-            if (this.e) {
-                this.d.a().setActivityId(intent.getIntExtra("aid", 0));
-                this.d.a().setgActivityTitle(getIntent().getStringExtra("name"));
-                this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
-                this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
-                this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
+        if (intent != null && this.e.a() != null) {
+            this.e.a().setGroupId(intent.getIntExtra("gid", 0));
+            this.f = getIntent().getBooleanExtra("isedit", false);
+            if (this.f) {
+                this.e.a().setActivityId(intent.getIntExtra("aid", 0));
+                this.e.a().setgActivityTitle(getIntent().getStringExtra("name"));
+                this.e.a().setgActivityArea(getIntent().getStringExtra("area"));
+                this.e.a().setgActivityContent(getIntent().getStringExtra("content"));
+                this.e.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
             }
         }
-        if (this.c == null) {
-            this.c = new e(this);
+        if (this.d == null) {
+            this.d = new e(this);
         }
-        this.c.a(this.d.a(), this.e);
+        this.d.a(this.e.a(), this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,52 +106,52 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         int i = 0;
-        if (this.d.a() != null) {
-            i = this.d.a().getGroupId();
+        if (this.e.a() != null) {
+            i = this.e.a().getGroupId();
         }
         bundle.putInt("gid", i);
-        bundle.putString("name", this.c.c());
-        bundle.putString("content", this.c.e());
-        bundle.putString("area", this.c.d());
-        bundle.putLong("time", this.c.f());
+        bundle.putString("name", this.d.c());
+        bundle.putString("content", this.d.e());
+        bundle.putString("area", this.d.d());
+        bundle.putLong("time", this.d.f());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
-        if (this.c != null) {
-            this.c.a(i);
+        if (this.d != null) {
+            this.d.a(i);
         }
     }
 
     private void g() {
-        a(this.f);
+        a(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.d.cancelMessage();
-        this.c.destroy();
-        MessageManager.getInstance().unRegisterListener(this.f);
+        this.e.cancelMessage();
+        this.d.destroy();
+        MessageManager.getInstance().unRegisterListener(this.g);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.c.a()) {
+        if (view == this.d.a()) {
             h();
-        } else if (view == this.c.b() && this.d != null && this.d.a() != null) {
-            long f = this.c.f();
-            if ((!this.e || this.c.g()) && 1000 * f < System.currentTimeMillis()) {
-                c(y.group_activity_time_val);
+        } else if (view == this.d.b() && this.e != null && this.e.a() != null) {
+            long f = this.d.f();
+            if ((!this.f || this.d.g()) && 1000 * f < System.currentTimeMillis()) {
+                c(x.group_activity_time_val);
                 return;
             }
-            this.d.a().setgActivityArea(this.c.d());
-            this.d.a().setgActivityContent(this.c.e());
-            this.d.a().setgActivityTime(f);
-            this.d.a().setgActivityTitle(this.c.c());
+            this.e.a().setgActivityArea(this.d.d());
+            this.e.a().setgActivityContent(this.d.e());
+            this.e.a().setgActivityTime(f);
+            this.e.a().setgActivityTitle(this.d.c());
             e_();
-            this.d.a(this.e);
+            this.e.a(this.f);
         }
     }
 
@@ -165,6 +165,6 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     }
 
     private void h() {
-        com.baidu.tieba.im.e.b.a(this, this.e, new b(this), new c(this));
+        com.baidu.tieba.im.d.b.a(this, this.f, new b(this), new c(this));
     }
 }

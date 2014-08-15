@@ -8,10 +8,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ar extends PagerAdapter {
     public List<View> a;
-    final /* synthetic */ ao b;
+    final /* synthetic */ an b;
 
-    public ar(ao aoVar, List<View> list) {
-        this.b = aoVar;
+    public ar(an anVar, List<View> list) {
+        this.b = anVar;
         this.a = list;
     }
 

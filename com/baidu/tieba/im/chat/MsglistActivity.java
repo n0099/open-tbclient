@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends TalkableActivity implements bv {
-    protected abstract boolean a(bv bvVar);
+public abstract class MsglistActivity extends TalkableActivity implements bt {
+    protected abstract boolean a(bt btVar);
 
     protected abstract boolean c(Bundle bundle);
 
     protected abstract void o();
 
-    @Override // com.baidu.tieba.im.chat.bv
+    @Override // com.baidu.tieba.im.chat.bt
     public void f_() {
         p();
     }
@@ -26,14 +26,17 @@ public abstract class MsglistActivity extends TalkableActivity implements bv {
         try {
             if (!c(bundle)) {
                 finish();
-            } else {
-                o();
-                r();
-                if (a((bv) this)) {
-                    q();
-                    m();
-                    de.a = com.baidu.tbadk.editortool.aa.b();
-                }
+                return;
+            }
+            o();
+            if (this.e != null) {
+                this.e.a(this.k);
+            }
+            r();
+            if (a((bt) this)) {
+                q();
+                m();
+                df.a = com.baidu.tbadk.c.c.a();
             }
         } catch (Exception e) {
         }
@@ -50,7 +53,7 @@ public abstract class MsglistActivity extends TalkableActivity implements bv {
             } else {
                 o();
                 r();
-                if (a((bv) this)) {
+                if (a((bt) this)) {
                     q();
                 }
             }

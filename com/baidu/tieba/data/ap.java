@@ -1,48 +1,38 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import com.baidu.tieba.pb.main.PbActivity;
 /* loaded from: classes.dex */
-public class ap extends ClickableSpan {
-    final /* synthetic */ am a;
-    private String b;
-    private String c;
-    private Context d;
+class ap extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ ao a;
+    private final /* synthetic */ com.baidu.adp.widget.r b;
+    private final /* synthetic */ Context c;
 
-    public ap(am amVar, Context context, String str, String str2) {
-        this.a = amVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(ao aoVar, com.baidu.adp.widget.r rVar, Context context) {
+        this.a = aoVar;
+        this.b = rVar;
+        this.c = context;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.d != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text_1));
-            } else {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.s.common_link_text));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        an anVar;
+        ListAdapter adapter;
+        super.a((ap) aVar, str, i);
+        if (aVar != null && aVar.i()) {
+            anVar = this.a.a;
+            this.b.a(anVar.a(aVar));
+            if (this.c instanceof PbActivity) {
+                PbActivity pbActivity = (PbActivity) this.c;
+                if (!pbActivity.isFinishing() && (adapter = pbActivity.a().getAdapter()) != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
+                }
             }
-        }
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this.d, this.c, this.b)));
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.framework.listener.b {
+class e extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

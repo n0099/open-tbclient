@@ -1,11 +1,14 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.inputmethod.InputMethodManager;
+import android.text.Selection;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements com.baidu.tbadk.core.tabHost.c {
+public class t implements AdapterView.OnItemClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,27 +16,40 @@ public class t implements com.baidu.tbadk.core.tabHost.c {
         this.a = squareSearchActivity;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.c
-    public void a(int i, boolean z) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        int i2;
+        int i3;
+        a aVar;
+        a aVar2;
         EditText editText;
-        FragmentTabWidget fragmentTabWidget;
-        FragmentTabWidget fragmentTabWidget2;
-        if (i == 0) {
-            this.a.a(0);
-            fragmentTabWidget2 = this.a.E;
-            fragmentTabWidget2.a(i, true);
-        }
-        if (i == 1) {
-            if (this.a.getCurrentFocus() != null) {
-                ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+        EditText editText2;
+        EditText editText3;
+        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
+        i2 = this.a.z;
+        if (i2 != 0) {
+            i3 = this.a.z;
+            if (i3 == 3) {
+                this.a.a(str);
+                return;
+            } else if (str != null && str.length() > 0) {
+                aVar = this.a.k;
+                aVar.a(i);
+                aVar2 = this.a.k;
+                aVar2.notifyDataSetChanged();
+                this.a.a(1, str);
+                editText = this.a.c;
+                editText.setText(str);
+                editText2 = this.a.c;
+                editText2.requestFocus();
+                editText3 = this.a.c;
+                Selection.setSelection(editText3.getText(), str.length());
+                return;
+            } else {
+                return;
             }
-            this.a.a(1);
-            fragmentTabWidget = this.a.E;
-            fragmentTabWidget.a(i, true);
         }
-        if (i == 2) {
-            editText = this.a.c;
-            com.baidu.tieba.util.r.d(this.a, editText.getText().toString().trim());
-        }
+        com.baidu.tieba.util.k.e(str);
+        this.a.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(this.a).a(str, "tb_searchlist")));
     }
 }

@@ -33,12 +33,12 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         String c = eVar.c();
         String b = eVar.b();
         int d2 = eVar.d();
-        if (com.baidu.tbadk.core.util.bm.c(a) || com.baidu.tbadk.core.util.bm.c(c)) {
+        if (com.baidu.tbadk.core.util.ba.c(a) || com.baidu.tbadk.core.util.ba.c(c)) {
             return null;
         }
         String str = String.valueOf(a.replace(".", "_")) + ".apk";
         d = this.a.d(str);
-        if (com.baidu.tbadk.core.util.z.d(str) != null) {
+        if (com.baidu.tbadk.core.util.s.d(str) != null) {
             DownloadData downloadData = new DownloadData(a);
             downloadData.setName(str);
             downloadData.setPosition(d2);
@@ -76,7 +76,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
                 downloadData.setStatus(1);
                 this.a.a(downloadData);
                 com.baidu.tbadk.download.b.a().a(downloadData, 5);
-                com.baidu.tbadk.core.util.bb.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), (String) null, 0, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_will_begin), downloadData.getName(), true);
+                com.baidu.tbadk.core.util.ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), (String) null, 0, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_will_begin), downloadData.getName(), false);
             }
             b.f = null;
             list = b.g;

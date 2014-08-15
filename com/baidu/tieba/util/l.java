@@ -5,7 +5,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bb;
 /* loaded from: classes.dex */
 public class l extends ClickableSpan {
     private Context a;
@@ -24,7 +24,7 @@ public class l extends ClickableSpan {
     }
 
     public void b(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this.a).a(str, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.a).a(str, null, null)));
     }
 
     @Override // android.text.style.ClickableSpan

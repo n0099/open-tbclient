@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tieba.im.live.service.ILiveGroupManagerService;
 /* loaded from: classes.dex */
@@ -184,7 +184,7 @@ class a extends ILiveGroupManagerService.Stub {
         handler = this.a.mHandler;
         handler.sendEmptyMessage(15);
         if (!z) {
-            bb.a(this.a, 20);
+            ap.a(this.a, 20);
         }
     }
 
@@ -262,7 +262,7 @@ class a extends ILiveGroupManagerService.Stub {
         handler = this.a.mHandler;
         handler.sendEmptyMessage(19);
         if (!z && !LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
-            bb.a(this.a, 20);
+            ap.a(this.a, 20);
         }
     }
 

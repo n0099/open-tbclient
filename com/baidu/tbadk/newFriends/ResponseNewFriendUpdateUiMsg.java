@@ -7,11 +7,20 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
     public static final int NORMAL = -1;
     public static final int PASSED = 0;
     private int action;
+    private String content;
     private long friendId;
     private String key;
     private String name;
     private String portrait;
     private String quanping;
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
 
     public String getKey() {
         return this.key;

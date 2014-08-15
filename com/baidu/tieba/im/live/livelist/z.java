@@ -14,12 +14,12 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     private com.baidu.tieba.im.model.n c;
     private ad d;
     private BdListView e;
-    private com.baidu.tbadk.core.view.q f;
+    private com.baidu.tbadk.core.view.u f;
     private HotLiveInitGuideView g;
     private View h;
     private HotLiveListAdapter i;
-    private final com.baidu.adp.framework.listener.b j = new aa(this, 107003);
-    private final CustomMessageListener k = new ab(this, 2001205);
+    private final com.baidu.adp.framework.listener.d j = new aa(this, 107003);
+    private final CustomMessageListener k = new ab(this, 2001214);
 
     public BdListView f() {
         return this.e;
@@ -59,10 +59,10 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.h = layoutInflater.inflate(com.baidu.tieba.w.live_hot_list, (ViewGroup) null);
-        this.g = (HotLiveInitGuideView) this.h.findViewById(com.baidu.tieba.v.live_guide);
-        this.e = (BdListView) this.h.findViewById(com.baidu.tieba.v.live_list);
-        this.f = new com.baidu.tbadk.core.view.q(this.b);
+        this.h = layoutInflater.inflate(com.baidu.tieba.v.live_hot_list, (ViewGroup) null);
+        this.g = (HotLiveInitGuideView) this.h.findViewById(com.baidu.tieba.u.live_guide);
+        this.e = (BdListView) this.h.findViewById(com.baidu.tieba.u.live_list);
+        this.f = new com.baidu.tbadk.core.view.u(this.b);
         this.e.setPullRefresh(this.f);
         this.i = new HotLiveListAdapter(this.b);
         this.e.setAdapter((ListAdapter) this.i);

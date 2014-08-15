@@ -17,9 +17,9 @@ public class TiebaPrepareImageService extends Service {
     private int mMaxSize;
     private int mRequestCode = 0;
     private Uri mUri = null;
-    private g mTask = null;
+    private b mTask = null;
     private final Handler mHandler = new Handler();
-    private final Runnable mStartRun = new f(this);
+    private final Runnable mStartRun = new a(this);
 
     public static void StartService(int i, Uri uri, int i2, int i3) {
         Intent intent = new Intent(TbadkApplication.m252getInst().getApp(), TiebaPrepareImageService.class);
@@ -76,7 +76,7 @@ public class TiebaPrepareImageService extends Service {
         this.mDisplaySize = intent.getIntExtra(DISPLAY_SIZE, 0);
         TbadkApplication.m252getInst().addRemoteActivity(null);
         if (!IS_DECODING) {
-            this.mTask = new g(this, this.mRequestCode, this.mUri);
+            this.mTask = new b(this, this.mRequestCode, this.mUri);
             this.mTask.execute(new Object[0]);
             return;
         }

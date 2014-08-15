@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class GroupIdTypeData implements Serializable {
     private static final long serialVersionUID = 8219037456828991840L;
     private int groupId;
-    @Deprecated
     private int groupType;
     private int mCustomType = 1;
 
@@ -17,7 +16,6 @@ public class GroupIdTypeData implements Serializable {
         this.groupId = i;
     }
 
-    @Deprecated
     public int getGroupType() {
         return this.groupType;
     }

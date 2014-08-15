@@ -33,7 +33,7 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.deleting), new g(this));
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.deleting), new g(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,11 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
             if (this.d) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.b.getID()));
             }
-            com.baidu.tieba.util.k.h(this.b.getID());
-            if (this.b.getID().equals(TbadkApplication.getCurrentAccount())) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.b.getID()));
+            com.baidu.tieba.util.k.g(this.b.getID());
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            com.baidu.tbadk.core.sharedPref.b.a().a("get_addresslist_switch" + this.b.getID());
+            if (this.b.getID().equals(currentAccount)) {
                 SapiAccountManager.getInstance().logout();
                 this.c = 2;
                 a();
@@ -104,7 +107,7 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
         }
         switch (this.c) {
             case 0:
-                this.a.showToast(this.a.getString(com.baidu.tieba.y.success));
+                this.a.showToast(this.a.getString(com.baidu.tieba.x.success));
                 arrayList = this.a.a;
                 arrayList.remove(this.b);
                 this.b = null;

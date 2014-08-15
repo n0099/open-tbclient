@@ -20,8 +20,8 @@ public class UpdateDialog extends BaseActivity {
     private VersionData e;
     private CombineDownload f;
     private String g;
-    private ac h;
-    private bb i;
+    private ab h;
+    private ay i;
 
     public static void a(Context context, VersionData versionData, CombineDownload combineDownload) {
         if (versionData != null) {
@@ -30,7 +30,7 @@ public class UpdateDialog extends BaseActivity {
             intent.putExtra("tieba_apk_data", versionData);
             intent.putExtra("other_apk_data", combineDownload);
             context.startActivity(intent);
-            ai.c().n(true);
+            ai.c().p(true);
             ai.c().a(combineDownload);
         }
     }
@@ -67,13 +67,13 @@ public class UpdateDialog extends BaseActivity {
             finish();
         }
         if (this.e.hasNewVer()) {
-            this.h = new ac(this, z.common_alert_dialog);
+            this.h = new ab(this, y.common_alert_dialog);
             this.h.setCancelable(false);
-            this.h.a(this.e, this.f, new ba(this, null));
-            this.h.setOnCancelListener(new aw(this));
-            this.h.setOnDismissListener(new ax(this));
-            this.h.a(new ay(this));
-            this.h.b(new az(this));
+            this.h.a(this.e, this.f, new ax(this, null));
+            this.h.setOnCancelListener(new at(this));
+            this.h.setOnDismissListener(new au(this));
+            this.h.a(new av(this));
+            this.h.b(new aw(this));
             if (!isFinishing()) {
                 this.h.show();
             }
@@ -105,7 +105,7 @@ public class UpdateDialog extends BaseActivity {
     }
 
     private void a() {
-        this.i = new bb(this, null);
+        this.i = new ay(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
         registerReceiver(this.i, intentFilter);
@@ -113,8 +113,8 @@ public class UpdateDialog extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2, boolean z3) {
-        if (!com.baidu.tbadk.core.util.z.a()) {
-            showToast(com.baidu.tbadk.core.util.z.b());
+        if (!com.baidu.tbadk.core.util.s.a()) {
+            showToast(com.baidu.tbadk.core.util.s.b());
             return;
         }
         this.b = z;

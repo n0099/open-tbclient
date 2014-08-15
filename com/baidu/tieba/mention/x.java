@@ -1,30 +1,32 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.data.FeedData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ PostActivity a;
+public class x implements AdapterView.OnItemClickListener {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(PostActivity postActivity) {
-        this.a = postActivity;
+    public x(v vVar) {
+        this.a = vVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && aVar != null) {
-                aVar.a(imageView);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        k kVar = (k) ((BdListView) adapterView).getWrappedAdapter();
+        long itemId = kVar.getItemId(i);
+        if (itemId == -1) {
+            this.a.d();
+        } else if (itemId != -2) {
+            FeedData feedData = (FeedData) kVar.getItem(i);
+            if (feedData != null) {
+                this.a.a(feedData);
             }
-            linearLayout2 = this.a.a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
+        } else {
+            this.a.i();
         }
     }
 }

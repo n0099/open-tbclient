@@ -11,6 +11,6 @@ public class b implements com.baidu.adp.widget.ScrollView.m {
 
     @Override // com.baidu.adp.widget.ScrollView.m
     public void a() {
-        this.a.g();
+        this.a.h();
     }
 }

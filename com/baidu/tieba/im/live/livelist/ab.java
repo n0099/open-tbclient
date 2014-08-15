@@ -34,7 +34,7 @@ public class ab extends CustomMessageListener {
         HotLiveListAdapter hotLiveListAdapter4;
         ad adVar;
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseHotLiveListLocalMessage)) {
-            this.a.a(com.baidu.tieba.y.neterror);
+            this.a.a(com.baidu.tieba.x.neterror);
             return;
         }
         ResponseHotLiveListLocalMessage responseHotLiveListLocalMessage = (ResponseHotLiveListLocalMessage) customResponsedMessage;

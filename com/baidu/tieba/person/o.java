@@ -10,16 +10,14 @@ public class o extends com.baidu.adp.base.e {
     private p b;
     private String c;
     private final Context e;
-    private com.baidu.tbadk.editortool.aa f;
+    private boolean g;
     private boolean h;
     private boolean i;
-    private boolean j;
     private UserData a = null;
     private String d = null;
-    private long g = 0;
+    private long f = 0;
 
     public o(Context context) {
-        this.f = new com.baidu.tbadk.editortool.aa(context);
         this.e = context;
     }
 
@@ -44,23 +42,23 @@ public class o extends com.baidu.adp.base.e {
     }
 
     public long c() {
-        return this.g;
+        return this.f;
     }
 
     public void a(long j) {
-        this.g = j;
+        this.f = j;
     }
 
     public void a(boolean z) {
-        this.h = z;
+        this.g = z;
     }
 
     public boolean d() {
-        return this.h;
+        return this.g;
     }
 
     public void b(boolean z) {
-        this.i = z;
+        this.h = z;
     }
 
     public void a(PersonChangeData personChangeData) {
@@ -78,10 +76,6 @@ public class o extends com.baidu.adp.base.e {
         }
     }
 
-    public com.baidu.tbadk.editortool.aa e() {
-        return this.f;
-    }
-
     public void c(String str) {
         try {
             a(new JSONObject(str));
@@ -95,15 +89,15 @@ public class o extends com.baidu.adp.base.e {
             try {
                 this.a = new UserData();
                 this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.j = true;
+                this.i = true;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public boolean f() {
-        return this.j;
+    public boolean e() {
+        return this.i;
     }
 
     @Override // com.baidu.adp.base.e
@@ -116,12 +110,9 @@ public class o extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void g() {
+    public void f() {
         if (this.b != null) {
             this.b.cancel();
-        }
-        if (this.f != null) {
-            this.f.d();
         }
     }
 }

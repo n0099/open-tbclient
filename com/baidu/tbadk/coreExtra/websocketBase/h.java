@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.framework.listener.b {
+public class h extends com.baidu.adp.framework.listener.d {
     private static h e = new h();
     private boolean a;
     private int b;

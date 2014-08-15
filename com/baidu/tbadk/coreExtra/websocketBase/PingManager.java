@@ -6,9 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.coreExtra.message.PingMessage;
+import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
 /* loaded from: classes.dex */
 public class PingManager extends Handler implements com.baidu.adp.framework.client.socket.b {
     private static PingManager a = null;
@@ -74,7 +76,11 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
 
     public void e() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(1003);
-        bVar.a(PingResponsedMessage.class);
+        bVar.a(ResponsedPingMessage.class);
+        bVar.b(false);
+        bVar.setPriority(-3);
+        bVar.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
+        bVar.c(false);
         MessageManager.getInstance().registerTask(bVar);
         this.f = new PingMessage();
         f();
@@ -130,9 +136,8 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         return 1003;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PingResponsedMessage extends SocketResponsedMessage {
+    class PingResponsedMessage extends SocketResponsedMessage {
         public PingResponsedMessage() {
             super(1003);
         }

@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.client;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -14,17 +15,17 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         super(messageManager);
     }
 
-    public void a(int i) {
-        d.removeAllTask(i);
+    public void a(BdUniqueId bdUniqueId) {
+        d.removeAllTask(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, int i2) {
-        d.removeAllTask(i2, String.valueOf(i));
+    public void a(int i, BdUniqueId bdUniqueId) {
+        d.removeAllTask(bdUniqueId, String.valueOf(i));
     }
 
-    public LinkedList<HttpMessage> b(int i) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i);
+    public LinkedList<HttpMessage> b(BdUniqueId bdUniqueId) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId);
         LinkedList linkedList = new LinkedList();
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {
@@ -50,8 +51,8 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<HttpMessage> b(int i, int i2) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i2, String.valueOf(i));
+    public LinkedList<HttpMessage> b(int i, BdUniqueId bdUniqueId) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, String.valueOf(i));
         LinkedList<HttpMessage> linkedList = new LinkedList<>();
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {

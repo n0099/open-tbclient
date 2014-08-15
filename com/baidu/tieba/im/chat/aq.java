@@ -1,24 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-public class aq implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ w a;
-    private final /* synthetic */ ResponseCommitPersonalMessage b;
+class aq implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ ak a;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(w wVar, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
-        this.a = wVar;
-        this.b = responseCommitPersonalMessage;
+    public aq(ak akVar, OfficialChatMessage officialChatMessage) {
+        this.a = akVar;
+        this.b = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        if (this.b != null) {
-            this.a.a((ResponsedMessage<?>) this.b);
-        }
+        w.a(this.b);
     }
 }

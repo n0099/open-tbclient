@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,8 +22,7 @@ public class GroupListAdapter extends BaseAdapter {
     private FrsGroupActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private com.baidu.tbadk.editortool.aa d;
-    private ArrayList<GroupInfoData> e = new ArrayList<>();
+    private ArrayList<GroupInfoData> d = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public enum BOTTOM_TYPE {
@@ -43,13 +42,13 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     public void a(List<GroupInfoData> list) {
-        this.e.addAll(list);
-        d();
+        this.d.addAll(list);
+        c();
     }
 
     public void a(boolean z) {
         if (z) {
-            this.e.clear();
+            this.d.clear();
             this.c = false;
             return;
         }
@@ -58,13 +57,11 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     public ArrayList<GroupInfoData> a() {
-        return this.e;
+        return this.d;
     }
 
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
         this.a = frsGroupActivity;
-        this.d = new com.baidu.tbadk.editortool.aa(frsGroupActivity);
-        this.d.b(true);
     }
 
     public void b(boolean z) {
@@ -77,8 +74,8 @@ public class GroupListAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.e != null) {
-            int size = this.e.size();
+        if (this.d != null) {
+            int size = this.d.size();
             if (this.c) {
                 return size + 1;
             }
@@ -90,10 +87,10 @@ public class GroupListAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.e.size()) {
+        if (itemId < 0 || itemId >= this.d.size()) {
             return null;
         }
-        return this.e.get(itemId);
+        return this.d.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -116,77 +113,76 @@ public class GroupListAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        p pVar;
-        if (this.e == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_frsgroup_list_item, viewGroup, false);
+        o oVar;
+        if (this.d == null) {
+            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_frsgroup_list_item, viewGroup, false);
-            pVar = new p();
-            pVar.b = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_item_content);
-            pVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more);
-            pVar.c = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
-            pVar.d = (TextView) view.findViewById(com.baidu.tieba.v.item_group_name);
-            pVar.e = (TextView) view.findViewById(com.baidu.tieba.v.item_group_meizi);
-            pVar.f = (TextView) view.findViewById(com.baidu.tieba.v.item_group_num);
-            pVar.g = (TextView) view.findViewById(com.baidu.tieba.v.item_introduce);
-            pVar.m = (TextView) view.findViewById(com.baidu.tieba.v.list_more_title);
-            pVar.n = (ProgressBar) view.findViewById(com.baidu.tieba.v.list_more_progress);
-            pVar.o = (ImageView) view.findViewById(com.baidu.tieba.v.list_more_line);
-            pVar.l = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more_text);
-            pVar.h = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade1);
-            pVar.i = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade2);
-            pVar.j = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade3);
-            pVar.k = new ImageView[4];
-            pVar.k[1] = pVar.h;
-            pVar.k[2] = pVar.i;
-            pVar.k[3] = pVar.j;
-            view.setTag(pVar);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
+            oVar = new o();
+            oVar.b = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_item_content);
+            oVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_more);
+            oVar.c = (GroupImageView) view.findViewById(com.baidu.tieba.u.item_head);
+            oVar.d = (TextView) view.findViewById(com.baidu.tieba.u.item_group_name);
+            oVar.e = (TextView) view.findViewById(com.baidu.tieba.u.item_group_meizi);
+            oVar.f = (TextView) view.findViewById(com.baidu.tieba.u.item_group_num);
+            oVar.g = (TextView) view.findViewById(com.baidu.tieba.u.item_introduce);
+            oVar.m = (TextView) view.findViewById(com.baidu.tieba.u.list_more_title);
+            oVar.n = (ProgressBar) view.findViewById(com.baidu.tieba.u.list_more_progress);
+            oVar.o = (ImageView) view.findViewById(com.baidu.tieba.u.list_more_line);
+            oVar.l = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_more_text);
+            oVar.h = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade1);
+            oVar.i = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade2);
+            oVar.j = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade3);
+            oVar.k = new ImageView[4];
+            oVar.k[1] = oVar.h;
+            oVar.k[2] = oVar.i;
+            oVar.k[3] = oVar.j;
+            view.setTag(oVar);
         } else {
-            pVar = (p) view.getTag();
+            oVar = (o) view.getTag();
         }
         if (getItemViewType(i) == 1) {
-            pVar.a.setVisibility(0);
-            pVar.b.setVisibility(8);
+            oVar.a.setVisibility(0);
+            oVar.b.setVisibility(8);
             if (this.b == BOTTOM_TYPE.LINE) {
-                pVar.o.setVisibility(0);
-                pVar.l.setVisibility(8);
+                oVar.o.setVisibility(0);
+                oVar.l.setVisibility(8);
                 return view;
             }
-            pVar.o.setVisibility(8);
-            pVar.l.setVisibility(0);
+            oVar.o.setVisibility(8);
+            oVar.l.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                pVar.m.setText(com.baidu.tieba.y.frsgroup_load_more);
-                pVar.n.setVisibility(0);
+                oVar.m.setText(com.baidu.tieba.x.frsgroup_load_more);
+                oVar.n.setVisibility(0);
                 return view;
             }
-            pVar.m.setText(com.baidu.tieba.y.frsgroup_no_more);
-            pVar.n.setVisibility(8);
+            oVar.m.setText(com.baidu.tieba.x.frsgroup_no_more);
+            oVar.n.setVisibility(8);
             return view;
         }
-        pVar.a.setVisibility(8);
-        pVar.b.setVisibility(0);
+        oVar.a.setVisibility(8);
+        oVar.b.setVisibility(0);
         GroupInfoData groupInfoData = (GroupInfoData) getItem(i);
-        pVar.c.setTag(null);
-        pVar.c.setDrawBorder(true);
-        pVar.c.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
-        pVar.c.setNightDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
-        pVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        oVar.c.setTag(null);
+        oVar.c.setDrawBorder(true);
+        oVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         String portrait = groupInfoData.getPortrait();
         if (!TextUtils.isEmpty(portrait)) {
-            pVar.c.setTag(portrait);
+            oVar.c.setTag(portrait);
+            oVar.c.a(portrait, 10, false);
         }
-        pVar.d.setText(groupInfoData.getName());
-        pVar.e.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-        pVar.f.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
-        pVar.g.setText(groupInfoData.getIntro().trim());
-        a(pVar.k, groupInfoData.getGrade());
+        oVar.d.setText(groupInfoData.getName());
+        oVar.e.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+        oVar.f.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
+        oVar.g.setText(groupInfoData.getIntro().trim());
+        a(oVar.k, groupInfoData.getGrade());
         a(view);
         if (groupInfoData.isMemGroup()) {
-            bk.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
-            bk.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            bk.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            bk.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            ay.a(oVar.d, com.baidu.tieba.r.im_group_vip_text, 1);
+            ay.c(oVar.h, com.baidu.tieba.t.icon_vip_grade_big_small_s);
+            ay.c(oVar.i, com.baidu.tieba.t.icon_vip_grade_big_small_s);
+            ay.c(oVar.j, com.baidu.tieba.t.icon_vip_grade_big_small_s);
             return view;
         }
         return view;
@@ -213,9 +209,9 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    private void d() {
+    private void c() {
         HashSet hashSet = new HashSet();
-        Iterator<GroupInfoData> it = this.e.iterator();
+        Iterator<GroupInfoData> it = this.d.iterator();
         while (it.hasNext()) {
             if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
                 it.remove();
@@ -223,11 +219,7 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    public com.baidu.tbadk.editortool.aa b() {
-        return this.d;
-    }
-
-    public boolean c() {
+    public boolean b() {
         return this.b == BOTTOM_TYPE.HAVE_MORE;
     }
 }

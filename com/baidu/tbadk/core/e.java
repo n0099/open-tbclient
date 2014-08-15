@@ -1,20 +1,20 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* loaded from: classes.dex */
 public class e {
-    protected aq a;
+    protected ae a;
     protected NewErrorData b = null;
 
     public e() {
         this.a = null;
-        this.a = new aq();
+        this.a = new ae();
     }
 
     public void a() {
         if (this.a != null) {
-            this.a.g();
+            this.a.f();
         }
     }
 
@@ -29,10 +29,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String i = this.a.i();
+        String h = this.a.h();
         this.b = new NewErrorData();
-        this.b.parserJson(i);
-        return i;
+        this.b.parserJson(h);
+        return h;
     }
 
     public boolean c() {
@@ -44,7 +44,7 @@ public class e {
 
     public String d() {
         if (this.a != null) {
-            return this.a.f();
+            return this.a.e();
         }
         return null;
     }

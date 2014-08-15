@@ -8,7 +8,6 @@ import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.MultipartRequestParams;
 import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.mobstat.BasicStoreTools;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -37,6 +36,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -142,6 +147,79 @@ public final class a {
             a.this.d.b();
             a.this.a(this.a, this.b);
         }
+    }
+
+    public int a(SapiAccount.ReloginCredentials reloginCredentials) {
+        if (reloginCredentials == null) {
+            throw new IllegalArgumentException("ReloginCredentials can't be null");
+        }
+        if (TextUtils.isEmpty(reloginCredentials.account)) {
+            return SapiErrorCode.USERNAME_EMPTY;
+        }
+        if (TextUtils.isEmpty(reloginCredentials.password)) {
+            return SapiErrorCode.PWD_EMPTY;
+        }
+        if (TextUtils.isEmpty(reloginCredentials.ubi)) {
+            return SapiErrorCode.NEED_REQUIRED_ITEMS;
+        }
+        if (!SapiUtils.hasActiveNetwork(this.b.context)) {
+            return SapiErrorCode.NETWORK_FAILED;
+        }
+        com.baidu.sapi2.shell.b bVar = new com.baidu.sapi2.shell.b();
+        try {
+            this.c = new AsyncHttpClient();
+            this.c.setUserAgent(y());
+            HashMap hashMap = new HashMap();
+            hashMap.put("crypttype", "11");
+            hashMap.put("tpl", this.b.tpl);
+            hashMap.put("appid", this.b.appId);
+            if (TextUtils.isEmpty(this.b.clientId)) {
+                this.b.clientId = SapiUtils.getClientId(this.b.context);
+            }
+            hashMap.put("cuid", this.b.clientId);
+            hashMap.put("cert_id", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+            hashMap.put("isdpass", "0");
+            hashMap.put("username", reloginCredentials.account);
+            hashMap.put("password", reloginCredentials.password);
+            hashMap.put("UBI", reloginCredentials.ubi);
+            hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+            hashMap.put("login_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            hashMap.put("key", bVar.a());
+            hashMap.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+            hashMap.put("pinfo", com.baidu.sapi2.utils.b.b());
+            hashMap.put("sig", a(hashMap, this.b.appSignKey));
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                arrayList.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+            }
+            HttpUriRequest httpPost = new HttpPost(j());
+            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "UTF-8"));
+            HttpResponse execute = this.c.execute(httpPost);
+            if (200 == execute.getStatusLine().getStatusCode()) {
+                String entityUtils = EntityUtils.toString(execute.getEntity());
+                if (!TextUtils.isEmpty(entityUtils)) {
+                    int a2 = a(entityUtils);
+                    if (a2 == 0) {
+                        JSONObject jSONObject = new JSONObject(entityUtils);
+                        SapiAccount sapiAccount = new SapiAccount();
+                        sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
+                        sapiAccount.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
+                        sapiAccount.ptoken = jSONObject.optString(SapiAccountManager.SESSION_PTOKEN);
+                        sapiAccount.stoken = jSONObject.optString(SapiAccountManager.SESSION_STOKEN);
+                        sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
+                        sapiAccount.username = jSONObject.optString("uname");
+                        sapiAccount.app = SapiUtils.getAppName(this.b.context);
+                        sapiAccount.extra = entityUtils;
+                        com.baidu.sapi2.share.b.a().a(sapiAccount);
+                        return a2;
+                    }
+                    return a2;
+                }
+            }
+        } catch (Throwable th) {
+            L.e(th);
+        }
+        return -100;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1030,7 +1108,7 @@ public final class a {
             this.c.setUserAgent(y());
             HashMap hashMap = new HashMap();
             if (com.baidu.sapi2.d.a(this.b.context).a() != null) {
-                hashMap.put(BasicStoreTools.DEVICE_ID, com.baidu.sapi2.utils.b.d(this.b.context));
+                hashMap.put("device_id", com.baidu.sapi2.utils.b.d(this.b.context));
                 hashMap.put("device_token", com.baidu.sapi2.d.a(this.b.context).a());
             }
             this.c.get(this.b.context, p(), new RequestParams(hashMap), new HandlerC0009a(z));
@@ -1096,7 +1174,7 @@ public final class a {
         HashMap hashMap = new HashMap();
         String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
         hashMap.put("ptpl", this.b.tpl);
-        hashMap.put(BasicStoreTools.DEVICE_ID, a2);
+        hashMap.put("device_id", a2);
         hashMap.put("device_info", com.baidu.sapi2.utils.b.d());
         hashMap.put("package_sign", this.b.deviceLoginSignKey);
         this.c.post(this.b.context, r(), new RequestParams(hashMap), new g(sapiCallBack));
@@ -1139,7 +1217,7 @@ public final class a {
             HashMap hashMap = new HashMap();
             String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
             hashMap.put("ptpl", this.b.tpl);
-            hashMap.put(BasicStoreTools.DEVICE_ID, a2);
+            hashMap.put("device_id", a2);
             hashMap.put("device_info", com.baidu.sapi2.utils.b.d());
             hashMap.put("force_reg_token", str);
             this.c.post(this.b.context, s(), new RequestParams(hashMap), new f(sapiCallBack));
@@ -1185,7 +1263,7 @@ public final class a {
         HashMap hashMap = new HashMap();
         String a2 = b.a.a(com.baidu.sapi2.utils.b.d(this.b.context));
         hashMap.put("ptpl", this.b.tpl);
-        hashMap.put(BasicStoreTools.DEVICE_ID, a2);
+        hashMap.put("device_id", a2);
         hashMap.put("device_token", str);
         hashMap.put("package_sign", this.b.deviceLoginSignKey);
         this.c.post(this.b.context, q(), new RequestParams(hashMap), new e(sapiCallBack));
@@ -1470,7 +1548,9 @@ public final class a {
     }
 
     void a(int i2, QrAppLoginCallBack qrAppLoginCallBack, String str) {
-        qrAppLoginCallBack.onFinish();
+        if (qrAppLoginCallBack != null) {
+            qrAppLoginCallBack.onFinish();
+        }
         if (str != null) {
             QrAppLoginResponse qrAppLoginResponse = new QrAppLoginResponse();
             try {

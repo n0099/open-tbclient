@@ -1,40 +1,25 @@
 package com.baidu.tieba.pb.main;
 
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.editortool.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements View.OnClickListener {
-    final /* synthetic */ bt a;
+class cr implements View.OnClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(bt btVar) {
-        this.a = btVar;
+    public cr(bs bsVar) {
+        this.a = bsVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        View view2;
-        View view3;
-        View view4;
-        PbActivity pbActivity;
-        com.baidu.tieba.bubble.t tVar;
-        if (this.a.h != null) {
-            this.a.h.n();
-            this.a.z();
-            this.a.aP = false;
-            pbActivity = this.a.k;
-            PbEditor pbEditor = this.a.h;
-            tVar = this.a.aX;
-            com.baidu.tieba.bubble.h.a(pbActivity, pbEditor, false, tVar);
-        }
-        view2 = this.a.aJ;
-        if (view2 != null) {
-            view3 = this.a.aJ;
-            view3.setVisibility(8);
-            view4 = this.a.aI;
-            view4.setVisibility(8);
-            this.a.aP = false;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(com.baidu.tieba.u.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.u.tag_del_post_id))) {
+                this.a.a(view);
+            } else {
+                this.a.a(((Integer) sparseArray.get(com.baidu.tieba.u.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.u.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.u.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.u.tag_del_post_is_self)).booleanValue());
+            }
         }
     }
 }

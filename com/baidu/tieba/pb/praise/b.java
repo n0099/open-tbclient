@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b {
     private View a;
@@ -31,11 +31,11 @@ public class b {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.a = LayoutInflater.from(context).inflate(w.zan_list_item, (ViewGroup) null);
-        this.b = (HeadImageView) this.a.findViewById(v.zan_list_item_head);
-        this.c = (TextView) this.a.findViewById(v.zan_list_item_name);
-        this.d = (TextView) this.a.findViewById(v.zan_list_item_time);
-        this.e = (ImageView) this.a.findViewById(v.zan_list_item_line_bottom);
+        this.a = LayoutInflater.from(context).inflate(v.zan_list_item, (ViewGroup) null);
+        this.b = (HeadImageView) this.a.findViewById(u.zan_list_item_head);
+        this.c = (TextView) this.a.findViewById(u.zan_list_item_name);
+        this.d = (TextView) this.a.findViewById(u.zan_list_item_time);
+        this.e = (ImageView) this.a.findViewById(u.zan_list_item_line_bottom);
         this.e.setVisibility(0);
         this.a.setTag(this);
     }
@@ -46,8 +46,8 @@ public class b {
 
     public void a(String str, String str2, long j, boolean z) {
         this.c.setText(str);
-        this.b.setImageBitmap(null);
-        this.d.setText(bm.a(j));
+        this.b.setImageDrawable(null);
+        this.d.setText(ba.a(j));
         this.b.a(str2, 12, false);
     }
 }

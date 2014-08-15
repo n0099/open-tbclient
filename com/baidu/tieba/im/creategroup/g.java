@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g implements x {
     private CreateGroupStepActivity a;
@@ -16,11 +15,11 @@ public class g implements x {
 
     public g(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
         this.a = createGroupStepActivity;
-        this.c = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.w.create_group_normal_tips, (ViewGroup) null);
-        this.e = (Button) this.c.findViewById(com.baidu.tieba.v.create_group_tips_btn);
-        this.d = (ImageView) this.c.findViewById(com.baidu.tieba.v.create_group_tips_image);
+        this.c = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.v.create_group_normal_tips, (ViewGroup) null);
+        this.e = (Button) this.c.findViewById(com.baidu.tieba.u.create_group_tips_btn);
+        this.d = (ImageView) this.c.findViewById(com.baidu.tieba.u.create_group_tips_image);
         this.b = i;
-        this.e.setText(String.format(createGroupStepActivity.getString(y.group_create_can_create_num), Integer.valueOf(i2)));
+        this.e.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.x.group_create_can_create_num), Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
@@ -46,7 +45,7 @@ public class g implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public String j() {
-        return this.a.getString(y.group_create_tips_normal);
+        return this.a.getString(com.baidu.tieba.x.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

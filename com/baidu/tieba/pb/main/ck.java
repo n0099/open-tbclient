@@ -1,34 +1,22 @@
 package com.baidu.tieba.pb.main;
-
-import android.os.Handler;
-import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck implements Animation.AnimationListener {
-    final /* synthetic */ bt a;
-    private final /* synthetic */ com.baidu.tieba.data.at b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
+public class ck implements com.baidu.tbadk.core.view.l {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bt btVar, com.baidu.tieba.data.at atVar, boolean z, String str, String str2) {
-        this.a = btVar;
-        this.b = atVar;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
+    public ck(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // com.baidu.tbadk.core.view.l
+    public void a() {
+        PbActivity pbActivity;
+        pbActivity = this.a.k;
+        pbActivity.k();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cl(this, this.b, this.c, this.d, this.e));
+    @Override // com.baidu.tbadk.core.view.l
+    public void b() {
     }
 }

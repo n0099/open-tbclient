@@ -1,35 +1,31 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import com.baidu.tieba.pb.main.PbActivity;
+import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.data.IconData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements com.baidu.tbadk.imageManager.d {
+public class ao implements com.baidu.adp.widget.s {
     final /* synthetic */ an a;
-    private final /* synthetic */ com.baidu.adp.widget.r b;
+    private final /* synthetic */ IconData b;
     private final /* synthetic */ Context c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar, com.baidu.adp.widget.r rVar, Context context) {
+    public ao(an anVar, IconData iconData, Context context) {
         this.a = anVar;
-        this.b = rVar;
+        this.b = iconData;
         this.c = context;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        am amVar;
-        ListAdapter adapter;
-        if (aVar != null && aVar.i()) {
-            amVar = this.a.a;
-            this.b.a(amVar.a(aVar));
-            if (this.c instanceof PbActivity) {
-                PbActivity pbActivity = (PbActivity) this.c;
-                if (!pbActivity.isFinishing() && (adapter = pbActivity.a().getAdapter()) != null && (adapter instanceof BaseAdapter)) {
-                    ((BaseAdapter) adapter).notifyDataSetChanged();
-                }
+    @Override // com.baidu.adp.widget.s
+    public Drawable a(com.baidu.adp.widget.r rVar) {
+        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.resourceLoader.d.a().a(this.b.getIcon(), 21, new Object[0]);
+        if (aVar == null) {
+            ap apVar = new ap(this, rVar, this.c);
+            if (this.c instanceof com.baidu.adp.base.i) {
+                com.baidu.adp.lib.resourceLoader.d.a().a(this.b.getIcon(), 21, apVar, ((com.baidu.adp.base.i) this.c).getUniqueId());
             }
         }
+        return this.a.a(aVar);
     }
 }

@@ -26,13 +26,13 @@ public class q implements com.baidu.tieba.im.a<Boolean> {
             bool = false;
         }
         groupInfoActivity = this.a.a;
-        rVar = groupInfoActivity.f;
+        rVar = groupInfoActivity.b;
         rVar.p();
         groupInfoActivity2 = this.a.a;
-        rVar2 = groupInfoActivity2.f;
+        rVar2 = groupInfoActivity2.b;
         rVar2.a(this.b.getData(), bool.booleanValue());
         groupInfoActivity3 = this.a.a;
-        kVar = groupInfoActivity3.g;
+        kVar = groupInfoActivity3.c;
         kVar.a(bool.booleanValue() ? false : true);
     }
 }

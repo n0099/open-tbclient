@@ -3,21 +3,24 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.widget.AbsListView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.im.model.bi;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.MemoryClearUnreadCountMessage;
+import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class OfficialBarTipActivity extends BaseActivity implements AbsListView.OnScrollListener {
+public class OfficialBarTipActivity extends BaseActivity {
     public static boolean a = false;
-    private bi b;
-    private bb c;
-    private Handler d;
-    private final com.baidu.tieba.im.a<Void> e = new at(this);
-    private Runnable f = new au(this);
-    private CustomMessageListener g = new av(this, 0);
+    private com.baidu.tieba.im.model.ar b;
+    private aw c;
+    private final CustomMessageListener d = new ap(this, 0);
+    private com.baidu.tieba.im.chat.notify.a e = new aq(this);
 
     public static void a(Context context) {
         if (context != null) {
@@ -30,55 +33,56 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
         super.onCreate(bundle);
         b();
         c();
-        MessageManager.getInstance().registerListener(2001140, this.g);
+        a();
+    }
+
+    private void a() {
+        registerListener(2016003, this.d);
+        registerListener(2016006, this.d);
+        registerListener(2016000, this.d);
+        registerListener(2016011, this.d);
+        registerListener(2016001, this.d);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        a = true;
-        a();
-    }
-
-    private void a() {
-        showLoadingDialog(getString(com.baidu.tieba.y.loading), null);
-        this.b.a(this.e);
+        this.c.b().notifyDataSetChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tieba.im.message.f("-1000", -8)));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        a = false;
-        MessageManager.getInstance().unRegisterListener(this.g);
-        com.baidu.tieba.im.model.p.a(false);
     }
 
     private void b() {
-        this.b = new bi();
-        this.d = new Handler();
+        this.b = new com.baidu.tieba.im.model.ar(this);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // android.app.Activity
+    protected void onRestart() {
+        super.onRestart();
+        a = true;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
-            if (this.d != null) {
-                this.d.removeCallbacks(this.f);
-                this.d.postDelayed(this.f, 90L);
-            }
-        } else if (this.d != null) {
-            this.d.removeCallbacks(this.f);
-        }
+    @Override // android.app.Activity
+    protected void onStart() {
+        super.onStart();
+        a = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onStop() {
+        super.onStop();
+        a = false;
     }
 
     private void c() {
-        this.c = new bb(this);
-        this.c.a().setOnScrollListener(this);
-        this.c.a().setOnItemClickListener(new aw(this));
-        this.c.a().setOnItemLongClickListener(new ax(this));
+        this.c = new aw(this);
+        this.c.a().setOnItemClickListener(new ar(this));
+        this.c.a().setOnItemLongClickListener(new as(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -86,30 +90,36 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
         this.c.a(i);
     }
 
-    @Override // android.app.Activity
-    public void onStart() {
-        super.onStart();
-        a = true;
-        this.c.c().a();
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onStop() {
-        super.onStop();
-        a = false;
-        this.c.c().b();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(CustomResponsedMessage<?> customResponsedMessage) {
+        if ((customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
+            sendMessage(new RequestMemoryListMessage(2));
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        this.c.c().b(z ? 0 : 8);
+    public void b(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof MemoryChangedMessage) {
+            MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+            ImMessageCenterPojo data = memoryChangedMessage.getData();
+            if (memoryChangedMessage.getType() == 1) {
+                if (this.b != null) {
+                    this.b.a(data, this.e);
+                }
+            } else if (memoryChangedMessage.getType() == 2 && this.b != null) {
+                this.b.b(data, this.e);
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.d != null) {
-            this.d.removeCallbacks(this.f);
-            this.d.postDelayed(this.f, 0L);
+    public void c(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+            ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+            List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
+            if (responsedMemoryListMessage.getType() == 2 && this.b != null) {
+                this.b.a(data, this.e);
+            }
         }
     }
 }

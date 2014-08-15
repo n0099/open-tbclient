@@ -1,6 +1,6 @@
 package com.baidu.tbadk.message.http;
 
-import com.baidu.adp.lib.f.b;
+import com.baidu.adp.lib.e.b;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseLocationJsonHttpMessage extends JsonHttpResponsedMessage {

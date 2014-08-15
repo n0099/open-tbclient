@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<String, Integer, bd> {
-    com.baidu.tbadk.core.util.aq a;
+public class b extends BdAsyncTask<String, Integer, be> {
+    com.baidu.tbadk.core.util.ae a;
     final /* synthetic */ a b;
 
     private b(a aVar) {
@@ -33,12 +33,12 @@ public class b extends BdAsyncTask<String, Integer, bd> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public bd doInBackground(String... strArr) {
-        bd bdVar;
+    public be doInBackground(String... strArr) {
+        be beVar;
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.a = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.b(com.baidu.tieba.ai.c().d())));
@@ -54,28 +54,28 @@ public class b extends BdAsyncTask<String, Integer, bd> {
             this.a.a("package", packageName);
             this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
             this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.a.a("md5", com.baidu.tieba.bc.a());
-            String i = this.a.i();
+            this.a.a("md5", com.baidu.tieba.az.a());
+            String h = this.a.h();
             if (!this.a.a().b().b()) {
                 return null;
             }
-            bdVar = new bd();
+            beVar = new be();
             try {
-                bdVar.a(i);
-                if (TbadkApplication.getClientId() == null && bdVar.d().a() != null && bdVar.d().a().length() > 0) {
+                beVar.a(h);
+                if (TbadkApplication.getClientId() == null && beVar.d().a() != null && beVar.d().a().length() > 0) {
                     context = this.b.c;
-                    TbadkApplication.saveClientId(context, bdVar.d().a());
-                    TbadkApplication.setClientId(bdVar.d().a());
-                    return bdVar;
+                    TbadkApplication.saveClientId(context, beVar.d().a());
+                    TbadkApplication.setClientId(beVar.d().a());
+                    return beVar;
                 }
-                return bdVar;
+                return beVar;
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                return bdVar;
+                return beVar;
             }
         } catch (Exception e3) {
-            bdVar = null;
+            beVar = null;
             e = e3;
         }
     }
@@ -84,7 +84,7 @@ public class b extends BdAsyncTask<String, Integer, bd> {
     public void cancel() {
         this.b.b = null;
         if (this.a != null) {
-            this.a.g();
+            this.a.f();
         }
         super.cancel(true);
     }
@@ -93,9 +93,9 @@ public class b extends BdAsyncTask<String, Integer, bd> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(bd bdVar) {
-        super.onPostExecute(bdVar);
+    public void onPostExecute(be beVar) {
+        super.onPostExecute(beVar);
         this.b.b = null;
-        this.b.a.a(bdVar);
+        this.b.a.a(beVar);
     }
 }

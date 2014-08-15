@@ -74,9 +74,9 @@ public class u {
             return false;
         }
         try {
-            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
+            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.s.jigsawSelectedImageWidth);
             if (b.b(context, uri, dimension, dimension) == null) {
-                y.a(com.baidu.tieba.y.open_error);
+                y.a(com.baidu.tieba.x.open_error);
                 return false;
             }
             Iterator<Uri> it = c(context).iterator();
@@ -96,15 +96,15 @@ public class u {
             return true;
         } catch (OtherException e) {
             e.printStackTrace();
-            y.a(com.baidu.tieba.y.open_error);
+            y.a(com.baidu.tieba.x.open_error);
             return false;
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
-            y.a(com.baidu.tieba.y.open_error);
+            y.a(com.baidu.tieba.x.open_error);
             return false;
         } catch (OutOfMemoryError e3) {
             e3.printStackTrace();
-            y.a(com.baidu.tieba.y.open_error);
+            y.a(com.baidu.tieba.x.open_error);
             return false;
         }
     }
@@ -141,7 +141,7 @@ public class u {
     }
 
     public String e(Context context) {
-        return String.format(context.getResources().getString(com.baidu.tieba.y.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
+        return String.format(context.getResources().getString(com.baidu.tieba.x.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
     }
 
     public Bitmap a(Context context, c cVar, int i) {

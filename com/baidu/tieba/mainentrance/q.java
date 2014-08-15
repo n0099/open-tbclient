@@ -1,9 +1,10 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.AbsListView;
+import android.app.AlertDialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements AbsListView.OnScrollListener {
+public class q implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +12,8 @@ public class q implements AbsListView.OnScrollListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.j.a(this.a, absListView);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(com.baidu.tieba.t.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new r(this)).setNegativeButton("取消", new s(this)).create().show();
     }
 }

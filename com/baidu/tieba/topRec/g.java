@@ -14,21 +14,20 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.q;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.view.u;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class g {
     NavigationBar a;
     Handler b;
     private BdListView c;
     private Button d;
-    private q e;
+    private u e;
     private final View f;
     private LinearLayout g;
     private TextView h;
@@ -47,27 +46,27 @@ public class g {
         this.b = null;
         this.j = topRecActivity;
         this.b = new Handler();
-        this.j.setContentView(w.top_recommended_activity);
-        this.c = (BdListView) this.j.findViewById(v.top_list);
-        this.a = (NavigationBar) topRecActivity.findViewById(v.view_navigation_bar);
-        this.a.a(topRecActivity.getString(y.top_recommended));
-        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_top_rec, (View.OnClickListener) null);
-        this.d = (Button) a.findViewById(v.title_finish);
+        this.j.setContentView(v.top_recommended_activity);
+        this.c = (BdListView) this.j.findViewById(com.baidu.tieba.u.top_list);
+        this.a = (NavigationBar) topRecActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.a.a(topRecActivity.getString(x.top_recommended));
+        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.nb_item_top_rec, (View.OnClickListener) null);
+        this.d = (Button) a.findViewById(com.baidu.tieba.u.title_finish);
         this.d.setOnClickListener(this.j);
-        this.m = (TextView) a.findViewById(v.title_finish_cover);
-        this.e = new q(this.j);
-        this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(w.forum_list_forum_footer, (ViewGroup) null);
-        this.f = this.g.findViewById(v.footer_background);
-        this.h = (TextView) this.g.findViewById(v.footer_text);
-        this.i = (ImageView) this.g.findViewById(v.footer_icon);
+        this.m = (TextView) a.findViewById(com.baidu.tieba.u.title_finish_cover);
+        this.e = new u(this.j);
+        this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(v.forum_list_forum_footer, (ViewGroup) null);
+        this.f = this.g.findViewById(com.baidu.tieba.u.footer_background);
+        this.h = (TextView) this.g.findViewById(com.baidu.tieba.u.footer_text);
+        this.i = (ImageView) this.g.findViewById(com.baidu.tieba.u.footer_icon);
         d();
-        this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.p.top_recommended_finish_a);
-        this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.p.top_recommended_finish_b);
+        this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_a);
+        this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_b);
         this.o.setAnimationListener(new h(this));
         this.p.setAnimationListener(new i(this));
-        this.d.setText(String.valueOf(this.j.getString(y.done)) + "(" + this.k + ")");
+        this.d.setText(String.valueOf(this.j.getString(x.done)) + "(" + this.k + ")");
         this.c.setPullRefresh(this.e);
-        this.l = (ProgressBar) this.j.findViewById(v.loading);
+        this.l = (ProgressBar) this.j.findViewById(com.baidu.tieba.u.loading);
         if (!n.a()) {
             this.q = new n(topRecActivity);
         }
@@ -98,9 +97,9 @@ public class g {
     public void a(int i) {
         this.d.invalidate();
         if (this.k < 100) {
-            this.m.setText(String.valueOf(this.j.getString(y.done)) + "(" + this.k + ")");
+            this.m.setText(String.valueOf(this.j.getString(x.done)) + "(" + this.k + ")");
         } else {
-            this.m.setText(String.valueOf(this.j.getString(y.done)) + "(99+)");
+            this.m.setText(String.valueOf(this.j.getString(x.done)) + "(99+)");
         }
         this.d.setText(" ");
         this.m.setVisibility(0);
@@ -110,17 +109,17 @@ public class g {
     }
 
     public void d() {
-        this.h.setText(this.j.getString(y.flist_expand_list));
+        this.h.setText(this.j.getString(x.flist_expand_list));
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.i.setBackgroundResource(u.ico_downward_1);
+            this.i.setBackgroundResource(t.ico_downward_1);
         } else {
-            this.i.setBackgroundResource(u.ico_downward);
+            this.i.setBackgroundResource(t.ico_downward);
         }
         this.g.setOnClickListener(this.j);
     }
 
     public void e() {
-        this.h.setText(this.j.getString(y.to_the_end));
+        this.h.setText(this.j.getString(x.to_the_end));
         this.i.setVisibility(8);
         this.g.setClickable(false);
         this.g.setOnClickListener(null);
@@ -128,10 +127,10 @@ public class g {
 
     public void b(int i) {
         this.a.c(i);
-        bk.b(this.j.findViewById(v.container), i);
-        bk.e((TextView) this.d, i);
-        bk.d((TextView) this.d, i);
-        bk.d(this.m, i);
+        ay.b(this.j.findViewById(com.baidu.tieba.u.container), i);
+        ay.e((TextView) this.d, i);
+        ay.d((TextView) this.d, i);
+        ay.d(this.m, i);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.c.setDivider(new ColorDrawable(-13881543));
         } else {
@@ -139,8 +138,8 @@ public class g {
         }
         this.c.setDividerHeight(2);
         if (i == 1) {
-            this.f.setBackgroundResource(u.bg_black_banner_down_1);
-            this.h.setTextColor(this.j.getResources().getColor(s.flist_text_color_night));
+            this.f.setBackgroundResource(t.bg_black_banner_down_1);
+            this.h.setTextColor(this.j.getResources().getColor(r.flist_text_color_night));
             if (this.e != null) {
                 this.e.a(i);
             }
@@ -148,16 +147,16 @@ public class g {
                 this.i.setVisibility(8);
                 return;
             } else {
-                this.i.setImageResource(u.ico_downward_1);
+                this.i.setImageResource(t.ico_downward_1);
                 return;
             }
         }
-        this.f.setBackgroundResource(u.bg_black_banner_down);
-        this.h.setTextColor(this.j.getResources().getColor(s.flist_text_color_day));
+        this.f.setBackgroundResource(t.bg_black_banner_down);
+        this.h.setTextColor(this.j.getResources().getColor(r.flist_text_color_day));
         if (this.n) {
             this.i.setVisibility(8);
         } else {
-            this.i.setImageResource(u.ico_downward);
+            this.i.setImageResource(t.ico_downward);
         }
     }
 

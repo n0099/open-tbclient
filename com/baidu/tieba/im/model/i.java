@@ -24,10 +24,12 @@ public class i extends com.baidu.adp.base.e {
     private int g;
     private int h;
     private GroupPermData i;
-    private final Map<String, Boolean> j = new HashMap();
+    private final Map<String, Boolean> j;
     private BaseFragmentActivity k;
 
     public i(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity);
+        this.j = new HashMap();
         this.k = baseFragmentActivity;
     }
 

@@ -76,15 +76,15 @@ public class r extends BroadcastReceiver {
                                 playView5.a(voiceModel17);
                             }
                         } catch (Exception e) {
-                            com.baidu.tbadk.core.util.y yVar = new com.baidu.tbadk.core.util.y();
+                            com.baidu.tbadk.core.util.r rVar = new com.baidu.tbadk.core.util.r();
                             voiceModel13 = this.this$0.mCurPlayModel;
                             if (voiceModel13 != null) {
                                 voiceModel14 = this.this$0.mCurPlayModel;
-                                yVar.a("id", voiceModel14.getId());
+                                rVar.a("id", voiceModel14.getId());
                                 voiceModel15 = this.this$0.mCurPlayModel;
-                                yVar.a(com.baidu.tbadk.core.frameworkData.a.FROM, voiceModel15.from);
+                                rVar.a(com.baidu.tbadk.core.frameworkData.a.FROM, voiceModel15.from);
                             }
-                            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), yVar.toString());
+                            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), rVar.toString());
                         }
                     }
                 }
@@ -154,9 +154,9 @@ public class r extends BroadcastReceiver {
                 playView = this.this$0.getPlayView();
                 if (playView != null) {
                     if (intExtra2 == 2) {
-                        a = ae.a(com.baidu.tieba.y.voice_err_io);
+                        a = ae.a(com.baidu.tieba.x.voice_err_io);
                     } else {
-                        a = ae.a(com.baidu.tieba.y.voice_err_play);
+                        a = ae.a(com.baidu.tieba.x.voice_err_play);
                     }
                     playView.a(5, a);
                 }

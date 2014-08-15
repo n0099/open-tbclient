@@ -9,20 +9,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.im.model.bd;
-import com.baidu.tieba.v;
+import com.baidu.tieba.im.model.an;
+import com.baidu.tieba.u;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends BaseActivity {
     private m b = null;
-    private bd c = null;
+    private an c = null;
     private com.baidu.adp.lib.util.d d = null;
     private com.baidu.adp.widget.ListView.d e = new b(this);
     com.baidu.adp.lib.c.d a = new c(this);
     private CustomMessageListener f = new d(this, 2001115);
-    private com.baidu.adp.framework.listener.b g = new e(this, 0);
+    private com.baidu.adp.framework.listener.d g = new e(this, 0);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, NearbyGroupsActivity.class));
@@ -37,7 +38,7 @@ public class NearbyGroupsActivity extends BaseActivity {
         this.b.a(new f(this));
         this.b.a(new g(this));
         this.d = new com.baidu.adp.lib.util.d(this);
-        this.c = new bd();
+        this.c = new an(this);
         this.c.setUniqueId(getUniqueId());
         registerListener(103009, this.g);
         registerListener(103008, this.g);
@@ -58,7 +59,7 @@ public class NearbyGroupsActivity extends BaseActivity {
             return true;
         }
         try {
-            return bp.a(bp.a(), new Date(j)) >= 1;
+            return bf.a(bf.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -96,10 +97,10 @@ public class NearbyGroupsActivity extends BaseActivity {
             } else {
                 b();
             }
-        } else if (view.getId() == v.guide_setting) {
+        } else if (view.getId() == u.guide_setting) {
             this.d.a();
-        } else if (view.getId() == v.list_item_content && (tag = view.getTag()) != null) {
-            sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.v(this, com.baidu.adp.lib.f.b.a(tag.toString(), 0L), 1)));
+        } else if (view.getId() == u.list_item_content && (tag = view.getTag()) != null) {
+            sendMessage(new CustomMessage(2008011, new y(this, com.baidu.adp.lib.e.b.a(tag.toString(), 0L), 1)));
         }
     }
 

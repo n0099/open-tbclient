@@ -18,7 +18,7 @@ public class h extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.a.N;
+                handler = this.a.L;
                 handler.removeMessages(1);
                 this.a.u();
                 this.a.s();

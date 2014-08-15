@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class q extends BroadcastReceiver {
     final /* synthetic */ WaittingActivity this$0;
@@ -17,7 +17,7 @@ class q extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() == null) {
-            this.this$0.showToast(y.rand_chat_waiting_net_error);
+            this.this$0.showToast(x.rand_chat_waiting_net_error);
         }
     }
 }

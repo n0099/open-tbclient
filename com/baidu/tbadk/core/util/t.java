@@ -1,91 +1,94 @@
 package com.baidu.tbadk.core.util;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    private int a;
-    private boolean b = false;
-    private u e = null;
-    private final String c = TbConfig.TMP_DATABASE_NAME;
-    private final String d = z.a + "/" + TbConfig.getTempDirName() + "/" + this.c;
+    public static final String a = TbadkApplication.m252getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-    public t() {
-        this.a = 1;
-        this.a = 11;
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
+    public static boolean a(String str) {
         try {
-            sQLiteDatabase.execSQL(str);
+            return new File(new StringBuilder(String.valueOf(a)).append("/").append(str).toString()).exists();
         } catch (Exception e) {
-            BdLog.e(str);
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "FileHelper.checkFile " + str);
+            return false;
         }
     }
 
-    public SQLiteDatabase a() {
-        SQLiteDatabase sQLiteDatabase = null;
-        if (z.c()) {
-            this.b = z.b(this.c);
-            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
-            if (sQLiteDatabase != null) {
-                if (!this.b) {
-                    a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.a);
-                } else {
-                    int version = sQLiteDatabase.getVersion();
-                    if (version != this.a) {
-                        a(sQLiteDatabase, version, this.a);
-                        sQLiteDatabase.setVersion(this.a);
+    public static boolean b(String str) {
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists()) {
+                return false;
+            }
+            return file.createNewFile();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "FileHelper.createFile " + str);
+            return false;
+        }
+    }
+
+    public static void a(File file) {
+        try {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
+                        } else {
+                            a(listFiles[i]);
+                        }
+                    }
+                }
+                file.delete();
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "FileHelper.deleteFileOrDir");
+        }
+    }
+
+    public static boolean c(String str) {
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    return false;
+                }
+                a(file);
+            }
+            return file.mkdirs();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "FileHelper.cleanDirectory " + str);
+            return false;
+        }
+    }
+
+    public static String d(String str) {
+        String str2 = null;
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                int length = listFiles.length;
+                long j = 0;
+                for (int i = 0; i < length; i++) {
+                    if (j > listFiles[i].lastModified()) {
+                        j = listFiles[i].lastModified();
+                        str2 = listFiles[i].getName();
                     }
                 }
             }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "FileHelper.getLatestFileName " + str);
         }
-        return sQLiteDatabase;
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-            b(sQLiteDatabase);
-        }
-        b();
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i <= 9) {
-            b(sQLiteDatabase);
-        }
-        if (i < 11) {
-            a(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
-            a(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
-            if (i > 9) {
-                a(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
-            }
-        }
-        b();
-    }
-
-    private void b(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-        a(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
-    }
-
-    private void b() {
-        if (this.e != null) {
-            try {
-                this.e.a();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void a(u uVar) {
-        this.e = uVar;
+        return str2;
     }
 }

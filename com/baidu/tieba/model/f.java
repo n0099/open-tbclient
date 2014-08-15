@@ -2,17 +2,17 @@ package com.baidu.tieba.model;
 
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.message.ResponseSetBubbleMessage;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends HttpMessageListener {
-    final /* synthetic */ d a;
+    final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(d dVar, int i) {
+    public f(e eVar, int i) {
         super(i);
-        this.a = dVar;
+        this.a = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,26 +24,26 @@ public class f extends HttpMessageListener {
         h hVar3;
         h hVar4;
         h hVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001501) {
-            hVar = this.a.b;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500) {
+            hVar = this.a.a;
             if (hVar != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (!(httpResponsedMessage instanceof ResponseSetBubbleMessage)) {
-                    hVar5 = this.a.b;
+                if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
+                    hVar5 = this.a.a;
                     hVar5.b(null);
                     return;
                 }
-                ResponseSetBubbleMessage responseSetBubbleMessage = (ResponseSetBubbleMessage) httpResponsedMessage;
+                ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    hVar2 = this.a.b;
-                    hVar2.b(responseSetBubbleMessage.getSetBubbleResultData());
-                } else if (responseSetBubbleMessage.getSetBubbleResultData() == null) {
-                    hVar4 = this.a.b;
-                    hVar4.b(responseSetBubbleMessage.getSetBubbleResultData());
+                    hVar2 = this.a.a;
+                    hVar2.b(responseBubbleListMessage.getBubbleListData());
+                } else if (responseBubbleListMessage.getBubbleListData() == null) {
+                    hVar4 = this.a.a;
+                    hVar4.b(responseBubbleListMessage.getBubbleListData());
                 } else {
-                    hVar3 = this.a.b;
-                    hVar3.a(responseSetBubbleMessage.getSetBubbleResultData());
+                    hVar3 = this.a.a;
+                    hVar3.a(responseBubbleListMessage.getBubbleListData());
                 }
             }
         }

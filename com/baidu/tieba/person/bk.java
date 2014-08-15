@@ -1,10 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements DialogInterface.OnClickListener {
+public class bk implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,15 +12,8 @@ public class bk implements DialogInterface.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.a.B;
-        if (dialog != null) {
-            dialog2 = this.a.B;
-            dialog2.dismiss();
-        }
-        this.a.f();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a((int) TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
     }
 }

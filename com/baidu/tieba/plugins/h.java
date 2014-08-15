@@ -1,38 +1,22 @@
 package com.baidu.tieba.plugins;
 
-import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
-import com.baidu.tieba.y;
+import android.view.View;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    final /* synthetic */ PluginDownloadActivity a;
-    private final /* synthetic */ int b;
+class h implements View.OnClickListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(PluginDownloadActivity pluginDownloadActivity, int i) {
-        this.a = pluginDownloadActivity;
-        this.b = i;
+    public h(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        m mVar;
-        m mVar2;
-        if (this.b == 0) {
-            this.a.showToast(this.a.getString(y.plugin_installation_finished));
-            com.baidu.tbadk.tbplugin.m.a().q();
-            if (TbadkApplication.m252getInst().isMainProcess(true)) {
-                this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
-            }
-            this.a.setResult(-1);
-            mVar2 = this.a.a;
-            mVar2.dismiss();
-            return;
-        }
-        this.a.setResult(0);
-        this.a.showToast(this.a.getString(y.plugin_installation_failed));
-        mVar = this.a.a;
-        mVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PluginDownloadActivity pluginDownloadActivity;
+        PluginDownloadActivity pluginDownloadActivity2;
+        pluginDownloadActivity = this.a.a;
+        pluginDownloadActivity.setResult(0);
+        pluginDownloadActivity2 = this.a.a;
+        pluginDownloadActivity2.finish();
     }
 }

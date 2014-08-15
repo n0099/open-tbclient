@@ -1,25 +1,23 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends CustomMessageListener {
+public class d implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(a aVar, int i) {
-        super(i);
+    public d(a aVar) {
         this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        DiscoverItemView discoverItemView;
-        discoverItemView = this.a.f;
-        discoverItemView.a(true);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        BaseFragmentActivity baseFragmentActivity;
+        a aVar2 = this.a;
+        baseFragmentActivity = this.a.b;
+        aVar2.a(new CustomMessage(2002001, new com.baidu.tieba.neighbors.i(baseFragmentActivity, true)));
+        aVar.c();
     }
 }

@@ -5,17 +5,22 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bn;
+import com.baidu.tbadk.core.atomData.bw;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public class SingleMentionActivity extends BaseFragmentActivity {
-    f c;
-    private boolean d;
+public class SingleMentionActivity extends BaseFragmentActivity implements com.baidu.tbadk.core.voice.aa {
+    p d;
+    VoiceManager e;
+    private boolean f;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bn.class, SingleMentionActivity.class);
-        bn.a(SingleMentionActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bw.class, SingleMentionActivity.class);
+        bw.a(SingleMentionActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,17 +30,21 @@ public class SingleMentionActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         Bundle a = a(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new f();
-        this.c.setArguments(a);
-        this.d = this.c.getArguments().getBoolean("is_show_chat");
+        this.d = new p();
+        this.d.setArguments(a);
+        this.f = this.d.getArguments().getBoolean("is_show_chat");
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        if (this.d) {
+        if (this.f) {
             str = "tag_three";
         } else {
             str = "tag_two";
         }
-        beginTransaction.add(16908290, this.c, str);
+        beginTransaction.add(16908290, this.d, str);
         beginTransaction.commitAllowingStateLoss();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onCreate(this);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,14 +54,14 @@ public class SingleMentionActivity extends BaseFragmentActivity {
         String str2;
         super.onNewIntent(intent);
         boolean booleanExtra = intent.getBooleanExtra("is_show_chat", false);
-        if (this.d != booleanExtra) {
-            if (this.d) {
+        if (this.f != booleanExtra) {
+            if (this.f) {
                 str = "tag_three";
             } else {
                 str = "tag_two";
             }
-            this.d = booleanExtra;
-            if (this.d) {
+            this.f = booleanExtra;
+            if (this.f) {
                 str2 = "tag_three";
             } else {
                 str2 = "tag_two";
@@ -63,10 +72,10 @@ public class SingleMentionActivity extends BaseFragmentActivity {
                 beginTransaction.remove(findFragmentByTag);
             }
             Bundle a = a(intent);
-            this.c = null;
-            this.c = new f();
-            this.c.setArguments(a);
-            beginTransaction.add(16908290, this.c, str2);
+            this.d = null;
+            this.d = new p();
+            this.d.setArguments(a);
+            beginTransaction.add(16908290, this.d, str2);
             beginTransaction.commitAllowingStateLoss();
         }
     }
@@ -75,7 +84,11 @@ public class SingleMentionActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_show_chat", this.d);
+        bundle.putBoolean("is_show_chat", this.f);
+        this.e = d();
+        if (this.e != null) {
+            this.e.onSaveInstanceState(this);
+        }
     }
 
     private Bundle a(Intent intent) {
@@ -104,6 +117,10 @@ public class SingleMentionActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onResume(this);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -119,8 +136,78 @@ public class SingleMentionActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.c != null) {
-            this.c.onActivityResult(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
+        }
+        if (this.d.a() != null) {
+            this.d.a().onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            if (this.d.a() == null) {
+                finish();
+                return true;
+            }
+            PbEditor i2 = this.d.a().i();
+            if (i2 != null && i2.p()) {
+                this.d.a().h();
+                return true;
+            }
+            finish();
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // com.baidu.tbadk.core.voice.aa
+    public com.baidu.tbadk.core.voice.y a(VoiceData.VoiceModel voiceModel) {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.aa
+    public VoiceManager d() {
+        if (this.e == null) {
+            this.e = VoiceManager.instance();
+        }
+        return this.e;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onPause(this);
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        super.onStop();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onStop(this);
+        }
+    }
+
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        super.onStart();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onStart(this);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.e = d();
+        if (this.e != null) {
+            this.e.onDestory(this);
         }
     }
 }

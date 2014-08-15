@@ -1,5 +1,6 @@
 package com.baidu.tieba.guide;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
@@ -27,18 +28,18 @@ public class i extends Dialog implements a {
     }
 
     private void b() {
-        this.e = View.inflate(this.a, com.baidu.tieba.w.new_user_img_box, null);
+        this.e = View.inflate(this.a, com.baidu.tieba.v.new_user_img_box, null);
         this.g = new g(this.a);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.v.box_close_layout);
-        this.h = (GridView) this.e.findViewById(com.baidu.tieba.v.layout_content);
+        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.box_close_layout);
+        this.h = (GridView) this.e.findViewById(com.baidu.tieba.u.layout_content);
         this.h.setAdapter((ListAdapter) this.g);
-        this.h.setSelector(com.baidu.tieba.s.transparent);
+        this.h.setSelector(com.baidu.tieba.r.transparent);
         setContentView(this.e);
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_title);
-        this.c = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_sub_title);
-        this.d = this.e.findViewById(com.baidu.tieba.v.view_layout);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_orange_up));
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.u.prompt_title);
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.u.prompt_sub_title);
+        this.d = this.e.findViewById(com.baidu.tieba.u.view_layout);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.t.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.guide.a
@@ -74,6 +75,10 @@ public class i extends Dialog implements a {
 
     @Override // android.app.Dialog, com.baidu.tieba.guide.a
     public void hide() {
-        super.dismiss();
+        if (this.a instanceof Activity) {
+            com.baidu.adp.lib.e.d.b(this, (Activity) this.a);
+        } else {
+            super.dismiss();
+        }
     }
 }

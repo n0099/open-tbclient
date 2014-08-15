@@ -1,27 +1,30 @@
 package com.baidu.tieba.im.live.room;
 
-import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import com.baidu.tieba.im.chat.GroupMsgImageActivity;
-import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
-    final /* synthetic */ ah a;
-    private final /* synthetic */ ChatMessage b;
+public class ak extends Handler {
+    final /* synthetic */ aj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ah ahVar, ChatMessage chatMessage) {
-        this.a = ahVar;
-        this.b = chatMessage;
+    public ak(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LiveRoomChatActivity liveRoomChatActivity;
-        String a = com.baidu.tieba.im.e.r.a(this.b.getContent(), true);
-        Context context = this.a.getContext();
-        liveRoomChatActivity = this.a.g;
-        GroupMsgImageActivity.a(context, a, liveRoomChatActivity.x().c().getGroupId(), false, String.valueOf(this.b.getMsgId()));
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        View view;
+        switch (message.what) {
+            case 1:
+                this.a.b.setVisibility(8);
+                this.a.a.setVisibility(8);
+                view = this.a.D;
+                view.setVisibility(0);
+                return;
+            default:
+                return;
+        }
     }
 }

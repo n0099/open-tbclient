@@ -11,16 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private q e;
+    private y e;
     private LinearLayout f;
-    private q g;
+    private y g;
     private View h;
     private View i;
     private int j;
@@ -28,7 +26,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private r o;
+    private z o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -68,8 +66,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         j();
     }
 
-    public void setOnScrollListener(r rVar) {
-        this.o = rVar;
+    public void setOnScrollListener(z zVar) {
+        this.o = zVar;
     }
 
     public void a(View view) {
@@ -104,14 +102,14 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void j() {
-        this.e = new q(this);
-        this.g = new q(this);
+        this.e = new y(this);
+        this.g = new y(this);
         this.n = com.baidu.adp.lib.util.j.a(getContext(), 20.0f);
         this.b = com.baidu.adp.lib.util.j.a(getContext(), 3.0f);
-        this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(w.water_fall_view, (ViewGroup) null);
+        this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.water_fall_view, (ViewGroup) null);
         addView(this.c);
-        this.d = (LinearLayout) this.c.findViewById(v.line1);
-        this.f = (LinearLayout) this.c.findViewById(v.line2);
+        this.d = (LinearLayout) this.c.findViewById(com.baidu.tieba.u.line1);
+        this.f = (LinearLayout) this.c.findViewById(com.baidu.tieba.u.line2);
         measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.j.b(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
         k();
@@ -122,7 +120,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void k() {
-        this.k = new p(this);
+        this.k = new x(this);
     }
 
     @Override // android.view.View

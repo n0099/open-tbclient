@@ -2,25 +2,26 @@ package com.baidu.tbadk.core.view;
 
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout a;
+    final /* synthetic */ UserIconBox a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(UserPhotoLayout userPhotoLayout) {
-        this.a = userPhotoLayout;
+    public x(UserIconBox userIconBox) {
+        this.a = userIconBox;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
     public void onChildViewRemoved(View view, View view2) {
         com.baidu.adp.lib.d.b bVar;
         com.baidu.adp.lib.d.b bVar2;
-        if (view2 instanceof HeadImageView) {
-            bVar = this.a.a;
+        if (view2 instanceof TbImageView) {
+            bVar = this.a.b;
             if (bVar != null) {
-                bVar2 = this.a.a;
-                bVar2.a((com.baidu.adp.lib.d.b) ((HeadImageView) view2));
+                bVar2 = this.a.b;
+                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
             }
         }
     }

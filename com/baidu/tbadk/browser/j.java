@@ -1,18 +1,28 @@
 package com.baidu.tbadk.browser;
 
+import android.content.Intent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ TbWebViewActivity a;
+class j implements View.OnClickListener {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
+    public j(i iVar) {
+        this.a = iVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.refresh();
+        TbWebViewActivity tbWebViewActivity;
+        TbWebViewActivity tbWebViewActivity2;
+        try {
+            tbWebViewActivity = this.a.a;
+            Intent intent = new Intent(tbWebViewActivity, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
+            intent.putExtra("plugin_config", com.baidu.tbadk.pluginArch.d.a().b("browser"));
+            tbWebViewActivity2 = this.a.a;
+            tbWebViewActivity2.startActivityForResult(intent, 1);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

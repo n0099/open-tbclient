@@ -1,37 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tbadk.gif.GifView;
+import android.view.inputmethod.InputMethodManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements com.baidu.adp.lib.d.c<GifView> {
+public class aj implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ PbActivity a;
+    private final /* synthetic */ cw b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(PbActivity pbActivity) {
+    public aj(PbActivity pbActivity, cw cwVar) {
         this.a = pbActivity;
+        this.b = cwVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public GifView a() {
-        return new GifView(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(GifView gifView) {
-        gifView.e();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView b(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView c(GifView gifView) {
-        return gifView;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.c();
+        this.a.HidenSoftKeyPad((InputMethodManager) this.a.getSystemService("input_method"), this.b.getChatMsgView());
     }
 }

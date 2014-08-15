@@ -20,6 +20,7 @@ public class RelationshipStatic {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
         bVar.a(cls);
         bVar.b(z);
+        bVar.setParallel(com.baidu.tbadk.k.b());
         MessageManager.getInstance().registerTask(bVar);
     }
 

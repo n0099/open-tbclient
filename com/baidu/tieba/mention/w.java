@@ -1,30 +1,61 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ PostActivity a;
+public class w extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(PostActivity postActivity) {
-        this.a = postActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(v vVar, int i, int i2) {
+        super(i, i2);
+        this.a = vVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && aVar != null) {
-                aVar.a(imageView);
+    @Override // com.baidu.adp.framework.listener.a
+    public void a(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.b.a aVar;
+        int i;
+        com.baidu.tieba.b.a aVar2;
+        com.baidu.tieba.b.a aVar3;
+        int i2;
+        com.baidu.tieba.b.a aVar4;
+        if ((responsedMessage instanceof ReplyMeSocketResponseMessage) || (responsedMessage instanceof ReplyMeHttpResponseMessage)) {
+            if (responsedMessage instanceof ReplyMeSocketResponseMessage) {
+                ReplyMeSocketResponseMessage replyMeSocketResponseMessage = (ReplyMeSocketResponseMessage) responsedMessage;
+                aVar3 = this.a.p;
+                if (aVar3 != null) {
+                    long downSize = replyMeSocketResponseMessage.getDownSize();
+                    long costTime = replyMeSocketResponseMessage.getCostTime();
+                    aVar4 = this.a.p;
+                    aVar4.a(false, !responsedMessage.hasError(), replyMeSocketResponseMessage.getError(), replyMeSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
+                    this.a.p = null;
+                }
+                if (!replyMeSocketResponseMessage.hasError() && replyMeSocketResponseMessage.getModel() != null) {
+                    v vVar = this.a;
+                    com.baidu.tieba.model.al model = replyMeSocketResponseMessage.getModel();
+                    i2 = this.a.n;
+                    vVar.a(model, i2 == 4);
+                }
             }
-            linearLayout2 = this.a.a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
+            if (responsedMessage instanceof ReplyMeHttpResponseMessage) {
+                ReplyMeHttpResponseMessage replyMeHttpResponseMessage = (ReplyMeHttpResponseMessage) responsedMessage;
+                aVar = this.a.p;
+                if (aVar != null) {
+                    long downSize2 = replyMeHttpResponseMessage.getDownSize();
+                    long costTime2 = replyMeHttpResponseMessage.getCostTime();
+                    aVar2 = this.a.p;
+                    aVar2.a(true, !responsedMessage.hasError(), replyMeHttpResponseMessage.getError(), replyMeHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
+                    this.a.p = null;
+                }
+                if (!replyMeHttpResponseMessage.hasError() && replyMeHttpResponseMessage.getModel() != null) {
+                    v vVar2 = this.a;
+                    com.baidu.tieba.model.al model2 = replyMeHttpResponseMessage.getModel();
+                    i = this.a.n;
+                    vVar2.a(model2, i == 4);
+                }
+            }
         }
     }
 }

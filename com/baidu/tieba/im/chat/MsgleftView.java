@@ -13,7 +13,7 @@ import com.baidu.tieba.im.live.room.LiveRoomChatActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MsgleftView extends cd {
+public class MsgleftView extends cb {
     private static final String q = MsgleftView.class.getName();
     View.OnLongClickListener p;
     private HeadImageView r;
@@ -26,27 +26,27 @@ public class MsgleftView extends cd {
     private Context y;
 
     public MsgleftView(Context context) {
-        super(context, com.baidu.tieba.w.msg_msgleft_view);
+        super(context, com.baidu.tieba.v.msg_msgleft_view);
         this.x = new TouchType();
-        this.p = new cm(this);
+        this.p = new cn(this);
         this.y = context;
         b();
-        this.w = (ImageView) a(com.baidu.tieba.v.iv_live_group_host);
-        this.s = (TextView) a(com.baidu.tieba.v.tex_msgitem_name);
-        this.t = (ImageView) a(com.baidu.tieba.v.iv_sex);
-        this.u = (ViewGroup) a(com.baidu.tieba.v.box_msgitem_bubble);
-        this.r = (HeadImageView) a(com.baidu.tieba.v.img_msgitem_photo);
+        this.w = (ImageView) a(com.baidu.tieba.u.iv_live_group_host);
+        this.s = (TextView) a(com.baidu.tieba.u.tex_msgitem_name);
+        this.t = (ImageView) a(com.baidu.tieba.u.iv_sex);
+        this.u = (ViewGroup) a(com.baidu.tieba.u.box_msgitem_bubble);
+        this.r = (HeadImageView) a(com.baidu.tieba.u.img_msgitem_photo);
         this.r.setAutoChangeStyle(false);
         this.r.setDrawerType(1);
         this.r.setRadius(com.baidu.adp.lib.util.j.a(this.y, 4.0f));
-        this.v = (UserIconBox) a(com.baidu.tieba.v.user_tshow_icon_box);
-        this.r.setOnClickListener(new cn(this));
+        this.v = (UserIconBox) a(com.baidu.tieba.u.user_tshow_icon_box);
+        this.r.setOnClickListener(new co(this));
         this.r.setLongClickable(true);
         this.r.setOnLongClickListener(this.p);
-        this.r.setOnTouchListener(new co(this));
+        this.r.setOnTouchListener(new cp(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cb
     public void b(View view, ChatMessage chatMessage) {
         String str = null;
         super.b(view, chatMessage);
@@ -54,19 +54,20 @@ public class MsgleftView extends cd {
         c();
         if (this.v != null && this.o) {
             this.v.setVisibility(0);
-            this.v.a(tShowInfo, 2, this.y.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_width), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_height), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_margin), true);
+            this.v.a(tShowInfo, 2, this.y.getResources().getDimensionPixelSize(com.baidu.tieba.s.small_icon_width), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.s.small_icon_height), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.s.small_icon_margin), true);
         }
         if (chatMessage == null) {
             this.s.setText((CharSequence) null);
-            this.i.setVisibility(0);
-            this.i.setText(null);
+            this.h.setVisibility(0);
+            this.h.setText(null);
             c(8);
-            this.j.setTag(null);
+            this.n.getImage().setTag(null);
+            this.i.setVisibility(8);
+            this.i.setTag(null);
             this.k.setVisibility(8);
             this.k.setTag(null);
+            this.l.setVisibility(8);
             this.m.setVisibility(8);
-            this.m.setTag(null);
-            this.n.setVisibility(8);
             this.w.setVisibility(8);
             return;
         }
@@ -85,12 +86,13 @@ public class MsgleftView extends cd {
             } else {
                 this.r.a(str, 12, false);
             }
-            this.i.setVisibility(8);
+            this.h.setVisibility(8);
             c(8);
+            this.i.setVisibility(8);
+            this.j.setVisibility(8);
             this.k.setVisibility(8);
             this.l.setVisibility(8);
             this.m.setVisibility(8);
-            this.n.setVisibility(8);
             switch (chatMessage.getMsgType()) {
                 case 1:
                     a(chatMessage, q);
@@ -149,10 +151,10 @@ public class MsgleftView extends cd {
             }
             int sex = userInfo.getSex();
             if (sex == 1) {
-                this.t.setImageResource(com.baidu.tieba.u.icon_pop_qz_boy);
+                this.t.setImageResource(com.baidu.tieba.t.icon_pop_qz_boy);
                 this.t.setVisibility(0);
             } else if (sex == 2) {
-                this.t.setImageResource(com.baidu.tieba.u.icon_pop_qz_girl);
+                this.t.setImageResource(com.baidu.tieba.t.icon_pop_qz_girl);
                 this.t.setVisibility(0);
             } else {
                 this.t.setVisibility(8);

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
+import tbclient.PbPage.AddPost;
 /* loaded from: classes.dex */
 public class AdditionData implements Serializable {
     private static final long serialVersionUID = -6760087984237848132L;
@@ -84,6 +85,22 @@ public class AdditionData implements Serializable {
                 this.lastAdditionTime = jSONObject.optLong("last_addition_time", 0L);
                 this.alreadyCount = jSONObject.optInt("already_count", 0);
                 this.warnMsg = jSONObject.optString("warn_msg");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void parserProtoBuf(AddPost addPost) {
+        if (addPost != null) {
+            try {
+                this.createTime = addPost.create_time.intValue();
+                this.postId = addPost.post_id;
+                this.totalCount = addPost.total_count.intValue();
+                this.lastAdditionContent = addPost.last_addition_content;
+                this.lastAdditionTime = addPost.last_addition_time.intValue();
+                this.alreadyCount = addPost.already_count.intValue();
+                this.warnMsg = addPost.warn_msg;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

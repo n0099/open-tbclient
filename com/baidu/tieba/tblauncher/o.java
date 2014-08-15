@@ -16,9 +16,9 @@ public class o implements com.baidu.adp.lib.guide.b {
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.a.G;
+        mainTabActivity = this.a.I;
         ImageView imageView = new ImageView(mainTabActivity);
-        imageView.setBackgroundResource(com.baidu.tieba.u.sign_all_tip);
+        imageView.setBackgroundResource(com.baidu.tieba.t.sign_all_tip);
         return imageView;
     }
 
@@ -36,17 +36,17 @@ public class o implements com.baidu.adp.lib.guide.b {
     public int c() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.G;
-        mainTabActivity2 = this.a.G;
-        return -((int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density));
+        mainTabActivity = this.a.I;
+        mainTabActivity2 = this.a.I;
+        return -((int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds26) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density));
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int d() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.G;
-        mainTabActivity2 = this.a.G;
-        return (int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds64) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density);
+        mainTabActivity = this.a.I;
+        mainTabActivity2 = this.a.I;
+        return (int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds64) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density);
     }
 }

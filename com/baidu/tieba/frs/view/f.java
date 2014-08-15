@@ -18,8 +18,8 @@ public class f implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.a.C;
-        str = this.a.I;
+        activity = this.a.E;
+        str = this.a.K;
         ForumListActivity.a(activity, str, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
     }
 }

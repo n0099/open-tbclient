@@ -1,52 +1,43 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.App;
-import tbclient.BannerList;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<b> a = new ArrayList<>();
+    private int a;
+    private String b;
+    private String c;
 
-    public ArrayList<b> a() {
-        return this.a;
+    public String a() {
+        return this.b;
+    }
+
+    public String b() {
+        return String.valueOf(this.a);
+    }
+
+    public String c() {
+        return this.c;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("app");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        b bVar = new b();
-                        bVar.a(optJSONArray.optJSONObject(i));
-                        this.a.add(bVar);
-                    }
-                }
+                this.a = jSONObject.optInt("badge_id", 0);
+                this.b = jSONObject.optString("badge_url", "");
+                this.c = jSONObject.optString("webview");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(BannerList bannerList) {
-        List<App> list;
-        if (bannerList != null && (list = bannerList.app) != null && list.size() > 0) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    b bVar = new b();
-                    bVar.a(list.get(i2));
-                    this.a.add(bVar);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.a = badges.badge_id.intValue();
+            this.b = badges.badge_url;
+            this.c = badges.webview;
         }
     }
 }

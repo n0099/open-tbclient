@@ -1,35 +1,45 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
+public class t implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ MembersActivity a;
+    private final /* synthetic */ BdListView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(MembersActivity membersActivity, int i) {
-        super(i);
+    public t(MembersActivity membersActivity, BdListView bdListView) {
         this.a = membersActivity;
+        this.b = bdListView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                if (cmd.equals("apply_join_success")) {
-                    this.a.f();
-                } else if (cmd.equals("kick_out")) {
-                    this.a.f();
-                }
-            }
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        af afVar;
+        boolean h;
+        com.baidu.tieba.im.model.u uVar;
+        com.baidu.tieba.im.model.u uVar2;
+        com.baidu.tieba.im.model.u uVar3;
+        com.baidu.tieba.im.model.u uVar4;
+        com.baidu.tieba.im.model.u uVar5;
+        afVar = this.a.b;
+        if (afVar.f().d()) {
+            this.b.d();
+            return;
         }
+        h = this.a.h();
+        if (h) {
+            uVar = this.a.c;
+            uVar2 = this.a.c;
+            long f = uVar2.f();
+            uVar3 = this.a.c;
+            int d = uVar3.d();
+            uVar4 = this.a.c;
+            int e = uVar4.e();
+            uVar5 = this.a.c;
+            uVar.a(f, d, e, uVar5.a());
+            return;
+        }
+        this.a.f();
     }
 }

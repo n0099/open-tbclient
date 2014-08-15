@@ -1,37 +1,43 @@
 package com.baidu.tbadk.core.log;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class b implements Runnable {
-    final /* synthetic */ a a;
+public class b {
+    private static Hashtable<Integer, String> a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    static {
+        a = null;
+        if (a == null) {
+            a = new Hashtable<>();
+            a.put(1001, "上线");
+            a.put(1002, "GROUP_UPDATE");
+            a.put(1003, "PING");
+            a.put(202003, "MESSAGE_SYNC");
+            a.put(202001, "GROUP_CHAT_MSG");
+            a.put(205001, "CMD_COMMIT_PERSONAL_MSG");
+            a.put(202006, "PUSH_NOTIFY");
+            a.put(103002, "吧的群组列表界面网络请求");
+            a.put(103004, "群资料页界面网络请求");
+            a.put(103005, "根据群的ID获取群的成员列表");
+            a.put(103112, "移除群的成员");
+            a.put(103006, "根据群的id获取群的等级信息");
+            a.put(103110, "加群申请");
+            a.put(103111, "往群增加成员");
+            a.put(103003, "进群页面接口");
+            a.put(103007, "搜群");
+            a.put(202004, "删系统群消息");
+            a.put(103008, "建群权限获取");
+            a.put(103101, "添加群组");
+            a.put(103103, "举报群组");
+            a.put(103102, "更新群组");
+            a.put(202101, "反推计数上传");
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AtomicBoolean atomicBoolean;
-        AtomicBoolean atomicBoolean2;
-        for (int i = 0; i < 60; i++) {
-            atomicBoolean2 = this.a.a;
-            if (!atomicBoolean2.get()) {
-                break;
-            }
-            try {
-                synchronized (this) {
-                    wait(3000L);
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+    public static String a(int i) {
+        if (a == null || !a.containsKey(Integer.valueOf(i))) {
+            return "";
         }
-        atomicBoolean = this.a.a;
-        if (!atomicBoolean.get()) {
-            this.a.b(true);
-        }
+        return a.get(Integer.valueOf(i));
     }
 }

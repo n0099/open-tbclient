@@ -3,9 +3,7 @@ package com.baidu.tbadk.coreExtra.share;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
-import com.baidu.tbadk.tbplugin.m;
+import com.baidu.tbadk.core.atomData.bk;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ d a;
@@ -20,6 +18,6 @@ class f implements com.baidu.tbadk.core.dialog.d {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.b;
-        messageManager.sendMessage(new CustomMessage(2002001, new bd(context, m.a().d(BdSocialShareSdkDelegate.class))));
+        messageManager.sendMessage(new CustomMessage(2002001, new bk(context, "BdSocialShareSdk")));
     }
 }

@@ -1,161 +1,55 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class dj {
-    private ForumData a;
-    private ArrayList<com.baidu.tieba.data.aw> b;
-    private ArrayList<String> c;
-    private int d;
-    private int e;
-    private int f;
-    private AntiData g;
-    private com.baidu.tieba.data.ag h;
-    private String i = null;
-    private String j = null;
-    private cp k = null;
-    private cp l = null;
-    private int m = com.baidu.adp.framework.d.a().b();
-    private HttpMessageListener n = new dk(this, 1001702);
-    private HttpMessageListener o = new dl(this, 1001701);
+    private ForumData a = new ForumData();
+    private ArrayList<com.baidu.tieba.data.ay> b = new ArrayList<>();
+    private ArrayList<String> c = new ArrayList<>();
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private AntiData g = new AntiData();
+    private com.baidu.tieba.data.ah h = new com.baidu.tieba.data.ah();
 
-    public dj() {
-        i();
-        g();
-    }
-
-    private void i() {
-        this.a = new ForumData();
-        this.b = new ArrayList<>();
-        this.c = new ArrayList<>();
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = new AntiData();
-        this.h = new com.baidu.tieba.data.ag();
-    }
-
-    public com.baidu.tieba.data.ag a() {
-        return this.h;
-    }
-
-    public ForumData b() {
-        return this.a;
-    }
-
-    public ArrayList<com.baidu.tieba.data.aw> c() {
+    public ArrayList<com.baidu.tieba.data.ay> a() {
         return this.b;
     }
 
-    public ArrayList<String> d() {
-        return this.c;
-    }
-
-    public int e() {
-        return this.d;
-    }
-
-    public AntiData f() {
-        return this.g;
-    }
-
-    public void g() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001701, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/photolist");
-        tbHttpMessageTask.setResponsedClass(ImageForumListResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.o);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1001702, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/photo");
-        tbHttpMessageTask2.setResponsedClass(ImageForumResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask2);
-        messageManager.registerListener(this.n);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int a(HttpResponsedMessage httpResponsedMessage) {
-        Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-        if (extra != null) {
-            return com.baidu.adp.lib.f.b.a(extra.toString(), 0);
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("forum"));
+                this.h.a(jSONObject.optJSONObject("user"));
+                this.g.parserJson(jSONObject.optJSONObject("anti"));
+                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
+                if (optJSONObject != null) {
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            com.baidu.tieba.data.ay ayVar = new com.baidu.tieba.data.ay();
+                            ayVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(ayVar);
+                        }
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            this.c.add(optJSONArray2.optString(i2));
+                        }
+                    }
+                    this.d = optJSONObject.optInt("has_more", 0);
+                    this.e = optJSONObject.optInt("amount", 0);
+                    this.f = optJSONObject.optInt("current_count", 0);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        return 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public dm a(HttpResponsedMessage httpResponsedMessage, int i, int i2) {
-        dm dmVar = new dm(this);
-        dmVar.a = true;
-        dmVar.b = i == 200;
-        dmVar.c = i2;
-        dmVar.d = httpResponsedMessage.getErrorString();
-        dmVar.e = com.baidu.adp.lib.f.b.a(httpResponsedMessage.getContentLength(), 0L);
-        return dmVar;
-    }
-
-    public void a(int i, int i2, int i3) {
-        if (MessageManager.getInstance().findMessage(1001701, this.m).size() <= 0) {
-            HttpMessage httpMessage = new HttpMessage(1001701);
-            if (this.i != null) {
-                httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.i);
-            }
-            httpMessage.setExtra(Integer.valueOf(i));
-            httpMessage.addParam("kw", this.j);
-            httpMessage.addParam("bs", String.valueOf(i));
-            httpMessage.addParam("be", String.valueOf((i + 240) - 1));
-            httpMessage.addParam("an", String.valueOf(30));
-            httpMessage.addParam("scr_w", String.valueOf(i2));
-            httpMessage.addParam("scr_h", String.valueOf(i3));
-            httpMessage.setTag(this.m);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void a(int i) {
-        if (MessageManager.getInstance().findMessage(1001702, this.m).size() <= 0) {
-            if (i < 0) {
-                i = 0;
-            }
-            HttpMessage httpMessage = new HttpMessage(1001702);
-            httpMessage.setExtra(Integer.valueOf(i));
-            StringBuilder sb = new StringBuilder();
-            int size = d().size();
-            for (int i2 = i; i2 < size && i2 < i + 30; i2++) {
-                sb.append(d().get(i2));
-                sb.append(",");
-            }
-            int length = sb.length();
-            if (length > 1 && sb.charAt(length - 1) == ',') {
-                sb.deleteCharAt(length - 1);
-            }
-            httpMessage.addParam("alb_ids", sb.toString());
-            httpMessage.addParam("kw", this.j);
-            httpMessage.setTag(this.m);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void h() {
-        MessageManager.getInstance().removeMessage(1001701, this.m);
-        MessageManager.getInstance().removeMessage(1001702, this.m);
-    }
-
-    public void a(String str, String str2) {
-        this.i = str;
-        this.j = str2;
-    }
-
-    public void a(cp cpVar) {
-        this.k = cpVar;
-    }
-
-    public void b(cp cpVar) {
-        this.l = cpVar;
     }
 }

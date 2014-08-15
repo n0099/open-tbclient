@@ -37,10 +37,10 @@ public class t extends com.baidu.adp.lib.resourceLoader.c<com.baidu.tbadk.core.v
             int i2 = aVar.c;
             String str4 = aVar.d;
             if (StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-                TiebaStatic.voiceError("", 1, this.a.context.getString(com.baidu.tieba.y.voice_cache_error_internal), str2);
+                TiebaStatic.voiceError("", 1, this.a.context.getString(com.baidu.tieba.x.voice_cache_error_internal), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
                     yVar2 = this.a.sPlayView;
-                    yVar2.a(5, ae.a(com.baidu.tieba.y.voice_err_load_fail));
+                    yVar2.a(5, ae.a(com.baidu.tieba.x.voice_err_load_fail));
                 } else {
                     yVar3 = this.a.sPlayView;
                     yVar3.a(5, str4);

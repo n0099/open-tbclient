@@ -1,9 +1,6 @@
 package com.baidu.tieba.im.live.room;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* loaded from: classes.dex */
-class as implements View.OnTouchListener {
+class as implements com.baidu.tbadk.widget.i {
     final /* synthetic */ LiveRoomChatView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +8,8 @@ class as implements View.OnTouchListener {
         this.a = liveRoomChatView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.a.ak();
-        return false;
+    @Override // com.baidu.tbadk.widget.i
+    public void a(int i) {
+        this.a.z = i;
     }
 }

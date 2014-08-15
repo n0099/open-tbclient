@@ -6,12 +6,13 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class d {
     ImageView a;
-    TextView b;
-    View c;
-    final /* synthetic */ a d;
+    ImageView b;
+    TextView c;
+    View d;
+    final /* synthetic */ a e;
 
     private d(a aVar) {
-        this.d = aVar;
+        this.e = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

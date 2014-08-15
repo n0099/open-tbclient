@@ -2,19 +2,13 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.core.frameworkData.a {
-    public o(Context context, String str) {
+    public o(Context context, String str, boolean z, String str2) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
-    }
-
-    public static String a(Bundle bundle) {
-        return bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
-    }
-
-    public static String a(Intent intent) {
-        return intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
+        Intent intent = getIntent();
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str2);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.PKG_ID, str);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.IS_DOWNLOADING, z);
     }
 }

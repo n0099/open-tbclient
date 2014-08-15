@@ -2,7 +2,6 @@ package com.baidu.adp.lib.Disk.ops;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import org.apache.commons.io.Charsets;
 /* loaded from: classes.dex */
 public class e extends DiskFileOperate {
     private String g;
@@ -11,7 +10,7 @@ public class e extends DiskFileOperate {
     public e(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.g = null;
-        this.h = Charsets.UTF_8.displayName();
+        this.h = "UTF-8";
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -41,7 +40,7 @@ public class e extends DiskFileOperate {
         return null;
     }
 
-    public String u() {
+    public String v() {
         return this.g;
     }
 

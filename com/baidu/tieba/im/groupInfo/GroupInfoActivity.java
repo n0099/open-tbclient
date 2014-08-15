@@ -14,11 +14,10 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bj;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
@@ -32,26 +31,22 @@ import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
-import com.baidu.tieba.im.model.bx;
+import com.baidu.tieba.im.model.bb;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GroupInfoActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, ac, ad {
-    private r f;
-    private com.baidu.tieba.im.model.k g;
-    private bx h;
-    private p i;
-    private final int a = 1;
-    private final int b = 2;
-    private final int c = 3;
-    private final int d = 4;
-    private int e = 0;
-    private final DialogInterface.OnClickListener j = new j(this);
-    private final ab k = new k(this);
-    private final CustomMessageListener l = new l(this, 0);
-    private final CustomMessageListener m = new m(this, 0);
+public class GroupInfoActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, ad, ae {
+    private r b;
+    private com.baidu.tieba.im.model.k c;
+    private bb d;
+    private p e;
+    private int a = 0;
+    private final DialogInterface.OnClickListener f = new j(this);
+    private final ac g = new k(this);
+    private final CustomMessageListener h = new l(this, 0);
+    private final CustomMessageListener i = new m(this, 0);
 
     static {
         a();
@@ -65,7 +60,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private static void b() {
-        bq.a().a(new o());
+        bg.a().a(new o());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,27 +82,27 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void c() {
-        this.i = new p(this);
-        MessageManager.getInstance().registerListener(103004, this.i);
-        MessageManager.getInstance().registerListener(2001102, this.l);
-        MessageManager.getInstance().registerListener(103102, this.i);
-        MessageManager.getInstance().registerListener(103112, this.i);
-        MessageManager.getInstance().registerListener(103110, this.i);
-        MessageManager.getInstance().registerListener(103120, this.i);
-        MessageManager.getInstance().registerListener(103121, this.i);
-        MessageManager.getInstance().registerListener(2001132, this.m);
-        MessageManager.getInstance().registerListener(2001130, this.m);
-        MessageManager.getInstance().registerListener(2001134, this.m);
-        MessageManager.getInstance().registerListener(103104, this.i);
-        MessageManager.getInstance().registerListener(2001141, this.m);
-        MessageManager.getInstance().registerListener(2001139, this.m);
-        MessageManager.getInstance().registerListener(103105, this.i);
+        this.e = new p(this);
+        registerListener(103004, this.e);
+        registerListener(2001102, this.h);
+        registerListener(103102, this.e);
+        registerListener(103112, this.e);
+        registerListener(103110, this.e);
+        registerListener(103120, this.e);
+        registerListener(103121, this.e);
+        registerListener(2001132, this.i);
+        registerListener(2001130, this.i);
+        registerListener(2001134, this.i);
+        registerListener(103104, this.e);
+        registerListener(2001141, this.i);
+        registerListener(2001139, this.i);
+        registerListener(103105, this.e);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.g.b(bundle);
+        this.c.b(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -120,48 +115,49 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.g.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.m);
-        if (this.f != null) {
-            this.f.v();
+        this.c.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.i);
+        if (this.b != null) {
+            this.b.v();
         }
     }
 
     private void d() {
-        this.f = new r(this);
-        this.f.a(this.j);
-        this.f.a(this.k);
+        this.b = new r(this);
+        this.b.a(this.f);
+        this.b.a(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.f != null) {
-            this.f.a();
+        if (this.b != null) {
+            this.b.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f.q();
-        this.g.b(this.g.d(), this.g.e());
+        this.b.q();
+        this.c.b(this.c.d(), this.c.e());
+        this.c.a(this.c.d(), this.c.e());
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.g = new com.baidu.tieba.im.model.k();
-        this.g.setUniqueId(getUniqueId());
+        this.c = new com.baidu.tieba.im.model.k(this);
+        this.c.setUniqueId(getUniqueId());
         if (bundle == null) {
-            com.baidu.tieba.im.model.k kVar = this.g;
+            com.baidu.tieba.im.model.k kVar = this.c;
             if (intent == null) {
                 intent = getIntent();
             }
             kVar.a(intent);
         } else {
-            this.g.a(bundle);
+            this.c.a(bundle);
         }
-        this.h = new bx();
-        this.h.setUniqueId(getUniqueId());
+        this.d = new bb(this);
+        this.d.setUniqueId(getUniqueId());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,85 +174,85 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.f != null) {
-            this.f.a(i);
+        if (this.b != null) {
+            this.b.a(i);
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x01c6: INVOKE  (r2v35 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.k : 0x01c4: IGET  (r2v34 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x01d0: INVOKE  (r2v35 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x01ce: IGET  (r2v34 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.c com.baidu.tieba.im.model.k)
      type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x020a: INVOKE  (r2v31 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.k : 0x0208: IGET  (r2v30 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0214: INVOKE  (r2v31 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x0212: IGET  (r2v30 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.c com.baidu.tieba.im.model.k)
      type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x02bd: INVOKE  (r3v2 long A[REMOVE]) = 
-      (wrap: com.baidu.tieba.im.model.k : 0x02bb: IGET  (r3v1 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.g com.baidu.tieba.im.model.k)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x02c7: INVOKE  (r3v2 long A[REMOVE]) = 
+      (wrap: com.baidu.tieba.im.model.k : 0x02c5: IGET  (r3v1 com.baidu.tieba.im.model.k A[REMOVE]) = (r9v0 'this' com.baidu.tieba.im.groupInfo.GroupInfoActivity A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.im.groupInfo.GroupInfoActivity.c com.baidu.tieba.im.model.k)
      type: VIRTUAL call: com.baidu.tieba.im.model.k.d():long)] */
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f.r()) {
-            if (this.g.f().h()) {
+        if (view == this.b.r()) {
+            if (this.c.f().h()) {
                 com.baidu.tbadk.core.f.a(this, "edit_place_at_groupinfo");
-                GroupAddressLocateActivity.a(this, 21001, this.g.f().b().getPosition(), this.g.f().b().getBusiness(), (this.g.f().b().getFlag() & 1) == 1);
+                GroupAddressLocateActivity.a(this, 21001, this.c.f().b().getPosition(), this.c.f().b().getBusiness(), (this.c.f().b().getFlag() & 1) == 1);
             }
-        } else if (view == this.f.o()) {
+        } else if (view == this.b.o()) {
             closeActivity();
-        } else if (view == this.f.c()) {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.s(this, String.valueOf(this.g.f().b().getForumId()), this.g.f().i() ? false : true)));
+        } else if (view == this.b.c()) {
+            if (this.c.f() != null && this.c.f().b() != null) {
+                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.t(this, String.valueOf(this.c.f().b().getForumId()), this.c.f().i() ? false : true)));
             }
-        } else if (view == this.f.l()) {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, String.valueOf(this.g.f().b().getAuthorId()), this.g.f().b().getAuthorName())));
+        } else if (view == this.b.l()) {
+            if (this.c.f() != null && this.c.f().b() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this, String.valueOf(this.c.f().b().getAuthorId()), this.c.f().b().getAuthorName())));
             }
-        } else if (view == this.f.m()) {
-            GroupLevelActivity.a(this, this.g.d());
-        } else if (view == this.f.k()) {
+        } else if (view == this.b.m()) {
+            GroupLevelActivity.a(this, this.c.d(), this.c.f().j());
+        } else if (view == this.b.k()) {
             if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
                 LoginActivity.a((Activity) this, "", true, 3);
-            } else if (this.g.f() != null) {
-                if (this.g.f().g()) {
-                    if (this.g.f().b() != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.u(this, (int) this.g.d(), this.g.f().b().getName(), this.g.f().b().getAuthorId(), "group_info")));
+            } else if (this.c.f() != null) {
+                if (this.c.f().g()) {
+                    if (this.c.f().b() != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.x(this, (int) this.c.d(), this.c.f().b().getName(), this.c.f().b().getAuthorId(), "group_info")));
                     }
-                } else if (this.g.l()) {
-                    showToast(com.baidu.tieba.y.has_recent_join);
-                } else if (this.g.f() != null) {
-                    if (this.g.f().f() <= 0) {
-                        showToast(com.baidu.tieba.y.add_group_max);
-                    } else if (com.baidu.tbadk.core.atomData.c.a == this.g.a()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f())));
-                    } else if (com.baidu.tbadk.core.atomData.c.b == this.g.a()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f(), this.g.b(), this.g.c())));
+                } else if (this.c.l()) {
+                    showToast(com.baidu.tieba.x.has_recent_join);
+                } else if (this.c.f() != null) {
+                    if (this.c.f().f() <= 0) {
+                        showToast(com.baidu.tieba.x.add_group_max);
+                    } else if (com.baidu.tbadk.core.atomData.c.a == this.c.a()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.c.d()).toString(), this.c.f().e(), this.c.f().f())));
+                    } else if (com.baidu.tbadk.core.atomData.c.b == this.c.a()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new com.baidu.tbadk.core.atomData.c(this, new StringBuilder().append(this.c.d()).toString(), this.c.f().e(), this.c.f().f(), this.c.b(), this.c.c())));
                     }
                 }
             }
-        } else if (view == this.f.e()) {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                GroupCardActivity.a(this, this.g.d(), this.g.f().b().getName(), this.g.f().b().getPortrait());
+        } else if (view == this.b.e()) {
+            if (this.c.f() != null && this.c.f().b() != null) {
+                GroupCardActivity.a(this, this.c.d(), this.c.f().b().getName(), this.c.f().b().getPortrait());
             }
-        } else if (view == this.f.j()) {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                GroupSettingActivity.a(this, 4, this.g.f().b().getName(), new StringBuilder().append(this.g.d()).toString(), this.g.f().h(), this.g.f().b().getFlag());
+        } else if (view == this.b.j()) {
+            if (this.c.f() != null && this.c.f().b() != null) {
+                GroupSettingActivity.a(this, 4, this.c.f().b().getName(), new StringBuilder().append(this.c.d()).toString(), this.c.f().h(), this.c.f().b().getFlag());
             }
-        } else if (view == this.f.h()) {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                UpdateGroupActivity.a(this, 1, (int) this.g.d(), 1, this.g.f().b().getName());
+        } else if (view == this.b.h()) {
+            if (this.c.f() != null && this.c.f().b() != null) {
+                UpdateGroupActivity.a(this, 1, (int) this.c.d(), 1, this.c.f().b().getName());
             }
-        } else if (view == this.f.g()) {
-            if (this.g.f().h() && this.g.f() != null && this.g.f().b() != null) {
-                UpdateGroupActivity.a(this, 2, (int) this.g.d(), 2, this.g.f().b().getIntro());
+        } else if (view == this.b.g()) {
+            if (this.c.f().h() && this.c.f() != null && this.c.f().b() != null) {
+                UpdateGroupActivity.a(this, 2, (int) this.c.d(), 2, this.c.f().b().getIntro());
             }
-        } else if (view == this.f.n() || view == this.f.d()) {
-            MembersActivity.a(this, this.g.d());
-        } else if (view == this.f.f()) {
-            InviteFriendListActivity.a(this, 0, (int) this.g.d());
-        } else if (view == this.f.i() && this.g.f() != null && this.g.f().g()) {
-            GroupActivityData a = this.g.f().a();
+        } else if (view == this.b.n() || view == this.b.d()) {
+            MembersActivity.a(this, this.c.d());
+        } else if (view == this.b.f()) {
+            InviteFriendListActivity.a(this, 0, (int) this.c.d());
+        } else if (view == this.b.i() && this.c.f() != null && this.c.f().g()) {
+            GroupActivityData a = this.c.f().a();
             if (a != null) {
-                GroupActivityActivity.a(this, a.getActivityId(), this.g.d(), 0);
+                GroupActivityActivity.a(this, a.getActivityId(), this.c.d(), 0);
             } else {
-                CreateGroupActivityActivity.a(this, (int) this.g.d());
+                CreateGroupActivityActivity.a(this, (int) this.c.d());
             }
         }
     }
@@ -268,37 +264,37 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
         finish();
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.ad
+    @Override // com.baidu.tieba.im.groupInfo.ae
     public void a(View view, Object obj, int i) {
-        this.f.a(obj, i);
+        this.b.a(obj, i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view == this.f.b()) {
-            if (this.g.f() == null || this.g.f().b() == null) {
+        if (view == this.b.b()) {
+            if (this.c.f() == null || this.c.f().b() == null) {
                 return false;
             }
-            this.f.e(String.valueOf(this.g.f().b().getGroupId()));
+            this.b.e(String.valueOf(this.c.f().b().getGroupId()));
             return false;
-        } else if (view != this.f.g() || this.g.f().h()) {
+        } else if (view != this.b.g() || this.c.f().h()) {
             return false;
         } else {
-            if (this.g.f() != null && this.g.f().b() != null) {
-                this.f.d(String.valueOf(this.g.f().b().getIntro()));
+            if (this.c.f() != null && this.c.f().b() != null) {
+                this.b.d(String.valueOf(this.c.f().b().getIntro()));
             }
             return true;
         }
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.ac
+    @Override // com.baidu.tieba.im.groupInfo.ad
     public void onClick(View view, int i, Object obj, int i2) {
         if (i == 2) {
-            this.f.t();
+            this.b.t();
         } else if (i == 1) {
-            ArrayList<String> g = this.g.g();
+            ArrayList<String> g = this.c.g();
             if (obj != null && (obj instanceof PhotoUrlData) && g != null) {
-                GroupImageActivity.a(this, ((PhotoUrlData) obj).getBigurl(), g, this.g.d());
+                GroupImageActivity.a(this, ((PhotoUrlData) obj).getBigurl(), g, this.c.d());
             }
         }
     }
@@ -311,11 +307,11 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 1:
                     if (intent != null) {
                         String stringExtra = intent.getStringExtra("group_text");
-                        if (this.f != null) {
-                            this.f.a(stringExtra);
+                        if (this.b != null) {
+                            this.b.a(stringExtra);
                         }
-                        if (this.g != null && this.g.f() != null && this.g.f().b() != null) {
-                            this.g.f().b().setName(stringExtra);
+                        if (this.c != null && this.c.f() != null && this.c.f().b() != null) {
+                            this.c.f().b().setName(stringExtra);
                             return;
                         }
                         return;
@@ -324,11 +320,11 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 2:
                     if (intent != null) {
                         String stringExtra2 = intent.getStringExtra("group_text");
-                        if (this.f != null) {
-                            this.f.b(stringExtra2);
+                        if (this.b != null) {
+                            this.b.b(stringExtra2);
                         }
-                        if (this.g != null && this.g.f() != null && this.g.f().b() != null) {
-                            this.g.f().b().setIntro(stringExtra2);
+                        if (this.c != null && this.c.f() != null && this.c.f().b() != null) {
+                            this.c.f().b().setIntro(stringExtra2);
                             return;
                         }
                         return;
@@ -340,8 +336,8 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 4:
                     if (intent != null) {
                         int intExtra = intent.getIntExtra("intent_data_group_flag", 0);
-                        if (this.g != null && this.g.f() != null && this.g.f().b() != null) {
-                            this.g.f().b().setFlag(intExtra);
+                        if (this.c != null && this.c.f() != null && this.c.f().b() != null) {
+                            this.c.f().b().setFlag(intExtra);
                             return;
                         }
                         return;
@@ -360,7 +356,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        bc.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.z.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        ar.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.s.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -372,25 +368,25 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bj.a(this);
+                ax.a(this);
             } else if (i == 12009) {
-                bj.b(this);
+                ax.b(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PhotoUrlData photoUrlData) {
-        this.e = 2;
+        this.a = 2;
         if (photoUrlData != null) {
-            a(this.g.b(photoUrlData));
+            a(this.c.b(photoUrlData));
         }
     }
 
     private void b(PhotoUrlData photoUrlData) {
-        this.e = 1;
+        this.a = 1;
         if (photoUrlData != null) {
-            String c = this.g.c(photoUrlData);
+            String c = this.c.c(photoUrlData);
             if (!TextUtils.isEmpty(c)) {
                 a(c);
             }
@@ -398,55 +394,55 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void a(int i, String str, String str2) {
-        this.e = 4;
-        if (this.h != null) {
-            this.h.a(this.g.d());
-            this.h.b(i);
-            this.h.d(str);
-            this.h.e(str2);
-            this.h.c(5);
-            this.f.q();
+        this.a = 4;
+        if (this.d != null) {
+            this.d.a(this.c.d());
+            this.d.b(i);
+            this.d.d(str);
+            this.d.e(str2);
+            this.d.c(5);
+            this.b.q();
         }
     }
 
     private void a(String str) {
-        if (this.h != null) {
-            this.h.a(this.g.d());
-            this.h.f(str);
-            this.h.c(3);
-            this.f.q();
+        if (this.d != null) {
+            this.d.a(this.c.d());
+            this.d.f(str);
+            this.d.c(3);
+            this.b.q();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         com.baidu.tieba.im.groupCard.b.a();
-        this.e = 3;
+        this.a = 3;
         if (obj != null && (obj instanceof PhotoUrlData)) {
             PhotoUrlData photoUrlData = (PhotoUrlData) obj;
-            this.g.a(photoUrlData);
+            this.c.a(photoUrlData);
             String picId = photoUrlData.getPicId();
-            if (this.h != null) {
-                this.h.a(this.g.d());
-                this.h.c(picId);
-                this.h.c(4);
-                this.f.q();
+            if (this.d != null) {
+                this.d.a(this.c.d());
+                this.d.c(picId);
+                this.d.c(4);
+                this.b.q();
             }
         }
     }
 
     public void a(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null && this.g.f() != null) {
+        if (groupNewsPojo != null && this.c != null && this.c.f() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.g.d())) && this.g.f().g()) {
-                    this.g.f().a(false);
-                    GroupData b = this.g.f().b();
+                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.c.d())) && this.c.f().g()) {
+                    this.c.f().a(false);
+                    GroupData b = this.c.f().b();
                     if (b != null && b.getMemberNum() > 1) {
                         b.setMemberNum(b.getMemberNum() - 1);
                     }
-                    this.f.a(this.g.f(), true);
+                    this.b.a(this.c.f(), true);
                     g();
                 }
             } catch (JSONException e) {
@@ -458,10 +454,10 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     public void b(GroupNewsPojo groupNewsPojo) {
         try {
             String optString = new JSONObject(groupNewsPojo.getContent()).optJSONObject("eventParam").optString("groupId");
-            if (!TextUtils.isEmpty(optString) && this.g != null && optString.equals(String.valueOf(this.g.d())) && this.g.f() != null) {
-                this.g.f().a(true);
-                if (this.f != null) {
-                    this.f.s();
+            if (!TextUtils.isEmpty(optString) && this.c != null && optString.equals(String.valueOf(this.c.d())) && this.c.f() != null) {
+                this.c.f().a(true);
+                if (this.b != null) {
+                    this.b.s();
                     g();
                 }
             }
@@ -472,17 +468,17 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null && this.g.f() != null) {
+        if (groupNewsPojo != null && this.c != null && this.c.f() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
                 String string = jSONObject2.getString("groupId");
-                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.g.d()))) {
+                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.c.d()))) {
                     String string2 = jSONObject2.getString("groupName");
                     if (!TextUtils.isEmpty(string2)) {
-                        this.f.a(string2);
-                        if (this.g.f() != null && this.g.f().b() != null) {
-                            this.g.f().b().setName(string2);
+                        this.b.a(string2);
+                        if (this.c.f() != null && this.c.f().b() != null) {
+                            this.c.f().b().setName(string2);
                         }
                     }
                 }
@@ -494,11 +490,11 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null) {
+        if (groupNewsPojo != null && this.c != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.g.d()))) {
+                if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.c.d()))) {
                     finish();
                 }
             } catch (JSONException e) {
@@ -518,8 +514,8 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (this.g != null) {
-            this.g.b(String.valueOf(this.g.d()));
+        if (this.c != null) {
+            this.c.b(String.valueOf(this.c.d()));
         }
     }
 }

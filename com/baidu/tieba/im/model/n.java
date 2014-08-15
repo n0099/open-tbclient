@@ -18,11 +18,14 @@ public class n extends com.baidu.adp.base.e {
     private int c;
     private int d;
     private int e;
-    private final Map<String, Boolean> f = new HashMap();
-    private final Map<String, Boolean> g = new HashMap();
+    private final Map<String, Boolean> f;
+    private final Map<String, Boolean> g;
     private BaseFragmentActivity h;
 
     public n(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity);
+        this.f = new HashMap();
+        this.g = new HashMap();
         this.h = baseFragmentActivity;
     }
 

@@ -1,24 +1,17 @@
 package com.baidu.tieba.plugins;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class c {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    View e;
-    View f;
-    ImageView g;
-
-    private c() {
-    }
+class c implements View.OnClickListener {
+    final /* synthetic */ PluginDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(c cVar) {
-        this();
+    public c(PluginDetailActivity pluginDetailActivity) {
+        this.a = pluginDetailActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.closeActivity();
     }
 }

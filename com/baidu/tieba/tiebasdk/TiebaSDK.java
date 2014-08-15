@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.r;
+import com.baidu.tbadk.core.atomData.s;
 import com.baidu.tbadk.core.frameworkData.a;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.ai;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -27,12 +27,12 @@ public class TiebaSDK implements Serializable {
     }
 
     public static void openBar(Context context, String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new r(context).a(str, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new s(context).a(str, null)));
     }
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        aq aqVar;
+        ae aeVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
@@ -42,7 +42,7 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (ai.c().x()) {
+        if (ai.c().w()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -50,12 +50,12 @@ public class TiebaSDK implements Serializable {
         arrayList.add(basicNameValuePair);
         arrayList.add(new BasicNameValuePair(a.ST_TYPE, "tb_forumlist"));
         try {
-            aqVar = new aq(stringBuffer.toString());
-            aqVar.a(arrayList);
+            aeVar = new ae(stringBuffer.toString());
+            aeVar.a(arrayList);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        return !aqVar.a().b().b() ? "" : aqVar.i();
+        return !aeVar.a().b().b() ? "" : aeVar.h();
     }
 
     public static void setFrom(String str) {

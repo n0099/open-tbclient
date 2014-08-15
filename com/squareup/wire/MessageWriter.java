@@ -20,7 +20,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import javax.lang.model.element.Modifier;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class MessageWriter {
     private static final Set<String> JAVA_KEYWORDS = new LinkedHashSet(Arrays.asList("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while"));
@@ -40,7 +39,7 @@ public class MessageWriter {
     }
 
     static String sanitizeJavadoc(String str) {
-        return str.replace("%", "%%").replaceAll("[^\\S\n]+\n", IOUtils.LINE_SEPARATOR_UNIX).replaceAll("\\s+$", "").replaceAll("@see (http:[-!#$%&'()*+,./0-9:;=?@A-Z\\[\\]_a-z~]+)", "@see <a href=\"$1\">$1</a>");
+        return str.replace("%", "%%").replaceAll("[^\\S\n]+\n", "\n").replaceAll("\\s+$", "").replaceAll("@see (http:[-!#$%&'()*+,./0-9:;=?@A-Z\\[\\]_a-z~]+)", "@see <a href=\"$1\">$1</a>");
     }
 
     public void emitHeader(Set<String> set, Collection<Message.Datatype> collection, Collection<Message.Label> collection2) {

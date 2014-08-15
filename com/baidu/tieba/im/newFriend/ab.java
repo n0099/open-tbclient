@@ -1,33 +1,40 @@
 package com.baidu.tieba.im.newFriend;
 
 import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
 /* loaded from: classes.dex */
-class ab {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-
-    private ab() {
-    }
-
+class ab extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(ab abVar) {
-        this();
+    public ab(int i) {
+        super(i);
     }
 
-    public void a(com.baidu.tieba.im.data.k kVar) {
-        this.a.a(kVar.c(), 12, false);
-        this.b.setText(kVar.b());
-        if (!TextUtils.isEmpty(kVar.d())) {
-            this.c.setText(kVar.d());
-        } else {
-            this.c.setText("");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo p;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
+            String cmd = p.getCmd();
+            if (!TextUtils.isEmpty(cmd)) {
+                String content = p.getContent();
+                if (!TextUtils.isEmpty(content)) {
+                    if (cmd.equals("apply_new_friend")) {
+                        NewFriendDbManagerStatic.a().a(content);
+                    } else if (cmd.equals("passed_new_friend")) {
+                        NewFriendDbManagerStatic.a().b(content);
+                    } else if (cmd.equals("delete_new_friend")) {
+                        NewFriendDbManagerStatic.a().c(content);
+                    } else if (cmd.equals("apply_reply_message")) {
+                        NewFriendDbManagerStatic.a().d(content);
+                    } else if (!cmd.equals("apply_add_friend")) {
+                        cmd.equals("apply_pass_friend");
+                    }
+                }
+            }
         }
-        int e = kVar.e();
-        this.d.setText(((Integer) y.a().get(e)).intValue());
-        this.d.setEnabled(e == 0 || e == 1);
     }
 }

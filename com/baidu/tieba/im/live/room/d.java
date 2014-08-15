@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.live.room;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.im.message.RequestLiveGroupLikeListMessage;
@@ -11,11 +12,18 @@ public class d extends com.baidu.adp.base.e {
     private String a;
     private int b;
     private int c;
+    private int d;
+    private int e;
     private boolean f;
     private RequestLiveGroupLikeListMessage g;
-    private int d = 0;
-    private int e = 20;
-    private List<LikeUserInfo> h = new LinkedList();
+    private List<LikeUserInfo> h;
+
+    public d(Context context) {
+        super(context);
+        this.d = 0;
+        this.e = 20;
+        this.h = new LinkedList();
+    }
 
     public LikeUserInfo a(int i) {
         if (this.h == null) {

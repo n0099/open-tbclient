@@ -2,16 +2,27 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class at extends com.baidu.tbadk.core.frameworkData.a {
-    public at(Context context, int i, WriteData writeData, boolean z) {
+    public at(Context context, int i) {
         super(context);
-        setRequestCode(i);
-        setIntentAction(IntentAction.ActivityForResult);
-        if (writeData != null) {
-            getIntent().putExtra("model", writeData);
-            getIntent().putExtra("is_ad", z);
+        getIntent().putExtra("member_type", i);
+    }
+
+    public at(Context context, int i, String str) {
+        super(context);
+        getIntent().putExtra("member_type", i);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+    }
+
+    public at(Context context, boolean z, int i, String str) {
+        super(context);
+        if (str != null) {
+            getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+        }
+        if (z) {
+            setIntentAction(IntentAction.ActivityForResult);
+            setRequestCode(i);
         }
     }
 }

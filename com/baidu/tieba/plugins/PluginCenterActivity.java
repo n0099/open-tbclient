@@ -9,13 +9,15 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
+import com.baidu.tbadk.pluginArch.o;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity {
-    private b a;
+    private a a;
     private BdListView b;
     private NavigationBar c;
     private LinearLayout d;
@@ -25,11 +27,11 @@ public class PluginCenterActivity extends BaseActivity {
     @SuppressLint({"WrongViewCast"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.plugin_center_activity);
-        this.b = (BdListView) findViewById(v.list);
-        this.d = (LinearLayout) findViewById(v.empty);
-        this.c = (NavigationBar) findViewById(v.navigation_bar);
-        this.c.a(y.plugin_center);
+        setContentView(v.plugin_center_activity);
+        this.b = (BdListView) findViewById(u.list);
+        this.d = (LinearLayout) findViewById(u.empty);
+        this.c = (NavigationBar) findViewById(u.navigation_bar);
+        this.c.a(x.plugin_center);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setEmptyView(this.d);
     }
@@ -37,10 +39,21 @@ public class PluginCenterActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.a = new b(this);
+        this.a = new a(this);
+        ConfigInfos d = com.baidu.tbadk.pluginArch.d.a().d();
+        if (d != null) {
+            if (o.b()) {
+                Iterator<ConfigInfos.PluginConfig> it = d.getConfigs().iterator();
+                while (it.hasNext()) {
+                    if ("live".equals(it.next().name)) {
+                        it.remove();
+                    }
+                }
+            }
+            this.a.a(d.getConfigs());
+        }
         this.b.setAdapter((ListAdapter) this.a);
         this.b.setOnItemClickListener(this);
-        com.baidu.tbadk.tbplugin.m.a().a(new a(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,6 +73,6 @@ public class PluginCenterActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        PluginDetailActivity.a(this, ((PluginsConfig.PluginConfig) this.a.getItem(i)).name);
+        PluginDetailActivity.a(this, this.a.getItem(i).name);
     }
 }

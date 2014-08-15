@@ -8,17 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class OfficialBarInfoActivity extends BaseActivity implements View.OnClickListener, com.baidu.adp.widget.BdSwitchView.c {
-    ao a;
-    ap b;
+    ak a;
+    al b;
+    private am e;
     private int c = 0;
     private String d = null;
-    private com.baidu.tbadk.editortool.aa e;
-    private aq f;
+    private boolean f = false;
 
     public static void a(Context context, int i, String str) {
         Intent intent = new Intent(context, OfficialBarInfoActivity.class);
@@ -37,73 +38,63 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     }
 
     private void a() {
-        this.f = new aq(this);
-        this.f.a((View.OnClickListener) this);
-        this.f.a((com.baidu.adp.widget.BdSwitchView.c) this);
+        this.e = new am(this);
+        this.e.a((View.OnClickListener) this);
+        this.e.a((com.baidu.adp.widget.BdSwitchView.c) this);
         showProgressBar();
     }
 
     private void b() {
         this.c = getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
         this.d = getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-        if (this.d != null && com.baidu.tieba.im.e.t.a(this.d) > 16) {
-            this.f.b(String.valueOf(com.baidu.tieba.im.e.t.a(this.d, 0, 16)) + "……");
+        if (this.d != null && com.baidu.tieba.im.d.l.a(this.d) > 16) {
+            this.e.b(String.valueOf(com.baidu.tieba.im.d.l.a(this.d, 0, 16)) + "……");
         } else {
-            this.f.b(this.d);
+            this.e.b(this.d);
         }
-        bd.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ak(this));
-        this.e = new com.baidu.tbadk.editortool.aa(this);
+        ay.a().b(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ag(this));
         sendMessage(new RequestOfficialBarInfoMessage(this.c, this.d));
     }
 
     private void c() {
-        this.a = new ao(this);
-        this.b = new ap(this);
-        MessageManager.getInstance().registerListener(this.a);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    private void d() {
-        MessageManager.getInstance().unRegisterListener(this.a);
-        MessageManager.getInstance().unRegisterListener(this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        d();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
+        this.a = new ak(this);
+        this.b = new al(this);
+        registerListener(this.a);
+        registerListener(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f.a(i);
+        this.e.a(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f.a()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new al(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new am(this)).create().show();
-        } else if (view == this.f.b()) {
+        if (view == this.e.a()) {
+            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new ai(this)).create().show();
+        } else if (view == this.e.b()) {
             OfficialBarHistoryActivity.a(this, this.c);
-        } else if (view == this.f.c()) {
-            com.baidu.tbadk.core.atomData.r rVar = new com.baidu.tbadk.core.atomData.r(this);
-            rVar.a(this.d, "official_bar");
-            sendMessage(new CustomMessage(2003000, rVar));
+        } else if (view == this.e.c()) {
+            com.baidu.tbadk.core.atomData.s sVar = new com.baidu.tbadk.core.atomData.s(this);
+            sVar.a(this.d, "official_bar");
+            sendMessage(new CustomMessage(2003000, sVar));
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        new an(this, switchState).execute(new Void[0]);
+        new aj(this, switchState).execute(new Void[0]);
+        if (switchState == BdSwitchView.SwitchState.OFF) {
+            if (this.f) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                this.f = false;
+            }
+        } else if (!this.f) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+            this.f = true;
+        }
     }
 }

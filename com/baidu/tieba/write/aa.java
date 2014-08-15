@@ -9,8 +9,8 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tbadk.core.util.aq a;
-    com.baidu.tbadk.coreExtra.data.f b;
+    volatile com.baidu.tbadk.core.util.ae a;
+    com.baidu.tbadk.coreExtra.data.e b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
@@ -31,7 +31,7 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         this.c.h = null;
         if (this.a != null) {
-            this.a.g();
+            this.a.f();
         }
         this.d = true;
         progressBar = this.c.f;
@@ -52,42 +52,42 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.aq aqVar = this.a;
+            this.a = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            com.baidu.tbadk.core.util.ae aeVar = this.a;
             writeData = this.c.b;
-            aqVar.a("fid", writeData.getForumId());
-            com.baidu.tbadk.core.util.aq aqVar2 = this.a;
+            aeVar.a("fid", writeData.getForumId());
+            com.baidu.tbadk.core.util.ae aeVar2 = this.a;
             writeData2 = this.c.b;
-            aqVar2.a("kw", writeData2.getForumName());
+            aeVar2.a("kw", writeData2.getForumName());
             this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            com.baidu.tbadk.core.util.aq aqVar3 = this.a;
+            com.baidu.tbadk.core.util.ae aeVar3 = this.a;
             writeData3 = this.c.b;
-            aqVar3.a("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.aq aqVar4 = this.a;
+            aeVar3.a("title", writeData3.getTitle());
+            com.baidu.tbadk.core.util.ae aeVar4 = this.a;
             writeData4 = this.c.b;
-            aqVar4.a("content", writeData4.getContent());
+            aeVar4.a("content", writeData4.getContent());
             writeData5 = this.c.b;
             if (writeData5.getType() == 0) {
                 this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             } else {
                 this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                com.baidu.tbadk.core.util.aq aqVar5 = this.a;
+                com.baidu.tbadk.core.util.ae aeVar5 = this.a;
                 writeData6 = this.c.b;
-                aqVar5.a("tid", writeData6.getThreadId());
+                aeVar5.a("tid", writeData6.getThreadId());
             }
-            String i = this.a.i();
+            String h = this.a.h();
             if (!this.a.a().b().b()) {
                 return null;
             }
-            this.b = new com.baidu.tbadk.coreExtra.data.f();
-            this.b.a(i);
+            this.b = new com.baidu.tbadk.coreExtra.data.e();
+            this.b.a(h);
             str = this.b.b();
         }
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tbadk.core.util.aq(str);
-        return com.baidu.tbadk.core.util.h.a(this.a.h());
+        this.a = new com.baidu.tbadk.core.util.ae(str);
+        return com.baidu.tbadk.core.util.d.a(this.a.g());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

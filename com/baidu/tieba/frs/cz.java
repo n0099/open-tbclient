@@ -1,32 +1,61 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tieba.view.FrsCommonImageLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.baidu.tieba.frs.view.FrsHeaderView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements AbsListView.RecyclerListener {
-    final /* synthetic */ ct a;
+public class cz implements Runnable {
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(ct ctVar) {
-        this.a = ctVar;
+    public cz(cu cuVar) {
+        this.a = cuVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.v.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.d();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        int i;
+        String str;
+        String str2;
+        FrsHeaderView frsHeaderView;
+        FrsHeaderView frsHeaderView2;
+        com.baidu.tieba.frs.view.n nVar;
+        com.baidu.tieba.frs.view.n nVar2;
+        com.baidu.adp.lib.guide.d dVar2;
+        dVar = this.a.ao;
+        if (dVar != null) {
+            dVar2 = this.a.ao;
+            dVar2.a();
         }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.v.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.a();
-        }
-        if (view != null && (view instanceof UserPhotoLayout)) {
-            ((UserPhotoLayout) view).a();
+        if (!com.baidu.tbadk.h.a().a(FrsActivity.b, false)) {
+            i = this.a.am;
+            if (i == 1) {
+                str = this.a.U;
+                if (str == "frs_page") {
+                    nVar = this.a.A;
+                    if (nVar != null) {
+                        nVar2 = this.a.A;
+                        if (nVar2.c()) {
+                            com.baidu.tbadk.h.a().b(FrsActivity.b, true);
+                            this.a.d();
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                str2 = this.a.U;
+                if (str2 == "normal_page") {
+                    frsHeaderView = this.a.z;
+                    if (frsHeaderView != null) {
+                        frsHeaderView2 = this.a.z;
+                        if (frsHeaderView2.a()) {
+                            com.baidu.tbadk.h.a().b(FrsActivity.b, true);
+                            this.a.d();
+                        }
+                    }
+                }
+            }
         }
     }
 }

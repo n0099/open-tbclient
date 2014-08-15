@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class b {
     private int a;
@@ -14,6 +15,17 @@ public class b {
             this.c = jSONObject.optString("icon_link");
             this.d = jSONObject.optString("content");
             this.a = jSONObject.optInt("tail_type");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void a(TailInfo tailInfo) {
+        try {
+            this.b = tailInfo.icon_url;
+            this.c = tailInfo.icon_link;
+            this.d = tailInfo.content;
+            this.a = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -21,25 +21,25 @@ public class ac implements l {
         this.a.releaseWakeLock();
         this.a.currRecordState = 1;
         if (this.a.mCurRecordVid == null || str == null) {
-            com.baidu.tbadk.core.util.y yVar = new com.baidu.tbadk.core.util.y();
-            yVar.a("file", str);
-            yVar.a("dur", Integer.valueOf(i));
-            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", yVar.toString());
+            com.baidu.tbadk.core.util.r rVar = new com.baidu.tbadk.core.util.r();
+            rVar.a("file", str);
+            rVar.a("dur", Integer.valueOf(i));
+            TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", rVar.toString());
         } else if (this.a.recordView != null) {
             if (i <= 1000) {
-                this.a.recordView.a(2, ae.a(com.baidu.tieba.y.voice_record_short_tip));
-                com.baidu.tbadk.core.util.y yVar2 = new com.baidu.tbadk.core.util.y();
-                yVar2.a("file", str);
-                yVar2.a("dur", Integer.valueOf(i));
-                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_LEN, "voice too short", yVar2.toString());
+                this.a.recordView.a(2, ae.a(com.baidu.tieba.x.voice_record_short_tip));
+                com.baidu.tbadk.core.util.r rVar2 = new com.baidu.tbadk.core.util.r();
+                rVar2.a("file", str);
+                rVar2.a("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_LEN, "voice too short", rVar2.toString());
             } else if (str.endsWith(this.a.mCurRecordVid)) {
                 this.a.doVoiceFileMd5(this.a.mCurRecordVid, (int) Math.round((i * 1.0d) / 1000.0d));
                 this.a.mCurRecordVid = null;
             } else {
-                com.baidu.tbadk.core.util.y yVar3 = new com.baidu.tbadk.core.util.y();
-                yVar3.a("file", str);
-                yVar3.a("dur", Integer.valueOf(i));
-                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", yVar3.toString());
+                com.baidu.tbadk.core.util.r rVar3 = new com.baidu.tbadk.core.util.r();
+                rVar3.a("file", str);
+                rVar3.a("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", rVar3.toString());
             }
         }
     }
@@ -60,7 +60,7 @@ public class ac implements l {
         } else if (this.a.mCurRecordVid != null) {
             this.a.doVoiceFileMd5(this.a.mCurRecordVid, com.baidu.adp.lib.voice.b.a / 1000);
             this.a.mCurRecordVid = null;
-            this.a.recordView.a(3, this.a.context.getString(com.baidu.tieba.y.voice_record_timeout_tip));
+            this.a.recordView.a(3, this.a.context.getString(com.baidu.tieba.x.voice_record_timeout_tip));
         } else {
             TiebaStatic.voiceError("", i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
         }

@@ -3,7 +3,7 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.framework.listener.b {
+public class u extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

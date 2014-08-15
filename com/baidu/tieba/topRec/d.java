@@ -3,7 +3,7 @@ package com.baidu.tieba.topRec;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     int b;
     TRForumListData.TRForum c;
     final /* synthetic */ TopRecActivity d;
-    private aq e;
+    private ae e;
 
     private d(TopRecActivity topRecActivity) {
         this.d = topRecActivity;
@@ -43,13 +43,13 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         }
         try {
             if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.e = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
                 this.e.a("fid", String.valueOf(this.c.forum_id));
                 this.e.a("kw", this.c.forum_name);
                 this.e.a("favo_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 this.e.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, "from_topRec");
                 this.e.a().a().a = true;
-                this.e.i();
+                this.e.h();
                 return null;
             }
             return null;
@@ -73,7 +73,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         } else if (str == null) {
             this.d.a(this.a, this.c.forum_id);
         } else {
-            ai.c().f(this.c.forum_name);
+            ai.c().e(this.c.forum_name);
             this.d.d();
         }
     }
@@ -82,7 +82,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     public void cancel() {
         g gVar;
         if (this.e != null) {
-            this.e.g();
+            this.e.f();
             this.e = null;
         }
         gVar = this.d.a;

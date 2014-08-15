@@ -1,23 +1,17 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class bf implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity a;
+class bf implements AbsListView.RecyclerListener {
+    final /* synthetic */ bd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bf(bd bdVar) {
+        this.a = bdVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.t = true;
-            return false;
-        }
-        return false;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
     }
 }

@@ -1,20 +1,22 @@
 package com.baidu.tbadk.browser;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.core.view.h {
-    final /* synthetic */ TbWebViewActivity a;
+class g implements DialogInterface.OnClickListener {
+    final /* synthetic */ e a;
+    private final /* synthetic */ bk b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
+    public g(e eVar, bk bkVar) {
+        this.a = eVar;
+        this.b = bkVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
-    public void a() {
-        this.a.showPopMenu();
-    }
-
-    @Override // com.baidu.tbadk.core.view.h
-    public void b() {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (this.b != null) {
+            this.b.a();
+        }
     }
 }

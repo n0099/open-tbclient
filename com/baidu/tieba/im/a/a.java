@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.a;
 
+import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -7,16 +8,24 @@ import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
     public static boolean a = true;
+    com.baidu.adp.lib.c.d b;
+    private boolean c;
     private int d;
     private int e;
     private String f;
     private String g;
     private String h;
     private e i;
-    private boolean c = false;
-    private final com.baidu.adp.framework.listener.b j = new b(this, 103011);
-    private final CustomMessageListener k = new c(this, 2001114);
-    com.baidu.adp.lib.c.d b = new d(this);
+    private final com.baidu.adp.framework.listener.d j;
+    private final CustomMessageListener k;
+
+    public a(Context context) {
+        super(context);
+        this.c = false;
+        this.j = new b(this, 103011);
+        this.k = new c(this, 2001114);
+        this.b = new d(this);
+    }
 
     public void a(e eVar) {
         this.i = eVar;

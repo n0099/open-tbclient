@@ -1,33 +1,21 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bc implements View.OnClickListener {
+class bc implements Runnable {
     final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ Date b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(WriteActivity writeActivity) {
+    public bc(WriteActivity writeActivity, Date date) {
         this.a = writeActivity;
+        this.b = date;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText2;
-        editText = this.a.h;
-        editText.requestFocus();
-        writeEditorToolButtonContainer = this.a.z;
-        writeEditorToolButtonContainer.c();
-        editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.q();
-        editorToolComponetContainer2 = this.a.A;
-        editText2 = this.a.h;
-        editorToolComponetContainer2.a(editText2);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.view.c cVar;
+        cVar = this.a.ac;
+        cVar.updateTime(this.b.getHours(), this.b.getMinutes());
     }
 }

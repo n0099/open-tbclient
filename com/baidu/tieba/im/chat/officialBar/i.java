@@ -1,28 +1,53 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class i implements View.OnLongClickListener {
-    final /* synthetic */ h a;
+public class i {
+    public static i a = new i();
+    private final int b = 9;
+    private final int c = 1;
+    private final int d = 1;
+    private com.baidu.adp.lib.d.b<f> e;
+    private com.baidu.adp.lib.d.b<c> f;
+    private com.baidu.adp.lib.d.b<bb> g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public static i a() {
+        return a;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.adp.lib.b.b bVar;
-        com.baidu.adp.lib.b.b bVar2;
-        int i;
-        bVar = this.a.e;
-        if (bVar != null) {
-            bVar2 = this.a.e;
-            i = this.a.f;
-            bVar2.b(view, 9, i, 0L);
-            return false;
+    private i() {
+    }
+
+    private void d(Context context) {
+        this.e = new k(this, new j(this, context), 1, 0);
+    }
+
+    private void e(Context context) {
+        this.f = new m(this, new l(this, context), 9, 0);
+    }
+
+    private void f(Context context) {
+        this.g = new com.baidu.adp.lib.d.b<>(new n(this, context), 1, 0);
+    }
+
+    public com.baidu.adp.lib.d.b<f> a(Context context) {
+        if (this.e == null) {
+            d(context);
         }
-        return false;
+        return this.e;
+    }
+
+    public com.baidu.adp.lib.d.b<c> b(Context context) {
+        if (this.f == null) {
+            e(context);
+        }
+        return this.f;
+    }
+
+    public com.baidu.adp.lib.d.b<bb> c(Context context) {
+        if (this.g == null) {
+            f(context);
+        }
+        return this.g;
     }
 }

@@ -16,7 +16,7 @@ class m extends Thread {
         Handler handler2;
         super.run();
         try {
-            com.baidu.tbadk.core.util.m.a();
+            com.baidu.tbadk.core.util.i.a();
             this.a.a(this.a.getCacheDir());
         } catch (Exception e) {
         }

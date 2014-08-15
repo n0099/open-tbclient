@@ -3,19 +3,17 @@ package com.baidu.tieba.im.randchat;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestQuitChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseUpdateChatroomTopicMessage;
-import com.baidu.tieba.im.model.ca;
+import com.baidu.tieba.im.model.bf;
 import com.baidu.tieba.im.randchat.WaitingTipView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class p extends com.baidu.adp.framework.listener.b {
+class p extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,19 +27,18 @@ class p extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ca caVar;
-        ca caVar2;
+        bf bfVar;
+        bf bfVar2;
         f fVar;
-        ca caVar3;
-        ca caVar4;
+        bf bfVar3;
         WaitingTipView.Type type;
         f fVar2;
-        ca caVar5;
+        bf bfVar4;
         f fVar3;
         f fVar4;
         this.a.closeLoadingDialog();
         if (socketResponsedMessage == null) {
-            this.a.showToast(y.neterror);
+            this.a.showToast(x.neterror);
         } else if (socketResponsedMessage.getCmd() == 106103) {
             if (socketResponsedMessage instanceof ResponseUpdateChatroomTopicMessage) {
                 ResponseUpdateChatroomTopicMessage responseUpdateChatroomTopicMessage = (ResponseUpdateChatroomTopicMessage) socketResponsedMessage;
@@ -54,8 +51,8 @@ class p extends com.baidu.adp.framework.listener.b {
                     }
                     fVar2 = this.a.a;
                     com.baidu.tieba.im.view.h chatterboxView = fVar2.b().getChatterboxView();
-                    caVar5 = this.a.b;
-                    chatterboxView.setTitle(caVar5.h());
+                    bfVar4 = this.a.b;
+                    chatterboxView.setTitle(bfVar4.h());
                     fVar3 = this.a.a;
                     fVar3.b().getLoadingView().setVisibility(8);
                     return;
@@ -64,7 +61,7 @@ class p extends com.baidu.adp.framework.listener.b {
             }
         } else if (socketResponsedMessage.getCmd() == 106102) {
             if (!(socketResponsedMessage instanceof ResponseQuitChatRoomMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
             }
             ResponseQuitChatRoomMessage responseQuitChatRoomMessage = (ResponseQuitChatRoomMessage) socketResponsedMessage;
             Message<?> orginalMessage = responseQuitChatRoomMessage.getOrginalMessage();
@@ -75,16 +72,14 @@ class p extends com.baidu.adp.framework.listener.b {
                             this.a.showToast(responseQuitChatRoomMessage.getErrorString());
                         }
                     } else {
-                        this.a.showToast(y.neterror);
+                        this.a.showToast(x.neterror);
                     }
                 }
-                caVar4 = this.a.b;
-                com.baidu.tieba.im.e.i.a(String.valueOf(caVar4.f().d()));
                 this.a.finish();
             }
         } else if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 106101) {
             if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage;
@@ -96,28 +91,20 @@ class p extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
-            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-            imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
-            imMessageCenterPojo.setCustomGroupType(3);
-            imMessageCenterPojo.setGroup_name("聊天室");
-            imMessageCenterPojo.setIs_delete(0);
-            imMessageCenterPojo.setIs_hidden(1);
-            com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
             this.a.a(randChatRoomData, false);
-            caVar3 = this.a.b;
-            caVar3.b(randChatRoomData);
+            bfVar3 = this.a.b;
+            bfVar3.b(randChatRoomData);
             this.a.i();
             this.a.j();
         } else if (socketResponsedMessage.getCmd() == 106001 && (socketResponsedMessage instanceof ResponseChatRoomInfoMessage)) {
-            caVar = this.a.b;
-            RandChatRoomData f = caVar.f();
-            caVar2 = this.a.b;
-            f.b(caVar2.a((ResponseChatRoomInfoMessage) socketResponsedMessage));
+            bfVar = this.a.b;
+            RandChatRoomData f = bfVar.f();
+            bfVar2 = this.a.b;
+            f.b(bfVar2.a((ResponseChatRoomInfoMessage) socketResponsedMessage));
             fVar = this.a.a;
             fVar.b().c();
             this.a.j();

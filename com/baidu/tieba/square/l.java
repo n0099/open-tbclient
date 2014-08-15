@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bx;
+import com.baidu.tbadk.core.util.bo;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
     View.OnClickListener a = new m(this);
@@ -41,14 +41,14 @@ public class l extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bx.b(view);
+            bo.b(view);
         }
-        bx.a(view);
+        bo.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.v.container);
-            View findViewById2 = view.findViewById(com.baidu.tieba.v.item_up);
-            View findViewById3 = view.findViewById(com.baidu.tieba.v.item_down);
+            View findViewById = view.findViewById(com.baidu.tieba.u.container);
+            View findViewById2 = view.findViewById(com.baidu.tieba.u.item_up);
+            View findViewById3 = view.findViewById(com.baidu.tieba.u.item_down);
             if (itemViewType == 0) {
                 findViewById2.setVisibility(0);
                 findViewById3.setVisibility(8);
@@ -59,7 +59,7 @@ public class l extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            bx.a(findViewById, itemViewType, skinType);
+            bo.a(findViewById, itemViewType, skinType);
             a(viewGroup, (n) view.getTag(), i);
         }
         return view;
@@ -68,12 +68,12 @@ public class l extends BaseAdapter {
     private View a(ViewGroup viewGroup, int i) {
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
+            return from.inflate(com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
         }
-        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_second_dir_item, viewGroup, false);
+        View inflate = from.inflate(com.baidu.tieba.v.bar_folder_second_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.a);
         n nVar = new n();
-        nVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
+        nVar.a = (TextView) inflate.findViewById(com.baidu.tieba.u.name);
         inflate.setTag(nVar);
         return inflate;
     }

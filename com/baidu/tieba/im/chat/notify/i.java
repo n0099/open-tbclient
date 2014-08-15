@@ -1,18 +1,20 @@
 package com.baidu.tieba.im.chat.notify;
+
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ h a;
+public class i implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public i(e eVar) {
+        this.a = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r2) {
-        d dVar;
-        dVar = this.a.a;
-        dVar.i();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        if (!z) {
+            this.a.a(new RequestMemoryListMessage(1));
+        }
     }
 }

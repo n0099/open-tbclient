@@ -1,111 +1,39 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.concurrent.Callable;
 /* loaded from: classes.dex */
-public class bn {
-    private static bn a = null;
-    private boolean b = false;
-    private boolean c = false;
-    private int d = TbConfig.POST_IMAGE_SMALL;
-    private String e = String.valueOf(45);
+class bn implements Callable<Boolean> {
+    private final /* synthetic */ Context a;
 
-    public static bn a() {
-        if (a == null) {
-            synchronized (bn.class) {
-                a = new bn();
-            }
-        }
-        return a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bn(Context context) {
+        this.a = context;
     }
 
-    public bn() {
-        k();
-        j();
-    }
-
-    private void j() {
-        f();
-        g();
-        h();
-    }
-
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    public boolean b() {
-        return this.c;
-    }
-
-    public void b(boolean z) {
-        this.b = z;
-        j();
-    }
-
-    private void k() {
-        this.b = UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
-    }
-
-    public boolean c() {
-        return this.b;
-    }
-
-    public String d() {
-        return this.e;
-    }
-
-    public int e() {
-        h();
-        return this.d;
-    }
-
-    public void f() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.h.a().g() != 0 ? com.baidu.tbadk.core.h.a().g() != 1 : !this.b) {
-            z = false;
-        }
-        a(z);
-    }
-
-    public void g() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.h.a().g() == 0) {
-            if (c()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.h.a().g() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.e = valueOf;
-    }
-
-    public void h() {
-        int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.h.a().e()) {
-            case 0:
-                if (!c()) {
-                    i = 600;
-                    break;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [471=4] */
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.concurrent.Callable
+    /* renamed from: a */
+    public Boolean call() {
+        SQLiteDatabase sQLiteDatabase = null;
+        try {
+            sQLiteDatabase = this.a.openOrCreateDatabase("webviewCache.db", 0, null);
+        } catch (Throwable th) {
+            try {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e(th.getMessage());
                 }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 750;
-                break;
-            case 3:
-                i = 600;
-                break;
-            default:
-                i = 750;
-                break;
+            } finally {
+                com.baidu.adp.lib.util.m.a(sQLiteDatabase);
+            }
         }
-        this.d = i;
-    }
-
-    public static boolean i() {
-        return z.a() && com.baidu.adp.gif.e.a();
+        if (sQLiteDatabase != null) {
+            return false;
+        }
+        com.baidu.adp.lib.util.m.a(sQLiteDatabase);
+        return true;
     }
 }

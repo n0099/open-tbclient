@@ -9,7 +9,6 @@ public class SocketMessageTask extends MessageTask {
     private boolean c;
     private Class<? extends SocketResponsedMessage> d;
     private DupLicateMode e;
-    private boolean f;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -35,7 +34,6 @@ public class SocketMessageTask extends MessageTask {
         this.b = false;
         this.c = true;
         this.e = DupLicateMode.NONE;
-        this.f = true;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -81,13 +79,5 @@ public class SocketMessageTask extends MessageTask {
 
     public void a(DupLicateMode dupLicateMode) {
         this.e = dupLicateMode;
-    }
-
-    public boolean f() {
-        return this.f;
-    }
-
-    public void d(boolean z) {
-        this.f = z;
     }
 }

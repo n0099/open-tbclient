@@ -1,9 +1,12 @@
 package com.baidu.tieba.im.model;
 
+import android.content.Context;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
+    private RequestAddGroupMessage a;
+    private ResponseAddGroupMessage b;
     private int c;
     private String d;
     private String e;
@@ -14,9 +17,14 @@ public class a extends com.baidu.adp.base.e {
     private String j;
     private int k;
     private int l;
-    private RequestAddGroupMessage a = null;
-    private ResponseAddGroupMessage b = null;
-    private int m = -1;
+    private int m;
+
+    public a(Context context) {
+        super(context);
+        this.a = null;
+        this.b = null;
+        this.m = -1;
+    }
 
     public void a(int i) {
         this.c = i;

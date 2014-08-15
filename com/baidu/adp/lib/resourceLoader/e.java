@@ -1,8 +1,9 @@
 package com.baidu.adp.lib.resourceLoader;
 
 import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.o;
+import com.baidu.adp.lib.stats.q;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import java.util.HashMap;
@@ -16,12 +17,12 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     private int d;
     private int e;
     private Object[] f;
-    private o g;
+    private q g;
     private int h = 2;
-    private final Map<c<T>, Integer> i = new HashMap();
+    private final Map<c<T>, BdUniqueId> i = new HashMap();
     private final a j = new a();
 
-    public e(d dVar, String str, int i, int i2, int i3, int i4, c<T> cVar, o oVar, Object... objArr) {
+    public e(d dVar, String str, int i, int i2, int i3, BdUniqueId bdUniqueId, c<T> cVar, q qVar, Object... objArr) {
         this.a = dVar;
         this.d = 0;
         this.e = 0;
@@ -31,15 +32,15 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         this.c = i;
         this.d = i2;
         this.e = i3;
-        this.g = oVar;
+        this.g = qVar;
         this.f = objArr;
-        a(cVar, i4);
+        a(cVar, bdUniqueId);
     }
 
-    public void a(c<T> cVar, int i) {
+    public void a(c<T> cVar, BdUniqueId bdUniqueId) {
         j.a();
         if (!this.i.containsKey(cVar)) {
-            this.i.put(cVar, Integer.valueOf(i));
+            this.i.put(cVar, bdUniqueId);
         }
     }
 
@@ -54,18 +55,18 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         }
     }
 
-    public void a(int i, c<T> cVar) {
+    public void a(BdUniqueId bdUniqueId, c<T> cVar) {
         j.a();
         if (this.i.size() == 0) {
             cancel();
             return;
         }
-        Iterator<Map.Entry<c<T>, Integer>> it = this.i.entrySet().iterator();
+        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.i.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry<c<T>, Integer> next = it.next();
+            Map.Entry<c<T>, BdUniqueId> next = it.next();
             c<T> key = next.getKey();
-            Integer value = next.getValue();
-            if (value != null && value.intValue() == i && key == cVar) {
+            BdUniqueId value = next.getValue();
+            if (value != null && value == bdUniqueId && key == cVar) {
                 it.remove();
             }
         }
@@ -74,16 +75,16 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         }
     }
 
-    public void a(int i) {
+    public void a(BdUniqueId bdUniqueId) {
         j.a();
         if (this.i.size() == 0) {
             cancel();
             return;
         }
-        Iterator<Map.Entry<c<T>, Integer>> it = this.i.entrySet().iterator();
+        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.i.entrySet().iterator();
         while (it.hasNext()) {
-            Integer value = it.next().getValue();
-            if (value != null && value.intValue() == i) {
+            BdUniqueId value = it.next().getValue();
+            if (value != null && value == bdUniqueId) {
                 it.remove();
             }
         }
@@ -102,18 +103,18 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public T doInBackground(String... strArr) {
-        o oVar;
+        q qVar;
         SparseArray sparseArray;
         Exception e;
         T t;
         Exception e2;
         Object obj;
         if (this.g != null) {
-            o a = f.a();
+            q a = f.a();
             a.a();
-            oVar = a;
+            qVar = a;
         } else {
-            oVar = null;
+            qVar = null;
         }
         sparseArray = this.a.b;
         h hVar = (h) sparseArray.get(this.c);
@@ -133,7 +134,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         if (t != null) {
             try {
                 if (!isCancelled()) {
-                    f.a(this.g, oVar);
+                    f.a(this.g, qVar);
                 }
                 return t;
             } catch (Exception e4) {
@@ -151,7 +152,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
                 obj = hVar.a(this.b, key, this.d, this.e, this, this.j, this.f);
                 try {
                     if (!isCancelled()) {
-                        f.b(this.g, oVar);
+                        f.b(this.g, qVar);
                     }
                 } catch (Exception e5) {
                     e2 = e5;
@@ -180,7 +181,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
                 hVar.a(b, t, this.f);
             }
         }
-        for (Map.Entry<c<T>, Integer> entry : this.i.entrySet()) {
+        for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
             c<T> key = entry.getKey();
             if (key != null) {
                 key.a(t, this.b, this.h);
@@ -191,7 +192,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onProgressUpdate(Object... objArr) {
-        for (Map.Entry<c<T>, Integer> entry : this.i.entrySet()) {
+        for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
             c<T> key = entry.getKey();
             if (key != null) {
                 key.a(objArr);
@@ -206,7 +207,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
             this.j.a.a();
         }
         if (this.i.size() != 0) {
-            for (Map.Entry<c<T>, Integer> entry : this.i.entrySet()) {
+            for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
                 c<T> key = entry.getKey();
                 if (key != null) {
                     key.a(this.b);

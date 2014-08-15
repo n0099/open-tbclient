@@ -1,21 +1,32 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.im.db.p;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ LinkedList b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(LinkedList linkedList) {
-        this.b = linkedList;
+class i extends Handler {
+    private i() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        return p.d().a(this.b);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ i(i iVar) {
+        this();
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 2:
+                b.a(b.b()).removeMessages(2);
+                b.b().h();
+                return;
+            case 3:
+                b.a(b.b()).removeMessages(3);
+                b.b().h();
+                b.a(b.b()).sendMessageDelayed(b.a(b.b()).obtainMessage(3), b.h(b.b()));
+                return;
+            default:
+                return;
+        }
     }
 }

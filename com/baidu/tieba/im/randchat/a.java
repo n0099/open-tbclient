@@ -8,7 +8,7 @@ import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class a extends View {
     private Context a;
@@ -42,18 +42,18 @@ public class a extends View {
 
     private void a(Context context) {
         this.a = context;
-        this.d = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.loading_circle_radius);
-        this.e = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.loading_circle_stroke);
-        this.f = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.loading_small_light_circle_radius);
-        this.g = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.loading_small_normal_circle_radius);
-        this.h = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.loading_circle_distance);
-        this.i = this.a.getResources().getColor(com.baidu.tieba.s.loading_circle_color);
-        this.j = this.a.getResources().getColor(com.baidu.tieba.s.loading_stroke_color);
-        this.k = this.a.getResources().getColor(com.baidu.tieba.s.loading_circle_common_color);
-        this.l = this.a.getResources().getColor(com.baidu.tieba.s.loading_circle_light_color);
-        this.m = this.a.getResources().getColor(com.baidu.tieba.s.white);
-        this.n = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.t.fontsize40);
-        this.o = new String[]{this.a.getString(y.loading_view_ready), TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK};
+        this.d = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.loading_circle_radius);
+        this.e = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.loading_circle_stroke);
+        this.f = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.loading_small_light_circle_radius);
+        this.g = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.loading_small_normal_circle_radius);
+        this.h = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.loading_circle_distance);
+        this.i = this.a.getResources().getColor(com.baidu.tieba.r.loading_circle_color);
+        this.j = this.a.getResources().getColor(com.baidu.tieba.r.loading_stroke_color);
+        this.k = this.a.getResources().getColor(com.baidu.tieba.r.loading_circle_common_color);
+        this.l = this.a.getResources().getColor(com.baidu.tieba.r.loading_circle_light_color);
+        this.m = this.a.getResources().getColor(com.baidu.tieba.r.white);
+        this.n = com.baidu.adp.lib.util.j.c(context, com.baidu.tieba.s.fontsize40);
+        this.o = new String[]{this.a.getString(x.loading_view_ready), TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK};
         this.p = new Paint();
         this.p.setAntiAlias(true);
         this.q = new RectF();

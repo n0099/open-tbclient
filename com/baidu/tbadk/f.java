@@ -1,16 +1,21 @@
 package com.baidu.tbadk;
+
+import android.content.Context;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.framework.client.socket.link.d {
-    final /* synthetic */ TbadkApplication a;
+public class f implements Runnable {
+    private final /* synthetic */ AccountData a;
+    private final /* synthetic */ Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(TbadkApplication tbadkApplication) {
-        this.a = tbadkApplication;
+    public f(AccountData accountData, Context context) {
+        this.a = accountData;
+        this.b = context;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.d
-    public boolean a() {
-        return !i.a().a("is_exit_app_not_start_websocket", false);
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkApplication.setCurrentAccountInUI(this.a, this.b);
     }
 }

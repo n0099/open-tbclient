@@ -1,11 +1,13 @@
 package com.baidu.adp.framework.message;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public abstract class NetMessage {
     private static final String HTTP_DATA_KEY = "data";
     private static final String HTTP_HEADER_KEY = "x_bd_data_type";
     private int httpCmd;
     private int socketCmd;
-    private int tag;
+    private BdUniqueId tag;
     private HttpMessage mHttpMessage = null;
     private SocketMessage mSocketMessage = null;
     private NetType mNetType = NetType.AUTO;
@@ -30,17 +32,17 @@ public abstract class NetMessage {
     protected abstract Object encode(boolean z);
 
     public NetMessage(int i, int i2) {
-        init(i, i2, 0);
+        init(i, i2, null);
     }
 
-    public NetMessage(int i, int i2, int i3) {
-        init(i, i2, i3);
+    public NetMessage(int i, int i2, BdUniqueId bdUniqueId) {
+        init(i, i2, bdUniqueId);
     }
 
-    private void init(int i, int i2, int i3) {
+    private void init(int i, int i2, BdUniqueId bdUniqueId) {
         this.httpCmd = i;
         this.socketCmd = i2;
-        this.tag = i3;
+        this.tag = bdUniqueId;
     }
 
     public void resetData() {
@@ -67,12 +69,12 @@ public abstract class NetMessage {
         return this.mSocketMessage;
     }
 
-    public int getTag() {
+    public BdUniqueId getTag() {
         return this.tag;
     }
 
-    public void setTag(int i) {
-        this.tag = i;
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.tag = bdUniqueId;
     }
 
     public NetType getNetType() {

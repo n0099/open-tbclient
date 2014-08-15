@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.c;
 
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends d {
@@ -18,7 +17,7 @@ public class c extends d {
     }
 
     private c() {
-        this.a = new e(20000, TbConfig.BIG_IMAGE_MIN_CAPACITY, KirinConfig.READ_TIME_OUT);
+        this.a = new e(20000, TbConfig.BIG_IMAGE_MIN_CAPACITY, 5000);
         this.b = 3;
     }
 

@@ -31,10 +31,10 @@ public class LiveRoomChatForcast extends RelativeLayout {
 
     private void a(Context context) {
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.a.inflate(com.baidu.tieba.w.live_room_chat_forcast, (ViewGroup) this, true);
-        this.b = (Button) inflate.findViewById(com.baidu.tieba.v.live_room_forcast_btn);
-        this.c = inflate.findViewById(com.baidu.tieba.v.live_room_close_btn);
-        this.d = inflate.findViewById(com.baidu.tieba.v.live_room_close_layout);
+        View inflate = this.a.inflate(com.baidu.tieba.v.live_room_chat_forcast, (ViewGroup) this, true);
+        this.b = (Button) inflate.findViewById(com.baidu.tieba.u.live_room_forcast_btn);
+        this.c = inflate.findViewById(com.baidu.tieba.u.live_room_close_btn);
+        this.d = inflate.findViewById(com.baidu.tieba.u.live_room_close_layout);
         com.baidu.adp.lib.util.j.a(context, this.c, 30, 30, 30, 30);
     }
 

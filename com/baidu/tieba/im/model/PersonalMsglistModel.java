@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.PersonalChatActivity;
+import com.baidu.tieba.im.chat.bt;
 import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.LoadPersonalDraftMessage;
 import com.baidu.tieba.im.message.LoadPersonalHistoryMessage;
 import com.baidu.tieba.im.message.PersonalSaveDraftMessage;
@@ -23,8 +23,9 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public PersonalMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.b = 20;
-        this.d = new bo(this, 0);
-        m();
+        this.d = new at(this, 0);
+        n();
+        this.v = 2;
     }
 
     @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
@@ -51,7 +52,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
+    public boolean a(bt btVar) {
         if (this.a == null) {
             return false;
         }
@@ -61,7 +62,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         cVar.b = null;
         cVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
         LoadPersonalHistoryMessage loadPersonalHistoryMessage = new LoadPersonalHistoryMessage(cVar);
-        loadPersonalHistoryMessage.setCallback(bvVar);
+        loadPersonalHistoryMessage.setCallback(btVar);
         super.sendMessage(loadPersonalHistoryMessage);
         return true;
     }
@@ -100,36 +101,31 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean a(String str) {
-        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
+        com.baidu.tieba.im.message.q qVar = new com.baidu.tieba.im.message.q();
         if (this.a == null) {
             return false;
         }
-        gVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
-        gVar.a = str;
-        super.sendMessage(new PersonalSaveDraftMessage(gVar));
+        qVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
+        qVar.a = str;
+        super.sendMessage(new PersonalSaveDraftMessage(qVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void a(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new bp(this, chatMessage), null);
+            com.baidu.tieba.im.e.a(new au(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void b(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new bq(this, chatMessage), null);
+            com.baidu.tieba.im.e.a(new av(this, chatMessage), null);
         }
     }
 
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ImMessageCenterPojo b() {
-        return com.baidu.tieba.im.b.k.a().a(String.valueOf(this.a.getUserId()));
-    }
-
-    private void m() {
+    private void n() {
         MessageManager.getInstance().registerListener(2013001, this.d);
         MessageManager.getInstance().registerListener(2001147, this.d);
         MessageManager.getInstance().registerListener(2001150, this.d);
@@ -137,13 +133,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     protected void f() {
         MessageManager.getInstance().unRegisterListener(this.d);
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.i.a().c(PersonalChatActivity.b);
-        aVar.a(null);
-        com.baidu.tieba.im.i.a(new br(this), aVar);
+        BdLog.i("see picUpLoading unregister");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -167,11 +157,22 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
     }
 
-    public int l() {
+    public int m() {
         return this.c;
     }
 
-    public void d(int i) {
+    public void e(int i) {
         this.c = i;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    protected aj h() {
+        if (this.a == null) {
+            return null;
+        }
+        aj ajVar = new aj();
+        ajVar.a = this.a.getUserId();
+        ajVar.b = 2;
+        return ajVar;
     }
 }

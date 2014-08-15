@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
     final /* synthetic */ s a;
-    private com.baidu.tbadk.core.util.aq b = null;
+    private com.baidu.tbadk.core.util.ae b = null;
     private String c;
     private String d;
 
@@ -53,9 +53,9 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         button = this.a.o;
         button.setEnabled(true);
         if (aVar == null) {
-            this.a.b(this.b.f());
+            this.a.b(this.b.e());
         } else if (aVar.a().getUserName() == null) {
-            this.a.b(this.b.f());
+            this.a.b(this.b.e());
             this.a.a(aVar.b());
         } else {
             this.a.e();
@@ -112,7 +112,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         String str;
         Exception e;
         AccountData accountData;
-        String i;
+        String h;
         AccountData accountData2;
         AccountData accountData3;
         AccountData accountData4;
@@ -123,19 +123,19 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         str2 = null;
         str2 = null;
         try {
-            this.b = new com.baidu.tbadk.core.util.aq(this.c);
+            this.b = new com.baidu.tbadk.core.util.ae(this.c);
             this.b.a("un", this.d);
-            com.baidu.tbadk.core.util.aq aqVar = this.b;
+            com.baidu.tbadk.core.util.ae aeVar = this.b;
             accountData = this.a.t;
-            aqVar.a("BDUSS", accountData.getBDUSS());
+            aeVar.a("BDUSS", accountData.getBDUSS());
             this.b.a().a().b = false;
-            i = this.b.i();
+            h = this.b.h();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.b.c()) {
-            str = this.b.d();
+        if (this.b.b()) {
+            str = this.b.c();
             try {
             } catch (Exception e3) {
                 e = e3;
@@ -144,7 +144,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
             }
             if (str == 0) {
                 com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-                aVar.a(i);
+                aVar.a(h);
                 String userName = aVar.a().getUserName();
                 String bduss = aVar.a().getBDUSS();
                 str = aVar;
@@ -168,11 +168,11 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
                         str2 = r1;
                     }
                 }
-            } else if (this.b.d() == 36) {
+            } else if (this.b.c() == 36) {
                 com.baidu.tbadk.coreExtra.data.a aVar2 = new com.baidu.tbadk.coreExtra.data.a();
-                aVar2.a(i);
+                aVar2.a(h);
                 str = aVar2;
-            } else if (this.b.d() == 1) {
+            } else if (this.b.c() == 1) {
                 this.a.e();
                 str = 0;
                 return str;

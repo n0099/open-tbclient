@@ -1,8 +1,8 @@
 package com.baidu.tbadk.browser;
 
-import android.view.View;
+import android.webkit.URLUtil;
 /* loaded from: classes.dex */
-class w implements View.OnClickListener {
+class w implements Runnable {
     final /* synthetic */ WebTbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,11 @@ class w implements View.OnClickListener {
         this.a = webTbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a.reload();
+    @Override // java.lang.Runnable
+    public void run() {
+        String guessUrl = URLUtil.guessUrl(this.a.c);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            this.a.a.loadUrl(guessUrl);
+        }
     }
 }

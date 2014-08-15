@@ -10,10 +10,12 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         return getError() != 0;
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public int getDownSize() {
         return this.mDownSize;
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void setDownSize(int i) {
         this.mDownSize = i;
     }
@@ -26,10 +28,12 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         this.mRetry = i;
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public long getCostTime() {
         return this.mCostTime;
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void setCostTime(long j) {
         this.mCostTime = j;
     }

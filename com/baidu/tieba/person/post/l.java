@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
 import com.baidu.tieba.person.post.PersonPostModel;
 import com.baidu.tieba.view.PbListView;
@@ -21,7 +22,7 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private BdListView d;
     private h e;
     private ProgressBar f;
-    private com.baidu.tbadk.core.view.q h;
+    private com.baidu.tbadk.core.view.u h;
     private PbListView i;
     private View j;
     private int l;
@@ -30,8 +31,8 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private boolean k = false;
     private boolean m = true;
     private g n = new m(this);
-    private com.baidu.adp.framework.listener.b o = new n(this, 303002);
-    private HttpMessageListener p = new o(this, 1001503);
+    private com.baidu.adp.framework.listener.d o = new n(this, 303002);
+    private HttpMessageListener p = new o(this, CmdConfigHttp.USER_POST_HTTP_CMD);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -42,23 +43,24 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.c = layoutInflater.inflate(com.baidu.tieba.w.person_reply_fragment, viewGroup, false);
-        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.v.listview_reply);
-        this.b = (EnterGuideCenterView) this.c.findViewById(com.baidu.tieba.v.reply_guid_center_root);
+        this.c = layoutInflater.inflate(com.baidu.tieba.v.person_reply_fragment, viewGroup, false);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.u.listview_reply);
+        this.b = (EnterGuideCenterView) this.c.findViewById(com.baidu.tieba.u.reply_guid_center_root);
         this.b.setTipTextByString(getArguments().getString("key_empty_view_text"));
-        this.f = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.person_post_progress);
+        this.b.a(com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1);
+        this.f = (ProgressBar) this.c.findViewById(com.baidu.tieba.u.person_post_progress);
         return this.c;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        this.h = new com.baidu.tbadk.core.view.q(getActivity());
+        this.h = new com.baidu.tbadk.core.view.u(getActivity());
         this.d.setPullRefresh(this.h);
         this.h.a(new p(this));
         this.d.setOnScrollListener(this);
         this.i = new PbListView(getActivity());
         this.d.setNextPage(this.i);
-        this.j = this.i.b().findViewById(com.baidu.tieba.v.pb_more_view);
+        this.j = this.i.b().findViewById(com.baidu.tieba.u.pb_more_view);
         this.j.setVisibility(8);
     }
 
@@ -125,18 +127,18 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         super.c(i);
         if (isAdded()) {
             if (this.j != null) {
-                TextView textView = (TextView) this.j.findViewById(com.baidu.tieba.v.pb_more_text);
+                TextView textView = (TextView) this.j.findViewById(com.baidu.tieba.u.pb_more_text);
                 if (i == 1) {
-                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_header_uname_1));
                 } else {
-                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_header_uname));
                 }
             }
             if (this.b != null) {
                 if (i == 1) {
-                    this.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d_1);
+                    this.b.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d_1);
                 } else {
-                    this.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d);
+                    this.b.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d);
                 }
             }
             if (this.i != null) {

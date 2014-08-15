@@ -32,6 +32,13 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
         ((CommonPersonalMsglistModel) this.e).a(userData);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("user", ((CommonPersonalMsglistModel) this.e).c());
+    }
+
     protected void a(UserData userData) {
     }
 
@@ -64,14 +71,14 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(View view, int i, int i2, long j) {
-        ChatMessage a;
+        ChatMessage b;
         String content;
         JSONObject jSONObject;
         JSONArray jSONArray;
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (t() && this.e != null && (a = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.b(a) && (content = a.getContent()) != null) {
+                if (t() && this.e != null && (b = this.e.b(i2)) != null && com.baidu.tieba.im.d.j.c(b) && (content = b.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {
@@ -84,7 +91,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                     if (jSONArray.length() > 0) {
                         jSONObject = jSONArray.getJSONObject(0);
                         if (jSONObject == null) {
-                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.l(this, jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
+                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.m(this, jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                             return;
                         }
                         return;

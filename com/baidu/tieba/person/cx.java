@@ -1,30 +1,33 @@
 package com.baidu.tieba.person;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ cr a;
+public class cx implements DialogInterface.OnClickListener {
+    final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cr crVar) {
-        this.a = crVar;
+    public cx(ct ctVar) {
+        this.a = ctVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        com.baidu.tieba.model.au auVar;
-        az azVar;
-        az azVar2;
-        if (!this.a.a()) {
-            auVar = this.a.e;
-            if (auVar.d()) {
-                azVar2 = this.a.l;
-                azVar2.c();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.d dVar;
+        com.baidu.tieba.model.d dVar2;
+        com.baidu.tieba.model.d dVar3;
+        avVar = this.a.e;
+        int a = com.baidu.adp.lib.e.b.a(avVar.i(), -1);
+        if (a > 0) {
+            dVar = this.a.f;
+            if (dVar.a() == 1) {
+                dVar3 = this.a.f;
+                dVar3.b(a);
                 return;
             }
-            this.a.a(true);
-            azVar = this.a.l;
-            azVar.e();
-            this.a.l();
+            dVar2 = this.a.f;
+            dVar2.a(a);
         }
     }
 }
