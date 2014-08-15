@@ -12,13 +12,13 @@ class h implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        bt btVar;
-        bt btVar2;
+        bs bsVar;
+        bs bsVar2;
         if (i == 2 || i == 1) {
-            btVar = this.a.D;
-            btVar.ad();
-            btVar2 = this.a.D;
-            btVar2.b();
+            bsVar = this.a.D;
+            bsVar.ad();
+            bsVar2 = this.a.D;
+            bsVar2.b();
         }
     }
 

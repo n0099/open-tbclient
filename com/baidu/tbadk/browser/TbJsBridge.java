@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!bm.c(str)) {
+        if (!ba.c(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -27,7 +27,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        LoginActivity.a(this.mActivity, com.baidu.adp.lib.f.b.a(String.valueOf(i), 0));
+        LoginActivity.a(this.mActivity, com.baidu.adp.lib.e.b.a(String.valueOf(i), 0));
     }
 
     @JavascriptInterface
@@ -36,11 +36,11 @@ public class TbJsBridge {
         hVar.a = str;
         hVar.b = str2;
         hVar.c = str4;
-        if (!bm.c(str3)) {
+        if (!ba.c(str3)) {
             hVar.d = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
-        dVar.a(false);
+        dVar.b(false);
         dVar.a(hVar, true);
         dVar.a();
     }
@@ -54,6 +54,14 @@ public class TbJsBridge {
         intent.putExtra(PayActivityConfig.QUAN_NUM, str3);
         intent.putExtra(PayActivityConfig.IS_LEFT, str4);
         intent.putExtra(PayActivityConfig.PROPS_MON, str5);
-        com.baidu.adp.lib.f.c.a(this.mActivity, intent);
+        com.baidu.adp.lib.e.c.a(this.mActivity, intent);
+    }
+
+    @JavascriptInterface
+    public void payWithNative(String str) {
+        Intent intent = new Intent(this.mActivity, DealIntentService.class);
+        intent.putExtra("class", 23);
+        intent.putExtra("wanted_type", str);
+        com.baidu.adp.lib.e.c.a(this.mActivity, intent);
     }
 }

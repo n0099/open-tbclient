@@ -1,11 +1,9 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import java.util.HashMap;
+import com.baidu.bdcvf.CertVerifier;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+public class d implements CertVerifier.ResultListener {
     final /* synthetic */ TbadkApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,18 +11,13 @@ class d implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.framewo
         this.a = tbadkApplication;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.frameworkData.a> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        HashMap hashMap;
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tbadk.core.frameworkData.a data = customMessage.getData();
-            hashMap = this.a.mActicyConfig;
-            Class<?> cls = (Class) hashMap.get(data.getClass());
-            if (cls != null) {
-                data.getIntent().setClass(customMessage.getData().getContext(), cls);
-                data.run();
-            }
-        }
-        return null;
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyOK() {
+        this.a.mIsOfficial = true;
+    }
+
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyFail(int i) {
+        this.a.mIsOfficial = false;
     }
 }

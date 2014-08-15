@@ -18,10 +18,9 @@ import java.util.List;
 public class e extends BaseAdapter {
     public h a;
     private BlackMembersListActivity b;
-    private com.baidu.tbadk.editortool.aa d;
-    private boolean e;
-    private boolean g;
-    private boolean f = true;
+    private boolean d;
+    private boolean f;
+    private boolean e = true;
     private List<UserData> c = new ArrayList();
 
     public void a(h hVar) {
@@ -29,29 +28,27 @@ public class e extends BaseAdapter {
     }
 
     public boolean a() {
-        return this.e;
+        return this.d;
     }
 
     public void a(boolean z) {
-        this.e = z;
+        this.d = z;
     }
 
     public void b(boolean z) {
-        this.f = z;
+        this.e = z;
     }
 
     public boolean b() {
-        return this.g;
+        return this.f;
     }
 
     public void c(boolean z) {
-        this.g = z;
+        this.f = z;
     }
 
     public e(BlackMembersListActivity blackMembersListActivity) {
         this.b = blackMembersListActivity;
-        this.d = new com.baidu.tbadk.editortool.aa(blackMembersListActivity);
-        this.d.b(false);
     }
 
     public void a(List<UserData> list) {
@@ -102,33 +99,33 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.live_list_foot, viewGroup, false);
-            View findViewById = view.findViewById(com.baidu.tieba.v.bottom_line);
-            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.v.bottom_more);
-            TextView textView = (TextView) view.findViewById(com.baidu.tieba.v.more_title);
-            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.v.more_progress);
-            if (this.f) {
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.live_list_foot, viewGroup, false);
+            View findViewById = view.findViewById(com.baidu.tieba.u.bottom_line);
+            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.u.bottom_more);
+            TextView textView = (TextView) view.findViewById(com.baidu.tieba.u.more_title);
+            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.u.more_progress);
+            if (this.e) {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(8);
             } else {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(0);
-                if (this.e) {
-                    textView.setText(com.baidu.tieba.y.live_frs_list_hasmore);
+                if (this.d) {
+                    textView.setText(com.baidu.tieba.x.live_frs_list_hasmore);
                     progressBar.setVisibility(0);
                 } else {
-                    textView.setText(com.baidu.tieba.y.live_frs_list_nomore);
+                    textView.setText(com.baidu.tieba.x.live_frs_list_nomore);
                     progressBar.setVisibility(8);
                 }
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.live_black_members_list_item, viewGroup, false);
+                view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.live_black_members_list_item, viewGroup, false);
                 g gVar = new g(this);
-                gVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
-                gVar.b = (TextView) view.findViewById(com.baidu.tieba.v.item_name);
-                gVar.c = (ImageView) view.findViewById(com.baidu.tieba.v.item_sex);
-                gVar.d = (Button) view.findViewById(com.baidu.tieba.v.item_unset);
+                gVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.u.item_head);
+                gVar.b = (TextView) view.findViewById(com.baidu.tieba.u.item_name);
+                gVar.c = (ImageView) view.findViewById(com.baidu.tieba.u.item_sex);
+                gVar.d = (Button) view.findViewById(com.baidu.tieba.u.item_unset);
                 view.setTag(gVar);
             }
             int skinType = TbadkApplication.m252getInst().getSkinType();
@@ -142,26 +139,26 @@ public class e extends BaseAdapter {
                     case 1:
                         gVar2.c.setVisibility(0);
                         if (skinType == 1) {
-                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_boy_1);
+                            gVar2.c.setImageResource(com.baidu.tieba.t.icon_pop_qz_boy_1);
                             break;
                         } else {
-                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_boy);
+                            gVar2.c.setImageResource(com.baidu.tieba.t.icon_pop_qz_boy);
                             break;
                         }
                     case 2:
                         gVar2.c.setVisibility(0);
                         if (skinType == 1) {
-                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_girl_1);
+                            gVar2.c.setImageResource(com.baidu.tieba.t.icon_pop_qz_girl_1);
                             break;
                         } else {
-                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_girl);
+                            gVar2.c.setImageResource(com.baidu.tieba.t.icon_pop_qz_girl);
                             break;
                         }
                     default:
                         gVar2.c.setVisibility(8);
                         break;
                 }
-                gVar2.d.setVisibility(this.g ? 0 : 8);
+                gVar2.d.setVisibility(this.f ? 0 : 8);
                 gVar2.d.setTag(userData);
                 gVar2.d.setOnClickListener(new f(this));
             }

@@ -15,9 +15,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ao;
-import com.baidu.tbadk.core.atomData.ap;
-import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.az;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.ai;
@@ -31,7 +31,7 @@ public class NotLoginGuideActivity extends BaseActivity {
     private String e = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(au.class, NotLoginGuideActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(az.class, NotLoginGuideActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,18 +47,18 @@ public class NotLoginGuideActivity extends BaseActivity {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.e = bundle.getString(au.a);
+            this.e = bundle.getString(az.a);
         } else {
-            this.e = getIntent().getStringExtra(au.a);
+            this.e = getIntent().getStringExtra(az.a);
         }
     }
 
     private void a() {
-        setContentView(com.baidu.tieba.w.not_login_guide_activity);
-        this.a = (ImageView) findViewById(com.baidu.tieba.v.guide_bg);
-        this.c = (Button) findViewById(com.baidu.tieba.v.guide_regist);
-        this.d = (Button) findViewById(com.baidu.tieba.v.guide_login);
-        this.b = com.baidu.tbadk.core.util.h.a(this, com.baidu.tieba.u.not_login_guide_bg);
+        setContentView(com.baidu.tieba.v.not_login_guide_activity);
+        this.a = (ImageView) findViewById(com.baidu.tieba.u.guide_bg);
+        this.c = (Button) findViewById(com.baidu.tieba.u.guide_regist);
+        this.d = (Button) findViewById(com.baidu.tieba.u.guide_login);
+        this.b = com.baidu.tbadk.core.util.d.a(this, com.baidu.tieba.t.not_login_guide_bg);
         if (this.b != null) {
             this.a.setImageBitmap(this.b);
         }
@@ -67,9 +67,9 @@ public class NotLoginGuideActivity extends BaseActivity {
     }
 
     private boolean b() {
-        if (au.d.equals(getIntent().getStringExtra(au.a)) && com.baidu.tieba.util.r.a((Activity) this)) {
+        if (az.d.equals(getIntent().getStringExtra(az.a)) && com.baidu.tieba.util.r.a((Activity) this)) {
             new Intent().putExtra("class", 20);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao((Context) this, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ar((Context) this, false)));
             finish();
             return true;
         }
@@ -83,10 +83,15 @@ public class NotLoginGuideActivity extends BaseActivity {
     }
 
     private void c() {
+        int i = 1;
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.w(this).a("from_logo_page")));
+            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.z(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2015001, new ap(this).a(1)));
+            if (com.baidu.tbadk.core.sharedPref.b.a().a("account_first_login_" + TbadkApplication.getCurrentAccount(), true)) {
+                i = 4;
+                com.baidu.tbadk.core.sharedPref.b.a().b("account_first_login_" + TbadkApplication.getCurrentAccount(), false);
+            }
+            sendMessage(new CustomMessage(2015001, new as(this).a(i)));
         }
         finish();
     }
@@ -108,7 +113,7 @@ public class NotLoginGuideActivity extends BaseActivity {
         switch (i) {
             case 4:
                 closeActivity();
-                if (au.b.equals(this.e)) {
+                if (az.b.equals(this.e)) {
                     com.baidu.tbadk.core.b.b.a(this, Constants.MEDIA_INFO);
                 }
                 return true;
@@ -126,7 +131,7 @@ public class NotLoginGuideActivity extends BaseActivity {
 
     private void d() {
         if (this.a != null) {
-            this.a.setImageBitmap(null);
+            this.a.setImageDrawable(null);
         }
         if (this.b != null && !this.b.isRecycled()) {
             this.b.recycle();

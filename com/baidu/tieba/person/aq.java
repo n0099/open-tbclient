@@ -4,16 +4,16 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 /* loaded from: classes.dex */
 public class aq implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ao a;
+    final /* synthetic */ an a;
 
-    public aq(ao aoVar) {
-        this.a = aoVar;
+    public aq(an anVar) {
+        this.a = anVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        com.baidu.tieba.model.au auVar;
-        com.baidu.tieba.model.au auVar2;
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.av avVar2;
         Context context;
         Context context2;
         switch (i) {
@@ -24,15 +24,15 @@ public class aq implements ViewPager.OnPageChangeListener {
                 this.a.b(1);
                 break;
         }
-        auVar = this.a.x;
-        if (auVar != null) {
-            auVar2 = this.a.x;
-            if (auVar2.i()) {
-                context2 = this.a.c;
+        avVar = this.a.l;
+        if (avVar != null) {
+            avVar2 = this.a.l;
+            if (avVar2.j()) {
+                context2 = this.a.a;
                 com.baidu.tbadk.core.f.a(context2, "person_self_scroll_click");
                 return;
             }
-            context = this.a.c;
+            context = this.a.a;
             com.baidu.tbadk.core.f.a(context, "person_guid_scroll_click");
         }
     }

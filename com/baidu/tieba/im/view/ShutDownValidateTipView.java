@@ -9,7 +9,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -42,11 +41,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.shut_down_validate_tip, (ViewGroup) null));
-        this.c = (ImageView) findViewById(com.baidu.tieba.v.no_network_icon);
-        this.d = (TextView) findViewById(com.baidu.tieba.v.no_network_guide1);
-        this.e = (TextView) findViewById(com.baidu.tieba.v.no_network_guide2);
-        this.b = (TextView) findViewById(com.baidu.tieba.v.no_network_showmore);
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.shut_down_validate_tip, (ViewGroup) null));
+        this.c = (ImageView) findViewById(com.baidu.tieba.u.no_network_icon);
+        this.d = (TextView) findViewById(com.baidu.tieba.u.no_network_guide1);
+        this.e = (TextView) findViewById(com.baidu.tieba.u.no_network_guide2);
+        this.b = (TextView) findViewById(com.baidu.tieba.u.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
@@ -113,15 +112,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setImageResource(com.baidu.tieba.u.icon_error_1);
-            findViewById(com.baidu.tieba.v.no_network_parent).setBackgroundResource(com.baidu.tieba.u.bg_no_network_1);
+            this.c.setImageResource(com.baidu.tieba.t.icon_error_1);
+            findViewById(com.baidu.tieba.u.no_network_parent).setBackgroundResource(com.baidu.tieba.t.bg_no_network_1);
             this.d.setTextColor(-10523526);
             this.e.setTextColor(-8682095);
             this.b.setTextColor(-10523526);
             return;
         }
-        this.c.setImageResource(com.baidu.tieba.u.icon_error);
-        findViewById(com.baidu.tieba.v.no_network_parent).setBackgroundResource(com.baidu.tieba.u.bg_no_network);
+        this.c.setImageResource(com.baidu.tieba.t.icon_error);
+        findViewById(com.baidu.tieba.u.no_network_parent).setBackgroundResource(com.baidu.tieba.t.bg_no_network);
         this.d.setTextColor(-14277082);
         this.e.setTextColor(-5065030);
         this.b.setTextColor(-14277082);

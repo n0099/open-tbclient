@@ -7,7 +7,6 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
 import java.io.Serializable;
 import java.util.LinkedList;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
@@ -31,6 +30,7 @@ public class WriteData implements Serializable {
     private boolean mIsBaobao;
     private boolean mIsFrsReply;
     private boolean mIsNoTitle;
+    private String mReturnVoiceMd5;
     private String mThreadId;
     private String mTitle;
     private int mType;
@@ -74,7 +74,7 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (i.b(this.mContent) && i.b(this.mTitle)) {
+        if (i.c(this.mContent) && i.c(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     return this.liveCardData != null && this.liveCardData.isModifyTime();
@@ -109,7 +109,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (i.b(str)) {
+        if (i.c(str)) {
             return null;
         }
         try {
@@ -270,6 +270,13 @@ public class WriteData implements Serializable {
     }
 
     public void setVoice(String str) {
+        if (str != null && this.mVoiceMd5 != null) {
+            if (!str.equals(this.mVoiceMd5)) {
+                setReturnVoiceMd5(null);
+            }
+        } else if (str == null) {
+            setReturnVoiceMd5(null);
+        }
         this.mVoiceMd5 = str;
     }
 
@@ -324,7 +331,7 @@ public class WriteData implements Serializable {
                 int i3 = 0;
                 while (i3 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i3);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !i.b(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !i.c(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -344,7 +351,7 @@ public class WriteData implements Serializable {
                 int i4 = 0;
                 while (i4 < chosedFiles2.size()) {
                     ImageFileInfo imageFileInfo2 = chosedFiles2.get(i4);
-                    if (imageFileInfo2.isAlreadyUploadedToServer() && !i.b(imageFileInfo2.getFilePath())) {
+                    if (imageFileInfo2.isAlreadyUploadedToServer() && !i.c(imageFileInfo2.getFilePath())) {
                         File file2 = new File(imageFileInfo2.getFilePath());
                         if (file2.exists()) {
                             file2.delete();
@@ -382,7 +389,7 @@ public class WriteData implements Serializable {
             if (i2 < linkedList.size()) {
                 ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList.get(i2);
                 if (imageFileInfo.isAlreadyUploadedToServer()) {
-                    sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+                    sb.append("\n");
                     sb.append(imageFileInfo.getServerImageCode());
                 }
                 i = i2 + 1;
@@ -430,5 +437,13 @@ public class WriteData implements Serializable {
 
     public void setBaobaoContent(String str) {
         this.mBaobaoContent = str;
+    }
+
+    public String getReturnVoiceMd5() {
+        return this.mReturnVoiceMd5;
+    }
+
+    public void setReturnVoiceMd5(String str) {
+        this.mReturnVoiceMd5 = str;
     }
 }

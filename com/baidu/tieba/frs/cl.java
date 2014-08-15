@@ -1,9 +1,6 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class cl implements View.OnClickListener {
+class cl implements com.baidu.tieba.frs.view.z {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,16 +8,25 @@ class cl implements View.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.aw)) {
-            com.baidu.tieba.data.aw awVar = (com.baidu.tieba.data.aw) view.getTag();
-            FrsImageActivity frsImageActivity = this.a;
-            com.baidu.tbadk.core.atomData.aa aaVar = new com.baidu.tbadk.core.atomData.aa(this.a);
-            String d = awVar.d();
-            str = this.a.e;
-            frsImageActivity.sendMessage(new CustomMessage(2004002, aaVar.a(d, str, awVar.c())));
-        }
+    @Override // com.baidu.tieba.frs.view.z
+    public void a() {
+        int i;
+        FrsImageActivity frsImageActivity = this.a;
+        i = this.a.k;
+        frsImageActivity.d(i);
+    }
+
+    @Override // com.baidu.tieba.frs.view.z
+    public void b() {
+        this.a.g();
+    }
+
+    @Override // com.baidu.tieba.frs.view.z
+    public void c() {
+    }
+
+    @Override // com.baidu.tieba.frs.view.z
+    public void d() {
+        this.a.g();
     }
 }

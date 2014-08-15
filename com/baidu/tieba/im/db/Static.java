@@ -4,6 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        MessageManager.getInstance().registerListener(new q(2008015));
+        MessageManager.getInstance().registerListener(new p(2008015));
     }
 }

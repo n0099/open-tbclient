@@ -14,7 +14,7 @@ public class ForumInfoData extends com.baidu.tbadk.core.util.a implements Serial
     public int is_like = 0;
     public int mbr_inter_rank = 0;
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getForumPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.avatar);

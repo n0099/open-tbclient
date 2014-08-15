@@ -1,22 +1,33 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.TbadkApplication;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-class bc extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ GroupChatActivity b;
-    private final /* synthetic */ GroupData c;
+class bc implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ GroupChatActivity a;
+    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.b = groupChatActivity;
-        this.c = groupData;
+        this.a = groupChatActivity;
+        this.b = groupData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.y.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getGroupId())));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                this.a.d.M();
+            } else {
+                this.a.d.N();
+            }
+            if (this.a.e != null && this.b != null) {
+                String name = this.b.getName();
+                if (!TextUtils.isEmpty(name)) {
+                    this.a.d.a(name, true);
+                }
+            }
+        }
     }
 }

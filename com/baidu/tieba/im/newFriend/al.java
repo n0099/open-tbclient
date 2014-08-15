@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.newFriend;
-
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al extends com.baidu.tieba.im.b<List<com.baidu.tieba.im.data.k>> {
-    final /* synthetic */ NewFriendsActivity b;
+public class al implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ NewFriendsActivity a;
+    private final /* synthetic */ com.baidu.tieba.im.data.k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(NewFriendsActivity newFriendsActivity) {
-        this.b = newFriendsActivity;
+    public al(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.k kVar) {
+        this.a = newFriendsActivity;
+        this.b = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public List<com.baidu.tieba.im.data.k> a() {
-        return com.baidu.tieba.im.db.n.a().e();
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        av avVar;
+        if (bool.booleanValue()) {
+            avVar = this.a.d;
+            avVar.a(this.b);
+        }
     }
 }

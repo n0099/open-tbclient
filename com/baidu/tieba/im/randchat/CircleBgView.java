@@ -41,7 +41,7 @@ public class CircleBgView extends FrameLayout {
         this.c = new Paint();
         this.c.setAntiAlias(true);
         this.d = new RectF();
-        this.e = context.getResources().getColor(com.baidu.tieba.s.white);
+        this.e = context.getResources().getColor(com.baidu.tieba.r.white);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View

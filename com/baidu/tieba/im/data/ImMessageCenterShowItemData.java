@@ -8,11 +8,12 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
     protected String friendId;
     protected String friendName;
     protected String friendPortrait;
-    private com.baidu.tieba.im.pushNotify.n groupSetting;
+    private com.baidu.tieba.im.pushNotify.a groupSetting;
     private boolean isSelf;
     protected String msgContent;
     protected String ownerId;
     protected String ownerName;
+    private int sendStatus;
     protected long serverTime;
     protected int status;
     private String title;
@@ -95,12 +96,12 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.friendName = str;
     }
 
-    public com.baidu.tieba.im.pushNotify.n getGroupSetting() {
+    public com.baidu.tieba.im.pushNotify.a getGroupSetting() {
         return this.groupSetting;
     }
 
-    public void setGroupSetting(com.baidu.tieba.im.pushNotify.n nVar) {
-        this.groupSetting = nVar;
+    public void setGroupSetting(com.baidu.tieba.im.pushNotify.a aVar) {
+        this.groupSetting = aVar;
     }
 
     public int getUnReadCountExtra() {
@@ -127,7 +128,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.isSelf = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getFriendPortrait());
@@ -143,5 +144,13 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
             e.printStackTrace();
             return this;
         }
+    }
+
+    public int getSendStatus() {
+        return this.sendStatus;
+    }
+
+    public void setSendStatus(int i) {
+        this.sendStatus = i;
     }
 }

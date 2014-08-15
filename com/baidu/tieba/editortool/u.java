@@ -18,7 +18,7 @@ class u extends BdAsyncTask<Void, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.core.util.z.c(new File(this.b));
+        com.baidu.tbadk.core.util.s.c(new File(this.b));
         return null;
     }
 }

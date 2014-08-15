@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class z implements com.baidu.tbadk.core.view.m {
+class z implements com.baidu.tbadk.core.view.q {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,20 +8,20 @@ class z implements com.baidu.tbadk.core.view.m {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
+    @Override // com.baidu.tbadk.core.view.q
     public void a(boolean z) {
         boolean z2;
-        bm bmVar;
-        bm bmVar2;
-        bt btVar;
+        bl blVar;
+        bl blVar2;
+        bs bsVar;
         z2 = this.a.f;
         if (!z2 && z) {
-            bmVar = this.a.x;
-            if (!bmVar.p()) {
-                bmVar2 = this.a.x;
-                if (bmVar2.v()) {
-                    btVar = this.a.D;
-                    btVar.u();
+            blVar = this.a.x;
+            if (!blVar.p()) {
+                blVar2 = this.a.x;
+                if (blVar2.v()) {
+                    bsVar = this.a.D;
+                    bsVar.u();
                 }
             }
         }

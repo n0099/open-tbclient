@@ -1,22 +1,17 @@
 package com.baidu.tieba.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
 /* loaded from: classes.dex */
-public class cq implements com.baidu.tbadk.core.view.h {
-    final /* synthetic */ bt a;
+class cq implements View.OnLongClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(bt btVar) {
-        this.a = btVar;
+    public cq(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
-    public void a() {
-        PbActivity pbActivity;
-        pbActivity = this.a.k;
-        pbActivity.k();
-    }
-
-    @Override // com.baidu.tbadk.core.view.h
-    public void b() {
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        return false;
     }
 }

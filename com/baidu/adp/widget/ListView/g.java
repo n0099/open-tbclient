@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -300,6 +301,9 @@ public class g extends BaseAdapter {
             } catch (Exception e) {
                 BdLog.detailException(e);
                 view3 = null;
+            } catch (OutOfMemoryError e2) {
+                BdBaseApplication.getInst().onAppMemoryLow();
+                view3 = this.b.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
                 return g();
@@ -308,8 +312,8 @@ public class g extends BaseAdapter {
         }
         try {
             view2 = this.d.get(i2 - i3).a;
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e3) {
+            BdLog.detailException(e3);
             view2 = null;
         }
         if (view2 == null) {
@@ -320,7 +324,7 @@ public class g extends BaseAdapter {
 
     private View g() {
         TextView textView = new TextView(this.a);
-        textView.setText("资源加载失败！");
+        textView.setText(com.baidu.adp.f.load_res_failed);
         int a = com.baidu.adp.lib.util.j.a(this.a, 15.0f);
         textView.setPadding(a, a, a, a);
         return textView;

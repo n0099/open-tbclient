@@ -17,13 +17,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.g
     public void a(TalkableActivity talkableActivity, boolean z) {
         super.a(talkableActivity, z);
-        String string = talkableActivity.getString(com.baidu.tieba.y.msglist_groupinfo);
+        String string = talkableActivity.getString(com.baidu.tieba.x.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra("group_author_id");
-            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
-            this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.group_info_btn, talkableActivity);
+            this.l = (TextView) this.b.findViewById(com.baidu.tieba.u.group_info_btn_txt);
             this.l.setText(string);
-            this.m = (ImageView) this.b.findViewById(com.baidu.tieba.v.red_dot);
+            this.m = (ImageView) this.b.findViewById(com.baidu.tieba.u.red_dot);
             this.m.setVisibility(8);
             if (TbadkApplication.getCurrentAccount().equals(stringExtra)) {
                 S();
@@ -39,6 +39,6 @@ public class GroupChatView extends CommonGroupMsglistView {
 
     public void T() {
         this.m.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_group_btn_dot", true);
+        com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_group_btn_dot", true);
     }
 }

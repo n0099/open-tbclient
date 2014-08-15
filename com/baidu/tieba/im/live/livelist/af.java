@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.message.ResponseLiveGroupHistoryMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class af extends com.baidu.adp.framework.listener.b {
+class af extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveGroupHistoryActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,13 +23,13 @@ class af extends com.baidu.adp.framework.listener.b {
         ak akVar;
         boolean e;
         ak akVar2;
-        com.baidu.tieba.im.model.z zVar;
-        com.baidu.tieba.im.model.z zVar2;
-        com.baidu.tieba.im.model.z zVar3;
-        com.baidu.tieba.im.model.z zVar4;
+        com.baidu.tieba.im.model.r rVar;
+        com.baidu.tieba.im.model.r rVar2;
+        com.baidu.tieba.im.model.r rVar3;
+        com.baidu.tieba.im.model.r rVar4;
         ak akVar3;
         ak akVar4;
-        com.baidu.tieba.im.model.z zVar5;
+        com.baidu.tieba.im.model.r rVar5;
         ak akVar5;
         ak akVar6;
         ak akVar7;
@@ -38,10 +38,10 @@ class af extends com.baidu.adp.framework.listener.b {
         ak akVar10;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else if (socketResponsedMessage.getCmd() == 107005) {
             if (!(socketResponsedMessage instanceof ResponseLiveGroupHistoryMessage)) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
+                this.a.showToast(com.baidu.tieba.x.neterror);
                 return;
             }
             ResponseLiveGroupHistoryMessage responseLiveGroupHistoryMessage = (ResponseLiveGroupHistoryMessage) socketResponsedMessage;
@@ -50,7 +50,7 @@ class af extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveGroupHistoryMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
             }
@@ -62,8 +62,8 @@ class af extends com.baidu.adp.framework.listener.b {
                 akVar.e().a(liveGroupHistoryData.c());
                 e = this.a.e();
                 if (e) {
-                    zVar5 = this.a.b;
-                    zVar5.a(a);
+                    rVar5 = this.a.b;
+                    rVar5.a(a);
                     akVar5 = this.a.a;
                     akVar5.a();
                     akVar6 = this.a.a;
@@ -85,19 +85,19 @@ class af extends com.baidu.adp.framework.listener.b {
                 }
                 akVar2 = this.a.a;
                 akVar2.e().b(false);
-                zVar = this.a.b;
-                zVar2 = this.a.b;
-                zVar.a(zVar2.b() + b.size());
-                zVar3 = this.a.b;
-                zVar4 = this.a.b;
-                zVar3.b(zVar4.c() + 1);
+                rVar = this.a.b;
+                rVar2 = this.a.b;
+                rVar.a(rVar2.b() + b.size());
+                rVar3 = this.a.b;
+                rVar4 = this.a.b;
+                rVar3.b(rVar4.c() + 1);
                 akVar3 = this.a.a;
                 akVar3.e().a(b);
                 akVar4 = this.a.a;
                 akVar4.c();
             }
         } else {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         }
     }
 }

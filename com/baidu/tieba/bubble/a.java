@@ -2,10 +2,10 @@ package com.baidu.tieba.bubble;
 
 import android.text.TextUtils;
 import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
-class a implements com.baidu.tieba.model.g {
+class a implements com.baidu.tieba.model.h {
     final /* synthetic */ BubbleChooseActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,51 +13,51 @@ class a implements com.baidu.tieba.model.g {
         this.a = bubbleChooseActivity;
     }
 
-    @Override // com.baidu.tieba.model.g
+    @Override // com.baidu.tieba.model.h
     public void a(BubbleListData bubbleListData) {
         g gVar;
         g gVar2;
-        com.baidu.tieba.model.d dVar;
+        com.baidu.tieba.model.e eVar;
         List<BubbleListData.BubbleData> b_info;
-        com.baidu.tieba.model.d dVar2;
-        com.baidu.tieba.model.d dVar3;
-        com.baidu.tieba.model.d dVar4;
-        com.baidu.tieba.model.d dVar5;
-        com.baidu.tieba.model.d dVar6;
-        com.baidu.tieba.model.d dVar7;
+        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.e eVar3;
+        com.baidu.tieba.model.e eVar4;
+        com.baidu.tieba.model.e eVar5;
+        com.baidu.tieba.model.e eVar6;
+        com.baidu.tieba.model.e eVar7;
         gVar = this.a.b;
         gVar.e();
         if (bubbleListData != null) {
             gVar2 = this.a.b;
-            gVar2.a(bubbleListData.getB_info(), com.baidu.tieba.model.d.a(bubbleListData.getB_info()));
-            dVar = this.a.c;
-            if (dVar.b() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
+            gVar2.a(bubbleListData.getB_info(), com.baidu.tieba.model.e.a(bubbleListData.getB_info()));
+            eVar = this.a.c;
+            if (eVar.b() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
                 for (BubbleListData.BubbleData bubbleData : b_info) {
                     if (bubbleData != null) {
                         int bcode = bubbleData.getBcode();
-                        dVar3 = this.a.c;
-                        if (bcode == dVar3.b()) {
+                        eVar3 = this.a.c;
+                        if (bcode == eVar3.b()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            dVar4 = this.a.c;
-                            dVar5 = this.a.c;
-                            dVar4.a(dVar5.b());
-                            dVar6 = this.a.c;
-                            dVar7 = this.a.c;
-                            dVar6.a(dVar7.b(), com.baidu.adp.lib.util.j.b(this.a), com.baidu.adp.lib.util.j.c(this.a));
+                            eVar4 = this.a.c;
+                            eVar5 = this.a.c;
+                            eVar4.a(eVar5.b());
+                            eVar6 = this.a.c;
+                            eVar7 = this.a.c;
+                            eVar6.a(eVar7.b(), com.baidu.adp.lib.util.j.b(this.a), com.baidu.adp.lib.util.j.c(this.a));
                         } else {
                             continue;
                         }
                     }
                 }
-                dVar2 = this.a.c;
-                dVar2.b(-1);
+                eVar2 = this.a.c;
+                eVar2.b(-1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.model.g
+    @Override // com.baidu.tieba.model.h
     public void b(BubbleListData bubbleListData) {
         g gVar;
         g gVar2;
@@ -71,13 +71,13 @@ class a implements com.baidu.tieba.model.g {
                     this.a.showToast(bubbleListData.getError_msg());
                     return;
                 } else {
-                    this.a.showToast(y.neterror);
+                    this.a.showToast(x.neterror);
                     return;
                 }
             }
-            this.a.showToast(y.neterror);
+            this.a.showToast(x.neterror);
             return;
         }
-        this.a.showToast(y.neterror);
+        this.a.showToast(x.neterror);
     }
 }

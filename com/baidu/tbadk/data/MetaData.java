@@ -12,6 +12,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class MetaData implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    private int is_myfriend;
     private int is_like = 0;
     private String userId = null;
     private int type = 0;
@@ -46,7 +47,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.f.b.a(this.userId, 0L);
+        return com.baidu.adp.lib.e.b.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -141,6 +142,14 @@ public class MetaData implements Serializable {
         this.bawu_type = str;
     }
 
+    public int getIsMyFriend() {
+        return this.is_myfriend;
+    }
+
+    public void setIsMyFriend(int i) {
+        this.is_myfriend = i;
+    }
+
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0009: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Integer)] */
     public void parserProtobuf(User user) {
         if (user != null) {
@@ -151,6 +160,7 @@ public class MetaData implements Serializable {
             this.is_like = user.is_like.intValue();
             this.is_bawu = user.is_bawu.intValue();
             this.bawu_type = user.bawu_type;
+            this.is_myfriend = user.is_friend.intValue();
             if (this.userName != null && this.userName.length() <= 0) {
                 this.userName = null;
             }
@@ -194,6 +204,7 @@ public class MetaData implements Serializable {
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
+                this.is_myfriend = jSONObject.optInt("is_friend");
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }

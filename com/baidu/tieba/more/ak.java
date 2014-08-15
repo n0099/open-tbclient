@@ -1,34 +1,32 @@
 package com.baidu.tieba.more;
 
-import android.os.Handler;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.message.http.ResponseLocationJsonHttpMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.model.MoreModel;
 /* loaded from: classes.dex */
-public class ak extends HttpMessageListener {
+class ak extends BaseActivity.LoadDataCallBack {
     final /* synthetic */ SystemHelpSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
-        super(i);
+    public ak(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
+        super();
         this.a = systemHelpSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        at atVar;
-        at atVar2;
-        atVar = this.a.a;
-        if (atVar != null) {
-            atVar2 = this.a.a;
-            if (atVar2.a() != null && httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0 && (httpResponsedMessage instanceof ResponseLocationJsonHttpMessage)) {
-                TbadkApplication.m252getInst().setLocationShared(((ResponseLocationJsonHttpMessage) httpResponsedMessage).isLocationShared);
-                new Handler().postDelayed(new al(this), 500L);
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        ay ayVar;
+        ay ayVar2;
+        Object obj = objArr[0];
+        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.a.closeLoadingDialog();
+                ayVar2 = this.a.a;
+                ayVar2.e().setTip("");
+                this.a.showToast(com.baidu.tieba.x.systemhelpsetting_clear_cache_success);
+            } else if (obj == MoreModel.TaskType.GET_SIZE) {
+                ayVar = this.a.a;
+                ayVar.e().setTip((String) objArr[1]);
             }
         }
     }

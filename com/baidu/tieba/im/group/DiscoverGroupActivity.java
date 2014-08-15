@@ -6,30 +6,30 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.j;
+import com.baidu.tbadk.core.atomData.k;
 import com.baidu.tieba.im.nearbygroups.NearbyGroupsActivity;
 import com.baidu.tieba.im.searchGroup.AddGroupActivity;
-import com.baidu.tieba.w;
+import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class DiscoverGroupActivity extends BaseActivity implements com.baidu.tieba.im.a.e {
-    private c a;
+    private d a;
     private com.baidu.tieba.im.a.a b;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(j.class, DiscoverGroupActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(k.class, DiscoverGroupActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.discover_group_activity);
+        setContentView(v.discover_group_activity);
         d();
         e();
     }
 
     private void d() {
         if (this.b == null) {
-            this.b = new com.baidu.tieba.im.a.a();
+            this.b = new com.baidu.tieba.im.a.a(this);
             this.b.setUniqueId(getUniqueId());
             this.b.b();
             this.b.a(this);
@@ -37,7 +37,7 @@ public class DiscoverGroupActivity extends BaseActivity implements com.baidu.tie
     }
 
     private void e() {
-        this.a = new c(this);
+        this.a = new d(this);
         this.a.a().setOnItemClickListener(this);
         this.a.b().notifyDataSetChanged();
         this.a.a().e();
@@ -90,18 +90,20 @@ public class DiscoverGroupActivity extends BaseActivity implements com.baidu.tie
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        switch (i) {
-            case 0:
-                NearbyGroupsActivity.a(this);
-                return;
-            case 1:
-                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.g(this, 16003)));
-                return;
-            case 2:
-                AddGroupActivity.a(this);
-                return;
-            default:
-                return;
+        if (this.a != null && this.a.b() != null && this.a.b().a() != null && this.a.b().a().get(i) != null && i < this.a.b().a().size()) {
+            switch (this.a.b().a().get(i).c()) {
+                case 0:
+                    NearbyGroupsActivity.a(this);
+                    return;
+                case 1:
+                    sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.g(this, 16003)));
+                    return;
+                case 2:
+                    AddGroupActivity.a(this);
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

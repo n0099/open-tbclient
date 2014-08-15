@@ -9,12 +9,11 @@ import android.net.Uri;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.x;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -42,11 +41,11 @@ import org.apache.http.params.HttpProtocolParams;
 /* loaded from: classes.dex */
 public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
     public static String a;
+    private static int c;
     private static HttpClient m;
     private Context g;
     private HttpGet h;
     private final com.baidu.adp.lib.network.http.e k;
-    private static int c = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
     private static volatile String d = null;
     private static volatile boolean e = false;
     private static Pattern f = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
@@ -91,7 +90,8 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
     }
 
     static {
-        HttpConnectionParams.setConnectionTimeout(b, KirinConfig.READ_TIME_OUT);
+        c = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+        HttpConnectionParams.setConnectionTimeout(b, 5000);
         HttpConnectionParams.setSoTimeout(b, 30000);
         HttpConnectionParams.setSocketBufferSize(b, 1024);
         HttpConnectionParams.setTcpNoDelay(b, true);
@@ -104,6 +104,9 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
         m = new DefaultHttpClient(new ThreadSafeClientConnManager(b, schemeRegistry), b);
+        if (Runtime.getRuntime().maxMemory() >= 67108864) {
+            c = 3145728;
+        }
     }
 
     public ImgHttpClient(com.baidu.adp.lib.network.http.e eVar) {
@@ -129,7 +132,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    d = "Basic " + bm.b((String.valueOf(string) + ":" + string2).getBytes());
+                    d = "Basic " + ba.b((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e2) {
             }
@@ -170,11 +173,11 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
         }
     }
 
-    private void a(String str) {
+    private void a(String str, String str2, String str3) {
         NetworkState a2 = a(this.g);
         if (a2 != NetworkState.UNAVAIL) {
             try {
-                if (a2 == NetworkState.MOBILE) {
+                if (a2 == NetworkState.MOBILE && str2 == null) {
                     URL url = new URL(str);
                     synchronized (ImgHttpClient.class) {
                         if (a == null) {
@@ -190,7 +193,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                     sb.append("/");
                                 }
                                 sb.append(file);
-                                this.h = a.a().a(sb.toString());
+                                this.h = new HttpGet(sb.toString());
                                 this.h.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
                                     this.h.setHeader("client_user_token", TbadkApplication.getCurrentAccount());
@@ -205,7 +208,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                         b.setParameter("http.route.default-proxy", new HttpHost(a, Proxy.getDefaultPort()));
                                     }
                                 }
-                                this.h = a.a().a(str);
+                                this.h = new HttpGet(str);
                                 if (d != null) {
                                     this.h.setHeader("Proxy-Authorization", d);
                                 }
@@ -216,13 +219,22 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                         }
                     }
                 }
-                if (this.h == null) {
-                    this.h = a.a().a(str);
+                if (str2 == null || str2.length() == 0) {
+                    if (this.h == null) {
+                        this.h = a.a().a(str);
+                        return;
+                    }
+                    return;
                 }
+                this.h = a.a().a(str, str2, str3);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
+    }
+
+    private void a(String str) {
+        a(str, (String) null, (String) null);
     }
 
     private boolean b(String str) {
@@ -233,12 +245,23 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [431=10, 432=10, 436=10] */
-    public void e() {
-        com.baidu.adp.lib.network.http.d dVar;
-        InputStream inputStream;
-        long currentTimeMillis;
-        int i;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [457=10, 458=10, 462=10] */
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x034d, code lost:
+        r8.b = r7;
+        r8.e = r3 + 1;
+        r8.d = java.lang.System.currentTimeMillis() - r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x035b, code lost:
+        if (r6 == null) goto L99;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x035d, code lost:
+        r6.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(String str, String str2, int i) {
+        int i2;
         byte[] bArr;
         byte[] bArr2;
         byte[] bArr3;
@@ -246,22 +269,30 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
         int read;
         String obj;
         byte[] bArr4 = null;
-        int i2 = 0;
+        if (i <= 0) {
+            i = 5;
+        }
+        int i3 = 0;
         while (true) {
-            if (this.j || i2 >= 5) {
+            if (this.j || i3 >= i) {
                 break;
             }
-            dVar = new com.baidu.adp.lib.network.http.d();
+            com.baidu.adp.lib.network.http.d dVar = new com.baidu.adp.lib.network.http.d();
             this.k.a(dVar);
             dVar.j = -1;
-            inputStream = null;
+            InputStream inputStream = null;
             String a2 = this.k.a().a(dVar);
             try {
                 try {
                     dVar.j = -2;
-                    currentTimeMillis = System.currentTimeMillis();
-                    a(a2);
-                    dVar.k = a.a().c();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (str == null || str.length() == 0) {
+                        a(a2);
+                        dVar.k = a.a().d();
+                    } else {
+                        a(a2, str, str2);
+                        dVar.k = str;
+                    }
                     dVar.j = -3;
                 } finally {
                     if (0 != 0) {
@@ -297,7 +328,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                             g();
                                             this.i++;
                                             this.k.b().b = 0;
-                                            i2--;
+                                            i3--;
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
@@ -305,7 +336,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                                 }
                                             }
                                             g();
-                                            i2++;
+                                            i3++;
                                         } else {
                                             if (inputStream != null) {
                                                 try {
@@ -320,7 +351,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                 if (((int) entity.getContentLength()) <= c) {
                                     byte[] bArr5 = new byte[1024];
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                                    int i3 = 0;
+                                    int i4 = 0;
                                     boolean z = false;
                                     if (execute.getFirstHeader("imgsrc") != null && (obj = execute.getFirstHeader("imgsrc").toString()) != null && obj.length() > 0) {
                                         z = true;
@@ -330,27 +361,27 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                         int read2 = inputStream.read(bArr6, 0, 23);
                                         if (!new String(bArr6, 0, bArr6.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
                                             byteArrayOutputStream.write(bArr6, 0, read2);
-                                            i3 = 0 + read2;
+                                            i4 = 0 + read2;
                                         }
                                     }
                                     if (execute.getFirstHeader("Src-Content-Type") == null) {
-                                        i = i3;
+                                        i2 = i4;
                                     } else if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
                                         this.l = true;
-                                        i = i3;
+                                        i2 = i4;
                                     } else {
                                         this.l = false;
-                                        i = i3;
+                                        i2 = i4;
                                     }
-                                    while (!this.j && i < c && (read = inputStream.read(bArr5)) != -1) {
+                                    while (!this.j && i2 < c && (read = inputStream.read(bArr5)) != -1) {
                                         byteArrayOutputStream.write(bArr5, 0, read);
-                                        i = read + i;
+                                        i2 = read + i2;
                                     }
                                     dVar.j = -9;
                                     if (!this.j) {
-                                        if (i >= c) {
+                                        if (i2 >= c) {
                                             this.k.b().b = -11;
-                                            dVar.h = this.g.getResources().getString(y.data_too_big);
+                                            dVar.h = this.g.getResources().getString(x.data_too_big);
                                             break;
                                         }
                                         byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -359,7 +390,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                             if (entity.getContentEncoding() != null && (value = entity.getContentEncoding().getValue()) != null && value.contains("gzip")) {
                                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                                com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                                com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                                 bArr4 = byteArrayOutputStream2.toByteArray();
                                                 break;
                                             }
@@ -368,7 +399,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                             bArr4 = bArr3;
                                             e = e8;
                                             this.k.b().b = -12;
-                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
@@ -376,12 +407,12 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                                 }
                                             }
                                             g();
-                                            i2++;
+                                            i3++;
                                         } catch (SocketTimeoutException e10) {
                                             bArr4 = bArr2;
                                             e = e10;
                                             this.k.b().b = -13;
-                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
@@ -389,12 +420,12 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                                 }
                                             }
                                             g();
-                                            i2++;
+                                            i3++;
                                         } catch (Exception e12) {
                                             bArr4 = bArr;
                                             e = e12;
                                             this.k.b().b = -10;
-                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i2 + "|" + e.getClass() + "|" + e.getMessage();
+                                            dVar.h = String.valueOf(String.valueOf(this.k.b().b)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
@@ -438,18 +469,15 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                 throw new SocketException("network not available.");
             }
         }
-        dVar.b = i;
-        dVar.e = i2 + 1;
-        dVar.d = System.currentTimeMillis() - currentTimeMillis;
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (Exception e16) {
-            }
-        }
+        this.i = 0;
+        this.k.b().g = bArr4;
         g();
         this.i = 0;
         this.k.b().g = bArr4;
+    }
+
+    public void e() {
+        a((String) null, (String) null, -1);
     }
 
     public boolean f() {

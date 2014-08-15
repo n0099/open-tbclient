@@ -8,12 +8,12 @@ import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class av implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
     final /* synthetic */ w a;
-    private final /* synthetic */ bu b;
+    private final /* synthetic */ bs b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(w wVar, bu buVar) {
+    public av(w wVar, bs bsVar) {
         this.a = wVar;
-        this.b = buVar;
+        this.b = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class av implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 String str2 = (String) it.next();
-                String a = com.baidu.tieba.im.e.r.a(linkedHashMap.get(str2), true);
+                String a = com.baidu.tieba.im.d.j.a(linkedHashMap.get(str2), true);
                 if (a != null) {
                     linkedHashMap2.put(str2, a);
                 }

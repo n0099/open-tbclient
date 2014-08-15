@@ -3,9 +3,9 @@ package com.baidu.tieba.im.live.room.intro;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseLiveRoomIntroMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomIntroActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ class a extends com.baidu.adp.framework.listener.b {
         eVar.a(false);
         if (socketResponsedMessage.getCmd() == 107004) {
             if (!(socketResponsedMessage instanceof ResponseLiveRoomIntroMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             ResponseLiveRoomIntroMessage responseLiveRoomIntroMessage = (ResponseLiveRoomIntroMessage) socketResponsedMessage;
@@ -39,7 +39,7 @@ class a extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
             } else if (responseLiveRoomIntroMessage.introData != null) {
                 eVar2 = this.a.a;
                 eVar2.a(responseLiveRoomIntroMessage.introData.getPublisherPortrait(), responseLiveRoomIntroMessage.introData.getPublisherName(), responseLiveRoomIntroMessage.introData.getLikers(), responseLiveRoomIntroMessage.introData.getPublisherId());

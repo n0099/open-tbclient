@@ -1,17 +1,28 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class cm implements View.OnClickListener {
-    final /* synthetic */ PersonImageActivity a;
+class cm {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    ImageView d;
+    LinearLayout e;
+    ProgressBar f;
+    TextView g;
+    ImageView h;
+    final /* synthetic */ cl i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(PersonImageActivity personImageActivity) {
-        this.a = personImageActivity;
+    private cm(cl clVar) {
+        this.i = clVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ cm(cl clVar, cm cmVar) {
+        this(clVar);
     }
 }

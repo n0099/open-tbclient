@@ -4,21 +4,21 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
-    private aq d = null;
+    private ae d = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
-            this.d.g();
+            this.d.f();
         }
         progressBar = this.a.m;
         progressBar.setVisibility(8);
@@ -40,14 +40,14 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         try {
-            this.d = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
+            this.d = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
             this.d.a().a().a = true;
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            aq aqVar = this.d;
+            ae aeVar = this.d;
             str = this.a.s;
-            aqVar.a("vcode_md5", str);
-            this.d.i();
+            aeVar.a("vcode_md5", str);
+            this.d.h();
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -70,8 +70,8 @@ public class c extends BdAsyncTask<String, Integer, String> {
             this.a.finish();
             return;
         }
-        this.a.showToast(this.d.f());
-        if (this.d.c()) {
+        this.a.showToast(this.d.e());
+        if (this.d.b()) {
             this.a.c();
         }
     }

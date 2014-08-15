@@ -27,16 +27,18 @@ public class t {
         this.f = -1;
         this.f = i;
         baseActivity = rVar.a;
-        this.b = (FrameLayout) LayoutInflater.from(baseActivity).inflate(com.baidu.tieba.w.progress_tb_imageview, (ViewGroup) null);
-        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview);
+        this.b = (FrameLayout) LayoutInflater.from(baseActivity).inflate(com.baidu.tieba.v.progress_tb_imageview, (ViewGroup) null);
+        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.u.progress_tb_imageview);
         this.c.setClickable(true);
         this.c.setDefaultResource(0);
         this.c.setNightDefaultResource(0);
+        this.c.setDefaultBgResource(0);
+        this.c.setNightDefaultBgResource(0);
         this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         baseActivity2 = rVar.a;
         this.e = new com.baidu.tbadk.img.e(baseActivity2);
         this.c.setOnClickListener(new u(this));
-        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
+        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.u.progress_tb_imageview_progress);
         this.d.setVisibility(8);
     }
 
@@ -48,6 +50,8 @@ public class t {
         b();
         this.c.setDefaultResource(0);
         this.c.setNightDefaultResource(0);
+        this.c.setDefaultBgResource(0);
+        this.c.setNightDefaultBgResource(0);
         com.baidu.adp.widget.a.a a = this.e.a(imageFileInfo, false);
         if (a != null) {
             a.a(this.c);
@@ -62,7 +66,7 @@ public class t {
             this.e.b();
         }
         if (this.c != null) {
-            this.c.setImageBitmap(null);
+            this.c.setImageDrawable(null);
         }
     }
 

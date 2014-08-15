@@ -1,59 +1,40 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
-import java.lang.ref.WeakReference;
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tbadk.core.util.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<String, Object, n> {
-    private WeakReference<l> a;
+public class k implements View.OnClickListener {
+    final /* synthetic */ DiscoverItemView a;
 
-    public k(l lVar) {
-        this.a = new WeakReference<>(lVar);
-        setPriority(3);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(DiscoverItemView discoverItemView) {
+        this.a = discoverItemView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public n doInBackground(String... strArr) {
-        String str;
-        str = j.a;
-        aq aqVar = new aq(str);
-        String i = aqVar.i();
-        if (aqVar.a().b().b()) {
-            try {
-                return DiscoverResponsedMessage.parseJson(new JSONObject(i));
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                n nVar = new n();
-                nVar.a = -1000;
-                nVar.b = "网络异常";
-                return nVar;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View.OnClickListener onClickListener;
+        boolean z;
+        boolean z2;
+        ImageView imageView;
+        View.OnClickListener onClickListener2;
+        onClickListener = this.a.p;
+        if (onClickListener != null) {
+            onClickListener2 = this.a.p;
+            onClickListener2.onClick(view);
         }
-        n nVar2 = new n();
-        nVar2.a = aqVar.d();
-        nVar2.b = aqVar.f();
-        return nVar2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(n nVar) {
-        super.onPostExecute(nVar);
-        l lVar = this.a.get();
-        if (lVar != null) {
-            if (bm.c(nVar.b)) {
-                lVar.a(nVar);
-            } else {
-                lVar.b(nVar);
+        z = this.a.m;
+        if (z) {
+            z2 = this.a.n;
+            if (z2) {
+                String a = ab.a(this.a.d);
+                if (!com.baidu.tbadk.h.a().a(a, false)) {
+                    com.baidu.tbadk.h.a().b(a, true);
+                    imageView = this.a.j;
+                    imageView.setVisibility(8);
+                }
             }
         }
     }

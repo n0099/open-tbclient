@@ -3,9 +3,8 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f {
     NavigationBar a;
@@ -58,21 +57,21 @@ public class e extends com.baidu.adp.base.f {
 
     private void b(CreateGroupMainActivity createGroupMainActivity) {
         this.g = createGroupMainActivity;
-        createGroupMainActivity.setContentView(com.baidu.tieba.w.create_group_main_activity);
-        this.b = createGroupMainActivity.findViewById(com.baidu.tieba.v.parent);
-        this.c = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1);
-        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2);
-        this.e = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1_text);
-        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2_text);
-        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.a.a(createGroupMainActivity.getResources().getString(y.group_create));
+        createGroupMainActivity.setContentView(com.baidu.tieba.v.create_group_main_activity);
+        this.b = createGroupMainActivity.findViewById(com.baidu.tieba.u.parent);
+        this.c = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group1);
+        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group2);
+        this.e = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group1_text);
+        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group2_text);
+        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.a.a(createGroupMainActivity.getResources().getString(com.baidu.tieba.x.group_create));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.b);
-        bk.a(this.b, i);
+        ay.a(this.b, i);
         this.a.c(i);
     }
 }

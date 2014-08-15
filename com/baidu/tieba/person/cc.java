@@ -1,35 +1,12 @@
 package com.baidu.tieba.person;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cc extends CustomMessageListener {
-    final /* synthetic */ cb a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc(cb cbVar, int i) {
-        super(i);
-        this.a = cbVar;
+public class cc extends d {
+    public cc(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        PersonFriendActivity f;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
-            z = this.a.j;
-            if (z) {
-                com.baidu.tieba.data.al personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
-                f = this.a.f();
-                if (f != null) {
-                    this.a.k = personListData;
-                    this.a.a(personListData, true);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.person.d
+    protected com.baidu.tbadk.core.d a() {
+        return new cd();
     }
 }

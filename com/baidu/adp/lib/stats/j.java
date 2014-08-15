@@ -1,52 +1,30 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tbadk.core.util.TbErrInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class j extends BdAsyncTask<Object, Integer, Void> {
-    final /* synthetic */ d a;
-    private BdStatBase b;
+class j extends BroadcastReceiver {
+    final /* synthetic */ f this$0;
 
-    public j(d dVar, BdStatBase bdStatBase) {
-        BdAsyncTaskParallel bdAsyncTaskParallel;
-        BdAsyncTaskParallel bdAsyncTaskParallel2;
-        this.a = dVar;
-        this.b = null;
-        this.b = bdStatBase;
-        bdAsyncTaskParallel = dVar.D;
-        if (bdAsyncTaskParallel == null) {
-            dVar.D = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
-        }
-        setTag(TbErrInfo.ERR_IMG_SEND);
-        bdAsyncTaskParallel2 = dVar.D;
-        setParallel(bdAsyncTaskParallel2);
+    private j(f fVar) {
+        this.this$0 = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Object... objArr) {
-        this.a.c(this.b);
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ j(f fVar, j jVar) {
+        this(fVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Void r6) {
-        BdStatSwitchData bdStatSwitchData;
-        BdStatSwitchData bdStatSwitchData2;
-        super.onPostExecute(r6);
-        bdStatSwitchData = this.a.z;
-        if (!bdStatSwitchData.inSpecStrategy()) {
-            bdStatSwitchData2 = this.a.z;
-            if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
-                new g(this.a, false).execute(new Object[0]);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        int intExtra = intent.getIntExtra("intent_data_multiprocess_type", 0);
+        if (intExtra == 1) {
+            if (!f.b(this.this$0)) {
+                this.this$0.f();
             }
+        } else if (intExtra == 2 && !f.b(this.this$0)) {
+            f.c(this.this$0);
         }
     }
 }

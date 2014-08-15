@@ -21,7 +21,7 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new i(this));
+        this.b = new GestureDetector(context, new g(this));
         setFadingEdgeLength(0);
     }
 

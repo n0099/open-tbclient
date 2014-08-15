@@ -1,75 +1,21 @@
 package com.baidu.tbadk.b;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.a.e;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class b {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream;
-        try {
-            gZIPOutputStream = new GZIPOutputStream(outputStream);
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr, 0, 1024);
-                    if (read != -1) {
-                        gZIPOutputStream.write(bArr, 0, read);
-                    } else {
-                        gZIPOutputStream.flush();
-                        try {
-                            gZIPOutputStream.close();
-                            return;
-                        } catch (Exception e) {
-                            return;
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    gZIPOutputStream.close();
-                } catch (Exception e2) {
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            gZIPOutputStream = null;
-        }
+public class b extends e {
+    public b(int i) {
+        super(i);
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream;
-        try {
-            gZIPInputStream = new GZIPInputStream(inputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 1024);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    try {
-                        gZIPInputStream.close();
-                        return;
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            try {
-                gZIPInputStream.close();
-            } catch (Exception e2) {
-            }
-            throw th;
-        }
+    @Override // com.baidu.adp.framework.a.e
+    public void a(int i, BdUniqueId bdUniqueId) {
+        ReloginManager.a().a(i, bdUniqueId);
+    }
+
+    @Override // com.baidu.adp.framework.a.e
+    public void a(BdUniqueId bdUniqueId) {
+        ReloginManager.a().a(bdUniqueId);
     }
 }

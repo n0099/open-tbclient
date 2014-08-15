@@ -28,9 +28,9 @@ public class BaobaoTailView extends LinearLayout {
 
     private void a() {
         setOrientation(0);
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.w.baobao_tail_layout, this);
-        this.a = (TbImageView) findViewById(com.baidu.tieba.v.baobao_icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.v.baobao_tail_text);
+        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.baobao_tail_layout, this);
+        this.a = (TbImageView) findViewById(com.baidu.tieba.u.baobao_icon);
+        this.b = (TextView) findViewById(com.baidu.tieba.u.baobao_tail_text);
         setOnClickListener(this.d);
     }
 
@@ -46,9 +46,9 @@ public class BaobaoTailView extends LinearLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_link_tip_c_1));
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.cp_link_tip_c_1));
         } else {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_link_tip_c));
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.cp_link_tip_c));
         }
     }
 }

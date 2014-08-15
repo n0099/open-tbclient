@@ -2,6 +2,9 @@ package com.baidu.tieba.account;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,6 +31,7 @@ public class e implements AdapterView.OnItemClickListener {
                 lVar3 = this.a.b;
                 AccountData accountData = (AccountData) lVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkApplication.getCurrentAccount()));
                     this.a.h = new i(this.a, accountData);
                     iVar = this.a.h;
                     iVar.setPriority(3);

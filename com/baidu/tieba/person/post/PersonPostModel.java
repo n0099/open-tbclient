@@ -5,8 +5,8 @@ import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.annotations.SerializedName;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
@@ -85,7 +85,7 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class PostList implements bg, Serializable {
+    public class PostList implements av, Serializable {
         @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
         public long forum_id = 0;
         @SerializedName(com.baidu.tbadk.core.frameworkData.a.THREAD_ID)
@@ -173,16 +173,16 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.bg
-        public LinkedList<bf> getImages() {
+        @Override // com.baidu.tbadk.core.util.av
+        public LinkedList<au> getImages() {
             Media[] mediaArr;
-            LinkedList<bf> linkedList = new LinkedList<>();
+            LinkedList<au> linkedList = new LinkedList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    bf bfVar = new bf();
-                    bfVar.a = media.big_pic;
-                    bfVar.d = 10;
-                    linkedList.add(bfVar);
+                    au auVar = new au();
+                    auVar.a = media.big_pic;
+                    auVar.d = 10;
+                    linkedList.add(auVar);
                 }
             }
             return linkedList;

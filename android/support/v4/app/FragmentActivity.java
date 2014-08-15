@@ -22,7 +22,6 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.apache.commons.io.FilenameUtils;
 /* loaded from: classes.dex */
 public class FragmentActivity extends Activity {
     static final String FRAGMENTS_TAG = "android:support:fragments";
@@ -484,7 +483,6 @@ public class FragmentActivity extends Activity {
 
     private static String viewToString(View view) {
         String resourcePackageName;
-        char c = FilenameUtils.EXTENSION_SEPARATOR;
         StringBuilder sb = new StringBuilder(128);
         sb.append(view.getClass().getName());
         sb.append('{');
@@ -501,7 +499,7 @@ public class FragmentActivity extends Activity {
                 sb.append('G');
                 break;
             default:
-                sb.append(FilenameUtils.EXTENSION_SEPARATOR);
+                sb.append('.');
                 break;
         }
         sb.append(view.isFocusable() ? 'F' : '.');
@@ -514,10 +512,7 @@ public class FragmentActivity extends Activity {
         sb.append(' ');
         sb.append(view.isFocused() ? 'F' : '.');
         sb.append(view.isSelected() ? 'S' : '.');
-        if (view.isPressed()) {
-            c = 'P';
-        }
-        sb.append(c);
+        sb.append(view.isPressed() ? 'P' : '.');
         sb.append(' ');
         sb.append(view.getLeft());
         sb.append(',');

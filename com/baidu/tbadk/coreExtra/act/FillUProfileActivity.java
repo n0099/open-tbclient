@@ -25,20 +25,20 @@ public class FillUProfileActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.layout_sapi_webview_fill_uprofile);
+        setContentView(com.baidu.tieba.v.layout_sapi_webview_fill_uprofile);
         this.d = getIntent().getStringExtra("EXTRA_BDUSS");
         a();
     }
 
     protected void a() {
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new q(this));
-        this.b.a(getString(com.baidu.tieba.y.sapi_filluprofile));
+        this.b.a(getString(com.baidu.tieba.x.sapi_filluprofile));
         if (TextUtils.isEmpty(this.d)) {
             Toast.makeText(this, "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.a = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
+        this.a = (SapiWebView) findViewById(com.baidu.tieba.u.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, this.a);
         this.a.setOnBackCallback(new r(this));
         this.a.setOnFinishCallback(new s(this));
@@ -66,7 +66,9 @@ public class FillUProfileActivity extends BaseActivity {
     public void c() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
-        com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.e);
+        if (session != null) {
+            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.e);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

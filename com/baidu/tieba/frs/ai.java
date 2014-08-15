@@ -13,9 +13,14 @@ class ai extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            FrsActivity.b = false;
-            FrsActivity.c = false;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            if (com.baidu.adp.lib.e.b.a(customResponsedMessage.getData().toString(), FrsActivity.d) == FrsActivity.d) {
+                FrsActivity.m = false;
+                FrsActivity.l = false;
+                return;
+            }
+            FrsActivity.n = false;
+            FrsActivity.l = false;
         }
     }
 }

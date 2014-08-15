@@ -6,17 +6,21 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ NewFriendDbManagerStatic a;
-    private final /* synthetic */ long b;
+    private final /* synthetic */ com.baidu.tieba.im.data.k b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
+    public d(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.k kVar, String str, String str2) {
         this.a = newFriendDbManagerStatic;
-        this.b = j;
+        this.b = kVar;
+        this.c = str;
+        this.d = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r9) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.b, "", "", "", ""));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.b.a(), this.b.c(), this.b.b(), this.c, this.d));
     }
 }

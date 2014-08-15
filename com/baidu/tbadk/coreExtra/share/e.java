@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.share;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a {
@@ -17,7 +17,7 @@ public class e implements a {
     public void a() {
         Context context;
         context = this.a.b;
-        j.a(context, y.auth_account_success);
+        j.a(context, x.auth_account_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
@@ -28,7 +28,7 @@ public class e implements a {
     public void c() {
         Context context;
         context = this.a.b;
-        j.a(context, y.share_success);
+        j.a(context, x.share_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a

@@ -1,28 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ce implements View.OnClickListener {
-    final /* synthetic */ cb a;
+public class ce extends CustomMessageListener {
+    final /* synthetic */ cd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(cb cbVar) {
-        this.a = cbVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ce(cd cdVar, int i) {
+        super(i);
+        this.a = cdVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
         PersonFriendActivity f;
-        this.a.c = ((Integer) view.getTag()).intValue();
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            f = this.a.f();
-            LoginActivity.a((Activity) f, this.a.getString(com.baidu.tieba.y.login_to_chat), true, 11028);
-            return;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
+            z = this.a.j;
+            if (z) {
+                com.baidu.tieba.data.am personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
+                f = this.a.f();
+                if (f != null) {
+                    this.a.k = personListData;
+                    this.a.a(personListData, true);
+                }
+            }
         }
-        this.a.h();
     }
 }

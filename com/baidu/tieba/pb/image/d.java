@@ -24,7 +24,7 @@ public class d implements Runnable {
             emotionTabHost2.setVisibility(0);
         }
         keyboardLayout = this.a.r;
-        iVar = this.a.V;
+        iVar = this.a.U;
         keyboardLayout.setOnkbdStateListener(iVar);
     }
 }

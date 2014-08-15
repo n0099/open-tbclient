@@ -1,30 +1,32 @@
 package com.baidu.tieba.im.friend;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ h a;
+class i implements View.OnClickListener {
+    final /* synthetic */ InviteFriendCandidateList a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public i(InviteFriendCandidateList inviteFriendCandidateList) {
+        this.a = inviteFriendCandidateList;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (aVar != null) {
-            bdListView = this.a.d;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(aVar.h());
-                bdListView2 = this.a.d;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LinearLayout linearLayout;
+        boolean f;
+        j jVar;
+        j jVar2;
+        linearLayout = this.a.b;
+        linearLayout.removeView(view);
+        f = this.a.f();
+        if (!f) {
+            this.a.d();
+        }
+        jVar = this.a.h;
+        if (jVar != null) {
+            jVar2 = this.a.h;
+            jVar2.a(view, view.getTag());
         }
     }
 }

@@ -1,24 +1,21 @@
 package com.baidu.tbadk.core.util.httpNet;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class g {
-    public boolean g;
-    public boolean f = true;
-    public String h = "UTF-8";
-    public String a = null;
-    public ArrayList<BasicNameValuePair> b = null;
-    public boolean d = true;
+    public int a;
+    public int b;
+    public String c;
+    public String d = null;
     public boolean e = false;
-    public HashMap<String, byte[]> c = null;
-    public String i = null;
-    public String j = null;
-    public String k = null;
 
-    public g() {
-        this.g = true;
-        this.g = true;
+    public boolean a() {
+        return this.a == 200;
+    }
+
+    public boolean b() {
+        return this.a == 200 && this.b == 0;
+    }
+
+    public boolean c() {
+        return this.a == 200 || this.a == 206;
     }
 }

@@ -21,6 +21,6 @@ public class q implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.a;
-        messageManager.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(context).a(this.b, null, "feed_back")));
+        messageManager.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(context).a(this.b, null, "feed_back")));
     }
 }

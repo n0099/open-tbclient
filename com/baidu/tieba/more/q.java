@@ -1,16 +1,29 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class q implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MoreActivity.class);
-            customMessage.getData().startActivity();
+class q implements DialogInterface.OnClickListener {
+    final /* synthetic */ l a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(l lVar) {
+        this.a = lVar;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                TbadkApplication.m252getInst().setFontSize(1);
+                break;
+            case 1:
+                TbadkApplication.m252getInst().setFontSize(2);
+                break;
+            case 2:
+                TbadkApplication.m252getInst().setFontSize(3);
+                break;
         }
-        return null;
+        this.a.p();
     }
 }

@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.model.bi;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class av extends CustomMessageListener {
-    final /* synthetic */ OfficialBarTipActivity a;
+class av {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    ImageView f;
+    View g;
+    ViewGroup h;
+    ImageView i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av(OfficialBarTipActivity officialBarTipActivity, int i) {
-        super(i);
-        this.a = officialBarTipActivity;
+    private av() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bi biVar;
-        com.baidu.tieba.im.a<Void> aVar;
-        biVar = this.a.b;
-        aVar = this.a.e;
-        biVar.a(aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ av(av avVar) {
+        this();
     }
 }

@@ -1,11 +1,12 @@
 package com.baidu.tieba.write;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bg implements View.OnClickListener {
+class bg implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,22 +16,49 @@ public class bg implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.a.p;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.a.p;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.a.m;
-            linearLayout2.setVisibility(8);
-            return;
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean b;
+        z = this.a.z;
+        if (!z) {
+            i = this.a.A;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.a.g;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.y;
+                    if (z2) {
+                        bitmap = this.a.q;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.q;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                b = this.a.b(str);
+                                if (b) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.a.setResult(0, new Intent());
+            }
+        } else {
+            this.a.setResult(0, new Intent());
         }
-        navigationBar2 = this.a.p;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.a.m;
-        linearLayout.setVisibility(0);
+        this.a.finish();
     }
 }

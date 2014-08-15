@@ -1,8 +1,8 @@
 package com.baidu.tieba.account.appeal;
 
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements l {
@@ -22,7 +22,7 @@ public class d implements l {
         str = this.a.h;
         textView.setText(str);
         textView2 = this.a.c;
-        textView2.setText(!bm.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(y.default_forbid_reason));
+        textView2.setText(!ba.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(x.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l

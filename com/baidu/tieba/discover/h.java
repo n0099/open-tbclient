@@ -1,24 +1,22 @@
 package com.baidu.tieba.discover;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
+public class h implements com.baidu.tbadk.core.view.q {
+    final /* synthetic */ a a;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(int i) {
-        super(i);
+    public h(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).a;
-            imageView = DiscoverDelegateStatic.c;
-            imageView.setVisibility(z ? 0 : 8);
+    @Override // com.baidu.tbadk.core.view.q
+    public void a(boolean z) {
+        BdPullRefreshScrollView bdPullRefreshScrollView;
+        if (z) {
+            bdPullRefreshScrollView = this.a.q;
+            bdPullRefreshScrollView.setRefreshing(1);
         }
     }
 }

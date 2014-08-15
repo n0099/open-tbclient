@@ -1,23 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class bj {
-    FrameLayout a;
-    LinearLayout b;
+    LinearLayout a;
+    HeadImageView b;
     TextView c;
-    ProgressBar d;
-    final /* synthetic */ az e;
+    TextView d;
+    TextView e;
+    TbImageView f;
+    TextView g;
+    final /* synthetic */ bc h;
 
-    private bj(az azVar) {
-        this.e = azVar;
+    private bj(bc bcVar) {
+        this.h = bcVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bj(az azVar, bj bjVar) {
-        this(azVar);
+    public /* synthetic */ bj(bc bcVar, bj bjVar) {
+        this(bcVar);
     }
 }

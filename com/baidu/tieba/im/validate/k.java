@@ -1,25 +1,26 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ i a;
+public class k implements View.OnLongClickListener {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar) {
-        this.a = iVar;
+    public k(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
         ValidateActivity validateActivity;
-        HeadImageView headImageView;
+        View view2;
         ValidateItemData validateItemData;
         validateActivity = this.a.h;
-        headImageView = this.a.c;
+        view2 = this.a.b;
         validateItemData = this.a.i;
-        validateActivity.a(headImageView, 101, 0, 0L, validateItemData);
+        validateActivity.b(view2, Constants.MEDIA_INFO, 0, 0L, validateItemData);
+        return true;
     }
 }

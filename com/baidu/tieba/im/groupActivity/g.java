@@ -2,7 +2,7 @@ package com.baidu.tieba.im.groupActivity;
 
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 class g implements DatePickerDialog.OnDateSetListener {
@@ -32,7 +32,7 @@ class g implements DatePickerDialog.OnDateSetListener {
         if (i < i4 || ((i == i4 && i2 < i5) || (i == i4 && i2 == i5 && i3 < i6))) {
             eVar = this.a.a;
             createGroupActivityActivity = eVar.a;
-            createGroupActivityActivity.c(y.group_activity_time_val);
+            createGroupActivityActivity.c(x.group_activity_time_val);
             return;
         }
         eVar2 = this.a.a;

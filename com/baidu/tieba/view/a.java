@@ -18,6 +18,7 @@ class a implements View.OnClickListener {
     public void onClick(View view) {
         com.baidu.tieba.data.b bVar;
         com.baidu.tieba.data.b bVar2;
+        BaobaoSdkDelegate baobaoSdkDelegate;
         com.baidu.tieba.data.b bVar3;
         bVar = this.a.c;
         if (bVar != null) {
@@ -25,15 +26,15 @@ class a implements View.OnClickListener {
             if (bVar2.d() != 1) {
                 bVar3 = this.a.c;
                 String b = bVar3.b();
-                if (!com.baidu.adp.lib.util.i.b(b)) {
+                if (!com.baidu.adp.lib.util.i.c(b)) {
                     com.baidu.tbadk.browser.a.a(this.a.getContext(), b, true);
                     return;
                 }
                 return;
             }
             try {
-                BaobaoSdkDelegate baobaoSdkDelegate = (BaobaoSdkDelegate) com.baidu.tbadk.tbplugin.m.a().b(BaobaoSdkDelegate.class);
-                if (baobaoSdkDelegate != null) {
+                com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("baobao");
+                if (a != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) a.a(BaobaoSdkDelegate.class)) != null) {
                     if (baobaoSdkDelegate.checkHasInstalled(this.a.getContext())) {
                         baobaoSdkDelegate.launchBaobao(this.a.getContext());
                     } else {

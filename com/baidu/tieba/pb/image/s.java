@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -51,19 +51,19 @@ public class s implements ViewPager.OnPageChangeListener {
         LinearLayout linearLayout2;
         BaseViewPager baseViewPager;
         ImagePbActivity imagePbActivity = this.a;
-        i2 = this.a.I;
+        i2 = this.a.H;
         imagePbActivity.a(i2, i);
-        this.a.I = i;
+        this.a.H = i;
         textView = this.a.h;
         textView.setText((CharSequence) null);
-        wVar = this.a.F;
+        wVar = this.a.E;
         if (wVar != null) {
-            wVar2 = this.a.F;
+            wVar2 = this.a.E;
             if (wVar2.j() > 0) {
-                wVar3 = this.a.F;
+                wVar3 = this.a.E;
                 if (i != wVar3.j()) {
                     textView2 = this.a.g;
-                    str = this.a.D;
+                    str = this.a.C;
                     textView2.setText(str);
                     textView3 = this.a.h;
                     textView3.setVisibility(0);
@@ -71,19 +71,19 @@ public class s implements ViewPager.OnPageChangeListener {
                     linearLayout.setVisibility(0);
                     textView4 = this.a.h;
                     StringBuilder append = new StringBuilder(String.valueOf(String.valueOf(i + 1))).append("/");
-                    wVar4 = this.a.F;
+                    wVar4 = this.a.E;
                     textView4.setText(append.append(String.valueOf(wVar4.j())).toString());
-                    wVar5 = this.a.F;
+                    wVar5 = this.a.E;
                     LinkedList<com.baidu.tieba.data.v> g = wVar5.g();
                     if (g != null) {
-                        i3 = this.a.I;
+                        i3 = this.a.H;
                         if (i3 < g.size()) {
-                            i4 = this.a.I;
+                            i4 = this.a.H;
                             if (g.get(i4) != null) {
                                 ImagePbActivity imagePbActivity2 = this.a;
-                                i5 = this.a.I;
-                                imagePbActivity2.K = g.get(i5).d();
-                                i6 = this.a.I;
+                                i5 = this.a.H;
+                                imagePbActivity2.J = g.get(i5).d();
+                                i6 = this.a.H;
                                 g.get(i6).i().equals(TbadkApplication.getCurrentAccount());
                             }
                         }
@@ -92,21 +92,21 @@ public class s implements ViewPager.OnPageChangeListener {
                     textView5 = this.a.h;
                     textView5.setVisibility(8);
                     textView6 = this.a.g;
-                    textView6.setText(this.a.getString(com.baidu.tieba.y.image_recommend));
+                    textView6.setText(this.a.getString(com.baidu.tieba.x.image_recommend));
                     linearLayout2 = this.a.q;
                     linearLayout2.setVisibility(8);
-                    baseViewPager = this.a.x;
-                    bk.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
+                    baseViewPager = this.a.w;
+                    ay.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
                     return;
                 }
             }
         }
-        this.a.L = System.nanoTime();
-        handler = this.a.Q;
-        runnable = this.a.R;
+        this.a.K = System.nanoTime();
+        handler = this.a.P;
+        runnable = this.a.Q;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.Q;
-        runnable2 = this.a.R;
+        handler2 = this.a.P;
+        runnable2 = this.a.Q;
         handler2.postDelayed(runnable2, 90L);
     }
 }

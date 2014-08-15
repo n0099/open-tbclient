@@ -7,7 +7,7 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class f extends com.baidu.adp.framework.listener.b {
+class f extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,16 +21,16 @@ class f extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        k kVar;
-        k kVar2;
-        k kVar3;
+        j jVar;
+        j jVar2;
+        j jVar3;
         b bVar;
         b bVar2;
         EnterGuideCenterView enterGuideCenterView;
         EnterGuideCenterView enterGuideCenterView2;
         if (this.a.getActivity() != null && this.a.b != null) {
-            kVar = this.a.d;
-            if (kVar != null) {
+            jVar = this.a.d;
+            if (jVar != null) {
                 if (socketResponsedMessage.getCmd() == 103003) {
                     this.a.b.d();
                 }
@@ -51,7 +51,6 @@ class f extends com.baidu.adp.framework.listener.b {
                     if (groups.size() > 0) {
                         enterGuideCenterView2 = this.a.g;
                         enterGuideCenterView2.b(8);
-                        this.a.a();
                     } else {
                         enterGuideCenterView = this.a.g;
                         enterGuideCenterView.b(0);
@@ -60,10 +59,10 @@ class f extends com.baidu.adp.framework.listener.b {
                 if (socketResponsedMessage.getCmd() == 103003) {
                     this.a.c = false;
                 } else if (socketResponsedMessage.getCmd() == 2001106) {
-                    kVar2 = this.a.d;
-                    if (kVar2 != null) {
-                        kVar3 = this.a.d;
-                        kVar3.a();
+                    jVar2 = this.a.d;
+                    if (jVar2 != null) {
+                        jVar3 = this.a.d;
+                        jVar3.a();
                     }
                 }
             }

@@ -30,7 +30,7 @@ public class ad extends com.baidu.adp.base.f {
         super(hotLiveListActivity);
         this.a = hotLiveListActivity;
         this.l = z;
-        hotLiveListActivity.setContentView(com.baidu.tieba.w.live_hot_list_activity);
+        hotLiveListActivity.setContentView(com.baidu.tieba.v.live_hot_list_activity);
         a(hotLiveListActivity);
         b(hotLiveListActivity);
         c(hotLiveListActivity);
@@ -41,22 +41,22 @@ public class ad extends com.baidu.adp.base.f {
     }
 
     private void a(HotLiveListActivity hotLiveListActivity) {
-        this.b = hotLiveListActivity.findViewById(com.baidu.tieba.v.view_root);
-        this.c = (NavigationBar) hotLiveListActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b = hotLiveListActivity.findViewById(com.baidu.tieba.u.view_root);
+        this.c = (NavigationBar) hotLiveListActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.a.getString(com.baidu.tieba.y.group_tab_living_btn));
-        this.p = (NoNetworkView) hotLiveListActivity.findViewById(com.baidu.tieba.v.view_no_network);
+        this.c.a(this.a.getString(com.baidu.tieba.x.group_tab_living_btn));
+        this.p = (NoNetworkView) hotLiveListActivity.findViewById(com.baidu.tieba.u.view_no_network);
     }
 
     private void b(HotLiveListActivity hotLiveListActivity) {
-        this.d = (RadioGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.raidos_change);
-        this.e = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_living);
+        this.d = (RadioGroup) hotLiveListActivity.findViewById(com.baidu.tieba.u.raidos_change);
+        this.e = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_living);
         this.e.setChecked(true);
-        this.f = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_review);
-        this.g = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_foreshow);
-        this.h = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_living_line);
-        this.i = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_review_line);
-        this.j = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_foreshow_line);
+        this.f = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_review);
+        this.g = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_foreshow);
+        this.h = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_living_line);
+        this.i = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_review_line);
+        this.j = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.u.radio_foreshow_line);
         if (!this.l) {
             this.f.setVisibility(8);
             this.i.setVisibility(8);
@@ -85,7 +85,7 @@ public class ad extends com.baidu.adp.base.f {
             this.m[i2] = new z();
             this.m[i2].a(this.n[i2]);
         }
-        this.k = (ViewPager) this.a.findViewById(com.baidu.tieba.v.viewpage);
+        this.k = (ViewPager) this.a.findViewById(com.baidu.tieba.u.viewpage);
         this.k.setAdapter(new ae(this.a.getSupportFragmentManager(), this.m));
         this.k.setOnPageChangeListener(this.a);
         this.k.setOffscreenPageLimit(2);
@@ -147,7 +147,7 @@ public class ad extends com.baidu.adp.base.f {
     }
 
     public void c() {
-        this.d.check(com.baidu.tieba.v.radio_living);
+        this.d.check(com.baidu.tieba.u.radio_living);
     }
 
     public ViewPager d() {

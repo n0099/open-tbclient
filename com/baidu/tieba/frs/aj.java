@@ -1,12 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.view.CustomTimerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends Handler {
+public class aj extends com.baidu.adp.base.h {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,58 +11,63 @@ public class aj extends Handler {
         this.a = frsActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        com.baidu.tieba.model.af afVar;
+        com.baidu.tieba.model.af afVar2;
+        String str;
+        String str2;
+        cu cuVar;
         g gVar;
         g gVar2;
-        long j;
+        String str3;
+        cu cuVar2;
         g gVar3;
-        boolean z;
-        ct ctVar;
-        ct ctVar2;
         g gVar4;
+        String str4;
         g gVar5;
-        ct ctVar3;
-        switch (message.what) {
-            case 1:
-                removeMessages(1);
-                gVar = this.a.H;
-                if (gVar != null) {
-                    gVar2 = this.a.H;
-                    long g = gVar2.l().g();
-                    j = this.a.M;
-                    long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
-                    if (nanoTime > 0) {
-                        ctVar3 = this.a.v;
-                        CustomTimerView customTimerView = (CustomTimerView) ctVar3.a(com.baidu.tieba.v.open_timer);
-                        if (customTimerView != null) {
-                            customTimerView.setTime(nanoTime);
-                        }
-                        sendMessageDelayed(obtainMessage(1), 1000L);
-                        return;
-                    }
-                    gVar3 = this.a.H;
-                    gVar3.l().a(1);
-                    z = this.a.k;
-                    if (!z) {
-                        ctVar = this.a.v;
-                        if (ctVar.w() != null) {
-                            ctVar2 = this.a.v;
-                            com.baidu.tieba.frs.view.j w = ctVar2.w();
-                            gVar4 = this.a.H;
-                            ForumData g2 = gVar4.g();
-                            gVar5 = this.a.H;
-                            w.a(g2, gVar5);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+        boolean z = false;
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ab)) {
+            f a = f.a();
+            str4 = this.a.q;
+            a.a(str4, false);
+            ((com.baidu.tieba.data.ab) obj).b(1);
+            gVar5 = this.a.L;
+            gVar5.a((com.baidu.tieba.data.ab) obj);
+            z = true;
         }
+        if (!z) {
+            afVar = this.a.M;
+            if (afVar.getErrorCode() == 22) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.x.had_liked_forum));
+            } else {
+                FrsActivity frsActivity = this.a;
+                afVar2 = this.a.M;
+                frsActivity.showToast(afVar2.getErrorString());
+            }
+            this.a.D();
+            return;
+        }
+        str = this.a.R;
+        if (str.equals("normal_page")) {
+            cuVar2 = this.a.z;
+            gVar3 = this.a.L;
+            ForumData i = gVar3.i();
+            gVar4 = this.a.L;
+            cuVar2.b(1, i, gVar4, true);
+        } else {
+            str2 = this.a.R;
+            if (str2.equals("frs_page")) {
+                cuVar = this.a.z;
+                gVar = this.a.L;
+                ForumData i2 = gVar.i();
+                gVar2 = this.a.L;
+                cuVar.a(1, i2, gVar2, true);
+            }
+        }
+        this.a.showToast(this.a.getString(com.baidu.tieba.x.like_success));
+        com.baidu.tieba.ai c = com.baidu.tieba.ai.c();
+        str3 = this.a.q;
+        c.d(str3);
     }
 }

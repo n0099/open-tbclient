@@ -1,167 +1,45 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tieba.util.AntiHelper;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends com.baidu.adp.base.h {
-    final /* synthetic */ FrsActivity a;
+public class ah implements com.baidu.tbadk.core.util.bi {
+    Pattern a = Pattern.compile("http://tieba.baidu.com/f\\?kw=([^&]+)");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(FrsActivity frsActivity) {
-        this.a = frsActivity;
-    }
-
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        boolean z;
+    @Override // com.baidu.tbadk.core.util.bi
+    public boolean a(Context context, String[] strArr) {
         String str;
-        String str2;
-        ct ctVar;
-        com.baidu.tieba.model.ba baVar;
-        ct ctVar2;
-        com.baidu.tieba.model.ba baVar2;
-        String str3;
-        String str4;
-        ct ctVar3;
-        ct ctVar4;
-        g gVar;
-        String str5;
-        String str6;
-        ct ctVar5;
-        g gVar2;
-        g gVar3;
-        g gVar4;
-        g gVar5;
-        String str7;
-        g gVar6;
-        g gVar7;
-        g gVar8;
-        ct ctVar6;
-        ct ctVar7;
-        ct ctVar8;
-        ct ctVar9;
-        int i;
-        g gVar9;
-        g gVar10;
-        ct ctVar10;
-        g gVar11;
-        g gVar12;
-        g gVar13;
-        g gVar14;
-        ct ctVar11;
-        String str8;
-        g gVar15;
-        if (obj == null || !(obj instanceof SignData)) {
-            z = false;
+        String substring;
+        if (strArr == null || strArr[0] == null) {
+            return false;
+        }
+        String lowerCase = strArr[0].toLowerCase();
+        Matcher matcher = this.a.matcher(lowerCase);
+        if (strArr.length <= 1) {
+            str = null;
         } else {
-            f a = f.a();
-            str8 = this.a.m;
-            a.b(str8);
-            gVar15 = this.a.H;
-            gVar15.a((SignData) obj);
-            z = true;
+            str = strArr[1];
         }
-        str = this.a.N;
-        if (str.equals("normal_page")) {
-            ctVar11 = this.a.v;
-            ctVar11.D();
+        if (matcher.find()) {
+            substring = matcher.group(1);
+        } else if (!lowerCase.startsWith("frs:")) {
+            return false;
         } else {
-            str2 = this.a.N;
-            if (str2.equals("frs_page")) {
-                ctVar = this.a.v;
-                ctVar.F();
-            }
+            substring = lowerCase.substring(4);
         }
-        if (z) {
-            gVar = this.a.H;
-            AntiData j = gVar.j();
-            str5 = this.a.N;
-            if (str5.equals("normal_page")) {
-                ctVar10 = this.a.v;
-                gVar11 = this.a.H;
-                int signed = gVar11.g().getSignData().getSigned();
-                gVar12 = this.a.H;
-                int bonusPoint = gVar12.g().getSignData().getBonusPoint();
-                gVar13 = this.a.H;
-                ForumData g = gVar13.g();
-                gVar14 = this.a.H;
-                ctVar10.b(signed, bonusPoint, g, gVar14);
-            } else {
-                str6 = this.a.N;
-                if (str6.equals("frs_page")) {
-                    ctVar5 = this.a.v;
-                    gVar2 = this.a.H;
-                    int signed2 = gVar2.g().getSignData().getSigned();
-                    gVar3 = this.a.H;
-                    int bonusPoint2 = gVar3.g().getSignData().getBonusPoint();
-                    gVar4 = this.a.H;
-                    ForumData g2 = gVar4.g();
-                    gVar5 = this.a.H;
-                    ctVar5.a(signed2, bonusPoint2, g2, gVar5);
-                }
-            }
-            if (obj != null && (obj instanceof SignData)) {
-                ctVar9 = this.a.v;
-                if (ctVar9.l()) {
-                    gVar10 = this.a.H;
-                    i = gVar10.g().getUser_level() + 1;
-                } else {
-                    i = -1;
-                }
-                com.baidu.tieba.ai c = com.baidu.tieba.ai.c();
-                gVar9 = this.a.H;
-                c.a(gVar9.g().getName(), ((SignData) obj).getBonusPoint(), i);
-            }
-            if (AntiHelper.b(j) || AntiHelper.a(j) || AntiHelper.c(j)) {
-                str7 = this.a.m;
-                j.setBlock_forum_name(str7);
-                gVar6 = this.a.H;
-                j.setBlock_forum_id(gVar6.g().getId());
-                gVar7 = this.a.H;
-                j.setUser_name(gVar7.i().getUserName());
-                gVar8 = this.a.H;
-                j.setUser_id(gVar8.i().getUserId());
-                AntiHelper.a(this.a, j, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
-                return;
-            }
-            StringBuilder sb = new StringBuilder(100);
-            ctVar6 = this.a.v;
-            if (!ctVar6.H()) {
-                sb.append(this.a.getString(com.baidu.tieba.y.sign_success));
-                sb.append("!\n");
-                sb.append(String.format(this.a.getString(com.baidu.tieba.y.sign_user), Integer.valueOf(((SignData) obj).getUserSignRank())));
-                ctVar8 = this.a.v;
-                ctVar8.a(sb.toString());
-                return;
-            }
-            sb.append(this.a.getString(com.baidu.tieba.y.sign_success));
-            sb.append(",");
-            sb.append(String.format(this.a.getString(com.baidu.tieba.y.sign_point), Integer.valueOf(((SignData) obj).getBonusPoint())));
-            sb.append("!\n");
-            sb.append(String.format(this.a.getString(com.baidu.tieba.y.sign_user), Integer.valueOf(((SignData) obj).getUserSignRank())));
-            ctVar7 = this.a.v;
-            ctVar7.a(sb.toString());
-            return;
+        if (context instanceof BaseActivity) {
+            ((BaseActivity) context).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(context).a(substring, str)));
+            return true;
+        } else if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(context).a(substring, str)));
+            return true;
+        } else {
+            return false;
         }
-        baVar = this.a.K;
-        if (baVar.getErrorCode() == 160002) {
-            str3 = this.a.N;
-            if (str3.equals("normal_page")) {
-                ctVar4 = this.a.v;
-                ctVar4.f(1);
-            } else {
-                str4 = this.a.N;
-                if (str4.equals("frs_page")) {
-                    ctVar3 = this.a.v;
-                    ctVar3.e(1);
-                }
-            }
-        }
-        ctVar2 = this.a.v;
-        baVar2 = this.a.K;
-        ctVar2.a(baVar2.getErrorString());
     }
 }

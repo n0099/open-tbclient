@@ -1,15 +1,41 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.im.chat.bw;
-import com.baidu.tieba.im.chat.w;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements d {
-    @Override // com.baidu.tieba.im.b.d
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
-        if (w.a != 0) {
-            com.baidu.tbadk.coreExtra.messageCenter.e.a().a(w.a, bw.c(imMessageCenterPojo.getPulled_msgId()));
+public class g extends com.baidu.adp.framework.listener.d {
+    final /* synthetic */ b a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(b bVar, int i) {
+        super(i);
+        this.a = bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null) {
+            if (socketResponsedMessage.getCmd() == 1003) {
+                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
+                    return;
+                }
+                this.a.l();
+            } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+                TiebaStatic.imNet(responseOnlineMessage);
+                if (responseOnlineMessage.getError() == 0) {
+                    this.a.i = responseOnlineMessage.getGroupInfos();
+                    if (com.baidu.tieba.im.memorycache.c.b().a()) {
+                        this.a.a();
+                    }
+                }
+            }
         }
     }
 }

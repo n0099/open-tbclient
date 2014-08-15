@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements bu {
+public class e implements bs {
     final /* synthetic */ AbsMsgImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ public class e implements bu {
     /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
         if (r0 != false) goto L40;
      */
-    @Override // com.baidu.tieba.im.chat.bu
+    @Override // com.baidu.tieba.im.chat.bs
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

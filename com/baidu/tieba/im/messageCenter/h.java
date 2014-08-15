@@ -1,25 +1,17 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.chat.w;
+import android.support.v4.app.Fragment;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.InvokeNewImMessageCenterFragmentConfig;
 /* loaded from: classes.dex */
-class h extends com.baidu.tieba.im.b<Integer> {
-    final /* synthetic */ g b;
-    private final /* synthetic */ boolean c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar, boolean z) {
-        this.b = gVar;
-        this.c = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Integer a() {
-        if (!this.c) {
-            w.a = com.baidu.tieba.im.db.p.d().a();
-            com.baidu.tieba.im.db.b.a().b();
+class h implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return 0;
+        return new CustomResponsedMessage<>(2008002, new com.baidu.tieba.im.chat.notify.e());
     }
 }

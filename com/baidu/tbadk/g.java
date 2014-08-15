@@ -1,21 +1,21 @@
 package com.baidu.tbadk;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    private final /* synthetic */ AccountData a;
-    private final /* synthetic */ Context b;
+    final /* synthetic */ TbadkApplication a;
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(AccountData accountData, Context context) {
-        this.a = accountData;
-        this.b = context;
+    public g(TbadkApplication tbadkApplication, boolean z) {
+        this.a = tbadkApplication;
+        this.b = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TbadkApplication.setCurrentAccountInUI(this.a, this.b);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(this.b)));
     }
 }

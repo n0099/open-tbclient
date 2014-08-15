@@ -5,13 +5,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ a a;
-    private aq b;
+    private ae b;
     private boolean c;
     private String d;
     private String e;
@@ -45,7 +45,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     public String doInBackground(Integer... numArr) {
         try {
             if (this.d != null) {
-                this.b = new aq();
+                this.b = new ae();
                 if (this.c) {
                     this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {
@@ -53,7 +53,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
                 }
                 this.b.a(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.d);
                 this.b.a().a().a = true;
-                this.b.i();
+                this.b.h();
                 return null;
             }
             return null;
@@ -73,7 +73,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         if (this.b != null) {
             com.baidu.tbadk.coreExtra.message.a aVar = new com.baidu.tbadk.coreExtra.message.a();
             aVar.a = this.b.a().b().b();
-            aVar.b = this.b.f();
+            aVar.b = this.b.e();
             aVar.d = this.c;
             aVar.c = this.e;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
@@ -86,7 +86,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         h hVar2;
         super.cancel(true);
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
             this.b = null;
         }
         this.a.a = null;

@@ -3,8 +3,8 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -31,15 +31,15 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
     public AppealData doInBackground(String... strArr) {
         String str;
         str = f.a;
-        aq aqVar = new aq(str);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.USER_NAME, this.c);
-        aqVar.a("content", this.d);
-        String i = aqVar.i();
-        if (aqVar.a().b().b()) {
+        ae aeVar = new ae(str);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_NAME, this.c);
+        aeVar.a("content", this.d);
+        String h = aeVar.h();
+        if (aeVar.a().b().b()) {
             try {
-                return (AppealData) new GsonBuilder().create().fromJson(i, (Class<Object>) AppealData.class);
+                return (AppealData) new GsonBuilder().create().fromJson(h, (Class<Object>) AppealData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 AppealData appealData = new AppealData();
@@ -48,8 +48,8 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
             }
         }
         AppealData appealData2 = new AppealData();
-        appealData2.errNo = aqVar.d();
-        appealData2.errMsg = aqVar.f();
+        appealData2.errNo = aeVar.c();
+        appealData2.errMsg = aeVar.e();
         return appealData2;
     }
 
@@ -61,7 +61,7 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
         super.onPostExecute(appealData);
         h hVar = this.e.get();
         if (hVar != null) {
-            if (appealData.errNo == 0 && bm.c(appealData.errMsg)) {
+            if (appealData.errNo == 0 && ba.c(appealData.errMsg)) {
                 hVar.a(appealData);
             } else {
                 hVar.b(appealData);

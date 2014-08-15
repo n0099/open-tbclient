@@ -37,16 +37,16 @@ public class a extends ImageView {
         int i;
         if (this.b) {
             if (a == 1) {
-                i = com.baidu.tieba.u.but_posts_fit_select_s_1;
+                i = com.baidu.tieba.t.but_posts_fit_select_s_1;
             } else {
-                i = com.baidu.tieba.u.but_posts_fit_select_s;
+                i = com.baidu.tieba.t.but_posts_fit_select_s;
             }
         } else if (a == 1) {
-            i = com.baidu.tieba.u.but_posts_fit_select_n_1;
+            i = com.baidu.tieba.t.but_posts_fit_select_n_1;
         } else {
-            i = com.baidu.tieba.u.but_posts_fit_select_n;
+            i = com.baidu.tieba.t.but_posts_fit_select_n;
         }
-        return com.baidu.tbadk.core.util.h.a(i);
+        return com.baidu.tbadk.core.util.d.a(i);
     }
 
     @Override // android.widget.ImageView

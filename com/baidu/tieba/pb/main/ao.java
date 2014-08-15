@@ -1,10 +1,7 @@
 package com.baidu.tieba.pb.main;
-
-import android.content.DialogInterface;
-import com.baidu.tieba.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements DialogInterface.OnClickListener {
+public class ao implements Runnable {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +9,18 @@ public class ao implements DialogInterface.OnClickListener {
         this.a = pbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (!com.baidu.tbadk.core.util.z.a()) {
-            this.a.showToast(com.baidu.tbadk.core.util.z.b());
-        } else {
-            FileDownloader.download(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(com.baidu.tieba.y.download_baidu_video));
+    @Override // java.lang.Runnable
+    public void run() {
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
+        bsVar = this.a.D;
+        if (!bsVar.E()) {
+            bsVar3 = this.a.D;
+            bsVar3.b(false);
+            return;
         }
+        bsVar2 = this.a.D;
+        bsVar2.b(true);
     }
 }

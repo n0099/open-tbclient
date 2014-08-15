@@ -14,5 +14,7 @@ public class x implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
+        this.a.y();
+        this.a.closeActivity();
     }
 }

@@ -1,50 +1,27 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
-import android.widget.TextView;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
+class p extends CustomMessageListener {
     final /* synthetic */ EmotionManageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(EmotionManageActivity emotionManageActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(EmotionManageActivity emotionManageActivity, int i) {
+        super(i);
         this.a = emotionManageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         t tVar;
-        List list;
-        textView = this.a.h;
-        if (view != textView) {
-            textView2 = this.a.i;
-            if (view != textView2) {
-                textView3 = this.a.m;
-                if (view == textView3) {
-                    FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
-                    this.a.e();
-                    this.a.a(true);
-                    return;
-                }
-                return;
-            }
-            z = this.a.p;
-            if (!z) {
-                this.a.d();
-            } else {
-                this.a.e();
-                list = this.a.b;
-                list.clear();
-            }
-            tVar = this.a.o;
-            tVar.notifyDataSetChanged();
-            return;
+        if (customResponsedMessage.getCmd() == 2001120) {
+            this.a.c = new t(this.a, null);
+            tVar = this.a.c;
+            tVar.execute(new String[0]);
         }
-        this.a.g();
     }
 }

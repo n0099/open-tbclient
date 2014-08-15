@@ -2,11 +2,10 @@ package com.baidu.tieba.im.groupCard;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tbadk.imageManager.e;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.s;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
@@ -17,7 +16,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         String str;
         this.b = bVar;
         this.a = null;
-        str = bVar.e;
+        str = bVar.d;
         this.a = str;
     }
 
@@ -38,41 +37,41 @@ public class c extends BdAsyncTask<String, Integer, String> {
         try {
             if (this.a == null || this.a.length() <= 0) {
                 groupCardActivity2 = this.b.b;
-                return groupCardActivity2.getString(y.save_error);
+                return groupCardActivity2.getString(x.save_error);
             }
-            if (bm.f(this.a) == null) {
+            if (ba.f(this.a) == null) {
                 groupCardActivity7 = this.b.b;
-                return groupCardActivity7.getString(y.save_error);
+                return groupCardActivity7.getString(x.save_error);
             }
             String str = String.valueOf(f) + ".jpg";
-            for (int i = 0; z.b(str) && i < 10000; i++) {
+            for (int i = 0; s.b(str) && i < 10000; i++) {
                 str = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
             }
             StringBuilder sb = new StringBuilder(this.a);
             sb.append("&t=");
-            l = b.f;
+            l = b.e;
             sb.append(l);
-            com.baidu.adp.widget.a.a c = e.a().c(sb.toString());
-            if (c == null) {
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.resourceLoader.d.a().a(sb.toString(), 10, new Object[0]);
+            if (aVar == null) {
                 groupCardActivity6 = this.b.b;
-                return groupCardActivity6.getString(y.save_error);
+                return groupCardActivity6.getString(x.save_error);
             }
-            Bitmap h = c.h();
+            Bitmap h = aVar.h();
             if (h == null) {
                 groupCardActivity5 = this.b.b;
-                return groupCardActivity5.getString(y.save_error);
+                return groupCardActivity5.getString(x.save_error);
             }
-            String a = z.a((String) null, str, h, 80);
+            String a = s.a((String) null, str, h, 80);
             if (a != null) {
                 groupCardActivity3 = this.b.b;
-                new ao(groupCardActivity3).a(a);
+                new ac(groupCardActivity3).a(a);
                 groupCardActivity4 = this.b.b;
-                return groupCardActivity4.getString(y.save_image_to_album);
+                return groupCardActivity4.getString(x.save_image_to_album);
             }
-            return z.b();
+            return s.b();
         } catch (Exception e) {
             groupCardActivity = this.b.b;
-            return groupCardActivity.getString(y.save_error);
+            return groupCardActivity.getString(x.save_error);
         }
     }
 
@@ -85,7 +84,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         super.onPostExecute(str);
         groupCardActivity = this.b.b;
         groupCardActivity.showToast(str);
-        this.b.d = null;
+        this.b.c = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -96,7 +95,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.d = null;
+        this.b.c = null;
         super.cancel(true);
     }
 }

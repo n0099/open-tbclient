@@ -1,22 +1,13 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
-            return;
+class b extends Handler {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        if (message.what == 0) {
+            a.a().b(a.a().v());
         }
-        a.j = ((Boolean) data).booleanValue();
     }
 }

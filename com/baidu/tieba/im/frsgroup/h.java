@@ -1,6 +1,11 @@
 package com.baidu.tieba.im.frsgroup;
+
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes.dex */
-class h implements com.baidu.adp.widget.ListView.d {
+class h implements AdapterView.OnItemClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,14 +13,20 @@ class h implements com.baidu.adp.widget.ListView.d {
         this.a = bVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        com.baidu.tieba.im.model.i iVar;
-        iVar = this.a.c;
-        if (iVar.h() && z) {
-            this.a.a(false);
-        } else {
-            this.a.i();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        GroupListAdapter groupListAdapter;
+        FrsGroupActivity frsGroupActivity;
+        int h;
+        FrsGroupActivity frsGroupActivity2;
+        groupListAdapter = this.a.i;
+        GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
+        if (groupInfoData != null) {
+            frsGroupActivity = this.a.b;
+            h = this.a.h();
+            com.baidu.tbadk.core.atomData.y yVar = new com.baidu.tbadk.core.atomData.y(frsGroupActivity, groupInfoData.getGroupId(), h);
+            frsGroupActivity2 = this.a.b;
+            frsGroupActivity2.a(new CustomMessage(2008011, yVar));
         }
     }
 }

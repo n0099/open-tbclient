@@ -7,10 +7,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.data.aw;
-import com.baidu.tieba.s;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
+import com.baidu.tieba.data.ay;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
     private TextPaint a;
@@ -88,9 +85,9 @@ public class FrsWaterFallItem extends LinearLayout {
         this.p.setAntiAlias(true);
         this.j = com.baidu.adp.lib.util.j.a(getContext(), 5.0f);
         this.k = com.baidu.adp.lib.util.j.a(getContext(), 4.0f);
-        this.m = getContext().getResources().getDimensionPixelSize(t.ds20);
-        this.n = getContext().getResources().getDimensionPixelSize(t.ds20);
-        this.o = getContext().getResources().getDimensionPixelSize(t.ds12);
+        this.m = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.ds20);
+        this.n = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.ds20);
+        this.o = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.ds12);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -98,18 +95,18 @@ public class FrsWaterFallItem extends LinearLayout {
         Bitmap a;
         super.onDraw(canvas);
         try {
-            aw awVar = (aw) getTag();
-            if (awVar != null) {
+            ay ayVar = (ay) getTag();
+            if (ayVar != null) {
                 int height = ((getHeight() - getPaddingBottom()) - this.l) + this.n;
                 int width = (getWidth() - getPaddingRight()) - this.j;
                 this.a.setTextSize(this.h);
                 if (this.q == 1) {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_num_1));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_num_1));
                 } else {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_num));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_num));
                 }
                 int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-                int e = awVar.e();
+                int e = ayVar.e();
                 if (e > 0) {
                     if (this.d == null) {
                         if (e > 999) {
@@ -126,37 +123,37 @@ public class FrsWaterFallItem extends LinearLayout {
                 }
                 if (this.e != -1) {
                     if (this.q == 1) {
-                        a = com.baidu.tbadk.core.util.h.a(u.icon_comment_n_1);
+                        a = com.baidu.tbadk.core.util.d.a(com.baidu.tieba.t.icon_comment_n_1);
                     } else {
-                        a = com.baidu.tbadk.core.util.h.a(u.icon_comment_n);
+                        a = com.baidu.tbadk.core.util.d.a(com.baidu.tieba.t.icon_comment_n);
                     }
                     this.f = this.e - a.getWidth();
                     width = this.f - this.i;
                     canvas.drawBitmap(a, width, ((this.h - a.getHeight()) / 2) + height, this.p);
                 }
                 if (this.q == 1) {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_num_1));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_num_1));
                 } else {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_num));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_num));
                 }
-                this.c = com.baidu.adp.lib.util.j.a(this.a, awVar.a(), width - (this.j * 2));
+                this.c = com.baidu.adp.lib.util.j.a(this.a, ayVar.a(), width - (this.j * 2));
                 canvas.drawText(this.c, this.k + this.j, height - ceil, this.a);
                 if (this.q == 1) {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_divider_1));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_divider_1));
                 } else {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_divider));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_divider));
                 }
                 int height2 = (getHeight() - getPaddingBottom()) - this.l;
                 canvas.drawRect(this.o, height2, getWidth() - this.o, height2 + 2, this.a);
                 this.a.setTextSize(this.g);
                 if (this.q == 1) {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_title_1));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_title_1));
                 } else {
-                    this.a.setColor(getContext().getResources().getColor(s.frs_water_fall_item_title));
+                    this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.r.frs_water_fall_item_title));
                 }
                 int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 if (this.b == null) {
-                    this.b = com.baidu.adp.lib.util.j.a(this.a, awVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                    this.b = com.baidu.adp.lib.util.j.a(this.a, ayVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
                 }
                 canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.a);
             }
@@ -168,9 +165,9 @@ public class FrsWaterFallItem extends LinearLayout {
     public void a(int i) {
         this.q = i;
         if (i == 1) {
-            setBackgroundResource(u.bg_frs_image_item_1);
+            setBackgroundResource(com.baidu.tieba.t.bg_frs_image_item_1);
         } else {
-            setBackgroundResource(u.bg_frs_image_item);
+            setBackgroundResource(com.baidu.tieba.t.bg_frs_image_item);
         }
     }
 }

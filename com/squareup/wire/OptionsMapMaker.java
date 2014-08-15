@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class OptionsMapMaker {
     private final WireCompiler compiler;
@@ -247,7 +246,7 @@ public class OptionsMapMaker {
             for (Map.Entry entry : map.entrySet()) {
                 String str5 = (String) entry.getKey();
                 if (!isMetadata(str5)) {
-                    sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+                    sb.append("\n");
                     indent(sb, i2);
                     sb.append(".");
                     ExtensionInfo extension = this.compiler.getExtension(str5);
@@ -272,7 +271,7 @@ public class OptionsMapMaker {
                     sb.append(createOptionInitializer(entry.getValue(), str3, str4, fieldType, false, i2)).append(")");
                 }
             }
-            sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+            sb.append("\n");
             indent(sb, i2);
             sb.append(".build()");
             if (z2) {
@@ -280,7 +279,7 @@ public class OptionsMapMaker {
             }
         } else if (obj instanceof List) {
             sb.append("asList(");
-            String str6 = IOUtils.LINE_SEPARATOR_UNIX;
+            String str6 = "\n";
             for (Object obj2 : (List) obj) {
                 sb.append(str6);
                 indent(sb, i2);

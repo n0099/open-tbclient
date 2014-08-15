@@ -13,7 +13,7 @@ public class RequestFrsGroupsLocalMessage extends CustomMessage<Object> {
     private int width;
 
     public RequestFrsGroupsLocalMessage() {
-        super(2001201);
+        super(2001210);
     }
 
     public int getWidth() {
@@ -66,10 +66,10 @@ public class RequestFrsGroupsLocalMessage extends CustomMessage<Object> {
 
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forumId = Integer.valueOf(com.baidu.adp.lib.f.b.a(getForumId(), 0));
-        builder.offset = Integer.valueOf(com.baidu.adp.lib.f.b.a(getOffset(), 0));
-        builder.rn = Integer.valueOf(com.baidu.adp.lib.f.b.a(getRn(), 0));
-        builder.type = Integer.valueOf(com.baidu.adp.lib.f.b.a(getType(), 0));
+        builder.forumId = Integer.valueOf(com.baidu.adp.lib.e.b.a(getForumId(), 0));
+        builder.offset = Integer.valueOf(com.baidu.adp.lib.e.b.a(getOffset(), 0));
+        builder.rn = Integer.valueOf(com.baidu.adp.lib.e.b.a(getRn(), 0));
+        builder.type = Integer.valueOf(com.baidu.adp.lib.e.b.a(getType(), 0));
         builder.width = Integer.valueOf(getWidth());
         builder.height = Integer.valueOf(getHeight());
         QueryGroupsByFidReqIdl.Builder builder2 = new QueryGroupsByFidReqIdl.Builder();

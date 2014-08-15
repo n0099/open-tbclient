@@ -1,11 +1,12 @@
 package com.baidu.adp.framework.message;
 
+import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class Message<T> {
     private final int mCmd;
     private Object mExtra = null;
-    private int mTag;
+    private BdUniqueId mTag;
 
     public abstract boolean checkCmd(int i);
 
@@ -14,9 +15,9 @@ public abstract class Message<T> {
         check();
     }
 
-    public Message(int i, int i2) {
+    public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
-        this.mTag = i2;
+        this.mTag = bdUniqueId;
         check();
     }
 
@@ -30,12 +31,12 @@ public abstract class Message<T> {
         return this.mCmd;
     }
 
-    public int getTag() {
+    public BdUniqueId getTag() {
         return this.mTag;
     }
 
-    public void setTag(int i) {
-        this.mTag = i;
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.mTag = bdUniqueId;
     }
 
     public Object getExtra() {

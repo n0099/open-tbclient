@@ -7,13 +7,14 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity {
     private com.baidu.tieba.im.model.b a;
     private h b;
     private com.baidu.tieba.im.data.a c;
     private AlertDialog d;
-    private com.baidu.adp.framework.listener.b e = new b(this, 0);
+    private com.baidu.adp.framework.listener.d e = new b(this, 0);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008001, new a());
@@ -26,7 +27,7 @@ public class IMBlackListActivity extends BaseActivity {
     }
 
     private void b() {
-        this.a = new com.baidu.tieba.im.model.b();
+        this.a = new com.baidu.tieba.im.model.b(this);
         this.a.setUniqueId(getUniqueId());
     }
 
@@ -39,28 +40,11 @@ public class IMBlackListActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        MessageManager.getInstance().registerListener(104103, this.e);
-        MessageManager.getInstance().registerListener(104102, this.e);
+        registerListener(104103, this.e);
+        registerListener(104102, this.e);
         a();
         b();
         c();
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -72,11 +56,6 @@ public class IMBlackListActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         showLoadingDialog(null, new c(this));
@@ -86,14 +65,14 @@ public class IMBlackListActivity extends BaseActivity {
         if (this.d == null) {
             e();
         }
-        this.d.setMessage(String.format(getString(com.baidu.tieba.y.black_list_ensure_toremove_text), aVar.b()));
-        this.d.show();
+        this.d.setMessage(String.format(getString(x.black_list_ensure_toremove_text), aVar.b()));
+        com.baidu.adp.lib.e.d.a(this.d, this);
     }
 
     private void e() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setPositiveButton(com.baidu.tieba.y.confirm, new d(this));
-        builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, (DialogInterface.OnClickListener) null);
+        builder.setPositiveButton(x.confirm, new d(this));
+        builder.setNegativeButton(x.alert_no_button, (DialogInterface.OnClickListener) null);
         this.d = builder.create();
     }
 

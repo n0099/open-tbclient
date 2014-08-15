@@ -1,21 +1,26 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.tieba.im.message.RequestSearchGroupsMessage;
 /* loaded from: classes.dex */
-public class az implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ PersonalChatMessage b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public az(MsglistModel msglistModel, PersonalChatMessage personalChatMessage) {
-        this.a = msglistModel;
-        this.b = personalChatMessage;
+public class az extends com.baidu.adp.base.e {
+    public az(Context context) {
+        super(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.c(this.b);
+    public void a(int i) {
+        RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
+        requestSearchGroupsMessage.setGroupId(i);
+        super.sendMessage(requestSearchGroupsMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

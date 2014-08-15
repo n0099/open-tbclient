@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.game.GameInstallReceiver;
 /* loaded from: classes.dex */
 public class AsInstallService extends Service {
     private static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -33,7 +34,7 @@ public class AsInstallService extends Service {
                 this.mVersionData = (VersionData) intent.getSerializableExtra("tieba_apk_data");
             }
             this.mReceiver = new b(this, null);
-            IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
+            IntentFilter intentFilter = new IntentFilter(GameInstallReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme(SCHEME_PACKAGE_ADDED);
             registerReceiver(this.mReceiver, intentFilter);
             this.mHandler = new Handler();

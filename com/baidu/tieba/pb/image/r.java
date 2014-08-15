@@ -2,14 +2,13 @@ package com.baidu.tieba.pb.image;
 
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.aq;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-    private aq b;
+    private com.baidu.tbadk.core.util.ae b;
     private ArrayList<BasicNameValuePair> c;
     private String d;
     private boolean f;
@@ -32,16 +31,16 @@ public class r extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(Object... objArr) {
-        this.b = new aq(this.d);
+        this.b = new com.baidu.tbadk.core.util.ae(this.d);
         this.b.a(this.c);
-        this.e = this.b.i();
+        this.e = this.b.h();
         return this.e;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.b = null;
         this.a.a(false);
@@ -79,33 +78,33 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         com.baidu.tieba.data.w wVar11;
         super.onPostExecute(str);
         if (!this.g) {
-            if (this.b != null && this.b.c()) {
-                wVar = this.a.F;
+            if (this.b != null && this.b.b()) {
+                wVar = this.a.E;
                 if (wVar != null) {
                     if (this.b.a().b().b()) {
-                        wVar3 = this.a.F;
+                        wVar3 = this.a.E;
                         if (!wVar3.a()) {
-                            wVar11 = this.a.F;
+                            wVar11 = this.a.E;
                             wVar11.a(this.e, true);
                         }
-                        wVar4 = this.a.F;
-                        str2 = this.a.B;
+                        wVar4 = this.a.E;
+                        str2 = this.a.A;
                         wVar4.c(str2);
-                        acVar = this.a.y;
-                        wVar5 = this.a.F;
+                        acVar = this.a.x;
+                        wVar5 = this.a.E;
                         acVar.a(wVar5);
-                        acVar2 = this.a.y;
+                        acVar2 = this.a.x;
                         acVar2.notifyDataSetChanged();
-                        sVar = this.a.J;
-                        i = this.a.I;
+                        sVar = this.a.I;
+                        i = this.a.H;
                         sVar.onPageSelected(i);
-                        z = this.a.A;
+                        z = this.a.z;
                         if (z) {
-                            handler = this.a.Q;
-                            runnable = this.a.R;
+                            handler = this.a.P;
+                            runnable = this.a.Q;
                             handler.removeCallbacks(runnable);
-                            handler2 = this.a.Q;
-                            runnable2 = this.a.R;
+                            handler2 = this.a.P;
+                            runnable2 = this.a.Q;
                             handler2.post(runnable2);
                         } else if (this.f) {
                             this.a.b(1);
@@ -113,26 +112,26 @@ public class r extends BdAsyncTask<Object, Integer, String> {
                             this.a.b(2);
                         }
                         this.a.e();
-                        i2 = this.a.I;
-                        wVar6 = this.a.F;
+                        i2 = this.a.H;
+                        wVar6 = this.a.E;
                         if (i2 >= wVar6.g().size()) {
-                            i3 = this.a.I;
-                            wVar7 = this.a.F;
+                            i3 = this.a.H;
+                            wVar7 = this.a.E;
                             if (i3 < wVar7.j()) {
-                                wVar8 = this.a.F;
+                                wVar8 = this.a.E;
                                 int size = wVar8.g().size();
-                                wVar9 = this.a.F;
+                                wVar9 = this.a.E;
                                 if (size < wVar9.j()) {
                                     ImagePbActivity imagePbActivity = this.a;
-                                    wVar10 = this.a.F;
+                                    wVar10 = this.a.E;
                                     imagePbActivity.a(wVar10.k(), 0, 10, false);
                                 }
                             }
                         }
                     } else {
-                        this.a.showToast(this.a.getString(com.baidu.tieba.y.pb_nodata));
+                        this.a.showToast(this.a.getString(com.baidu.tieba.x.pb_nodata));
                         if (this.f) {
-                            wVar2 = this.a.G;
+                            wVar2 = this.a.F;
                             if (wVar2 != null) {
                                 this.a.a(0);
                             }

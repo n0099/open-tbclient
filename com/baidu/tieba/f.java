@@ -30,7 +30,7 @@ class f extends Handler {
                 Context baseContext = this.a.getBaseContext();
                 i = this.a.progress;
                 str = this.a.schedule;
-                com.baidu.tbadk.core.util.bb.a(baseContext, 10, (String) null, i, str, (String) null, true);
+                com.baidu.tbadk.core.util.ap.a(baseContext, 10, (String) null, i, str, (String) null, true);
             }
         } else if (message.what == 1) {
             UtilHelper.install_apk(ai.c().d(), (String) message.obj);

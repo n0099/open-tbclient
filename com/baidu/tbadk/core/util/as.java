@@ -1,83 +1,40 @@
 package com.baidu.tbadk.core.util;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-public class as implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ NetWorkCoreByBdHttp a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ long c;
+public class as extends BdAsyncTask<String, String, String> {
+    final /* synthetic */ ar a;
+    private final String b;
+    private final String c;
+    private final boolean d;
+    private final boolean e;
+    private final boolean f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(NetWorkCoreByBdHttp netWorkCoreByBdHttp, String str, long j) {
-        this.a = netWorkCoreByBdHttp;
+    public as(ar arVar, String str, String str2, boolean z, boolean z2, boolean z3) {
+        BdUniqueId bdUniqueId;
+        this.a = arVar;
         this.b = str;
-        this.c = j;
+        this.c = str2;
+        this.d = z;
+        this.e = z2;
+        this.f = z3;
+        BdAsyncTaskParallel.BdAsyncTaskParallelType bdAsyncTaskParallelType = BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL;
+        bdUniqueId = ar.b;
+        setParallel(new BdAsyncTaskParallel(bdAsyncTaskParallelType, bdUniqueId));
     }
 
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
-        com.baidu.tbadk.core.util.httpNet.c cVar;
-        com.baidu.tbadk.core.util.httpNet.c cVar2;
-        com.baidu.tbadk.core.util.httpNet.c cVar3;
-        com.baidu.tbadk.core.util.httpNet.c cVar4;
-        com.baidu.tbadk.core.util.httpNet.c cVar5;
-        boolean z = false;
-        if (httpURLConnection != null) {
-            try {
-                if (httpURLConnection.getInputStream() != null) {
-                    String headerField = httpURLConnection.getHeaderField("imgsrc");
-                    if (headerField != null && headerField.length() > 0) {
-                        z = true;
-                    }
-                    cVar = this.a.d;
-                    if (cVar.a().a().e || z) {
-                        byte[] bArr = new byte[23];
-                        int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
-                        if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                            outputStream.write(bArr, 0, read);
-                        }
-                    }
-                    if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        cVar3 = this.a.d;
-                        cVar3.b().e = true;
-                        cVar4 = this.a.d;
-                        if (cVar4.a().h == 1) {
-                            cVar5 = this.a.d;
-                            cVar5.a().h = 2;
-                            return;
-                        }
-                        return;
-                    }
-                    cVar2 = this.a.d;
-                    cVar2.b().e = false;
-                    return;
-                }
-            } catch (IOException e) {
-                com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), "0", e.getMessage(), "connection failed."));
-                try {
-                    com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), String.valueOf(httpURLConnection.getContentLength()), String.valueOf(httpURLConnection.getResponseCode()) + ":" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
-                } catch (IOException e2) {
-                    com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), String.valueOf(httpURLConnection.getContentLength()), "cann't get responseCode:" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
-                }
-                e.printStackTrace();
-                return;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        try {
+            this.a.a(this.b, this.c, this.d, this.e, this.f);
+        } catch (Throwable th) {
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
         }
-        com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(this.b, String.valueOf(System.currentTimeMillis() - this.c), "0", "failed to open connection.", "connection failed."));
-    }
-
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
-    }
-
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a(com.baidu.adp.lib.network.willdelete.f fVar) {
-    }
-
-    @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a() {
+        return null;
     }
 }

@@ -1,54 +1,46 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.model.p;
-import java.io.File;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class k extends c {
-    private static k c;
-    private String d = z.a + File.separator + TbConfig.getTempDirName() + File.separator + "PersonalChatMemoryCache.";
+public class k extends com.baidu.adp.framework.a.j {
+    private long a;
 
-    public static synchronized k a() {
-        k kVar;
-        synchronized (k.class) {
-            if (c == null) {
-                c = new k();
+    public k() {
+        super(202003);
+        this.a = 0L;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage instanceof ResponsePullMessage) {
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
             }
-            kVar = c;
+            if (this.a % 10 == 0) {
+                TiebaStatic.imNet(socketResponsedMessage);
+                this.a++;
+            }
+            b.b().i();
+            List<GroupMsgData> groupMsg = ((ResponsePullMessage) socketResponsedMessage).getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    a(groupMsgData);
+                }
+            }
         }
-        return kVar;
+        return null;
     }
 
-    private k() {
-    }
-
-    public void a(String str, int i, CommonMsgPojo commonMsgPojo, boolean z) {
-        e.a(this, str, i, commonMsgPojo);
-    }
-
-    @Override // com.baidu.tieba.im.b.c
-    protected void b() {
-        ImMessageCenterPojo b = com.baidu.tieba.im.db.h.a().b("-1001");
-        if (b != null) {
-            p.b(b.getUnread_count() > 0);
-        }
-        e.a(this);
-    }
-
-    public void c() {
-        if (z.a()) {
-            this.b.a(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
-        }
-    }
-
-    @Override // com.baidu.tieba.im.b.c
-    public void d() {
-        if (z.a()) {
-            this.b.b(new File(String.valueOf(this.d) + TbadkApplication.getCurrentAccount()));
+    private void a(GroupMsgData groupMsgData) {
+        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
         }
     }
 }

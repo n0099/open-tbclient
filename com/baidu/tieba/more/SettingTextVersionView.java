@@ -17,17 +17,17 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
     public void a() {
         boolean z = true;
         boolean z2 = TbadkApplication.m252getInst().getSkinType() == 1;
-        VersionData B = com.baidu.tieba.ai.c().B();
-        if (B == null || !B.hasNewVer()) {
+        VersionData A = com.baidu.tieba.ai.c().A();
+        if (A == null || !A.hasNewVer()) {
             z = false;
         }
         boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(f, false);
         if (z || (!z && !a)) {
-            this.d.setBackgroundResource(z2 ? com.baidu.tieba.u.icon_news_head_new_1 : com.baidu.tieba.u.icon_news_head_new);
+            this.d.setBackgroundResource(z2 ? com.baidu.tieba.t.icon_news_head_new_1 : com.baidu.tieba.t.icon_news_head_new);
             return;
         }
         this.d.setText(TbConfig.getVersion());
         this.d.setBackgroundDrawable(null);
-        this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
+        this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.y.setting_version_text_1 : com.baidu.tieba.y.setting_version_text);
     }
 }

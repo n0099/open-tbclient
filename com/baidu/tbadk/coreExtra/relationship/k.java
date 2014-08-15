@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.framework.listener.b {
+class k extends com.baidu.adp.framework.listener.d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(int i) {
         super(i);

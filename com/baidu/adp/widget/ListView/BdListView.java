@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class BdListView extends ListView {
@@ -152,7 +153,12 @@ public class BdListView extends ListView {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e) {
-            BdLog.e(e.getMessage());
+            BdLog.detailException(e);
+            if (getContext() instanceof Activity) {
+                ((Activity) getContext()).finish();
+            }
+        } catch (OutOfMemoryError e2) {
+            BdBaseApplication.getInst().onAppMemoryLow();
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -181,11 +187,6 @@ public class BdListView extends ListView {
 
     public void setOnSrollToBottomListener(x xVar) {
         this.n = xVar;
-    }
-
-    public void a(w wVar, long j) {
-        this.i = wVar;
-        this.k = j;
     }
 
     @Override // android.widget.AdapterView
@@ -442,5 +443,9 @@ public class BdListView extends ListView {
             BdLog.e(e.getMessage());
             return false;
         }
+    }
+
+    public boolean f() {
+        return this.C == null || this.C.a == 3;
     }
 }

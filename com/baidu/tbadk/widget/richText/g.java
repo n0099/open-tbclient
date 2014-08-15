@@ -2,6 +2,7 @@ package com.baidu.tbadk.widget.richText;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class g {
     private String a;
@@ -10,6 +11,42 @@ public class g {
     private int d;
     private int e;
     private boolean f;
+
+    public g(PbContent pbContent) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = 1;
+        this.e = 1;
+        this.f = false;
+        if (pbContent != null) {
+            this.a = pbContent.src;
+            this.b = pbContent.cdn_src;
+            if (this.b == null || this.b.length() == 0) {
+                this.b = this.a;
+            }
+            this.c = pbContent.big_cdn_src;
+            String str = pbContent.bsize;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.d = Integer.valueOf(split[0]).intValue();
+                    this.e = Integer.valueOf(split[1]).intValue();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.d <= 0) {
+                this.d = 1;
+            }
+            if (this.e <= 0) {
+                this.e = 1;
+            }
+            if (this.b != null && this.b.indexOf(".baidu.com") != -1) {
+                this.f = true;
+            }
+        }
+    }
 
     public g(JSONObject jSONObject) {
         this.a = null;

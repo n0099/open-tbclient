@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.util.i;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.w;
+import com.baidu.tieba.im.d.j;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.e.r;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
@@ -22,6 +23,7 @@ public class CommonMsgPojo implements Serializable {
     private static final long serialVersionUID = -7522120557807426716L;
     private String content;
     private long create_time;
+    private int customGroupType;
     private String ext;
     private String gid;
     Gson gson;
@@ -82,9 +84,7 @@ public class CommonMsgPojo implements Serializable {
                 this.gid = String.valueOf(w.a);
             }
             this.mid = chatMessage.getMsgId();
-            if (chatMessage.getUserInfo() != null) {
-                this.uid = chatMessage.getUserInfo().getUserId();
-            }
+            this.uid = String.valueOf(chatMessage.getUserId());
             this.toUid = String.valueOf(chatMessage.getToUserId());
             this.user_info_data = chatMessage.getUserInfo();
             this.to_user_info_data = chatMessage.getToUserInfo();
@@ -188,7 +188,7 @@ public class CommonMsgPojo implements Serializable {
                 toUserInfo = personalChatMessage.getToUserInfo();
                 if (toUserInfo != null) {
                 }
-                r.g(personalChatMessage);
+                j.h(personalChatMessage);
                 personalChatMessage.setIsFriend(this.isFriend);
                 return personalChatMessage;
             }
@@ -226,7 +226,7 @@ public class CommonMsgPojo implements Serializable {
             personalChatMessage.setContent(this.content);
             userInfo = personalChatMessage.getUserInfo();
             if (userInfo != null) {
-                if (i.b(userInfo.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(this.user_info, (Class<Object>) OldUserData.class)) != null) {
+                if (i.c(userInfo.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(this.user_info, (Class<Object>) OldUserData.class)) != null) {
                     oldUserData2.setToUserData(userInfo);
                 }
                 try {
@@ -238,7 +238,7 @@ public class CommonMsgPojo implements Serializable {
             }
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
-                if (i.b(toUserInfo.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(this.to_user_info, (Class<Object>) OldUserData.class)) != null) {
+                if (i.c(toUserInfo.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(this.to_user_info, (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(toUserInfo);
                 }
                 try {
@@ -247,7 +247,7 @@ public class CommonMsgPojo implements Serializable {
                 }
                 personalChatMessage.setToUserId(j5);
             }
-            r.g(personalChatMessage);
+            j.h(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -278,7 +278,7 @@ public class CommonMsgPojo implements Serializable {
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
         }
-        r.g(personalChatMessage);
+        j.h(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }
@@ -320,6 +320,24 @@ public class CommonMsgPojo implements Serializable {
             this.user_info = this.gson.toJson(this.user_info_data);
         }
         return this.user_info;
+    }
+
+    public UserData getUser_infoObj() {
+        return this.user_info_data;
+    }
+
+    public UserData getToUser_infoObj() {
+        return this.to_user_info_data;
+    }
+
+    public UserData getPrivateOtherUser_infoObj() {
+        if (this.user_info_data == null || this.to_user_info_data == null) {
+            return null;
+        }
+        if (b.a(TbadkApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+            return this.to_user_info_data;
+        }
+        return this.user_info_data;
     }
 
     public void setUser_info(String str) {
@@ -400,5 +418,13 @@ public class CommonMsgPojo implements Serializable {
 
     public void setIsFriend(int i) {
         this.isFriend = i;
+    }
+
+    public int getCustomGroupType() {
+        return this.customGroupType;
+    }
+
+    public void setCustomGroupType(int i) {
+        this.customGroupType = i;
     }
 }

@@ -8,25 +8,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, j {
+public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
     private final int PRELOAD_DELAY = 100;
-    private int mId = 0;
+    private BdUniqueId mId = null;
     private boolean mIsScroll = false;
-    private Handler mHandler = new Handler();
-    private Runnable preLoadRunnable = new b(this);
+    protected final Handler mHandler = new Handler();
+    private final Runnable preLoadRunnable = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mId = com.baidu.adp.framework.d.a().b();
+        this.mId = BdUniqueId.gen();
         a.a().a(this);
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(int i) {
+        for (int i2 = 0; i2 < 3; i2++) {
+            try {
+                super.setContentView(i);
+                return;
+            } catch (OutOfMemoryError e) {
+                if (i2 == 2) {
+                    throw e;
+                }
+                BdBaseApplication.getInst().onAppMemoryLow();
+            } catch (RuntimeException e2) {
+                if (i2 == 2) {
+                    throw e2;
+                }
+                BdBaseApplication.getInst().onAppMemoryLow();
+            }
+        }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -43,7 +65,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.j.a(getApplicationContext(), str);
+        j.a(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -60,7 +82,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
 
     public void sendMessage(Message<?> message) {
         if (message != null) {
-            if (message.getTag() == 0) {
+            if (message.getTag() == null) {
                 message.setTag(this.mId);
             }
             MessageManager.getInstance().sendMessage(message);
@@ -69,7 +91,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
 
     public void sendMessage(NetMessage netMessage) {
         if (netMessage != null) {
-            if (netMessage.getTag() == 0) {
+            if (netMessage.getTag() == null) {
                 netMessage.setTag(this.mId);
             }
             MessageManager.getInstance().sendMessage(netMessage);
@@ -77,35 +99,35 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     }
 
     public void registerListener(com.baidu.adp.framework.listener.a aVar) {
-        if (aVar != null && aVar.c() == 0) {
+        if (aVar != null && aVar.c() == null) {
             aVar.a(this.mId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
     public void registerListener(int i, com.baidu.adp.framework.listener.a aVar) {
-        if (aVar != null && aVar.c() == 0) {
+        if (aVar != null && aVar.c() == null) {
             aVar.a(this.mId);
         }
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
     public void registerListener(MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == 0) {
+        if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(messageListener);
     }
 
     public void registerListener(int i, MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == 0) {
+        if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.j
-    public int getUniqueId() {
+    @Override // com.baidu.adp.base.i
+    public BdUniqueId getUniqueId() {
         return this.mId;
     }
 
@@ -145,17 +167,17 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
         }
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.i
     public void onPreLoad(BdListView bdListView) {
     }
 
@@ -175,8 +197,8 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.h) {
-                ((com.baidu.adp.newwidget.a.h) view).b();
+            if (view instanceof com.baidu.adp.newwidget.a.i) {
+                ((com.baidu.adp.newwidget.a.i) view).b();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

@@ -28,17 +28,17 @@ public class u implements TextWatcher {
         Button button2;
         Button button3;
         if (editable == null || editable.length() <= 0) {
-            button = this.a.F;
+            button = this.a.E;
             button.setEnabled(false);
             return;
         }
         Y = this.a.Y();
         if (Y) {
-            button3 = this.a.F;
+            button3 = this.a.E;
             button3.setEnabled(true);
             return;
         }
-        button2 = this.a.F;
+        button2 = this.a.E;
         button2.setEnabled(false);
     }
 }

@@ -10,15 +10,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.forumdetail.ForumDetailData;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ItemHeaderView extends RelativeLayout {
     private Context a;
-    private HeadImageView b;
+    private BarImageView b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -41,12 +41,12 @@ public class ItemHeaderView extends RelativeLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.forum_detail_header, (ViewGroup) this, true);
-        this.b = (HeadImageView) findViewById(v.h_forum_portrait);
-        this.d = (TextView) findViewById(v.h_forum_name);
-        this.c = (ImageView) findViewById(v.h_forum_rank);
-        this.e = (TextView) findViewById(v.h_fans_num);
-        this.f = (TextView) findViewById(v.h_thread_num);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.forum_detail_header, (ViewGroup) this, true);
+        this.b = (BarImageView) findViewById(u.h_forum_portrait);
+        this.d = (TextView) findViewById(u.h_forum_name);
+        this.c = (ImageView) findViewById(u.h_forum_rank);
+        this.e = (TextView) findViewById(u.h_fans_num);
+        this.f = (TextView) findViewById(u.h_thread_num);
     }
 
     public boolean a(ForumDetailData forumDetailData) {
@@ -63,14 +63,14 @@ public class ItemHeaderView extends RelativeLayout {
         if (i2 > 0 && i2 <= 3) {
             if (skinType == 1) {
                 if (i2 == 1) {
-                    i = u.icon_brief_grade_orange_1;
+                    i = t.icon_brief_grade_orange_1;
                 } else {
-                    i = i2 == 2 ? u.icon_brief_grade_blue_1 : u.icon_brief_grade_green_1;
+                    i = i2 == 2 ? t.icon_brief_grade_blue_1 : t.icon_brief_grade_green_1;
                 }
             } else if (i2 == 1) {
-                i = u.icon_brief_grade_orange;
+                i = t.icon_brief_grade_orange;
             } else {
-                i = i2 == 2 ? u.icon_brief_grade_blue : u.icon_brief_grade_green;
+                i = i2 == 2 ? t.icon_brief_grade_blue : t.icon_brief_grade_green;
             }
             this.c.setImageResource(i);
             this.c.setVisibility(0);

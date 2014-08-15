@@ -41,7 +41,7 @@ public class c extends a {
     }
 
     @Override // com.baidu.adp.newwidget.a.a
-    public void c(Canvas canvas, ImageView imageView) {
+    public void b(Canvas canvas, ImageView imageView) {
         if (this.g.c) {
             canvas.drawRect(this.f, this.b);
         }
@@ -49,7 +49,7 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.newwidget.a.a
-    public void b(Canvas canvas, ImageView imageView) {
+    public void a(Canvas canvas, ImageView imageView) {
         if (this.g.l != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();

@@ -1,69 +1,48 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.data.InterestFrsData;
-import java.lang.ref.WeakReference;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao extends BdAsyncTask<Void, Void, InterestFrsData> {
-    private int a;
-    private int b;
-    private int c;
-    private WeakReference<ap> d;
+public class ao extends com.baidu.adp.base.e {
+    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private boolean b;
+    private InterestFrsData c;
+    private ap d;
 
-    public ao(int i, int i2, int i3, ap apVar) {
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = new WeakReference<>(apVar);
-        setPriority(3);
+    public boolean a() {
+        return this.b;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public InterestFrsData doInBackground(Void... voidArr) {
-        String str;
-        str = an.a;
-        com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq(str);
-        aqVar.a("user_type", String.valueOf(this.a));
-        aqVar.a("offset", String.valueOf(this.b));
-        aqVar.a("limit", String.valueOf(this.c));
-        String i = aqVar.i();
-        if (aqVar.a().b().b()) {
-            try {
-                return (InterestFrsData) new GsonBuilder().create().fromJson(i, (Class<Object>) InterestFrsData.class);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                InterestFrsData interestFrsData = new InterestFrsData();
-                interestFrsData.setErrno(-1000);
-                interestFrsData.setErrmsg(com.baidu.tieba.ai.c().e().getString(com.baidu.tieba.y.neterror));
-                return interestFrsData;
-            }
-        }
-        InterestFrsData interestFrsData2 = new InterestFrsData();
-        interestFrsData2.setErrno(aqVar.d() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : aqVar.d());
-        interestFrsData2.setErrmsg(aqVar.f());
-        return interestFrsData2;
+    public void a(boolean z) {
+        this.b = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(InterestFrsData interestFrsData) {
-        super.onPostExecute(interestFrsData);
-        ap apVar = this.d.get();
-        if (apVar != null) {
-            if (interestFrsData.getErrno() == 0) {
-                apVar.a(interestFrsData);
-            } else {
-                apVar.b(interestFrsData);
-            }
+    public InterestFrsData b() {
+        return this.c;
+    }
+
+    public void a(InterestFrsData interestFrsData) {
+        this.c = interestFrsData;
+    }
+
+    public void a(int i, int i2, int i3, aq aqVar) {
+        this.d = new ap(i, i2, i3, aqVar);
+        this.d.execute(new Void[0]);
+    }
+
+    public void c() {
+        if (this.d != null) {
+            this.d.cancel();
         }
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

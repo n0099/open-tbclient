@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.data.l;
-import com.baidu.tieba.im.data.m;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ForumMenu.ForumMenuResIdl;
@@ -10,17 +8,17 @@ import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
 /* loaded from: classes.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
-    private m officialBarMenuDatas;
+    private com.baidu.tieba.im.data.m officialBarMenuDatas;
 
     public ResponseOfficialBarMenuLocalMessage() {
         super(2001181);
     }
 
-    public m getOfficialBarMenuDatas() {
+    public com.baidu.tieba.im.data.m getOfficialBarMenuDatas() {
         return this.officialBarMenuDatas;
     }
 
-    public void setOfficialBarMenuDatas(m mVar) {
+    public void setOfficialBarMenuDatas(com.baidu.tieba.im.data.m mVar) {
         this.officialBarMenuDatas = mVar;
     }
 
@@ -34,14 +32,14 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
             setError(forumMenuResIdl.error.errorno.intValue());
             setErrorString(forumMenuResIdl.error.usermsg);
             if (getError() == 0) {
-                setOfficialBarMenuDatas(new m());
+                setOfficialBarMenuDatas(new com.baidu.tieba.im.data.m());
                 if (forumMenuResIdl.data != null) {
                     getOfficialBarMenuDatas().a(forumMenuResIdl.data.update_time.intValue());
                     getOfficialBarMenuDatas().a(forumMenuResIdl.data.has_menu.intValue());
                     getOfficialBarMenuDatas().a(new ArrayList());
                     int size = forumMenuResIdl.data.parent_menu.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        l lVar = new l();
+                        com.baidu.tieba.im.data.l lVar = new com.baidu.tieba.im.data.l();
                         Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
                         lVar.c(menu.action_type.intValue());
                         lVar.d(menu.content);
@@ -55,7 +53,7 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                             int size2 = menu.sub_menu.size();
                             for (int i3 = 0; i3 < size2; i3++) {
                                 SubMenu subMenu = menu.sub_menu.get(i3);
-                                l lVar2 = new l();
+                                com.baidu.tieba.im.data.l lVar2 = new com.baidu.tieba.im.data.l();
                                 lVar2.c(subMenu.action_type.intValue());
                                 lVar2.d(subMenu.content);
                                 lVar2.b(new StringBuilder().append(subMenu.forum_id).toString());

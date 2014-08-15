@@ -1,31 +1,32 @@
 package com.baidu.tbadk.core.view;
-
-import android.content.Context;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends LinearLayout {
-    private h a;
+public class g implements Runnable {
+    final /* synthetic */ HaloView a;
 
-    public g(Context context, View view, h hVar) {
-        super(context);
-        this.a = null;
-        setFocusableInTouchMode(true);
-        this.a = hVar;
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(view);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(HaloView haloView) {
+        this.a = haloView;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.a != null) {
-                this.a.a();
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        boolean z2;
+        int i;
+        z = this.a.f;
+        if (!z) {
+            z2 = this.a.d;
+            if (!z2) {
+                HaloView haloView = this.a;
+                HaloView haloView2 = this.a;
+                i = haloView2.e;
+                int i2 = i + 1;
+                haloView2.e = i2;
+                haloView.e = i2 % 4;
             }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.a != null) {
-            this.a.b();
+            this.a.postDelayed(this, 800L);
+            this.a.invalidate();
         }
-        return super.dispatchKeyEvent(keyEvent);
     }
 }

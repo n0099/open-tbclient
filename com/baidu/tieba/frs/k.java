@@ -27,12 +27,12 @@ public class k extends BdAsyncTask<Object, g, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        di diVar;
-        di diVar2;
-        diVar = this.b.l;
-        if (diVar != null) {
-            diVar2 = this.b.l;
-            diVar2.a(this.d);
+        dl dlVar;
+        dl dlVar2;
+        dlVar = this.b.n;
+        if (dlVar != null) {
+            dlVar2 = this.b.n;
+            dlVar2.a(this.d);
         }
     }
 
@@ -43,14 +43,14 @@ public class k extends BdAsyncTask<Object, g, Void> {
     public Void doInBackground(Object... objArr) {
         boolean z;
         try {
-            z = this.b.q;
+            z = this.b.s;
             if (z && f.a().a(this.c)) {
-                if (!f.a().c(String.valueOf(TbadkApplication.getCurrentAccount()) + this.c)) {
-                    f.a().b().g().getSignData().setIsSigned(0);
+                if (!f.a().b(String.valueOf(TbadkApplication.getCurrentAccount()) + this.c)) {
+                    f.a().b().i().getSignData().setIsSigned(0);
                 }
                 publishProgress(f.a().b());
             }
-            this.b.t = System.currentTimeMillis();
+            this.b.v = System.currentTimeMillis();
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -63,12 +63,12 @@ public class k extends BdAsyncTask<Object, g, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onProgressUpdate(g... gVarArr) {
-        di diVar;
-        di diVar2;
-        diVar = this.b.l;
-        if (diVar != null) {
-            diVar2 = this.b.l;
-            diVar2.a(gVarArr.length > 0 ? gVarArr[0] : null);
+        dl dlVar;
+        dl dlVar2;
+        dlVar = this.b.n;
+        if (dlVar != null) {
+            dlVar2 = this.b.n;
+            dlVar2.a(gVarArr.length > 0 ? gVarArr[0] : null);
         }
     }
 
@@ -80,12 +80,12 @@ public class k extends BdAsyncTask<Object, g, Void> {
         boolean z;
         this.a.setUpdateType(this.d);
         FRSPageRequestMessage fRSPageRequestMessage = this.a;
-        z = this.b.q;
+        z = this.b.s;
         fRSPageRequestMessage.setNeedCache(z);
         if (this.e != null && this.e.get() != null) {
             this.e.get().sendMessage(this.a);
         }
-        this.b.o = null;
+        this.b.q = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -96,13 +96,13 @@ public class k extends BdAsyncTask<Object, g, Void> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        di diVar;
-        di diVar2;
+        dl dlVar;
+        dl dlVar2;
         super.cancel(true);
-        diVar = this.b.l;
-        if (diVar != null) {
-            diVar2 = this.b.l;
-            diVar2.a(this.d, true, null);
+        dlVar = this.b.n;
+        if (dlVar != null) {
+            dlVar2 = this.b.n;
+            dlVar2.a(this.d, true, null);
         }
     }
 }

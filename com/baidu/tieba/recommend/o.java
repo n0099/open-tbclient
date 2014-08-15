@@ -63,9 +63,9 @@ public class o extends com.baidu.adp.base.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> H = ai.c().H();
-        if (H != null) {
-            H.a("dailyrecommend", str, 2592000000L);
+        com.baidu.adp.lib.cache.t<String> G = ai.c().G();
+        if (G != null) {
+            G.a("dailyrecommend", str, 2592000000L);
         }
     }
 

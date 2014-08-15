@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class j extends i implements bg {
+public class j extends i implements av {
     private String a;
     private String b;
     private String c;
@@ -153,13 +153,13 @@ public class j extends i implements bg {
         this.s = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.bg
-    public LinkedList<bf> getImages() {
-        LinkedList<bf> linkedList = new LinkedList<>();
-        bf bfVar = new bf();
-        bfVar.a = this.e;
-        bfVar.d = 10;
-        linkedList.add(bfVar);
+    @Override // com.baidu.tbadk.core.util.av
+    public LinkedList<au> getImages() {
+        LinkedList<au> linkedList = new LinkedList<>();
+        au auVar = new au();
+        auVar.a = this.e;
+        auVar.d = 10;
+        linkedList.add(auVar);
         return linkedList;
     }
 }

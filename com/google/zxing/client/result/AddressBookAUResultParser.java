@@ -2,14 +2,13 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
 import java.util.ArrayList;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class AddressBookAUResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
     public AddressBookParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
-        if (!massagedText.contains("MEMORY") || !massagedText.contains(IOUtils.LINE_SEPARATOR_WINDOWS)) {
+        if (!massagedText.contains("MEMORY") || !massagedText.contains("\r\n")) {
             return null;
         }
         String matchSinglePrefixedField = matchSinglePrefixedField("NAME1:", massagedText, '\r', true);

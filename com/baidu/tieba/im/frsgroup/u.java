@@ -1,45 +1,36 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.adp.widget.ListView.d {
+public class u implements AdapterView.OnItemClickListener {
     final /* synthetic */ MembersActivity a;
-    private final /* synthetic */ BdListView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(MembersActivity membersActivity, BdListView bdListView) {
+    public u(MembersActivity membersActivity) {
         this.a = membersActivity;
-        this.b = bdListView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        ag agVar;
-        boolean h;
-        com.baidu.tieba.im.model.ac acVar;
-        com.baidu.tieba.im.model.ac acVar2;
-        com.baidu.tieba.im.model.ac acVar3;
-        com.baidu.tieba.im.model.ac acVar4;
-        com.baidu.tieba.im.model.ac acVar5;
-        agVar = this.a.b;
-        if (agVar.f().d()) {
-            this.b.d();
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        af afVar;
+        afVar = this.a.b;
+        ab f = afVar.f();
+        UserData userData = (UserData) f.getItem(i);
+        if (userData != null) {
+            if (f.d()) {
+                if (!userData.getPermission().isController()) {
+                    f.a(Long.valueOf(userData.getUserIdLong()));
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
         }
-        h = this.a.h();
-        if (h) {
-            acVar = this.a.c;
-            acVar2 = this.a.c;
-            long f = acVar2.f();
-            acVar3 = this.a.c;
-            int d = acVar3.d();
-            acVar4 = this.a.c;
-            int e = acVar4.e();
-            acVar5 = this.a.c;
-            acVar.a(f, d, e, acVar5.a());
-            return;
-        }
-        this.a.f();
     }
 }

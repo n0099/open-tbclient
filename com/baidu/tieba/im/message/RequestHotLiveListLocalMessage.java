@@ -12,7 +12,7 @@ public class RequestHotLiveListLocalMessage extends CustomMessage<Object> {
     private int width;
 
     public RequestHotLiveListLocalMessage() {
-        super(2001205);
+        super(2001214);
     }
 
     public int getType() {

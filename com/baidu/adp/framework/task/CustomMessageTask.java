@@ -3,11 +3,13 @@ package com.baidu.adp.framework.task;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class CustomMessageTask extends MessageTask {
     private CustomRunnable<?> a;
     private TASK_TYPE b;
     private boolean c;
+    private BdAsyncTaskParallel d;
 
     /* loaded from: classes.dex */
     public interface CustomRunnable<T> {
@@ -35,6 +37,7 @@ public class CustomMessageTask extends MessageTask {
         this.a = null;
         this.b = TASK_TYPE.ASYNCHRONIZED;
         this.c = false;
+        this.d = null;
         this.a = customRunnable;
     }
 
@@ -57,5 +60,13 @@ public class CustomMessageTask extends MessageTask {
 
     public boolean c() {
         return this.c;
+    }
+
+    public BdAsyncTaskParallel d() {
+        return this.d;
+    }
+
+    public void a(BdAsyncTaskParallel bdAsyncTaskParallel) {
+        this.d = bdAsyncTaskParallel;
     }
 }

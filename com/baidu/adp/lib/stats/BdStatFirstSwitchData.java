@@ -8,7 +8,6 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BdStatFirstSwitchData implements Serializable {
     private static final long serialVersionUID = 305089173029776844L;
-    private String mAppVersion;
     private BdStatCommonSwitchData common = new BdStatCommonSwitchData();
     private ArrayList<BdStatSecondSwitchData> children = new ArrayList<>();
 
@@ -26,10 +25,6 @@ public class BdStatFirstSwitchData implements Serializable {
 
     public void setChildren(ArrayList<BdStatSecondSwitchData> arrayList) {
         this.children = arrayList;
-    }
-
-    public void setAppVersion(String str) {
-        this.mAppVersion = str;
     }
 
     public void parserJson(JSONArray jSONArray) {
@@ -66,10 +61,11 @@ public class BdStatFirstSwitchData implements Serializable {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (com.baidu.adp.lib.util.i.b(this.mAppVersion)) {
+        String b = f.c().b();
+        if (com.baidu.adp.lib.util.i.c(b)) {
             return false;
         }
-        int[] a = a(this.mAppVersion);
+        int[] a = a(b);
         int[] a2 = a(str);
         int[] a3 = a(str2);
         if (a != null) {
@@ -102,13 +98,13 @@ public class BdStatFirstSwitchData implements Serializable {
 
     private int[] a(String str) {
         String[] split;
-        if (com.baidu.adp.lib.util.i.b(str) || (split = str.split("\\.")) == null || split.length <= 0) {
+        if (com.baidu.adp.lib.util.i.c(str) || (split = str.split("\\.")) == null || split.length <= 0) {
             return null;
         }
         int[] iArr = new int[3];
-        iArr[0] = com.baidu.adp.lib.f.b.a(split[0], -1);
-        iArr[1] = split.length > 1 ? com.baidu.adp.lib.f.b.a(split[1], -1) : -1;
-        iArr[2] = split.length > 2 ? com.baidu.adp.lib.f.b.a(split[2], -1) : -1;
+        iArr[0] = com.baidu.adp.lib.e.b.a(split[0], -1);
+        iArr[1] = split.length > 1 ? com.baidu.adp.lib.e.b.a(split[1], -1) : -1;
+        iArr[2] = split.length > 2 ? com.baidu.adp.lib.e.b.a(split[2], -1) : -1;
         return iArr;
     }
 }

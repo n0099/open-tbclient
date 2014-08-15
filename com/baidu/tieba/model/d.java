@@ -1,47 +1,10 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.message.ResponseBubbleListMessage;
-import com.baidu.tieba.message.ResponseSetBubbleMessage;
-import java.util.List;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    private g a;
-    private h b;
-    private int c;
-    private int d;
-    private HttpMessageListener e = new e(this, 1001500);
-    private HttpMessageListener f = new f(this, 1001501);
-
-    public void a(g gVar) {
-        this.a = gVar;
-    }
-
-    public void a(h hVar) {
-        this.b = hVar;
-    }
-
-    public int a() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public int b() {
-        return this.d;
-    }
-
-    public void b(int i) {
-        this.d = i;
-    }
+    private RequestUpdateMaskInfoMessage a;
+    private int b = 2;
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
@@ -50,66 +13,31 @@ public class d extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
+        super.cancelMessage();
         return false;
     }
 
-    public static boolean a(List<BubbleListData.BubbleData> list) {
-        if (list != null && list.size() > 0) {
-            for (BubbleListData.BubbleData bubbleData : list) {
-                if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    public void a(long j) {
+        this.a = new RequestUpdateMaskInfoMessage();
+        this.a.setIsMask(1);
+        this.a.setMaskType(10);
+        this.a.setList(String.valueOf(j));
+        super.sendMessage(this.a);
     }
 
-    public void a(CustomMessageListener customMessageListener) {
-        MessageManager.getInstance().registerListener(customMessageListener);
+    public void b(long j) {
+        this.a = new RequestUpdateMaskInfoMessage();
+        this.a.setIsMask(0);
+        this.a.setMaskType(10);
+        this.a.setList(String.valueOf(j));
+        super.sendMessage(this.a);
     }
 
-    public void c() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001500, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
-        tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.e);
+    public int a() {
+        return this.b;
     }
 
-    public void a(int i, int i2, int i3, int i4) {
-        HttpMessage httpMessage = new HttpMessage(1001500);
-        httpMessage.setTag(1001500);
-        httpMessage.addParam("pn", String.valueOf(i));
-        httpMessage.addParam("rn", String.valueOf(i2));
-        httpMessage.addParam("scr_w", String.valueOf(i3));
-        httpMessage.addParam("scr_h", String.valueOf(i4));
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public void a(int i, int i2, int i3) {
-        HttpMessage httpMessage = new HttpMessage(1001501);
-        httpMessage.setTag(1001501);
-        httpMessage.addParam("bcode", String.valueOf(i));
-        httpMessage.addParam("scr_w", String.valueOf(i2));
-        httpMessage.addParam("scr_h", String.valueOf(i3));
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public void d() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001501, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
-        tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.f);
-    }
-
-    public void e() {
-        MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.f);
-        messageManager.unRegisterListener(this.e);
-    }
-
-    public void b(CustomMessageListener customMessageListener) {
-        MessageManager.getInstance().unRegisterListener(customMessageListener);
+    public void a(int i) {
+        this.b = i;
     }
 }

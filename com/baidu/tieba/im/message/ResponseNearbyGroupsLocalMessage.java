@@ -2,8 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.im.data.h;
-import com.baidu.tieba.im.data.j;
 import com.squareup.wire.Wire;
 import java.util.List;
 import protobuf.GroupInfo;
@@ -38,7 +36,7 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
             if (list != null) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     Business business = list.get(i2);
-                    h hVar = new h();
+                    com.baidu.tieba.im.data.h hVar = new com.baidu.tieba.im.data.h();
                     hVar.a(business.business);
                     nearbyGroupsData.add(hVar);
                     List<GroupInfo> list2 = business.groups;
@@ -46,7 +44,7 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
                         int size = list2.size();
                         for (int i3 = 0; i3 < size; i3++) {
                             GroupInfo groupInfo = list2.get(i3);
-                            j jVar = new j();
+                            com.baidu.tieba.im.data.j jVar = new com.baidu.tieba.im.data.j();
                             jVar.d(groupInfo.authorId.intValue());
                             jVar.f(groupInfo.authorName);
                             jVar.h(groupInfo.business);

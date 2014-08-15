@@ -8,7 +8,7 @@ public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
     private int groupId;
 
     public RequestSearchGroupsLocalMessage() {
-        super(2001202);
+        super(2001211);
     }
 
     public int getGroupId() {

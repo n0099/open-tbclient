@@ -24,8 +24,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 import java.util.HashMap;
@@ -91,23 +91,23 @@ public class EditHeadActivity extends BaseActivity {
             this.A = true;
         }
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.w.edit_head_activity);
+        setContentView(com.baidu.tieba.v.edit_head_activity);
         Intent intent = getIntent();
         this.i = intent.getIntExtra("edit_type", 0);
         this.E = intent.getIntExtra("request", 0);
         if (this.E == 12002 || this.E == 12001) {
             e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.E, intent.getData(), bn.a().e());
+                TiebaPrepareImageService.StartService(this.E, intent.getData(), bb.a().e());
             } else {
-                TiebaPrepareImageService.StartService(this.E, null, bn.a().e());
+                TiebaPrepareImageService.StartService(this.E, null, bb.a().e());
             }
             f();
         } else {
             e();
             c();
         }
-        f = getResources().getStringArray(com.baidu.tieba.q.fiter_name);
+        f = getResources().getStringArray(com.baidu.tieba.p.fiter_name);
         if (this.A) {
             TbadkApplication.m252getInst().sendImagePv(1, 1, "motu_pic");
         }
@@ -124,7 +124,7 @@ public class EditHeadActivity extends BaseActivity {
         if (this.o != null) {
             this.o.cancel();
         }
-        this.g.setImageBitmap(null);
+        this.g.setImageDrawable(null);
         b();
     }
 
@@ -133,7 +133,7 @@ public class EditHeadActivity extends BaseActivity {
             for (Map.Entry<String, ImageView> entry : this.G.entrySet()) {
                 ImageView value = entry.getValue();
                 if (value != null) {
-                    value.setImageBitmap(null);
+                    value.setImageDrawable(null);
                 }
             }
             this.G.clear();
@@ -159,7 +159,7 @@ public class EditHeadActivity extends BaseActivity {
         this.o.execute(new Object[0]);
         AccountData accountData = (AccountData) getIntent().getSerializableExtra("account_data");
         if (accountData != null) {
-            TbadkApplication.setCurrentAccount(accountData, getBaseContext());
+            TbadkApplication.setCurrentAccountFromRemoteProcessInUIThread(accountData, getBaseContext());
         }
     }
 
@@ -199,39 +199,41 @@ public class EditHeadActivity extends BaseActivity {
     }
 
     private void e() {
-        this.H = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
-        this.n = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.H = (NavigationBar) findViewById(com.baidu.tieba.u.navigation_bar);
+        this.n = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
         this.n.setVisibility(8);
-        this.g = (EditHeadsImageView) findViewById(com.baidu.tieba.v.image);
-        this.g.setImageBitmap(this.h);
-        this.m = (HorizontalScrollView) findViewById(com.baidu.tieba.v.filters_layout);
+        this.g = (EditHeadsImageView) findViewById(com.baidu.tieba.u.image);
+        if (this.h != null) {
+            this.g.setImageBitmap(this.h);
+        }
+        this.m = (HorizontalScrollView) findViewById(com.baidu.tieba.u.filters_layout);
         this.H.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-        this.l = (Button) findViewById(com.baidu.tieba.v.show_button);
+        this.l = (Button) findViewById(com.baidu.tieba.u.show_button);
         this.l.setOnClickListener(new b(this));
-        this.k = (Button) findViewById(com.baidu.tieba.v.hide_button);
+        this.k = (Button) findViewById(com.baidu.tieba.u.hide_button);
         this.k.setVisibility(0);
         this.k.setOnClickListener(new c(this));
-        this.j = this.H.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.done), new d(this));
+        this.j = this.H.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.x.done), new d(this));
         this.j.setEnabled(false);
-        this.v = this.H.a(getString(com.baidu.tieba.y.beautify));
+        this.v = this.H.a(getString(com.baidu.tieba.x.beautify));
         if (this.i == 2) {
-            this.v.setText(getString(com.baidu.tieba.y.beautify));
-            this.j.setText(getString(com.baidu.tieba.y.done));
+            this.v.setText(getString(com.baidu.tieba.x.beautify));
+            this.j.setText(getString(com.baidu.tieba.x.done));
         }
-        this.C = (LinearLayout) findViewById(com.baidu.tieba.v.filters);
+        this.C = (LinearLayout) findViewById(com.baidu.tieba.u.filters);
         this.y = com.baidu.adp.lib.util.j.a((Context) this, 2.0f);
-        this.t = (LinearLayout) findViewById(com.baidu.tieba.v.beautify_rotate);
-        this.s = (LinearLayout) findViewById(com.baidu.tieba.v.rotate);
-        this.q = (RadioButton) findViewById(com.baidu.tieba.v.beautify_btn);
-        this.r = (RadioButton) findViewById(com.baidu.tieba.v.rotate_btn);
+        this.t = (LinearLayout) findViewById(com.baidu.tieba.u.beautify_rotate);
+        this.s = (LinearLayout) findViewById(com.baidu.tieba.u.rotate);
+        this.q = (RadioButton) findViewById(com.baidu.tieba.u.beautify_btn);
+        this.r = (RadioButton) findViewById(com.baidu.tieba.u.rotate_btn);
         f fVar = new f(this);
         this.q.setOnCheckedChangeListener(fVar);
         this.r.setOnCheckedChangeListener(fVar);
         this.q.setChecked(true);
-        Button button = (Button) findViewById(com.baidu.tieba.v.rotate_left);
-        Button button2 = (Button) findViewById(com.baidu.tieba.v.rotate_right);
-        Button button3 = (Button) findViewById(com.baidu.tieba.v.rotate_left_right);
-        Button button4 = (Button) findViewById(com.baidu.tieba.v.rotate_up_down);
+        Button button = (Button) findViewById(com.baidu.tieba.u.rotate_left);
+        Button button2 = (Button) findViewById(com.baidu.tieba.u.rotate_right);
+        Button button3 = (Button) findViewById(com.baidu.tieba.u.rotate_left_right);
+        Button button4 = (Button) findViewById(com.baidu.tieba.u.rotate_up_down);
         button.setTag(0);
         button2.setTag(1);
         button3.setTag(2);
@@ -253,9 +255,9 @@ public class EditHeadActivity extends BaseActivity {
 
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tbadk.core.util.z.a((String) null, str, bitmap, 80);
+            com.baidu.tbadk.core.util.s.a((String) null, str, bitmap, 80);
             if (this.D) {
-                new bh("motu_pic", String.valueOf(this.z)).start();
+                new aw("motu_pic", String.valueOf(this.z)).start();
             }
             return true;
         } catch (Exception e2) {
@@ -267,9 +269,9 @@ public class EditHeadActivity extends BaseActivity {
     public void a(String[] strArr) {
         if (this.F != null && strArr != null) {
             this.C.removeAllViews();
-            View inflate = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.filter_text);
+            View inflate = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.u.filter_immage);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -277,9 +279,9 @@ public class EditHeadActivity extends BaseActivity {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.v.filter_immage);
-                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.filter_text);
+                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
+                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.u.filter_immage);
+                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.u.filter_text);
                 textView2.setText(substring2);
                 imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.k.a(substring));
                 imageView2.setTag(textView2);
@@ -312,7 +314,7 @@ public class EditHeadActivity extends BaseActivity {
             }
             ImageView imageView2 = this.G.get(str);
             if (imageView2 != null) {
-                imageView2.setBackgroundResource(com.baidu.tieba.u.round_corner);
+                imageView2.setBackgroundResource(com.baidu.tieba.t.round_corner);
                 imageView2.setPadding(this.y, this.y, this.y, this.y);
                 Object tag2 = imageView2.getTag();
                 if (tag2 instanceof TextView) {

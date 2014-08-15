@@ -13,8 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.s;
 import com.baidu.tieba.t;
-import com.baidu.tieba.u;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import com.google.zxing.ResultPoint;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,21 +50,21 @@ public final class ViewfinderView extends View {
         this.v = false;
         this.c = new Paint(1);
         Resources resources = getResources();
-        this.e = resources.getColor(s.viewfinder_mask);
-        this.f = resources.getColor(s.result_view);
-        this.g = resources.getColor(s.viewfinder_laser);
-        this.h = resources.getColor(s.possible_result_points);
-        this.i = resources.getColor(s.viewfinder_tip_text);
-        this.t = resources.getString(y.bar_code_tip_text1);
-        this.s = resources.getString(y.bar_code_tip_text2);
+        this.e = resources.getColor(com.baidu.tieba.r.viewfinder_mask);
+        this.f = resources.getColor(com.baidu.tieba.r.result_view);
+        this.g = resources.getColor(com.baidu.tieba.r.viewfinder_laser);
+        this.h = resources.getColor(com.baidu.tieba.r.possible_result_points);
+        this.i = resources.getColor(com.baidu.tieba.r.viewfinder_tip_text);
+        this.t = resources.getString(x.bar_code_tip_text1);
+        this.s = resources.getString(x.bar_code_tip_text2);
         this.j = 0;
         this.k = new ArrayList(5);
         this.l = null;
-        this.m = BitmapFactory.decodeResource(resources, u.bg_scanning_code);
-        this.o = BitmapFactory.decodeResource(resources, u.cursor_scanning_code);
+        this.m = BitmapFactory.decodeResource(resources, t.bg_scanning_code);
+        this.o = BitmapFactory.decodeResource(resources, t.cursor_scanning_code);
         this.n = new Rect(0, 0, this.m.getWidth(), this.m.getHeight());
-        this.u = resources.getDimensionPixelSize(t.bar_code_tip_text_margin_top);
-        this.q = resources.getDimensionPixelSize(t.bar_code_tip_text);
+        this.u = resources.getDimensionPixelSize(s.bar_code_tip_text_margin_top);
+        this.q = resources.getDimensionPixelSize(s.bar_code_tip_text);
     }
 
     public void setCameraManager(com.baidu.tieba.barcode.a.e eVar) {

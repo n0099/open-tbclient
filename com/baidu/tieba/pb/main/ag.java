@@ -1,31 +1,21 @@
 package com.baidu.tieba.pb.main;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tbadk.core.dialog.d {
+class ag implements Runnable {
     final /* synthetic */ PbActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ int d;
-    private final /* synthetic */ cw e;
-    private final /* synthetic */ ShareFromPBMsgData f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(PbActivity pbActivity, int i, String str, int i2, cw cwVar, ShareFromPBMsgData shareFromPBMsgData) {
+    public ag(PbActivity pbActivity) {
         this.a = pbActivity;
-        this.b = i;
-        this.c = str;
-        this.d = i2;
-        this.e = cwVar;
-        this.f = shareFromPBMsgData;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.u(this.a, this.b, this.c, this.d, "from_share", this.e.getLeaveMsg(), this.f.toChatMessageContent())));
-        aVar.c();
+    @Override // java.lang.Runnable
+    public void run() {
+        bl blVar;
+        bl blVar2;
+        blVar = this.a.x;
+        if (blVar != null) {
+            blVar2 = this.a.x;
+            blVar2.v();
+        }
     }
 }

@@ -6,12 +6,12 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private aq b;
+    private ae b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -31,7 +31,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         progressBar = this.a.n;
         progressBar.setVisibility(8);
@@ -44,24 +44,24 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: a */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             this.b.a("fid", "0");
             this.b.a("pub_type", "0");
             this.b.a("fname", "");
             this.b.a("tid", "0");
-            String i = this.b.i();
+            String h = this.b.h();
             if (this.b.a().b().b()) {
-                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                fVar.a(i);
-                if (fVar.b() == null || fVar.b().length() <= 0) {
+                com.baidu.tbadk.coreExtra.data.e eVar = new com.baidu.tbadk.coreExtra.data.e();
+                eVar.a(h);
+                if (eVar.b() == null || eVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.s = fVar.a();
+                this.a.s = eVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new aq(fVar.b());
-                return com.baidu.tbadk.core.util.h.a(this.b.h());
+                this.b = new ae(eVar.b());
+                return com.baidu.tbadk.core.util.d.a(this.b.g());
             }
             return null;
         } catch (Exception e) {
@@ -97,6 +97,6 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         progressBar = this.a.n;
         progressBar.setVisibility(0);
         imageView = this.a.l;
-        imageView.setImageBitmap(null);
+        imageView.setImageDrawable(null);
     }
 }

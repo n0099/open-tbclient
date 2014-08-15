@@ -39,11 +39,11 @@ public class d implements View.OnClickListener {
                 this.a.d();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.z.c(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.d();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.c(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.c();
             aVar.a((com.baidu.tbadk.img.d) new e(this));
             aVar.a();
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.uploading));
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.uploading));
         }
     }
 }

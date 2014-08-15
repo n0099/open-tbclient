@@ -21,8 +21,10 @@ public class c extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
         this.b = null;
         this.c = null;
         setPriority(customMessageTask.getPriority());
+        setParallel(customMessageTask.getParallel());
         setTag(customMessage.getTag());
         setKey(String.valueOf(customMessageTask.getCmd()));
+        setParallel(customMessageTask.d());
         if (customMessageTask.c()) {
             setPriority(4);
         }

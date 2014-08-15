@@ -11,13 +11,13 @@ class o implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         int i;
-        LiveRoomChatView z;
+        LiveRoomChatView x;
         LiveRoomChatActivity liveRoomChatActivity;
-        LiveRoomChatView z2;
+        LiveRoomChatView x2;
         LiveRoomChatActivity liveRoomChatActivity2;
-        LiveRoomChatView z3;
+        LiveRoomChatView x3;
         LiveRoomChatActivity liveRoomChatActivity3;
-        LiveRoomChatView z4;
+        LiveRoomChatView x4;
         LiveRoomChatActivity liveRoomChatActivity4;
         i = this.a.B;
         switch (i) {
@@ -27,11 +27,11 @@ class o implements Runnable {
                     com.baidu.adp.lib.util.j.b(liveRoomChatActivity4, this.a.o.a());
                     return;
                 }
-                z3 = this.a.z();
-                if (z3 != null) {
+                x3 = this.a.x();
+                if (x3 != null) {
                     liveRoomChatActivity3 = this.a.y;
-                    z4 = this.a.z();
-                    com.baidu.adp.lib.util.j.b(liveRoomChatActivity3, z4.ab());
+                    x4 = this.a.x();
+                    com.baidu.adp.lib.util.j.b(liveRoomChatActivity3, x4.ab());
                     return;
                 }
                 return;
@@ -41,11 +41,11 @@ class o implements Runnable {
                     com.baidu.adp.lib.util.j.a(liveRoomChatActivity2, this.a.o.a());
                     return;
                 }
-                z = this.a.z();
-                if (z != null) {
+                x = this.a.x();
+                if (x != null) {
                     liveRoomChatActivity = this.a.y;
-                    z2 = this.a.z();
-                    com.baidu.adp.lib.util.j.a(liveRoomChatActivity, z2.ab());
+                    x2 = this.a.x();
+                    com.baidu.adp.lib.util.j.a(liveRoomChatActivity, x2.ab());
                     return;
                 }
                 return;

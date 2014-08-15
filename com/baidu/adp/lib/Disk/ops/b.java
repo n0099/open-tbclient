@@ -11,7 +11,7 @@ import java.io.InputStream;
 public class b extends c {
     private Rect j;
 
-    public Rect u() {
+    public Rect v() {
         return this.j;
     }
 
@@ -45,17 +45,17 @@ public class b extends c {
                     try {
                         try {
                             this.g = BitmapFactory.decodeStream(byteArrayInputStream, this.j, this.h);
-                            com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+                            com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
                         } catch (Error e) {
                             e = e;
                             BdLog.e(e.getMessage());
-                            com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+                            com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
                             if (this.g == null) {
                             }
                         }
                     } catch (Throwable th) {
                         th = th;
-                        com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+                        com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
                         throw th;
                     }
                 } catch (Error e2) {
@@ -64,7 +64,7 @@ public class b extends c {
                 } catch (Throwable th2) {
                     th = th2;
                     byteArrayInputStream = null;
-                    com.baidu.adp.lib.f.a.a((InputStream) byteArrayInputStream);
+                    com.baidu.adp.lib.e.a.a((InputStream) byteArrayInputStream);
                     throw th;
                 }
                 return this.g == null;

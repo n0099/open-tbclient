@@ -12,7 +12,7 @@ class d implements Runnable {
     public void run() {
         String str;
         String str2;
-        this.a.y();
+        this.a.x();
         SnapGroupChatActivity snapGroupChatActivity = this.a;
         str = this.a.w;
         str2 = this.a.x;

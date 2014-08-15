@@ -1,15 +1,11 @@
 package com.baidu.tieba.discover;
+
+import java.util.List;
 /* loaded from: classes.dex */
 class p {
-    String a;
+    int a;
     String b;
-    String c;
-    boolean d;
-
-    public p(String str, String str2, String str3, int i) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i == 1;
-    }
+    List<r> c;
+    o d;
+    q e;
 }

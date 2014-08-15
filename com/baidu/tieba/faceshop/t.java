@@ -1,15 +1,14 @@
 package com.baidu.tieba.faceshop;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.editortool.EmotionGroupData;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BaseAdapter {
+public class t extends BdAsyncTask<String, Integer, List<s>> {
     final /* synthetic */ EmotionManageActivity a;
 
     private t(EmotionManageActivity emotionManageActivity) {
@@ -21,97 +20,54 @@ public class t extends BaseAdapter {
         this(emotionManageActivity);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            return list2.size();
-        }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        List list;
-        List list2;
-        List list3;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                list3 = this.a.a;
-                return list3.get(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public List<s> doInBackground(String... strArr) {
+        List<MyEmotionGroupData> a = d.a().a(TbadkApplication.getCurrentAccount());
+        List<EmotionGroupData> a2 = com.baidu.tbadk.editortool.u.a().a(1);
+        LinkedList linkedList = new LinkedList();
+        for (MyEmotionGroupData myEmotionGroupData : a) {
+            Iterator<EmotionGroupData> it = a2.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    EmotionGroupData next = it.next();
+                    if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && e.a(next.getGroupId())) {
+                        s sVar = new s(this.a, null);
+                        sVar.a = next.getGroupId();
+                        sVar.b = next.getGroupName();
+                        sVar.d = com.baidu.tbadk.editortool.aa.a().b(sVar.a, "list.png");
+                        linkedList.add(sVar);
+                        break;
+                    }
+                }
             }
         }
-        return null;
+        a.clear();
+        a2.clear();
+        return linkedList;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                return i;
-            }
-        }
-        return 0L;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        super.onPreExecute();
+        this.a.showProgressBar();
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        List list;
-        boolean z;
-        List list2;
-        List list3;
-        List list4;
-        List list5;
-        if (view == null) {
-            view = a();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(List<s> list) {
+        super.onPostExecute(list);
+        if (list == null) {
+            list = new LinkedList<>();
         }
-        w wVar = (w) view.getTag();
-        list = this.a.a;
-        Bitmap bitmap = ((u) list.get(i)).d;
-        if (bitmap != null) {
-            wVar.b.setImageBitmap(bitmap);
-        } else {
-            com.baidu.tbadk.core.util.bk.c(wVar.b, com.baidu.tieba.u.pic_image_h_not);
-        }
-        z = this.a.p;
-        if (z) {
-            list3 = this.a.b;
-            list4 = this.a.a;
-            if (list3.contains(((u) list4.get(i)).a)) {
-                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_s);
-            } else {
-                com.baidu.tbadk.core.util.bk.c(wVar.a, com.baidu.tieba.u.btn_expression_choose_n);
-            }
-            wVar.a.setVisibility(0);
-            ImageView imageView = wVar.a;
-            list5 = this.a.a;
-            imageView.setTag(((u) list5.get(i)).a);
-        } else {
-            wVar.a.setVisibility(8);
-        }
-        TextView textView = wVar.c;
-        list2 = this.a.a;
-        textView.setText(((u) list2.get(i)).b);
-        this.a.getLayoutMode().a(view);
-        return view;
-    }
-
-    private View a() {
-        View inflate = View.inflate(this.a, com.baidu.tieba.w.emotion_manage_list_item, null);
-        w wVar = new w(null);
-        wVar.a = (ImageView) inflate.findViewById(com.baidu.tieba.v.emotion_group_select);
-        wVar.b = (ImageView) inflate.findViewById(com.baidu.tieba.v.emotion_group_photo);
-        wVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.emotion_group_name);
-        inflate.setTag(wVar);
-        return inflate;
+        this.a.a = list;
+        this.a.a(false);
+        this.a.hideProgressBar();
+        this.a.c();
     }
 }

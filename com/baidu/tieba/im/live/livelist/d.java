@@ -14,15 +14,15 @@ public class d implements h {
 
     @Override // com.baidu.tieba.im.live.livelist.h
     public void a(Button button) {
-        com.baidu.tieba.im.model.y yVar;
-        com.baidu.tieba.im.model.y yVar2;
+        com.baidu.tieba.im.model.q qVar;
+        com.baidu.tieba.im.model.q qVar2;
         Object tag = button.getTag();
         if (tag instanceof UserData) {
             UserData userData = (UserData) tag;
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
-            yVar = this.a.b;
-            yVar2 = this.a.b;
-            yVar.a(yVar2.b(), 2, new String[]{userData.getUserId()}, new String[]{userData.getUserName()});
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.group_tab_enterchatroom_loading), null);
+            qVar = this.a.b;
+            qVar2 = this.a.b;
+            qVar.a(qVar2.b(), 2, new String[]{userData.getUserId()}, new String[]{userData.getUserName()});
         }
     }
 }

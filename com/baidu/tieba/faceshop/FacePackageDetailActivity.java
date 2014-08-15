@@ -16,18 +16,18 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes.dex */
 public class FacePackageDetailActivity extends BaseActivity {
-    private am a;
-    private ao b;
-    private ar c;
-    private z d;
+    private ak a;
+    private am b;
+    private ap c;
+    private x d;
     private boolean e = false;
     private final Rect f = new Rect();
-    private final com.baidu.tbadk.core.view.m g = new ag(this);
-    private final BaseActivity.LoadDataCallBack h = new ah(this, this);
-    private final CustomMessageListener i = new ai(this, 2001122);
+    private final com.baidu.tbadk.core.view.q g = new ae(this);
+    private final BaseActivity.LoadDataCallBack h = new af(this, this);
+    private final CustomMessageListener i = new ag(this, 2001122);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.n.class, FacePackageDetailActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.o.class, FacePackageDetailActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,14 +40,14 @@ public class FacePackageDetailActivity extends BaseActivity {
     }
 
     private void e() {
-        this.b = new ao(this);
+        this.b = new am(this);
         f();
         registerListener(this.i);
         g.a();
     }
 
     private void a(Bundle bundle) {
-        this.a = new am();
+        this.a = new ak(this);
         if (bundle != null) {
             this.a.c(bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
             this.a.b(bundle.getString(com.baidu.tbadk.core.frameworkData.a.PKG_ID));
@@ -92,7 +92,7 @@ public class FacePackageDetailActivity extends BaseActivity {
                             downloadData.setStatusMsg(null);
                             downloadData.setType(11);
                             g.a().a(downloadData);
-                            if (!com.baidu.tbadk.core.util.bm.c(b)) {
+                            if (!com.baidu.tbadk.core.util.ba.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -126,13 +126,13 @@ public class FacePackageDetailActivity extends BaseActivity {
     }
 
     private void h() {
-        this.c = new ar();
+        this.c = new ap(this);
         this.c.a(this.a.e());
         DownloadData downloadData = new DownloadData(this.a.e());
         downloadData.setType(11);
         downloadData.setStatus(2);
-        downloadData.setStatusMsg(getResources().getString(com.baidu.tieba.y.neterror));
-        this.c.setLoadDataCallBack(new aj(this, downloadData));
+        downloadData.setStatusMsg(getResources().getString(com.baidu.tieba.x.neterror));
+        this.c.setLoadDataCallBack(new ah(this, downloadData));
     }
 
     public void a(String str, String str2, String str3) {
@@ -142,8 +142,8 @@ public class FacePackageDetailActivity extends BaseActivity {
     public void b() {
         showProgressBar();
         String e = this.a.e();
-        this.d = new z();
-        this.d.setLoadDataCallBack(new ak(this));
+        this.d = new x(this);
+        this.d.setLoadDataCallBack(new ai(this));
         this.d.a(e);
     }
 
@@ -197,12 +197,12 @@ public class FacePackageDetailActivity extends BaseActivity {
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (com.baidu.tbadk.core.util.bm.c(stringExtra)) {
+                    if (com.baidu.tbadk.core.util.ba.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
                     this.b.e();
-                    this.d = new z();
-                    this.d.setLoadDataCallBack(new al(this));
+                    this.d = new x(this);
+                    this.d.setLoadDataCallBack(new aj(this));
                     this.d.b(stringExtra);
                 }
             } else if (i == 11003) {

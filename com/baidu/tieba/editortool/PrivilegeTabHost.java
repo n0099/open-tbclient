@@ -48,10 +48,10 @@ public class PrivilegeTabHost extends LinearLayout implements ap {
         this.h = context;
         removeAllViews();
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.a.inflate(com.baidu.tieba.w.privilege_tab_host, (ViewGroup) this, true);
-        this.b = (PrivilegeTabContentView) findViewById(com.baidu.tieba.v.privilege_tab_content);
-        this.c = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.v.privilege_tab_widget);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.privilege_progress);
+        this.a.inflate(com.baidu.tieba.v.privilege_tab_host, (ViewGroup) this, true);
+        this.b = (PrivilegeTabContentView) findViewById(com.baidu.tieba.u.privilege_tab_content);
+        this.c = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.u.privilege_tab_widget);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.u.privilege_progress);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
         this.g = TbadkApplication.m252getInst().getSkinType();

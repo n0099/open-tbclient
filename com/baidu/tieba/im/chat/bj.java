@@ -1,34 +1,22 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-class bj implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+class bj extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ bi a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public bj(bi biVar) {
+        this.a = biVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        bn bnVar;
-        bn bnVar2;
-        com.baidu.tbadk.core.f.a(this.a, "clear_group_msg_at_gsetting");
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.deleting));
-        bnVar = this.a.b;
-        ImMessageCenterPojo a = com.baidu.tieba.im.b.e.a(bnVar.b());
-        if (a != null) {
-            a.setLast_content(" ");
-            a.setLast_user_name(" ");
-            a.setLast_rid(0L);
-        }
-        com.baidu.tieba.im.i.a(new bk(this), new bl(this));
-        StringBuilder sb = new StringBuilder("clear cache by group:");
-        bnVar2 = this.a.b;
-        BdSocketLinkService.startService(true, sb.append(bnVar2.a()).toString());
-        dialogInterface.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        GroupSettingActivity groupSettingActivity;
+        bm bmVar;
+        com.baidu.tieba.im.db.c a = com.baidu.tieba.im.db.c.a();
+        groupSettingActivity = this.a.a;
+        bmVar = groupSettingActivity.b;
+        return Boolean.valueOf(a.d(bmVar.b()));
     }
 }

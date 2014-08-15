@@ -29,7 +29,7 @@ final class a {
     public void a(Activity activity) {
         if (activity != null) {
             a.add(new SoftReference<>(activity));
-            d();
+            c(this.c);
         }
     }
 
@@ -67,14 +67,18 @@ final class a {
         }
     }
 
-    public int c() {
+    public void c() {
+        c(3);
+    }
+
+    public int d() {
         return this.c;
     }
 
-    private void d() {
-        if (this.c != 0) {
+    private void c(int i) {
+        if (i != 0) {
             int b2 = a().b();
-            while (b2 > this.c) {
+            while (b2 > i) {
                 b2--;
                 Activity a2 = a().a(1);
                 if (a2 != null) {

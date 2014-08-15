@@ -1,24 +1,12 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 public class an extends com.baidu.tbadk.core.frameworkData.a {
-    public an(Context context, int i, String str, int i2) {
+    public an(Context context, int i, int i2, String str) {
         super(context);
-        getIntent().putExtra("has_exit_dialog", false);
-        getIntent().putExtra("locate_type", i);
-        getIntent().putExtra("info", str);
-        setRequestCode(i2);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public an(Context context, String str, boolean z, boolean z2) {
-        super(context);
-        getIntent().putExtra("account", str);
-        getIntent().putExtra("has_exit_dialog", z);
-        if (z2) {
-            getIntent().setFlags(268435456);
-        }
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, i);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID, i2);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME, str);
     }
 }

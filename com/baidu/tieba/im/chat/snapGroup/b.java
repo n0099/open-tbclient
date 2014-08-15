@@ -2,17 +2,14 @@ package com.baidu.tieba.im.chat.snapGroup;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.e.s;
 import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.randchat.WaittingActivity;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class b extends com.baidu.adp.framework.listener.b {
+class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,12 +32,12 @@ class b extends com.baidu.adp.framework.listener.b {
                 if (!(socketResponsedMessage instanceof ResponseChatRoomInfoMessage)) {
                     return;
                 }
-                this.a.a(s.a(((ResponseChatRoomInfoMessage) socketResponsedMessage).getUserList()));
+                this.a.a(com.baidu.tieba.im.d.k.a(((ResponseChatRoomInfoMessage) socketResponsedMessage).getUserList()));
                 return;
             case 106101:
                 this.a.closeLoadingDialog();
                 if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
-                    this.a.showToast(y.neterror);
+                    this.a.showToast(x.neterror);
                     return;
                 }
                 ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage;
@@ -52,19 +49,11 @@ class b extends com.baidu.adp.framework.listener.b {
                         }
                         return;
                     }
-                    this.a.showToast(y.neterror);
+                    this.a.showToast(x.neterror);
                     return;
                 }
                 RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
                 if (randChatRoomData != null && randChatRoomData.e() > 0) {
-                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-                    imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
-                    imMessageCenterPojo.setCustomGroupType(3);
-                    imMessageCenterPojo.setGroup_name("聊天室");
-                    imMessageCenterPojo.setIs_delete(0);
-                    imMessageCenterPojo.setIs_hidden(1);
-                    com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
                     z = this.a.u;
                     if (!z) {
                         SnapGroupChatActivity snapGroupChatActivity = this.a;

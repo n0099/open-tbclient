@@ -1,28 +1,33 @@
 package com.baidu.tieba.im.newFriend;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponsePassFriendMessage;
+import android.text.TextUtils;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class ag extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ NewFriendsActivity a;
+class ag {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    TextView d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(NewFriendsActivity newFriendsActivity, int i) {
-        super(i);
-        this.a = newFriendsActivity;
+    private ag() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ResponsePassFriendMessage responsePassFriendMessage;
-        int error;
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof SocketResponsedMessage)) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if ((socketResponsedMessage instanceof ResponsePassFriendMessage) && (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) != 0 && error != 3100098) {
-            this.a.showToast(responsePassFriendMessage.getErrorString());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(ag agVar) {
+        this();
+    }
+
+    public void a(com.baidu.tieba.im.data.k kVar) {
+        this.a.a(kVar.c(), 12, false);
+        this.b.setText(kVar.b());
+        if (!TextUtils.isEmpty(kVar.d())) {
+            this.c.setText(kVar.d());
+        } else {
+            this.c.setText("");
         }
+        int e = kVar.e();
+        this.d.setText(((Integer) ad.a().get(e)).intValue());
+        this.d.setEnabled(e == 0 || e == 1);
     }
 }

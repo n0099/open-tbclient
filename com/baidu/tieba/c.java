@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.widget.k {
+class c implements com.baidu.tbadk.widget.l {
     final /* synthetic */ a a;
     private final /* synthetic */ View b;
     private final /* synthetic */ TbImageView c;
@@ -19,11 +19,11 @@ class c implements com.baidu.tbadk.widget.k {
         this.d = activity;
     }
 
-    @Override // com.baidu.tbadk.widget.k
+    @Override // com.baidu.tbadk.widget.l
     public void a() {
     }
 
-    @Override // com.baidu.tbadk.widget.k
+    @Override // com.baidu.tbadk.widget.l
     public void a(String str, boolean z) {
         if (this.b instanceof ViewGroup) {
             ((ViewGroup) this.b).addView(this.c);

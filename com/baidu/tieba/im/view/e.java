@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.view;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.text.MessageFormat;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class e extends Dialog implements View.OnClickListener {
     private Context a;
@@ -60,30 +59,32 @@ public class e extends Dialog implements View.OnClickListener {
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.chatterbox_edit_dialog);
-        this.b = (Button) findViewById(com.baidu.tieba.v.chatterbox_edit_confirm);
-        this.c = (Button) findViewById(com.baidu.tieba.v.chatterbox_edit_cancel);
+        setContentView(com.baidu.tieba.v.chatterbox_edit_dialog);
+        this.b = (Button) findViewById(com.baidu.tieba.u.chatterbox_edit_confirm);
+        this.c = (Button) findViewById(com.baidu.tieba.u.chatterbox_edit_cancel);
         this.c.setOnClickListener(this);
         this.b.setOnClickListener(this);
-        this.d = (TextView) findViewById(com.baidu.tieba.v.size_tip);
-        this.e = (EditText) findViewById(com.baidu.tieba.v.chat_editText);
-        this.d.setText(MessageFormat.format(this.a.getResources().getString(y.chat_custom_default_text), "0"));
+        this.d = (TextView) findViewById(com.baidu.tieba.u.size_tip);
+        this.e = (EditText) findViewById(com.baidu.tieba.u.chat_editText);
+        this.d.setText(MessageFormat.format(this.a.getResources().getString(x.chat_custom_default_text), "0"));
         this.e.addTextChangedListener(new g(this));
     }
 
     @Override // android.app.Dialog
     public void show() {
-        super.show();
-        this.j.sendEmptyMessage(0);
+        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.a)) {
+            super.show();
+            this.j.sendEmptyMessage(0);
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.c && view == this.b) {
-            this.g = this.e.getText().toString().trim().replace(IOUtils.LINE_SEPARATOR_UNIX, "").replace("\t", "");
+            this.g = this.e.getText().toString().trim().replace("\n", "").replace("\t", "");
             this.h = null;
             if (TextUtils.isEmpty(this.g)) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp().getApplicationContext(), y.chat_input);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp().getApplicationContext(), x.chat_input);
                 return;
             } else if (this.f != null) {
                 this.f.a(this.g, this.h, false);

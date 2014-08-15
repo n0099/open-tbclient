@@ -1,8 +1,9 @@
 package com.baidu.tieba.flist;
 
-import java.util.LinkedList;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends com.baidu.tbadk.core.util.a {
+public class ab implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,17 +11,14 @@ class ab extends com.baidu.tbadk.core.util.a {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
-    public LinkedList<String> getImageUrl() {
-        String str;
-        String str2;
-        str = this.a.l;
-        if (str == null) {
-            return null;
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        ac acVar;
+        BdListView bdListView;
+        acVar = this.a.b;
+        if (!acVar.LoadData()) {
+            bdListView = this.a.a;
+            bdListView.d();
         }
-        LinkedList<String> linkedList = new LinkedList<>();
-        str2 = this.a.l;
-        linkedList.add(str2);
-        return linkedList;
     }
 }

@@ -1,36 +1,17 @@
 package com.baidu.tieba.person;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements com.baidu.adp.widget.ListView.a {
-    final /* synthetic */ cr a;
+public class cy implements DialogInterface.OnClickListener {
+    final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cr crVar) {
-        this.a = crVar;
+    public cy(ct ctVar) {
+        this.a = ctVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.a
-    public void b() {
-        ao aoVar;
-        if (!this.a.a()) {
-            aoVar = this.a.o;
-            aoVar.e();
-            this.a.a(true);
-            this.a.h();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.a
-    public void a(float f) {
-        ao aoVar;
-        aoVar = this.a.o;
-        aoVar.a(f);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.a
-    public void a() {
-        ao aoVar;
-        aoVar = this.a.o;
-        aoVar.c();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
     }
 }

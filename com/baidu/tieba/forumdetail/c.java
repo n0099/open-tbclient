@@ -3,8 +3,8 @@ package com.baidu.tieba.forumdetail;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,13 +27,13 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     public ForumDetailData doInBackground(String... strArr) {
         String str;
         str = b.a;
-        aq aqVar = new aq(str);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        aqVar.a("need_good_thread", this.b);
-        String i = aqVar.i();
-        if (aqVar.a().b().b()) {
+        ae aeVar = new ae(str);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        aeVar.a("need_good_thread", this.b);
+        String h = aeVar.h();
+        if (aeVar.a().b().b()) {
             try {
-                return (ForumDetailData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForumDetailData.class);
+                return (ForumDetailData) new GsonBuilder().create().fromJson(h, (Class<Object>) ForumDetailData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 ForumDetailData forumDetailData = new ForumDetailData();
@@ -43,8 +43,8 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
             }
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
-        forumDetailData2.errorNo = aqVar.d();
-        forumDetailData2.errorMsg = aqVar.f();
+        forumDetailData2.errorNo = aeVar.c();
+        forumDetailData2.errorMsg = aeVar.e();
         return forumDetailData2;
     }
 
@@ -56,7 +56,7 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         super.onPostExecute(forumDetailData);
         d dVar = this.c.get();
         if (dVar != null) {
-            if (bm.c(forumDetailData.errorMsg)) {
+            if (ba.c(forumDetailData.errorMsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

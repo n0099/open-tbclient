@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.image;
 
 import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.util.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements DialogInterface.OnClickListener {
@@ -15,9 +15,9 @@ public class q implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            bj.a(this.a);
+            ax.a(this.a);
         } else {
-            bj.b(this.a);
+            ax.b(this.a);
         }
     }
 }

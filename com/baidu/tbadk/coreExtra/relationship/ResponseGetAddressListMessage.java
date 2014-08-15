@@ -27,7 +27,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         if (getAddressListResIdl != null && getAddressListResIdl.data != null) {
             this.mAddressListData = new a();
             if (this.mAddressListData.a(getAddressListResIdl.data)) {
-                com.baidu.tbadk.core.sharedPref.b.a().c("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
+                com.baidu.tbadk.core.sharedPref.b.a().b("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
             }
         }
     }

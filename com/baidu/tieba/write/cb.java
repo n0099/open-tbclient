@@ -1,14 +1,20 @@
 package com.baidu.tieba.write;
 
-import android.app.Activity;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
 /* loaded from: classes.dex */
-public class cb {
-    public static void a(Activity activity) {
-        try {
-            com.baidu.tbadk.motu_gallery.v.a(activity, 12002, null);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+public class cb implements View.OnClickListener {
+    private int a;
+    private ca b;
+
+    public cb(int i, ca caVar) {
+        this.a = i;
+        this.b = caVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.b != null) {
+            this.b.c(this.a);
         }
     }
 }

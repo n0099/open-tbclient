@@ -75,7 +75,7 @@ public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage) && getError() == 0) {
             RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) orginalMessage;
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), PB_KEY_PRE + requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.im_frsgroup"), PB_KEY_PRE + requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), bArr);
         }
     }
 }

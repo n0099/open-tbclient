@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.searchGroup;
 
+import com.baidu.adp.framework.listener.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends d {
     final /* synthetic */ AddGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

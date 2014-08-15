@@ -108,7 +108,7 @@ public class c {
                     bVar.l(a[1]);
                     z = true;
                 }
-                if (z && TbConfig.getDebugSwitch() && (a2 = com.baidu.adp.lib.f.b.a(attributeValue.substring(1), 0)) != 0) {
+                if (z && TbConfig.getDebugSwitch() && (a2 = com.baidu.adp.lib.e.b.a(attributeValue.substring(1), 0)) != 0) {
                     bVar.a(String.valueOf(attributeName) + "=" + this.c.getResourceName(a2));
                 }
             }

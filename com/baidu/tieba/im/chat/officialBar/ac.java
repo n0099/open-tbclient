@@ -1,22 +1,43 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ OfficialBarChatActivity b;
-    private final /* synthetic */ UserData c;
+public class ac extends CustomMessageListener {
+    final /* synthetic */ OfficialBarHistoryActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
-        this.b = officialBarChatActivity;
-        this.c = userData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(OfficialBarHistoryActivity officialBarHistoryActivity) {
+        super(2001156);
+        this.a = officialBarHistoryActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(bd.a().d(TbadkApplication.getCurrentAccount(), String.valueOf(this.c.getUserId())));
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        af afVar;
+        List<ba> list2;
+        List list3;
+        this.a.hideProgressBar();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001156 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
+            ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
+            if (!responseLocalHistoryMessage.getData().isEmpty()) {
+                list = this.a.e;
+                if (list != null) {
+                    list3 = this.a.e;
+                    if (!list3.isEmpty()) {
+                        return;
+                    }
+                }
+                this.a.e = responseLocalHistoryMessage.getData();
+                afVar = this.a.b;
+                list2 = this.a.e;
+                afVar.a(list2);
+            }
+        }
     }
 }

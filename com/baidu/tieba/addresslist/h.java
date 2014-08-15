@@ -20,7 +20,10 @@ public class h extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.addresslist.a.a aVar;
         int i;
+        int i2;
         com.baidu.tieba.addresslist.a.a aVar2;
+        com.baidu.tieba.addresslist.a.a aVar3;
+        boolean z;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (customResponsedMessage.getError() != 0) {
                 this.a.b(customResponsedMessage.getErrorString());
@@ -30,6 +33,13 @@ public class h extends CustomMessageListener {
             aVar = this.a.m;
             i = this.a.n;
             aVar.a(i);
+            i2 = this.a.n;
+            if (i2 > 0) {
+                this.a.o = false;
+                aVar3 = this.a.m;
+                z = this.a.o;
+                aVar3.a(z);
+            }
             aVar2 = this.a.m;
             aVar2.notifyDataSetChanged();
         }

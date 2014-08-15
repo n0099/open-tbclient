@@ -25,7 +25,7 @@ public class af extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     private Handler i = null;
     private Runnable j = null;
     private final ar l = new ag(this);
-    private final com.baidu.tbadk.core.view.m m = new ah(this);
+    private final com.baidu.tbadk.core.view.q m = new ah(this);
     private final View.OnKeyListener n = new ai(this);
     private final com.baidu.adp.widget.ListView.d o = new aj(this);
 
@@ -55,7 +55,7 @@ public class af extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     }
 
     private View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.w.square_view, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.v.square_view, (ViewGroup) null);
     }
 
     public static String a(String str, String str2) {
@@ -75,9 +75,9 @@ public class af extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
         this.c = new au(this.h, this, this.n);
         this.c.a(this.o);
         this.c.c().setClickStatKey("sq_tb_search");
-        this.k = (NavigationBar) this.h.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.k = (NavigationBar) this.h.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ak(this));
-        this.k.a(this.h.getString(com.baidu.tieba.y.ba_square));
+        this.k.a(this.h.getString(com.baidu.tieba.x.ba_square));
     }
 
     private void g() {

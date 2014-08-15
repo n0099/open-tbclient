@@ -1,8 +1,6 @@
 package com.baidu.tbadk.plugins;
 
 import android.content.Context;
-@com.baidu.tbadk.tbplugin.a.a(a = "baobaosdk.jar", b = "dex.wrapper.BaobaoSdkDelegateImpl")
-@com.baidu.tbadk.tbplugin.a.c(a = "baobaosdk")
 /* loaded from: classes.dex */
 public interface BaobaoSdkDelegate {
     public static final String KEY_BITMAP = "key_bitmap";

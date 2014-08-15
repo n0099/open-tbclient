@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
     final /* synthetic */ s a;
-    private com.baidu.tbadk.core.util.aq b = null;
+    private com.baidu.tbadk.core.util.ae b = null;
     private String c;
     private String d;
 
@@ -37,14 +37,14 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public com.baidu.tbadk.coreExtra.data.a doInBackground(String... strArr) {
-        this.b = new com.baidu.tbadk.core.util.aq(this.c);
+        this.b = new com.baidu.tbadk.core.util.ae(this.c);
         this.b.a("un", this.d);
-        String i = this.b.i();
-        if (!this.b.c() || this.b.d() != 36) {
+        String h = this.b.h();
+        if (!this.b.b() || this.b.c() != 36) {
             return null;
         }
         com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-        aVar.a(i);
+        aVar.a(h);
         return aVar;
     }
 
@@ -62,19 +62,19 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         progressBar.setVisibility(8);
         button = this.a.k;
         button.setEnabled(true);
-        if (!this.b.c()) {
-            this.a.b(this.b.f());
-        } else if (this.b.d() == 0) {
+        if (!this.b.b()) {
+            this.a.b(this.b.e());
+        } else if (this.b.c() == 0) {
             s sVar = this.a;
             baseActivity = this.a.j;
-            sVar.b(baseActivity.getString(com.baidu.tieba.y.name_not_use));
-        } else if (this.b.d() == 36) {
-            this.a.b(this.b.f());
+            sVar.b(baseActivity.getString(com.baidu.tieba.x.name_not_use));
+        } else if (this.b.c() == 36) {
+            this.a.b(this.b.e());
             if (aVar != null) {
                 this.a.a(aVar.b());
             }
         } else {
-            this.a.b(this.b.f());
+            this.a.b(this.b.e());
         }
     }
 

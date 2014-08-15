@@ -3,7 +3,7 @@ package com.baidu.tieba.im.randchat;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f {
     private View a;
@@ -17,17 +17,17 @@ public class f extends com.baidu.adp.base.f {
     public f(WaittingActivity waittingActivity) {
         super(waittingActivity);
         this.b = waittingActivity;
-        this.b.setContentView(com.baidu.tieba.w.im_waitting_activity);
+        this.b.setContentView(com.baidu.tieba.v.im_waitting_activity);
         h();
     }
 
     private void h() {
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.d = (RingLayoutView) this.b.findViewById(com.baidu.tieba.v.waittingView);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.d = (RingLayoutView) this.b.findViewById(com.baidu.tieba.u.waittingView);
         this.f = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(y.rand_chat_waiting_title);
-        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(y.rand_chat_waiting_button_change));
-        this.e = (WaitingTipView) this.b.findViewById(com.baidu.tieba.v.tipView);
+        this.c.a(x.rand_chat_waiting_title);
+        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(x.rand_chat_waiting_button_change));
+        this.e = (WaitingTipView) this.b.findViewById(com.baidu.tieba.u.tipView);
         this.f.setOnClickListener(this.b);
         this.g.setOnClickListener(this.b);
     }
@@ -44,7 +44,7 @@ public class f extends com.baidu.adp.base.f {
             gVar.a(this.g).a(178).b(true);
             gVar.a(new g(this));
             gVar.a().a(this.b);
-            com.baidu.tbadk.core.sharedPref.b.a().c("is_show_randchat_create", false);
+            com.baidu.tbadk.core.sharedPref.b.a().b("is_show_randchat_create", false);
         }
     }
 

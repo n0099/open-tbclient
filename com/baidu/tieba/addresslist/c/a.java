@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist.c;
 
+import android.content.Context;
 import com.baidu.adp.base.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.coreExtra.relationship.RequestGetAddressListMessage;
@@ -7,7 +8,12 @@ import com.baidu.tbadk.coreExtra.relationship.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends e {
-    private com.baidu.tieba.addresslist.b.a a = com.baidu.tieba.addresslist.b.a.a();
+    private com.baidu.tieba.addresslist.b.a a;
+
+    public a(Context context) {
+        super(context);
+        this.a = com.baidu.tieba.addresslist.b.a.a();
+    }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
         this.a.a(bVar);

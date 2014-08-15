@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
@@ -72,7 +72,7 @@ public class f implements View.OnClickListener {
                         progressBar = this.a.a;
                         progressBar.setVisibility(0);
                     } else {
-                        this.a.showToast(this.a.getString(y.no_data));
+                        this.a.showToast(this.a.getString(x.no_data));
                     }
                     return;
                 } catch (Exception e) {

@@ -1,9 +1,22 @@
 package com.baidu.adp.framework.listener;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class b extends MessageListener<SocketResponsedMessage> {
-    public b(int i) {
+public class b extends HttpMessageListener {
+    final /* synthetic */ a a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
         super(i);
+        this.a = aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        this.a.a(httpResponsedMessage);
     }
 }

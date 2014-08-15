@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.coreExtra.relationship.ResponseGetAddressListMessage;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.b {
+public class e extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ d a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -25,25 +26,31 @@ public class e extends com.baidu.adp.framework.listener.b {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
             bdListView = this.a.l;
             bdListView.d();
-            if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                ArrayList arrayList = new ArrayList();
-                if (addressListData != null) {
-                    for (com.baidu.tbadk.coreExtra.relationship.g gVar : addressListData.a()) {
-                        List<com.baidu.tbadk.coreExtra.relationship.b> b = gVar.b();
-                        if (b.size() > 0) {
-                            com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
-                            bVar.d(gVar.a());
-                            arrayList.add(bVar);
-                        }
-                        for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : b) {
-                            arrayList.add(bVar2);
-                        }
+            if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                String errorString = socketResponsedMessage.getErrorString();
+                if (!TextUtils.isEmpty(errorString)) {
+                    this.a.a(errorString, false);
+                    return;
+                }
+                return;
+            }
+            com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+            ArrayList arrayList = new ArrayList();
+            if (addressListData != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.g gVar : addressListData.a()) {
+                    List<com.baidu.tbadk.coreExtra.relationship.b> b = gVar.b();
+                    if (b.size() > 0) {
+                        com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
+                        bVar.d(gVar.a());
+                        arrayList.add(bVar);
+                    }
+                    for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : b) {
+                        arrayList.add(bVar2);
                     }
                 }
-                aVar = this.a.b;
-                aVar.a(arrayList);
             }
+            aVar = this.a.b;
+            aVar.a(arrayList);
         }
     }
 }

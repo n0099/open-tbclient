@@ -1,46 +1,26 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class u implements com.baidu.adp.lib.d.c<TbImageView> {
-    private final /* synthetic */ Context a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+public class u extends com.baidu.adp.widget.ListView.c {
     public u(Context context) {
-        this.a = context;
+        super(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public TbImageView a() {
-        return new TbImageView(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TbImageView b(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TbImageView c(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    public void a(int i) {
+        TextView d = d();
+        TextView c = c();
+        if (d != null && c != null) {
+            if (i == 1) {
+                int color = h().getResources().getColor(com.baidu.tieba.r.adp_pullview_night);
+                d.setTextColor(color);
+                c.setTextColor(color);
+                return;
+            }
+            int color2 = h().getResources().getColor(com.baidu.tieba.r.adp_pullview_day);
+            d.setTextColor(color2);
+            c.setTextColor(color2);
+        }
     }
 }

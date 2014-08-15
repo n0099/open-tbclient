@@ -3,5 +3,5 @@ package com.baidu.tieba.recommend;
 public interface q {
     void a();
 
-    void a(boolean z, String str, com.baidu.tieba.data.l lVar, int i);
+    void a(boolean z, String str, com.baidu.tieba.data.l lVar, int i, boolean z2);
 }

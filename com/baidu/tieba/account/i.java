@@ -2,6 +2,7 @@ package com.baidu.tieba.account;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccount;
@@ -26,12 +27,13 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.account_logining), new j(this));
+        BdSocketLinkService.close("account changed");
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.account_logining), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0068, code lost:
         com.baidu.sapi2.SapiAccountManager.getInstance().validate(r0);
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -41,7 +43,14 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     */
     public Boolean doInBackground(Object... objArr) {
         try {
-            Thread.sleep(1000L);
+            try {
+                Thread.sleep(1000L);
+                while (BdAsyncTask.getTaskNum(com.baidu.tbadk.k.a) > 0) {
+                    Thread.sleep(200L);
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
             this.b.setIsActive(1);
             com.baidu.tbadk.core.account.a.a(this.b);
             List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
@@ -57,8 +66,8 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
                     }
                 }
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
         }
         return true;
     }

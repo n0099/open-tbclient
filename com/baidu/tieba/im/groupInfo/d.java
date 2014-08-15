@@ -16,11 +16,11 @@ class d implements View.OnClickListener {
         if (view != null) {
             if (view.equals(this.a.f)) {
                 if (!UtilHelper.isNetOk()) {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
                 RequestJoinGroupMessage requestJoinGroupMessage = new RequestJoinGroupMessage();
-                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.f.b.a(this.a.k, 0));
+                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.e.b.a(this.a.k, 0));
                 requestJoinGroupMessage.setUserMsg(this.a.b.getText().toString());
                 requestJoinGroupMessage.setJoinType(this.a.p);
                 requestJoinGroupMessage.setInviteUserId(this.a.n);

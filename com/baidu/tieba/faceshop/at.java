@@ -1,67 +1,39 @@
 package com.baidu.tieba.faceshop;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class at extends BaseAdapter {
-    private Context a;
-    private ArrayList<String> b;
+class at extends com.baidu.adp.base.h {
+    final /* synthetic */ FacePurchaseRecordsActivity a;
 
-    public at(Context context, ArrayList<String> arrayList) {
-        this.a = context;
-        this.b = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
+        this.a = facePurchaseRecordsActivity;
     }
 
-    public void a(ArrayList<String> arrayList) {
-        this.b = arrayList;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null) {
-            return 0;
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        ba baVar;
+        ba baVar2;
+        ba baVar3;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
+            baVar = this.a.a;
+            if (baVar != null) {
+                FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
+                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
+                    baVar3 = this.a.a;
+                    baVar3.a(facePurchaseRecordsData);
+                    return;
+                } else if (facePurchaseRecordsData.usermsg != null) {
+                    this.a.showToast(facePurchaseRecordsData.usermsg);
+                    baVar2 = this.a.a;
+                    baVar2.c();
+                    return;
+                } else {
+                    this.a.showToast(com.baidu.tieba.x.neterror);
+                    return;
+                }
+            }
+            return;
         }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.b == null || this.b.size() <= 0 || i < 0 || i >= this.b.size()) {
-            return null;
-        }
-        return this.b.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int measuredWidth = viewGroup.getMeasuredWidth() / 4;
-        if (view == null) {
-            au auVar = new au(this, null);
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.face_package_item_image, (ViewGroup) null);
-            auVar.a = (TbImageView) view.findViewById(com.baidu.tieba.v.image);
-            view.setTag(auVar);
-        }
-        au auVar2 = (au) view.getTag();
-        view.setLayoutParams(new AbsListView.LayoutParams(measuredWidth, measuredWidth));
-        String obj = getItem(i).toString();
-        auVar2.a.setTag(obj);
-        auVar2.a.setBackgroundResource(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.btn_choose_face_selector_1 : com.baidu.tieba.u.btn_choose_face_selector);
-        auVar2.a.a(obj, 10, measuredWidth, measuredWidth, false);
-        if (i == getCount() - 1) {
-            viewGroup.invalidate();
-        }
-        return view;
+        this.a.showToast(com.baidu.tieba.x.neterror);
     }
 }

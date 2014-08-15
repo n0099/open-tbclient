@@ -1,107 +1,89 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx {
-    public boolean e;
-    ArrayList<String> a = new ArrayList<>();
-    ArrayList<String> b = new ArrayList<>();
-    ArrayList<String> c = new ArrayList<>();
-    by d = null;
-    private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private ArrayList<bz> i = new ArrayList<>();
+public class bx extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ PersonChangeActivity a;
 
-    public ArrayList<String> a() {
-        return this.a;
+    private bx(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    public ArrayList<String> b() {
-        return this.b;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bx(PersonChangeActivity personChangeActivity, bx bxVar) {
+        this(personChangeActivity);
     }
 
-    public ArrayList<String> c() {
-        return this.c;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        ProgressBar progressBar;
+        TextView textView;
+        progressBar = this.a.y;
+        progressBar.setVisibility(0);
+        textView = this.a.f;
+        textView.setEnabled(false);
+        this.a.a.setImageDrawable(null);
+        this.a.v = null;
+        super.onPreExecute();
     }
 
-    public by d() {
-        return this.d;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        return com.baidu.tbadk.core.util.s.c(null, TbConfig.PERSON_HEAD_FILE);
     }
 
-    public int e() {
-        return this.f;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        this.a.w = null;
+        progressBar = this.a.y;
+        progressBar.setVisibility(8);
+        textView = this.a.f;
+        textView.setEnabled(true);
+        super.cancel(true);
     }
 
-    public int f() {
-        return this.g;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
     }
 
-    public int g() {
-        return this.h;
-    }
-
-    public ArrayList<bz> h() {
-        return this.i;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("foruminfo");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    String optString = optJSONArray.optString(i, null);
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a.add(optString);
-                    }
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("groupinfo");
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    String optString2 = optJSONArray2.optString(i2, null);
-                    if (!TextUtils.isEmpty(optString2)) {
-                        this.b.add(optString2);
-                    }
-                }
-            }
-            JSONArray optJSONArray3 = jSONObject.optJSONArray("friendinfo");
-            if (optJSONArray3 != null) {
-                for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                    String optString3 = optJSONArray3.optString(i3, null);
-                    if (!TextUtils.isEmpty(optString3)) {
-                        this.c.add(optString3);
-                    }
-                }
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("distanceinfo");
-            if (optJSONObject != null) {
-                if (this.d == null) {
-                    this.d = new by();
-                }
-                this.d.a = optJSONObject.optInt("distance", 0);
-                this.d.b = optJSONObject.optInt("time", 0);
-            }
-            this.f = jSONObject.optInt("groupnum", 0);
-            this.g = jSONObject.optInt("friendnum", 0);
-            this.h = jSONObject.optInt("is_friend", 0);
-            this.e = jSONObject.optInt("userClientVersionIsLower", 0) == 1;
-            JSONArray optJSONArray4 = jSONObject.optJSONArray("reply_list");
-            if (optJSONArray4 != null) {
-                for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                    JSONObject optJSONObject2 = optJSONArray4.optJSONObject(i4);
-                    if (optJSONObject2 != null) {
-                        bz bzVar = new bz();
-                        bzVar.a = optJSONObject2.optInt(com.baidu.tbadk.core.frameworkData.a.USER_ID, 0);
-                        bzVar.b = optJSONObject2.optInt("friend_id", 0);
-                        bzVar.c = optJSONObject2.optString("message");
-                        this.i.add(bzVar);
-                    }
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        TextView textView;
+        ProgressBar progressBar;
+        com.baidu.adp.widget.a.a aVar;
+        com.baidu.tieba.model.au auVar;
+        com.baidu.adp.widget.a.a aVar2;
+        super.onPostExecute(bitmap);
+        this.a.w = null;
+        textView = this.a.f;
+        textView.setEnabled(true);
+        progressBar = this.a.y;
+        progressBar.setVisibility(8);
+        if (bitmap != null) {
+            this.a.v = new com.baidu.adp.widget.a.a(bitmap, false, null);
+            aVar = this.a.v;
+            aVar.a(this.a.a);
+            com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
+            auVar = this.a.u;
+            String portrait = auVar.a().getPortrait();
+            aVar2 = this.a.v;
+            a.a(portrait, aVar2, true);
         }
     }
 }

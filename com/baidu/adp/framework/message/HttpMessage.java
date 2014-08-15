@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.message;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         initial();
     }
 
-    public HttpMessage(int i, int i2) {
-        super(i, i2);
+    public HttpMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         this.mHeaders = null;
         this.mParams = null;
         this.mComparator = null;

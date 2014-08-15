@@ -4,8 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ae;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,7 +14,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ FatalErrorService a;
-    private aq b;
+    private ae b;
 
     private f(FatalErrorService fatalErrorService) {
         this.a = fatalErrorService;
@@ -47,7 +46,7 @@ class f extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = z.d(str);
+                File d = com.baidu.tbadk.core.util.s.d(str);
                 if (d == null || d.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
@@ -57,7 +56,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {
@@ -96,9 +95,9 @@ class f extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
-                            this.b.j();
+                            this.b.i();
                             if (byteArrayOutputStream != null) {
                                 byteArrayOutputStream.close();
                                 byteArrayOutputStream2 = null;
@@ -331,7 +330,7 @@ class f extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.mTask = null;
         super.cancel(true);

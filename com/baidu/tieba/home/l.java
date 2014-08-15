@@ -15,7 +15,7 @@ class l extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (TbadkApplication.isLogin()) {
-            new com.baidu.tieba.model.m().a(true);
+            new com.baidu.tieba.model.n().a(true);
         }
     }
 }

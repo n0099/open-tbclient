@@ -7,10 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tieba.frs.bt;
-import com.baidu.tieba.s;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
+import com.baidu.tieba.frs.bu;
 /* loaded from: classes.dex */
 public class b {
     private View a;
@@ -21,13 +18,13 @@ public class b {
         this.a = null;
         this.b = null;
         this.c = null;
-        this.a = LayoutInflater.from(activity).inflate(w.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.a.findViewById(v.good_gridview);
-        this.c = (ImageView) this.a.findViewById(v.divider_line);
+        this.a = LayoutInflater.from(activity).inflate(com.baidu.tieba.v.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.a.findViewById(com.baidu.tieba.u.good_gridview);
+        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.u.divider_line);
     }
 
-    public void a(bt btVar) {
-        this.b.setAdapter((ListAdapter) btVar);
+    public void a(bu buVar) {
+        this.b.setAdapter((ListAdapter) buVar);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -40,12 +37,12 @@ public class b {
 
     public void a(int i) {
         if (i == 1) {
-            this.b.setBackgroundResource(s.frs_goodheader_bg_1);
-            this.c.setBackgroundResource(s.frs_goodheader_line_end_1);
+            this.b.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_bg_1);
+            this.c.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_line_end_1);
             return;
         }
         this.b.setBackgroundDrawable(null);
         this.b.setBackgroundColor(-1);
-        this.c.setBackgroundResource(s.frs_goodheader_line_end);
+        this.c.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_line_end);
     }
 }

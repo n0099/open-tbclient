@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.message.BasicHeader;
@@ -26,7 +25,7 @@ class MultipartEntity implements HttpEntity {
             sb.append(MULTIPART_CHARS[random.nextInt(MULTIPART_CHARS.length)]);
         }
         this.mBoundary = sb.toString();
-        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + IOUtils.LINE_SEPARATOR_WINDOWS).getBytes();
+        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + "\r\n").getBytes();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -121,7 +120,7 @@ class MultipartEntity implements HttpEntity {
     private void writeBoundaryLine() {
         if (!this.mIsSetFirst) {
             this.mIsSetFirst = true;
-            this.mOut.write(("--" + this.mBoundary + IOUtils.LINE_SEPARATOR_WINDOWS).getBytes());
+            this.mOut.write(("--" + this.mBoundary + "\r\n").getBytes());
             return;
         }
         this.mOut.write(this.mBoundaryLineBytes);

@@ -1,11 +1,11 @@
 package com.baidu.adp.framework.listener;
 
-import com.baidu.adp.framework.c;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
-public abstract class MessageListener<T extends ResponsedMessage<?>> extends c {
+public abstract class MessageListener<T extends ResponsedMessage<?>> extends com.baidu.adp.framework.c {
     private int mCmd;
-    private int mTag = 0;
+    private BdUniqueId mTag = null;
 
     public abstract void onMessage(T t);
 
@@ -18,11 +18,11 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends c {
         return this.mCmd;
     }
 
-    public int getTag() {
+    public BdUniqueId getTag() {
         return this.mTag;
     }
 
-    public void setTag(int i) {
-        this.mTag = i;
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.mTag = bdUniqueId;
     }
 }

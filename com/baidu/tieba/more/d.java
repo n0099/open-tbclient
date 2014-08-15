@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
@@ -24,11 +24,11 @@ public class d extends com.baidu.adp.base.f {
     private SettingTextFunctionIntroView i;
     private ProgressBar j;
 
-    public d(BaseActivity baseActivity, p pVar) {
+    public d(BaseActivity baseActivity, r rVar) {
         super(baseActivity);
         this.c = baseActivity;
         d();
-        a(pVar);
+        a(rVar);
     }
 
     public void a() {
@@ -44,29 +44,29 @@ public class d extends com.baidu.adp.base.f {
     }
 
     private void d() {
-        this.c.setContentView(com.baidu.tieba.w.about_activity);
-        this.e = (RelativeLayout) this.c.findViewById(com.baidu.tieba.v.parent);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.c.setContentView(com.baidu.tieba.v.about_activity);
+        this.e = (RelativeLayout) this.c.findViewById(com.baidu.tieba.u.parent);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(this.c.getString(com.baidu.tieba.y.version_info));
-        this.f = (TextView) this.c.findViewById(com.baidu.tieba.v.text_versioninfo);
-        this.a = (ImageView) this.c.findViewById(com.baidu.tieba.v.text_description);
-        this.g = (SettingTextTestNewView) this.c.findViewById(com.baidu.tieba.v.about_version_update);
+        this.d.a(this.c.getString(com.baidu.tieba.x.version_info));
+        this.f = (TextView) this.c.findViewById(com.baidu.tieba.u.text_versioninfo);
+        this.a = (ImageView) this.c.findViewById(com.baidu.tieba.u.text_description);
+        this.g = (SettingTextTestNewView) this.c.findViewById(com.baidu.tieba.u.about_version_update);
         this.g.e();
-        this.i = (SettingTextFunctionIntroView) this.c.findViewById(com.baidu.tieba.v.about_function_intro);
-        this.h = (TbSettingTextTipView) this.c.findViewById(com.baidu.tieba.v.about_guide);
-        this.j = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.about_progress);
+        this.i = (SettingTextFunctionIntroView) this.c.findViewById(com.baidu.tieba.u.about_function_intro);
+        this.h = (TbSettingTextTipView) this.c.findViewById(com.baidu.tieba.u.about_guide);
+        this.j = (ProgressBar) this.c.findViewById(com.baidu.tieba.u.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !bm.c(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !ba.c(TbConfig.getSubVersion())) {
             version = String.valueOf(version) + "." + TbConfig.getSubVersion();
         }
-        this.f.setText(String.valueOf(this.c.getString(com.baidu.tieba.y.setting_version_text)) + " " + version);
-        this.b = (TextView) this.c.findViewById(com.baidu.tieba.v.text_version_protoco);
+        this.f.setText(String.valueOf(this.c.getString(com.baidu.tieba.x.setting_version_text)) + " " + version);
+        this.b = (TextView) this.c.findViewById(com.baidu.tieba.u.text_version_protoco);
         a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    private void a(p pVar) {
-        e eVar = new e(this, pVar);
+    private void a(r rVar) {
+        e eVar = new e(this, rVar);
         this.g.setOnClickListener(eVar);
         this.h.setOnClickListener(eVar);
         this.i.setOnClickListener(eVar);
@@ -83,9 +83,9 @@ public class d extends com.baidu.adp.base.f {
 
     public void a(int i) {
         if (i == 1) {
-            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.s.bg_page_setting_1));
+            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.r.bg_page_setting_1));
         } else {
-            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.s.bg_page_setting));
+            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.r.bg_page_setting));
         }
         this.d.c(i);
         this.c.getLayoutMode().a(i == 1);

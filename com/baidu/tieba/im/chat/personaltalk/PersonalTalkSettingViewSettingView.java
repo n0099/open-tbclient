@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
     private SettingTextSwitchView a;
@@ -28,8 +28,8 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
 
     private void a() {
         setOrientation(1);
-        inflate(getContext(), w.p2ptalk_setting_detail_view, this);
-        this.a = (SettingTextSwitchView) findViewById(v.sv_person_msg_notify);
+        inflate(getContext(), v.p2ptalk_setting_detail_view, this);
+        this.a = (SettingTextSwitchView) findViewById(u.sv_person_msg_notify);
     }
 
     public void a(boolean z) {

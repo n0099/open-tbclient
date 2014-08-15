@@ -39,8 +39,8 @@ public class FileDownloader extends Service {
         if (this.mDowndingTask != null) {
             this.mDowndingTask.cancel();
         }
-        com.baidu.tbadk.core.util.bb.a(getBaseContext(), 10);
-        com.baidu.tbadk.core.util.bb.a(getBaseContext(), 14);
+        com.baidu.tbadk.core.util.ap.a(getBaseContext(), 10);
+        com.baidu.tbadk.core.util.ap.a(getBaseContext(), 14);
     }
 
     @Override // android.app.Service
@@ -54,12 +54,12 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra2);
             }
-            if (com.baidu.tbadk.core.util.z.d(fileOfUrl) != null) {
+            if (com.baidu.tbadk.core.util.s.d(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new g(this, stringExtra2, fileOfUrl);
                 this.mDowndingTask.execute(new String[0]);
-                com.baidu.tbadk.core.util.bb.a(getBaseContext(), 10, (String) null, 0, "0/0", stringExtra, true);
+                com.baidu.tbadk.core.util.ap.a(getBaseContext(), 10, (String) null, 0, "0/0", stringExtra, true);
             }
         }
         super.onStart(intent, i);

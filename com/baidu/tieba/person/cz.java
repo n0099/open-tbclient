@@ -1,21 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements View.OnClickListener {
-    final /* synthetic */ cr a;
+public class cz implements DialogInterface.OnClickListener {
+    final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(cr crVar) {
-        this.a = crVar;
+    public cz(ct ctVar) {
+        this.a = ctVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        az azVar;
-        azVar = this.a.l;
-        azVar.e();
-        this.a.l();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            this.a.s();
+        } else if (i == 1) {
+            com.baidu.tbadk.core.util.ax.a(this.a.getActivity());
+        } else if (i == 2) {
+            com.baidu.tbadk.core.util.ax.c(this.a.getActivity());
+        }
     }
 }

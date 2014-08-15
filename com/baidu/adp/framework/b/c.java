@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.b;
 
 import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.a.f;
@@ -36,11 +37,11 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
         }
     }
 
-    public void c(int i) {
+    public void a(int i) {
         this.c.remove(i);
     }
 
-    public T d(int i) {
+    public T b(int i) {
         return this.c.get(i);
     }
 
@@ -92,16 +93,16 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
         }
     }
 
-    public void e(int i) {
+    public void c(BdUniqueId bdUniqueId) {
         b();
         j.a();
-        if (i != 0) {
+        if (bdUniqueId != null) {
             int size = this.e.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Iterator<MessageListener<N>> it = this.e.valueAt(i2).iterator();
+            for (int i = 0; i < size; i++) {
+                Iterator<MessageListener<N>> it = this.e.valueAt(i).iterator();
                 while (it.hasNext()) {
                     MessageListener<N> next = it.next();
-                    if (next != null && next.getTag() == i) {
+                    if (next != null && next.getTag() == bdUniqueId) {
                         it.remove();
                     }
                 }
@@ -116,7 +117,7 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
         }
         int cmd = m.getCmd();
         if (t == null) {
-            t = d(cmd);
+            t = b(cmd);
         }
         if (t != null) {
             M b = b((c<M, T, R, N>) m, (M) t);
@@ -139,13 +140,13 @@ public abstract class c<M extends Message, T extends MessageTask, R extends f, N
         return false;
     }
 
-    public void f(int i) {
+    public void c(int i) {
         if (this.d.indexOfKey(i) < 0) {
             this.d.put(i, null);
         }
     }
 
-    public void g(int i) {
+    public void d(int i) {
         this.d.remove(i);
     }
 

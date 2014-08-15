@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.widget.ListView.c implements b {
-    private boolean a;
+    private boolean e;
 
     public p(Context context) {
         super(context);
@@ -15,27 +15,27 @@ public class p extends com.baidu.adp.widget.ListView.c implements b {
 
     @Override // com.baidu.adp.widget.ScrollView.b
     public void a_() {
-        a(this.a);
-        if (this.a) {
-            this.a = false;
+        a(this.e);
+        if (this.e) {
+            this.e = false;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
     public void e() {
-        this.a = true;
+        this.e = true;
         super.e();
     }
 
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
     public void f() {
-        this.a = false;
+        this.e = false;
         super.f();
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
     public void b_() {
-        this.a = false;
+        this.e = false;
         super.b(true);
     }
 

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import com.baidu.adp.lib.f.b;
+import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;

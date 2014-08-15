@@ -1,8 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.TbCheckBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements AbsListView.OnScrollListener {
+public class g implements n {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +14,21 @@ class g implements AbsListView.OnScrollListener {
         this.a = atListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // com.baidu.tieba.write.n
+    public void a(View view, Object obj) {
+        BdListView bdListView;
+        if (obj != null) {
+            if (obj instanceof com.baidu.tbadk.core.view.t) {
+                ((com.baidu.tbadk.core.view.t) obj).setChecked(false);
+            }
+            bdListView = this.a.d;
+            View findViewWithTag = bdListView.findViewWithTag(obj);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
+                ((TbCheckBox) findViewWithTag).setChecked(false);
+            } else if (!(obj instanceof MetaData)) {
+            } else {
+                this.a.b((MetaData) obj);
+            }
+        }
     }
 }

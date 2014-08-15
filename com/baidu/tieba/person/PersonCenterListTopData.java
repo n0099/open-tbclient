@@ -5,19 +5,19 @@ import com.baidu.tieba.person.PersonPostListData;
 public class PersonCenterListTopData extends PersonPostListData.PostList {
     private static final long serialVersionUID = 1;
     private int mDataType;
-    private com.baidu.tieba.model.au mModel;
+    private com.baidu.tieba.model.av mModel;
 
-    public PersonCenterListTopData(com.baidu.tieba.model.au auVar, int i) {
-        this.mModel = auVar;
+    public PersonCenterListTopData(com.baidu.tieba.model.av avVar, int i) {
+        this.mModel = avVar;
         this.mDataType = i;
     }
 
-    public com.baidu.tieba.model.au getmModel() {
+    public com.baidu.tieba.model.av getmModel() {
         return this.mModel;
     }
 
-    public void setmModel(com.baidu.tieba.model.au auVar) {
-        this.mModel = auVar;
+    public void setmModel(com.baidu.tieba.model.av avVar) {
+        this.mModel = avVar;
     }
 
     public int getmDataType() {

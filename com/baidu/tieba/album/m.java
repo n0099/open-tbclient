@@ -31,12 +31,12 @@ public class m extends com.baidu.tbadk.core.d implements AdapterView.OnItemClick
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = layoutInflater.inflate(com.baidu.tieba.w.album_list_view, (ViewGroup) null);
-        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.v.album_list);
-        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b = layoutInflater.inflate(com.baidu.tieba.v.album_list_view, (ViewGroup) null);
+        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.u.album_list);
+        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.h);
-        this.d.a(this.h.getString(com.baidu.tieba.y.album));
-        this.f = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.lay_no_data);
+        this.d.a(this.h.getString(com.baidu.tieba.x.album));
+        this.f = (LinearLayout) this.b.findViewById(com.baidu.tieba.u.lay_no_data);
         this.g = new j(this.h);
         this.c.setAdapter((ListAdapter) this.g);
         this.c.setOnScrollListener(this.g);

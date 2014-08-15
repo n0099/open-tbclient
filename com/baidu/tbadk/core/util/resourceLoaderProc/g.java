@@ -44,16 +44,16 @@ public class g extends a {
         }
         com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
         cVar.b(cVar.b());
-        Bitmap w = cVar.w();
-        if (w != null) {
-            return new com.baidu.adp.widget.a.a(w, false, str, bVar.u());
+        Bitmap x = cVar.x();
+        if (x != null) {
+            return new com.baidu.adp.widget.a.a(x, false, str, bVar.v());
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
-        return com.baidu.tbadk.core.util.h.a(bArr, rect, sb);
+        return com.baidu.tbadk.core.util.d.a(bArr, rect, sb);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a

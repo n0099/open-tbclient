@@ -1,4 +1,6 @@
 package com.baidu.tieba.write;
+
+import android.widget.EditText;
 /* loaded from: classes.dex */
 class a implements Runnable {
     final /* synthetic */ AtListActivity a;
@@ -10,6 +12,9 @@ class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.c();
+        EditText editText;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.b;
+        atListActivity.a(com.baidu.adp.lib.util.i.a(editText.getText(), ""));
     }
 }

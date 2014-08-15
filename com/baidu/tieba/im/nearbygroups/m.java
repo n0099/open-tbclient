@@ -3,16 +3,14 @@ package com.baidu.tieba.im.nearbygroups;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.u;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.view.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.f {
     private NavigationBar a;
@@ -21,7 +19,7 @@ public class m extends com.baidu.adp.base.f {
     private TextView d;
     private h e;
     private PinnedHeaderListView f;
-    private q g;
+    private u g;
     private NoNetworkView h;
     private v i;
 
@@ -43,15 +41,15 @@ public class m extends com.baidu.adp.base.f {
     private void i() {
         this.e = new h(this.b);
         this.i = new v(this.b);
-        this.b.setContentView(w.nearby_group_activity);
-        this.c = this.b.findViewById(com.baidu.tieba.v.parent);
-        this.f = (PinnedHeaderListView) this.b.findViewById(com.baidu.tieba.v.nearby_list);
-        this.a = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b.setContentView(com.baidu.tieba.v.nearby_group_activity);
+        this.c = this.b.findViewById(com.baidu.tieba.u.parent);
+        this.f = (PinnedHeaderListView) this.b.findViewById(com.baidu.tieba.u.nearby_list);
+        this.a = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(this.b.getResources().getString(y.nearby_group_title));
+        this.a.a(this.b.getResources().getString(x.nearby_group_title));
         this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b);
-        this.h = (NoNetworkView) this.b.findViewById(com.baidu.tieba.v.view_no_network);
-        this.g = new q(this.b);
+        this.h = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.view_no_network);
+        this.g = new u(this.b);
         this.f.setPullRefresh(this.g);
         this.f.setAdapter((ListAdapter) this.e);
         this.f.setNextPage(this.i);
@@ -73,7 +71,7 @@ public class m extends com.baidu.adp.base.f {
         this.i.e();
     }
 
-    public void a(x xVar) {
+    public void a(com.baidu.adp.widget.ListView.x xVar) {
         this.f.setOnSrollToBottomListener(xVar);
     }
 
@@ -127,7 +125,7 @@ public class m extends com.baidu.adp.base.f {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        bk.a(this.c, i);
+        ay.a(this.c, i);
         this.g.a(i);
         this.a.c(i);
         this.h.a(i);

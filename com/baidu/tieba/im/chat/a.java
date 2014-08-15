@@ -60,7 +60,7 @@ public class a implements View.OnClickListener {
                             progressBar = this.a.a;
                             progressBar.setVisibility(0);
                         } else {
-                            this.a.showToast(this.a.getString(com.baidu.tieba.y.no_data));
+                            this.a.showToast(this.a.getString(com.baidu.tieba.x.no_data));
                         }
                         return;
                     } catch (Exception e) {

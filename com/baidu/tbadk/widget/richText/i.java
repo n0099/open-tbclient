@@ -12,6 +12,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class i {
     private int a = 0;
@@ -190,6 +191,64 @@ public class i {
                 return b(context, arrayList);
             case 256:
                 return b(context);
+        }
+    }
+
+    public void a(PbContent pbContent) {
+        int i = 0;
+        try {
+            this.a = a(pbContent.type.intValue());
+            switch (this.a) {
+                case 8:
+                    this.c = new g(pbContent);
+                    break;
+                case 16:
+                    this.b = new b(pbContent.text, String.valueOf(pbContent.uid));
+                    break;
+                case 17:
+                    this.e = new e();
+                    this.e.b.b = String.format("#(%s)", pbContent.c);
+                    this.e.b.d = pbContent.dynamic;
+                    this.e.b.c = pbContent._static;
+                    this.e.a = this.a;
+                    this.e.b.f = pbContent.width.intValue();
+                    this.e.b.g = pbContent.height.intValue();
+                    this.e.b.h = pbContent.packet_name;
+                    this.e.b.i = pbContent._static;
+                    String[] split = this.e.b.d.split("/");
+                    for (String str : split) {
+                        i++;
+                        if (str.equals("faceshop")) {
+                            this.e.b.e = split[i].split("_")[0];
+                            break;
+                        }
+                    }
+                    this.e.b.e = split[i].split("_")[0];
+                case 512:
+                    this.d = new u(pbContent);
+                    break;
+                default:
+                    this.b = new b(pbContent);
+                    if (this.a == 4) {
+                        String str2 = "[" + pbContent.c + "]";
+                        if (TbFaceManager.a().b(this.b.a()) <= 0) {
+                            this.a = 1;
+                            this.b.a(str2);
+                            break;
+                        } else {
+                            this.b.b(str2);
+                            break;
+                        }
+                    } else if (this.a == 256) {
+                        this.b.b(pbContent.phonetype);
+                        break;
+                    }
+                    break;
+            }
+            if (this.a != 1 && this.b != null) {
+                this.b.c();
+            }
+        } catch (Exception e) {
         }
     }
 

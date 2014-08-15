@@ -1,26 +1,36 @@
 package com.baidu.tieba.person;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dg implements CustomMessageTask.CustomRunnable<String> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
-            return null;
+public class dg implements com.baidu.adp.widget.ListView.a {
+    final /* synthetic */ ct a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dg(ct ctVar) {
+        this.a = ctVar;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public void b() {
+        an anVar;
+        if (!this.a.a()) {
+            anVar = this.a.o;
+            anVar.g();
+            this.a.a(true);
+            this.a.i();
         }
-        String a = com.baidu.tbadk.core.a.b.a().q().a(TbadkApplication.getCurrentAccount());
-        ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-        if (a != null) {
-            try {
-                responsePersonBarByUidLocalMessage.decodeInBackGround(2001187, a);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        return responsePersonBarByUidLocalMessage;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public void a(float f) {
+        an anVar;
+        anVar = this.a.o;
+        anVar.a(f);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public void a() {
+        an anVar;
+        anVar = this.a.o;
+        anVar.e();
     }
 }

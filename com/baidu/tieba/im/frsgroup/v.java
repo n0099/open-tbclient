@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.frsgroup;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements AdapterView.OnItemClickListener {
+public class v implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,21 +16,30 @@ public class v implements AdapterView.OnItemClickListener {
         this.a = membersActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ag agVar;
-        agVar = this.a.b;
-        ac f = agVar.f();
-        UserData userData = (UserData) f.getItem(i);
-        if (userData != null) {
-            if (f.d()) {
-                if (!userData.getPermission().isController()) {
-                    f.a(Long.valueOf(userData.getUserIdLong()));
-                    return;
-                }
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        af afVar;
+        com.baidu.tieba.im.model.u uVar;
+        af afVar2;
+        afVar = this.a.b;
+        if (afVar.f().d()) {
+            return false;
         }
+        uVar = this.a.c;
+        if (uVar.b()) {
+            afVar2 = this.a.b;
+            UserData userData = (UserData) afVar2.f().getItem(i);
+            if (userData != null) {
+                if (userData.getPermission().isController()) {
+                    return false;
+                }
+                long userIdLong = userData.getUserIdLong();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Long.valueOf(userIdLong));
+                com.baidu.tieba.im.d.b.a((Activity) this.a, (DialogInterface.OnClickListener) new w(this, arrayList), (DialogInterface.OnClickListener) new x(this));
+            }
+            return true;
+        }
+        return false;
     }
 }

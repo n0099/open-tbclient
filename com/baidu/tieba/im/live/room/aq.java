@@ -1,15 +1,76 @@
 package com.baidu.tieba.im.live.room;
-/* loaded from: classes.dex */
-class aq implements com.baidu.tbadk.widget.i {
-    final /* synthetic */ LiveRoomChatView a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(LiveRoomChatView liveRoomChatView) {
-        this.a = liveRoomChatView;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import java.util.List;
+/* loaded from: classes.dex */
+public class aq extends RelativeLayout {
+    private Activity a;
+    private LayoutInflater b;
+    private TextView c;
+    private ImageView d;
+    private UserPhotoLayout e;
+    private List<MetaData> f;
+    private int g;
+    private View h;
+
+    public aq(Context context) {
+        super(context);
+        this.f = null;
+        this.g = 0;
+        a(context);
     }
 
-    @Override // com.baidu.tbadk.widget.i
-    public void a(int i) {
-        this.a.z = i;
+    public View getRoot() {
+        return this.h;
+    }
+
+    private void a(Context context) {
+        this.a = (Activity) context;
+        this.b = (LayoutInflater) context.getSystemService("layout_inflater");
+        View inflate = this.b.inflate(com.baidu.tieba.v.live_room_chat_like, (ViewGroup) this, true);
+        this.h = inflate.findViewById(com.baidu.tieba.u.chat_like_layout);
+        this.c = (TextView) inflate.findViewById(com.baidu.tieba.u.tvlike);
+        this.d = (ImageView) inflate.findViewById(com.baidu.tieba.u.ivlike);
+        this.e = (UserPhotoLayout) inflate.findViewById(com.baidu.tieba.u.horizontalScrollView);
+        this.e.setAutoChangeStyle(false);
+        this.e.setOnChildClickListener(new ar(this));
+    }
+
+    public List<MetaData> getMetaData() {
+        return this.f;
+    }
+
+    public void a(List<MetaData> list, int i) {
+        if (this.f != list || this.g != i) {
+            this.f = list;
+            this.g = i;
+            a(true);
+        }
+    }
+
+    private void a(boolean z) {
+        String valueOf = String.valueOf(this.g);
+        if (this.g > 999) {
+            valueOf = "999+";
+        }
+        this.c.setText(valueOf);
+        this.e.a(this.f, z);
+    }
+
+    public ImageView getIvLike() {
+        return this.d;
+    }
+
+    public TextView getTvLike() {
+        return this.c;
     }
 }

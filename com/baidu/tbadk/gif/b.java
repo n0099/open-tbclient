@@ -40,10 +40,10 @@ public class b extends Handler {
                 gifView.f = i + 1;
                 i2 = this.a.f;
                 if (i2 >= cVar.d()) {
-                    z2 = this.a.y;
+                    z2 = this.a.w;
                     if (z2) {
                         this.a.setVisibility(4);
-                        this.a.y = false;
+                        this.a.w = false;
                         z = true;
                     } else {
                         z = false;

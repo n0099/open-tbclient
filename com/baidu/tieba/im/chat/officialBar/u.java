@@ -1,21 +1,37 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
 /* loaded from: classes.dex */
-public class u implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.av> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.av> run(CustomMessage<com.baidu.tbadk.core.atomData.av> customMessage) {
-        UserData a;
-        if (customMessage != null && customMessage.getData() != null && (a = customMessage.getData().a()) != null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(String.valueOf(a.getUserId()));
-            com.baidu.tieba.im.i.a(new v(this, linkedList), new w(this, customMessage));
+class u extends com.baidu.adp.framework.listener.d {
+    final /* synthetic */ OfficialBarChatActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(OfficialBarChatActivity officialBarChatActivity, int i) {
+        super(i);
+        this.a = officialBarChatActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        OfficialBarMsglistView officialBarMsglistView;
+        officialBarMsglistView = this.a.m;
+        officialBarMsglistView.d(false);
+        if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
+            this.a.showToast(com.baidu.tieba.x.neterror);
+            return;
         }
-        return null;
+        ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
+        if (responseSendOfficialBarMenuMessage.hasError()) {
+            if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
+                this.a.showToast(responseSendOfficialBarMenuMessage.getErrorString());
+            } else {
+                this.a.showToast(com.baidu.tieba.x.neterror);
+            }
+        }
     }
 }

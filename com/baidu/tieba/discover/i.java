@@ -1,40 +1,25 @@
 package com.baidu.tieba.discover;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.util.an;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ DiscoverItemView a;
-
+class i extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(DiscoverItemView discoverItemView) {
-        this.a = discoverItemView;
+    public i(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View.OnClickListener onClickListener;
-        boolean z;
-        boolean z2;
-        ImageView imageView;
-        View.OnClickListener onClickListener2;
-        onClickListener = this.a.p;
-        if (onClickListener != null) {
-            onClickListener2 = this.a.p;
-            onClickListener2.onClick(view);
-        }
-        z = this.a.m;
-        if (z) {
-            z2 = this.a.n;
-            if (z2) {
-                String a = an.a(this.a.d);
-                if (!com.baidu.tbadk.i.a().a(a, false)) {
-                    com.baidu.tbadk.i.a().c(a, true);
-                    imageView = this.a.j;
-                    imageView.setVisibility(8);
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.d b;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
+            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(discoverDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).b() != null && (b = discoverDelegateStatic.b()) != null) {
+                b.a.setArguments(new Bundle());
             }
         }
     }

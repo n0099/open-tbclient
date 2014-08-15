@@ -2,14 +2,13 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.RequestMarkReadedMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
@@ -21,39 +20,43 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     protected GroupData a;
-    private f b;
-    private final com.baidu.adp.framework.listener.b c;
+    private final com.baidu.adp.framework.listener.d b;
+    private final CustomMessageListener c;
 
     public CommonGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.a = null;
-        this.c = new c(this, 0);
+        this.b = new c(this, 0);
+        this.c = new d(this, 0);
         f();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void a() {
         super.a();
-        l();
+        m();
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public long b() {
+        if (c() != null) {
+            return com.baidu.tieba.im.memorycache.c.b().e(String.valueOf(c().getGroupId()), this.v);
+        }
+        return 0L;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void a(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new d(this, chatMessage), null);
+            com.baidu.tieba.im.e.a(new e(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void b(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new e(this, chatMessage), null);
+            com.baidu.tieba.im.e.a(new f(this, chatMessage), null);
         }
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ImMessageCenterPojo b() {
-        return com.baidu.tieba.im.b.a.a().a(String.valueOf(this.a.getGroupId()));
     }
 
     public void a(GroupData groupData) {
@@ -70,15 +73,15 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     }
 
     private void f() {
-        this.b = new f(this, null);
-        com.baidu.tieba.im.chat.w.b().a(this.b);
-        MessageManager.getInstance().registerListener(103112, this.c);
-        MessageManager.getInstance().registerListener(103102, this.c);
+        MessageManager.getInstance().registerListener(103112, this.b);
+        MessageManager.getInstance().registerListener(103102, this.b);
+        MessageManager.getInstance().registerListener(2016012, this.c);
+        MessageManager.getInstance().registerListener(2001221, this.c);
     }
 
-    private void l() {
+    private void m() {
+        MessageManager.getInstance().unRegisterListener(this.b);
         MessageManager.getInstance().unRegisterListener(this.c);
-        com.baidu.tieba.im.chat.w.b().b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -147,14 +150,5 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 this.mLoadDataCallBack.a(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
             }
         }
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.i.a().c(String.valueOf(this.a.getGroupId()));
-        aVar.a(null);
-        RequestMarkReadedMessage requestMarkReadedMessage = new RequestMarkReadedMessage();
-        requestMarkReadedMessage.setData(String.valueOf(this.a.getGroupId()));
-        MessageManager.getInstance().sendMessage(requestMarkReadedMessage);
     }
 }

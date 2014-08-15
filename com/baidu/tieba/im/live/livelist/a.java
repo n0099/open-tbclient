@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.message.ResponseLiveBlackMembersMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ BlackMembersListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,13 +21,13 @@ class a extends com.baidu.adp.framework.listener.b {
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         i iVar;
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.q qVar;
         boolean f;
         i iVar2;
-        com.baidu.tieba.im.model.y yVar2;
-        com.baidu.tieba.im.model.y yVar3;
-        com.baidu.tieba.im.model.y yVar4;
-        com.baidu.tieba.im.model.y yVar5;
+        com.baidu.tieba.im.model.q qVar2;
+        com.baidu.tieba.im.model.q qVar3;
+        com.baidu.tieba.im.model.q qVar4;
+        com.baidu.tieba.im.model.q qVar5;
         i iVar3;
         i iVar4;
         i iVar5;
@@ -35,10 +35,10 @@ class a extends com.baidu.adp.framework.listener.b {
         i iVar7;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else if (socketResponsedMessage.getCmd() == 107009) {
             if (!(socketResponsedMessage instanceof ResponseLiveBlackMembersMessage)) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
+                this.a.showToast(com.baidu.tieba.x.neterror);
                 return;
             }
             ResponseLiveBlackMembersMessage responseLiveBlackMembersMessage = (ResponseLiveBlackMembersMessage) socketResponsedMessage;
@@ -47,7 +47,7 @@ class a extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveBlackMembersMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
             }
@@ -56,18 +56,18 @@ class a extends com.baidu.adp.framework.listener.b {
                 List<UserData> b = liveBlackMembersListData.b();
                 iVar = this.a.a;
                 iVar.e().a(liveBlackMembersListData.c());
-                yVar = this.a.b;
-                yVar.a(liveBlackMembersListData.a());
+                qVar = this.a.b;
+                qVar.a(liveBlackMembersListData.a());
                 f = this.a.f();
                 if (!f || liveBlackMembersListData.c()) {
                     iVar2 = this.a.a;
                     iVar2.e().b(false);
-                    yVar2 = this.a.b;
-                    yVar3 = this.a.b;
-                    yVar2.b(yVar3.c() + b.size());
-                    yVar4 = this.a.b;
-                    yVar5 = this.a.b;
-                    yVar4.c(yVar5.d() + 1);
+                    qVar2 = this.a.b;
+                    qVar3 = this.a.b;
+                    qVar2.b(qVar3.c() + b.size());
+                    qVar4 = this.a.b;
+                    qVar5 = this.a.b;
+                    qVar4.c(qVar5.d() + 1);
                     iVar3 = this.a.a;
                     iVar3.e().a(b);
                     iVar4 = this.a.a;
@@ -84,7 +84,7 @@ class a extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         }
     }
 }

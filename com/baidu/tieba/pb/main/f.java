@@ -15,7 +15,7 @@ class f implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         PbActivity pbActivity = this.a;
-        String string = this.a.getString(com.baidu.tieba.y.user_icon_intro);
+        String string = this.a.getString(com.baidu.tieba.x.user_icon_intro);
         str = PbActivity.e;
         TbWebViewActivity.startActivity(pbActivity, string, String.valueOf(str) + "?st_type=pb_user_icon");
     }

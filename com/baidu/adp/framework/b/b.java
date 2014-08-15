@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.b;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.HttpClient;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -32,21 +33,21 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
         return this.a.getController().a(httpMessage, httpMessageTask);
     }
 
-    public void a(int i) {
-        this.c.a(i);
+    public void a(BdUniqueId bdUniqueId) {
+        this.c.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, int i2) {
-        this.c.a(i, i2);
+    public void a(int i, BdUniqueId bdUniqueId) {
+        this.c.a(i, bdUniqueId);
     }
 
-    public LinkedList<HttpMessage> b(int i) {
-        return this.c.b(i);
+    public LinkedList<HttpMessage> b(BdUniqueId bdUniqueId) {
+        return this.c.b(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<HttpMessage> b(int i, int i2) {
-        return this.c.b(i, i2);
+    public LinkedList<HttpMessage> b(int i, BdUniqueId bdUniqueId) {
+        return this.c.b(i, bdUniqueId);
     }
 }

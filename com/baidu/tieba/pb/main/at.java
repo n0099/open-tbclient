@@ -1,7 +1,9 @@
 package com.baidu.tieba.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class at implements Runnable {
+class at implements Handler.Callback {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +11,22 @@ public class at implements Runnable {
         this.a = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.N = System.currentTimeMillis();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        bl blVar;
+        bl blVar2;
+        switch (message.what) {
+            case 2:
+                blVar = this.a.x;
+                if (blVar != null) {
+                    blVar2 = this.a.x;
+                    if (blVar2.B()) {
+                        this.a.D();
+                        break;
+                    }
+                }
+                break;
+        }
+        return false;
     }
 }

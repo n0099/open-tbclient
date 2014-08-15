@@ -20,7 +20,7 @@ public class k implements View.OnClickListener {
         UpdatesItemData updatesItemData;
         ImageView imageView;
         updatesActivity = this.a.k;
-        if (updatesActivity.b()) {
+        if (updatesActivity.a()) {
             imageView = this.a.h;
             imageView.performClick();
             return;

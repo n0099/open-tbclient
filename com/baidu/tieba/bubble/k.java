@@ -5,7 +5,6 @@ import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.adp.lib.guide.b {
@@ -26,12 +25,12 @@ public class k implements com.baidu.adp.lib.guide.b {
     public View a(LayoutInflater layoutInflater) {
         TextView textView = new TextView(this.a);
         if (this.b) {
-            textView.setBackgroundResource(u.pop_float_top);
+            textView.setBackgroundResource(com.baidu.tieba.t.pop_float_top);
         } else {
-            textView.setBackgroundResource(u.pop_float);
+            textView.setBackgroundResource(com.baidu.tieba.t.pop_float);
         }
-        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32);
-        int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds22);
+        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds32);
+        int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds22);
         if (this.b) {
             textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
         } else {

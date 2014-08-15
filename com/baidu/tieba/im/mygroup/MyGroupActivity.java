@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class MyGroupActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private l c;
+    private k d;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = new l(this);
+        this.d = new k(this);
         a(103008, new a(this, 0));
     }
 
@@ -33,17 +33,17 @@ public class MyGroupActivity extends BaseFragmentActivity implements View.OnClic
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
-        this.c.a(i);
+        this.d.a(i);
     }
 
     public static void a(Context context) {
         if (context != null) {
             if (!TbadkApplication.isLogin()) {
                 if (context instanceof BaseActivity) {
-                    ((BaseActivity) context).showToast(com.baidu.tieba.y.not_login_text);
+                    ((BaseActivity) context).showToast(com.baidu.tieba.x.not_login_text);
                     return;
                 } else if (context instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) context).c(com.baidu.tieba.y.not_login_text);
+                    ((BaseFragmentActivity) context).c(com.baidu.tieba.x.not_login_text);
                     return;
                 } else {
                     return;
@@ -57,12 +57,12 @@ public class MyGroupActivity extends BaseFragmentActivity implements View.OnClic
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.c.a();
+        this.d.a();
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.c == null) {
+        if (this.d == null) {
         }
     }
 }

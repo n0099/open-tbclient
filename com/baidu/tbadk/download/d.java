@@ -4,25 +4,23 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.s;
+import com.baidu.tieba.x;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import org.apache.commons.io.FileUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
     final /* synthetic */ b a;
-    private aq b = new aq();
+    private ae b = new ae();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
@@ -40,7 +38,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData4;
         DownloadData downloadData5;
         super.onCancelled();
-        this.b.g();
+        this.b.f();
         downloadData = b.b;
         downloadData.setStatus(4);
         downloadData2 = b.b;
@@ -50,7 +48,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             downloadData4 = b.b;
             a callback = downloadData4.getCallback();
             downloadData5 = b.b;
-            callback.b(downloadData5);
+            callback.a(downloadData5);
         }
         list = b.c;
         if (!list.isEmpty()) {
@@ -61,7 +59,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         this.a.e();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [350=4, 352=4, 353=4, 354=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [349=4, 351=4, 352=4, 353=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,7 +73,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         if (downloadDataArr[0] == null) {
             return null;
         }
-        if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().c(downloadDataArr[0])) {
+        if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().b(downloadDataArr[0])) {
             return 0;
         }
         File file = new File(downloadDataArr[0].getPath());
@@ -84,25 +82,25 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         }
         if (!file.exists()) {
             this.b.a(downloadDataArr[0].getUrl());
-            aq aqVar = this.b;
+            ae aeVar = this.b;
             String str = String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp";
             handler = this.a.f;
-            if (!Boolean.valueOf(aqVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, KirinConfig.CONNECT_TIME_OUT)).booleanValue()) {
+            if (!Boolean.valueOf(aeVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                 return 3;
             }
-            File d = z.d(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
+            File d = s.d(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
             if (d == null) {
                 return 1;
             }
             try {
-                FileUtils.copyFile(d, file);
-                FileUtils.deleteQuietly(d);
+                com.baidu.adp.lib.util.commonsio.a.a(d, file);
+                com.baidu.adp.lib.util.commonsio.a.b(d);
             } catch (IOException e) {
                 return 1;
             }
         }
         try {
-            if (!bm.c(downloadDataArr[0].getCheck())) {
+            if (!ba.c(downloadDataArr[0].getCheck())) {
                 try {
                     fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                 } catch (FileNotFoundException e2) {
@@ -134,7 +132,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     }
                     throw th;
                 }
-                if (!bm.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
+                if (!ba.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
                     i = 4;
                     if (fileInputStream != null) {
                         try {
@@ -152,7 +150,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     }
                 }
             }
-            i = (downloadDataArr[0].getCallback() == null || downloadDataArr[0].getCallback().d(downloadDataArr[0])) ? 0 : 2;
+            i = (downloadDataArr[0].getCallback() == null || downloadDataArr[0].getCallback().c(downloadDataArr[0])) ? 0 : 2;
             return i;
         } catch (Throwable th2) {
             th = th2;
@@ -173,46 +171,47 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData6;
         DownloadData downloadData7;
         DownloadData downloadData8;
+        DownloadData downloadData9;
         List list;
         List list2;
-        DownloadData downloadData9;
         DownloadData downloadData10;
         DownloadData downloadData11;
         DownloadData downloadData12;
         DownloadData downloadData13;
         DownloadData downloadData14;
         DownloadData downloadData15;
+        DownloadData downloadData16;
         super.onPostExecute(num);
         if (num.intValue() == 0) {
-            downloadData9 = b.b;
-            if (downloadData9.getCallback() != null) {
-                downloadData14 = b.b;
-                a callback = downloadData14.getCallback();
-                downloadData15 = b.b;
-                callback.a(downloadData15);
-            }
             downloadData10 = b.b;
-            downloadData10.setStatus(0);
+            if (downloadData10.getCallback() != null) {
+                downloadData15 = b.b;
+                a callback = downloadData15.getCallback();
+                downloadData16 = b.b;
+                callback.d(downloadData16);
+            }
             downloadData11 = b.b;
-            if (downloadData11.getCallback() != null) {
-                downloadData12 = b.b;
-                a callback2 = downloadData12.getCallback();
+            downloadData11.setStatus(0);
+            downloadData12 = b.b;
+            if (downloadData12.getCallback() != null) {
                 downloadData13 = b.b;
-                callback2.b(downloadData13);
+                a callback2 = downloadData13.getCallback();
+                downloadData14 = b.b;
+                callback2.a(downloadData14);
             }
         } else {
             switch (num.intValue()) {
                 case 1:
-                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(x.download_fail);
                     break;
                 case 2:
-                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(x.download_fail);
                     break;
                 case 3:
-                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail_net);
+                    string = TbadkApplication.m252getInst().getApp().getString(x.download_fail_net);
                     break;
                 case 4:
-                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(x.download_fail);
                     break;
                 default:
                     string = null;
@@ -221,20 +220,22 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             downloadData = b.b;
             downloadData.setStatusMsg(string);
             downloadData2 = b.b;
-            if (downloadData2.getCallback() != null) {
-                downloadData7 = b.b;
-                a callback3 = downloadData7.getCallback();
-                downloadData8 = b.b;
-                callback3.a(downloadData8, num.intValue(), string);
-            }
+            downloadData2.setErrorCode(num.intValue());
             downloadData3 = b.b;
-            downloadData3.setStatus(2);
+            if (downloadData3.getCallback() != null) {
+                downloadData8 = b.b;
+                a callback3 = downloadData8.getCallback();
+                downloadData9 = b.b;
+                callback3.a(downloadData9, num.intValue(), string);
+            }
             downloadData4 = b.b;
-            if (downloadData4.getCallback() != null) {
-                downloadData5 = b.b;
-                a callback4 = downloadData5.getCallback();
+            downloadData4.setStatus(2);
+            downloadData5 = b.b;
+            if (downloadData5.getCallback() != null) {
                 downloadData6 = b.b;
-                callback4.b(downloadData6);
+                a callback4 = downloadData6.getCallback();
+                downloadData7 = b.b;
+                callback4.a(downloadData7);
             }
         }
         b.b = null;

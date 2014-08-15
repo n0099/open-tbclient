@@ -59,7 +59,7 @@ public class m extends com.baidu.tbadk.core.d {
     }
 
     public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.w.more_discovery_activity, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.v.more_discovery_activity, (ViewGroup) null);
     }
 
     public void a() {
@@ -93,37 +93,37 @@ public class m extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.v.user_info) {
+        if (id == com.baidu.tieba.u.user_info) {
             if (f && this.d != null) {
                 if (TbadkApplication.isLogin()) {
                     UserData a = this.d.a();
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(this.b, this.d.b(), a != null ? a.getName_show() : "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this.b, this.d.b(), a != null ? a.getName_show() : "")));
                     this.d.b(true);
                     return;
                 }
                 LoginActivity.a((Activity) this.b, (String) null, true, 11003);
                 this.d.b(true);
             }
-        } else if (id == com.baidu.tieba.v.my_collection) {
+        } else if (id == com.baidu.tieba.u.my_collection) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
                 a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
                 this.d.a(true);
                 return;
             }
             LoginActivity.a((Activity) this.b, (String) null, true, 103);
-        } else if (id == com.baidu.tieba.v.member_benefits) {
-            com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_member_benifit", true);
+        } else if (id == com.baidu.tieba.u.member_benefits) {
+            com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
             if (!TbadkApplication.isLogin()) {
                 LoginActivity.a((Activity) this.b, (String) null, true, 104);
                 return;
             }
-            com.baidu.tbadk.core.sharedPref.b.a().c("has_shown_member_benifit", true);
-            TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
-        } else if (id == com.baidu.tieba.v.face_store) {
+            com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
+            TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+        } else if (id == com.baidu.tieba.u.face_store) {
             TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
             TbadkApplication.m252getInst().setFaceShopNew(false);
-            a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this.b, "faceshop_from_more")));
-        } else if (id == com.baidu.tieba.v.settings && this.d != null) {
+            a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.p(this.b, "faceshop_from_more")));
+        } else if (id == com.baidu.tieba.u.settings && this.d != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.d.a() != null) {
                 personChangeData.setName(this.d.a().getName_show());
@@ -155,7 +155,7 @@ public class m extends com.baidu.tbadk.core.d {
             } else if (i == 103) {
                 a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
             } else if (i == 104) {
-                TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+                TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
             }
         }
     }
@@ -169,7 +169,7 @@ public class m extends com.baidu.tbadk.core.d {
                     if (personChangeData.getPhotoChanged()) {
                         this.c.a();
                         if (this.d.a() != null) {
-                            this.d.e().e(this.d.a().getPortrait());
+                            com.baidu.tbadk.imageManager.e.a().a(this.d.a().getPortrait());
                         }
                     }
                 }
@@ -199,15 +199,15 @@ public class m extends com.baidu.tbadk.core.d {
                 i();
             }
         } else {
-            if (!this.d.f()) {
+            if (!this.d.e()) {
                 i();
             }
-            PersonChangeData O = com.baidu.tieba.ai.c().O();
-            if (O != null) {
-                a(O);
+            PersonChangeData N = com.baidu.tieba.ai.c().N();
+            if (N != null) {
+                a(N);
             }
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().o() != this.d.c()) {
-                this.d.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().r() != this.d.c()) {
+                this.d.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().r());
             }
             if (this.c != null) {
                 this.c.c(this.d);
@@ -221,7 +221,7 @@ public class m extends com.baidu.tbadk.core.d {
             if (this.d.b() != null && this.d.b().length() > 0) {
                 h();
             }
-            this.d.g();
+            this.d.f();
         }
         if (this.c != null) {
             this.c.g();

@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.history;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
-import com.baidu.tieba.v;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class h {
@@ -20,23 +20,23 @@ public class h {
     public h(View view) {
         if (view != null) {
             this.a = view;
-            this.b = (TextView) view.findViewById(v.title);
-            this.c = (TextView) view.findViewById(v.content);
-            this.d = (TextView) view.findViewById(v.time);
-            this.e = view.findViewById(v.line);
+            this.b = (TextView) view.findViewById(u.title);
+            this.c = (TextView) view.findViewById(u.content);
+            this.d = (TextView) view.findViewById(u.time);
+            this.e = view.findViewById(u.line);
         }
     }
 
-    public void a(aj ajVar) {
-        if (ajVar != null) {
-            if (this.b != null && ajVar.c() != null) {
-                this.b.setText(ajVar.c());
+    public void a(ak akVar) {
+        if (akVar != null) {
+            if (this.b != null && akVar.c() != null) {
+                this.b.setText(akVar.c());
             }
-            if (this.c != null && ajVar.d() != null) {
-                this.c.setText(ajVar.d());
+            if (this.c != null && akVar.d() != null) {
+                this.c.setText(akVar.d());
             }
             if (this.d != null) {
-                String e = bm.e(new Date(ajVar.e()));
+                String e = ba.e(new Date(akVar.e()));
                 if (e == null) {
                     e = "";
                 }
@@ -44,17 +44,17 @@ public class h {
             }
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.a.setBackgroundResource(u.list_item_selector_1);
-            this.e.setBackgroundResource(s.cp_bg_line_b_1);
-            this.b.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_b_1));
-            this.c.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_d_1));
-            this.d.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_d_1));
+            this.a.setBackgroundResource(t.list_item_selector_1);
+            this.e.setBackgroundResource(r.cp_bg_line_b_1);
+            this.b.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_b_1));
+            this.c.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_d_1));
+            this.d.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_d_1));
             return;
         }
-        this.a.setBackgroundResource(u.list_item_selector);
-        this.e.setBackgroundResource(s.cp_bg_line_b);
-        this.b.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_b));
-        this.c.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_d));
-        this.d.setTextColor(this.a.getContext().getResources().getColor(s.cp_cont_d));
+        this.a.setBackgroundResource(t.list_item_selector);
+        this.e.setBackgroundResource(r.cp_bg_line_b);
+        this.b.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_b));
+        this.c.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_d));
+        this.d.setTextColor(this.a.getContext().getResources().getColor(r.cp_cont_d));
     }
 }

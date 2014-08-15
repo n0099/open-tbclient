@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 public class f {
     private static f a;
     private g b;
-    private com.baidu.adp.lib.cache.s<byte[]> c;
+    private com.baidu.adp.lib.cache.t<byte[]> c;
 
     private f() {
         this.b = null;
@@ -37,15 +37,23 @@ public class f {
         return false;
     }
 
-    public void a(String str, byte[] bArr) {
+    public void a(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
-            this.c.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str, bArr, 604800000L);
+            if (z) {
+                this.c.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str, bArr, 604800000L);
+                return;
+            }
+            this.c.b(String.valueOf(TbadkApplication.getCurrentAccount()) + str, bArr, 604800000L);
         }
     }
 
-    public void b(String str) {
+    public void a(String str, boolean z) {
         if (str != null && str.length() > 0) {
-            this.c.c(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
+            if (z) {
+                this.c.c(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
+                return;
+            }
+            this.c.d(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
         }
     }
 
@@ -53,8 +61,8 @@ public class f {
         return this.b;
     }
 
-    public boolean c(String str) {
-        com.baidu.adp.lib.cache.u<byte[]> b;
+    public boolean b(String str) {
+        com.baidu.adp.lib.cache.v<byte[]> b;
         if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
             return false;
         }

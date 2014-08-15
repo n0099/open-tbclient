@@ -1,31 +1,69 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-public interface ac {
-    ArrayList<BasicNameValuePair> a();
+public class ac implements MediaScannerConnection.MediaScannerConnectionClient {
+    private MediaScannerConnection a;
+    private Context b;
+    private String c;
+    private String d;
+    private String[] e;
+    private String[] f;
+    private int g;
+    private boolean h;
+    private ad i;
 
-    void a(String str, String str2);
+    public ac(Context context) {
+        this.b = context;
+        this.a = new MediaScannerConnection(this.b, this);
+    }
 
-    void a(String str, byte[] bArr);
+    public void a(String str) {
+        this.c = str;
+        String substring = this.c.substring(this.c.lastIndexOf("."));
+        this.d = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.d = "image/gif";
+        }
+        this.a.connect();
+    }
 
-    void a(ArrayList<BasicNameValuePair> arrayList);
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d)) {
+            this.a.scanFile(this.c, this.d);
+        }
+        if (this.e != null && this.f != null && this.e.length == this.f.length) {
+            int length = this.e.length;
+            for (int i = 0; i < length; i++) {
+                this.a.scanFile(this.e[i], this.f[i]);
+            }
+        }
+    }
 
-    void a(BasicNameValuePair basicNameValuePair);
-
-    boolean a(String str, Handler handler, int i, int i2, int i3);
-
-    void b();
-
-    boolean c();
-
-    String d();
-
-    byte[] e();
-
-    String f();
-
-    String g();
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && str.equals(this.c)) {
+            this.a.disconnect();
+            this.c = null;
+            this.d = null;
+            this.h = true;
+        } else if (this.e != null && this.f != null && this.e.length == this.f.length) {
+            this.g--;
+            if (this.g == 0) {
+                this.a.disconnect();
+                this.e = null;
+                this.f = null;
+                this.h = true;
+            } else {
+                this.h = false;
+            }
+        }
+        if (this.h && this.i != null) {
+            this.i.a();
+        }
+    }
 }

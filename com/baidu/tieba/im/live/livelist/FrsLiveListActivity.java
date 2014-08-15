@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tbadk.core.view.q a;
+    private com.baidu.tbadk.core.view.u a;
     private w b;
     private com.baidu.tieba.im.model.j c;
-    private final com.baidu.adp.framework.listener.b d = new j(this, 107001);
-    private final com.baidu.adp.framework.listener.b e = new k(this, 107110);
+    private final com.baidu.adp.framework.listener.d d = new j(this, 107001);
+    private final com.baidu.adp.framework.listener.d e = new k(this, 107110);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.t.class, FrsLiveListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.u.class, FrsLiveListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,7 +42,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     private void b() {
         this.b = new w(this);
         BdListView d = this.b.d();
-        this.a = new com.baidu.tbadk.core.view.q(this);
+        this.a = new com.baidu.tbadk.core.view.u(this);
         this.a.a(new l(this));
         d.setPullRefresh(this.a);
         d.setOnScrollListener(this);
@@ -70,14 +70,14 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.j();
+        this.c = new com.baidu.tieba.im.model.j(this);
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
             this.c.b(bundle);
         }
-        this.c.registerListener(this.d);
-        this.c.registerListener(this.e);
+        registerListener(this.d);
+        registerListener(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

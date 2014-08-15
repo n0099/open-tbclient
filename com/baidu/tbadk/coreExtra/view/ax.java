@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends BdAsyncTask<String, Integer, ay> {
     final /* synthetic */ av a;
-    private com.baidu.tbadk.core.util.aq b = null;
+    private com.baidu.tbadk.core.util.httpNet.k b = null;
     private String c;
     private String d;
     private final boolean e;
@@ -24,7 +24,7 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
         this.c = null;
         this.d = null;
         this.c = str;
-        this.d = bm.f(str);
+        this.d = ba.f(str);
         this.e = z;
     }
 
@@ -35,14 +35,15 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
     public ay doInBackground(String... strArr) {
         boolean z;
         String str;
-        Exception e;
         ay ayVar;
-        byte[] bArr;
-        String str2;
+        Exception e;
         boolean z2;
+        String str2;
+        boolean z3;
+        byte[] bArr;
         Bitmap bitmap;
+        boolean z4;
         int lastIndexOf;
-        boolean z3 = true;
         if (this.c == null || this.d == null) {
             return null;
         }
@@ -53,11 +54,11 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
         if (z) {
             str = this.c;
         } else {
-            str = String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(this.c) + "&imgtype=0") + "&qulity=" + bn.a().d());
+            str = String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(this.c) + "&imgtype=0") + "&qulity=" + bb.a().d());
         }
         try {
             byte[] imageData = this.a.b.getImageData();
-            Bitmap a = imageData != null ? com.baidu.tbadk.core.util.h.a(imageData) : null;
+            Bitmap a = imageData != null ? com.baidu.tbadk.core.util.d.a(imageData) : null;
             if (a == null) {
                 if (this.e && this.c.startsWith("/")) {
                     a = com.baidu.adp.lib.util.b.a().a(this.c);
@@ -67,61 +68,46 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
                 } else {
                     imageData = this.a.a(this.c);
                     if (imageData != null) {
-                        a = com.baidu.tbadk.core.util.h.a(imageData);
+                        a = com.baidu.tbadk.core.util.d.a(imageData);
                     }
                 }
             }
             if (a == null) {
                 if (!(TbadkApplication.m252getInst().getCapabilityOfWebp() && com.baidu.adp.lib.a.f.a().b("webp_enable") == 1) || str.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str.lastIndexOf(".jpg")) <= 0) {
-                    z3 = false;
+                    z2 = false;
                     str2 = str;
                 } else {
+                    z2 = true;
                     str2 = String.valueOf(str.substring(0, lastIndexOf)) + ".webp" + str.substring(lastIndexOf + 4, str.length());
                 }
-                this.b = new com.baidu.tbadk.core.util.aq(str2);
-                com.baidu.tbadk.core.util.httpNet.d a2 = this.b.a().a();
-                z2 = this.a.f;
-                a2.e = z2;
-                if (this.a.c != null && (this.a.c instanceof com.baidu.tbadk.coreExtra.data.e)) {
-                    if (((com.baidu.tbadk.coreExtra.data.e) this.a.c).a() != null) {
-                        this.b.a("fid", ((com.baidu.tbadk.coreExtra.data.e) this.a.c).a());
-                    }
-                    if (((com.baidu.tbadk.coreExtra.data.e) this.a.c).b() != null) {
-                        this.b.a("tid", ((com.baidu.tbadk.coreExtra.data.e) this.a.c).b());
-                    }
-                    if (((com.baidu.tbadk.coreExtra.data.e) this.a.c).c() != null) {
-                        this.b.a("fname", ((com.baidu.tbadk.coreExtra.data.e) this.a.c).c());
-                    }
-                }
-                this.b.a().a().a().e = true;
-                this.b.a().a().g = true;
-                byte[] h = this.b.h();
-                if (this.b.a().b().b()) {
-                    a = com.baidu.tbadk.core.util.h.a(h);
-                    if (z3 && a == null) {
-                        TiebaStatic.imgError(this.b.a().a().f, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str2);
+                this.b = new com.baidu.tbadk.core.util.httpNet.k();
+                com.baidu.tbadk.core.util.httpNet.k kVar = this.b;
+                z3 = this.a.f;
+                byte[] a2 = kVar.a(str2, !z3);
+                if (this.b.b()) {
+                    a = com.baidu.tbadk.core.util.d.a(a2);
+                    if (z2 && a == null) {
+                        TiebaStatic.imgError(this.b.a, TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str2);
                         TbadkApplication.m252getInst().incWebpFailureCount();
-                        this.b.a(str);
-                        h = this.b.h();
-                        if (this.b.a().b().b()) {
-                            bitmap = com.baidu.tbadk.core.util.h.a(h);
-                            this.a.a(this.c, h, false);
-                            a = bitmap;
-                            bArr = h;
-                        }
+                        com.baidu.tbadk.core.util.httpNet.k kVar2 = this.b;
+                        z4 = this.a.f;
+                        bArr = kVar2.a(str, !z4);
+                        bitmap = (bArr == null || !this.b.b()) ? a : com.baidu.tbadk.core.util.d.a(bArr);
+                        this.a.a(this.c, bArr, false);
+                        a = bitmap;
+                        imageData = bArr;
                     }
                 }
+                bArr = a2;
                 bitmap = a;
-                this.a.a(this.c, h, false);
+                this.a.a(this.c, bArr, false);
                 a = bitmap;
-                bArr = h;
-            } else {
-                bArr = imageData;
+                imageData = bArr;
             }
             ayVar = new ay(this.a, null);
             try {
                 ayVar.a = this.c;
-                ayVar.b = bArr;
+                ayVar.b = imageData;
                 ayVar.c = a;
                 return ayVar;
             } catch (Exception e2) {
@@ -130,8 +116,8 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
                 return ayVar;
             }
         } catch (Exception e3) {
-            e = e3;
             ayVar = null;
+            e = e3;
         }
     }
 
@@ -165,7 +151,7 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.b.setImageBitmap(null);
+        this.a.b.setImageDrawable(null);
         this.a.a.setVisibility(0);
         super.onPreExecute();
     }
@@ -173,7 +159,7 @@ public class ax extends BdAsyncTask<String, Integer, ay> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.a();
         }
         this.a.b.setVisibility(0);
         this.a.a.setVisibility(8);

@@ -10,36 +10,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class e {
-    public static String a(String str, boolean z) {
-        long hashCode = str.hashCode();
-        if (hashCode < 0) {
-            hashCode *= -1;
-        }
-        return String.valueOf(z ? "d_" : "s_") + hashCode + ".bak";
-    }
-
     public static boolean a(String str, String str2, InputStream inputStream) {
-        return com.baidu.tbadk.core.util.z.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
+        return com.baidu.tbadk.core.util.s.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
     }
 
     public static byte[] a(String str, String str2) {
-        return com.baidu.tbadk.core.util.z.e(".emotions/" + str, str2);
+        return com.baidu.tbadk.core.util.s.d(".emotions/" + str, str2);
     }
 
     public static boolean a(String str) {
-        Bitmap c = com.baidu.tbadk.editortool.ab.a().c(str, "panel.png");
-        if (c == null) {
+        Bitmap b = com.baidu.tbadk.editortool.aa.a().b(str, "panel.png");
+        if (b == null) {
             return false;
         }
-        c.recycle();
+        b.recycle();
         return true;
     }
 
     public static boolean a(String str, String str2, String str3) {
-        String str4 = com.baidu.tbadk.core.util.z.a + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/";
+        String str4 = com.baidu.tbadk.core.util.s.a + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/";
         File file = new File(str4, str2);
         if (!file.exists()) {
             return false;
@@ -49,11 +40,11 @@ public class e {
             if (file2.delete() && file.renameTo(file2)) {
                 return true;
             }
-            return com.baidu.tbadk.core.util.z.f(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.s.e(file.getAbsolutePath(), file2.getAbsolutePath());
         } else if (file.renameTo(file2)) {
             return true;
         } else {
-            return com.baidu.tbadk.core.util.z.f(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.s.e(file.getAbsolutePath(), file2.getAbsolutePath());
         }
     }
 
@@ -83,15 +74,15 @@ public class e {
             }
             String str2 = new String(a, "UTF-8");
             LinkedList linkedList = new LinkedList();
-            for (String str3 : str2.split(IOUtils.LINE_SEPARATOR_UNIX)) {
+            for (String str3 : str2.split("\n")) {
                 String trim = str3.trim();
                 if (trim.startsWith("#(")) {
                     String[] split = trim.split("=");
                     if (split.length == 2) {
                         String trim2 = split[0].trim();
                         String trim3 = split[1].trim();
-                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.ab.a().a(trim2, false));
-                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.ab.a().a(trim2, true));
+                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.aa.a().a(trim2, false));
+                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.aa.a().a(trim2, true));
                         linkedList.add(trim2);
                     }
                 }

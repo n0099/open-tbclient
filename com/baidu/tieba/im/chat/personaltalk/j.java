@@ -1,37 +1,17 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.TbadkApplication;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class j extends BdAsyncTask<Void, Void, Void> {
+class j implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonalTalkSettingActivity a;
-    private final /* synthetic */ BdSwitchView.SwitchState b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(PersonalTalkSettingActivity personalTalkSettingActivity, BdSwitchView.SwitchState switchState) {
+    public j(PersonalTalkSettingActivity personalTalkSettingActivity) {
         this.a = personalTalkSettingActivity;
-        this.b = switchState;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        long j;
-        long j2;
-        if (this.b == BdSwitchView.SwitchState.OFF) {
-            a a = a.a();
-            String currentAccount = TbadkApplication.getCurrentAccount();
-            j2 = this.a.c;
-            a.d(currentAccount, String.valueOf(j2), false);
-            return null;
-        }
-        a a2 = a.a();
-        String currentAccount2 = TbadkApplication.getCurrentAccount();
-        j = this.a.c;
-        a2.d(currentAccount2, String.valueOf(j), true);
-        return null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

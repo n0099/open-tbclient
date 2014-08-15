@@ -1,12 +1,21 @@
 package com.baidu.tieba.im.chat.officialBar;
-/* loaded from: classes.dex */
-class q extends com.baidu.adp.lib.d.b<c> {
-    final /* synthetic */ m a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(m mVar, com.baidu.adp.lib.d.c cVar, int i, int i2) {
-        super(cVar, i, i2);
-        this.a = mVar;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class q implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.ba> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.ba> run(CustomMessage<com.baidu.tbadk.core.atomData.ba> customMessage) {
+        UserData a;
+        if (customMessage != null && customMessage.getData() != null && (a = customMessage.getData().a()) != null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(String.valueOf(a.getUserId()));
+            com.baidu.tieba.im.e.a(new r(this, linkedList), new s(this, customMessage));
+        }
+        return null;
     }
 }

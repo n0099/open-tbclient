@@ -1,63 +1,160 @@
 package com.baidu.tieba.im.live.room;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUpdateLiveGroupMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tieba.im.chat.TalkableActivity;
 /* loaded from: classes.dex */
-class be extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ LiveRoomSettingActivity a;
+public class be extends com.baidu.adp.base.f {
+    private View a;
+    private View b;
+    private View c;
+    private TextView d;
+    private TextView e;
+    private TextView f;
+    private TextView g;
+    private TextView h;
+    private TextView i;
+    private View j;
+    private View k;
+    private TextView l;
+    private TextView m;
+    private TextView n;
+    private TextView o;
+    private TextView p;
+    private View.OnClickListener q;
+    private TalkableActivity r;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(LiveRoomSettingActivity liveRoomSettingActivity, int i) {
-        super(i);
-        this.a = liveRoomSettingActivity;
+    public be(TalkableActivity talkableActivity, View.OnClickListener onClickListener) {
+        super(talkableActivity);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.p = null;
+        this.q = null;
+        this.r = null;
+        this.r = talkableActivity;
+        this.q = onClickListener;
+        m();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0085, code lost:
-        if (android.text.TextUtils.isEmpty(r1) == false) goto L22;
-     */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bj bjVar;
-        bi biVar;
-        bj bjVar2;
-        bj bjVar3;
-        String str;
-        String str2;
-        String str3;
-        bjVar = this.a.e;
-        bjVar.m();
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage.getCmd() == 107102) {
-            biVar = this.a.f;
-            if (biVar.f() == socketResponsedMessage.getOrginalMessage() && (socketResponsedMessage instanceof ResponseUpdateLiveGroupMessage)) {
-                ResponseUpdateLiveGroupMessage responseUpdateLiveGroupMessage = (ResponseUpdateLiveGroupMessage) socketResponsedMessage;
-                if (responseUpdateLiveGroupMessage.getError() == 0) {
-                    this.a.showToast(com.baidu.tieba.y.group_update_success, false);
-                    Intent intent = new Intent();
-                    bjVar2 = this.a.e;
-                    intent.putExtra("name", bjVar2.e());
-                    bjVar3 = this.a.e;
-                    intent.putExtra("intro", bjVar3.f());
-                    str = this.a.g;
-                    if (str == null) {
-                        str3 = this.a.g;
-                    }
-                    str2 = this.a.g;
-                    intent.putExtra("portraitId", str2);
-                    this.a.setResult(10, intent);
-                    this.a.finish();
-                    return;
-                }
-                this.a.a(responseUpdateLiveGroupMessage.getError(), responseUpdateLiveGroupMessage.getErrorString());
-            }
+    public View a() {
+        return this.a;
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.b.setVisibility(0);
+            this.c.setVisibility(0);
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            return;
         }
+        this.b.setVisibility(8);
+        this.c.setVisibility(8);
+        this.j.setVisibility(0);
+        this.k.setVisibility(0);
+    }
+
+    public void b(boolean z) {
+        if (z) {
+            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.t.icon_live_attention_s, 0, 0);
+        } else {
+            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.t.icon_live_attention, 0, 0);
+        }
+    }
+
+    public void c(boolean z) {
+        if (z) {
+            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.t.icon_live_tape_s, 0, 0);
+        } else {
+            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.t.icon_live_tape, 0, 0);
+        }
+    }
+
+    private void m() {
+        this.a = this.r.getLayoutInflater().inflate(com.baidu.tieba.v.im_chat_room_more_view, (ViewGroup) null);
+        this.b = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row1_host);
+        this.c = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row3_host);
+        this.d = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_inform_host);
+        this.d.setOnClickListener(this.q);
+        this.e = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_share_host);
+        this.e.setOnClickListener(this.q);
+        this.f = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_review_host);
+        this.g = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_tape_host);
+        this.f.setVisibility(4);
+        this.g.setVisibility(4);
+        this.h = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_set_host);
+        this.h.setOnClickListener(this.q);
+        this.i = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_exit_host);
+        this.i.setOnClickListener(this.q);
+        this.j = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row1_guest);
+        this.k = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row3_guest);
+        this.l = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_attention_guest);
+        this.l.setOnClickListener(this.q);
+        this.m = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_share_guest);
+        this.m.setOnClickListener(this.q);
+        this.n = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_review_guest);
+        this.n.setVisibility(4);
+        this.o = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_intro_guest);
+        this.o.setOnClickListener(this.q);
+        this.p = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_exit_guest);
+        this.p.setOnClickListener(this.q);
+    }
+
+    public TextView b() {
+        return this.d;
+    }
+
+    public TextView c() {
+        return this.e;
+    }
+
+    public TextView d() {
+        return this.f;
+    }
+
+    public TextView e() {
+        return this.g;
+    }
+
+    public TextView f() {
+        return this.h;
+    }
+
+    public TextView g() {
+        return this.i;
+    }
+
+    public TextView h() {
+        return this.l;
+    }
+
+    public TextView i() {
+        return this.m;
+    }
+
+    public TextView j() {
+        return this.n;
+    }
+
+    public TextView k() {
+        return this.o;
+    }
+
+    public TextView l() {
+        return this.p;
     }
 }

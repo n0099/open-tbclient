@@ -1,19 +1,42 @@
 package com.baidu.tieba.im.group;
 
-import android.content.DialogInterface;
+import android.content.Context;
+import android.content.res.Resources;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.n;
+import com.baidu.tieba.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements DialogInterface.OnCancelListener {
-    final /* synthetic */ g a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.a = gVar;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
+public class h implements CustomMessageTask.CustomRunnable<n> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<n> run(CustomMessage<n> customMessage) {
+        int e;
+        Context context;
         com.baidu.tieba.im.model.h hVar;
-        hVar = EnterChatRoomStatic.a;
-        hVar.b();
+        com.baidu.tieba.im.model.h hVar2;
+        Context context2;
+        int e2;
+        if (customMessage != null && customMessage.getData() != null) {
+            EnterChatRoomStatic.b = customMessage.getData().getContext();
+            e = EnterChatRoomStatic.e();
+            if (e > 0) {
+                context2 = EnterChatRoomStatic.b;
+                Resources resources = TbadkApplication.m252getInst().getContext().getResources();
+                int i = x.group_tab_enterchatroom_freeze;
+                e2 = EnterChatRoomStatic.e();
+                j.a(context2, resources.getString(i, new StringBuilder(String.valueOf(e2)).toString()));
+            } else {
+                context = EnterChatRoomStatic.b;
+                EnterChatRoomStatic.c = j.a(context, TbadkApplication.m252getInst().getContext().getResources().getString(x.group_tab_enterchatroom_loading), new i(this));
+                hVar = EnterChatRoomStatic.a;
+                hVar2 = EnterChatRoomStatic.a;
+                hVar.a(hVar2.a(), true);
+            }
+        }
+        return null;
     }
 }

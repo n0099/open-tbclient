@@ -62,16 +62,16 @@ public final class g {
     public static final int VerticalTranslateLayout_topHeight = 5;
     public static final int VerticalTranslateLayout_topOffset = 3;
     public static final int VerticalTranslateLayout_track = 0;
-    public static final int[] ColumnLayout_Layout = {R.attr.layout_column};
     public static final int[] AdpPullToRefreshScrollView = {R.attr.adpMode, R.attr.adpHeaderNeedRefreshDelta, R.attr.adpFooterNeedRefreshDelta, R.attr.adpHeaderHeight, R.attr.adpHeaderDurationTime, R.attr.adpFooterDurationTime};
-    public static final int[] ColumnLayout = {R.attr.columnOrientation, R.attr.spacingLeft, R.attr.spacingRight};
-    public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
     public static final int[] BDImageView = {R.attr.radius, R.attr.isRound, R.attr.hasBorder, R.attr.borderWidth, R.attr.borderColor, R.attr.borderSurroundContent, R.attr.showGifIcon, R.attr.gifIcon, R.attr.drawerType, R.attr.maxWidth, R.attr.maxHeight, R.attr.adjustViewBounds, R.attr.foregroundColor};
+    public static final int[] BdRoundedImageView = {16843037, R.attr.corner_radius, R.attr.border_width, R.attr.border_color, R.attr.round_background, R.attr.is_oval};
+    public static final int[] CircleRippleView = {R.attr.circle_size, R.attr.circle_image};
+    public static final int[] ColumnLayout = {R.attr.columnOrientation, R.attr.spacingLeft, R.attr.spacingRight};
+    public static final int[] ColumnLayout_Layout = {R.attr.layout_column};
     public static final int[] ExpandListView = {R.attr.beforeExpandHeight, R.attr.expandDistance};
     public static final int[] FloatingLayout_Layout = {R.attr.layout_clear};
-    public static final int[] CircleRippleView = {R.attr.circle_size, R.attr.circle_image};
-    public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
+    public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
     public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
     public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
-    public static final int[] BdRoundedImageView = {16843037, R.attr.corner_radius, R.attr.border_width, R.attr.border_color, R.attr.round_background, R.attr.is_oval};
+    public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
 }

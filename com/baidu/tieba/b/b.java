@@ -1,7 +1,9 @@
 package com.baidu.tieba.b;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.stats.o;
+import com.baidu.adp.lib.stats.f;
+import com.baidu.adp.lib.stats.q;
+import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
@@ -12,17 +14,25 @@ public class b {
         a = new HashMap<>();
     }
 
-    public static void a(String str) {
-        if (!a.containsKey(str)) {
-            a.put(str, new e(str));
+    public static void a(String str, String str2, boolean z) {
+        if (str2 == null) {
+            str2 = "";
+        }
+        String str3 = String.valueOf(str) + str2;
+        if (!a.containsKey(str3)) {
+            a.put(str3, new e(str, str2, z));
         }
     }
 
-    public static e b(String str) {
-        if (!a.containsKey(str)) {
-            a.put(str, new e(str));
+    public static e b(String str, String str2, boolean z) {
+        if (str2 == null) {
+            str2 = "";
         }
-        return a.get(str);
+        String str3 = String.valueOf(str) + str2;
+        if (!a.containsKey(str3)) {
+            a.put(str3, new e(str, str2, z));
+        }
+        return a.get(str3);
     }
 
     public static void a(int i) {
@@ -32,23 +42,25 @@ public class b {
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.b;
-        d dVar2 = eVar.c;
-        d dVar3 = eVar.d;
+        d dVar = eVar.d;
+        d dVar2 = eVar.e;
+        d dVar3 = eVar.f;
         if (dVar.b + dVar2.b + dVar3.b >= i) {
-            o oVar = new o("dbg");
-            oVar.a("act", eVar.a);
-            oVar.a("httpTimeCost", String.valueOf(dVar.a));
-            oVar.a("httpNum", String.valueOf(dVar.b));
-            oVar.a("httpFailnum", String.valueOf(dVar.c));
-            oVar.a("httpSize", String.valueOf(dVar.d));
-            oVar.a("socketTimeCost", String.valueOf(dVar2.a));
-            oVar.a("socketNum", String.valueOf(dVar2.b));
-            oVar.a("socketFailnum", String.valueOf(dVar2.c));
-            oVar.a("socketSize", String.valueOf(dVar2.d));
-            oVar.a("abortTimeCost", String.valueOf(dVar3.a));
-            oVar.a("abortNum", String.valueOf(dVar3.b));
-            com.baidu.adp.lib.stats.d.b().a("frs", oVar);
+            q qVar = new q("dbg");
+            qVar.a("act", eVar.c);
+            qVar.a("httpTimeCost", String.valueOf(dVar.a));
+            qVar.a("httpNum", String.valueOf(dVar.b));
+            qVar.a("httpFailnum", String.valueOf(dVar.c));
+            qVar.a("httpSize", String.valueOf(dVar.d));
+            qVar.a("socketTimeCost", String.valueOf(dVar2.a));
+            qVar.a("socketNum", String.valueOf(dVar2.b));
+            qVar.a("socketFailnum", String.valueOf(dVar2.c));
+            qVar.a("socketSize", String.valueOf(dVar2.d));
+            qVar.a("abortTimeCost", String.valueOf(dVar3.a));
+            qVar.a("abortNum", String.valueOf(dVar3.b));
+            qVar.a("netType", eVar.b);
+            qVar.a("isJson", eVar.a ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+            f.c().a("frs", qVar);
             dVar.a();
             dVar2.a();
             dVar3.a();

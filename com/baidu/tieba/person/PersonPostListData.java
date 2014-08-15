@@ -142,7 +142,7 @@ public class PersonPostListData implements Serializable {
         @SerializedName("is_post_deleted")
         public int is_post_deleted = 0;
 
-        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+        @Override // com.baidu.tbadk.core.util.a
         public LinkedList<String> getImageUrl() {
             Media[] mediaArr;
             LinkedList<String> linkedList = new LinkedList<>();

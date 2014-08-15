@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.live;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.cache.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.framework.listener.b {
+public class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ AccessTokenManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class a extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        s tokenCache;
+        t tokenCache;
         if (socketResponsedMessage instanceof ResponseGetAccessTokenMessage) {
             ResponseGetAccessTokenMessage responseGetAccessTokenMessage = (ResponseGetAccessTokenMessage) socketResponsedMessage;
             RequestGetAccessTokenMessage requestGetAccessTokenMessage = (RequestGetAccessTokenMessage) responseGetAccessTokenMessage.getOrginalMessage();

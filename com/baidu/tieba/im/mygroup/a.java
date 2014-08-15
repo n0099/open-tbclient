@@ -6,7 +6,7 @@ import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ MyGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

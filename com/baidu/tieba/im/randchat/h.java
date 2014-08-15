@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
-import com.baidu.tieba.im.model.ca;
+import com.baidu.tieba.im.model.bf;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 /* loaded from: classes.dex */
 class h extends CustomMessageListener {
@@ -22,10 +22,10 @@ class h extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.im.data.b a;
-        ca caVar;
-        ca caVar2;
+        bf bfVar;
+        bf bfVar2;
         WaitingTipView.Type type;
-        ca caVar3;
+        bf bfVar3;
         boolean a2;
         f fVar;
         f fVar2;
@@ -50,15 +50,15 @@ class h extends CustomMessageListener {
                 default:
                     return;
                 case 205:
-                    caVar = this.a.b;
-                    caVar.a(a.j);
-                    caVar2 = this.a.b;
-                    caVar2.b(a.i);
+                    bfVar = this.a.b;
+                    bfVar.a(a.j);
+                    bfVar2 = this.a.b;
+                    bfVar2.b(a.i);
                     type = this.a.i;
                     if (type != WaitingTipView.Type.PERSONS_READY) {
                         WaittingActivity waittingActivity = this.a;
-                        caVar3 = this.a.b;
-                        a2 = waittingActivity.a(caVar3.f());
+                        bfVar3 = this.a.b;
+                        a2 = waittingActivity.a(bfVar3.f());
                         if (!a2) {
                             this.a.b(WaitingTipView.Type.TOPIC_UPDATE, (Object[]) null);
                         }

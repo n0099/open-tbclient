@@ -2,10 +2,8 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.coreExtra.live.LivePublisherSayMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -21,23 +19,19 @@ class ad extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        LiveRoomChatView z;
-        if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && p.getCmd() == "live_user_mute") {
-            try {
-                JSONObject jSONObject = new JSONObject(p.getContent());
-                String optString = jSONObject.optString("userMsg");
-                int optInt = jSONObject.optJSONObject("eventParam").optInt("type");
-                this.a.showToast(optString);
-                z = this.a.z();
-                if (optInt == 1) {
-                    z.ak();
-                    z.e(true);
-                } else if (optInt == 2) {
-                    z.e(false);
+        LiveRoomChatView liveRoomChatView;
+        LiveRoomChatView liveRoomChatView2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001170 && (customResponsedMessage instanceof LivePublisherSayMessage) && this.a.v() != null && this.a.v().b != null) {
+            liveRoomChatView = this.a.p;
+            if (liveRoomChatView != null) {
+                LivePublisherSayMessage livePublisherSayMessage = (LivePublisherSayMessage) customResponsedMessage;
+                if (livePublisherSayMessage.getChatMsg() != null && (livePublisherSayMessage.getChatMsg() instanceof ChatMessage)) {
+                    ChatMessage chatMessage = (ChatMessage) livePublisherSayMessage.getChatMsg();
+                    if (com.baidu.adp.lib.e.b.a(chatMessage.getGroupId(), 0) == this.a.v().b.groupId.intValue()) {
+                        liveRoomChatView2 = this.a.p;
+                        liveRoomChatView2.a(chatMessage);
+                    }
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }

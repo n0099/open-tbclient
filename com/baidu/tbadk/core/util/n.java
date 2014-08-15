@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.util;
+
+import android.widget.Toast;
 /* loaded from: classes.dex */
-public class n {
-    private static String a = null;
-
-    public static void a(String str) {
-        a = str;
-    }
-
-    public static String a() {
-        return a;
+class n implements Runnable {
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        toast = m.a;
+        toast.cancel();
     }
 }

@@ -1,50 +1,71 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import java.util.ArrayList;
+import android.content.Context;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.GroupsByUidMessage;
+import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes.dex */
-public class s extends FragmentPagerAdapter {
-    public static int a = 1;
-    private int[] b;
-    private ArrayList<w> c;
+public class s extends com.baidu.adp.base.e {
+    public int a;
+    public int b;
+    public long c;
+    private RequestUserPermissionMessage d;
+    private boolean e;
 
-    public s(PersonGroupActivity personGroupActivity, boolean z) {
-        super(personGroupActivity.getSupportFragmentManager());
-        this.c = new ArrayList<>();
-        Bundle bundle = new Bundle();
-        bundle.putInt("page_type", 0);
-        w wVar = new w();
-        wVar.setArguments(bundle);
-        this.c.add(wVar);
-        if (z) {
-            this.b = new int[1];
-        } else {
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("page_type", 1);
-            w wVar2 = new w();
-            wVar2.setArguments(bundle2);
-            this.c.add(wVar2);
-            this.b = new int[]{0, 1};
+    public s(Context context) {
+        super(context);
+        this.e = false;
+        this.a = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.b = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.c = 0L;
+    }
+
+    public s(Context context, long j) {
+        super(context);
+        this.e = false;
+        this.a = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.b = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.c = j;
+    }
+
+    public void a() {
+        if (this.c == 0) {
+            if (this.e) {
+                super.sendMessage(new GroupsByUidMessage(this.a, this.b));
+                return;
+            }
+            this.e = true;
+            super.sendMessage(new GroupsByUidLocalMessage());
+            return;
         }
-        a = this.b.length;
+        super.sendMessage(new GroupsByUidMessage(this.c, this.a, this.b));
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i >= a || i < 0) {
-            return null;
-        }
-        return this.c.get(i);
+    public void a(long j) {
+        this.d = b(j);
+        super.sendMessage(this.d);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return a;
+    private RequestUserPermissionMessage b(long j) {
+        RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
+        requestUserPermissionMessage.setForumId(j);
+        return requestUserPermissionMessage;
     }
 
-    public int a(int i) {
-        return this.b[i];
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.d = null;
     }
 }

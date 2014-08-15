@@ -38,7 +38,7 @@ public class g extends BdAsyncTask<Object, Object, Object> {
     public void onPostExecute(Object obj) {
         super.onPostExecute(obj);
         if (this.c.length() > 0) {
-            com.baidu.adp.lib.stats.d.b().a("so", "load_" + this.a + ".so", "", "", -9101, this.c.toString(), new Object[0]);
+            com.baidu.adp.lib.stats.f.c().a("so", "load_" + this.a + ".so", "", "", -9101, this.c.toString(), new Object[0]);
         }
         if (this.d != null) {
             this.d.a(this.e);

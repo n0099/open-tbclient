@@ -4,14 +4,13 @@ import android.app.Activity;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.ImageView;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class a {
     private d a = null;
     private Handler b = new Handler();
     private Object c = null;
-    private final int d = KirinConfig.CONNECT_TIME_OUT;
+    private final int d = 3000;
     private final int e = 1000;
     private Runnable f = new b(this);
 
@@ -21,9 +20,9 @@ public class a {
 
     public void a(Activity activity, Object obj) {
         this.c = obj;
-        String g = com.baidu.tbadk.b.a.a().g();
-        long f = com.baidu.tbadk.b.a.a().f();
-        boolean c = com.baidu.tbadk.b.a.a().c();
+        String g = com.baidu.tbadk.c.a.a().g();
+        long f = com.baidu.tbadk.c.a.a().f();
+        boolean c = com.baidu.tbadk.c.a.a().c();
         if (TextUtils.isEmpty(g) || !c || f <= 0) {
             if (this.a != null) {
                 this.a.a(obj);
@@ -35,6 +34,10 @@ public class a {
         long j2 = j <= 3000 ? j : 3000L;
         TbImageView tbImageView = new TbImageView(activity);
         tbImageView.setDefaultResource(0);
+        tbImageView.setNightDefaultResource(0);
+        tbImageView.setDefaultBgResource(0);
+        tbImageView.setNightDefaultBgResource(0);
+        tbImageView.setImageDrawable(null);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setEvent(new c(this, activity.getWindow().getDecorView().findViewById(16908290), tbImageView, activity));
         tbImageView.a(g, 10, false);

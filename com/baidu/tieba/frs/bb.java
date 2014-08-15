@@ -1,31 +1,36 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ az a;
-    private final /* synthetic */ IndicatorView b;
+public class bb extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FrsActivity a;
+    private final String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(az azVar, IndicatorView indicatorView) {
-        this.a = azVar;
-        this.b = indicatorView;
+    public bb(FrsActivity frsActivity, String str) {
+        this.a = frsActivity;
+        this.b = str;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        if (this.b != null) {
-            this.b.setPosition(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        boolean b;
+        b = this.a.b(this.b);
+        return Boolean.valueOf(b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.a.showToast(com.baidu.tieba.x.shortcut_has_add);
+        } else {
+            this.a.a(this.b);
         }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
     }
 }

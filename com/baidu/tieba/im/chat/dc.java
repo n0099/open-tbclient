@@ -1,43 +1,39 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.BaseActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class dc {
-    String a;
-    BaseActivity b;
+class dc implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ PersonalChatActivity a;
 
-    public dc(String str, BaseActivity baseActivity) {
-        this.a = null;
-        this.a = str;
-        this.b = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dc(PersonalChatActivity personalChatActivity) {
+        this.a = personalChatActivity;
     }
 
-    public void a() {
-        try {
-            if (this.a == null || this.a.length() <= 0) {
-                a(this.b.getString(com.baidu.tieba.y.save_error));
-            }
-            new com.baidu.tbadk.editortool.aa(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.d) new dd(this));
-        } catch (Exception e) {
-            a(this.b.getString(com.baidu.tieba.y.save_error));
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(com.baidu.tieba.v.stranger_tips, (ViewGroup) null);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.z.a(str, bArr, this.b)) {
-            case -2:
-                return com.baidu.tbadk.core.util.z.b();
-            case -1:
-            default:
-                return this.b.getString(com.baidu.tieba.y.save_error);
-            case 0:
-                return this.b.getString(com.baidu.tieba.y.save_image_to_album);
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 3;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str) {
-        this.b.showToast(str);
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 16;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

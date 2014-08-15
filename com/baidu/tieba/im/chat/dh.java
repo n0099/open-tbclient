@@ -1,21 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements com.baidu.tbadk.imageManager.d {
-    private final /* synthetic */ View a;
+public class dh extends com.baidu.adp.base.h {
+    final /* synthetic */ TalkableActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(View view) {
-        this.a = view;
+    public dh(TalkableActivity talkableActivity) {
+        this.a = talkableActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
-            com.baidu.tbadk.core.util.bx.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bz) new di(this, str, aVar));
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+            if (this.a.e != null) {
+                this.a.e.a(responseData.getSPathGen(), responseData.getBitmap());
+                return;
+            }
+            return;
         }
+        this.a.showToast(com.baidu.tieba.x.pic_parser_error);
     }
 }

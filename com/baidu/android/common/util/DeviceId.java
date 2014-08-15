@@ -16,7 +16,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class DeviceId {
     private static final String AES_KEY = "30212102dicudiab";
@@ -164,7 +163,7 @@ public final class DeviceId {
                     break;
                 }
                 sb.append(readLine);
-                sb.append(IOUtils.LINE_SEPARATOR_WINDOWS);
+                sb.append("\r\n");
             }
             bufferedReader.close();
             Object[] split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");

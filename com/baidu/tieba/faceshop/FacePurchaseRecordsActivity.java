@@ -10,11 +10,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class FacePurchaseRecordsActivity extends BaseActivity {
-    private bc a;
-    private ba b;
+    private ba a;
+    private ay b;
     private String c;
-    private com.baidu.adp.base.h d = new av(this);
-    private com.baidu.tbadk.core.view.m e = new aw(this);
+    private com.baidu.adp.base.h d = new at(this);
+    private com.baidu.tbadk.core.view.q e = new au(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
@@ -32,14 +32,14 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     }
 
     private void a() {
-        this.a = new bc(this);
-        this.a.a(new ax(this));
+        this.a = new ba(this);
+        this.a.a(new av(this));
         this.a.a(this);
         b();
     }
 
     private void a(Bundle bundle) {
-        this.b = new ba();
+        this.b = new ay(this);
         if (bundle != null) {
             this.c = bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
         } else {
@@ -95,9 +95,6 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
         if (this.b != null) {
             this.b.cancelLoadData();
         }
-        if (this.a != null) {
-            this.a.e();
-        }
         c();
         super.onDestroy();
     }
@@ -106,7 +103,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FacePurchasePackageData facePurchasePackageData;
         if (this.a != null && this.a.a() != null && (facePurchasePackageData = (FacePurchasePackageData) this.a.a().getItem(i)) != null) {
-            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.n(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
+            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
             super.onItemClick(adapterView, view, i, j);
         }
     }

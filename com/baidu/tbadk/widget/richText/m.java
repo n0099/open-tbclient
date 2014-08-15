@@ -15,7 +15,7 @@ class m implements com.baidu.adp.lib.d.c<TextView> {
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public TextView a() {
-        return new com.baidu.tbadk.widget.l(this.a);
+        return new com.baidu.tbadk.widget.m(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

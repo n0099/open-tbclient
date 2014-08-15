@@ -3,9 +3,9 @@ package com.baidu.tieba.im.groupActivity;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseDelGroupActivityMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class o extends com.baidu.adp.framework.listener.b {
+class o extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ GroupActivityActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,11 +25,11 @@ class o extends com.baidu.adp.framework.listener.b {
         s sVar;
         if (socketResponsedMessage == null) {
             this.a.hideProgressBar();
-            this.a.showToast(y.neterror);
+            this.a.showToast(x.neterror);
         } else if (socketResponsedMessage.getCmd() == 103015) {
             this.a.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseGetGroupActivityMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             ResponseGetGroupActivityMessage responseGetGroupActivityMessage = (ResponseGetGroupActivityMessage) socketResponsedMessage;
@@ -44,13 +44,13 @@ class o extends com.baidu.adp.framework.listener.b {
                     sVar = this.a.a;
                     sVar.a(responseGetGroupActivityMessage.getActivityData(), false);
                 } else {
-                    this.a.showToast(y.neterror);
+                    this.a.showToast(x.neterror);
                 }
             }
         } else if (socketResponsedMessage.getCmd() == 103121) {
             this.a.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseDelGroupActivityMessage)) {
-                this.a.showToast(y.neterror);
+                this.a.showToast(x.neterror);
                 return;
             }
             ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
@@ -60,7 +60,7 @@ class o extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseDelGroupActivityMessage.getErrorString());
                     return;
                 }
-                this.a.showToast(y.group_activity_delete_succ, false);
+                this.a.showToast(x.group_activity_delete_succ, false);
                 this.a.finish();
             }
         }

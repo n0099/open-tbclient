@@ -14,9 +14,9 @@ import protobuf.Photo;
 import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
-public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<f> {
+public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<j> {
     private QueryGroupDetailResIdl mResData;
-    private f selfData;
+    private j selfData;
 
     public ResponseGroupInfoLocalMessage() {
         super(2001102);
@@ -33,14 +33,14 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
-    public f getData() {
+    public j getData() {
         return this.selfData;
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
         ActivityInfo activityInfo;
         Wire wire = new Wire(new Class[0]);
-        this.selfData = new f();
+        this.selfData = new j();
         this.mResData = (QueryGroupDetailResIdl) wire.parseFrom(bArr, QueryGroupDetailResIdl.class);
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);

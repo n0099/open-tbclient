@@ -38,6 +38,6 @@ public class q implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.n(this.a.getContext(), this.b, false, str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this.a.getContext(), this.b, false, str)));
     }
 }

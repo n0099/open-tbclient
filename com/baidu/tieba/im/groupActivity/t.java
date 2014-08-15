@@ -19,7 +19,7 @@ public class t implements View.OnClickListener {
     public void onClick(View view) {
         Dialog dialog;
         this.a.f();
-        dialog = this.a.s;
+        dialog = this.a.r;
         dialog.show();
         TiebaStatic.eventStat(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);
     }

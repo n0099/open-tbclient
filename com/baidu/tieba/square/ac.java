@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.u {
+public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
     private Context a;
     private LayoutInflater b;
     private final int c;
     private final int d;
     private final int e;
     private final int f;
-    private ArrayList<HeadImageView> g;
+    private ArrayList<TbImageView> g;
     private int h;
     private int i;
     private float j;
@@ -43,15 +44,15 @@ public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         this.m = null;
         this.a = context;
         this.e = com.baidu.adp.lib.util.j.b(context);
-        this.c = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
-        this.d = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_margin);
-        this.f = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_paddingBottom);
+        this.c = context.getResources().getDimensionPixelSize(com.baidu.tieba.s.square_page_padding);
+        this.d = context.getResources().getDimensionPixelSize(com.baidu.tieba.s.square_forum_topic_margin);
+        this.f = context.getResources().getDimensionPixelSize(com.baidu.tieba.s.square_forum_topic_paddingBottom);
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        ViewGroup viewGroup = (ViewGroup) this.b.inflate(com.baidu.tieba.w.forums_topics_recommend, (ViewGroup) this, true);
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic1));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic2));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic3));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic4));
+        ViewGroup viewGroup = (ViewGroup) this.b.inflate(com.baidu.tieba.v.forums_topics_recommend, (ViewGroup) this, true);
+        this.g.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.u.forum_topic_pic1));
+        this.g.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.u.forum_topic_pic2));
+        this.g.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.u.forum_topic_pic3));
+        this.g.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.u.forum_topic_pic4));
         this.h = ((this.e - (this.c * 2)) - this.d) / 2;
         this.i = (int) (this.h * this.j);
         setPadding(this.c, 0, this.c, 0);
@@ -59,7 +60,7 @@ public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
 
     public boolean a(ArrayList<ap> arrayList) {
         this.l = b(arrayList);
-        Iterator<HeadImageView> it = this.g.iterator();
+        Iterator<TbImageView> it = this.g.iterator();
         while (it.hasNext()) {
             it.next().setVisibility(8);
         }
@@ -89,11 +90,11 @@ public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         this.k = size;
         requestLayout();
         for (int i = 0; i < size; i++) {
-            HeadImageView headImageView = this.g.get(i);
+            TbImageView tbImageView = this.g.get(i);
             ap apVar = arrayList.get(i);
-            headImageView.setVisibility(0);
-            headImageView.setTag(apVar.a());
-            headImageView.setOnClickListener(new ad(this, apVar, i));
+            tbImageView.setVisibility(0);
+            tbImageView.setTag(apVar.a());
+            tbImageView.setOnClickListener(new ad(this, apVar, i));
         }
     }
 
@@ -146,11 +147,11 @@ public class ac extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         }
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void b() {
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void a(View view, int i, int i2) {
         int i3 = 0;
         this.m = view;

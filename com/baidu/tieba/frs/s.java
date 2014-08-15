@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-class s implements SlidingMenu.OnClosedListener {
+class s implements AbsListView.OnScrollListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +11,33 @@ class s implements SlidingMenu.OnClosedListener {
         this.a = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        ct ctVar;
-        ct ctVar2;
-        ctVar = this.a.v;
-        if (ctVar.m().d()) {
-            ctVar2 = this.a.v;
-            ctVar2.m().b(false);
-            this.a.E();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        cu cuVar;
+        cu cuVar2;
+        cu cuVar3;
+        cu cuVar4;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        cu cuVar5;
+        if (i == 0) {
+            cuVar4 = this.a.z;
+            onItemLongClickListener = this.a.as;
+            cuVar4.a(onItemLongClickListener);
+            cuVar5 = this.a.z;
+            cuVar5.f(false);
+            this.a.W = false;
+            return;
         }
+        cuVar = this.a.z;
+        cuVar.a((AdapterView.OnItemLongClickListener) null);
+        cuVar2 = this.a.z;
+        cuVar2.f(true);
+        this.a.W = true;
+        cuVar3 = this.a.z;
+        cuVar3.U();
     }
 }

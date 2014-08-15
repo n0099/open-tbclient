@@ -1,16 +1,24 @@
 package com.baidu.tieba.mainentrance;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class g implements com.baidu.tieba.view.w {
-    final /* synthetic */ SquareSearchActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+/* loaded from: classes.dex */
+class g {
+    TextView a;
+    TextView b;
+    TextView c;
+    TextView d;
+    LinearLayout e;
+    View f;
+    final /* synthetic */ e g;
+
+    private g(e eVar) {
+        this.g = eVar;
     }
 
-    @Override // com.baidu.tieba.view.w
-    public void a(boolean z) {
-        this.a.D = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(e eVar, g gVar) {
+        this(eVar);
     }
 }

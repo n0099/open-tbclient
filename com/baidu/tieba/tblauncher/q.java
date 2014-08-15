@@ -16,7 +16,7 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2 = this.a;
-        mainTabActivity = this.a.G;
+        mainTabActivity = this.a.I;
         mainTabActivity2.a(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.recommend;
 
 import android.view.View;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
     final /* synthetic */ DailyClassicalActivity a;
@@ -14,9 +14,9 @@ class b implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == v.back) {
+        if (id == u.back) {
             this.a.finish();
-        } else if (id == v.tag_webview_item) {
+        } else if (id == u.tag_webview_item) {
             this.a.a();
         }
     }

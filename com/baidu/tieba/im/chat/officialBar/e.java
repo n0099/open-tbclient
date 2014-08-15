@@ -3,17 +3,17 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
     final /* synthetic */ c a;
-    private final /* synthetic */ t b;
+    private final /* synthetic */ p b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, t tVar) {
+    public e(c cVar, p pVar) {
         this.a = cVar;
-        this.b = tVar;
+        this.b = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,7 +21,7 @@ public class e implements View.OnClickListener {
         Context context;
         Context context2;
         Context context3;
-        bq a = bq.a();
+        bg a = bg.a();
         context = this.a.a;
         a.a(context, new String[]{this.b.d});
         context2 = this.a.a;

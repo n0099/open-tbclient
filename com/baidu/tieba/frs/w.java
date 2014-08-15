@@ -1,10 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class w implements AdapterView.OnItemClickListener {
+class w implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,17 +13,17 @@ class w implements AdapterView.OnItemClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ct ctVar;
-        if (i >= 0) {
-            ctVar = this.a.v;
-            ctVar.i(i);
-            this.a.D = true;
-            this.a.C = ((com.baidu.tbadk.core.data.g) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.p = 1;
-            this.a.l = 3;
-            this.a.F();
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        g gVar;
+        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+        gVar = this.a.L;
+        ArrayList<com.baidu.tbadk.core.data.m> recommendForumData = gVar.i().getRecommendForumData();
+        if (recommendForumData != null) {
+            Iterator<com.baidu.tbadk.core.data.m> it = recommendForumData.iterator();
+            while (it.hasNext()) {
+                TiebaStatic.eventStat(this.a, "sidebar_show", "sidebar_click", 1, "st_param", it.next().d);
+            }
         }
     }
 }

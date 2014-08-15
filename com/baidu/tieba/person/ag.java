@@ -1,244 +1,183 @@
 package com.baidu.tieba.person;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.LiveCardData;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.person.PersonPostListData;
-import java.util.List;
+import com.baidu.tieba.view.CommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ag extends BaseAdapter {
-    private PersonPostListData a;
-    private BaseFragmentActivity b;
-    private ah c;
-    private int e;
-    private com.baidu.tieba.model.au i;
-    private LinearLayout j;
-    private ImageView k;
-    private TextView l;
-    private int d = -1;
-    private boolean f = false;
-    private float g = 0.4f;
-    private boolean h = false;
-
-    public void a(PersonPostListData personPostListData, com.baidu.tieba.model.au auVar) {
-        a(com.baidu.tbadk.core.util.bn.a().b());
-        this.a = personPostListData;
-        this.i = auVar;
-        if (this.i == null || this.a == null) {
-            this.d = 2;
-        } else if (this.i.c() == 0) {
-            if (this.a == null || this.a.post_list == null || this.a.post_list.size() == 0) {
-                this.d = 2;
-            } else {
-                this.d = 0;
-            }
-        } else if (this.a == null || this.a.post_list == null || this.a.post_list.size() == 0) {
-            this.d = 2;
-        } else {
-            this.d = 1;
-        }
-    }
+public class ag {
+    private final BaseFragmentActivity a;
+    private boolean b = true;
+    private boolean c = false;
+    private final View.OnClickListener d = new ah(this);
 
     public ag(BaseFragmentActivity baseFragmentActivity) {
-        this.e = Constants.MEDIA_INFO;
-        this.b = baseFragmentActivity;
-        this.e = com.baidu.adp.lib.util.j.b(baseFragmentActivity);
-        a(com.baidu.tbadk.core.util.bn.a().b());
+        this.a = baseFragmentActivity;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        List<PersonPostListData.PostList> list;
-        if (this.d == 2) {
-            return 1;
-        }
-        if (this.d == 0) {
-            return this.a.post_list.size() + 1;
-        }
-        if (this.a == null || (list = this.a.post_list) == null) {
-            return 0;
-        }
-        return list.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        if (this.d == 2 || this.a == null || this.a.post_list == null) {
-            return null;
-        }
-        List<PersonPostListData.PostList> list = this.a.post_list;
-        if (i < 0 || list == null || i >= list.size()) {
-            return null;
-        }
-        return list.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        PersonPostListData.PostList postList;
-        View view2 = null;
-        if (this.d == 2) {
-            View a = a(TbadkApplication.m252getInst().getSkinType(), this.i);
-            a(i, a);
-            return a;
-        } else if (this.d == 0 && i == getCount() - 1) {
-            View a2 = a(TbadkApplication.m252getInst().getSkinType(), this.i);
-            a(i, a2);
-            return a2;
-        } else {
-            int itemViewType = getItemViewType(i);
-            if (itemViewType == 6) {
-                PersonRelationCardData personRelationCardData = (PersonRelationCardData) getItem(i);
-                if (personRelationCardData != null) {
-                    aw awVar = new aw(this.b, personRelationCardData);
-                    awVar.a();
-                    if (view == null || view.getTag() == null) {
-                        view = awVar.a();
-                    }
-                    awVar.a(view);
-                } else {
-                    view = null;
-                }
-                a(i, view);
-                return view;
-            } else if (itemViewType == 7) {
-                PersonCenterListTopData personCenterListTopData = (PersonCenterListTopData) getItem(i);
-                if (personCenterListTopData != null) {
-                    as asVar = new as(this.b, personCenterListTopData);
-                    view2 = asVar.a();
-                    asVar.a(view2);
-                }
-                a(i, view2);
-                return view2;
-            } else {
-                if (this.c == null) {
-                    this.c = new ah(this.b);
-                }
-                this.c.a(this.e, this.f, this.g);
-                this.c.a(this.h);
-                if (view == null || view.getTag() == null) {
-                    view = this.c.a();
-                }
-                view.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.forumfeed_first_item_margin_top) : 0, 0, 0);
-                int skinType = TbadkApplication.m252getInst().getSkinType();
-                List<PersonPostListData.PostList> list = this.a.post_list;
-                if (list != null && (postList = list.get(i)) != null) {
-                    this.c.a(view, postList);
-                    this.c.a(skinType, view);
-                }
-                BaseFragmentActivity baseFragmentActivity = this.b;
-                baseFragmentActivity.c().a(skinType == 1);
-                baseFragmentActivity.c().a(view);
-                a(i, view);
-                return view;
-            }
-        }
-    }
-
-    private void a(int i, View view) {
-        if (i == 0) {
-            com.baidu.tbadk.core.util.bk.f(view, com.baidu.tieba.u.bg_frs);
-        } else {
-            view.setBackgroundResource(com.baidu.tieba.s.transparent);
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 8;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        PersonPostListData.PostList postList;
-        if (this.d == 2 || this.a == null) {
-            return 0;
-        }
-        List<PersonPostListData.PostList> list = this.a.post_list;
-        if (list != null && i < list.size() && (postList = list.get(i)) != null) {
-            if (postList instanceof PersonRelationCardData) {
-                return 6;
-            }
-            if (postList instanceof PersonCenterListTopData) {
-                return 7;
-            }
-            PersonPostListData.Media[] mediaArr = postList.media;
-            if (mediaArr != null) {
-                int length = mediaArr.length;
-                if (length >= 3) {
-                    return 5;
-                }
-                if (length == 2) {
-                    return 4;
-                }
-                return length == 1 ? 3 : 2;
-            }
-        }
-        return 2;
-    }
-
-    public View a(int i, com.baidu.tieba.model.au auVar) {
-        if (this.j == null) {
-            this.j = (LinearLayout) View.inflate(this.b, com.baidu.tieba.w.person_center_list_no_data_view, null);
-            this.k = (ImageView) this.j.findViewById(com.baidu.tieba.v.person_center_list_no_data_iv);
-            this.k.setVisibility(8);
-            this.l = (TextView) this.j.findViewById(com.baidu.tieba.v.person_center_list_no_data_txt);
-        }
-        a(i);
-        if (auVar != null && auVar.j() != null) {
-            this.k.setVisibility(0);
-            if (!auVar.i() && auVar.j().getPersonPrivate() != null && auVar.a() != null) {
-                if (auVar.j().getPersonPrivate().d() == 2 && auVar.a().g() != 1) {
-                    com.baidu.tbadk.core.util.bk.f(this.k, com.baidu.tieba.u.pic_go_ba);
-                    this.l.setText(com.baidu.tieba.y.friend_open_post);
-                    return this.j;
-                } else if (auVar.j().getPersonPrivate().d() == 3) {
-                    com.baidu.tbadk.core.util.bk.f(this.k, com.baidu.tieba.u.pic_go_ba);
-                    this.l.setText(com.baidu.tieba.y.hide_post);
-                    return this.j;
-                }
-            }
-            if (auVar.b() != null && auVar.b().hide_post != 0) {
-                this.l.setText(this.b.getResources().getString(com.baidu.tieba.y.his_post_not_available));
-            } else if (this.d != 1) {
-                if (auVar.i()) {
-                    this.l.setText(this.b.getResources().getString(com.baidu.tieba.y.no_post_info));
-                } else if (auVar.j().getSex() == 1) {
-                    this.l.setText(this.b.getResources().getString(com.baidu.tieba.y.he_no_post_info));
-                } else if (auVar.j().getSex() == 2) {
-                    this.l.setText(this.b.getResources().getString(com.baidu.tieba.y.she_no_post_info));
-                } else {
-                    this.l.setText(this.b.getResources().getString(com.baidu.tieba.y.ta_no_post_info));
-                }
-            }
-        }
-        return this.j;
-    }
-
-    private void a(int i) {
-        if (1 == i && this.j != null) {
-            this.j.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.s.transparent));
-            this.k.setBackgroundResource(com.baidu.tieba.u.pic_blank_page_search_1);
-            this.l.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.person_center_list_no_data_text_color_1));
-        } else if (this.j != null) {
-            this.j.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.s.transparent));
-            this.k.setBackgroundResource(com.baidu.tieba.u.pic_blank_page_search);
-            this.l.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.person_center_list_no_data_text_color));
-        }
+    public void a(int i, boolean z, float f) {
+        this.b = z;
     }
 
     public void a(boolean z) {
-        this.f = z;
+        this.c = z;
+    }
+
+    public void a(View view, PersonPostListData.PostList postList) {
+        ai aiVar;
+        int i = 0;
+        if (view.getTag() != null && (aiVar = (ai) view.getTag()) != null) {
+            String string = this.a.getResources().getString(com.baidu.tieba.x.forum_name_suffix);
+            aiVar.c.setText(String.valueOf(postList.forum_name) + string);
+            aiVar.c.setTag(postList.forum_name);
+            aiVar.d.setText(postList.title);
+            aiVar.c.setVisibility(8);
+            aiVar.p.setVisibility(8);
+            aiVar.f.setPadding(this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_padding), 0, 0, 0);
+            aiVar.f.setText(String.valueOf(postList.forum_name) + string);
+            aiVar.h.setText(String.valueOf(postList.reply_num));
+            aiVar.g.setText(com.baidu.tbadk.core.util.ba.a(postList.create_time * 1000));
+            if (postList.abs != null && postList.abs.length > 0 && TextUtils.isEmpty(postList.abs[0].text)) {
+                aiVar.e.setText(postList.abs[0].text);
+                aiVar.e.setVisibility(0);
+            } else {
+                aiVar.e.setText((CharSequence) null);
+                aiVar.e.setVisibility(8);
+            }
+            aiVar.k = new StringBuilder(String.valueOf(postList.forum_id)).toString();
+            aiVar.l = new StringBuilder(String.valueOf(postList.thread_id)).toString();
+            aiVar.j.setVisibility(8);
+            LiveCardData a = a(postList.anchor_info);
+            if (a.getAuthorId() != 0) {
+                aiVar.i.setVisibility(8);
+                aiVar.q.setVisibility(0);
+                aiVar.r.setData(a);
+            } else {
+                aiVar.q.setVisibility(8);
+                if (com.baidu.tbadk.core.h.a().f()) {
+                    aiVar.i.setVisibility(0);
+                    PersonPostListData.Media[] mediaArr = postList.media;
+                    if (mediaArr != null) {
+                        if (mediaArr.length > 0) {
+                            int length = mediaArr.length;
+                            int i2 = length > 3 ? 3 : length;
+                            if (i2 > 0) {
+                                MediaData[] mediaDataArr = new MediaData[i2];
+                                for (int i3 = 0; i3 < mediaArr.length && i < i2; i3++) {
+                                    if (mediaArr[i3].type == 3 || mediaArr[i3].type == 5) {
+                                        MediaData mediaData = new MediaData();
+                                        if (mediaArr[i3].type == 3) {
+                                            mediaData.setPic(mediaArr[i3].water_pic);
+                                            mediaData.setType(mediaArr[i3].type);
+                                            mediaData.setVideo(mediaArr[i3].water_pic);
+                                        } else {
+                                            mediaData.setPic(mediaArr[i3].pic_url);
+                                            mediaData.setType(mediaArr[i3].type);
+                                            mediaData.setVideo(mediaArr[i3].video_url);
+                                        }
+                                        mediaDataArr[i] = mediaData;
+                                        i++;
+                                    }
+                                }
+                                aiVar.i.setShowBig(this.b);
+                                aiVar.i.setData(mediaDataArr);
+                                aiVar.i.setFromCDN(this.c);
+                            }
+                        } else {
+                            aiVar.i.setVisibility(8);
+                        }
+                    }
+                } else {
+                    aiVar.i.setVisibility(8);
+                }
+            }
+            aiVar.n = this.b;
+            view.setTag(aiVar);
+        }
+    }
+
+    private LiveCardData a(PersonPostListData.AnchorInfo anchorInfo) {
+        LiveCardData liveCardData = new LiveCardData();
+        liveCardData.setAuthorId(anchorInfo.author_id);
+        liveCardData.setAuthorName(anchorInfo.author_name);
+        liveCardData.setGroupId(anchorInfo.group_id);
+        liveCardData.setIntro(anchorInfo.intro);
+        liveCardData.setLikers(anchorInfo.likers);
+        liveCardData.setListeners(anchorInfo.listeners);
+        liveCardData.setName(anchorInfo.name);
+        liveCardData.setPortrait(anchorInfo.portrait);
+        liveCardData.setPublisherId(anchorInfo.publisher_id);
+        liveCardData.setPublisherName(anchorInfo.publisher_name);
+        liveCardData.setStartTime(anchorInfo.start_time);
+        liveCardData.setStatus(anchorInfo.status);
+        liveCardData.setPublisherPortrait(anchorInfo.publisherPortrait);
+        return liveCardData;
+    }
+
+    public View a() {
+        ai aiVar = new ai();
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.forum_feed_item, (ViewGroup) null);
+        aiVar.a = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumTop);
+        aiVar.b = (RelativeLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumBottom);
+        aiVar.c = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListFrsName);
+        aiVar.d = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListTitle);
+        aiVar.e = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListAbstract);
+        aiVar.f = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListAuthor);
+        aiVar.o = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.u.user_icon_box);
+        aiVar.p = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.u.user_tshow_icon_box);
+        aiVar.g = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListTime);
+        aiVar.h = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListRplyNum);
+        aiVar.i = (CommonImageLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutFeedImage);
+        aiVar.j = (PlayVoiceBnt) linearLayout.findViewById(com.baidu.tieba.u.abstract_voice);
+        aiVar.q = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.feed_item_live_card);
+        aiVar.r = (LiveBroadcastCard) linearLayout.findViewById(com.baidu.tieba.u.feed_item_card);
+        aiVar.c.setOnClickListener(this.d);
+        linearLayout.setOnClickListener(this.d);
+        linearLayout.setTag(aiVar);
+        return linearLayout;
+    }
+
+    public void a(int i, View view) {
+        ai aiVar;
+        if (view != null && (aiVar = (ai) view.getTag()) != null && aiVar.m != i) {
+            switch (i) {
+                case 1:
+                    b(aiVar);
+                    break;
+                default:
+                    a(aiVar);
+                    break;
+            }
+            aiVar.m = i;
+        }
+    }
+
+    private void a(ai aiVar) {
+        Resources resources = this.a.getResources();
+        aiVar.a.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_top_bg);
+        com.baidu.tbadk.core.util.ay.e((View) aiVar.c, com.baidu.tieba.t.bg_label);
+        aiVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.t.icon_pop_news), (Drawable) null, (Drawable) null, (Drawable) null);
+        aiVar.b.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_foot_bg);
+    }
+
+    private void b(ai aiVar) {
+        Resources resources = this.a.getResources();
+        aiVar.a.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_top_bg_1);
+        com.baidu.tbadk.core.util.ay.e((View) aiVar.c, com.baidu.tieba.t.bg_label_1);
+        aiVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.t.icon_pop_news_1), (Drawable) null, (Drawable) null, (Drawable) null);
+        aiVar.b.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_foot_bg_1);
     }
 }

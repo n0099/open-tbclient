@@ -15,23 +15,22 @@ public class d implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(LinkedList<GroupNewsPojo> linkedList) {
-        t tVar;
+        r rVar;
         boolean z;
-        t tVar2;
+        r rVar2;
         int i;
-        tVar = this.a.b;
-        tVar.a(n.a(linkedList));
+        rVar = this.a.b;
+        rVar.a(l.a(linkedList));
         if (linkedList != null) {
             ValidateActivity validateActivity = this.a;
-            i = validateActivity.l;
-            validateActivity.l = i + linkedList.size();
+            i = validateActivity.j;
+            validateActivity.j = i + linkedList.size();
         }
-        z = this.a.i;
+        z = this.a.g;
         if (!z) {
-            tVar2 = this.a.b;
-            tVar2.a(false);
+            rVar2 = this.a.b;
+            rVar2.a(false);
         }
-        this.a.e();
-        this.a.m = false;
+        this.a.k = false;
     }
 }

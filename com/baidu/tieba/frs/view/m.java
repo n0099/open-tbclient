@@ -1,24 +1,32 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.forumdetail.ForumDetailActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ j a;
+    final /* synthetic */ FrsPraiseView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.a = jVar;
+    public m(FrsPraiseView frsPraiseView) {
+        this.a = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.a.z;
-        str = this.a.B;
-        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
+        PraiseData praiseData;
+        Context context;
+        praiseData = this.a.f;
+        MetaData metaData = praiseData.getUser().get(0);
+        if (metaData != null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.a.a;
+            messageManager.sendMessage(new CustomMessage(2002003, new bg(context, metaData.getUserId(), metaData.getName_show())));
+        }
     }
 }

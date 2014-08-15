@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity {
     private TextView a = null;
@@ -19,7 +18,7 @@ public class ProtocolActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.account_protocol_activity);
+        setContentView(com.baidu.tieba.v.account_protocol_activity);
         a();
     }
 
@@ -34,18 +33,18 @@ public class ProtocolActivity extends BaseActivity {
     */
     private void a() {
         BufferedReader bufferedReader;
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
-        this.c = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b = (RelativeLayout) findViewById(com.baidu.tieba.u.container);
+        this.c = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar = this.c;
-        String string = getString(com.baidu.tieba.y.account_protocol);
+        String string = getString(com.baidu.tieba.x.account_protocol);
         navigationBar.a(string);
-        this.a = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.a = (TextView) findViewById(com.baidu.tieba.u.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.x.baidu_protocol), "unicode"));
+                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.w.baidu_protocol), "unicode"));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -53,7 +52,7 @@ public class ProtocolActivity extends BaseActivity {
                             break;
                         }
                         sb.append(readLine);
-                        sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+                        sb.append("\n");
                     } catch (Exception e) {
                         e = e;
                         e.printStackTrace();
@@ -103,7 +102,7 @@ public class ProtocolActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        bk.c(this.b, i);
-        bk.b(this.a, i);
+        ay.c(this.b, i);
+        ay.b(this.a, i);
     }
 }

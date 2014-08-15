@@ -7,8 +7,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.util.bx;
+import com.baidu.tbadk.core.util.bo;
 /* loaded from: classes.dex */
 public class AutoSkinActivity extends BaseActivity {
     protected ViewGroup a = null;
@@ -19,7 +18,7 @@ public class AutoSkinActivity extends BaseActivity {
     protected Button f = null;
     protected ViewGroup g;
 
-    @Override // android.app.Activity
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         super.setContentView(i);
         a();
@@ -27,41 +26,41 @@ public class AutoSkinActivity extends BaseActivity {
 
     protected void a() {
         if (this.a == null) {
-            this.a = (ViewGroup) findViewById(v.container);
+            this.a = (ViewGroup) findViewById(u.container);
             if (this.a == null) {
-                this.a = (ViewGroup) findViewById(v.parent);
+                this.a = (ViewGroup) findViewById(u.parent);
             }
-            this.b = findViewById(v.title);
-            this.c = (ImageView) findViewById(v.back);
+            this.b = findViewById(u.title);
+            this.c = (ImageView) findViewById(u.back);
             if (this.c != null) {
                 this.c.setOnClickListener(new e(this));
             }
-            this.d = (TextView) findViewById(v.title_text);
+            this.d = (TextView) findViewById(u.title_text);
             if (this.a != null) {
                 this.f = (Button) this.a.findViewWithTag("skin_top_more_button");
             }
         }
         if (this.e == null) {
-            this.e = (ListView) findViewById(v.list);
+            this.e = (ListView) findViewById(u.list);
         }
-        this.g = (ViewGroup) findViewById(v.body_container);
-        bx.b(this.g);
+        this.g = (ViewGroup) findViewById(u.body_container);
+        bo.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bk.a(this.c, i);
-        bk.d(this.b, i);
-        bk.d(this.d, i);
-        bk.b(this.a, i);
-        bk.e((TextView) this.f, i);
+        com.baidu.tbadk.core.util.ay.a(this.c, i);
+        com.baidu.tbadk.core.util.ay.d(this.b, i);
+        com.baidu.tbadk.core.util.ay.d(this.d, i);
+        com.baidu.tbadk.core.util.ay.b(this.a, i);
+        com.baidu.tbadk.core.util.ay.e((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
         }
         if (this.g != null) {
-            bx.a(this.g, i);
+            bo.a(this.g, i);
         }
     }
 

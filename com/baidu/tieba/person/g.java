@@ -13,12 +13,12 @@ class g implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         h hVar;
-        com.baidu.tieba.model.i iVar;
-        com.baidu.tieba.model.i iVar2;
+        com.baidu.tieba.model.j jVar;
+        com.baidu.tieba.model.j jVar2;
         hVar = this.a.b;
-        iVar = this.a.a;
-        hVar.a(iVar.a());
-        iVar2 = this.a.a;
-        iVar2.a((Boolean) true);
+        jVar = this.a.a;
+        hVar.a(jVar.a());
+        jVar2 = this.a.a;
+        jVar2.a((Boolean) true);
     }
 }

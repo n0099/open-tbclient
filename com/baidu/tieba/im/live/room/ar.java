@@ -1,25 +1,38 @@
 package com.baidu.tieba.im.live.room;
 
-import android.widget.ImageView;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements com.baidu.tbadk.coreExtra.view.ai {
-    final /* synthetic */ LiveRoomChatView a;
+public class ar implements com.baidu.tbadk.core.view.ad {
+    final /* synthetic */ aq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(LiveRoomChatView liveRoomChatView) {
-        this.a = liveRoomChatView;
+    public ar(aq aqVar) {
+        this.a = aqVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ai
+    @Override // com.baidu.tbadk.core.view.ad
     public void a(int i) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (i == 0) {
-            imageView2 = this.a.x;
-            imageView2.setVisibility(8);
-            return;
+        List list;
+        List list2;
+        List list3;
+        Activity activity;
+        list = this.a.f;
+        if (list != null) {
+            list2 = this.a.f;
+            if (list2.size() > 0) {
+                list3 = this.a.f;
+                MetaData metaData = (MetaData) list3.get(i);
+                if (metaData != null) {
+                    MessageManager messageManager = MessageManager.getInstance();
+                    activity = this.a.a;
+                    messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(activity, metaData.getUserId(), metaData.getName_show())));
+                }
+            }
         }
-        imageView = this.a.x;
-        imageView.setVisibility(0);
     }
 }

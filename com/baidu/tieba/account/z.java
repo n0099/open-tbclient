@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i> {
+public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j> {
     final /* synthetic */ Register2Activity a;
-    private aq b;
+    private ae b;
 
     private z(Register2Activity register2Activity) {
         this.a = register2Activity;
@@ -28,7 +28,7 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.O = null;
         progressBar = this.a.D;
@@ -41,12 +41,12 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tbadk.core.data.i doInBackground(String... strArr) {
+    public com.baidu.tbadk.core.data.j doInBackground(String... strArr) {
         RegistData m;
-        com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
+        com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
         try {
             m = this.a.m();
-            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
             this.b.a("un", m.getName());
             this.b.a("phonenum", m.getPhone());
             this.b.a("passwd", m.getPsw());
@@ -56,13 +56,13 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
             if (m.getVcodeMd5() != null) {
                 this.b.a("vcode_md5", m.getVcodeMd5());
             }
-            String i = this.b.i();
-            if ((this.b.c() && (this.b.d() == 0 || this.b.d() == 36)) || this.b.d() == 5) {
-                com.baidu.tbadk.core.data.i iVar2 = new com.baidu.tbadk.core.data.i();
-                iVar2.a(i);
-                return iVar2;
+            String h = this.b.h();
+            if ((this.b.b() && (this.b.c() == 0 || this.b.c() == 36)) || this.b.c() == 5) {
+                com.baidu.tbadk.core.data.j jVar2 = new com.baidu.tbadk.core.data.j();
+                jVar2.a(h);
+                return jVar2;
             }
-            return iVar;
+            return jVar;
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
@@ -73,43 +73,43 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.core.data.i iVar) {
+    public void onPostExecute(com.baidu.tbadk.core.data.j jVar) {
         ProgressBar progressBar;
         RegistData m;
         int i;
         int i2;
         int i3;
-        super.onPostExecute(iVar);
+        super.onPostExecute(jVar);
         this.a.O = null;
         progressBar = this.a.D;
         progressBar.setVisibility(8);
         this.a.l();
-        this.a.P = iVar;
-        if (!this.b.c()) {
+        this.a.P = jVar;
+        if (!this.b.b()) {
             this.a.K = -1;
-            this.a.L = this.b.f();
+            this.a.L = this.b.e();
             this.a.k();
-        } else if (this.b.d() == 36) {
-            this.a.a(iVar.c());
+        } else if (this.b.c() == 36) {
+            this.a.a(jVar.c());
             Register2Activity register2Activity = this.a;
             i3 = Register2Activity.d;
             register2Activity.K = i3;
-            this.a.L = this.b.f();
+            this.a.L = this.b.e();
             this.a.k();
-        } else if (this.b.d() == 5) {
+        } else if (this.b.c() == 5) {
             Register2Activity register2Activity2 = this.a;
             i2 = Register2Activity.g;
             register2Activity2.K = i2;
             this.a.a(true);
-        } else if (this.b.d() == 0) {
+        } else if (this.b.c() == 0) {
             m = this.a.m();
             Register2Activity register2Activity3 = this.a;
             i = Register2Activity.c;
             ActivationActivity.a(register2Activity3, m, i);
             this.a.a(false);
         } else {
-            this.a.K = this.b.d();
-            this.a.L = this.b.f();
+            this.a.K = this.b.c();
+            this.a.L = this.b.e();
             this.a.k();
         }
     }

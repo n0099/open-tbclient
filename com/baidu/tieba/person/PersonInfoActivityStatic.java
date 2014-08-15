@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new de());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new dj());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, String str, String str2, String str3) {
+    public static void b(Context context, String str, String str2, String str3, String str4) {
         Intent intent;
         if (str != null && str.length() > 0 && !str.equals("0") && !str.startsWith("-")) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().equals(str)) {
@@ -28,6 +28,7 @@ public class PersonInfoActivityStatic {
             intent.putExtra("un", str);
             intent.putExtra("name", str2);
             intent.putExtra("from_forum", str3);
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
             intent.putExtra("tab_page", false);
             if (!(context instanceof Activity)) {
                 intent.setFlags(268435456);

@@ -58,29 +58,29 @@ public class s {
 
     public void a() {
         if (this.b == null) {
-            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.w.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.a.findViewById(com.baidu.tieba.v.account);
-            this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.y.input_name)) + ":");
-            this.i = (Button) this.a.findViewById(com.baidu.tieba.v.back);
+            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.v.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.a.findViewById(com.baidu.tieba.u.account);
+            this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.x.input_name)) + ":");
+            this.i = (Button) this.a.findViewById(com.baidu.tieba.u.back);
             this.i.setOnClickListener(new t(this));
-            this.k = (Button) this.a.findViewById(com.baidu.tieba.v.check_username);
+            this.k = (Button) this.a.findViewById(com.baidu.tieba.u.check_username);
             this.k.setOnClickListener(new u(this));
-            this.p = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.check_progress);
-            this.o = (Button) this.a.findViewById(com.baidu.tieba.v.confirm);
+            this.p = (ProgressBar) this.a.findViewById(com.baidu.tieba.u.check_progress);
+            this.o = (Button) this.a.findViewById(com.baidu.tieba.u.confirm);
             this.o.setOnClickListener(new v(this));
-            this.q = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.confirm_progress);
-            this.n = (TextView) this.a.findViewById(com.baidu.tieba.v.error_info);
-            this.d = (RadioGroup) this.a.findViewById(com.baidu.tieba.v.names_group);
-            this.f = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name1);
-            this.g = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name2);
-            this.h = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name3);
+            this.q = (ProgressBar) this.a.findViewById(com.baidu.tieba.u.confirm_progress);
+            this.n = (TextView) this.a.findViewById(com.baidu.tieba.u.error_info);
+            this.d = (RadioGroup) this.a.findViewById(com.baidu.tieba.u.names_group);
+            this.f = (RadioButton) this.a.findViewById(com.baidu.tieba.u.name1);
+            this.g = (RadioButton) this.a.findViewById(com.baidu.tieba.u.name2);
+            this.h = (RadioButton) this.a.findViewById(com.baidu.tieba.u.name3);
             this.e = new w(this);
             this.f.setOnCheckedChangeListener(this.e);
             this.g.setOnCheckedChangeListener(this.e);
             this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.a.findViewById(com.baidu.tieba.v.phone_info);
+            this.r = (TextView) this.a.findViewById(com.baidu.tieba.u.phone_info);
             d();
-            this.b = new Dialog(this.j, com.baidu.tieba.z.input_username_dialog);
+            this.b = new Dialog(this.j, com.baidu.tieba.y.input_username_dialog);
             this.b.setCanceledOnTouchOutside(false);
             this.b.getWindow().setSoftInputMode(20);
             this.b.setCancelable(false);
@@ -91,12 +91,12 @@ public class s {
             d();
             b((String) null);
             if (this.s == null || this.s.length() <= 0) {
-                this.r.setText("Hi," + this.j.getString(com.baidu.tieba.y.bar_friend));
+                this.r.setText("Hi," + this.j.getString(com.baidu.tieba.x.bar_friend));
             } else {
                 this.r.setText("Hi," + this.s);
             }
             if (!this.j.isFinishing()) {
-                this.b.show();
+                com.baidu.adp.lib.e.d.a(this.b, this.j);
                 this.b.setContentView(this.a);
                 WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
                 attributes.gravity = 51;

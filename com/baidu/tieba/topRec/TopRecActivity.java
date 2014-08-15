@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.model.ae;
-import com.baidu.tieba.u;
-import com.baidu.tieba.y;
+import com.baidu.tieba.model.af;
+import com.baidu.tieba.t;
+import com.baidu.tieba.x;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -16,11 +16,11 @@ public class TopRecActivity extends BaseActivity {
     private g a;
     private e b;
     private k c;
-    private ae d;
+    private af d;
     private d e;
     private TRForumListData f;
     private List<d> h;
-    private List<ae> i;
+    private List<af> i;
     private int g = 0;
     private int j = 0;
     private m k = new a(this);
@@ -127,9 +127,9 @@ public class TopRecActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.a.b(i);
         if (i == 1) {
-            this.b.a(u.btn_add_1, u.btn_add_end_1);
+            this.b.a(t.btn_add_1, t.btn_add_end_1);
         } else {
-            this.b.a(u.btn_add, u.btn_add_end);
+            this.b.a(t.btn_add, t.btn_add_end);
         }
     }
 
@@ -156,7 +156,7 @@ public class TopRecActivity extends BaseActivity {
             }
         } else if (view == this.a.b()) {
             if (this.j != 0) {
-                showToast(String.valueOf(getString(y.top_rec_like_finish_a)) + this.j + getString(y.top_rec_like_finish_b));
+                showToast(String.valueOf(getString(x.top_rec_like_finish_a)) + this.j + getString(x.top_rec_like_finish_b));
                 TiebaStatic.eventStat(this, "top_rec_have_like", "people_number", 1, new Object[0]);
             } else {
                 TiebaStatic.eventStat(this, "top_rec_no_like", "people_number", 1, new Object[0]);
@@ -175,7 +175,7 @@ public class TopRecActivity extends BaseActivity {
                     this.e.execute(Integer.valueOf(intValue));
                     return;
                 }
-                this.d = new ae();
+                this.d = new af();
                 if (!this.d.b()) {
                     this.i.add(this.d);
                     a(a, intValue);
@@ -191,7 +191,7 @@ public class TopRecActivity extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (this.j != 0) {
-            showToast(String.valueOf(getString(y.top_rec_like_finish_a)) + this.j + getString(y.top_rec_like_finish_b));
+            showToast(String.valueOf(getString(x.top_rec_like_finish_a)) + this.j + getString(x.top_rec_like_finish_b));
             TiebaStatic.eventStat(this, "top_rec_have_like", "people_number", 1, new Object[0]);
         } else {
             TiebaStatic.eventStat(this, "top_rec_no_like", "people_number", 1, new Object[0]);

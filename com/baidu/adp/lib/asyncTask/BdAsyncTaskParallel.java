@@ -1,10 +1,12 @@
 package com.baidu.adp.lib.asyncTask;
 
+import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private l a;
+    private BdUniqueId a;
     private BdAsyncTaskParallelType b;
+    private int c;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -12,6 +14,7 @@ public class BdAsyncTaskParallel {
         TWO_PARALLEL,
         THREE_PARALLEL,
         FOUR_PARALLEL,
+        CUSTOM_PARALLEL,
         MAX_PARALLEL;
 
         /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
@@ -25,23 +28,38 @@ public class BdAsyncTaskParallel {
         }
     }
 
-    public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, l lVar) {
+    public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
         this.a = null;
         this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        if (bdAsyncTaskParallelType == null || lVar == null) {
+        this.c = 1;
+        if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
         this.b = bdAsyncTaskParallelType;
-        this.a = lVar;
+        this.a = bdUniqueId;
+    }
+
+    public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
+        this.a = null;
+        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.c = 1;
+        if (bdUniqueId == null) {
+            throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+        }
+        this.b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.c = i;
+        this.a = bdUniqueId;
     }
 
     public int a() {
-        int i;
-        i = this.a.b;
-        return i;
+        return this.c;
     }
 
-    public BdAsyncTaskParallelType b() {
+    public int b() {
+        return this.a.getId();
+    }
+
+    public BdAsyncTaskParallelType c() {
         return this.b;
     }
 }

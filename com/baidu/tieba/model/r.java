@@ -1,148 +1,125 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class r extends BdAsyncTask<Integer, com.baidu.tieba.data.q, com.baidu.tieba.data.q> {
-    final /* synthetic */ q a;
-    private com.baidu.tieba.a.b b = null;
+public class r extends com.baidu.adp.base.e {
+    private com.baidu.tieba.data.p d;
+    private s e;
+    private boolean c = false;
+    private int f = 1;
+    protected int a = 0;
+    protected String b = null;
+    private int g = 0;
 
-    public r(q qVar) {
-        this.a = qVar;
-        setSelfExecute(true);
+    public boolean a() {
+        return this.c;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
+    public void a(boolean z) {
+        this.c = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public com.baidu.tieba.data.q doInBackground(Integer... numArr) {
-        try {
-            if (this.b == null) {
-                this.b = new com.baidu.tieba.a.b();
-            }
-            String num = numArr[0].toString();
-            if (numArr.length > 1 ? numArr[1].intValue() == 1 : false) {
-                publishProgress(this.a.h());
-                if (numArr[1].intValue() == 1) {
-                    return null;
-                }
-            }
-            String b = this.b.b(num);
-            if (!this.b.c() || b == null) {
-                return null;
-            }
-            com.baidu.tieba.data.q qVar = new com.baidu.tieba.data.q();
-            qVar.a(b);
-            if (num.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK) && this.b.e() == 0 && qVar.g() == 0) {
-                a(b);
-            }
-            return qVar;
-        } catch (Exception e) {
-            this.a.g = 0;
-            BdLog.e(e.getMessage().toString());
+    public boolean b() {
+        return this.g == 0;
+    }
+
+    public boolean c() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true;
+    }
+
+    public boolean d() {
+        return this.d != null && (this.d.d() || a());
+    }
+
+    public boolean e() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() <= 0) ? false : true;
+    }
+
+    public boolean f() {
+        return !c() && d();
+    }
+
+    public void a(int i) {
+        this.f = i;
+        this.e = new s(this);
+        this.e.execute(Integer.valueOf((i != 2 || a()) ? 1 : k()));
+        this.g = 1;
+    }
+
+    public void g() {
+        if (this.e == null) {
+            this.e = new s(this);
+        }
+        this.e.execute(1, 1);
+        this.g = 1;
+    }
+
+    public com.baidu.tieba.data.p h() {
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null) {
             return null;
         }
-    }
-
-    private void a(String str) {
-        com.baidu.adp.lib.cache.s<String> k;
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && (k = com.baidu.tbadk.core.a.b.a().k()) != null) {
-            k.a("home_forumfeed_" + currentAccount, str, 604800000L);
+        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.my_pages");
+        String a = b != null ? b.a("home_forumfeed_" + currentAccount) : null;
+        if (a != null) {
+            com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
+            pVar.a(a);
+            this.d = pVar;
+            return pVar;
         }
+        return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(com.baidu.tieba.data.q... qVarArr) {
-        com.baidu.adp.base.h hVar;
-        super.onProgressUpdate(qVarArr);
-        s sVar = new s(this.a);
-        sVar.b = 3;
-        sVar.a = qVarArr.length > 0 ? qVarArr[0] : null;
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(sVar);
+    public int i() {
+        return this.f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.q qVar) {
-        int i;
-        com.baidu.adp.base.h hVar;
-        com.baidu.tieba.data.q qVar2;
-        com.baidu.tieba.data.q qVar3;
-        int i2;
-        com.baidu.tieba.data.q qVar4;
-        com.baidu.adp.base.h hVar2;
-        this.b.a();
-        if (b(qVar)) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(null);
-        } else {
-            i = this.a.f;
-            if (i != 1) {
-                qVar3 = this.a.d;
-                if (qVar3 != null) {
-                    i2 = this.a.f;
-                    if (i2 == 2) {
-                        if (this.a.a()) {
-                            this.a.d = qVar;
-                        } else {
-                            qVar4 = this.a.d;
-                            qVar4.a(qVar, true);
-                        }
-                    }
-                    hVar = this.a.mLoadDataCallBack;
-                    qVar2 = this.a.d;
-                    hVar.a(qVar2);
-                }
-            }
-            this.a.d = qVar;
-            hVar = this.a.mLoadDataCallBack;
-            qVar2 = this.a.d;
-            hVar.a(qVar2);
+    private int k() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        if (this.d == null || (b = this.d.b()) == null) {
+            return 1;
         }
-        this.a.g = 0;
+        return (b.size() / 20) + 1;
     }
 
-    private boolean b(com.baidu.tieba.data.q qVar) {
-        if (qVar == null || this.b.e() != 0) {
-            this.a.setErrorCode(this.b.e());
-            this.a.setErrorString(this.b.f());
+    @Override // com.baidu.adp.base.e
+    public int getErrorCode() {
+        return this.a;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void setErrorCode(int i) {
+        this.a = i;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public String getErrorString() {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void setErrorString(String str) {
+        this.b = str;
+    }
+
+    public com.baidu.tieba.data.p j() {
+        return this.d;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.e != null) {
+            this.e.cancel();
             return true;
-        } else if (qVar != null && qVar.g() != 0) {
-            this.a.setErrorCode(qVar.g());
-            this.a.setErrorString(qVar.h());
-            return true;
-        } else {
-            return false;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.a();
-        }
+        return true;
     }
 }

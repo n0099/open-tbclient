@@ -2,8 +2,9 @@ package com.baidu.tieba.editortool;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
+public class d extends CustomMessageListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,6 +18,8 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.a.a(0, 50, 0, 0);
+        com.baidu.tieba.model.e eVar;
+        eVar = this.a.b;
+        eVar.a(0, 50, 0, 0);
     }
 }

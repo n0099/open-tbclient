@@ -7,9 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,17 +67,17 @@ public class m extends BaseAdapter {
             return null;
         }
         if (view == null) {
-            view = this.c.inflate(w.quick_search_item, (ViewGroup) null);
+            view = this.c.inflate(v.quick_search_item, (ViewGroup) null);
             n nVar2 = new n(this.a, null);
-            nVar2.a = (HeadImageView) view.findViewById(v.quick_search_item_icon);
-            nVar2.b = (TextView) view.findViewById(v.quick_search_item_text);
+            nVar2.a = (HeadImageView) view.findViewById(u.quick_search_item_icon);
+            nVar2.b = (TextView) view.findViewById(u.quick_search_item_text);
             view.setTag(nVar2);
             nVar = nVar2;
         } else {
             nVar = (n) view.getTag();
         }
         layoutMode.a(view);
-        view.setBackgroundResource(z ? u.addresslist_item_bg_1 : u.addresslist_item_bg);
+        view.setBackgroundResource(z ? t.addresslist_item_bg_1 : t.addresslist_item_bg);
         if (item.b() != null) {
             nVar.b.setText(item.b());
         }

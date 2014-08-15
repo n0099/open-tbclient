@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private com.baidu.tieba.data.al data;
+    private com.baidu.tieba.data.am data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +22,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new com.baidu.tieba.data.al();
+        this.data = new com.baidu.tieba.data.am();
     }
 
-    public void setPersonListData(com.baidu.tieba.data.al alVar) {
-        this.data = alVar;
+    public void setPersonListData(com.baidu.tieba.data.am amVar) {
+        this.data = amVar;
     }
 
-    public com.baidu.tieba.data.al getPersonListData() {
+    public com.baidu.tieba.data.am getPersonListData() {
         return this.data;
     }
 
@@ -55,7 +55,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.s<String> n;
+        com.baidu.adp.lib.cache.t<String> b;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -65,8 +65,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (n = com.baidu.tbadk.core.a.b.a().n()) != null) {
-                        n.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (b = com.baidu.tbadk.core.a.a.a().b("tb.my_pages")) != null) {
+                        b.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

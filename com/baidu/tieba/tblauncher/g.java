@@ -1,24 +1,34 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class g implements ViewPager.OnPageChangeListener {
+class g extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ GuideActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(GuideActivity guideActivity) {
+    private g(GuideActivity guideActivity) {
         this.a = guideActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(GuideActivity guideActivity, g gVar) {
+        this(guideActivity);
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(GuideActivity.i(this.a));
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        if (!bool.booleanValue()) {
+            GuideActivity.j(this.a);
+        }
     }
 }

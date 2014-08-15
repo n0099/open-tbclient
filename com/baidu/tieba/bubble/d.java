@@ -1,9 +1,8 @@
 package com.baidu.tieba.bubble;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tieba.y;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.at;
 /* loaded from: classes.dex */
 class d implements s {
     final /* synthetic */ BubbleChooseActivity a;
@@ -15,10 +14,10 @@ class d implements s {
 
     @Override // com.baidu.tieba.bubble.s
     public void a(int i) {
-        com.baidu.tieba.model.d dVar;
-        dVar = this.a.c;
-        dVar.b(i);
-        TbWebViewActivity.startActivityForResult(this.a, TbadkApplication.m252getInst().getString(y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion(), true, false, true, true, null, 23004);
+        com.baidu.tieba.model.e eVar;
+        eVar = this.a.c;
+        eVar.b(i);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new at(this.a, true, 23004, "pop_unable")));
     }
 
     @Override // com.baidu.tieba.bubble.s

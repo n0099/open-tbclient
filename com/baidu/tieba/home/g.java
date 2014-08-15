@@ -17,6 +17,6 @@ class g implements Runnable {
         BdLog.d("OnLoadForumDataCallback, startPullRefresh after load from db");
         eVar = this.a.a;
         pVar = eVar.b;
-        pVar.b();
+        pVar.a();
     }
 }

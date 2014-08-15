@@ -1,90 +1,22 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class e {
-    private static e a = null;
-    private SparseArray<Long> b = new SparseArray<>();
-
-    public static synchronized e a() {
-        e eVar;
-        synchronized (e.class) {
-            if (a == null) {
-                a = new e();
-            }
-            eVar = a;
-        }
-        return eVar;
+class e extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(int i) {
+        super(i);
     }
 
-    public void a(int i, long j) {
-        synchronized (this.b) {
-            Long l = this.b.get(i);
-            if (l == null || l.longValue() <= j) {
-                this.b.put(i, Long.valueOf(j));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data;
+        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
+            return;
         }
-    }
-
-    public void b(int i, long j) {
-        synchronized (this.b) {
-            Long l = this.b.get(i);
-            if (l == null || l.longValue() == 0) {
-                this.b.put(i, Long.valueOf(j));
-            }
-        }
-    }
-
-    public synchronized void a(int i) {
-        synchronized (this.b) {
-            this.b.remove(i);
-        }
-    }
-
-    public boolean b(int i) {
-        return this.b.get(i) != null;
-    }
-
-    public synchronized void b() {
-        synchronized (this.b) {
-            this.b.clear();
-        }
-    }
-
-    public long c(int i) {
-        Long l = this.b.get(i);
-        if (l == null) {
-            return 0L;
-        }
-        return l.longValue();
-    }
-
-    public SparseArray<Long> c() {
-        if (!TbadkApplication.isLogin()) {
-            this.b.remove(10);
-        }
-        return this.b;
-    }
-
-    public long d() {
-        long longValue;
-        long j = 0;
-        int size = this.b.size();
-        int i = 0;
-        while (i < size) {
-            Long valueAt = this.b.valueAt(i);
-            if (valueAt == null) {
-                longValue = j;
-            } else {
-                longValue = valueAt.longValue();
-                if (longValue <= j) {
-                    longValue = j;
-                }
-            }
-            i++;
-            j = longValue;
-        }
-        return j;
+        a.o = ((Boolean) data).booleanValue();
     }
 }

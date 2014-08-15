@@ -1,0 +1,20 @@
+package com.baidu.tieba.mainentrance;
+
+import com.baidu.adp.framework.message.CustomMessage;
+/* loaded from: classes.dex */
+public class RequestSearchPersonHistoryWriteMessage extends CustomMessage<Object> {
+    private boolean isclear;
+
+    public RequestSearchPersonHistoryWriteMessage() {
+        super(2001194);
+        this.isclear = false;
+    }
+
+    public boolean isClear() {
+        return this.isclear;
+    }
+
+    public void setClear(boolean z) {
+        this.isclear = z;
+    }
+}

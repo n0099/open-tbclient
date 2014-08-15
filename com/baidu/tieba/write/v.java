@@ -23,8 +23,8 @@ public class v implements com.baidu.tbadk.imageManager.d {
             return;
         }
         tbImageView = this.a.c;
-        tbImageView.setDefaultResource(com.baidu.tieba.u.image_group_load_f);
+        tbImageView.setDefaultResource(com.baidu.tieba.t.image_group_load_f);
         tbImageView2 = this.a.c;
-        tbImageView2.setNightDefaultResource(com.baidu.tieba.u.image_group_load_f);
+        tbImageView2.setNightDefaultResource(com.baidu.tieba.t.image_group_load_f);
     }
 }

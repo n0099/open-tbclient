@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import com.baidu.tbadk.coreExtra.view.ar;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class e implements ar {
     final /* synthetic */ SnapGroupChatActivity a;
@@ -14,13 +14,13 @@ class e implements ar {
     @Override // com.baidu.tbadk.coreExtra.view.ar
     public void a() {
         h hVar;
-        SnapGroupChatView x;
-        this.a.z();
-        this.a.showToast(this.a.getString(y.snap_group_chat_finished));
+        SnapGroupChatView w;
+        this.a.y();
+        this.a.showToast(this.a.getString(x.snap_group_chat_finished));
         hVar = this.a.q;
         hVar.a();
-        x = this.a.x();
-        x.V().setVisibility(4);
+        w = this.a.w();
+        w.V().setVisibility(4);
         this.a.u = true;
     }
 }

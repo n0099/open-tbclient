@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bi;
+import com.baidu.tbadk.core.atomData.bq;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity {
@@ -15,7 +15,7 @@ public class SapiFastRegActivity extends BaseActivity {
     private final com.baidu.tbadk.core.account.g c = new aa(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bi.class, SapiFastRegActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bq.class, SapiFastRegActivity.class);
     }
 
     public static void a(Activity activity, int i) {
@@ -26,12 +26,12 @@ public class SapiFastRegActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.layout_sapi_webview_fastreg);
+        setContentView(com.baidu.tieba.v.layout_sapi_webview_fastreg);
         a();
     }
 
     protected void a() {
-        SapiWebView sapiWebView = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
+        SapiWebView sapiWebView = (SapiWebView) findViewById(com.baidu.tieba.u.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, sapiWebView);
         sapiWebView.setOnFinishCallback(new ab(this));
         sapiWebView.setAuthorizationListener(new ac(this));

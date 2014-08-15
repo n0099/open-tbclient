@@ -12,15 +12,15 @@ class s extends com.baidu.adp.base.h {
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        bt btVar;
-        com.baidu.tieba.model.aq aqVar;
+        bs bsVar;
+        com.baidu.tieba.model.ar arVar;
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                btVar = this.a.D;
-                btVar.a(bitmap);
-                aqVar = this.a.z;
-                aqVar.a(true);
+                bsVar = this.a.D;
+                bsVar.a(bitmap);
+                arVar = this.a.z;
+                arVar.a(true);
             }
         }
     }

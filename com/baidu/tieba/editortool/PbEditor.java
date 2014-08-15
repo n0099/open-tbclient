@@ -134,9 +134,9 @@ public class PbEditor extends LinearLayout {
     }
 
     protected void i() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.pb_editor_view, (ViewGroup) this, true);
-        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
-        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_view, (ViewGroup) this, true);
+        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.u.pb_editor_tool_button);
+        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.u.pb_editor_tool_group);
     }
 
     public boolean j() {
@@ -207,8 +207,6 @@ public class PbEditor extends LinearLayout {
     }
 
     public void c(int i) {
-        this.b.a(i);
-        this.c.a(i);
         if (this.a instanceof BaseActivity) {
             ((BaseActivity) this.a).getLayoutMode().a(i == 1);
             ((BaseActivity) this.a).getLayoutMode().a((View) this.b);
@@ -218,6 +216,8 @@ public class PbEditor extends LinearLayout {
             ((BaseFragmentActivity) this.a).c().a((View) this.b);
             ((BaseFragmentActivity) this.a).c().a((View) this.c);
         }
+        this.b.a(i);
+        this.c.a(i);
     }
 
     public void m() {
@@ -293,7 +293,7 @@ public class PbEditor extends LinearLayout {
         if (str != null && str.length() != 0) {
             Matcher matcher = k.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.ab.a().a(matcher.group())) {
+                if (com.baidu.tbadk.editortool.aa.a().a(matcher.group())) {
                     i++;
                 }
             }

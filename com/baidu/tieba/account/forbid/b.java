@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.forbid;
 
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class b implements j {
     final /* synthetic */ a a;
@@ -17,7 +17,7 @@ class b implements j {
         ForbidActivity forbidActivity3;
         forbidActivity = this.a.a;
         forbidActivity2 = this.a.a;
-        forbidActivity.showToast(forbidActivity2.getString(y.forbid_success));
+        forbidActivity.showToast(forbidActivity2.getString(x.forbid_success));
         forbidActivity3 = this.a.a;
         forbidActivity3.finish();
     }
@@ -28,6 +28,6 @@ class b implements j {
         ForbidActivity forbidActivity2;
         forbidActivity = this.a.a;
         forbidActivity2 = this.a.a;
-        forbidActivity.showToast(forbidActivity2.getString(y.forbid_failure));
+        forbidActivity.showToast(forbidActivity2.getString(x.forbid_failure));
     }
 }

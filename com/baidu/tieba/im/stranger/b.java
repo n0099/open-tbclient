@@ -1,22 +1,17 @@
 package com.baidu.tieba.im.stranger;
-
-import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class b extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+class b implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ StrangerListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(String str, int i) {
-        this.b = str;
-        this.c = i;
+    public b(StrangerListActivity strangerListActivity) {
+        this.a = strangerListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.db.p.d().a(this.b, TbadkApplication.getCurrentAccount(), this.c);
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar2 = this.a.e;
+        aVar2.c();
     }
 }

@@ -20,8 +20,8 @@ class aa extends CustomMessageListener {
         MainTabActivity mainTabActivity;
         if (customResponsedMessage != null && com.baidu.tbadk.core.b.b.a() == null) {
             ae aeVar = new ae();
-            mainTabActivity = this.a.G;
-            aeVar.a((k) mainTabActivity);
+            mainTabActivity = this.a.I;
+            aeVar.a((i) mainTabActivity);
             com.baidu.tbadk.core.b.b.a(aeVar);
         }
     }

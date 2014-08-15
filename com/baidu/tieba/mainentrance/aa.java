@@ -1,20 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class aa implements View.OnFocusChangeListener {
+class aa extends CustomMessageListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(SquareSearchActivity squareSearchActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.util.j.a(this.a, view);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseSearchPersonHistoryWriteMessage)) {
+            ResponseSearchPersonHistoryWriteMessage responseSearchPersonHistoryWriteMessage = (ResponseSearchPersonHistoryWriteMessage) customResponsedMessage;
+            this.a.hideProgressBar();
         }
     }
 }

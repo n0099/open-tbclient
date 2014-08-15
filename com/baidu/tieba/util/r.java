@@ -5,22 +5,19 @@ import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.service.PerformMonitorService;
 import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class r {
     public static String a(String str) {
-        if (bm.c(str) || str.indexOf("cuid=") <= -1) {
+        if (ba.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -41,7 +38,7 @@ public class r {
         context.startService(new Intent(context, PerformMonitorService.class));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [274=5] */
     public static boolean a() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -90,24 +87,7 @@ public class r {
         return true;
     }
 
-    public static boolean a(Context context, String str) {
-        int i = 0;
-        List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
-        ArrayList arrayList = new ArrayList();
-        if (installedPackages != null) {
-            while (true) {
-                int i2 = i;
-                if (i2 >= installedPackages.size()) {
-                    break;
-                }
-                arrayList.add(installedPackages.get(i2).packageName);
-                i = i2 + 1;
-            }
-        }
-        return arrayList.contains(str);
-    }
-
-    public static void b(Context context, String str) {
+    public static void a(Context context, String str) {
         Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + str));
         intent.addFlags(268435456);
         try {
@@ -119,7 +99,7 @@ public class r {
         }
     }
 
-    public static void c(Context context, String str) {
+    public static void b(Context context, String str) {
         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", "");
         intent.addFlags(268435456);
@@ -132,7 +112,7 @@ public class r {
         }
     }
 
-    public static void d(Context context, String str) {
+    public static void c(Context context, String str) {
         try {
             TiebaStatic.eventStat(context, "search_in_baidu", "searchclick", 1, new Object[0]);
             Intent intent = new Intent();
@@ -150,11 +130,11 @@ public class r {
             intent.addFlags(268435456);
             context.startActivity(intent);
         } catch (Exception e) {
-            e(context, str);
+            d(context, str);
         }
     }
 
-    private static void e(Context context, String str) {
+    private static void d(Context context, String str) {
         if (str != null && str.length() > 0) {
             com.baidu.tbadk.browser.a.b(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
         } else {

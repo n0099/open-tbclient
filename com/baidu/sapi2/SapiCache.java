@@ -490,8 +490,8 @@ public final class SapiCache {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [592=4] */
     static void a(java.lang.String r4, byte[] r5) {
         /*
-            java.lang.String r0 = android.os.Environment.getExternalStorageState()
-            java.lang.String r1 = "mounted"
+            java.lang.String r0 = "mounted"
+            java.lang.String r1 = android.os.Environment.getExternalStorageState()
             boolean r0 = r0.equals(r1)
             if (r0 == 0) goto L3e
             r0 = 0

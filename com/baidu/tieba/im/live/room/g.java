@@ -3,7 +3,7 @@ package com.baidu.tieba.im.live.room;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.SendForeNoticeResponseMessage;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.b {
+class g extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,13 +24,13 @@ class g extends com.baidu.adp.framework.listener.b {
         }
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 107107) {
             if (!(socketResponsedMessage instanceof SendForeNoticeResponseMessage)) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
+                this.a.showToast(com.baidu.tieba.x.neterror);
                 return;
             }
             SendForeNoticeResponseMessage sendForeNoticeResponseMessage = (SendForeNoticeResponseMessage) socketResponsedMessage;
             if (sendForeNoticeResponseMessage.hasError()) {
-                if (com.baidu.adp.lib.util.i.b(sendForeNoticeResponseMessage.getUserMsg())) {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                if (com.baidu.adp.lib.util.i.c(sendForeNoticeResponseMessage.getUserMsg())) {
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                 } else {
                     this.a.showToast(sendForeNoticeResponseMessage.getUserMsg());
                 }

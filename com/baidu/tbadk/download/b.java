@@ -3,8 +3,8 @@ package com.baidu.tbadk.download;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.s;
+import com.baidu.tieba.x;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,9 +35,9 @@ public class b {
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(x.download_fail_over_max));
             if (downloadData.getCallback() != null) {
-                downloadData.getCallback().b(downloadData);
+                downloadData.getCallback().a(downloadData);
                 return;
             }
             return;
@@ -48,9 +48,9 @@ public class b {
     public void a(DownloadData downloadData) {
         if (c.size() >= this.e) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(x.download_fail_over_max));
             if (downloadData.getCallback() != null) {
-                downloadData.getCallback().b(downloadData);
+                downloadData.getCallback().a(downloadData);
                 return;
             }
             return;
@@ -60,13 +60,13 @@ public class b {
 
     public void b(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!z.a()) {
-                downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_no_sd));
+            if (!s.a()) {
+                downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(x.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
                 if (downloadData.getCallback() != null) {
-                    downloadData.getCallback().b(downloadData);
+                    downloadData.getCallback().a(downloadData);
                     return;
                 }
                 return;
@@ -102,6 +102,31 @@ public class b {
         }
     }
 
+    public void a(String str) {
+        if (b != null && b.getUrl().equals(str)) {
+            this.d.cancel(true);
+            return;
+        }
+        LinkedList<DownloadData> linkedList = new LinkedList();
+        Iterator<DownloadData> it = c.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            DownloadData next = it.next();
+            if (next.getUrl().equals(str)) {
+                next.setStatus(4);
+                if (next.getCallback() != null) {
+                    next.getCallback().a(next);
+                }
+                linkedList.add(next);
+            }
+        }
+        for (DownloadData downloadData : linkedList) {
+            c.remove(downloadData);
+        }
+    }
+
     public void a(String str, int i) {
         if (b != null && b.getId().equals(str) && b.getType() == i) {
             this.d.cancel(true);
@@ -118,7 +143,7 @@ public class b {
                 next.setStatus(4);
                 next.setStatusMsg(null);
                 if (next.getCallback() != null) {
-                    next.getCallback().b(next);
+                    next.getCallback().a(next);
                 }
                 linkedList.add(next);
             }
@@ -138,7 +163,7 @@ public class b {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
                 if (downloadData.getCallback() != null) {
-                    downloadData.getCallback().b(downloadData);
+                    downloadData.getCallback().a(downloadData);
                 }
                 linkedList.add(downloadData);
             }

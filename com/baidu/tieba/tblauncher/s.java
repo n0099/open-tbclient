@@ -1,7 +1,7 @@
 package com.baidu.tieba.tblauncher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.core.view.h {
+public class s implements com.baidu.tbadk.core.view.l {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +9,12 @@ public class s implements com.baidu.tbadk.core.view.h {
         this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
+    @Override // com.baidu.tbadk.core.view.l
     public void a() {
         this.a.o();
     }
 
-    @Override // com.baidu.tbadk.core.view.h
+    @Override // com.baidu.tbadk.core.view.l
     public void b() {
     }
 }

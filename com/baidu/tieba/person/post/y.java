@@ -27,12 +27,12 @@ public class y extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.f = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.new_pb_list_more, (ViewGroup) null);
-        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin));
-        this.c = (TextView) this.f.findViewById(com.baidu.tieba.v.pb_more_text);
-        this.g = this.f.findViewById(com.baidu.tieba.v.pb_more_view);
+        this.f = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.new_pb_list_more, (ViewGroup) null);
+        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_margin));
+        this.c = (TextView) this.f.findViewById(com.baidu.tieba.u.pb_more_text);
+        this.g = this.f.findViewById(com.baidu.tieba.u.pb_more_view);
         this.g.setVisibility(8);
-        this.d = (ProgressBar) this.f.findViewById(com.baidu.tieba.v.progress);
+        this.d = (ProgressBar) this.f.findViewById(com.baidu.tieba.u.progress);
         a(TbadkApplication.m252getInst().getSkinType());
         this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.f;
@@ -44,7 +44,7 @@ public class y extends com.baidu.adp.widget.ListView.e {
 
     public void c() {
         this.d.setVisibility(0);
-        this.c.setText(this.b.getText(com.baidu.tieba.y.loading));
+        this.c.setText(this.b.getText(com.baidu.tieba.x.loading));
         this.g.setVisibility(0);
     }
 
@@ -54,14 +54,14 @@ public class y extends com.baidu.adp.widget.ListView.e {
         }
         if (this.c != null) {
             this.g.setVisibility(0);
-            this.c.setText(com.baidu.tieba.y.person_post_thread_no_more);
+            this.c.setText(com.baidu.tieba.x.person_post_thread_no_more);
         }
     }
 
     public void e() {
         this.d.setVisibility(8);
         this.g.setVisibility(0);
-        this.c.setText(com.baidu.tieba.y.load_more);
+        this.c.setText(com.baidu.tieba.x.load_more);
     }
 
     @Override // com.baidu.adp.widget.ListView.e

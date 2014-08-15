@@ -16,7 +16,7 @@ public class e implements CustomMessageTask.CustomRunnable<String> {
         if (b != null) {
             Iterator<b> it = b.iterator();
             while (it.hasNext()) {
-                if (com.baidu.adp.lib.util.i.b(it.next().b())) {
+                if (com.baidu.adp.lib.util.i.c(it.next().b())) {
                     it.remove();
                 }
             }

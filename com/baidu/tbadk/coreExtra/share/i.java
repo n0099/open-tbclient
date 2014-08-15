@@ -3,8 +3,8 @@ package com.baidu.tbadk.coreExtra.share;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class i {
     private static c a = null;
@@ -83,7 +83,7 @@ public class i {
     }
 
     private String a(String str, int i, int i2) {
-        String string = this.c.getString(y.share_tail);
+        String string = this.c.getString(x.share_tail);
         if (str != null) {
             int min = Math.min((i - string.length()) - i2, str.length());
             if (min < str.length()) {
@@ -105,12 +105,12 @@ public class i {
         if (hVar.d != null) {
             hVar.d = Uri.parse(a(hVar.d.toString(), "sfc=" + str));
         }
-        hVar.c = a(bm.c(hVar.c) ? "http://tieba.baidu.com" : hVar.c, "sfc=" + str);
+        hVar.c = a(ba.c(hVar.c) ? "http://tieba.baidu.com" : hVar.c, "sfc=" + str);
         return hVar;
     }
 
     private String a(String str, String str2) {
-        if (bm.c(Uri.parse(str).getQuery())) {
+        if (ba.c(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;

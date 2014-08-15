@@ -1,21 +1,15 @@
 package com.baidu.tieba.signall;
-
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ x a;
+class y implements Runnable {
+    final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.a = xVar;
+    public y(w wVar) {
+        this.a = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        baseActivity = this.a.b;
-        baseActivity.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.postDelayed(this, 2000L);
     }
 }

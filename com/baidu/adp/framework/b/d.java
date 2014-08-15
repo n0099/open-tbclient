@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.b;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.a.k;
 import com.baidu.adp.framework.client.socket.j;
@@ -18,13 +19,13 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
         this.b = com.baidu.adp.framework.c.c.a();
     }
 
-    public void a(int i) {
-        this.c.a(i);
+    public void a(BdUniqueId bdUniqueId) {
+        this.c.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, int i2) {
-        this.c.a(i, i2);
+    public void a(int i, BdUniqueId bdUniqueId) {
+        this.c.a(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,13 +40,13 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
         return this.a.getController().a(socketMessage, socketMessageTask);
     }
 
-    public LinkedList<SocketMessage> b(int i) {
-        return this.c.b(i);
+    public LinkedList<SocketMessage> b(BdUniqueId bdUniqueId) {
+        return this.c.b(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<SocketMessage> b(int i, int i2) {
-        return this.c.b(i, i2);
+    public LinkedList<SocketMessage> b(int i, BdUniqueId bdUniqueId) {
+        return this.c.b(i, bdUniqueId);
     }
 
     public j b() {

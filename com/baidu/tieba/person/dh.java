@@ -1,29 +1,21 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements CustomMessageTask.CustomRunnable<String> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PersonFriendByUidLocalMessage)) {
-            return null;
-        }
-        String str = "";
-        if (TbadkApplication.getCurrentAccountObj() != null) {
-            str = TbadkApplication.getCurrentAccountObj().getID();
-        }
-        String a = com.baidu.tbadk.core.a.b.a().n().a("personal_myfollow_" + str);
-        ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
-        if (a != null) {
-            try {
-                responsePersonFriendByUidLocalMessage.decodeInBackGround(2001186, a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return responsePersonFriendByUidLocalMessage;
+public class dh implements View.OnClickListener {
+    final /* synthetic */ ct a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dh(ct ctVar) {
+        this.a = ctVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bd bdVar;
+        bdVar = this.a.l;
+        bdVar.d();
+        this.a.o();
     }
 }

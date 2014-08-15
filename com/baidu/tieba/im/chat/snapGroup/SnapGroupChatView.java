@@ -11,9 +11,9 @@ import com.baidu.tieba.im.chat.CommonGroupMsglistView;
 import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.view.HorizontalPanelView;
 import com.baidu.tieba.im.view.NumCountDownView;
-import com.baidu.tieba.t;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class SnapGroupChatView extends CommonGroupMsglistView {
     private AlertDialog l;
@@ -28,7 +28,7 @@ public class SnapGroupChatView extends CommonGroupMsglistView {
         a(snapGroupChatActivity);
         b(snapGroupChatActivity);
         View view = new View(snapGroupChatActivity);
-        view.setLayoutParams(new AbsListView.LayoutParams(-1, snapGroupChatActivity.getResources().getDimensionPixelSize(t.horizontal_panel_view_height)));
+        view.setLayoutParams(new AbsListView.LayoutParams(-1, snapGroupChatActivity.getResources().getDimensionPixelSize(s.horizontal_panel_view_height)));
         m().addHeaderView(view);
     }
 
@@ -39,19 +39,19 @@ public class SnapGroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.g
     protected void a(TalkableActivity talkableActivity, boolean z) {
         super.a(talkableActivity, z);
-        this.q = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, talkableActivity.getString(y.snap_group_chat_change_group), talkableActivity);
-        this.n = (HorizontalPanelView) ((ViewStub) talkableActivity.findViewById(v.snap_chat_header_stub)).inflate();
-        this.o = (ProgressCountDownView) this.n.findViewById(v.count_down);
-        this.p = (NumCountDownView) ((ViewStub) talkableActivity.findViewById(v.snap_chat_float_tip_stub)).inflate();
-        this.p.setNoticeText(talkableActivity.getString(y.snap_group_chat_float_tip));
+        this.q = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, talkableActivity.getString(x.snap_group_chat_change_group), talkableActivity);
+        this.n = (HorizontalPanelView) ((ViewStub) talkableActivity.findViewById(u.snap_chat_header_stub)).inflate();
+        this.o = (ProgressCountDownView) this.n.findViewById(u.count_down);
+        this.p = (NumCountDownView) ((ViewStub) talkableActivity.findViewById(u.snap_chat_float_tip_stub)).inflate();
+        this.p.setNoticeText(talkableActivity.getString(x.snap_group_chat_float_tip));
     }
 
     protected void a(SnapGroupChatActivity snapGroupChatActivity) {
         if (this.l == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(snapGroupChatActivity);
-            builder.setNegativeButton(y.snap_group_chat_quit_confirm_tip_cancel, new j(this));
-            builder.setPositiveButton(y.snap_group_chat_quit_confirm_tip_ok, new k(this, snapGroupChatActivity));
-            builder.setTitle(snapGroupChatActivity.getString(y.snap_group_chat_quit_confirm_tip));
+            builder.setNegativeButton(x.snap_group_chat_quit_confirm_tip_cancel, new j(this));
+            builder.setPositiveButton(x.snap_group_chat_quit_confirm_tip_ok, new k(this, snapGroupChatActivity));
+            builder.setTitle(snapGroupChatActivity.getString(x.snap_group_chat_quit_confirm_tip));
             this.l = builder.create();
             this.l.setCanceledOnTouchOutside(true);
         }
@@ -60,9 +60,9 @@ public class SnapGroupChatView extends CommonGroupMsglistView {
     protected void b(SnapGroupChatActivity snapGroupChatActivity) {
         if (this.m == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(snapGroupChatActivity);
-            builder.setNegativeButton(y.cancel, new l(this));
-            builder.setPositiveButton(y.confirm, snapGroupChatActivity);
-            builder.setTitle(snapGroupChatActivity.getString(y.snap_group_chat_change_confirm_tip));
+            builder.setNegativeButton(x.cancel, new l(this));
+            builder.setPositiveButton(x.confirm, snapGroupChatActivity);
+            builder.setTitle(snapGroupChatActivity.getString(x.snap_group_chat_change_confirm_tip));
             this.m = builder.create();
             this.m.setCanceledOnTouchOutside(true);
         }

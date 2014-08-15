@@ -4,11 +4,10 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    aq a;
+    com.baidu.tbadk.core.util.ae a;
     final /* synthetic */ Login2Activity b;
     private volatile boolean c;
 
@@ -27,7 +26,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     public void cancel() {
         this.b.O = null;
         if (this.a != null) {
-            this.a.g();
+            this.a.f();
             this.a = null;
         }
         this.c = true;
@@ -39,7 +38,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     public void onPreExecute() {
         ImageView imageView;
         imageView = this.b.s;
-        imageView.setImageBitmap(null);
+        imageView.setImageDrawable(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +50,8 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.a = new aq(str);
-        return com.baidu.tbadk.core.util.h.a(this.a.h());
+        this.a = new com.baidu.tbadk.core.util.ae(str);
+        return com.baidu.tbadk.core.util.d.a(this.a.g());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +68,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
             imageView2.setImageBitmap(bitmap);
         } else {
             imageView = this.b.s;
-            imageView.setImageResource(com.baidu.tieba.u.background);
+            imageView.setImageResource(com.baidu.tieba.t.background);
         }
         progressBar = this.b.v;
         progressBar.setVisibility(8);

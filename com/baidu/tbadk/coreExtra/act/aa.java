@@ -25,21 +25,21 @@ public class aa implements View.OnFocusChangeListener {
         Button button9;
         if (z) {
             int id = view.getId();
-            if (id == com.baidu.tieba.v.edit_vcode) {
+            if (id == com.baidu.tieba.u.edit_vcode) {
                 button7 = this.a.D;
                 button7.setVisibility(8);
                 button8 = this.a.C;
                 button8.setVisibility(8);
                 button9 = this.a.E;
                 button9.setVisibility(0);
-            } else if (id == com.baidu.tieba.v.login_edit_account) {
+            } else if (id == com.baidu.tieba.u.login_edit_account) {
                 button4 = this.a.D;
                 button4.setVisibility(8);
                 button5 = this.a.C;
                 button5.setVisibility(0);
                 button6 = this.a.E;
                 button6.setVisibility(8);
-            } else if (id == com.baidu.tieba.v.login_edit_password) {
+            } else if (id == com.baidu.tieba.u.login_edit_password) {
                 button = this.a.D;
                 button.setVisibility(0);
                 button2 = this.a.C;

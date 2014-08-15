@@ -5,13 +5,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
     public T a;
     private String d;
     private final h f;
-    private b<T> b = null;
+    private WeakReference<b<T>> b = null;
     private d c = null;
     private a<T>.c e = null;
 
@@ -76,8 +77,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.b != null) {
-                a.this.b.a(numArr[0].intValue(), a.this.a);
+            if (numArr != null && numArr.length != 0 && a.this.b != null && a.this.b.get() != null) {
+                ((b) a.this.b.get()).a(numArr[0].intValue(), a.this.a);
             }
         }
 
@@ -88,7 +89,7 @@ public class a<T> {
             if (a.this.c != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.send_error);
+                imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(x.send_error);
                 a.this.c.a(a.this.d, imageUploadResult);
             }
         }
@@ -111,7 +112,7 @@ public class a<T> {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.send_error);
+                    imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(x.send_error);
                     TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
                 a.this.c.a(a.this.d, imageUploadResult);
@@ -119,15 +120,8 @@ public class a<T> {
         }
     }
 
-    public void b() {
-        if (this.e != null) {
-            this.e.cancel();
-            this.e = null;
-        }
-    }
-
     public void a(b<T> bVar) {
-        this.b = bVar;
+        this.b = new WeakReference<>(bVar);
     }
 
     public void a(d dVar) {
@@ -138,7 +132,7 @@ public class a<T> {
         this.f.b(str);
     }
 
-    public T c() {
+    public T b() {
         return this.a;
     }
 
@@ -146,7 +140,7 @@ public class a<T> {
         this.a = t;
     }
 
-    public void d() {
+    public void c() {
         LocalViewSize.ImageSize c2 = LocalViewSize.a().c();
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
         a(d.width, d.height, c2.width, c2.height);

@@ -4,8 +4,6 @@ import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-@com.baidu.tbadk.tbplugin.a.a(a = "hao123.jar", b = "dex.wrapper.Hao123PluginImpl")
-@com.baidu.tbadk.tbplugin.a.c(a = "hao123")
 /* loaded from: classes.dex */
 public interface Hao123Plugin {
 

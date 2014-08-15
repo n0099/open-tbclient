@@ -1,27 +1,19 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-public class v extends Dialog {
-    private View a;
-    private ProgressBar b;
-    private View.OnTouchListener c;
-
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.b.setVisibility(8);
+public class v extends BitmapDrawable {
+    public v(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.a);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.c);
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
+        }
     }
 }

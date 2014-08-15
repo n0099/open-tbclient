@@ -1,23 +1,26 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class w implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ u a;
-    private final /* synthetic */ CustomMessage b;
+class w implements com.baidu.tieba.im.chat.v {
+    final /* synthetic */ OfficialBarChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar, CustomMessage customMessage) {
-        this.a = uVar;
-        this.b = customMessage;
+    public w(OfficialBarChatActivity officialBarChatActivity) {
+        this.a = officialBarChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r5) {
-        ((com.baidu.tbadk.core.atomData.av) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.av) this.b.getData()).getContext(), OfficialBarChatActivity.class);
-        if (((com.baidu.tbadk.core.atomData.av) this.b.getData()).a().getUserIdLong() != 0) {
-            ((com.baidu.tbadk.core.atomData.av) this.b.getData()).startActivity();
+    @Override // com.baidu.tieba.im.chat.v
+    public void a(VoiceData.VoiceModel voiceModel) {
+        MsglistModel msglistModel;
+        if (voiceModel != null) {
+            msglistModel = this.a.e;
+            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.v
+    public void a() {
     }
 }

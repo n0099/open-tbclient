@@ -2,43 +2,56 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class g {
-    private String a = null;
-    private int b = 0;
+    private int a;
+    private String b;
+    private String c;
+    private int d;
+    private String e;
 
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String a() {
+    public int a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public String b() {
+        return this.b;
     }
 
-    public int b() {
-        return this.b;
+    public String c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public String e() {
+        return this.e;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optInt("class_id", 0);
-                this.a = jSONObject.optString("class_name");
+                this.a = jSONObject.optInt("bannerType");
+                this.b = jSONObject.optString("bannerUrl");
+                this.c = jSONObject.optString("value");
+                this.d = jSONObject.optInt("type");
+                this.e = jSONObject.optString("desc");
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.b = classify.class_id.intValue();
-            this.a = classify.class_name;
+    public void a(Banner banner) {
+        if (banner != null) {
+            this.a = banner.banner_type.intValue();
+            this.b = banner.banner_url;
+            this.c = banner.value;
+            this.d = banner.type.intValue();
+            this.e = banner.desc;
         }
     }
 }

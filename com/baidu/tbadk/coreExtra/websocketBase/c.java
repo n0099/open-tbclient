@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class c extends BdAsyncTask<Object, Integer, Void> {
     final /* synthetic */ a a;
     private b b;
-    private volatile aq c = null;
+    private volatile ae c = null;
 
     public c(a aVar, b bVar) {
         this.a = aVar;
@@ -40,10 +40,10 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         List list5;
         int i = 0;
         try {
-            this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
-            String i2 = this.c.i();
-            if (this.c.a().b().b() && i2 != null) {
-                JSONObject jSONObject = new JSONObject(i2);
+            this.c = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
+            String h = this.c.h();
+            if (this.c.a().b().b() && h != null) {
+                JSONObject jSONObject = new JSONObject(h);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
                     a aVar = this.a;
@@ -54,9 +54,9 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                         list2 = this.a.b;
                         if (list2.size() > 0) {
                             HashMap hashMap = new HashMap();
-                            for (int i3 = 0; i3 < list3.size(); i3++) {
+                            for (int i2 = 0; i2 < list3.size(); i2++) {
                                 list5 = this.a.b;
-                                String str2 = (String) list5.get(i3);
+                                String str2 = (String) list5.get(i2);
                                 p pVar = new p();
                                 pVar.a(str2);
                                 if (pVar.a()) {
@@ -74,9 +74,9 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                                     if (i != 0) {
                                         sb.append(",");
                                     }
-                                    int i4 = i + 1;
+                                    int i3 = i + 1;
                                     sb.append((String) entry.getKey());
-                                    i = i4;
+                                    i = i3;
                                 }
                                 str = sb.toString();
                             } else {
@@ -132,7 +132,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.c != null) {
-            this.c.g();
+            this.c.f();
             this.c = null;
         }
         this.a.c = null;

@@ -1,20 +1,16 @@
 package com.baidu.tieba.im.newFriend;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ e b;
-    private final /* synthetic */ com.baidu.tieba.im.data.k c;
+public class f implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ NewFriendDbManagerStatic a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, com.baidu.tieba.im.data.k kVar) {
-        this.b = eVar;
-        this.c = kVar;
+    public f(NewFriendDbManagerStatic newFriendDbManagerStatic) {
+        this.a = newFriendDbManagerStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.db.n.a().b(this.c);
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r1) {
     }
 }

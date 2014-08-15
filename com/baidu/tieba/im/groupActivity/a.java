@@ -2,9 +2,9 @@ package com.baidu.tieba.im.groupActivity;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseCreateGroupActivityMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ CreateGroupActivityActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,16 +21,16 @@ class a extends com.baidu.adp.framework.listener.b {
         boolean z;
         this.a.e();
         if (socketResponsedMessage == null) {
-            this.a.c(y.neterror);
+            this.a.c(x.neterror);
         } else if (socketResponsedMessage.getCmd() == 103120) {
             if (socketResponsedMessage instanceof ResponseCreateGroupActivityMessage) {
                 ResponseCreateGroupActivityMessage responseCreateGroupActivityMessage = (ResponseCreateGroupActivityMessage) socketResponsedMessage;
                 if (responseCreateGroupActivityMessage.getError() == 0) {
-                    z = this.a.e;
+                    z = this.a.f;
                     if (z) {
-                        this.a.c(y.group_activity_edit_succ);
+                        this.a.c(x.group_activity_edit_succ);
                     } else {
-                        this.a.c(y.group_activity_create_succ);
+                        this.a.c(x.group_activity_create_succ);
                     }
                     this.a.setResult(-1);
                     this.a.finish();

@@ -1,8 +1,11 @@
 package com.baidu.tieba.runing;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.bp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
@@ -18,11 +21,14 @@ class d extends CustomMessageListener {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 a.a().d();
-            } else if (TbadkApplication.isLogin()) {
+                return;
+            }
+            if (TbadkApplication.isLogin()) {
                 a.a().c();
             } else {
                 a.a().d();
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bp(TbadkApplication.m252getInst().getContext())));
         }
     }
 }

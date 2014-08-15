@@ -12,7 +12,6 @@ import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -37,12 +36,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.message.BasicNameValuePair;
 @Deprecated
 /* loaded from: classes.dex */
-public class NetWorkCore implements ac {
-    private static String a = IOUtils.LINE_SEPARATOR_WINDOWS;
+public class NetWorkCore implements v {
+    private static String a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
@@ -57,7 +55,7 @@ public class NetWorkCore implements ac {
     private boolean l;
     private volatile boolean m;
     private int n = 0;
-    private final com.baidu.tbadk.core.util.httpNet.c o;
+    private final com.baidu.tbadk.core.util.httpNet.e o;
 
     /* loaded from: classes.dex */
     public enum NetworkState {
@@ -119,9 +117,9 @@ public class NetWorkCore implements ac {
         return iArr;
     }
 
-    public NetWorkCore(com.baidu.tbadk.core.util.httpNet.c cVar) {
+    public NetWorkCore(com.baidu.tbadk.core.util.httpNet.e eVar) {
         n();
-        this.o = cVar;
+        this.o = eVar;
         this.i = TbadkApplication.m252getInst().getApp();
     }
 
@@ -163,7 +161,7 @@ public class NetWorkCore implements ac {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    f = "Basic " + bm.b((String.valueOf(string) + ":" + string2).getBytes());
+                    f = "Basic " + ba.b((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e2) {
             }
@@ -172,7 +170,7 @@ public class NetWorkCore implements ac {
 
     public static void j() {
         System.setProperty("http.keepAlive", "false");
-        e = new ar();
+        e = new af();
     }
 
     public static NetworkState a(Context context) {
@@ -197,21 +195,21 @@ public class NetWorkCore implements ac {
         return this.o.a().a().a;
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public boolean c() {
         return this.m;
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public void b() {
         this.m = true;
         try {
             if (this.j != null) {
                 this.j.disconnect();
                 try {
-                    int a2 = aw.a(k());
+                    int a2 = ak.a(k());
                     if (a2 > 0) {
-                        aw.a().a(a2, 1);
+                        ak.a().a(a2, 1);
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -221,86 +219,54 @@ public class NetWorkCore implements ac {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x00fa */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0012 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.tbadk.core.util.NetWorkCore$NetworkState] */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v23 */
-    /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.coreExtra.a.a] */
     private HttpURLConnection a(URL url) {
-        Exception e2;
         String defaultHost;
-        HttpURLConnection httpURLConnection;
-        HttpURLConnection httpURLConnection2 = null;
-        HttpURLConnection a2 = a(this.i);
+        HttpURLConnection httpURLConnection = null;
+        NetworkState a2 = a(this.i);
         this.l = false;
-        try {
-            if (a2 == NetworkState.UNAVAIL) {
-                return null;
-            }
-            try {
-                if (a2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
-                    if (b(defaultHost)) {
-                        this.l = true;
-                        StringBuilder sb = new StringBuilder(80);
-                        sb.append("http://");
-                        sb.append(Proxy.getDefaultHost());
-                        String file = url.getFile();
-                        if (file != null && file.startsWith("?")) {
-                            sb.append("/");
-                        }
-                        sb.append(file);
-                        httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                        httpURLConnection.setRequestProperty("X-Online-Host", url.getHost());
-                        httpURLConnection.setRequestProperty("User-Agent", "bdtb for Android " + TbConfig.getVersion());
-                        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
-                            httpURLConnection.setRequestProperty("client_user_token", TbadkApplication.getCurrentAccount());
-                            httpURLConnection2 = httpURLConnection;
-                        }
-                    } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
-                        if (f != null) {
-                            httpURLConnection.setRequestProperty("Proxy-Authorization", f);
-                        }
-                        httpURLConnection.setRequestProperty("User-Agent", "bdtb for Android " + TbConfig.getVersion());
-                        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
-                            httpURLConnection.setRequestProperty("client_user_token", TbadkApplication.getCurrentAccount());
-                        }
+        if (a2 != NetworkState.UNAVAIL) {
+            if (a2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
+                if (b(defaultHost)) {
+                    this.l = true;
+                    StringBuilder sb = new StringBuilder(80);
+                    sb.append("http://");
+                    sb.append(Proxy.getDefaultHost());
+                    String file = url.getFile();
+                    if (file != null && file.startsWith("?")) {
+                        sb.append("/");
                     }
-                    httpURLConnection2 = httpURLConnection;
-                }
-                if (httpURLConnection2 == null) {
-                    try {
-                        a2 = (HttpURLConnection) url.openConnection();
-                    } catch (Exception e3) {
-                        a2 = httpURLConnection2;
-                        e2 = e3;
-                        BdLog.e(e2.getMessage());
-                        return a2;
+                    sb.append(file);
+                    httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                    httpURLConnection.setRequestProperty("X-Online-Host", url.getHost());
+                    httpURLConnection.setRequestProperty("User-Agent", "bdtb for Android " + TbConfig.getVersion());
+                    if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
+                        httpURLConnection.setRequestProperty("client_user_token", TbadkApplication.getCurrentAccount());
                     }
                 } else {
-                    a2 = httpURLConnection2;
-                }
-                if (this.o != null) {
-                    if (!TextUtils.isEmpty(this.o.a().a().i)) {
-                        a2.setRequestProperty("sid", this.o.a().a().i);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
+                    if (f != null) {
+                        httpURLConnection.setRequestProperty("Proxy-Authorization", f);
                     }
-                    if (!TextUtils.isEmpty(this.o.a().a().j)) {
-                        a2.setRequestProperty("net", this.o.a().a().j);
+                    httpURLConnection.setRequestProperty("User-Agent", "bdtb for Android " + TbConfig.getVersion());
+                    if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
+                        httpURLConnection.setRequestProperty("client_user_token", TbadkApplication.getCurrentAccount());
                     }
                 }
-                com.baidu.tbadk.coreExtra.a.a.a().a(a2);
-                return a2;
-            } catch (Exception e4) {
-                e2 = e4;
             }
-        } catch (Exception e5) {
-            a2 = null;
-            e2 = e5;
+            if (httpURLConnection == null) {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            }
+            if (this.o != null) {
+                if (!TextUtils.isEmpty(this.o.a().a().i)) {
+                    httpURLConnection.setRequestProperty("sid", this.o.a().a().i);
+                }
+                if (!TextUtils.isEmpty(this.o.a().a().j)) {
+                    httpURLConnection.setRequestProperty("net", this.o.a().a().j);
+                }
+            }
+            com.baidu.tbadk.coreExtra.a.a.a().a(httpURLConnection);
         }
+        return httpURLConnection;
     }
 
     private boolean b(String str) {
@@ -310,33 +276,35 @@ public class NetWorkCore implements ac {
         return false;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, INVOKE, IGET, INVOKE] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [732=12, 733=12, 734=12, 739=12, 740=12] */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [711=12, 712=12, 713=12, 718=12, 719=12] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:140:0x0506 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:182:0x05ee */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:220:0x081a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:229:0x08c0 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:261:0x0915 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:265:0x091b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:321:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:350:0x026d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:177:0x05ca */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:212:0x076f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:221:0x0815 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:253:0x086a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:257:0x0870 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:304:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:342:0x026d */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x01c9 */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v23 long)] */
+    /* JADX DEBUG: Multi-variable search result rejected for r17v0, resolved type: com.baidu.tbadk.core.util.NetWorkCore */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v14, resolved type: java.lang.StringBuilder */
+    /* JADX DEBUG: Multi-variable search result rejected for r9v3, resolved type: long */
+    /* JADX DEBUG: Multi-variable search result rejected for r9v4, resolved type: long */
     /* JADX WARN: Code restructure failed: missing block: B:63:0x02ad, code lost:
         if (r17.o.a().e != false) goto L41;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:185:0x0668 A[Catch: all -> 0x08c3, TRY_LEAVE, TryCatch #19 {all -> 0x08c3, blocks: (B:43:0x01b0, B:45:0x01c0, B:46:0x01c8, B:58:0x0271, B:60:0x0293, B:64:0x02af, B:65:0x02bc, B:76:0x02ea, B:78:0x0353, B:80:0x03a2, B:90:0x03d1, B:92:0x03e2, B:94:0x03e9, B:114:0x0457, B:116:0x0472, B:142:0x0509, B:144:0x0521, B:147:0x0528, B:153:0x055a, B:155:0x0560, B:157:0x0574, B:180:0x05e2, B:158:0x057f, B:160:0x058b, B:162:0x0598, B:163:0x05a3, B:165:0x05a9, B:167:0x05ad, B:196:0x0698, B:169:0x05b4, B:197:0x069e, B:199:0x06d8, B:200:0x06dc, B:202:0x06e1, B:204:0x06ea, B:205:0x06fd, B:207:0x0741, B:208:0x07c2, B:221:0x081b, B:183:0x05ef, B:185:0x0668, B:48:0x01ca, B:50:0x0243, B:218:0x07f4, B:150:0x053a, B:152:0x0555, B:62:0x02a3), top: B:310:0x01b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:188:0x0682 A[Catch: Exception -> 0x08f6, TRY_LEAVE, TryCatch #5 {Exception -> 0x08f6, blocks: (B:186:0x066f, B:188:0x0682), top: B:286:0x066f }] */
-    /* JADX WARN: Removed duplicated region for block: B:191:0x068b A[Catch: Exception -> 0x0694, TRY_LEAVE, TryCatch #23 {Exception -> 0x0694, blocks: (B:189:0x0685, B:191:0x068b), top: B:315:0x0685 }] */
-    /* JADX WARN: Removed duplicated region for block: B:224:0x08ae A[Catch: Exception -> 0x08ec, TRY_LEAVE, TryCatch #1 {Exception -> 0x08ec, blocks: (B:222:0x089b, B:224:0x08ae), top: B:278:0x089b }] */
-    /* JADX WARN: Removed duplicated region for block: B:227:0x08b7 A[Catch: Exception -> 0x08c0, TRY_LEAVE, TryCatch #27 {Exception -> 0x08c0, blocks: (B:225:0x08b1, B:227:0x08b7), top: B:324:0x08b1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:341:0x026d A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:344:0x026d A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0243 A[Catch: all -> 0x08c3, TRY_LEAVE, TryCatch #19 {all -> 0x08c3, blocks: (B:43:0x01b0, B:45:0x01c0, B:46:0x01c8, B:58:0x0271, B:60:0x0293, B:64:0x02af, B:65:0x02bc, B:76:0x02ea, B:78:0x0353, B:80:0x03a2, B:90:0x03d1, B:92:0x03e2, B:94:0x03e9, B:114:0x0457, B:116:0x0472, B:142:0x0509, B:144:0x0521, B:147:0x0528, B:153:0x055a, B:155:0x0560, B:157:0x0574, B:180:0x05e2, B:158:0x057f, B:160:0x058b, B:162:0x0598, B:163:0x05a3, B:165:0x05a9, B:167:0x05ad, B:196:0x0698, B:169:0x05b4, B:197:0x069e, B:199:0x06d8, B:200:0x06dc, B:202:0x06e1, B:204:0x06ea, B:205:0x06fd, B:207:0x0741, B:208:0x07c2, B:221:0x081b, B:183:0x05ef, B:185:0x0668, B:48:0x01ca, B:50:0x0243, B:218:0x07f4, B:150:0x053a, B:152:0x0555, B:62:0x02a3), top: B:310:0x01b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x025d A[Catch: Exception -> 0x0904, TRY_LEAVE, TryCatch #29 {Exception -> 0x0904, blocks: (B:51:0x024a, B:53:0x025d), top: B:326:0x024a }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0266 A[Catch: Exception -> 0x0901, TRY_LEAVE, TryCatch #32 {Exception -> 0x0901, blocks: (B:54:0x0260, B:56:0x0266), top: B:332:0x0260 }] */
-    /* JADX WARN: Type inference failed for: r17v0, types: [com.baidu.tbadk.core.util.NetWorkCore] */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x0644 A[Catch: all -> 0x0818, TRY_LEAVE, TryCatch #28 {all -> 0x0818, blocks: (B:43:0x01b0, B:45:0x01c0, B:46:0x01c8, B:58:0x0271, B:60:0x0293, B:64:0x02af, B:65:0x02bc, B:76:0x02ea, B:78:0x0353, B:80:0x03a2, B:90:0x03d1, B:92:0x03e2, B:94:0x03e9, B:114:0x0457, B:116:0x0472, B:142:0x0509, B:144:0x0521, B:147:0x0528, B:153:0x055a, B:155:0x0560, B:157:0x0574, B:175:0x05be, B:158:0x057f, B:160:0x0585, B:162:0x0589, B:191:0x0674, B:164:0x0590, B:192:0x067a, B:194:0x06b4, B:195:0x06b8, B:197:0x06bd, B:199:0x06c6, B:200:0x06d9, B:213:0x0770, B:178:0x05cb, B:180:0x0644, B:48:0x01ca, B:50:0x0243, B:210:0x0749, B:150:0x053a, B:152:0x0555, B:62:0x02a3), top: B:317:0x01b0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:183:0x065e A[Catch: Exception -> 0x084b, TRY_LEAVE, TryCatch #16 {Exception -> 0x084b, blocks: (B:181:0x064b, B:183:0x065e), top: B:294:0x064b }] */
+    /* JADX WARN: Removed duplicated region for block: B:186:0x0667 A[Catch: Exception -> 0x0670, TRY_LEAVE, TryCatch #0 {Exception -> 0x0670, blocks: (B:184:0x0661, B:186:0x0667), top: B:270:0x0661 }] */
+    /* JADX WARN: Removed duplicated region for block: B:216:0x0803 A[Catch: Exception -> 0x0841, TRY_LEAVE, TryCatch #33 {Exception -> 0x0841, blocks: (B:214:0x07f0, B:216:0x0803), top: B:324:0x07f0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x080c A[Catch: Exception -> 0x0815, TRY_LEAVE, TryCatch #18 {Exception -> 0x0815, blocks: (B:217:0x0806, B:219:0x080c), top: B:298:0x0806 }] */
+    /* JADX WARN: Removed duplicated region for block: B:333:0x026d A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:336:0x026d A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0243 A[Catch: all -> 0x0818, TRY_LEAVE, TryCatch #28 {all -> 0x0818, blocks: (B:43:0x01b0, B:45:0x01c0, B:46:0x01c8, B:58:0x0271, B:60:0x0293, B:64:0x02af, B:65:0x02bc, B:76:0x02ea, B:78:0x0353, B:80:0x03a2, B:90:0x03d1, B:92:0x03e2, B:94:0x03e9, B:114:0x0457, B:116:0x0472, B:142:0x0509, B:144:0x0521, B:147:0x0528, B:153:0x055a, B:155:0x0560, B:157:0x0574, B:175:0x05be, B:158:0x057f, B:160:0x0585, B:162:0x0589, B:191:0x0674, B:164:0x0590, B:192:0x067a, B:194:0x06b4, B:195:0x06b8, B:197:0x06bd, B:199:0x06c6, B:200:0x06d9, B:213:0x0770, B:178:0x05cb, B:180:0x0644, B:48:0x01ca, B:50:0x0243, B:210:0x0749, B:150:0x053a, B:152:0x0555, B:62:0x02a3), top: B:317:0x01b0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x025d A[Catch: Exception -> 0x0859, TRY_LEAVE, TryCatch #10 {Exception -> 0x0859, blocks: (B:51:0x024a, B:53:0x025d), top: B:284:0x024a }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0266 A[Catch: Exception -> 0x0856, TRY_LEAVE, TryCatch #17 {Exception -> 0x0856, blocks: (B:54:0x0260, B:56:0x0266), top: B:296:0x0260 }] */
     /* JADX WARN: Type inference failed for: r1v77, types: [java.lang.Exception] */
     /* JADX WARN: Type inference failed for: r1v78 */
     /* JADX WARN: Type inference failed for: r1v79, types: [java.net.HttpURLConnection] */
@@ -345,11 +313,10 @@ public class NetWorkCore implements ac {
     /* JADX WARN: Type inference failed for: r1v87 */
     /* JADX WARN: Type inference failed for: r1v88, types: [java.net.HttpURLConnection] */
     /* JADX WARN: Type inference failed for: r1v89, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r4v14, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r6v1, types: [java.net.URL] */
     /* JADX WARN: Type inference failed for: r6v10 */
     /* JADX WARN: Type inference failed for: r6v11 */
-    /* JADX WARN: Type inference failed for: r6v12, types: [java.net.URL] */
+    /* JADX WARN: Type inference failed for: r6v12 */
     /* JADX WARN: Type inference failed for: r6v13 */
     /* JADX WARN: Type inference failed for: r6v14 */
     /* JADX WARN: Type inference failed for: r6v15 */
@@ -364,47 +331,44 @@ public class NetWorkCore implements ac {
     /* JADX WARN: Type inference failed for: r7v14, types: [int] */
     /* JADX WARN: Type inference failed for: r7v21, types: [int] */
     /* JADX WARN: Type inference failed for: r7v22, types: [long] */
+    /* JADX WARN: Type inference failed for: r7v23, types: [long] */
     /* JADX WARN: Type inference failed for: r7v24 */
+    /* JADX WARN: Type inference failed for: r7v25 */
+    /* JADX WARN: Type inference failed for: r7v26 */
     /* JADX WARN: Type inference failed for: r7v27 */
-    /* JADX WARN: Type inference failed for: r7v28 */
-    /* JADX WARN: Type inference failed for: r7v29 */
-    /* JADX WARN: Type inference failed for: r7v30 */
-    /* JADX WARN: Type inference failed for: r7v31, types: [long] */
-    /* JADX WARN: Type inference failed for: r7v38, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v28, types: [long] */
+    /* JADX WARN: Type inference failed for: r7v35, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v37 */
+    /* JADX WARN: Type inference failed for: r7v38 */
+    /* JADX WARN: Type inference failed for: r7v39 */
     /* JADX WARN: Type inference failed for: r7v40 */
     /* JADX WARN: Type inference failed for: r7v41 */
-    /* JADX WARN: Type inference failed for: r7v42 */
-    /* JADX WARN: Type inference failed for: r7v43 */
-    /* JADX WARN: Type inference failed for: r7v44 */
-    /* JADX WARN: Type inference failed for: r7v45 */
-    /* JADX WARN: Type inference failed for: r7v46 */
     /* JADX WARN: Type inference failed for: r7v7, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v10 */
     /* JADX WARN: Type inference failed for: r9v11 */
-    /* JADX WARN: Type inference failed for: r9v12 */
-    /* JADX WARN: Type inference failed for: r9v13 */
-    /* JADX WARN: Type inference failed for: r9v18, types: [long] */
-    /* JADX WARN: Type inference failed for: r9v19, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r9v16, types: [long] */
+    /* JADX WARN: Type inference failed for: r9v17, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r9v18 */
+    /* JADX WARN: Type inference failed for: r9v19 */
     /* JADX WARN: Type inference failed for: r9v2 */
     /* JADX WARN: Type inference failed for: r9v20 */
     /* JADX WARN: Type inference failed for: r9v21 */
     /* JADX WARN: Type inference failed for: r9v22 */
-    /* JADX WARN: Type inference failed for: r9v23 */
-    /* JADX WARN: Type inference failed for: r9v3 */
-    /* JADX WARN: Type inference failed for: r9v4 */
     /* JADX WARN: Type inference failed for: r9v5, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r9v7 */
     /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:175:0x05d4 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:176:0x05d6 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:178:0x05df -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:213:0x07e6 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:214:0x07e8 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:216:0x07f1 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:226:0x08b5 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:227:0x08b7 -> B:25:0x00bd). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:229:0x08c0 -> B:25:0x00bd). Please submit an issue!!! */
-    @Override // com.baidu.tbadk.core.util.ac
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:170:0x05b0 -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:171:0x05b2 -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:173:0x05bb -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:205:0x073b -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:206:0x073d -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:208:0x0746 -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:218:0x080a -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:219:0x080c -> B:25:0x00bd). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:221:0x0815 -> B:25:0x00bd). Please submit an issue!!! */
+    @Override // com.baidu.tbadk.core.util.v
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -413,19 +377,19 @@ public class NetWorkCore implements ac {
         int i;
         ?? r6;
         InputStream inputStream;
-        ?? r9;
+        long j;
         ?? r7;
         Exception e2;
         SocketTimeoutException e3;
         SocketException e4;
         int read;
         String headerField;
-        ?? sb;
+        StringBuilder sb;
         byte[] bArr = null;
         try {
-            int a2 = aw.a(this.o.a().a().a);
+            int a2 = ak.a(this.o.a().a().a);
             if (a2 > 0) {
-                aw.a().a(a2);
+                ak.a().a(a2);
             }
         } catch (Exception e5) {
             BdLog.e(e5.getMessage());
@@ -447,7 +411,7 @@ public class NetWorkCore implements ac {
                     }
                     sb.append(this.o.a().a().b.get(i2).getName());
                     sb.append("=");
-                    sb.append(bm.d(this.o.a().a().b.get(i2).getValue()));
+                    sb.append(ba.d(this.o.a().a().b.get(i2).getValue()));
                 }
                 str = sb.toString();
             }
@@ -460,7 +424,7 @@ public class NetWorkCore implements ac {
         } catch (Exception e6) {
             BdLog.e(e6.getMessage());
             this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + e6.getClass() + e6.getMessage();
-            aw.b(this.o.a().a().a);
+            ak.b(this.o.a().a().a);
         }
         while (true) {
             if (!this.m && i < 5) {
@@ -481,10 +445,10 @@ public class NetWorkCore implements ac {
                 inputStream = null;
                 try {
                     try {
-                        this.j = a(r6);
+                        this.j = a((URL) r6);
                     } catch (Throwable th) {
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -502,16 +466,16 @@ public class NetWorkCore implements ac {
                     e4 = e9;
                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e4.getClass() + "|" + e4.getMessage();
                     this.o.b().a = -12;
-                    az.a.incrementAndGet();
-                    com.baidu.tbadk.core.util.httpNet.e b2 = this.o.b();
+                    an.a.incrementAndGet();
+                    com.baidu.tbadk.core.util.httpNet.g b2 = this.o.b();
                     Resources resources = this.i.getResources();
-                    r7 = com.baidu.tieba.y.neterror;
+                    r7 = com.baidu.tieba.x.neterror;
                     b2.c = resources.getString(r7);
                     if (i == 0) {
                         TiebaStatic.net(this.o);
                     }
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (inputStream != null) {
                             inputStream.close();
                         }
@@ -528,18 +492,18 @@ public class NetWorkCore implements ac {
                     r6 = r6;
                 } catch (SocketTimeoutException e12) {
                     e3 = e12;
-                    az.a.incrementAndGet();
+                    an.a.incrementAndGet();
                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
                     this.o.b().a = -13;
-                    com.baidu.tbadk.core.util.httpNet.e b3 = this.o.b();
+                    com.baidu.tbadk.core.util.httpNet.g b3 = this.o.b();
                     Resources resources2 = this.i.getResources();
-                    r7 = com.baidu.tieba.y.neterror;
+                    r7 = com.baidu.tieba.x.neterror;
                     b3.c = resources2.getString(r7);
                     if (i == 0) {
                         TiebaStatic.net(this.o);
                     }
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (inputStream != null) {
                             inputStream.close();
                         }
@@ -559,14 +523,14 @@ public class NetWorkCore implements ac {
                     r7 = "|retryCount:";
                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
                     this.o.b().a = -10;
-                    com.baidu.tbadk.core.util.httpNet.e b4 = this.o.b();
+                    com.baidu.tbadk.core.util.httpNet.g b4 = this.o.b();
                     Resources resources3 = this.i.getResources();
-                    r6 = com.baidu.tieba.y.neterror;
+                    r6 = com.baidu.tieba.x.neterror;
                     b4.c = resources3.getString(r6);
                     BdLog.e(e2.getMessage());
                     TiebaStatic.net(this.o);
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (inputStream != null) {
                             inputStream.close();
                         }
@@ -583,13 +547,13 @@ public class NetWorkCore implements ac {
                     inputStream = inputStream;
                     r6 = r6;
                     r7 = r7;
-                    r9 = r9;
+                    j = j;
                     return bArr;
                 }
                 if (this.j == null) {
                     throw new SocketException("network not available.");
                 }
-                this.j.setConnectTimeout(KirinConfig.READ_TIME_OUT);
+                this.j.setConnectTimeout(5000);
                 this.j.setReadTimeout(30000);
                 if (!this.o.a().a().d || this.o.a().a().e) {
                     r7 = r7;
@@ -598,7 +562,7 @@ public class NetWorkCore implements ac {
                 r7 = "gzip";
                 if (this.m) {
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (0 != 0) {
                             inputStream.close();
                         }
@@ -615,21 +579,21 @@ public class NetWorkCore implements ac {
                     this.o.c().a.g = new Date().getTime() - r7;
                     this.j.connect();
                     com.baidu.adp.lib.network.http.d dVar = this.o.c().a;
-                    r9 = (new Date().getTime() - r7) - this.o.c().a.g;
-                    dVar.c = r9;
+                    j = (new Date().getTime() - r7) - this.o.c().a.g;
+                    dVar.c = j;
                     this.o.b().a = this.j.getResponseCode();
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i;
-                        az.a.incrementAndGet();
-                        com.baidu.tbadk.core.util.httpNet.e b5 = this.o.b();
+                        an.a.incrementAndGet();
+                        com.baidu.tbadk.core.util.httpNet.g b5 = this.o.b();
                         Resources resources4 = this.i.getResources();
-                        r7 = com.baidu.tieba.y.neterror;
+                        r7 = com.baidu.tieba.x.neterror;
                         b5.c = resources4.getString(r7);
                         if (i == 0) {
                             TiebaStatic.net(this.o);
                         }
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -642,15 +606,15 @@ public class NetWorkCore implements ac {
                         } catch (Exception e21) {
                         }
                     } else if (!this.j.getContentType().contains("text/vnd.wap.wml")) {
-                        r9 = this.j.getContentEncoding();
+                        j = this.j.getContentEncoding();
                         inputStream = this.j.getInputStream();
                         if (TbadkApplication.m252getInst().isMainProcess(true) && (headerField = this.j.getHeaderField("Content-Length")) != null) {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
                                 if (parseInt > d) {
-                                    aw.b(this.o.a().a().a);
+                                    ak.b(this.o.a().a().a);
                                     try {
-                                        aw.b(this.o.a().a().a);
+                                        ak.b(this.o.a().a().a);
                                         if (inputStream != null) {
                                             inputStream.close();
                                         }
@@ -670,15 +634,15 @@ public class NetWorkCore implements ac {
                                     inputStream = inputStream;
                                     r6 = r6;
                                     r7 = r7;
-                                    r9 = r9;
+                                    j = j;
                                 } else {
                                     int i3 = parseInt * 10;
                                     if (i3 > 0) {
                                         BdLog.isDebugMode();
                                         if (!com.baidu.tbadk.imageManager.e.a().c(i3)) {
-                                            aw.b(this.o.a().a().a);
+                                            ak.b(this.o.a().a().a);
                                             try {
-                                                aw.b(this.o.a().a().a);
+                                                ak.b(this.o.a().a().a);
                                                 if (inputStream != null) {
                                                     inputStream.close();
                                                 }
@@ -698,7 +662,7 @@ public class NetWorkCore implements ac {
                                             inputStream = inputStream;
                                             r6 = r6;
                                             r7 = r7;
-                                            r9 = r9;
+                                            j = j;
                                         }
                                     }
                                 }
@@ -729,16 +693,13 @@ public class NetWorkCore implements ac {
                                 this.o.b().e = false;
                             }
                         }
-                        if (this.o.b().e && this.o.a().h == 1) {
-                            this.o.a().h = 2;
-                        }
                         while (!this.m && i4 < d && (read = inputStream.read(bArr2)) != -1) {
                             byteArrayOutputStream.write(bArr2, 0, read);
                             i4 += read;
                         }
                         if (this.m) {
                             try {
-                                aw.b(this.o.a().a().a);
+                                ak.b(this.o.a().a().a);
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
@@ -752,18 +713,20 @@ public class NetWorkCore implements ac {
                             }
                         } else {
                             this.n = i4;
-                            long time = new Date().getTime() - r7;
-                            this.o.c().a.d = (time - this.o.c().a.c) - this.o.c().a.g;
+                            r7 = new Date().getTime() - r7;
+                            this.o.c().a.d = (r7 - this.o.c().a.c) - this.o.c().a.g;
                             if (i4 < d) {
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                                 try {
                                     byteArrayOutputStream.close();
-                                    if (r9 == 0 || !r9.contains("gzip")) {
+                                    if (j == 0 || !j.contains("gzip")) {
                                         bArr = byteArray;
+                                        j = j;
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+                                        j = 1024;
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                 } catch (SocketException e28) {
@@ -771,14 +734,14 @@ public class NetWorkCore implements ac {
                                     e4 = e28;
                                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e4.getClass() + "|" + e4.getMessage();
                                     this.o.b().a = -12;
-                                    az.a.incrementAndGet();
-                                    com.baidu.tbadk.core.util.httpNet.e b22 = this.o.b();
+                                    an.a.incrementAndGet();
+                                    com.baidu.tbadk.core.util.httpNet.g b22 = this.o.b();
                                     Resources resources5 = this.i.getResources();
-                                    r7 = com.baidu.tieba.y.neterror;
+                                    r7 = com.baidu.tieba.x.neterror;
                                     b22.c = resources5.getString(r7);
                                     if (i == 0) {
                                     }
-                                    aw.b(this.o.a().a().a);
+                                    ak.b(this.o.a().a().a);
                                     if (inputStream != null) {
                                     }
                                     if (this.j == null) {
@@ -789,16 +752,16 @@ public class NetWorkCore implements ac {
                                 } catch (SocketTimeoutException e29) {
                                     bArr = byteArray;
                                     e3 = e29;
-                                    az.a.incrementAndGet();
+                                    an.a.incrementAndGet();
                                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
                                     this.o.b().a = -13;
-                                    com.baidu.tbadk.core.util.httpNet.e b32 = this.o.b();
+                                    com.baidu.tbadk.core.util.httpNet.g b32 = this.o.b();
                                     Resources resources22 = this.i.getResources();
-                                    r7 = com.baidu.tieba.y.neterror;
+                                    r7 = com.baidu.tieba.x.neterror;
                                     b32.c = resources22.getString(r7);
                                     if (i == 0) {
                                     }
-                                    aw.b(this.o.a().a().a);
+                                    ak.b(this.o.a().a().a);
                                     if (inputStream != null) {
                                     }
                                     if (this.j == null) {
@@ -812,13 +775,13 @@ public class NetWorkCore implements ac {
                                     r7 = "|retryCount:";
                                     this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
                                     this.o.b().a = -10;
-                                    com.baidu.tbadk.core.util.httpNet.e b42 = this.o.b();
+                                    com.baidu.tbadk.core.util.httpNet.g b42 = this.o.b();
                                     Resources resources32 = this.i.getResources();
-                                    r6 = com.baidu.tieba.y.neterror;
+                                    r6 = com.baidu.tieba.x.neterror;
                                     b42.c = resources32.getString(r6);
                                     BdLog.e(e2.getMessage());
                                     TiebaStatic.net(this.o);
-                                    aw.b(this.o.a().a().a);
+                                    ak.b(this.o.a().a().a);
                                     if (inputStream != null) {
                                     }
                                     if (this.j != null) {
@@ -828,36 +791,29 @@ public class NetWorkCore implements ac {
                                     inputStream = inputStream;
                                     r6 = r6;
                                     r7 = r7;
-                                    r9 = r9;
+                                    j = j;
                                     return bArr;
                                 }
                             } else {
                                 this.o.b().a = -11;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.data_too_big);
+                                com.baidu.tbadk.core.util.httpNet.g b6 = this.o.b();
+                                Resources resources6 = this.i.getResources();
+                                int i5 = com.baidu.tieba.x.data_too_big;
+                                b6.c = resources6.getString(i5);
+                                j = i5;
                             }
                             this.o.c().a.e = i + 1;
-                            this.o.c().a.f = time;
-                            ba baVar = new ba();
-                            baVar.e = a(b(this.i));
-                            baVar.c = this.n;
-                            baVar.b = time;
-                            baVar.d = i + 1;
-                            baVar.a = 2;
-                            r9 = 5000;
-                            int i5 = (time > TbConfig.NOTIFY_SOUND_INTERVAL ? 1 : (time == TbConfig.NOTIFY_SOUND_INTERVAL ? 0 : -1));
-                            r7 = time;
-                            if (i5 > 0) {
-                                String ipFromDomain = UtilHelper.getIpFromDomain(UtilHelper.getDomainName(r6.toString()));
-                                String url2 = r6.toString();
-                                String sb2 = new StringBuilder().append(time).toString();
-                                com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(url2, sb2, String.valueOf(baVar.c) + " |DNS Time" + this.o.c().a.g + "|ConnectTime" + this.o.c().a.c + "|current ip" + ipFromDomain, "old network download OK, retryCount:" + baVar.d, ""));
-                                r7 = sb2;
-                                r9 = url2;
-                            }
-                            az.a(baVar);
+                            this.o.c().a.f = r7;
+                            ao aoVar = new ao();
+                            aoVar.e = a(b(this.i));
+                            aoVar.c = this.n;
+                            aoVar.b = r7;
+                            aoVar.d = i + 1;
+                            aoVar.a = 2;
+                            an.a(aoVar);
                             TiebaStatic.net(this.o);
                             try {
-                                aw.b(this.o.a().a().a);
+                                ak.b(this.o.a().a().a);
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
@@ -876,7 +832,7 @@ public class NetWorkCore implements ac {
                         this.o.b().a = 0;
                         i--;
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -890,7 +846,7 @@ public class NetWorkCore implements ac {
                         }
                     } else {
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -913,7 +869,7 @@ public class NetWorkCore implements ac {
             inputStream = inputStream;
             r6 = r6;
             r7 = r7;
-            r9 = r9;
+            j = j;
             return bArr;
         }
     }
@@ -942,18 +898,18 @@ public class NetWorkCore implements ac {
                 errorData.parserJson(str);
                 this.o.b().b = errorData.getError_code();
                 if (this.o.b().b == -1) {
-                    this.o.b().c = this.i.getString(com.baidu.tieba.y.error_unkown_try_again);
+                    this.o.b().c = this.i.getString(com.baidu.tieba.x.error_unkown_try_again);
                 } else if (this.o.b().b != 0) {
                     this.o.b().c = errorData.getError_msg();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
-                this.o.b().c = this.i.getString(com.baidu.tieba.y.error_unkown_try_again);
+                this.o.b().c = this.i.getString(com.baidu.tieba.x.error_unkown_try_again);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public String f() {
         String str;
         Exception e2;
@@ -977,9 +933,9 @@ public class NetWorkCore implements ac {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1051=12, 1052=12, 1053=12, 1058=12, 1059=12, 1061=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1030=12, 1031=12, 1032=12, 1037=12, 1038=12, 1040=4] */
     /* JADX WARN: Code restructure failed: missing block: B:116:0x03aa, code lost:
-        com.baidu.tbadk.core.util.aw.b(r14.o.a().a().a);
+        com.baidu.tbadk.core.util.ak.b(r14.o.a().a().a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:117:0x03b9, code lost:
         if (0 == 0) goto L79;
@@ -989,7 +945,7 @@ public class NetWorkCore implements ac {
      */
     /* JADX WARN: Removed duplicated region for block: B:219:0x0633 A[Catch: Exception -> 0x0642, TRY_LEAVE, TryCatch #33 {Exception -> 0x0642, blocks: (B:217:0x0622, B:219:0x0633), top: B:319:0x0622 }] */
     /* JADX WARN: Removed duplicated region for block: B:222:0x063a A[Catch: Exception -> 0x0640, TRY_LEAVE, TryCatch #25 {Exception -> 0x0640, blocks: (B:220:0x0636, B:222:0x063a), top: B:303:0x0636 }] */
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1006,9 +962,9 @@ public class NetWorkCore implements ac {
         StringBuilder sb = new StringBuilder(1024);
         StringBuilder sb2 = new StringBuilder(1024);
         try {
-            int a2 = aw.a(this.o.a().a().a);
+            int a2 = ak.a(this.o.a().a().a);
             if (a2 > 0) {
-                aw.a().a(a2);
+                ak.a().a(a2);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -1027,7 +983,7 @@ public class NetWorkCore implements ac {
                     sb.append("&");
                 }
                 sb.append(String.valueOf(name) + "=");
-                sb.append(bm.d(value));
+                sb.append(ba.d(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
@@ -1036,7 +992,7 @@ public class NetWorkCore implements ac {
         }
         if (this.o.a().a().f) {
             sb2.append("tiebaclient!!!");
-            String a3 = bm.a(sb2.toString());
+            String a3 = ba.a(sb2.toString());
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -1061,7 +1017,7 @@ public class NetWorkCore implements ac {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (inputStream4 != null) {
                             inputStream4.close();
                         }
@@ -1086,9 +1042,9 @@ public class NetWorkCore implements ac {
                 th = th3;
             }
             if (this.j == null) {
-                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                 try {
-                    aw.b(this.o.a().a().a);
+                    ak.b(this.o.a().a().a);
                     if (0 != 0) {
                         inputStream4.close();
                     }
@@ -1101,7 +1057,7 @@ public class NetWorkCore implements ac {
                 } catch (Exception e8) {
                 }
             } else {
-                this.j.setConnectTimeout(KirinConfig.READ_TIME_OUT);
+                this.j.setConnectTimeout(5000);
                 this.j.setReadTimeout(15000);
                 this.j.setDoOutput(true);
                 this.j.setDoInput(true);
@@ -1113,7 +1069,7 @@ public class NetWorkCore implements ac {
                 }
                 if (this.m) {
                     try {
-                        aw.b(this.o.a().a().a);
+                        ak.b(this.o.a().a().a);
                         if (0 != 0) {
                             inputStream4.close();
                         }
@@ -1152,14 +1108,14 @@ public class NetWorkCore implements ac {
                             }
                         } else {
                             this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3;
-                            az.a.incrementAndGet();
+                            an.a.incrementAndGet();
                             z = true;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                             if (i3 == 0) {
                                 TiebaStatic.net(this.o);
                             }
                             try {
-                                aw.b(this.o.a().a().a);
+                                ak.b(this.o.a().a().a);
                                 if (0 != 0) {
                                     inputStream4.close();
                                 }
@@ -1189,7 +1145,7 @@ public class NetWorkCore implements ac {
                             this.j.disconnect();
                             if (this.m) {
                                 try {
-                                    aw.b(this.o.a().a().a);
+                                    ak.b(this.o.a().a().a);
                                     if (inputStream5 != null) {
                                         inputStream5.close();
                                     }
@@ -1211,7 +1167,7 @@ public class NetWorkCore implements ac {
                                 } else {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                 }
                                 String str2 = new String(bArr, 0, bArr.length, o());
@@ -1221,16 +1177,16 @@ public class NetWorkCore implements ac {
                                     }
                                     this.o.c().a.e = i3 + 1;
                                     this.o.c().a.f = time2;
-                                    ba baVar = new ba();
-                                    baVar.e = a(b(this.i));
-                                    baVar.c = this.n;
-                                    baVar.b = time2;
-                                    baVar.d = i3 + 1;
-                                    baVar.a = 1;
-                                    az.a(baVar);
+                                    ao aoVar = new ao();
+                                    aoVar.e = a(b(this.i));
+                                    aoVar.c = this.n;
+                                    aoVar.b = time2;
+                                    aoVar.d = i3 + 1;
+                                    aoVar.a = 1;
+                                    an.a(aoVar);
                                     TiebaStatic.net(this.o);
                                     try {
-                                        aw.b(this.o.a().a().a);
+                                        ak.b(this.o.a().a().a);
                                         if (inputStream5 != null) {
                                             inputStream5.close();
                                         }
@@ -1250,16 +1206,16 @@ public class NetWorkCore implements ac {
                                     inputStream3 = inputStream5;
                                     socketException = e17;
                                     str = str2;
-                                    az.a.incrementAndGet();
+                                    an.a.incrementAndGet();
                                     this.o.b().a = -12;
                                     z = true;
-                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                     BdLog.e(socketException.getMessage());
                                     if (i3 == 0) {
                                         TiebaStatic.net(this.o);
                                     }
                                     try {
-                                        aw.b(this.o.a().a().a);
+                                        ak.b(this.o.a().a().a);
                                         if (inputStream3 != null) {
                                             inputStream3.close();
                                         }
@@ -1277,16 +1233,16 @@ public class NetWorkCore implements ac {
                                     socketTimeoutException = e20;
                                     str = str2;
                                     try {
-                                        az.a.incrementAndGet();
+                                        an.a.incrementAndGet();
                                         this.o.b().a = -13;
                                         z = true;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                         BdLog.e(socketTimeoutException.getMessage());
                                         if (i3 == 0) {
                                             TiebaStatic.net(this.o);
                                         }
                                         try {
-                                            aw.b(this.o.a().a().a);
+                                            ak.b(this.o.a().a().a);
                                             if (inputStream2 != null) {
                                                 inputStream2.close();
                                             }
@@ -1302,7 +1258,7 @@ public class NetWorkCore implements ac {
                                     } catch (Throwable th4) {
                                         th = th4;
                                         inputStream4 = inputStream2;
-                                        aw.b(this.o.a().a().a);
+                                        ak.b(this.o.a().a().a);
                                         if (inputStream4 != null) {
                                         }
                                         if (this.j != null) {
@@ -1315,11 +1271,11 @@ public class NetWorkCore implements ac {
                                     str = str2;
                                     this.o.b().a = -10;
                                     z = false;
-                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                     BdLog.e(th.getMessage());
                                     TiebaStatic.net(this.o);
                                     try {
-                                        aw.b(this.o.a().a().a);
+                                        ak.b(this.o.a().a().a);
                                         if (inputStream != null) {
                                             inputStream.close();
                                         }
@@ -1350,7 +1306,7 @@ public class NetWorkCore implements ac {
                         this.o.b().a = 0;
                         i3--;
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream4.close();
                             }
@@ -1365,7 +1321,7 @@ public class NetWorkCore implements ac {
                         i3++;
                     } else {
                         try {
-                            aw.b(this.o.a().a().a);
+                            ak.b(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream4.close();
                             }
@@ -1393,7 +1349,7 @@ public class NetWorkCore implements ac {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1253=11, 1254=11, 1259=11, 1260=11, 1265=11, 1266=11, 1270=11, 1271=11] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1232=11, 1233=11, 1238=11, 1239=11, 1244=11, 1245=11, 1249=11, 1250=11] */
     /* JADX WARN: Removed duplicated region for block: B:106:0x0369 A[Catch: all -> 0x0564, TRY_LEAVE, TryCatch #17 {all -> 0x0564, blocks: (B:41:0x00fd, B:43:0x010b, B:45:0x011d, B:76:0x0222, B:78:0x0236, B:79:0x023b, B:47:0x0121, B:49:0x0125, B:51:0x0133, B:52:0x0147, B:97:0x02e0, B:100:0x02f8, B:54:0x014d, B:56:0x017b, B:57:0x018a, B:59:0x019c, B:60:0x01a2, B:62:0x01ae, B:64:0x01f6, B:117:0x038d, B:119:0x039c, B:121:0x03a1, B:123:0x03ae, B:186:0x04b6, B:104:0x0348, B:106:0x0369, B:144:0x03f7), top: B:324:0x00fd }] */
     /* JADX WARN: Removed duplicated region for block: B:111:0x0377 A[Catch: Exception -> 0x0585, TRY_LEAVE, TryCatch #13 {Exception -> 0x0585, blocks: (B:109:0x0373, B:111:0x0377), top: B:316:0x0373 }] */
     /* JADX WARN: Removed duplicated region for block: B:116:0x0385  */
@@ -1415,7 +1371,7 @@ public class NetWorkCore implements ac {
     /* JADX WARN: Removed duplicated region for block: B:86:0x02bc A[Catch: all -> 0x0560, TRY_LEAVE, TryCatch #14 {all -> 0x0560, blocks: (B:84:0x029c, B:86:0x02bc), top: B:318:0x029c }] */
     /* JADX WARN: Removed duplicated region for block: B:91:0x02ca A[Catch: Exception -> 0x059f, TRY_LEAVE, TryCatch #27 {Exception -> 0x059f, blocks: (B:89:0x02c6, B:91:0x02ca), top: B:338:0x02c6 }] */
     /* JADX WARN: Removed duplicated region for block: B:96:0x02d8  */
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1460,7 +1416,7 @@ public class NetWorkCore implements ac {
                 th = th2;
             }
             if (this.j == null) {
-                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -1483,7 +1439,7 @@ public class NetWorkCore implements ac {
                     e.removeMessages(0, this);
                 }
             } else {
-                this.j.setConnectTimeout(KirinConfig.READ_TIME_OUT);
+                this.j.setConnectTimeout(5000);
                 this.j.setReadTimeout(15000);
                 this.j.setDoOutput(true);
                 this.j.setDoInput(true);
@@ -1577,8 +1533,8 @@ public class NetWorkCore implements ac {
                     }
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i2;
-                        az.a.incrementAndGet();
-                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                        an.a.incrementAndGet();
+                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                         if (i2 == 0) {
                             TiebaStatic.net(this.o);
                         }
@@ -1652,7 +1608,7 @@ public class NetWorkCore implements ac {
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, o());
@@ -1691,7 +1647,7 @@ public class NetWorkCore implements ac {
                                         i = i4;
                                         z = true;
                                         this.o.b().a = -12;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                         if (i == 0) {
                                             TiebaStatic.net(this.o);
                                         }
@@ -1723,7 +1679,7 @@ public class NetWorkCore implements ac {
                                         i = i5;
                                         this.o.b().a = -13;
                                         z = true;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                         if (i == 0) {
                                             TiebaStatic.net(this.o);
                                         }
@@ -1756,7 +1712,7 @@ public class NetWorkCore implements ac {
                                         i = i6;
                                         this.o.b().a = -10;
                                         z = false;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                         BdLog.e(e2.getMessage());
                                         TiebaStatic.net(this.o);
                                         if (inputStream2 != null) {
@@ -1849,7 +1805,7 @@ public class NetWorkCore implements ac {
                             z = true;
                             try {
                                 this.o.b().a = -12;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                                 if (i == 0) {
                                 }
                                 if (inputStream != null) {
@@ -1897,7 +1853,7 @@ public class NetWorkCore implements ac {
                             str = str2;
                             this.o.b().a = -13;
                             z = true;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                             if (i == 0) {
                             }
                             if (inputStream2 != null) {
@@ -1919,7 +1875,7 @@ public class NetWorkCore implements ac {
                             str = str2;
                             this.o.b().a = -10;
                             z = false;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                             BdLog.e(e2.getMessage());
                             TiebaStatic.net(this.o);
                             if (inputStream2 != null) {
@@ -1974,11 +1930,11 @@ public class NetWorkCore implements ac {
         return this.o.b().a == 200 || this.o.b().a == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1424=8, 1426=8, 1427=8, 1432=8, 1433=8, 1438=8, 1439=8] */
-    /* JADX WARN: Removed duplicated region for block: B:163:0x0370 A[Catch: Exception -> 0x03a5, TRY_LEAVE, TryCatch #11 {Exception -> 0x03a5, blocks: (B:161:0x036a, B:163:0x0370), top: B:236:0x036a }] */
-    /* JADX WARN: Removed duplicated region for block: B:232:0x0379 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:234:0x0367 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tbadk.core.util.ac
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1408=8, 1413=8, 1414=8, 1399=8, 1401=8, 1402=8, 1407=8] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x02dd A[Catch: Exception -> 0x0310, TRY_LEAVE, TryCatch #18 {Exception -> 0x0310, blocks: (B:160:0x02d9, B:162:0x02dd), top: B:246:0x02d9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:266:0x02e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:270:0x02d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tbadk.core.util.v
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1996,7 +1952,7 @@ public class NetWorkCore implements ac {
                 if (this.j == null) {
                     throw new SocketException();
                 }
-                this.j.setConnectTimeout(KirinConfig.READ_TIME_OUT);
+                this.j.setConnectTimeout(5000);
                 this.j.setReadTimeout(30000);
                 this.j.setInstanceFollowRedirects(false);
                 if (this.m) {
@@ -2021,8 +1977,7 @@ public class NetWorkCore implements ac {
                     }
                     return false;
                 }
-                long time = new Date().getTime();
-                File g2 = z.g(str);
+                File g2 = s.g(str);
                 if (g2 == null) {
                     throw new FileNotFoundException();
                 }
@@ -2037,7 +1992,7 @@ public class NetWorkCore implements ac {
                     this.j.connect();
                     this.o.b().a = this.j.getResponseCode();
                     if (!l()) {
-                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                         TiebaStatic.net(this.o);
                         this.k = 0;
                         if (0 != 0) {
@@ -2091,9 +2046,9 @@ public class NetWorkCore implements ac {
                         int i4 = 0;
                         String headerField2 = this.j.getHeaderField("Content-Range");
                         if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
-                            i4 = com.baidu.adp.lib.f.b.a(headerField2.substring(indexOf + 1), 0);
+                            i4 = com.baidu.adp.lib.e.b.a(headerField2.substring(indexOf + 1), 0);
                         }
-                        int a3 = (i4 == 0 && this.o.b().a == 200 && (headerField = this.j.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.f.b.a(headerField, 0) : i4;
+                        int a3 = (i4 == 0 && this.o.b().a == 200 && (headerField = this.j.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.e.b.a(headerField, 0) : i4;
                         if (length >= a3) {
                             this.k = 0;
                             if (0 != 0) {
@@ -2144,7 +2099,6 @@ public class NetWorkCore implements ac {
                                 }
                                 try {
                                     fileOutputStream.flush();
-                                    long time2 = new Date().getTime() - time;
                                     boolean z = ((long) i5) + length >= ((long) a3);
                                     this.k = 0;
                                     if (inputStream3 != null) {
@@ -2176,41 +2130,50 @@ public class NetWorkCore implements ac {
                                 inputStream2 = inputStream3;
                                 this.k = 0;
                                 if (inputStream2 != null) {
-                                }
-                                try {
-                                    if (this.j != null) {
-                                    }
-                                } catch (Exception e20) {
-                                }
-                                if (fileOutputStream != null) {
-                                }
-                                throw th;
-                            }
-                        } catch (FileNotFoundException e21) {
-                            inputStream = inputStream3;
-                            fileOutputStream2 = fileOutputStream;
-                            try {
-                                TiebaStatic.net(this.o);
-                                this.o.b().a = -100;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.FileWriteError);
-                                this.k = 0;
-                                if (inputStream != null) {
                                     try {
-                                        inputStream.close();
-                                    } catch (Exception e22) {
+                                        inputStream2.close();
+                                    } catch (Exception e20) {
                                     }
                                 }
                                 try {
                                     if (this.j != null) {
                                         this.j.disconnect();
                                     }
-                                } catch (Exception e23) {
+                                } catch (Exception e21) {
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e22) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (FileNotFoundException e23) {
+                            inputStream = inputStream3;
+                            fileOutputStream2 = fileOutputStream;
+                            try {
+                                TiebaStatic.net(this.o);
+                                this.o.b().a = -100;
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.FileWriteError);
+                                this.k = 0;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e24) {
+                                    }
+                                }
+                                try {
+                                    if (this.j != null) {
+                                        this.j.disconnect();
+                                    }
+                                } catch (Exception e25) {
                                 }
                                 if (fileOutputStream2 != null) {
                                     try {
                                         fileOutputStream2.close();
                                         return false;
-                                    } catch (Exception e24) {
+                                    } catch (Exception e26) {
                                         return false;
                                     }
                                 }
@@ -2221,19 +2184,10 @@ public class NetWorkCore implements ac {
                                 fileOutputStream = fileOutputStream2;
                                 this.k = 0;
                                 if (inputStream2 != null) {
-                                    try {
-                                        inputStream2.close();
-                                    } catch (Exception e25) {
-                                    }
                                 }
                                 if (this.j != null) {
-                                    this.j.disconnect();
                                 }
                                 if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e26) {
-                                    }
                                 }
                                 throw th;
                             }
@@ -2242,7 +2196,7 @@ public class NetWorkCore implements ac {
                             e2 = e27;
                             TiebaStatic.net(this.o);
                             this.o.b().a = -10;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.x.neterror);
                             BdLog.e(e2.getMessage());
                             this.k = 0;
                             if (inputStream2 != null) {
@@ -2288,12 +2242,12 @@ public class NetWorkCore implements ac {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public ArrayList<BasicNameValuePair> a() {
         return this.o.a().a().b;
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public void a(ArrayList<BasicNameValuePair> arrayList) {
         if (this.o.a().a().b != null) {
             this.o.a().a().b.clear();
@@ -2310,12 +2264,12 @@ public class NetWorkCore implements ac {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public void a(String str, String str2) {
         a(new BasicNameValuePair(str, str2));
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public void a(String str, byte[] bArr) {
         if (this.o.a().a().c == null) {
             this.o.a().a().c = new HashMap<>();
@@ -2323,7 +2277,7 @@ public class NetWorkCore implements ac {
         this.o.a().a().c.put(str, bArr);
     }
 
-    @Override // com.baidu.tbadk.core.util.ac
+    @Override // com.baidu.tbadk.core.util.v
     public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
             if (this.o.a().a().b == null) {

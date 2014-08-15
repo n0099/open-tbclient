@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.bz;
+import com.baidu.tbadk.core.util.bq;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements bz {
+public class b implements bq {
     final /* synthetic */ a a;
     private final /* synthetic */ AtomicBoolean b;
 
@@ -16,7 +16,7 @@ public class b implements bz {
         this.b = atomicBoolean;
     }
 
-    @Override // com.baidu.tbadk.core.util.bz
+    @Override // com.baidu.tbadk.core.util.bq
     public boolean a(View view) {
         if (view instanceof EditText) {
             this.b.set(true);

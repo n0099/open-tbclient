@@ -1,68 +1,32 @@
 package com.baidu.tieba.model;
-
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class am {
-    private Context a;
-    private com.baidu.tieba.data.at b = new com.baidu.tieba.data.at();
+    private com.baidu.tieba.data.aj a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
+    private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String k = null;
+    private String l = null;
+    private String m = null;
+    private int n = 1;
+    private int o = 1;
+    private boolean p = false;
 
-    public am(Context context, String str) {
-        this.a = context;
-        a(str);
+    public void a(com.baidu.tieba.data.aj ajVar) {
+        this.a = ajVar;
     }
 
-    private void a(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("post");
-            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
-            AntiData antiData = new AntiData();
-            antiData.parserJson(optJSONObject4);
-            this.b.a(antiData);
-            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-            mVar.a(optJSONObject3);
-            this.b.a(mVar);
-            ForumData forumData = new ForumData();
-            forumData.parserJson(optJSONObject2);
-            this.b.a(forumData);
-            com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
-            amVar.a(optJSONObject);
-            amVar.a(this.a);
-            this.b.a(amVar);
-            int length = optJSONArray.length();
-            ArrayList<com.baidu.tieba.data.am> arrayList = new ArrayList<>();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                com.baidu.tieba.data.am amVar2 = new com.baidu.tieba.data.am();
-                amVar2.a(jSONObject2);
-                amVar2.a(this.a);
-                arrayList.add(amVar2);
-            }
-            this.b.a(arrayList);
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
-            int optInt = optJSONObject5.optInt("total_page");
-            int optInt2 = optJSONObject5.optInt("page_size");
-            int optInt3 = optJSONObject5.optInt("current_page");
-            int optInt4 = optJSONObject5.optInt("total_count");
-            this.b.e(optInt3);
-            this.b.d(optInt2);
-            this.b.c(optInt4);
-            this.b.b(optInt);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public com.baidu.tieba.data.aj a() {
+        return this.a;
     }
 
-    public com.baidu.tieba.data.at a() {
-        return this.b;
+    public boolean b() {
+        return this.d;
     }
 }

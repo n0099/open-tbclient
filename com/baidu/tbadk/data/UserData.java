@@ -15,6 +15,7 @@ public class UserData extends MetaData {
     private long inTime;
     private String intro;
     private String ip;
+    private int isFriend;
     private boolean isManager;
     private boolean isMask;
     private int is_mem;
@@ -23,6 +24,7 @@ public class UserData extends MetaData {
     private int like_bars;
     private String lng;
     private long loginTime;
+    private int mFansNum;
     private int managerLevel;
     private String password;
     private Permission permission;
@@ -51,6 +53,18 @@ public class UserData extends MetaData {
 
     public int getIsMem() {
         return this.is_mem;
+    }
+
+    public void setIsMem(int i) {
+        this.is_mem = i;
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
     }
 
     public UserData() {
@@ -101,6 +115,7 @@ public class UserData extends MetaData {
             this.ip = user.ip;
             this.BDUSS = user.BDUSS;
             this.concern_num = user.concern_num.intValue();
+            this.mFansNum = user.fans_num.intValue();
             this.sex = user.sex.intValue();
             this.like_bars = user.my_like_num.intValue();
             this.intro = user.intro;
@@ -144,9 +159,11 @@ public class UserData extends MetaData {
                 this.ip = jSONObject.optString("ip");
                 this.BDUSS = jSONObject.optString("BDUSS");
                 this.concern_num = jSONObject.optInt("concern_num");
+                this.mFansNum = jSONObject.optInt("fans_num");
                 this.sex = jSONObject.optInt("sex", 1);
                 this.like_bars = jSONObject.optInt("my_like_num");
                 this.intro = jSONObject.optString("intro");
+                this.isFriend = jSONObject.optInt("is_friend");
                 this.have_attention = jSONObject.optInt("has_concerned");
                 this.password = jSONObject.optString("passwd");
                 this.posts_num = jSONObject.optInt("post_num", 0);
@@ -186,6 +203,10 @@ public class UserData extends MetaData {
 
     public int getConcern_num() {
         return this.concern_num;
+    }
+
+    public int getFansNum() {
+        return this.mFansNum;
     }
 
     public void setIntro(String str) {

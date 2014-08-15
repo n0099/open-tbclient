@@ -25,12 +25,14 @@ public final class f {
     public static final int item_close = 2131230727;
     public static final int item_open = 2131230726;
     public static final int lcsReOnlineSucc = 2131230753;
+    public static final int load_res_failed = 2131230755;
     public static final int memoryerror = 2131230749;
     public static final int neterror = 2131230748;
     public static final int prompt = 2131230733;
     public static final int prompt_close_debug = 2131230734;
     public static final int prompt_switch = 2131230735;
     public static final int send_error = 2131230747;
+    public static final int share_to = 2131230754;
     public static final int switch_debug = 2131230724;
     public static final int switch_ok = 2131230725;
     public static final int tiebaDebug = 2131230723;

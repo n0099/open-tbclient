@@ -1,22 +1,18 @@
 package com.baidu.tieba.faceshop;
 
-import android.graphics.Bitmap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class u {
-    String a;
-    String b;
-    boolean c;
-    Bitmap d;
-    final /* synthetic */ EmotionManageActivity e;
+class u {
+    ImageView a;
+    ImageView b;
+    TextView c;
 
-    private u(EmotionManageActivity emotionManageActivity) {
-        this.e = emotionManageActivity;
-        this.c = false;
+    private u() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(EmotionManageActivity emotionManageActivity, u uVar) {
-        this(emotionManageActivity);
+    public /* synthetic */ u(u uVar) {
+        this();
     }
 }

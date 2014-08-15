@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.mygroup;
 /* loaded from: classes.dex */
-class i implements com.baidu.adp.widget.ListView.w {
+class i implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,10 @@ class i implements com.baidu.adp.widget.ListView.w {
         this.a = myGroupFragment;
     }
 
-    @Override // com.baidu.adp.widget.ListView.w
-    public void a(int i, int i2) {
-        this.a.a();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        j jVar;
+        jVar = this.a.d;
+        jVar.a();
     }
 }

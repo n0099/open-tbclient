@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareFromPBMsgData implements Serializable {
-    private String content;
-    private String forumName;
-    private String imageUrl;
-    private String postId;
-    private String threadId;
-    private String title;
+    protected String content;
+    protected String forumName;
+    protected String imageUrl;
+    protected String postId;
+    protected String threadId;
+    protected String title;
 
     public String toChatMessageContent() {
         try {

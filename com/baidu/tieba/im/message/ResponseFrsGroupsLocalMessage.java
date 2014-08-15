@@ -15,7 +15,7 @@ public class ResponseFrsGroupsLocalMessage extends CustomResponsedMessage<Object
     private List<GroupInfoData> groups;
 
     public ResponseFrsGroupsLocalMessage() {
-        super(2001201);
+        super(2001210);
     }
 
     public List<GroupInfoData> getGroups() {

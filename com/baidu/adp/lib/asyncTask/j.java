@@ -21,7 +21,6 @@ public abstract class j implements Runnable {
             this.a.run();
         } catch (OutOfMemoryError e) {
             BdBaseApplication.getInst().onAppMemoryLow();
-            System.gc();
         }
     }
 
@@ -55,7 +54,7 @@ public abstract class j implements Runnable {
 
     public int h() {
         if (this.a.b().getParallel() != null) {
-            return this.a.b().getParallel().a();
+            return this.a.b().getParallel().b();
         }
         return 0;
     }
@@ -65,10 +64,17 @@ public abstract class j implements Runnable {
     }
 
     public BdAsyncTaskParallel.BdAsyncTaskParallelType j() {
-        return this.a.b().getParallel() != null ? this.a.b().getParallel().b() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+        return this.a.b().getParallel() != null ? this.a.b().getParallel().c() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
     }
 
-    public boolean k() {
+    public int k() {
+        if (this.a.b().getParallel() != null) {
+            return this.a.b().getParallel().a();
+        }
+        return 1;
+    }
+
+    public boolean l() {
         return this.a.b().isSelfExecute();
     }
 }

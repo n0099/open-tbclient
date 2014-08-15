@@ -16,11 +16,11 @@ public class n implements AbsListView.RecyclerListener {
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(com.baidu.tieba.v.lay_msgitem_voice);
+        View findViewById = view.findViewById(com.baidu.tieba.u.lay_msgitem_voice);
         if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
             ((ChatVoiceView) findViewById).b();
         }
-        View findViewById2 = view.findViewById(com.baidu.tieba.v.emotion_msgitem_image);
+        View findViewById2 = view.findViewById(com.baidu.tieba.u.emotion_msgitem_image);
         if (findViewById2 != null && (findViewById2 instanceof GifView)) {
             ((GifView) findViewById2).c();
         }

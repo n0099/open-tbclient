@@ -1,63 +1,56 @@
 package com.baidu.tieba.person;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq extends BdAsyncTask<String, Integer, String> {
-    String a;
-    byte[] b;
-    final /* synthetic */ PersonImageActivity c;
+public class cq implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonImageActivity a;
 
-    public cq(PersonImageActivity personImageActivity, String str, byte[] bArr) {
-        this.c = personImageActivity;
-        this.a = null;
-        this.b = null;
-        this.a = str;
-        this.b = bArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cq(PersonImageActivity personImageActivity) {
+        this.a = personImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        switch (com.baidu.tbadk.core.util.z.a(this.a, this.b, this.c)) {
-            case -2:
-                return com.baidu.tbadk.core.util.z.b();
-            case -1:
-            default:
-                return this.c.getString(com.baidu.tieba.y.save_error);
-            case 0:
-                return this.c.getString(com.baidu.tieba.y.save_image_to_album);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog listMenu;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        cs csVar;
+        ProgressBar progressBar;
+        listMenu = this.a.getListMenu();
+        if (dialogInterface == listMenu) {
+            switch (i) {
+                case 0:
+                    try {
+                        multiImageView = this.a.c;
+                        byte[] currentImageData = multiImageView.getCurrentImageData();
+                        if (currentImageData != null) {
+                            multiImageView2 = this.a.c;
+                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
+                            this.a.b = new cs(this.a, currentImageUrl, currentImageData);
+                            csVar = this.a.b;
+                            csVar.execute(new String[0]);
+                            progressBar = this.a.a;
+                            progressBar.setVisibility(0);
+                        } else {
+                            this.a.showToast(this.a.getString(com.baidu.tieba.x.no_data));
+                        }
+                        return;
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                        return;
+                    }
+                case 1:
+                    dialogInterface.dismiss();
+                    return;
+                default:
+                    return;
+            }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        super.onPostExecute(str);
-        this.c.showToast(str);
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.c.b = null;
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 }

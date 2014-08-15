@@ -1,100 +1,83 @@
 package com.baidu.tieba.plugins;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.s;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends Handler {
-    final /* synthetic */ PluginDetailActivity a;
+public class g extends Dialog {
+    final /* synthetic */ PluginDownloadActivity a;
+    private LinearLayout b;
+    private TextView c;
+    private TextView d;
+    private TextView e;
+    private TextView f;
+    private TextView g;
+    private TextView h;
+    private LinearLayout i;
+    private TextView j;
+    private TextView k;
+    private TextView l;
+    private TextView m;
 
-    private g(PluginDetailActivity pluginDetailActivity) {
-        this.a = pluginDetailActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(PluginDownloadActivity pluginDownloadActivity, Context context, int i) {
+        super(context, i);
+        this.a = pluginDownloadActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(PluginDetailActivity pluginDetailActivity, g gVar) {
-        this(pluginDetailActivity);
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        DownloadData downloadData;
-        PluginsConfig.PluginConfig pluginConfig;
-        DownloadData downloadData2;
-        PluginsConfig.PluginConfig pluginConfig2;
-        TextView textView;
-        TextView textView2;
-        PluginsConfig.PluginConfig pluginConfig3;
-        DownloadData downloadData3;
-        PluginsConfig.PluginConfig pluginConfig4;
-        boolean z;
-        TextView textView3;
-        TextView textView4;
-        TextView textView5;
-        switch (message.what) {
-            case 5:
-                Bundle data = message.getData();
-                if (data != null && (downloadData3 = (DownloadData) data.getSerializable("download_data")) != null) {
-                    String id = downloadData3.getId();
-                    pluginConfig4 = this.a.k;
-                    if (id.equals(pluginConfig4.name)) {
-                        z = this.a.l;
-                        if (!z) {
-                            textView3 = this.a.f;
-                            textView3.setTextColor(this.a.getResources().getColor(s.cp_cont_d));
-                            textView4 = this.a.f;
-                            textView4.setText(this.a.getString(y.plugin_download_percent, new Object[]{Long.valueOf((downloadData3.getLength() * 100) / downloadData3.getSize())}));
-                            textView5 = this.a.f;
-                            textView5.setEnabled(false);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 6:
-            default:
-                return;
-            case 7:
-                Bundle data2 = message.getData();
-                if (data2 != null && (downloadData = (DownloadData) data2.getSerializable("download_data")) != null) {
-                    String id2 = downloadData.getId();
-                    pluginConfig = this.a.k;
-                    if (id2.equals(pluginConfig.name)) {
-                        this.a.showToast(downloadData.getStatusMsg());
-                        this.a.a();
-                        this.a.l = true;
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 8:
-                Bundle data3 = message.getData();
-                if (data3 != null && (downloadData2 = (DownloadData) data3.getSerializable("download_data")) != null) {
-                    String id3 = downloadData2.getId();
-                    pluginConfig2 = this.a.k;
-                    if (id3.equals(pluginConfig2.name)) {
-                        textView = this.a.f;
-                        textView.setText(this.a.getString(y.plugin_download_finished));
-                        textView2 = this.a.f;
-                        textView2.setEnabled(false);
-                        this.a.l = true;
-                        PluginDetailActivity pluginDetailActivity = this.a;
-                        com.baidu.tbadk.tbplugin.m a = com.baidu.tbadk.tbplugin.m.a();
-                        pluginConfig3 = this.a.k;
-                        new com.baidu.tbadk.tbplugin.f(pluginDetailActivity, a.a(pluginConfig3.name), downloadData2.getPath(), this.a).a();
-                        return;
-                    }
-                    return;
-                }
-                return;
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        ConfigInfos.PluginConfig pluginConfig;
+        ConfigInfos.PluginConfig pluginConfig2;
+        ConfigInfos.PluginConfig pluginConfig3;
+        ConfigInfos.PluginConfig pluginConfig4;
+        super.onCreate(bundle);
+        setContentView(v.update_dialog);
+        findViewById(u.warning).setVisibility(8);
+        findViewById(u.incremental_button).setVisibility(8);
+        findViewById(u.incremental_size).setVisibility(8);
+        this.b = (LinearLayout) findViewById(u.down_dialog);
+        this.l = (TextView) findViewById(u.update_tip);
+        this.c = (TextView) findViewById(u.newversion);
+        this.d = (TextView) findViewById(u.desc);
+        this.e = (TextView) findViewById(u.update_button);
+        this.e.setText(this.a.getString(x.plugin_download_immediately));
+        this.f = (TextView) findViewById(u.update_cancel);
+        this.g = (TextView) findViewById(u.downloading);
+        this.m = (TextView) findViewById(u.otherApp);
+        this.m.setVisibility(8);
+        this.h = (TextView) findViewById(u.app_size);
+        this.i = (LinearLayout) findViewById(u.cancel_dialog);
+        this.j = (TextView) findViewById(u.sure_cancel);
+        this.k = (TextView) findViewById(u.cancel_button);
+        this.j.setOnClickListener(new h(this));
+        this.k.setOnClickListener(new i(this));
+        TextView textView = this.l;
+        pluginConfig = this.a.b;
+        textView.setText(pluginConfig.description);
+        TextView textView2 = this.c;
+        StringBuilder sb = new StringBuilder("版本：");
+        pluginConfig2 = this.a.b;
+        textView2.setText(sb.append(pluginConfig2.newest.version).toString());
+        TextView textView3 = this.d;
+        pluginConfig3 = this.a.b;
+        textView3.setText(pluginConfig3.newest.changelog);
+        pluginConfig4 = this.a.b;
+        String valueOf = String.valueOf(pluginConfig4.newest.size / 1024);
+        if (valueOf != null && !"".equals(valueOf)) {
+            this.h.setVisibility(0);
+            this.h.setText(((Object) this.h.getText()) + valueOf + "KB");
+        } else {
+            this.h.setVisibility(8);
         }
+        this.e.setOnClickListener(new j(this));
+        this.f.setOnClickListener(new l(this));
     }
 }

@@ -1,46 +1,31 @@
 package com.baidu.adp.lib.stats;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class e extends Handler {
-    final /* synthetic */ d a;
+class e implements Comparator<s> {
+    final /* synthetic */ BdNormalStatBase a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.a = dVar;
+    private e(BdNormalStatBase bdNormalStatBase) {
+        this.a = bdNormalStatBase;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        BdStatLog bdStatLog;
-        BdDebugLog bdDebugLog;
-        BdErrorLog bdErrorLog;
-        switch (message.what) {
-            case 1:
-                this.a.b((BdStatBase) message.obj, message.arg1 > 0, message.arg2 > 0);
-                return;
-            case 2:
-                d dVar = this.a;
-                bdStatLog = this.a.v;
-                dVar.a((BdStatBase) bdStatLog, true, true);
-                d dVar2 = this.a;
-                bdDebugLog = this.a.w;
-                dVar2.a((BdStatBase) bdDebugLog, true, true);
-                d dVar3 = this.a;
-                bdErrorLog = this.a.x;
-                dVar3.a((BdStatBase) bdErrorLog, true, true);
-                this.a.m();
-                return;
-            case 3:
-                this.a.c((BdStatBase) message.obj, message.arg1 > 0);
-                return;
-            case 4:
-                this.a.b((BdStatBase) message.obj);
-                return;
-            default:
-                return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ e(BdNormalStatBase bdNormalStatBase, e eVar) {
+        this(bdNormalStatBase);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(s sVar, s sVar2) {
+        long j = sVar.c;
+        long j2 = sVar2.c;
+        if (j > j2) {
+            return 1;
         }
+        if (j == j2) {
+            return 0;
+        }
+        return -1;
     }
 }

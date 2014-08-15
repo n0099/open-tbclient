@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
-    private aj b;
-    private ae c;
-    private ag d;
-    private List<be> e;
+    private af b;
+    private aa c;
+    private ac d;
+    private List<ba> e;
     private int a = 0;
     private boolean f = false;
 
@@ -27,52 +27,34 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b();
-        d();
+        c();
         a(bundle);
     }
 
     private void b() {
-        this.c = new ae(this);
-        this.d = new ag(this);
-        MessageManager.getInstance().registerListener(this.c);
-        MessageManager.getInstance().registerListener(this.d);
+        this.c = new aa(this);
+        this.d = new ac(this);
+        registerListener(this.c);
+        registerListener(this.d);
     }
 
     private void c() {
-        MessageManager.getInstance().unRegisterListener(this.c);
-        MessageManager.getInstance().unRegisterListener(this.d);
-    }
-
-    private void d() {
-        this.b = new aj(this);
+        this.b = new af(this);
         this.b.a(this);
     }
 
     private void a(Bundle bundle) {
         this.a = getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
         MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.a)));
-        e();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void d() {
         int i = (this.e == null || this.e.isEmpty()) ? 0 : this.e.get(this.e.size() - 1).d;
         this.f = true;
         showProgressBar();
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.a, com.baidu.adp.lib.f.b.a(TbadkApplication.getCurrentAccount(), 0), i));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.a, com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,7 +67,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     @Override // com.baidu.adp.widget.ListView.x
     public void g_() {
         if (!this.f) {
-            e();
+            d();
         }
     }
 }

@@ -31,28 +31,24 @@ public class c extends LinearLayout {
 
     private void b() {
         setOrientation(0);
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
-        this.b = (TbImageView) findViewById(com.baidu.tieba.v.bottom_content_pic);
-        this.c = (TextView) findViewById(com.baidu.tieba.v.bottom_title);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
+        this.b = (TbImageView) findViewById(com.baidu.tieba.u.bottom_content_pic);
+        this.c = (TextView) findViewById(com.baidu.tieba.u.bottom_title);
     }
 
-    public void a(t tVar, View view) {
-        if (tVar != null) {
+    public void a(p pVar, View view) {
+        if (pVar != null) {
             String str = "";
-            if (!TextUtils.isEmpty(tVar.a)) {
-                str = tVar.a;
+            if (!TextUtils.isEmpty(pVar.a)) {
+                str = pVar.a;
             }
             this.c.setText(str);
-            if (!TextUtils.isEmpty(tVar.d)) {
-                setOnClickListener(new e(this, tVar));
+            if (!TextUtils.isEmpty(pVar.d)) {
+                setOnClickListener(new e(this, pVar));
             }
-            this.b.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
-            this.b.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
-            if (!TextUtils.isEmpty(tVar.c)) {
-                this.b.setTag(tVar.c);
-                com.baidu.tbadk.editortool.aa aaVar = new com.baidu.tbadk.editortool.aa(this.a);
-                aaVar.b(true);
-                aaVar.b(tVar.c, new f(this, view));
+            if (!TextUtils.isEmpty(pVar.c)) {
+                this.b.setTag(pVar.c);
+                this.b.a(pVar.c, 10, false);
             }
         }
     }
@@ -60,7 +56,7 @@ public class c extends LinearLayout {
     public void a() {
         this.c.setText("");
         this.b.setBackgroundDrawable(null);
-        this.b.setImageBitmap(null);
+        this.b.setImageDrawable(null);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
@@ -73,9 +69,9 @@ public class c extends LinearLayout {
 
     public void a(boolean z) {
         if (z) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text_1));
         } else {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text));
         }
     }
 }

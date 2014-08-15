@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.person.post.PersonPostModel;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -66,7 +66,7 @@ public class h extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         k kVar;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_post_item_reply, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_post_item_reply, viewGroup, false);
             kVar = new k(view);
             view.setTag(kVar);
         } else {
@@ -103,7 +103,7 @@ public class h extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(a.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bm.a(a.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), ba.a(a.content[i2].create_time * 1000)});
             }
         }
         kVar.g.setContent(arrayList);
@@ -117,13 +117,13 @@ public class h extends BaseAdapter {
         strArr[0] = String.valueOf(a.thread_id);
         textView.setTag(strArr);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            kVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.s.person_post_content_ori_1));
-            kVar.h.setBackgroundResource(com.baidu.tieba.u.person_post_line_1);
+            kVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.r.person_post_content_ori_1));
+            kVar.h.setBackgroundResource(com.baidu.tieba.t.person_post_line_1);
         } else {
-            kVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.s.person_post_content_ori));
-            kVar.h.setBackgroundResource(com.baidu.tieba.u.person_post_line);
+            kVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.r.person_post_content_ori));
+            kVar.h.setBackgroundResource(com.baidu.tieba.t.person_post_line);
         }
-        int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_post_reply_ori_padding);
+        int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.s.person_post_reply_ori_padding);
         kVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         kVar.a(this.g);
         kVar.a(TbadkApplication.m252getInst().getSkinType());

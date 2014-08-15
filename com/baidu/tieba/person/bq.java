@@ -1,10 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
+public class bq implements DialogInterface.OnCancelListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +11,15 @@ public class bq implements View.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.c;
-        alertDialog.show();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        by byVar;
+        by byVar2;
+        this.a.destroyWaitingDialog();
+        byVar = this.a.x;
+        if (byVar != null) {
+            byVar2 = this.a.x;
+            byVar2.cancel();
+        }
     }
 }

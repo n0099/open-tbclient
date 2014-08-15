@@ -12,10 +12,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tbadk.coreExtra.view.ag;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -25,12 +24,11 @@ public class MyLiveListAdapter extends BaseAdapter {
     private MyLiveActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private aa d;
-    private boolean e;
-    private ag h;
-    private boolean f = false;
-    private String g = "";
-    private ArrayList<LiveCardData> i = new ArrayList<>();
+    private boolean d;
+    private ag g;
+    private boolean e = false;
+    private String f = "";
+    private ArrayList<LiveCardData> h = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public enum BOTTOM_TYPE {
@@ -50,49 +48,47 @@ public class MyLiveListAdapter extends BaseAdapter {
     }
 
     public boolean a() {
-        return this.e;
+        return this.d;
     }
 
     public void a(boolean z) {
-        this.e = z;
+        this.d = z;
     }
 
     public void a(List<LiveCardData> list) {
-        this.i.addAll(list);
+        this.h.addAll(list);
         c();
     }
 
     public void a(LiveCardData liveCardData) {
-        if (this.i != null) {
-            this.i.remove(liveCardData);
+        if (this.h != null) {
+            this.h.remove(liveCardData);
             notifyDataSetChanged();
         }
     }
 
     public void a(boolean z, String str) {
-        this.f = z;
-        this.g = str;
+        this.e = z;
+        this.f = str;
         notifyDataSetChanged();
     }
 
     public void b(boolean z) {
         if (z) {
-            this.i.clear();
+            this.h.clear();
             this.c = false;
-            this.e = false;
+            this.d = false;
             return;
         }
         this.c = true;
-        this.e = false;
+        this.d = false;
         this.b = BOTTOM_TYPE.LINE;
     }
 
     public MyLiveListAdapter(MyLiveActivity myLiveActivity, ag agVar) {
-        this.h = null;
+        this.g = null;
         this.a = myLiveActivity;
-        this.d = new aa(myLiveActivity);
-        this.d.b(true);
-        this.h = agVar;
+        this.g = agVar;
     }
 
     public boolean b() {
@@ -109,8 +105,8 @@ public class MyLiveListAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.i != null) {
-            int size = this.i.size();
+        if (this.h != null) {
+            int size = this.h.size();
             if (this.c) {
                 return size + 1;
             }
@@ -122,10 +118,10 @@ public class MyLiveListAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.i.size()) {
+        if (itemId < 0 || itemId >= this.h.size()) {
             return null;
         }
-        return this.i.get(itemId);
+        return this.h.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -150,14 +146,14 @@ public class MyLiveListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(w.mylive_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(v.mylive_list_item, viewGroup, false);
             jVar = new j();
-            jVar.a = (LinearLayout) view.findViewById(v.item_more);
-            jVar.d = (TextView) view.findViewById(v.list_more_title);
-            jVar.e = (ProgressBar) view.findViewById(v.list_more_progress);
-            jVar.f = (ImageView) view.findViewById(v.list_more_line);
-            jVar.c = (LinearLayout) view.findViewById(v.list_more_text);
-            jVar.b = (LiveBroadcastCard) view.findViewById(v.item_card);
+            jVar.a = (LinearLayout) view.findViewById(u.item_more);
+            jVar.d = (TextView) view.findViewById(u.list_more_title);
+            jVar.e = (ProgressBar) view.findViewById(u.list_more_progress);
+            jVar.f = (ImageView) view.findViewById(u.list_more_line);
+            jVar.c = (LinearLayout) view.findViewById(u.list_more_text);
+            jVar.b = (LiveBroadcastCard) view.findViewById(u.item_card);
             view.setTag(jVar);
         } else {
             jVar = (j) view.getTag();
@@ -172,10 +168,10 @@ public class MyLiveListAdapter extends BaseAdapter {
                 jVar.f.setVisibility(8);
                 jVar.c.setVisibility(0);
                 if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                    jVar.d.setText(y.live_load_more);
+                    jVar.d.setText(x.live_load_more);
                     jVar.e.setVisibility(0);
                 } else {
-                    jVar.d.setText(y.live_no_more_data);
+                    jVar.d.setText(x.live_no_more_data);
                     jVar.e.setVisibility(8);
                 }
             }
@@ -185,13 +181,13 @@ public class MyLiveListAdapter extends BaseAdapter {
             LiveCardData liveCardData = (LiveCardData) getItem(i);
             jVar.b.setData(liveCardData);
             jVar.b.setCardClickListener(new i(this, liveCardData));
-            if (this.f) {
+            if (this.e) {
                 jVar.b.setClickable(false);
-                jVar.b.a(true, this.g);
-                jVar.b.setDeleteButtonClickListener(this.h);
+                jVar.b.a(true, this.f);
+                jVar.b.setDeleteButtonClickListener(this.g);
             } else {
                 jVar.b.setClickable(true);
-                jVar.b.a(false, this.g);
+                jVar.b.a(false, this.f);
             }
             a(view);
         }
@@ -205,7 +201,7 @@ public class MyLiveListAdapter extends BaseAdapter {
 
     private void c() {
         HashSet hashSet = new HashSet();
-        Iterator<LiveCardData> it = this.i.iterator();
+        Iterator<LiveCardData> it = this.h.iterator();
         while (it.hasNext()) {
             if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
                 it.remove();

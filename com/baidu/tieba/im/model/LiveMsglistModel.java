@@ -7,6 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.chat.bt;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupHistoryMessage;
@@ -90,8 +91,9 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
         this.h = 0;
         this.i = 0;
         this.r = false;
-        this.x = new aa(this, 0);
-        l();
+        this.x = new s(this, 0);
+        m();
+        this.v = 9;
     }
 
     public void a(Intent intent, Bundle bundle) {
@@ -112,7 +114,7 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean a(com.baidu.tieba.im.chat.bv bvVar) {
+    public boolean a(bt btVar) {
         if (this.a == null) {
             return false;
         }
@@ -159,17 +161,17 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean a(String str) {
-        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
+        com.baidu.tieba.im.message.q qVar = new com.baidu.tieba.im.message.q();
         if (this.a == null || this.a.getGroupId() == 0) {
             return false;
         }
-        gVar.b = String.valueOf(this.a.getGroupId());
-        gVar.a = str;
-        super.sendMessage(new GroupSaveDraftMessage(gVar));
+        qVar.b = String.valueOf(this.a.getGroupId());
+        qVar.a = str;
+        super.sendMessage(new GroupSaveDraftMessage(qVar));
         return true;
     }
 
-    private void l() {
+    private void m() {
         MessageManager.getInstance().registerListener(2013007, this.x);
         MessageManager.getInstance().registerListener(2001146, this.x);
         MessageManager.getInstance().registerListener(2001149, this.x);
@@ -209,11 +211,22 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
                 }
             }
             RequestLiveGroupOwnerGagMessage requestLiveGroupOwnerGagMessage = new RequestLiveGroupOwnerGagMessage();
-            requestLiveGroupOwnerGagMessage.setGroupId(com.baidu.adp.lib.f.b.a(str, 0));
+            requestLiveGroupOwnerGagMessage.setGroupId(com.baidu.adp.lib.e.b.a(str, 0));
             requestLiveGroupOwnerGagMessage.setType(i);
             requestLiveGroupOwnerGagMessage.setUserIds(sb.toString());
             requestLiveGroupOwnerGagMessage.setUserNames(sb2.toString());
             sendMessage(requestLiveGroupOwnerGagMessage);
         }
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    protected aj h() {
+        if (this.a == null) {
+            return null;
+        }
+        aj ajVar = new aj();
+        ajVar.b = 9;
+        ajVar.a = String.valueOf(this.a.getGroupId());
+        return ajVar;
     }
 }

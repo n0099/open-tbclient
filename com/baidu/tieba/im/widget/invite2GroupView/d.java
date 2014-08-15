@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.widget.Button;
-import com.baidu.tieba.s;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.a<Boolean> {
@@ -22,7 +22,7 @@ public class d implements com.baidu.tieba.im.a<Boolean> {
         }
         if (!bool.booleanValue()) {
             button = this.a.d;
-            button.setTextColor(this.a.getContext().getResources().getColor(s.group_info_join_disable_color));
+            button.setTextColor(this.a.getContext().getResources().getColor(r.group_info_join_disable_color));
             button2 = this.a.d;
             button2.setOnClickListener(new e(this));
         }

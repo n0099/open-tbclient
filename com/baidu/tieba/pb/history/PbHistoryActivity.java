@@ -12,12 +12,12 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ax;
+import com.baidu.tbadk.core.atomData.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.data.aj;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity {
@@ -32,23 +32,23 @@ public class PbHistoryActivity extends BaseActivity {
     private CustomMessageListener i = new b(this, 2001191);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ax.class, PbHistoryActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bc.class, PbHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = (RelativeLayout) LayoutInflater.from(this).inflate(w.pb_history_activity, (ViewGroup) null);
+        this.a = (RelativeLayout) LayoutInflater.from(this).inflate(v.pb_history_activity, (ViewGroup) null);
         setContentView(this.a);
-        this.f = (FrameLayout) this.a.findViewById(v.container);
-        this.b = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.f = (FrameLayout) this.a.findViewById(u.container);
+        this.b = (NavigationBar) findViewById(u.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(y.my_history);
-        this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.delete_all_user_chat));
+        this.b.a(x.my_history);
+        this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(x.delete_all_user_chat));
         this.c.setOnClickListener(new c(this));
         this.c.setVisibility(8);
-        this.d = (BdListView) findViewById(v.list);
+        this.d = (BdListView) findViewById(u.list);
         this.e = new g();
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnItemClickListener(new f(this));
@@ -79,8 +79,9 @@ public class PbHistoryActivity extends BaseActivity {
     private void b() {
         this.c.setVisibility(8);
         if (this.g == null) {
-            LayoutInflater.from(this).inflate(w.pb_history_no_data_view, this.f);
-            this.g = this.f.findViewById(v.no_data_container);
+            LayoutInflater.from(this).inflate(v.pb_history_no_data_view, this.f);
+            this.g = this.f.findViewById(u.no_data_container);
+            getLayoutMode().a(this.g);
         }
     }
 
@@ -93,7 +94,7 @@ public class PbHistoryActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<aj> list) {
+    public void a(List<ak> list) {
         if (this.e != null) {
             this.e.a(list);
         }

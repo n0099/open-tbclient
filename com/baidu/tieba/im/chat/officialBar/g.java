@@ -1,28 +1,26 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bz;
-import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements bz {
+public class g implements View.OnLongClickListener {
     final /* synthetic */ f a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar, String str, com.baidu.adp.widget.a.a aVar) {
+    public g(f fVar) {
         this.a = fVar;
-        this.b = str;
-        this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bz
-    public boolean a(View view) {
-        if ((view instanceof TbImageView) && this.b.equals(view.getTag())) {
-            view.setTag(null);
-            TbImageView tbImageView = (TbImageView) view;
-            tbImageView.f();
-            this.c.a(tbImageView);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.adp.lib.b.b bVar;
+        com.baidu.adp.lib.b.b bVar2;
+        int i;
+        bVar = this.a.e;
+        if (bVar != null) {
+            bVar2 = this.a.e;
+            i = this.a.f;
+            bVar2.b(view, 9, i, 0L);
             return false;
         }
         return false;

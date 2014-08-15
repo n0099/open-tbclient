@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.listener.b {
+public class c extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ CommonGroupMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

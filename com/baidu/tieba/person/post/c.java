@@ -3,7 +3,7 @@ package com.baidu.tieba.person.post;
 import android.widget.ImageView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
     final /* synthetic */ PersonPostActivity a;
@@ -25,15 +25,15 @@ class c extends HttpMessageListener {
         int[] iArr3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonPostActivity.s;
-                com.baidu.tbadk.core.account.o.a(4, iArr[this.a.c]);
-                imageView = this.a.n;
-                iArr2 = PersonPostActivity.q;
-                bk.c(imageView, iArr2[this.a.c]);
+                iArr = PersonPostActivity.t;
+                com.baidu.tbadk.core.account.o.a(4, iArr[this.a.d]);
+                imageView = this.a.o;
+                iArr2 = PersonPostActivity.r;
+                ay.c(imageView, iArr2[this.a.d]);
                 PersonPostActivity personPostActivity = this.a;
                 PersonPostActivity personPostActivity2 = this.a;
-                iArr3 = PersonPostActivity.r;
-                personPostActivity.a(personPostActivity2.getString(iArr3[this.a.c]), com.baidu.tieba.u.icon_toast_info);
+                iArr3 = PersonPostActivity.s;
+                personPostActivity.a(personPostActivity2.getString(iArr3[this.a.d]), com.baidu.tieba.t.icon_toast_info);
                 return;
             }
             this.a.a(httpResponsedMessage.getErrorString());

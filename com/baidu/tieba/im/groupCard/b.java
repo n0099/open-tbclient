@@ -1,29 +1,28 @@
 package com.baidu.tieba.im.groupCard;
 
-import android.app.Activity;
 import com.baidu.adp.base.e;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.editortool.aa;
 /* loaded from: classes.dex */
 public class b extends e {
-    private static Long f = 0L;
-    private static final Long g = 300000L;
+    private static Long e = 0L;
+    private static final Long f = 300000L;
     private final long a;
     private final GroupCardActivity b;
-    private aa c = null;
-    private c d = null;
-    private String e;
+    private c c;
+    private String d;
 
     public static void a() {
-        f = 0L;
+        e = 0L;
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.e = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
+        super(groupCardActivity);
+        this.c = null;
+        this.d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
         this.a = j;
-        this.e = String.valueOf(this.e) + this.a;
-        this.e = String.valueOf(this.e) + "&w=" + LocalViewSize.a().b();
+        this.d = String.valueOf(this.d) + this.a;
+        this.d = String.valueOf(this.d) + "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }
 
@@ -37,19 +36,15 @@ public class b extends e {
         return false;
     }
 
-    public com.baidu.adp.widget.a.a a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
-        this.c = new aa(activity);
-        if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
-            f = Long.valueOf(System.currentTimeMillis());
+    public String a(int i, int i2) {
+        if (System.currentTimeMillis() - e.longValue() > f.longValue()) {
+            e = Long.valueOf(System.currentTimeMillis());
         }
-        this.c.b("&t=" + f);
-        this.c.a(true);
-        this.c.a(i, i2);
-        return this.c.a(this.e, dVar, false);
+        return String.valueOf(this.d) + "&t=" + e;
     }
 
     public void b() {
-        this.d = new c(this);
-        this.d.execute(new String[0]);
+        this.c = new c(this);
+        this.c.execute(new String[0]);
     }
 }

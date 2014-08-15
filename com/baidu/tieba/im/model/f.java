@@ -1,31 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
-import com.baidu.tieba.im.message.ResponseCommitMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.chat.bt {
+class f extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ CommonGroupMsglistModel a;
-
-    private f(CommonGroupMsglistModel commonGroupMsglistModel) {
-        this.a = commonGroupMsglistModel;
-    }
+    private final /* synthetic */ ChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(CommonGroupMsglistModel commonGroupMsglistModel, f fVar) {
-        this(commonGroupMsglistModel);
+    public f(CommonGroupMsglistModel commonGroupMsglistModel, ChatMessage chatMessage) {
+        this.a = commonGroupMsglistModel;
+        this.b = chatMessage;
     }
 
-    @Override // com.baidu.tieba.im.chat.bt
-    public void a(ResponsedMessage<?> responsedMessage) {
-        boolean a;
-        if (responsedMessage != null && responsedMessage.getCmd() == 202001 && (responsedMessage instanceof ResponseCommitGroupMessage)) {
-            ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) responsedMessage;
-            a = this.a.a(responseCommitGroupMessage);
-            if (a) {
-                this.a.a((ResponseCommitMessage) responseCommitGroupMessage);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(String.valueOf(this.a.a.getGroupId()), String.valueOf(this.b.getMsgId())));
     }
 }

@@ -1,21 +1,24 @@
 package com.baidu.tieba.pb.main;
 
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.aw> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.aw> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), PbActivity.class);
-            if (TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK.equals(customMessage.getData().getIntent().getStringExtra("is_start_for_result"))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, 0));
-            } else {
-                customMessage.getData().startActivity();
-            }
+public class av implements View.OnClickListener {
+    final /* synthetic */ PbActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(PbActivity pbActivity) {
+        this.a = pbActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.a.d != null) {
+            this.a.d.b();
+            this.a.d = null;
         }
-        return null;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bf(this.a, 23003)));
     }
 }

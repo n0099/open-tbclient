@@ -22,7 +22,7 @@ public class w implements DialogInterface.OnClickListener {
             groupInfoActivity = this.a.c;
             ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.b);
             groupInfoActivity2 = this.a.c;
-            groupInfoActivity2.showToast(com.baidu.tieba.y.copy_success);
+            groupInfoActivity2.showToast(com.baidu.tieba.x.copy_success);
         } catch (Exception e) {
         }
     }

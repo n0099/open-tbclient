@@ -15,7 +15,7 @@ public class u implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.m;
+        ellipsizingTextView = this.a.n;
         ellipsizingTextView.setMaxLines(1000);
     }
 }

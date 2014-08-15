@@ -35,7 +35,7 @@ public class g {
     }
 
     public void a(String str, String str2, String str3) {
-        if (!com.baidu.tbadk.core.util.bm.c(str) && !com.baidu.tbadk.core.util.bm.c(str3)) {
+        if (!com.baidu.tbadk.core.util.ba.c(str) && !com.baidu.tbadk.core.util.ba.c(str3)) {
             DownloadData downloadData = new DownloadData(str, str2, str3, new f());
             downloadData.setStatusMsg(TbadkApplication.getCurrentAccount());
             downloadData.setType(11);
@@ -46,28 +46,28 @@ public class g {
                     if (split2.length == 5) {
                         downloadData.setDescription(split2[1]);
                         downloadData.setCheck(split2[2]);
-                        downloadData.setWidth(com.baidu.adp.lib.f.b.a(split2[3], (int) Constants.MEDIA_INFO));
-                        downloadData.setHeight(com.baidu.adp.lib.f.b.a(split2[4].split(".png")[0], (int) Constants.MEDIA_INFO));
+                        downloadData.setWidth(com.baidu.adp.lib.e.b.a(split2[3], (int) Constants.MEDIA_INFO));
+                        downloadData.setHeight(com.baidu.adp.lib.e.b.a(split2[4].split(".png")[0], (int) Constants.MEDIA_INFO));
                     } else if (split2.length == 3) {
                         downloadData.setDescription(split2[1]);
                         downloadData.setCheck(split2[2].split(".png")[0]);
                         downloadData.setWidth(Constants.MEDIA_INFO);
                         downloadData.setHeight(Constants.MEDIA_INFO);
                     } else {
-                        downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
+                        downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail));
                         downloadData.setStatus(2);
                     }
                 } else {
-                    downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
+                    downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail));
                     downloadData.setStatus(2);
                 }
             } else {
-                downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
+                downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail));
                 downloadData.setStatus(2);
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(com.baidu.tbadk.core.util.z.d());
-            sb.append(com.baidu.tbadk.core.util.z.a(2));
+            sb.append(com.baidu.tbadk.core.util.s.d());
+            sb.append(com.baidu.tbadk.core.util.s.a(2));
             File file = new File(sb.toString());
             if (!file.exists()) {
                 file.mkdirs();

@@ -1,21 +1,50 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.tieba.im.message.RequestReportGroupMessage;
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ CommonGroupChatMessage b;
+public class ax extends com.baidu.adp.base.e {
+    private int a;
+    private int b;
+    private RequestReportGroupMessage c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage) {
-        this.a = msglistModel;
-        this.b = commonGroupChatMessage;
+    public ax(Context context) {
+        super(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.c(this.b);
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    private RequestReportGroupMessage b() {
+        RequestReportGroupMessage requestReportGroupMessage = new RequestReportGroupMessage();
+        requestReportGroupMessage.setGroupId(this.a);
+        requestReportGroupMessage.setReportType(this.b);
+        return requestReportGroupMessage;
+    }
+
+    public void a() {
+        this.c = b();
+        super.sendMessage(this.c);
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.c = null;
     }
 }

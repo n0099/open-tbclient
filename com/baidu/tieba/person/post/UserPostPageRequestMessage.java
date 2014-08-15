@@ -1,6 +1,7 @@
 package com.baidu.tieba.person.post;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
 import java.lang.ref.WeakReference;
 import tbclient.UserPost.DataReq;
@@ -16,7 +17,7 @@ public class UserPostPageRequestMessage extends NetMessage {
     private String uid;
 
     public UserPostPageRequestMessage() {
-        super(1001503, 303002);
+        super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
     }
 
     public WeakReference<g> getmCallbackWeakReference() {
@@ -79,13 +80,13 @@ public class UserPostPageRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(com.baidu.adp.lib.f.b.a(this.uid, 0L));
+        builder.uid = Long.valueOf(com.baidu.adp.lib.e.b.a(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
         if (z) {
-            com.baidu.tbadk.b.c.a(builder, true);
+            com.baidu.tbadk.c.d.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

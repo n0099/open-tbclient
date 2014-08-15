@@ -1,35 +1,30 @@
 package com.baidu.tieba.guide;
 
-import com.baidu.tieba.data.ab;
-import com.baidu.tieba.y;
+import com.baidu.tieba.model.bg;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.h {
-    final /* synthetic */ u a;
+public class v implements bg {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.a = uVar;
+    public v(t tVar) {
+        this.a = tVar;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
+    @Override // com.baidu.tieba.model.bg
+    public void a(String str, long j) {
         a aVar;
+        int a = com.baidu.adp.lib.e.b.a(String.valueOf(j), 0);
+        aVar = this.a.c;
+        aVar.b(a);
+        this.a.a(a, false);
+    }
+
+    @Override // com.baidu.tieba.model.bg
+    public void b(String str, long j) {
         NewUserGuideActivity newUserGuideActivity;
-        NewUserGuideActivity newUserGuideActivity2;
-        NewUserGuideActivity newUserGuideActivity3;
-        if (obj == null) {
-            newUserGuideActivity3 = this.a.a;
-            newUserGuideActivity3.c(y.neterror);
-        } else if (obj instanceof ab) {
-            int a = com.baidu.adp.lib.f.b.a(((ab) obj).a(), 0);
-            aVar = this.a.c;
-            aVar.a(a);
-            this.a.a(a, true);
-            newUserGuideActivity = this.a.a;
-            newUserGuideActivity.b(true);
-            newUserGuideActivity2 = this.a.a;
-            newUserGuideActivity2.a(true);
-        }
+        newUserGuideActivity = this.a.a;
+        newUserGuideActivity.c(x.error);
     }
 }

@@ -50,122 +50,122 @@ public class WorldCupView extends RelativeLayout {
     }
 
     private void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.worldcup_view, (ViewGroup) this, true);
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.v.news);
-        this.c = (TextView) findViewById(com.baidu.tieba.v.news_title);
-        this.d = findViewById(com.baidu.tieba.v.news_divider);
-        this.e = (RelativeLayout) findViewById(com.baidu.tieba.v.pk);
-        this.f = (TextView) findViewById(com.baidu.tieba.v.pk_sum_game);
-        this.g = (TextView) findViewById(com.baidu.tieba.v.pk_sum_bonus);
-        this.h = (TbImageView) findViewById(com.baidu.tieba.v.pk_prize_image);
-        this.i = findViewById(com.baidu.tieba.v.pk_divider);
-        this.j = (RelativeLayout) findViewById(com.baidu.tieba.v.prize_lay);
-        this.k = (RelativeLayout) findViewById(com.baidu.tieba.v.lottery_score);
-        this.l = (RelativeLayout) findViewById(com.baidu.tieba.v.lottery);
-        this.m = (RelativeLayout) findViewById(com.baidu.tieba.v.score_lay);
-        this.n = (TbImageView) findViewById(com.baidu.tieba.v.logo_team1);
-        this.o = (TextView) findViewById(com.baidu.tieba.v.name_team1);
-        this.p = (TbImageView) findViewById(com.baidu.tieba.v.logo_team2);
-        this.q = (TextView) findViewById(com.baidu.tieba.v.name_team2);
-        this.r = (TextView) findViewById(com.baidu.tieba.v.game_title);
-        this.s = (TextView) findViewById(com.baidu.tieba.v.game_status);
-        this.t = findViewById(com.baidu.tieba.v.lottery_score_divider);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.worldcup_view, (ViewGroup) this, true);
+        this.b = (RelativeLayout) findViewById(com.baidu.tieba.u.news);
+        this.c = (TextView) findViewById(com.baidu.tieba.u.news_title);
+        this.d = findViewById(com.baidu.tieba.u.news_divider);
+        this.e = (RelativeLayout) findViewById(com.baidu.tieba.u.pk);
+        this.f = (TextView) findViewById(com.baidu.tieba.u.pk_sum_game);
+        this.g = (TextView) findViewById(com.baidu.tieba.u.pk_sum_bonus);
+        this.h = (TbImageView) findViewById(com.baidu.tieba.u.pk_prize_image);
+        this.i = findViewById(com.baidu.tieba.u.pk_divider);
+        this.j = (RelativeLayout) findViewById(com.baidu.tieba.u.prize_lay);
+        this.k = (RelativeLayout) findViewById(com.baidu.tieba.u.lottery_score);
+        this.l = (RelativeLayout) findViewById(com.baidu.tieba.u.lottery);
+        this.m = (RelativeLayout) findViewById(com.baidu.tieba.u.score_lay);
+        this.n = (TbImageView) findViewById(com.baidu.tieba.u.logo_team1);
+        this.o = (TextView) findViewById(com.baidu.tieba.u.name_team1);
+        this.p = (TbImageView) findViewById(com.baidu.tieba.u.logo_team2);
+        this.q = (TextView) findViewById(com.baidu.tieba.u.name_team2);
+        this.r = (TextView) findViewById(com.baidu.tieba.u.game_title);
+        this.s = (TextView) findViewById(com.baidu.tieba.u.game_status);
+        this.t = findViewById(com.baidu.tieba.u.lottery_score_divider);
         setNewsLayVisible(false);
         setPkLayVisible(false);
         setLotteryGameLayVisible(false);
     }
 
-    public void setData(com.baidu.tbadk.core.data.p pVar) {
-        if (pVar == null) {
+    public void setData(com.baidu.tbadk.core.data.q qVar) {
+        if (qVar == null) {
             setNewsLayVisible(false);
             setPkLayVisible(false);
             setLotteryGameLayVisible(false);
             return;
         }
-        setNewsData(pVar.a());
-        setPkData(pVar.b());
-        a(pVar.c(), pVar.d());
+        setNewsData(qVar.a());
+        setPkData(qVar.b());
+        a(qVar.c(), qVar.d());
     }
 
-    private void setNewsData(com.baidu.tbadk.core.data.s sVar) {
-        if (sVar == null) {
+    private void setNewsData(com.baidu.tbadk.core.data.t tVar) {
+        if (tVar == null) {
             setNewsLayVisible(false);
-        } else if (!TextUtils.isEmpty(sVar.b())) {
+        } else if (!TextUtils.isEmpty(tVar.b())) {
             setNewsLayVisible(true);
-            this.c.setText(sVar.b());
-            this.b.setOnClickListener(new du(this, sVar));
+            this.c.setText(tVar.b());
+            this.b.setOnClickListener(new dx(this, tVar));
         } else {
             setNewsLayVisible(false);
         }
     }
 
-    private void setPkData(com.baidu.tbadk.core.data.t tVar) {
-        if (tVar == null) {
+    private void setPkData(com.baidu.tbadk.core.data.u uVar) {
+        if (uVar == null) {
             setPkLayVisible(false);
-        } else if (TextUtils.isEmpty(tVar.a()) || TextUtils.isEmpty(tVar.b())) {
+        } else if (TextUtils.isEmpty(uVar.a()) || TextUtils.isEmpty(uVar.b())) {
             setPkLayVisible(false);
         } else {
             setPkLayVisible(true);
             String str = "";
-            if (!TextUtils.isEmpty(tVar.a())) {
-                str = tVar.a();
+            if (!TextUtils.isEmpty(uVar.a())) {
+                str = uVar.a();
             }
             this.f.setText(str);
             String str2 = "";
-            if (!TextUtils.isEmpty(tVar.b())) {
-                str2 = tVar.b();
+            if (!TextUtils.isEmpty(uVar.b())) {
+                str2 = uVar.b();
             }
             this.g.setText(str2);
-            if (TextUtils.isEmpty(tVar.c())) {
+            if (TextUtils.isEmpty(uVar.c())) {
                 this.j.setVisibility(8);
             } else {
                 this.j.setVisibility(0);
             }
-            this.h.a(tVar.c(), 10, false);
-            this.e.setOnClickListener(new dv(this, tVar));
+            this.h.a(uVar.c(), 10, false);
+            this.e.setOnClickListener(new dy(this, uVar));
         }
     }
 
-    private void a(com.baidu.tbadk.core.data.r rVar, com.baidu.tbadk.core.data.q qVar) {
+    private void a(com.baidu.tbadk.core.data.s sVar, com.baidu.tbadk.core.data.r rVar) {
         String str;
         String str2;
-        if (rVar == null || qVar == null) {
+        if (sVar == null || rVar == null) {
             setLotteryGameLayVisible(false);
             return;
         }
         setLotteryGameLayVisible(true);
-        this.l.setOnClickListener(new dw(this, rVar));
-        ArrayList<com.baidu.tbadk.core.data.u> a = qVar.a();
+        this.l.setOnClickListener(new dz(this, sVar));
+        ArrayList<com.baidu.tbadk.core.data.v> a = rVar.a();
         if (a != null && a.size() == 2) {
-            com.baidu.tbadk.core.data.u uVar = a.get(0);
+            com.baidu.tbadk.core.data.v vVar = a.get(0);
             this.n.setDrawBorder(true);
-            this.n.a(uVar.b(), 10, false);
-            if (TextUtils.isEmpty(uVar.a())) {
+            this.n.a(vVar.b(), 10, false);
+            if (TextUtils.isEmpty(vVar.a())) {
                 str = "";
             } else {
-                str = uVar.a();
+                str = vVar.a();
             }
             this.o.setText(str);
-            com.baidu.tbadk.core.data.u uVar2 = a.get(1);
+            com.baidu.tbadk.core.data.v vVar2 = a.get(1);
             this.p.setDrawBorder(true);
-            this.p.a(uVar2.b(), 10, false);
-            if (TextUtils.isEmpty(uVar2.a())) {
+            this.p.a(vVar2.b(), 10, false);
+            if (TextUtils.isEmpty(vVar2.a())) {
                 str2 = "";
             } else {
-                str2 = uVar2.a();
+                str2 = vVar2.a();
             }
             this.q.setText(str2);
             String str3 = "";
-            if (!TextUtils.isEmpty(qVar.b())) {
-                str3 = qVar.b();
+            if (!TextUtils.isEmpty(rVar.b())) {
+                str3 = rVar.b();
             }
             this.r.setText(str3);
             String str4 = "";
-            if (!TextUtils.isEmpty(qVar.c())) {
-                str4 = qVar.c();
+            if (!TextUtils.isEmpty(rVar.c())) {
+                str4 = rVar.c();
             }
             this.s.setText(str4);
-            this.m.setOnClickListener(new dx(this, qVar));
+            this.m.setOnClickListener(new ea(this, rVar));
             return;
         }
         setLotteryGameLayVisible(false);

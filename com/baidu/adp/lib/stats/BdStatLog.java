@@ -21,9 +21,9 @@ public class BdStatLog extends BdNormalStatBase {
     }
 
     @Override // com.baidu.adp.lib.stats.BdNormalStatBase, com.baidu.adp.lib.stats.BdStatBase
-    public void uploadSucc(ArrayList<q> arrayList) {
+    public void uploadSucc(ArrayList<s> arrayList) {
         super.uploadSucc(arrayList);
-        p a = d.b().a();
+        r a = f.c().a();
         if (a != null) {
             a.a(this.mLastUploadTime);
         }

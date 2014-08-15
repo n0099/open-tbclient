@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class f {
@@ -69,7 +68,7 @@ public class f {
             }
             sb.append(this.b.get(i2).getName());
             sb.append("=");
-            sb.append(i.c(this.b.get(i2).getValue()));
+            sb.append(i.d(this.b.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
@@ -101,12 +100,12 @@ public class f {
                         if (next != null) {
                             String name = next.getName();
                             String value = next.getValue();
-                            dataOutputStream.writeBytes("--" + str + IOUtils.LINE_SEPARATOR_WINDOWS);
+                            dataOutputStream.writeBytes("--" + str + "\r\n");
                             byte[] bytes = value.getBytes("UTF-8");
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + IOUtils.LINE_SEPARATOR_WINDOWS);
-                            dataOutputStream.writeBytes(IOUtils.LINE_SEPARATOR_WINDOWS);
+                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
+                            dataOutputStream.writeBytes("\r\n");
                             dataOutputStream.write(bytes);
-                            dataOutputStream.writeBytes(IOUtils.LINE_SEPARATOR_WINDOWS);
+                            dataOutputStream.writeBytes("\r\n");
                         }
                     }
                 }
@@ -115,19 +114,19 @@ public class f {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
-                            dataOutputStream.writeBytes("--" + str + IOUtils.LINE_SEPARATOR_WINDOWS);
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + IOUtils.LINE_SEPARATOR_WINDOWS);
-                            dataOutputStream.writeBytes(IOUtils.LINE_SEPARATOR_WINDOWS);
+                            dataOutputStream.writeBytes("--" + str + "\r\n");
+                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
+                            dataOutputStream.writeBytes("\r\n");
                             dataOutputStream.write(value2);
-                            dataOutputStream.writeBytes(IOUtils.LINE_SEPARATOR_WINDOWS);
+                            dataOutputStream.writeBytes("\r\n");
                         }
                     }
                 }
-                dataOutputStream.writeBytes("--" + str + "--" + IOUtils.LINE_SEPARATOR_WINDOWS);
+                dataOutputStream.writeBytes("--" + str + "--\r\n");
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
-                com.baidu.adp.lib.f.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.e.a.a((OutputStream) dataOutputStream);
             }
         }
         if (dVar != null) {
@@ -143,10 +142,10 @@ public class f {
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
-                com.baidu.adp.lib.f.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.e.a.a((OutputStream) dataOutputStream);
                 i = sb.length();
             } catch (Throwable th) {
-                com.baidu.adp.lib.f.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.e.a.a((OutputStream) dataOutputStream);
                 throw th;
             }
         }
@@ -169,7 +168,7 @@ public class f {
                         sb.append("&");
                     }
                     sb.append(String.valueOf(name) + "=");
-                    sb.append(i.c(value));
+                    sb.append(i.d(value));
                     i++;
                 }
             }

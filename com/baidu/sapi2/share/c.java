@@ -57,7 +57,7 @@ class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, Intent intent, LoginShareStrategy loginShareStrategy, d dVar) {
+    public static void a(Context context, Intent intent, LoginShareStrategy loginShareStrategy, e eVar) {
         boolean z = false;
         Bundle extras = intent.getExtras();
         if (extras != null && loginShareStrategy != LoginShareStrategy.DISABLED) {
@@ -108,8 +108,8 @@ class c {
                                                 String next = keys.next();
                                                 hashMap.put(next, jSONObject.optString(next));
                                             }
-                                        } catch (JSONException e2) {
-                                            e2.printStackTrace();
+                                        } catch (Throwable th) {
+                                            th.printStackTrace();
                                         }
                                     }
                                     a aVar = new a();
@@ -118,10 +118,10 @@ class c {
                                     aVar.c = parseLong;
                                     aVar.d = hashMap;
                                     ShareModel a2 = a(context, aVar);
-                                    if (dVar != null && a2 != null) {
-                                        dVar.a(a2);
+                                    if (eVar != null && a2 != null) {
+                                        eVar.a(a2);
                                     }
-                                } catch (Exception e3) {
+                                } catch (Exception e2) {
                                 }
                             }
                         }
@@ -235,16 +235,16 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static SapiAccount a(Context context) {
-        e eVar = new e(context);
+        d dVar = new d(context);
         SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.displayname = eVar.a("displayname");
-        sapiAccount.username = eVar.a(l);
-        sapiAccount.email = eVar.a(n);
-        sapiAccount.phone = eVar.a(o);
-        sapiAccount.bduss = eVar.a("bduss");
-        sapiAccount.ptoken = eVar.a("ptoken");
-        sapiAccount.extra = eVar.a(s);
-        a(sapiAccount, eVar.a(t));
+        sapiAccount.displayname = dVar.a("displayname");
+        sapiAccount.username = dVar.a(l);
+        sapiAccount.email = dVar.a(n);
+        sapiAccount.phone = dVar.a(o);
+        sapiAccount.bduss = dVar.a("bduss");
+        sapiAccount.ptoken = dVar.a("ptoken");
+        sapiAccount.extra = dVar.a(s);
+        a(sapiAccount, dVar.a(t));
         if (!TextUtils.isEmpty(sapiAccount.extra)) {
             try {
                 JSONObject jSONObject = new JSONObject(sapiAccount.extra);

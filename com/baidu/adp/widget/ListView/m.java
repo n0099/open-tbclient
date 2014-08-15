@@ -15,7 +15,7 @@ public class m implements Runnable {
     public void run() {
         Context context = this.a.getContext();
         if (context != null) {
-            ((com.baidu.adp.base.j) context).onPreLoad(this.a);
+            ((com.baidu.adp.base.i) context).onPreLoad(this.a);
         }
     }
 }

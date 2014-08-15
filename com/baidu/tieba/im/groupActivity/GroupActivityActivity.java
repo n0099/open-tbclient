@@ -13,7 +13,7 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
     private s a;
     private r b;
     private CustomMessageListener c = new n(this, 2001127);
-    private com.baidu.adp.framework.listener.b d = new o(this, 0);
+    private com.baidu.adp.framework.listener.d d = new o(this, 0);
 
     public static void a(Context context, int i, long j, int i2) {
         Intent intent = new Intent(context, GroupActivityActivity.class);
@@ -124,7 +124,7 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
         if (view == this.a.b()) {
             closeActivity();
         } else if (view == this.a.c()) {
-            com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new p(this));
+            com.baidu.tieba.im.d.b.a((Context) this, (DialogInterface.OnClickListener) new p(this));
         }
     }
 
@@ -135,7 +135,7 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
             if (i == 0) {
                 CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.g(), 23001);
             } else if (i == 1) {
-                com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new q(this));
+                com.baidu.tieba.im.d.b.a((Context) this, (DialogInterface.OnClickListener) new q(this));
             }
         }
     }

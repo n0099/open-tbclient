@@ -1,23 +1,29 @@
 package com.baidu.tieba.pb.sub;
 
-import android.view.View;
-import android.widget.AdapterView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.editortool.w;
 /* loaded from: classes.dex */
-public class r implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ m a;
+class r implements w {
+    final /* synthetic */ l a;
+    private final /* synthetic */ w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(m mVar) {
-        this.a = mVar;
+    public r(l lVar, w wVar) {
+        this.a = lVar;
+        this.b = wVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.a.K != null) {
-            this.a.K.onLongClick(view);
-            return false;
+    @Override // com.baidu.tbadk.editortool.w
+    public void a(int i, Object obj) {
+        if (i == 0) {
+            this.b.a(26, obj);
+        } else if (i == 10) {
+            this.b.a(27, obj);
+        } else if (i == 34) {
+            this.a.r.setEnabled(true);
+        } else if (i == 33) {
+            this.a.r.setEnabled(false);
+        } else {
+            this.b.a(i, obj);
         }
-        return false;
     }
 }

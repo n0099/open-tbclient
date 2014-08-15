@@ -1,24 +1,22 @@
 package com.baidu.tieba.im.newFriend;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends CustomMessageListener {
-    int a;
+public class r implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ p a;
+    private final /* synthetic */ long b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(int i) {
-        super(i);
-        this.a = 0;
+    public r(p pVar, long j) {
+        this.a = pVar;
+        this.b = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001179) {
-            com.baidu.tieba.im.i.a(new s(this), new t(this));
-        }
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r9) {
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.b, "", "", "", ""));
     }
 }

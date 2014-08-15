@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.client.socket.coder;
 
-import android.util.SparseBooleanArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.r;
 import java.security.PublicKey;
@@ -10,7 +9,6 @@ public class d {
     private static d a = null;
     private SecretKey b = null;
     private byte[] c = null;
-    private SparseBooleanArray d = null;
 
     public static d a() {
         if (a == null) {
@@ -23,13 +21,8 @@ public class d {
         return a;
     }
 
-    public void a(int i) {
-        this.d.put(i, true);
-    }
-
     public void a(byte[] bArr) {
         try {
-            this.d = new SparseBooleanArray();
             PublicKey a2 = r.a(bArr);
             String a3 = r.a(32);
             byte[] bArr2 = new byte[a3.length()];
@@ -54,9 +47,5 @@ public class d {
 
     public SecretKey c() {
         return this.b;
-    }
-
-    public boolean b(int i) {
-        return (this.b == null || this.d.get(i, false)) ? false : true;
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tieba.data.FriendFeedThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class j implements AdapterView.OnItemClickListener {
         Object item = tVar.c().getItem(i);
         if (item instanceof FriendFeedThreadData) {
             com.baidu.tbadk.core.f.a(this.a, "frd_news_topb");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new aw(this.a).a(((FriendFeedThreadData) item).getId(), null, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.a).a(((FriendFeedThreadData) item).getId(), null, null)));
         }
     }
 }

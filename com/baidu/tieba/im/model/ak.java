@@ -1,25 +1,30 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.im.a<Boolean> {
+class ak implements Comparator<ChatMessage> {
     final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ CommonGroupChatMessage b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ com.baidu.tbadk.img.b d;
+
+    private ak(MsglistModel msglistModel) {
+        this.a = msglistModel;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage, String str, com.baidu.tbadk.img.b bVar) {
-        this.a = msglistModel;
-        this.b = commonGroupChatMessage;
-        this.c = str;
-        this.d = bVar;
+    public /* synthetic */ ak(MsglistModel msglistModel, ak akVar) {
+        this(msglistModel);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.a(this.b, this.c, this.d);
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(ChatMessage chatMessage, ChatMessage chatMessage2) {
+        if (chatMessage == null || chatMessage2 == null) {
+            return 0;
+        }
+        if (chatMessage.getRecordId() > chatMessage2.getRecordId()) {
+            return 1;
+        }
+        return chatMessage.getRecordId() < chatMessage2.getRecordId() ? -1 : 0;
     }
 }

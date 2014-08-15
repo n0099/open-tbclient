@@ -13,7 +13,7 @@ public class o {
     private com.baidu.tieba.square.ap c = new com.baidu.tieba.square.ap();
     private long f = 0;
     private aa a = new aa();
-    private ar b = new ar();
+    private as b = new as();
 
     public boolean a() {
         return this.d;
@@ -28,7 +28,7 @@ public class o {
         this.e = false;
     }
 
-    public ar b() {
+    public as b() {
         return this.b;
     }
 

@@ -13,7 +13,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener, f, g {
@@ -101,8 +101,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.q = viewConfiguration.getScaledMaximumFlingVelocity();
         this.l = new Scroller(context, new LinearInterpolator());
         this.m = new Scroller(context);
-        this.u = getResources().getDimensionPixelSize(t.editor_muti_image_upload_scrollview_paddingleft);
-        this.v = getResources().getDimensionPixelSize(t.default_gap_24);
+        this.u = getResources().getDimensionPixelSize(s.editor_muti_image_upload_scrollview_paddingleft);
+        this.v = getResources().getDimensionPixelSize(s.default_gap_24);
     }
 
     @Override // android.view.View
@@ -160,7 +160,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         removeAllViewsInLayout();
         int paddingLeft = getPaddingLeft() + this.u;
         if (this.H) {
-            int dimensionPixelSize = getResources().getDimensionPixelSize(t.default_gap_24);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(s.default_gap_24);
             if (this.f > 0) {
                 View a = a(0);
                 a(a, this.g, this.h);

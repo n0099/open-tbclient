@@ -1,21 +1,15 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes.dex */
 public class az extends com.baidu.tbadk.core.frameworkData.a {
-    public az(Context context, String str, int i) {
-        super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-    }
+    public static String a = "from_page";
+    public static String b = "from_account";
+    public static String c = "form_logo";
+    public static String d = "from_hao123";
 
-    public az(Context context, String str, int i, int i2) {
+    public az(Context context, String str) {
         super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-        intent.putExtra("key_current_tab", i2);
+        getIntent().putExtra(a, str);
     }
 }

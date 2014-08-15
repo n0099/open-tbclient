@@ -7,21 +7,26 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 import com.baidu.tbadk.newFriends.ResponsePassFriendMessage;
+import com.baidu.tieba.im.c.a.l;
+import com.baidu.tieba.im.c.a.m;
+import com.baidu.tieba.im.c.a.n;
+import com.baidu.tieba.im.c.a.o;
+import com.baidu.tieba.im.c.a.p;
+import com.baidu.tieba.im.c.a.q;
+import com.baidu.tieba.im.c.a.r;
+import com.baidu.tieba.im.c.a.s;
+import com.baidu.tieba.im.c.a.t;
+import com.baidu.tieba.im.c.a.u;
+import com.baidu.tieba.im.c.a.v;
+import com.baidu.tieba.im.c.a.w;
+import com.baidu.tieba.im.c.a.x;
+import com.baidu.tieba.im.c.a.y;
+import com.baidu.tieba.im.c.a.z;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.ResponseOfficialBarInfoMessage;
-import com.baidu.tieba.im.d.a.aa;
-import com.baidu.tieba.im.d.a.q;
-import com.baidu.tieba.im.d.a.r;
-import com.baidu.tieba.im.d.a.s;
-import com.baidu.tieba.im.d.a.t;
-import com.baidu.tieba.im.d.a.u;
-import com.baidu.tieba.im.d.a.v;
-import com.baidu.tieba.im.d.a.w;
-import com.baidu.tieba.im.d.a.x;
-import com.baidu.tieba.im.d.a.y;
-import com.baidu.tieba.im.d.a.z;
 import com.baidu.tieba.im.groupInfo.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
 import com.baidu.tieba.im.groupInfo.ResponseJoinGroupMessage;
@@ -147,6 +152,7 @@ public class b {
         a(304100, ResponseAddFriendMessage.class, false);
         a(304102, ResponseDeleteFriendMessage.class, false);
         a(304101, ResponsePassFriendMessage.class, false);
+        a(304103, ResponseApplyMessage.class, false);
         a(303006, ResponseOfficialBarMenuMessage.class, false);
         a(208003, ResponseSendOfficialBarMenuMessage.class, false);
         return true;
@@ -156,35 +162,35 @@ public class b {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
         bVar.a(cls);
         bVar.b(z);
+        bVar.setParallel(com.baidu.tbadk.k.b());
         MessageManager.getInstance().registerTask(bVar);
         return bVar;
     }
 
     private static boolean c() {
-        a(2001102, com.baidu.tieba.im.d.a.i.class);
-        a(2001106, w.class);
-        a(2001202, z.class);
-        a(2001203, y.class);
-        a(2001204, aa.class);
-        a(2001146, com.baidu.tieba.im.d.a.f.class);
-        a(2001147, s.class);
-        a(2001148, com.baidu.tieba.im.d.a.m.class);
-        a(2001149, com.baidu.tieba.im.d.a.h.class);
-        a(2001150, u.class);
-        a(2001151, r.class);
-        a(2001127, com.baidu.tieba.im.d.a.e.class);
-        a(2001201, com.baidu.tieba.im.d.a.j.class);
-        a(2001114, x.class);
-        a(2001115, v.class);
-        a(2001110, com.baidu.tieba.im.d.a.d.class);
-        a(2001152, com.baidu.tieba.im.d.a.g.class);
-        a(2001153, t.class);
-        a(2001154, com.baidu.tieba.im.d.a.n.class);
-        a(2001155, com.baidu.tieba.im.d.a.o.class);
-        a(2001156, com.baidu.tieba.im.d.a.p.class);
-        a(2001205, com.baidu.tieba.im.d.a.k.class);
-        a(2001165, com.baidu.tieba.im.d.a.l.class);
-        a(2001181, q.class);
+        a(2001102, com.baidu.tieba.im.c.a.h.class);
+        a(2001106, v.class);
+        a(2001211, y.class);
+        a(2001212, x.class);
+        a(2001213, z.class);
+        a(2001146, com.baidu.tieba.im.c.a.e.class);
+        a(2001147, r.class);
+        a(2001148, l.class);
+        a(2001149, com.baidu.tieba.im.c.a.g.class);
+        a(2001150, t.class);
+        a(2001151, q.class);
+        a(2001127, com.baidu.tieba.im.c.a.d.class);
+        a(2001210, com.baidu.tieba.im.c.a.i.class);
+        a(2001114, w.class);
+        a(2001115, u.class);
+        a(2001152, com.baidu.tieba.im.c.a.f.class);
+        a(2001153, s.class);
+        a(2001154, m.class);
+        a(2001155, n.class);
+        a(2001156, o.class);
+        a(2001214, com.baidu.tieba.im.c.a.j.class);
+        a(2001165, com.baidu.tieba.im.c.a.k.class);
+        a(2001181, p.class);
         return true;
     }
 
@@ -204,8 +210,8 @@ public class b {
 
     private static boolean d() {
         MessageManager.getInstance().addResponsedMessageRule(new c(202006));
-        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.c.l());
-        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.c.k());
+        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.b.k());
+        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.j());
         return true;
     }
 }

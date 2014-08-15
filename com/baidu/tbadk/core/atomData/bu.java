@@ -1,16 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class bu extends com.baidu.tbadk.core.frameworkData.a {
-    public bu(Context context, WriteData writeData, int i) {
+    public bu(Context context) {
         super(context);
-        setRequestCode(i);
-        setIntentAction(IntentAction.ActivityForResult);
-        if (writeData != null) {
-            getIntent().putExtra("model", writeData);
-        }
     }
 }

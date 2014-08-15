@@ -3,12 +3,11 @@ package com.baidu.tbadk.coreExtra.act;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ EditHeadActivity a;
-    private aq b;
+    private com.baidu.tbadk.core.util.ae b;
 
     private o(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
@@ -23,7 +22,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.upload_head));
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.upload_head));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +32,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         Exception e;
-        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
         try {
             str = this.b.b(TbConfig.PERSON_HEAD_FILE);
         } catch (Exception e2) {
@@ -57,7 +56,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
         this.a.closeLoadingDialog();
         this.a.u = null;
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         super.cancel(true);
     }
@@ -72,10 +71,10 @@ public class o extends BdAsyncTask<String, Integer, String> {
             if (this.b.a().b().b()) {
                 this.a.setResult(-1);
                 this.a.finish();
-                this.a.showToast(this.a.getString(com.baidu.tieba.y.upload_head_ok));
+                this.a.showToast(this.a.getString(com.baidu.tieba.x.upload_head_ok));
                 return;
             }
-            this.a.showToast(this.b.f());
+            this.a.showToast(this.b.e());
         }
     }
 }

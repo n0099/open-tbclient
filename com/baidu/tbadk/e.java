@@ -1,9 +1,7 @@
 package com.baidu.tbadk;
-
-import com.baidu.bdcvf.CertVerifier;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements CertVerifier.ResultListener {
+public class e implements com.baidu.adp.framework.client.socket.link.d {
     final /* synthetic */ TbadkApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +9,8 @@ public class e implements CertVerifier.ResultListener {
         this.a = tbadkApplication;
     }
 
-    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyOK() {
-        this.a.mIsOfficial = true;
-    }
-
-    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyFail(int i) {
-        this.a.mIsOfficial = false;
+    @Override // com.baidu.adp.framework.client.socket.link.d
+    public boolean a() {
+        return !h.a().a("is_exit_app_not_start_websocket", false);
     }
 }

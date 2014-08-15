@@ -1,28 +1,30 @@
 package com.baidu.tieba.im.groupInfo;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends BdAsyncTask<Void, Void, Void> {
+public class z extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ y a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
-    private final /* synthetic */ boolean d;
+    private final /* synthetic */ long d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar, String str, String str2, boolean z) {
+    public z(y yVar, String str, String str2, long j) {
         this.a = yVar;
         this.b = str;
         this.c = str2;
-        this.d = z;
+        this.d = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        this.a.b(this.b, this.c, this.d);
-        return null;
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        GroupSettingItemData b = this.a.b(this.b, this.c);
+        if (b != null && b.isAlreadyApply()) {
+            if (System.currentTimeMillis() - b.getLastApplyTimeStamp() <= this.d) {
+                return false;
+            }
+        }
+        return true;
     }
 }

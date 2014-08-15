@@ -1,24 +1,26 @@
 package com.baidu.tieba.flist;
 
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class z implements PopupWindow.OnDismissListener {
-    final /* synthetic */ w a;
+class z extends com.baidu.tbadk.core.util.a {
+    final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(w wVar) {
-        this.a = wVar;
+    public z(ForumRankActivity forumRankActivity) {
+        this.a = forumRankActivity;
     }
 
-    @Override // android.widget.PopupWindow.OnDismissListener
-    public void onDismiss() {
-        this.a.C = false;
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.a.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down_1);
-        } else {
-            this.a.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down);
+    @Override // com.baidu.tbadk.core.util.a
+    public LinkedList<String> getImageUrl() {
+        String str;
+        String str2;
+        str = this.a.j;
+        if (str == null) {
+            return null;
         }
+        LinkedList<String> linkedList = new LinkedList<>();
+        str2 = this.a.j;
+        linkedList.add(str2);
+        return linkedList;
     }
 }

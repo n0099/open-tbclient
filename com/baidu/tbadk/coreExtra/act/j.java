@@ -7,8 +7,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tbadk.plugins.MotuPlugin;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -35,11 +35,11 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
     public void onPreExecute() {
         Handler handler;
         Intent intent;
-        PluginsConfig.PluginConfig d;
+        ConfigInfos.PluginConfig b;
         Handler handler2;
         ProgressBar progressBar;
         TextView textView;
-        if (((MotuPlugin) com.baidu.tbadk.tbplugin.m.a().b(MotuPlugin.class)) != null) {
+        if (com.baidu.tbadk.pluginArch.d.a().a("motu") != null) {
             progressBar = this.a.n;
             progressBar.setVisibility(0);
             textView = this.a.j;
@@ -48,17 +48,17 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         }
         try {
             intent = new Intent(this.a, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
-            d = com.baidu.tbadk.tbplugin.m.a().d("motusdk");
+            b = com.baidu.tbadk.pluginArch.d.a().b("motu");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (d == null) {
+        if (b == null) {
             this.a.showToast("插件安装失败");
             handler2 = this.a.J;
             handler2.postDelayed(new k(this), 500L);
             return;
         }
-        intent.putExtra("plugin_config", d);
+        intent.putExtra("plugin_config", b);
         this.a.startActivity(intent);
         cancel();
         handler = this.a.J;
@@ -76,6 +76,7 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap4;
         Bitmap bitmap5;
         Bitmap bitmap6;
+        MotuPlugin motuPlugin;
         Bitmap bitmap7;
         Bitmap bitmap8;
         Bitmap bitmap9;
@@ -109,12 +110,12 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
             }
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.h.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tbadk.core.util.d.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.h.f(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tbadk.core.util.d.f(this.c, Integer.parseInt(this.b));
         } else {
-            MotuPlugin motuPlugin = (MotuPlugin) com.baidu.tbadk.tbplugin.m.a().b(MotuPlugin.class);
-            if (motuPlugin != null) {
+            com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("motu");
+            if (a != null && (motuPlugin = (MotuPlugin) a.a(MotuPlugin.class)) != null) {
                 this.c = motuPlugin.createOneKeyFilterAndApply(this.a, this.b, this.c);
             }
         }
@@ -181,15 +182,15 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
                 }
                 EditHeadActivity editHeadActivity = this.a;
                 bitmap3 = this.a.h;
-                editHeadActivity.h = com.baidu.tbadk.core.util.h.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
+                editHeadActivity.h = com.baidu.tbadk.core.util.d.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
                 if (this.d.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.a;
                     bitmap5 = this.a.h;
-                    editHeadActivity2.h = com.baidu.tbadk.core.util.h.d(bitmap5, Integer.parseInt(this.b));
+                    editHeadActivity2.h = com.baidu.tbadk.core.util.d.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.a;
                     bitmap4 = this.a.h;
-                    editHeadActivity3.h = com.baidu.tbadk.core.util.h.f(bitmap4, Integer.parseInt(this.b));
+                    editHeadActivity3.h = com.baidu.tbadk.core.util.d.f(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
                 editHeadsImageView2 = this.a.g;

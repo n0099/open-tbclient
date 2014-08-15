@@ -1,45 +1,26 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.app.Activity;
 import android.content.DialogInterface;
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class w implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ MembersActivity a;
+class w implements DialogInterface.OnClickListener {
+    final /* synthetic */ v a;
+    private final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(MembersActivity membersActivity) {
-        this.a = membersActivity;
+    public w(v vVar, List list) {
+        this.a = vVar;
+        this.b = list;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ag agVar;
-        com.baidu.tieba.im.model.ac acVar;
-        ag agVar2;
-        agVar = this.a.b;
-        if (agVar.f().d()) {
-            return false;
-        }
-        acVar = this.a.c;
-        if (acVar.b()) {
-            agVar2 = this.a.b;
-            UserData userData = (UserData) agVar2.f().getItem(i);
-            if (userData != null) {
-                if (userData.getPermission().isController()) {
-                    return false;
-                }
-                long userIdLong = userData.getUserIdLong();
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Long.valueOf(userIdLong));
-                com.baidu.tieba.im.e.b.a((Activity) this.a, (DialogInterface.OnClickListener) new x(this, arrayList), (DialogInterface.OnClickListener) new y(this));
-            }
-            return true;
-        }
-        return false;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        MembersActivity membersActivity;
+        MembersActivity membersActivity2;
+        com.baidu.tieba.im.model.u uVar;
+        membersActivity = this.a.a;
+        membersActivity2 = this.a.a;
+        uVar = membersActivity2.c;
+        membersActivity.a(uVar.f(), this.b);
     }
 }

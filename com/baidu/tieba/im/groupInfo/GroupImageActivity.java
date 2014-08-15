@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class GroupImageActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.w.image_activity_2);
+        setContentView(com.baidu.tieba.v.image_activity_2);
         a(bundle);
         a();
         int size = this.b.size();
@@ -90,7 +90,7 @@ public class GroupImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(bk.d(i));
+            this.j.setBackgroundColor(ay.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -148,16 +148,16 @@ public class GroupImageActivity extends BaseActivity {
         this.k = new e(this);
         this.m = new g(this);
         this.l = new h(this);
-        this.e = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
-        this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.image_activity_save_button, this.k);
+        this.e = (NavigationBar) findViewById(com.baidu.tieba.u.navigation_bar);
+        this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.image_activity_save_button, this.k);
         this.h = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.i = this.e.a("");
-        this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.f = (TextView) findViewById(com.baidu.tieba.v.save);
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
+        this.f = (TextView) findViewById(com.baidu.tieba.u.save);
         this.f.setClickable(false);
         this.g.setOnClickListener(this.k);
         this.h.setOnClickListener(this.k);
-        this.j = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.j = (MultiImageView) findViewById(com.baidu.tieba.u.viewpager);
         this.j.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.j.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.j.setOnPageChangeListener(this.m);
@@ -178,7 +178,7 @@ public class GroupImageActivity extends BaseActivity {
                 valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
             }
             if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
-                this.i.setText(getString(com.baidu.tieba.y.image_recommend));
+                this.i.setText(getString(com.baidu.tieba.x.image_recommend));
                 this.f.setVisibility(4);
                 return;
             }

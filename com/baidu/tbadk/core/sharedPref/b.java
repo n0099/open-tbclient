@@ -6,6 +6,9 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
+import com.baidu.adp.lib.e.e;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -57,19 +60,6 @@ public class b {
         return this.d.getBoolean(str, z);
     }
 
-    public boolean b(String str, boolean z) {
-        String c = c(str);
-        if (c != null) {
-            try {
-                return Boolean.parseBoolean(c);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return z;
-            }
-        }
-        return z;
-    }
-
     public int a(String str, int i) {
         if (b(str)) {
             String c = c(str);
@@ -113,17 +103,13 @@ public class b {
         return this.d.getString(str, str2);
     }
 
-    public void c(String str, boolean z) {
+    public void b(String str, boolean z) {
         if (b(str)) {
-            e(str, z);
+            c(str, z);
             return;
         }
         this.d = d();
         EditorHelper.putBoolean(this.d, str, z);
-    }
-
-    public void d(String str, boolean z) {
-        e(str, z);
     }
 
     public void b(String str, String str2) {
@@ -200,7 +186,7 @@ public class b {
         a(parse, contentValues);
     }
 
-    private void e(String str, boolean z) {
+    private void c(String str, boolean z) {
         Uri parse = Uri.parse(String.valueOf(c()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
@@ -285,14 +271,45 @@ public class b {
     }
 
     protected void a(Uri uri, ContentValues contentValues) {
-        b.insert(uri, contentValues);
+        if (j.b()) {
+            e.a().a(new c(this, uri, contentValues));
+        } else {
+            b(uri, contentValues);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Uri uri, ContentValues contentValues) {
+        try {
+            b.insert(uri, contentValues);
+        } catch (SecurityException e) {
+            BdLog.detailException(e);
+        }
     }
 
     protected String a(Uri uri) {
-        return b.getType(uri);
+        try {
+            return b.getType(uri);
+        } catch (SecurityException e) {
+            BdLog.detailException(e);
+            return null;
+        }
     }
 
     protected void b(Uri uri) {
-        b.delete(uri, null, null);
+        if (j.b()) {
+            e.a().a(new d(this, uri));
+        } else {
+            c(uri);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(Uri uri) {
+        try {
+            b.delete(uri, null, null);
+        } catch (SecurityException e) {
+            BdLog.detailException(e);
+        }
     }
 }

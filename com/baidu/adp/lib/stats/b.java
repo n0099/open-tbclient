@@ -28,8 +28,8 @@ class b extends com.baidu.adp.lib.Disk.ops.e {
             }
             BdNormalStatBase bdNormalStatBase = this.g;
             j2 = bdNormalStatBase.mCurrentFileSize;
-            bdNormalStatBase.mCurrentFileSize = j2 + u().length();
+            bdNormalStatBase.mCurrentFileSize = j2 + v().length();
         }
-        d.b().a(this.h, this.i);
+        f.c().a(this.h, this.i);
     }
 }

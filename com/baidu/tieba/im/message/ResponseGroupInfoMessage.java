@@ -18,7 +18,7 @@ import protobuf.UserInfo;
 public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     private static final String CACHE_KEY_PREFIX = "group_info";
     private QueryGroupDetailResIdl mResData;
-    private f selfData;
+    private j selfData;
 
     public ResponseGroupInfoMessage() {
         super(103004);
@@ -30,7 +30,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         this.mResData = null;
     }
 
-    public f getData() {
+    public j getData() {
         return this.selfData;
     }
 
@@ -39,7 +39,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
         ActivityInfo activityInfo;
         Wire wire = new Wire(new Class[0]);
-        this.selfData = new f();
+        this.selfData = new j();
         this.mResData = (QueryGroupDetailResIdl) wire.parseFrom(bArr, QueryGroupDetailResIdl.class);
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
@@ -140,7 +140,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().t(), CACHE_KEY_PREFIX + str + this.selfData.b().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.b().getGroupId(), bArr);
         }
     }
 }

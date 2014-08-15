@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.voice.aa;
 import com.baidu.tbadk.core.voice.y;
 /* loaded from: classes.dex */
 public class SingleForumFeedActivity extends BaseFragmentActivity implements aa {
-    private a c;
-    private VoiceManager d;
+    private a d;
+    private VoiceManager e;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010011, new p());
@@ -27,12 +27,12 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.d = new VoiceManager();
-        this.d.onCreate(this);
+        this.e = new VoiceManager();
+        this.e.onCreate(this);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new a();
+        this.d = new a();
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        beginTransaction.add(16908290, this.c);
+        beginTransaction.add(16908290, this.d);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -40,7 +40,7 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.d.onStart(this);
+        this.e.onStart(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,28 +53,28 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.d.onResume(this);
+        this.e.onResume(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.d.onStop(this);
+        this.e.onStop(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.d.onSaveInstanceState(this);
+        this.e.onSaveInstanceState(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.d.onDestory(this);
+        this.e.onDestory(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -86,8 +86,8 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.c != null) {
-            this.c.onActivityResult(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
         }
     }
 
@@ -97,7 +97,7 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
 
     @Override // com.baidu.tbadk.core.voice.aa
     public VoiceManager d() {
-        return this.d;
+        return this.e;
     }
 
     @Override // com.baidu.tbadk.core.voice.aa
@@ -106,11 +106,11 @@ public class SingleForumFeedActivity extends BaseFragmentActivity implements aa 
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
-    public BdListView h_() {
+    public BdListView p_() {
         j f;
-        if (this.c == null || (f = this.c.f()) == null) {
+        if (this.d == null || (f = this.d.f()) == null) {
             return null;
         }
-        return f.h();
+        return f.g();
     }
 }

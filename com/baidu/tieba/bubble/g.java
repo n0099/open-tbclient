@@ -7,9 +7,9 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f {
@@ -24,16 +24,16 @@ public class g extends com.baidu.adp.base.f {
     public g(BubbleChooseActivity bubbleChooseActivity) {
         super(bubbleChooseActivity);
         this.f = bubbleChooseActivity;
-        bubbleChooseActivity.setContentView(w.bubble_activity_view);
-        this.a = (NavigationBar) bubbleChooseActivity.findViewById(v.lay_title_bar);
+        bubbleChooseActivity.setContentView(v.bubble_activity_view);
+        this.a = (NavigationBar) bubbleChooseActivity.findViewById(u.lay_title_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(y.bubble_choose);
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.bubble_explain, bubbleChooseActivity);
-        this.b = (ViewGroup) bubbleChooseActivity.findViewById(v.container);
-        this.c = (GridView) bubbleChooseActivity.findViewById(v.gv_bubble_list);
+        this.a.a(x.bubble_choose);
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.bubble_explain, bubbleChooseActivity);
+        this.b = (ViewGroup) bubbleChooseActivity.findViewById(u.container);
+        this.c = (GridView) bubbleChooseActivity.findViewById(u.gv_bubble_list);
         this.e = new f(bubbleChooseActivity);
         this.c.setAdapter((ListAdapter) this.e);
-        this.g = (ProgressBar) bubbleChooseActivity.findViewById(v.bubble_progress);
+        this.g = (ProgressBar) bubbleChooseActivity.findViewById(u.bubble_progress);
     }
 
     public void a(List<BubbleListData.BubbleData> list, boolean z) {

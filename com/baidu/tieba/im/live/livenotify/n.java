@@ -21,7 +21,7 @@ public class n implements View.OnClickListener {
         UpdatesItemData updatesItemData;
         ImageView imageView;
         liveNotifyActivity = this.a.b;
-        if (!liveNotifyActivity.b()) {
+        if (!liveNotifyActivity.a()) {
             liveNotifyActivity2 = this.a.b;
             view2 = this.a.d;
             updatesItemData = this.a.c;

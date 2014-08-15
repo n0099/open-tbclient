@@ -19,19 +19,19 @@ import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* loaded from: classes.dex */
 public class LiveRoomSettingActivity extends BaseActivity {
-    private bj e;
-    private bi f;
+    private bk e;
+    private bj f;
     private String g;
     private String h;
     private final String c = "key_url";
     private final String d = "key_pid";
-    private com.baidu.adp.framework.listener.b i = new be(this, 0);
-    private com.baidu.adp.framework.listener.b j = new bf(this, 0);
-    DialogInterface.OnClickListener a = new bg(this);
-    DialogInterface.OnClickListener b = new bh(this);
+    private com.baidu.adp.framework.listener.d i = new bf(this, 0);
+    private com.baidu.adp.framework.listener.d j = new bg(this, 0);
+    DialogInterface.OnClickListener a = new bh(this);
+    DialogInterface.OnClickListener b = new bi(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.am.class, LiveRoomSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ap.class, LiveRoomSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     }
 
     private void a() {
-        this.e = new bj(this);
+        this.e = new bk(this);
         this.e.a(this.b);
         this.e.b(this.a);
         this.e.a(this.g);
@@ -59,7 +59,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     }
 
     private void a(Bundle bundle) {
-        this.f = new bi();
+        this.f = new bj(this);
         if (bundle == null) {
             if (getIntent() != null) {
                 a(getIntent());
@@ -131,10 +131,10 @@ public class LiveRoomSettingActivity extends BaseActivity {
         if (dialogInterface == this.e.g()) {
             switch (i) {
                 case 0:
-                    com.baidu.tbadk.core.util.bj.a(this);
+                    com.baidu.tbadk.core.util.ax.a(this);
                     return;
                 case 1:
-                    com.baidu.tbadk.core.util.bj.c(this);
+                    com.baidu.tbadk.core.util.ax.c(this);
                     return;
                 default:
                     return;
@@ -160,7 +160,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tbadk.core.util.bc.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.z.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        com.baidu.tbadk.core.util.ar.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.s.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                         this.f.a(photoUrlData.getPicId());
                         this.f.a(true);
                         this.e.a(photoUrlData.getSmallurl());
@@ -180,9 +180,9 @@ public class LiveRoomSettingActivity extends BaseActivity {
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tbadk.core.util.bj.a(this);
+                com.baidu.tbadk.core.util.ax.a(this);
             } else if (i == 12009) {
-                com.baidu.tbadk.core.util.bj.b(this);
+                com.baidu.tbadk.core.util.ax.b(this);
             }
         }
     }
@@ -200,7 +200,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
         if (i < 0 || TextUtils.isEmpty(str)) {
-            showToast(com.baidu.tieba.y.neterror);
+            showToast(com.baidu.tieba.x.neterror);
         } else {
             showToast(str);
         }
@@ -217,7 +217,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (!this.e.j()) {
-            showToast(com.baidu.tieba.y.group_step_name_error);
+            showToast(com.baidu.tieba.x.group_step_name_error);
             return;
         }
         this.e.l();

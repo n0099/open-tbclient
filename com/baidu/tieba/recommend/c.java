@@ -8,14 +8,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ DailyClassicalActivity a;
-    private aq b;
+    private ae b;
     private String c;
 
     private c(DailyClassicalActivity dailyClassicalActivity) {
@@ -36,31 +36,31 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         String str;
         boolean z;
         long j;
-        this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
+        this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
         this.b.a().a().a().g = false;
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.b.a("night_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         }
-        aq aqVar = this.b;
+        ae aeVar = this.b;
         str = this.a.q;
-        aqVar.a("pn", str);
+        aeVar.a("pn", str);
         this.b.a("_version_more", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         this.b.a("platform", "android");
         z = DailyClassicalActivity.o;
         if (z) {
             DailyClassicalActivity.o = false;
             this.b.a("msg_click", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            aq aqVar2 = this.b;
+            ae aeVar2 = this.b;
             j = DailyClassicalActivity.p;
-            aqVar2.a("message_id", String.valueOf(j));
+            aeVar2.a("message_id", String.valueOf(j));
         }
         Address b = com.baidu.adp.lib.c.a.a().b(false);
         if (b != null && ai.c().m()) {
             this.b.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
         }
         try {
-            this.c = this.b.i();
-            if (this.b.c()) {
+            this.c = this.b.h();
+            if (this.b.b()) {
                 return this.c;
             }
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class c extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.n = false;
         super.cancel(true);
@@ -94,7 +94,7 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         this.a.i = null;
         linearLayout = this.a.h;
         linearLayout.setOnClickListener(null);
-        if (this.b != null && this.b.c() && str != null && str.length() > 0) {
+        if (this.b != null && this.b.b() && str != null && str.length() > 0) {
             baseWebView2 = this.a.f;
             baseWebView2.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             textView2 = this.a.l;

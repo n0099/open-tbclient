@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import com.baidu.tbadk.core.util.aj;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Runnable {
+public class g implements DialogInterface.OnClickListener {
     final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +11,20 @@ public class g implements Runnable {
         this.a = updatesActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         t tVar;
-        tVar = this.a.b;
-        aj.a(tVar.g(), this.a.a(), 0, -1);
+        UpdatesItemData updatesItemData;
+        switch (i) {
+            case 0:
+                tVar = this.a.b;
+                tVar.a(true);
+                UpdatesActivity updatesActivity = this.a;
+                updatesItemData = this.a.h;
+                updatesActivity.a(updatesItemData);
+                return;
+            default:
+                return;
+        }
     }
 }

@@ -5,8 +5,9 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class b extends com.baidu.adp.framework.listener.b {
+class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ IMBlackListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,7 +45,7 @@ class b extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     return;
                 }
-                this.a.showToast(this.a.getString(com.baidu.tieba.y.black_list_remove_success));
+                this.a.showToast(this.a.getString(x.black_list_remove_success));
                 aVar = this.a.c;
                 if (aVar != null) {
                     hVar2 = this.a.b;

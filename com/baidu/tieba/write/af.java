@@ -1,12 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.view.View;
+import android.app.TimePickerDialog;
 import android.widget.TextView;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TimePicker;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
+class af implements TimePickerDialog.OnTimeSetListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,19 +14,31 @@ public class af implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
         TextView textView;
-        by byVar;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
-        textView = this.a.N;
-        textView.setSelected(true);
-        byVar = this.a.O;
-        byVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.j.a((Context) this.a, 1.0f));
-        writeEditorToolButtonContainer = this.a.z;
-        writeEditorToolButtonContainer.c();
-        editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.p();
+        WriteData writeData5;
+        WriteData writeData6;
+        writeData = this.a.a;
+        if (writeData.getLiveCardData() != null) {
+            Date date = new Date();
+            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
+            writeData2 = this.a.a;
+            long startTime = writeData2.getLiveCardData().getStartTime();
+            writeData3 = this.a.a;
+            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
+            writeData4 = this.a.a;
+            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
+                writeData6 = this.a.a;
+                writeData6.getLiveCardData().setModifyTime(true);
+            }
+            textView = this.a.U;
+            writeData5 = this.a.a;
+            textView.setText(com.baidu.tbadk.core.util.ba.b(writeData5.getLiveCardData().getStartTime() * 1000));
+        }
     }
 }

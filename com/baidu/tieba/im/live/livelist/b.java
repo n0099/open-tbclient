@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.RequestLiveGroupOwnerGagMessage;
 import com.baidu.tieba.im.message.ResponseLiveGroupOwnerGagMessage;
 /* loaded from: classes.dex */
-class b extends com.baidu.adp.framework.listener.b {
+class b extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ BlackMembersListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,14 +24,14 @@ class b extends com.baidu.adp.framework.listener.b {
         i iVar;
         i iVar2;
         i iVar3;
-        com.baidu.tieba.im.model.y yVar;
-        com.baidu.tieba.im.model.y yVar2;
+        com.baidu.tieba.im.model.q qVar;
+        com.baidu.tieba.im.model.q qVar2;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else if (socketResponsedMessage.getCmd() == 107109) {
             if (!(socketResponsedMessage instanceof ResponseLiveGroupOwnerGagMessage)) {
-                this.a.showToast(com.baidu.tieba.y.neterror);
+                this.a.showToast(com.baidu.tieba.x.neterror);
                 return;
             }
             ResponseLiveGroupOwnerGagMessage responseLiveGroupOwnerGagMessage = (ResponseLiveGroupOwnerGagMessage) socketResponsedMessage;
@@ -40,7 +40,7 @@ class b extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveGroupOwnerGagMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
             }
@@ -53,9 +53,9 @@ class b extends com.baidu.adp.framework.listener.b {
                         for (String str : split) {
                             iVar3 = this.a.a;
                             if (iVar3.e().a(str)) {
-                                yVar = this.a.b;
-                                yVar2 = this.a.b;
-                                yVar.a(yVar2.a() - 1);
+                                qVar = this.a.b;
+                                qVar2 = this.a.b;
+                                qVar.a(qVar2.a() - 1);
                             }
                         }
                         iVar = this.a.a;
@@ -66,9 +66,9 @@ class b extends com.baidu.adp.framework.listener.b {
                         }
                     }
                     if (!TextUtils.isEmpty(requestLiveGroupOwnerGagMessage.getUserNames())) {
-                        this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.y.live_black_members_unset_success));
+                        this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.x.live_black_members_unset_success));
                     } else {
-                        this.a.showToast(com.baidu.tieba.y.live_black_members_unset_success);
+                        this.a.showToast(com.baidu.tieba.x.live_black_members_unset_success);
                     }
                 }
             }

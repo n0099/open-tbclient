@@ -116,7 +116,7 @@ public class CircleRippleView extends FrameLayout {
 
     public void b() {
         for (int i = 0; i < this.b.length; i++) {
-            this.b[i].setImageBitmap(null);
+            this.b[i].setImageDrawable(null);
             this.b[i].setVisibility(8);
             this.b[i].clearAnimation();
             if (this.a != null) {

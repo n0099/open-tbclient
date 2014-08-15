@@ -1,32 +1,26 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class ch implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ cb a;
+class ch implements View.OnClickListener {
+    final /* synthetic */ cd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cb cbVar) {
-        this.a = cbVar;
+    public ch(cd cdVar) {
+        this.a = cdVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        PersonFriendActivity f;
-        cl clVar;
-        boolean z2;
-        PersonFriendActivity f2;
-        int i;
-        int i2;
-        f = this.a.f();
-        if (f != null) {
-            this.a.n = 0;
-            this.a.l = true;
-            clVar = this.a.h;
-            z2 = this.a.j;
-            f2 = this.a.f();
-            String m = f2.m();
-            i = this.a.n;
-            i2 = this.a.o;
-            clVar.a(z2, m, i, i2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        cn cnVar;
+        z = this.a.m;
+        if (!z) {
+            cd cdVar = this.a;
+            cnVar = this.a.h;
+            cdVar.n = cnVar.b().a().d() + 1;
+            this.a.m = true;
+            this.a.g();
         }
     }
 }

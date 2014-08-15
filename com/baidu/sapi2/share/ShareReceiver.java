@@ -18,7 +18,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     private static Context a;
     private static LoginShareStrategy b;
     private static com.baidu.sapi2.d c;
-    private static d d;
+    private static e d;
     private static boolean e = false;
 
     @Override // android.content.BroadcastReceiver
@@ -76,11 +76,11 @@ public final class ShareReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class b implements d {
+    public class b implements e {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.d
+        @Override // com.baidu.sapi2.share.e
         public void a(ShareModel shareModel) {
             if (shareModel != null && ShareReceiver.b != LoginShareStrategy.DISABLED) {
                 switch (shareModel.b()) {

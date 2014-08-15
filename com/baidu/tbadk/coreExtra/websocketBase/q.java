@@ -59,7 +59,7 @@ public class q {
             if (!a.a().f()) {
                 a.a().a(new s(this, str));
             }
-            com.baidu.adp.framework.client.socket.l.a(com.baidu.tbadk.k.a);
+            com.baidu.adp.framework.client.socket.l.a(com.baidu.tbadk.k.b);
             BdSocketLinkService.setAvailable(false);
             d();
         } else if (a(c) == null) {
@@ -90,7 +90,7 @@ public class q {
             this.g = true;
             if (this.d) {
                 this.d = false;
-                f.a().a(com.baidu.tbadk.k.a);
+                f.a().a(com.baidu.tbadk.k.b);
             }
             f.a().b();
             if (!this.e) {

@@ -9,7 +9,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsgActivityView extends cd {
+public class MsgActivityView extends cb {
     private HeadImageView p;
     private TextView q;
     private TextView r;
@@ -19,16 +19,16 @@ public class MsgActivityView extends cd {
     private com.baidu.adp.lib.b.b v;
 
     public MsgActivityView(Context context) {
-        super(context, com.baidu.tieba.w.msg_msgactivity_view);
-        this.h = (TextView) a(com.baidu.tieba.v.tex_msgitem_time);
-        this.q = (TextView) a(com.baidu.tieba.v.msg_msgactivity_title);
-        this.r = (TextView) a(com.baidu.tieba.v.msg_msgactivity_time);
-        this.s = (TextView) a(com.baidu.tieba.v.msg_msgactivity_address);
-        this.p = (HeadImageView) a(com.baidu.tieba.v.img_msgactivity_photo);
+        super(context, com.baidu.tieba.v.msg_msgactivity_view);
+        this.g = (TextView) a(com.baidu.tieba.u.tex_msgitem_time);
+        this.q = (TextView) a(com.baidu.tieba.u.msg_msgactivity_title);
+        this.r = (TextView) a(com.baidu.tieba.u.msg_msgactivity_time);
+        this.s = (TextView) a(com.baidu.tieba.u.msg_msgactivity_address);
+        this.p = (HeadImageView) a(com.baidu.tieba.u.img_msgactivity_photo);
         this.p.setIsRound(false);
         this.p.setClickable(true);
-        a().setOnClickListener(new bx(this));
-        a().setOnLongClickListener(new by(this));
+        a().setOnClickListener(new bv(this));
+        a().setOnLongClickListener(new bw(this));
     }
 
     public void a(ChatMessage chatMessage) {
@@ -47,7 +47,7 @@ public class MsgActivityView extends cd {
                     String optString6 = optJSONObject.optString("activityUserName");
                     this.q.setText(optString);
                     Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(com.baidu.adp.lib.f.b.a(optString2, 0L) * 1000);
+                    calendar.setTimeInMillis(com.baidu.adp.lib.e.b.a(optString2, 0L) * 1000);
                     int i = calendar.get(11);
                     int i2 = calendar.get(12);
                     int i3 = calendar.get(7) - 1;
@@ -56,35 +56,35 @@ public class MsgActivityView extends cd {
                     int i6 = calendar.get(5);
                     switch (i3) {
                         case 0:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.seven);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.seven);
                             break;
                         case 1:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.one);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.one);
                             break;
                         case 2:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.two);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.two);
                             break;
                         case 3:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.three);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.three);
                             break;
                         case 4:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.four);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.four);
                             break;
                         case 5:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.five);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.five);
                             break;
                         case 6:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.y.six);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.x.six);
                             break;
                         default:
                             string = "";
                             break;
                     }
                     if (i > 12) {
-                        string2 = this.mContext.getResources().getString(com.baidu.tieba.y.pm);
+                        string2 = this.mContext.getResources().getString(com.baidu.tieba.x.pm);
                         i -= 12;
                     } else {
-                        string2 = this.mContext.getResources().getString(com.baidu.tieba.y.am);
+                        string2 = this.mContext.getResources().getString(com.baidu.tieba.x.am);
                     }
                     this.r.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
@@ -94,7 +94,7 @@ public class MsgActivityView extends cd {
                         this.s.setText(optString3);
                     }
                     this.p.setTag(optString4);
-                    this.p.setOnClickListener(new bz(this, optString5, optString6));
+                    this.p.setOnClickListener(new bx(this, optString5, optString6));
                     this.p.a(optString4, 12, false);
                 }
             } catch (JSONException e) {
@@ -103,17 +103,17 @@ public class MsgActivityView extends cd {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cb
     public void a(com.baidu.adp.lib.b.a aVar) {
         this.u = aVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cb
     public void a(com.baidu.adp.lib.b.b bVar) {
         this.v = bVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cb
     public void b(int i) {
         this.t = i;
     }

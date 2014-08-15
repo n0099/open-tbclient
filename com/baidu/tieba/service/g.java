@@ -1,10 +1,8 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import java.io.FileWriter;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 class g implements Runnable {
     final /* synthetic */ PerformMonitorService a;
@@ -30,7 +28,7 @@ class g implements Runnable {
         FileWriter fileWriter = null;
         fileWriter = null;
         try {
-            File g = z.g("performance_sample.log");
+            File g = com.baidu.tbadk.core.util.s.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
                 this.a.monitorOff();
             } else {
@@ -62,16 +60,16 @@ class g implements Runnable {
                     String b = com.baidu.adp.lib.debug.d.b();
                     int d = com.baidu.adp.lib.debug.d.d();
                     if (i > 0) {
-                        fileWriter2.append((CharSequence) ("fps_min=" + i4 + IOUtils.LINE_SEPARATOR_UNIX + "fps_max=" + i3 + IOUtils.LINE_SEPARATOR_UNIX + "fps_aver=" + (i2 / i) + IOUtils.LINE_SEPARATOR_UNIX));
+                        fileWriter2.append((CharSequence) ("fps_min=" + i4 + "\nfps_max=" + i3 + "\nfps_aver=" + (i2 / i) + "\n"));
                     }
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     if (c != null) {
-                        fileWriter2.append((CharSequence) ("cpu=" + c.replace("%", "") + IOUtils.LINE_SEPARATOR_UNIX));
+                        fileWriter2.append((CharSequence) ("cpu=" + c.replace("%", "") + "\n"));
                     }
                     if (b != null) {
-                        fileWriter2.append((CharSequence) ("mem=" + b.replace("kb", "") + IOUtils.LINE_SEPARATOR_UNIX));
+                        fileWriter2.append((CharSequence) ("mem=" + b.replace("kb", "") + "\n"));
                     }
-                    fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + IOUtils.LINE_SEPARATOR_UNIX + "gc=" + d + IOUtils.LINE_SEPARATOR_UNIX));
+                    fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
                     r0 = this.a.mHandler;

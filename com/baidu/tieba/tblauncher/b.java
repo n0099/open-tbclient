@@ -17,16 +17,16 @@ class b implements com.baidu.tbadk.core.view.a {
         String str;
         BaseViewPager baseViewPager2;
         if (i == 0) {
-            baseViewPager = this.a.j;
+            baseViewPager = this.a.h;
             if (baseViewPager != null) {
-                baseViewPager2 = this.a.j;
+                baseViewPager2 = this.a.h;
                 baseViewPager2.setOnScrollOutListener(null);
             }
-            str = this.a.f;
+            str = this.a.d;
             if (!str.equals("from_about_page")) {
-                this.a.f();
+                this.a.h();
             }
-            CompatibleUtile.setAnim(this.a, 0, com.baidu.tieba.p.left);
+            CompatibleUtile.setAnim(this.a, 0, com.baidu.tieba.o.left);
             this.a.closeActivity();
         }
     }

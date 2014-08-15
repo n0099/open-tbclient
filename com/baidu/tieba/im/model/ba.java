@@ -1,30 +1,26 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import java.util.Comparator;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements Comparator<ChatMessage> {
-    final /* synthetic */ MsglistModel a;
-
-    private ba(MsglistModel msglistModel) {
-        this.a = msglistModel;
-    }
+public class ba extends CustomMessageListener {
+    final /* synthetic */ SnapGroupMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(MsglistModel msglistModel, ba baVar) {
-        this(msglistModel);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba(SnapGroupMsglistModel snapGroupMsglistModel, int i) {
+        super(i);
+        this.a = snapGroupMsglistModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
+    @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public int compare(ChatMessage chatMessage, ChatMessage chatMessage2) {
-        if (chatMessage == null || chatMessage2 == null) {
-            return 0;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2013002) {
+            this.a.a((ResponsedMessage<?>) customResponsedMessage);
         }
-        if (chatMessage.getRecordId() > chatMessage2.getRecordId()) {
-            return 1;
-        }
-        return chatMessage.getRecordId() < chatMessage2.getRecordId() ? -1 : 0;
     }
 }

@@ -21,13 +21,13 @@ public class z implements com.baidu.tbadk.editortool.w {
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.d)) {
                 if (this.a.l()) {
-                    com.baidu.adp.lib.util.j.a(this.a.getContext(), com.baidu.tieba.y.over_limit_tip);
+                    com.baidu.adp.lib.util.j.a(this.a.getContext(), com.baidu.tieba.x.over_limit_tip);
                     return;
                 }
                 com.baidu.tbadk.coreExtra.data.d dVar = (com.baidu.tbadk.coreExtra.data.d) obj;
                 if (dVar.a() != null) {
                     if (PbEditor.a(this.a.b.getEditText().getText().toString()) >= 10 && (this.a.a instanceof BaseActivity)) {
-                        ((BaseActivity) this.a.a).showToast(this.a.a.getResources().getString(com.baidu.tieba.y.too_many_face));
+                        ((BaseActivity) this.a.a).showToast(this.a.a.getResources().getString(com.baidu.tieba.x.too_many_face));
                         return;
                     } else {
                         this.a.b.getEditText().getText().insert(this.a.b.getEditText().getSelectionStart(), dVar.a());
@@ -87,7 +87,7 @@ public class z implements com.baidu.tbadk.editortool.w {
             this.b.a(i, obj);
         } else if (i == 0) {
             if (this.a.l()) {
-                com.baidu.adp.lib.util.j.a(this.a.getContext(), com.baidu.tieba.y.over_limit_tip);
+                com.baidu.adp.lib.util.j.a(this.a.getContext(), com.baidu.tieba.x.over_limit_tip);
             } else {
                 this.b.a(i, obj);
             }

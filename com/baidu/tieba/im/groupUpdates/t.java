@@ -6,9 +6,9 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.base.f {
@@ -35,21 +35,21 @@ public class t extends com.baidu.adp.base.f {
     }
 
     void a() {
-        this.a = View.inflate(this.c, w.updates_activity, null);
+        this.a = View.inflate(this.c, v.updates_activity, null);
         this.c.setContentView(this.a);
-        this.j = (NavigationBar) this.c.findViewById(v.view_navigation_bar);
+        this.j = (NavigationBar) this.c.findViewById(u.view_navigation_bar);
         this.b = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.j.a(this.c.getString(y.updates_activity_title));
-        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.updates_activity_nav_left, (View.OnClickListener) null);
-        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.updates_activity_nav_right, (View.OnClickListener) null);
-        this.i = (Button) this.k.findViewById(v.btn_delete);
+        this.j.a(this.c.getString(x.updates_activity_title));
+        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, v.updates_activity_nav_left, (View.OnClickListener) null);
+        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.updates_activity_nav_right, (View.OnClickListener) null);
+        this.i = (Button) this.k.findViewById(u.btn_delete);
         this.i.setOnClickListener(this.c);
         this.b.setOnClickListener(this.c);
-        this.d = (BdListView) this.a.findViewById(v.updates_list);
-        this.f = (ProgressBar) this.a.findViewById(v.pro_load);
-        this.g = (Button) this.l.findViewById(v.btn_edit);
+        this.d = (BdListView) this.a.findViewById(u.updates_list);
+        this.f = (ProgressBar) this.a.findViewById(u.pro_load);
+        this.g = (Button) this.l.findViewById(u.btn_edit);
         this.g.setOnClickListener(this.c);
-        this.h = (Button) this.l.findViewById(v.btn_cancel);
+        this.h = (Button) this.l.findViewById(u.btn_cancel);
         this.h.setOnClickListener(this.c);
         a(0);
         a(false);
@@ -99,7 +99,7 @@ public class t extends com.baidu.adp.base.f {
     }
 
     public void a(int i) {
-        this.i.setText(String.format(this.c.getString(y.del_count), Integer.valueOf(i)));
+        this.i.setText(String.format(this.c.getString(x.del_count), Integer.valueOf(i)));
         if (i == 0) {
             this.i.setEnabled(false);
         } else {

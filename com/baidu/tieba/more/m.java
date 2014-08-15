@@ -1,35 +1,19 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.bn;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
-public class m implements DialogInterface.OnClickListener {
-    final /* synthetic */ j a;
+class m implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.a = jVar;
+    public m(l lVar) {
+        this.a = lVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        switch (i) {
-            case 0:
-                com.baidu.tbadk.core.h.a().b(0);
-                break;
-            case 1:
-                com.baidu.tbadk.core.h.a().b(1);
-                break;
-            case 2:
-                com.baidu.tbadk.core.h.a().b(2);
-                break;
-            case 3:
-                com.baidu.tbadk.core.h.a().b(3);
-                break;
-        }
-        this.a.y();
-        this.a.n();
-        bn.a().h();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        com.baidu.tbadk.core.h.a().b(switchState == BdSwitchView.SwitchState.ON);
+        this.a.l();
     }
 }

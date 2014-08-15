@@ -156,13 +156,13 @@ public class MultiImageView extends RelativeLayout {
         addView(this.c);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         this.b = new Button(getContext());
-        this.b.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tieba.u.image_zoomout));
+        this.b.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tieba.t.image_zoomout));
         this.b.setLayoutParams(layoutParams2);
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
         this.a = new Button(getContext());
-        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tieba.u.image_zoomin));
+        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tieba.t.image_zoomin));
         this.a.setLayoutParams(layoutParams2);
         this.a.setOnClickListener(this.d);
         this.a.setEnabled(false);

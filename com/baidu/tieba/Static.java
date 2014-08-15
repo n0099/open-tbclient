@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 /* loaded from: classes.dex */
 public class Static {
-    private static final CustomMessageListener a = new ab(0);
+    private static final CustomMessageListener a = new aa(0);
 
     static {
         ai.a();

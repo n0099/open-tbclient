@@ -1,21 +1,49 @@
 package com.baidu.tbadk;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements Runnable {
-    final /* synthetic */ TbadkApplication a;
-    private final /* synthetic */ boolean b;
+public abstract class h {
+    private static h a = new i();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(TbadkApplication tbadkApplication, boolean z) {
-        this.a = tbadkApplication;
-        this.b = z;
+    private h() {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(this.b)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ h(h hVar) {
+        this();
+    }
+
+    public static h a() {
+        return a;
+    }
+
+    public void a(String str, String str2) {
+        com.baidu.tbadk.core.sharedPref.b.a().b(str, str2);
+    }
+
+    public String b(String str, String str2) {
+        return com.baidu.tbadk.core.sharedPref.b.a().a(str, str2);
+    }
+
+    public boolean a(String str, boolean z) {
+        return com.baidu.tbadk.core.sharedPref.b.a().a(str, z);
+    }
+
+    public void b(String str, boolean z) {
+        com.baidu.tbadk.core.sharedPref.b.a().b(str, z);
+    }
+
+    public int a(String str, int i) {
+        return com.baidu.tbadk.core.sharedPref.b.a().a(str, i);
+    }
+
+    public void b(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.a().b(str, i);
+    }
+
+    public long a(String str, long j) {
+        return com.baidu.tbadk.core.sharedPref.b.a().a(str, j);
+    }
+
+    public void b(String str, long j) {
+        com.baidu.tbadk.core.sharedPref.b.a().b(str, j);
     }
 }

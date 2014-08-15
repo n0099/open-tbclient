@@ -1,24 +1,18 @@
 package com.baidu.tieba.im.friend;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
-public class q implements DialogInterface.OnCancelListener {
-    final /* synthetic */ InviteFriendListActivity a;
+public class q {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TbCheckBox d;
+    final /* synthetic */ p e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(InviteFriendListActivity inviteFriendListActivity) {
-        this.a = inviteFriendListActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ae aeVar;
-        ae aeVar2;
-        aeVar = this.a.c;
-        if (aeVar != null) {
-            aeVar2 = this.a.c;
-            aeVar2.cancelLoadData();
-        }
+    public q(p pVar) {
+        this.e = pVar;
     }
 }

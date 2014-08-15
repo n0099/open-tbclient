@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bs;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements bs {
-    @Override // com.baidu.tbadk.core.util.bs
+public class o implements bi {
+    @Override // com.baidu.tbadk.core.util.bi
     public boolean a(Context context, String[] strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
@@ -20,16 +20,16 @@ public class o implements bs {
             if (lastIndexOf == -1 || lastIndexOf < indexOf) {
                 lastIndexOf = str.length();
             }
-            long a = com.baidu.adp.lib.f.b.a(str.substring(indexOf, lastIndexOf), 0L);
+            long a = com.baidu.adp.lib.e.b.a(str.substring(indexOf, lastIndexOf), 0L);
             if (a <= 0) {
                 return false;
             }
-            com.baidu.tbadk.core.atomData.v vVar = new com.baidu.tbadk.core.atomData.v(context, a, 0);
+            com.baidu.tbadk.core.atomData.y yVar = new com.baidu.tbadk.core.atomData.y(context, a, 0);
             if (context instanceof BaseActivity) {
-                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, vVar));
+                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, yVar));
                 return true;
             } else if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, vVar));
+                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, yVar));
                 return true;
             }
         }

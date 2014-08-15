@@ -1,39 +1,16 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class h implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
-        EditText editText;
-        EditText editText2;
-        if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.a.h;
-            linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.a.h;
-            linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            editText = this.a.c;
-            if (editText.hasFocus()) {
-                SquareSearchActivity squareSearchActivity = this.a;
-                editText2 = this.a.c;
-                com.baidu.adp.lib.util.j.a(squareSearchActivity, editText2);
-                return false;
-            }
-            return false;
+class h implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SquareSearchActivity.class);
+            customMessage.getData().startActivity();
         }
-        return false;
+        return null;
     }
 }

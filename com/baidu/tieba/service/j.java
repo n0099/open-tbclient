@@ -3,8 +3,7 @@ package com.baidu.tieba.service;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ae;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +12,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ PerformMonitorService a;
-    private aq b;
+    private ae b;
 
     private j(PerformMonitorService performMonitorService) {
         this.a = performMonitorService;
@@ -46,14 +45,14 @@ public class j extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = z.d(str);
+                File d = com.baidu.tbadk.core.util.s.d(str);
                 if (d != null) {
                     fileInputStream = new FileInputStream(d);
                     try {
                         byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream2);
+                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream2);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {
@@ -92,10 +91,10 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-                            this.b.j();
+                            this.b.i();
                             if (byteArrayOutputStream2 != null) {
                                 byteArrayOutputStream2.close();
                                 byteArrayOutputStream3 = null;
@@ -271,7 +270,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.g();
+            this.b.f();
         }
         this.a.mTask = null;
         super.cancel(true);

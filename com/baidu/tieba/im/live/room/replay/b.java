@@ -25,15 +25,15 @@ class b extends CustomMessageListener {
         LiveRoomReplayPlayer liveRoomReplayPlayer2;
         if (customResponsedMessage instanceof PlayProgressChangedMessage) {
             PlayProgressChangedMessage playProgressChangedMessage = (PlayProgressChangedMessage) customResponsedMessage;
-            liveRoomReplayPlayer = this.a.e;
+            liveRoomReplayPlayer = this.a.d;
             SeekBar playerBar = liveRoomReplayPlayer.getPlayerBar();
             if (playProgressChangedMessage.getUrl() != null) {
                 String url = playProgressChangedMessage.getUrl();
-                str = this.a.j;
+                str = this.a.i;
                 if (url.equals(str)) {
                     if (playProgressChangedMessage.getDuration() != playerBar.getMax()) {
                         int n = com.baidu.tieba.im.live.d.b().n();
-                        liveRoomReplayPlayer2 = this.a.e;
+                        liveRoomReplayPlayer2 = this.a.d;
                         liveRoomReplayPlayer2.getPlayerDur().setText(StringUtils.translateSecondsToString(n));
                         playerBar.setMax(playProgressChangedMessage.getDuration());
                     }

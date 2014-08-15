@@ -14,7 +14,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.live.LiveErrorMessage;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
@@ -22,7 +22,7 @@ import com.baidu.tieba.im.live.livelist.HotLiveListActivity;
 import com.baidu.tieba.im.live.service.ILiveGroupManagerService;
 import com.baidu.tieba.im.live.service.IRemoteCallback;
 import com.baidu.tieba.im.live.service.LiveGroupManagerService;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class d {
     public static d a = new d();
@@ -366,12 +366,12 @@ public class d {
     public void a(String str, String str2, String str3, String str4, boolean z) {
         if (str2 != null && str4 != null) {
             if (this.b == null) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_accesstoken_null_or_expire);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), x.live_error_accesstoken_null_or_expire);
                 AccessTokenManager.getInstance().asyncLoadAccessToken(TbadkApplication.getCurrentBduss());
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
                 e(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED);
             } else if (this.c == null) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_user_not_login);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), x.live_error_user_not_login);
                 e(LiveStatusChangeDefinition.ERROR_PROMPT_USER_NULL);
             } else {
                 try {
@@ -435,11 +435,11 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        String string = TbadkApplication.m252getInst().getApp().getResources().getString(y.app_name);
-        String string2 = TbadkApplication.m252getInst().getApp().getResources().getString(y.live_end_notify);
+        String string = TbadkApplication.m252getInst().getApp().getResources().getString(x.app_name);
+        String string2 = TbadkApplication.m252getInst().getApp().getResources().getString(x.live_end_notify);
         Intent intent = new Intent(TbadkApplication.m252getInst().getApp(), HotLiveListActivity.class);
         intent.setFlags(268435456);
-        bb.a((Context) TbadkApplication.m252getInst().getApp(), 22, string, string2, string, PendingIntent.getActivity(TbadkApplication.m252getInst().getApp(), y.app_name, intent, 134217728), false);
+        ap.a((Context) TbadkApplication.m252getInst().getApp(), 22, string, string2, string, PendingIntent.getActivity(TbadkApplication.m252getInst().getApp(), x.app_name, intent, 134217728), false);
     }
 
     private void v() {

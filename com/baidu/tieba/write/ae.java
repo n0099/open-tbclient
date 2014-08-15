@@ -1,12 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.app.TimePickerDialog;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.Date;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements TimePickerDialog.OnTimeSetListener {
+public class ae implements View.OnTouchListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,31 +14,20 @@ class ae implements TimePickerDialog.OnTimeSetListener {
         this.a = writeActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        WriteData writeData4;
-        TextView textView;
-        WriteData writeData5;
-        WriteData writeData6;
-        writeData = this.a.a;
-        if (writeData.getLiveCardData() != null) {
-            Date date = new Date();
-            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.a.a;
-            long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.a.a;
-            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.a.a;
-            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                writeData6 = this.a.a;
-                writeData6.getLiveCardData().setModifyTime(true);
-            }
-            textView = this.a.T;
-            writeData5 = this.a.a;
-            textView.setText(com.baidu.tbadk.core.util.bm.b(writeData5.getLiveCardData().getStartTime() * 1000));
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.d;
+        editText = this.a.f;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.d;
+        editText2 = this.a.i;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        return false;
     }
 }

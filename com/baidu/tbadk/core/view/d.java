@@ -4,25 +4,24 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bi;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.aq;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ b a;
+class d implements View.OnClickListener {
+    final /* synthetic */ c a;
     private final /* synthetic */ Activity b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar, Activity activity) {
-        this.a = bVar;
+    public d(c cVar, Activity activity, int i, String str) {
+        this.a = cVar;
         this.b = activity;
+        this.c = i;
+        this.d = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bi biVar = new bi(this.b);
-        biVar.setRequestCode(22002);
-        biVar.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, biVar));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new aq(this.b, this.c, this.d, 11003)));
     }
 }

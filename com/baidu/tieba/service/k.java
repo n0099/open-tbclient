@@ -1,8 +1,7 @@
 package com.baidu.tieba.service;
 
 import android.location.Address;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.model.ax;
+import com.baidu.tieba.model.ay;
 /* loaded from: classes.dex */
 class k implements com.baidu.adp.lib.c.d {
     final /* synthetic */ ReportUserInfoService a;
@@ -14,21 +13,20 @@ class k implements com.baidu.adp.lib.c.d {
 
     @Override // com.baidu.adp.lib.c.d
     public void a(int i, String str, Address address) {
-        ax axVar;
-        ax axVar2;
-        ax axVar3;
+        ay ayVar;
+        ay ayVar2;
+        ay ayVar3;
         switch (i) {
             case 0:
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    axVar = this.a.mModel;
-                    if (Math.abs(currentTimeMillis - axVar.a()) > TbConfig.USE_TIME_INTERVAL) {
-                        axVar2 = this.a.mModel;
-                        axVar2.a(System.currentTimeMillis());
-                        axVar3 = this.a.mModel;
-                        axVar3.a(1, longitude, latitude);
+                    ayVar = this.a.mModel;
+                    if (ayVar.a()) {
+                        ayVar2 = this.a.mModel;
+                        ayVar2.a(1, longitude, latitude);
+                        ayVar3 = this.a.mModel;
+                        ayVar3.b();
                         return;
                     }
                     return;

@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as implements Handler.Callback {
+public class as implements DialogInterface.OnClickListener {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,19 +11,8 @@ class as implements Handler.Callback {
         this.a = pbActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        bm bmVar;
-        switch (message.what) {
-            case 2:
-                bmVar = this.a.x;
-                if (!bmVar.B()) {
-                    return false;
-                }
-                this.a.A();
-                return false;
-            default:
-                return false;
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

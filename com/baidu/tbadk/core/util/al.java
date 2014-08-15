@@ -1,23 +1,23 @@
 package com.baidu.tbadk.core.util;
 
-import android.view.View;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-class al implements bz {
-    final /* synthetic */ ak a;
-    private final /* synthetic */ String b;
+class al extends BroadcastReceiver {
+    final /* synthetic */ ak this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar, String str) {
-        this.a = akVar;
-        this.b = str;
+    private al(ak akVar) {
+        this.this$0 = akVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bz
-    public boolean a(View view) {
-        if (this.b.equals(view.getTag())) {
-            view.invalidate();
-            return false;
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ al(ak akVar, al alVar) {
+        this(akVar);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.this$0.b();
     }
 }

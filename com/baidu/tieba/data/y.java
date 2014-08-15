@@ -2,6 +2,7 @@ package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
+import tbclient.User;
 /* loaded from: classes.dex */
 public class y {
     private String a = "";
@@ -20,6 +21,21 @@ public class y {
                 this.b = jSONObject.optString("name");
                 this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
                 this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void a(User user) {
+        if (user != null) {
+            try {
+                this.a = String.valueOf(user.id);
+                this.e = user.user_type.intValue();
+                this.f = user.is_verify.intValue();
+                this.b = user.name;
+                this.c = user.name_show;
+                this.d = user.portrait;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

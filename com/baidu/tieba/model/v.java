@@ -1,13 +1,115 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public class v {
-    public boolean a;
-    public String b;
-    public int c;
-    public String d;
-    final /* synthetic */ t e;
 
-    public v(t tVar) {
-        this.e = tVar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class v extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ u a;
+    private com.baidu.tbadk.core.util.ae b = null;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private int g;
+    private int h;
+    private boolean i;
+
+    public v(u uVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        this.a = uVar;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = i;
+        this.h = i2;
+        this.i = z;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        String str;
+        String str2 = TbConfig.SERVER_ADDRESS;
+        if (this.g == 0) {
+            str = String.valueOf(str2) + "c/c/bawu/delthread";
+        } else {
+            str = String.valueOf(str2) + "c/c/bawu/delpost";
+        }
+        this.b = new com.baidu.tbadk.core.util.ae(str);
+        this.b.a("fid", this.c);
+        this.b.a("word", this.d);
+        this.b.a("z", this.e);
+        if (this.g == 0) {
+            if (this.h == 0) {
+                this.b.a("delete_my_thread", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            }
+        } else if (this.g == 1) {
+            this.b.a("pid", this.f);
+            this.b.a("isfloor", "0");
+            this.b.a("src", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            if (this.h == 0 && this.i) {
+                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            }
+        } else if (this.g == 2) {
+            this.b.a("pid", this.f);
+            this.b.a("isfloor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            this.b.a("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            if (this.h == 0 && this.i) {
+                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            }
+        }
+        if (this.h == 0 && !this.i) {
+            this.b.a("is_vipdel", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        } else {
+            this.b.a("is_vipdel", "0");
+        }
+        this.b.a().a().a = true;
+        this.b.h();
+        if (this.b.a().b().b()) {
+            return null;
+        }
+        return this.b.e();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.h hVar;
+        if (this.b != null) {
+            this.b.f();
+        }
+        this.a.a = null;
+        super.cancel(true);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        super.onPostExecute(str);
+        this.a.a = null;
+        if (this.b == null) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(null);
+            return;
+        }
+        w wVar = new w(this.a);
+        wVar.c = this.g;
+        wVar.d = this.f;
+        wVar.b = str;
+        if (str == null) {
+            wVar.a = true;
+        } else {
+            wVar.a = false;
+        }
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(wVar);
     }
 }

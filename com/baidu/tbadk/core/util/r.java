@@ -1,12 +1,36 @@
 package com.baidu.tbadk.core.util;
 
-import android.widget.Toast;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-class r implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        toast = q.a;
-        toast.cancel();
+public class r {
+    private StringBuilder a;
+
+    public r() {
+        this.a = null;
+        this.a = null;
+    }
+
+    public void a(String str, Object obj) {
+        if (!ba.c(str) && obj != null) {
+            try {
+                if (this.a == null) {
+                    this.a = new StringBuilder();
+                    this.a.append(str);
+                    this.a.append("=");
+                    this.a.append(obj.toString());
+                } else {
+                    this.a.append("|");
+                    this.a.append(str);
+                    this.a.append("=");
+                    this.a.append(obj.toString());
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public String toString() {
+        return this.a != null ? this.a.toString() : "";
     }
 }

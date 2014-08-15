@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.live.room;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements DialogInterface.OnClickListener {
+class v implements DialogInterface.OnClickListener {
     final /* synthetic */ LiveRoomChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,6 @@ public class v implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        this.a.A();
-        this.a.closeActivity();
+        this.a.F();
     }
 }

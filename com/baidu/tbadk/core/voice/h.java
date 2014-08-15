@@ -246,7 +246,7 @@ public class h implements Runnable {
                                 }
                             } else {
                                 try {
-                                    com.baidu.adp.lib.util.c.d(this.b);
+                                    com.baidu.adp.lib.util.c.e(this.b);
                                     if (this.f != null) {
                                         this.f.sendMessage(this.f.obtainMessage(100));
                                     }

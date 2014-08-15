@@ -5,17 +5,17 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class SubPbLoadPreviousView extends LinearLayout {
     private Context a;
     private TextView b;
-    private ImageView c;
-    private ProgressBar d;
+    private ProgressBar c;
 
     public SubPbLoadPreviousView(Context context) {
         super(context);
@@ -32,28 +32,24 @@ public class SubPbLoadPreviousView extends LinearLayout {
     private void e() {
         setOrientation(0);
         setClickable(true);
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.sub_pb_load_previous, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(com.baidu.tieba.v.btn_loadprevious);
-        this.c = (ImageView) findViewById(com.baidu.tieba.v.image_up);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        LayoutInflater.from(this.a).inflate(v.sub_pb_load_previous, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(u.btn_loadprevious);
+        this.c = (ProgressBar) findViewById(u.progress);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.b.setOnClickListener(onClickListener);
-        this.c.setOnClickListener(onClickListener);
     }
 
     public void a() {
-        this.b.setText(y.loading);
-        this.c.setVisibility(8);
-        this.d.setVisibility(0);
+        this.b.setText(x.loading);
+        this.c.setVisibility(0);
     }
 
     public void b() {
-        this.b.setText(y.view_previous_floor);
-        this.c.setVisibility(0);
-        this.d.setVisibility(8);
+        this.b.setText(x.view_previous_floor);
+        this.c.setVisibility(8);
     }
 
     public void a(int i) {

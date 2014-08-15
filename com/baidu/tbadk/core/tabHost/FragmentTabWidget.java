@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.r;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
     private int a;
@@ -119,11 +119,11 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void a(int i) {
         if (i == 1) {
-            setBackgroundResource(u.bg_navigation_bar_1);
-            this.i = getResources().getColor(s.cp_link_tip_a_1);
+            setBackgroundResource(t.bg_navigation_bar_1);
+            this.i = getResources().getColor(r.cp_link_tip_a_1);
         } else {
-            setBackgroundResource(u.bg_navigation_bar);
-            this.i = getResources().getColor(s.cp_link_tip_a);
+            setBackgroundResource(t.bg_navigation_bar);
+            this.i = getResources().getColor(r.cp_link_tip_a);
         }
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {

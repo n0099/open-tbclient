@@ -1,24 +1,35 @@
 package com.baidu.tbadk.core.service;
 
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tbadk.tbplugin.m;
+import android.net.Uri;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class a extends c {
-    final /* synthetic */ PluginDownloadService a;
-    private final /* synthetic */ PluginsConfig.PluginConfig c;
+class a implements Runnable {
+    final /* synthetic */ TiebaPrepareImageService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(PluginDownloadService pluginDownloadService, PluginDownloadService pluginDownloadService2, PluginsConfig.PluginConfig pluginConfig) {
-        super(pluginDownloadService, null, null);
-        this.a = pluginDownloadService2;
-        this.c = pluginConfig;
+    public a(TiebaPrepareImageService tiebaPrepareImageService) {
+        this.a = tiebaPrepareImageService;
     }
 
-    @Override // com.baidu.tbadk.core.service.c, com.baidu.tbadk.download.a
-    public void a(DownloadData downloadData) {
-        super.a(downloadData);
-        new com.baidu.tbadk.tbplugin.f(this.a, m.a().a(this.c.name), downloadData.getPath(), this.a).a();
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Runnable runnable;
+        int i;
+        Uri uri;
+        b bVar;
+        if (TiebaPrepareImageService.IS_DECODING) {
+            handler = this.a.mHandler;
+            runnable = this.a.mStartRun;
+            handler.postDelayed(runnable, 1000L);
+            return;
+        }
+        TiebaPrepareImageService tiebaPrepareImageService = this.a;
+        TiebaPrepareImageService tiebaPrepareImageService2 = this.a;
+        i = this.a.mRequestCode;
+        uri = this.a.mUri;
+        tiebaPrepareImageService.mTask = new b(tiebaPrepareImageService2, i, uri);
+        bVar = this.a.mTask;
+        bVar.execute(new Object[0]);
     }
 }

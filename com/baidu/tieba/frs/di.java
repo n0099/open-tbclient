@@ -1,9 +1,34 @@
 package com.baidu.tieba.frs;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public interface di {
-    void a(int i);
+public class di {
+    private long a;
+    private long b;
+    private long c;
 
-    void a(int i, boolean z, j jVar);
+    public di(Context context) {
+        a(0L);
+        b(0L);
+    }
 
-    void a(g gVar);
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public long a() {
+        return this.a + this.b;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public long b() {
+        return this.c;
+    }
+
+    public void c(long j) {
+        this.c = j;
+    }
 }

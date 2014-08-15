@@ -25,7 +25,7 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        new f(this.a, this.c).b();
+        new f(this.a, this.c).c();
         return this.c;
     }
 

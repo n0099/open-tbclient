@@ -1,33 +1,44 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bq;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ h a;
-    private final /* synthetic */ t b;
+class j implements com.baidu.adp.lib.d.c<f> {
+    final /* synthetic */ i a;
+    private final /* synthetic */ Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar, t tVar) {
-        this.a = hVar;
-        this.b = tVar;
+    public j(i iVar, Context context) {
+        this.a = iVar;
+        this.b = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        Context context3;
-        bq a = bq.a();
-        context = this.a.a;
-        a.a(context, new String[]{this.b.d});
-        context2 = this.a.a;
-        if (context2 instanceof OfficialBarChatActivity) {
-            context3 = this.a.a;
-            TiebaStatic.eventStat(context3, "official_msg_ck", "click", 1, "fid", this.b.e);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public f a() {
+        return new f(this.b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(f fVar) {
+        if (fVar instanceof f) {
+            fVar.a();
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public f b(f fVar) {
+        return fVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public f c(f fVar) {
+        if (fVar instanceof f) {
+            fVar.a();
+        }
+        return fVar;
     }
 }

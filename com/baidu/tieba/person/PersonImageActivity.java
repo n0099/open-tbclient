@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends BaseActivity {
     private ProgressBar a = null;
-    private cq b = null;
+    private cs b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
@@ -38,7 +38,7 @@ public class PersonImageActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.w.person_image_activity);
+        setContentView(com.baidu.tieba.v.person_image_activity);
         a(bundle);
         a();
         ArrayList<String> arrayList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class PersonImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tbadk.core.util.bk.d(i));
+            this.c.setBackgroundColor(com.baidu.tbadk.core.util.ay.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
@@ -105,12 +105,12 @@ public class PersonImageActivity extends BaseActivity {
     }
 
     private void a() {
-        this.d = new cm(this);
-        this.e = new cn(this);
-        this.f = new co(this);
-        this.g = new cp(this);
-        this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.c = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.d = new co(this);
+        this.e = new cp(this);
+        this.f = new cq(this);
+        this.g = new cr(this);
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
+        this.c = (MultiImageView) findViewById(com.baidu.tieba.u.viewpager);
         this.c.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.c.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.c.setItemOnclickListener(this.d);

@@ -8,16 +8,16 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.im.model.bx;
-import com.baidu.tieba.y;
+import com.baidu.tieba.im.model.bb;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends BaseActivity {
-    private bx d;
+    private bb d;
     private a c = null;
     private int e = 1;
     DialogInterface.OnClickListener a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
-    private com.baidu.adp.framework.listener.b f = new d(this, 103102);
+    private com.baidu.adp.framework.listener.d f = new d(this, 103102);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
         Intent intent = new Intent(activity, UpdateGroupActivity.class);
@@ -30,7 +30,7 @@ public class UpdateGroupActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(y.neterror);
+            showToast(x.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }
@@ -45,7 +45,7 @@ public class UpdateGroupActivity extends BaseActivity {
         int intExtra2 = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new bx();
+        this.d = new bb(this);
         this.d.setUniqueId(getUniqueId());
         this.c.a(stringExtra);
         this.c.a(this.b);
@@ -78,7 +78,9 @@ public class UpdateGroupActivity extends BaseActivity {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.c.c()) {
-            if (this.c.l() && this.c.i()) {
+            if (((g) this.c).m()) {
+                finish();
+            } else if (this.c.l() && this.c.i()) {
                 c();
             } else {
                 showToast(this.c.j());

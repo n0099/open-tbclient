@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,9 @@ public class e {
     private int e;
     private int f;
     private int g;
-    private List<a> h;
+    private final List<a> h;
     private g i;
-    private HttpMessageListener j;
+    private final HttpMessageListener j;
 
     public e() {
         this.a = "";
@@ -31,7 +32,7 @@ public class e {
         this.g = 0;
         this.h = new ArrayList(100);
         this.i = null;
-        this.j = new f(this, 1001400);
+        this.j = new f(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         this.a = "";
         this.b = "";
     }
@@ -46,14 +47,14 @@ public class e {
         this.g = 0;
         this.h = new ArrayList(100);
         this.i = null;
-        this.j = new f(this, 1001400);
+        this.j = new f(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         this.a = str;
         this.b = str2;
         this.c = str3;
         this.i = gVar;
         this.d = z;
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001400, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/zan/getuserlist");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/zan/getuserlist");
         tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
         messageManager.registerListener(this.j);
@@ -90,7 +91,7 @@ public class e {
     public void c() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.unRegisterListener(this.j);
-        messageManager.unRegisterTask(1001400);
+        messageManager.unRegisterTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
     }
 
     public String d() {
@@ -109,11 +110,10 @@ public class e {
     }
 
     public void e() {
-        HttpMessage httpMessage = new HttpMessage(1001400);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.POST_ID, new StringBuilder(String.valueOf(this.b)).toString());
         httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.e)).toString());
         httpMessage.addParam("res_num", "20");
-        httpMessage.setTag(1001400);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

@@ -1,73 +1,65 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Dialog;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.editortool.EmotionGroupData;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends BdAsyncTask<String, Integer, List<u>> {
-    final /* synthetic */ EmotionManageActivity a;
+public class v extends Dialog {
+    int a;
+    private Context b;
+    private LayoutInflater c;
+    private View d;
+    private SpannableString e;
+    private TextView f;
+    private TextView g;
 
-    private v(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+    public v(Context context, int i) {
+        super(context, i);
+        this.b = context;
+        this.c = LayoutInflater.from(getContext());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(EmotionManageActivity emotionManageActivity, v vVar) {
-        this(emotionManageActivity);
+    public void a() {
+        this.d = this.c.inflate(com.baidu.tieba.v.face_buy_loading, (ViewGroup) null);
+        this.a = TbadkApplication.m252getInst().getSkinType();
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.faceshop_buy_dialog_height)));
+        setCancelable(false);
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public List<u> doInBackground(String... strArr) {
-        List<MyEmotionGroupData> a = d.a().a(TbadkApplication.getCurrentAccount());
-        List<EmotionGroupData> a2 = com.baidu.tbadk.editortool.u.a().a(1);
-        LinkedList linkedList = new LinkedList();
-        for (MyEmotionGroupData myEmotionGroupData : a) {
-            Iterator<EmotionGroupData> it = a2.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    EmotionGroupData next = it.next();
-                    if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && e.a(next.getGroupId())) {
-                        u uVar = new u(this.a, null);
-                        uVar.a = next.getGroupId();
-                        uVar.b = next.getGroupName();
-                        uVar.d = com.baidu.tbadk.editortool.ab.a().c(uVar.a, "list.png");
-                        linkedList.add(uVar);
-                        break;
-                    }
-                }
-            }
+    public void b() {
+        ForegroundColorSpan foregroundColorSpan;
+        this.d = this.c.inflate(com.baidu.tieba.v.face_buy_fail, (ViewGroup) null);
+        this.a = TbadkApplication.m252getInst().getSkinType();
+        String string = getContext().getResources().getString(com.baidu.tieba.x.query_buy_fail_tel);
+        this.e = new SpannableString(string);
+        if (this.a == 1) {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.r.faceshop_package_price_text_1));
+        } else {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.r.faceshop_package_price_text));
         }
-        a.clear();
-        a2.clear();
-        return linkedList;
+        this.e.setSpan(foregroundColorSpan, 5, string.length(), 33);
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.s.faceshop_buy_dialog_fail_height)));
+        this.f = (TextView) findViewById(com.baidu.tieba.u.telphone);
+        this.f.setText(this.e);
+        this.g = (TextView) findViewById(com.baidu.tieba.u.confirm);
+        this.g.setOnClickListener(new w(this));
+        setCancelable(true);
+        c();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        super.onPreExecute();
-        this.a.showProgressBar();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(List<u> list) {
-        super.onPostExecute(list);
-        if (list == null) {
-            list = new LinkedList<>();
+    private void c() {
+        if (this.b instanceof BaseActivity) {
+            ((BaseActivity) this.b).getLayoutMode().a(this.a == 1);
+            ((BaseActivity) this.b).getLayoutMode().a(this.d);
         }
-        this.a.a = list;
-        this.a.a(false);
-        this.a.hideProgressBar();
-        this.a.c();
     }
 }

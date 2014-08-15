@@ -1,18 +1,37 @@
 package com.baidu.tieba.im.stranger;
 /* loaded from: classes.dex */
-class d extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ String b;
+class d implements com.baidu.tieba.im.chat.notify.a {
+    final /* synthetic */ StrangerListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(String str) {
-        this.b = str;
+    public d(StrangerListActivity strangerListActivity) {
+        this.a = strangerListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.db.h.a().a(this.b, true);
-        return null;
+    @Override // com.baidu.tieba.im.chat.notify.a
+    public void a() {
+        i iVar;
+        i iVar2;
+        h hVar;
+        h hVar2;
+        i iVar3;
+        h hVar3;
+        iVar = this.a.b;
+        if (iVar != null) {
+            iVar2 = this.a.b;
+            if (iVar2.a() != null) {
+                hVar = this.a.c;
+                if (hVar != null) {
+                    hVar2 = this.a.c;
+                    if (hVar2.a().size() == 0) {
+                        this.a.finish();
+                    }
+                    iVar3 = this.a.b;
+                    f a = iVar3.a();
+                    hVar3 = this.a.c;
+                    a.a(hVar3.a());
+                }
+            }
+        }
     }
 }

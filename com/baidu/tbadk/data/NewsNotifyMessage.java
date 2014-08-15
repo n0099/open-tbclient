@@ -16,7 +16,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         this.mData.b = i;
         this.mData.c = i2;
         this.mData.d = i3;
-        this.mData.e = i4;
+        this.mData.f = i4;
     }
 
     public int getMsgReplyme() {
@@ -49,13 +49,23 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         this.mData.d = i;
     }
 
-    public int getMsgBookmark() {
+    public void setMsgFans(int i) {
+        this.mData.e = i;
+    }
+
+    public int getMsgFans() {
         int i;
         i = this.mData.e;
         return i;
     }
 
+    public int getMsgBookmark() {
+        int i;
+        i = this.mData.f;
+        return i;
+    }
+
     public void setMsgBookmark(int i) {
-        this.mData.e = i;
+        this.mData.f = i;
     }
 }

@@ -46,13 +46,13 @@ public class j extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         LinearLayout linearLayout;
-        ae aeVar;
-        ae aeVar2;
+        ad adVar;
+        ad adVar2;
         int i2;
-        ae aeVar3;
+        ad adVar3;
         com.baidu.adp.widget.a.a aVar;
-        ae aeVar4;
-        ae aeVar5;
+        ad adVar4;
+        ad adVar5;
         int i3;
         LayoutInflater layoutInflater;
         int i4;
@@ -60,8 +60,8 @@ public class j extends BaseAdapter {
         int i6;
         int i7 = this.c + i;
         if (view == null) {
-            layoutInflater = this.a.s;
-            LinearLayout linearLayout2 = (LinearLayout) layoutInflater.inflate(com.baidu.tieba.w.emotion_tab_content_item, (ViewGroup) null);
+            layoutInflater = this.a.r;
+            LinearLayout linearLayout2 = (LinearLayout) layoutInflater.inflate(com.baidu.tieba.v.emotion_tab_content_item, (ViewGroup) null);
             i4 = this.a.k;
             i5 = this.a.k;
             i6 = this.a.k;
@@ -72,20 +72,20 @@ public class j extends BaseAdapter {
         }
         int measuredWidth = viewGroup.getMeasuredWidth();
         int measuredHeight = viewGroup.getMeasuredHeight();
-        aeVar = this.a.b;
-        int k = measuredWidth / aeVar.k();
-        aeVar2 = this.a.b;
+        adVar = this.a.b;
+        int k = measuredWidth / adVar.k();
+        adVar2 = this.a.b;
         LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(k, measuredHeight / aeVar2.l()));
-        TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(com.baidu.tieba.v.emotion_tab_content_img);
+        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(k, measuredHeight / adVar2.l()));
+        TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(com.baidu.tieba.u.emotion_tab_content_img);
         tbImageView.setAutoChangeStyle(false);
         i2 = this.a.q;
-        tbImageView.setBackgroundResource(i2 == 1 ? com.baidu.tieba.u.btn_choose_face_selector_1 : com.baidu.tieba.u.btn_choose_face_selector);
+        tbImageView.setBackgroundResource(i2 == 1 ? com.baidu.tieba.t.btn_choose_face_selector_1 : com.baidu.tieba.t.btn_choose_face_selector);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        aeVar3 = this.a.b;
-        String a = aeVar3.a(i7);
+        adVar3 = this.a.b;
+        String a = adVar3.a(i7);
         tbImageView.setTag(a);
-        Object a2 = com.baidu.adp.lib.resourceLoader.d.a().a(a, 20, new k(this), 0, 0, 0, null, a, false, null);
+        Object a2 = com.baidu.adp.lib.resourceLoader.d.a().a(a, 20, new k(this), 0, 0, null, null, a, false, null);
         if (a2 == null || !(a2 instanceof com.baidu.adp.widget.a.a)) {
             aVar = null;
         } else {
@@ -95,14 +95,14 @@ public class j extends BaseAdapter {
             aVar.a(tbImageView);
             tbImageView.setTag(null);
         }
-        TextView textView = (TextView) linearLayout3.findViewById(com.baidu.tieba.v.emotion_tab_content_tip);
-        aeVar4 = this.a.b;
-        if (aeVar4.c() == EmotionGroupType.BIG_EMOTION) {
-            aeVar5 = this.a.b;
-            String a3 = aeVar5.a(i7);
+        TextView textView = (TextView) linearLayout3.findViewById(com.baidu.tieba.u.emotion_tab_content_tip);
+        adVar4 = this.a.b;
+        if (adVar4.c() == EmotionGroupType.BIG_EMOTION) {
+            adVar5 = this.a.b;
+            String a3 = adVar5.a(i7);
             if (!TextUtils.isEmpty(a3)) {
                 i3 = this.a.q;
-                int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tieba.s.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tieba.s.pb_emotion_content);
+                int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tieba.r.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tieba.r.pb_emotion_content);
                 textView.setVisibility(0);
                 textView.setTextColor(color);
                 textView.setText(a3.substring(a3.lastIndexOf("_") + 1, a3.length() - 1));

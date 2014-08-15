@@ -9,7 +9,7 @@ public class a {
     private long b = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler c = new b(this);
-    private com.baidu.adp.framework.listener.b d = new c(this, 303005);
+    private com.baidu.adp.framework.listener.d d = new c(this, 303005);
 
     public static synchronized a a() {
         a aVar;
@@ -40,6 +40,7 @@ public class a {
         } else {
             this.c.sendMessageDelayed(this.c.obtainMessage(1), 1800000 - j);
         }
+        this.b = System.currentTimeMillis();
     }
 
     public void d() {

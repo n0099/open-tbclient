@@ -30,9 +30,9 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     public List<a> doInBackground(Object... objArr) {
         Context context;
         Context context2;
-        context = this.a.e;
+        context = this.a.d;
         List<a> a = a(context, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        context2 = this.a.e;
+        context2 = this.a.d;
         return a(context2, a, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -108,7 +108,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                                 aVar.a(imageFileInfo);
                                 aVar.b(string2);
                                 if (string2 != null) {
-                                    str = this.a.b;
+                                    str = this.a.a;
                                     if (string2.equals(str)) {
                                         list.add(0, aVar);
                                     }
@@ -116,20 +116,20 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                                 list.add(aVar);
                             }
                         } while (cursor.moveToNext());
-                        com.baidu.adp.lib.f.a.a(cursor);
+                        com.baidu.adp.lib.e.a.a(cursor);
                         return list;
                     }
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                     return list;
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                     return list;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.f.a.a((Cursor) r2);
+                com.baidu.adp.lib.e.a.a((Cursor) r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -138,7 +138,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
         } catch (Throwable th2) {
             th = th2;
             r2 = 0;
-            com.baidu.adp.lib.f.a.a((Cursor) r2);
+            com.baidu.adp.lib.e.a.a((Cursor) r2);
             throw th;
         }
     }

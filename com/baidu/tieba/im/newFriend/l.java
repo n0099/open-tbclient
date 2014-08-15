@@ -1,21 +1,27 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ j a;
+class l extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ k a;
     private final /* synthetic */ long b;
+    private final /* synthetic */ com.baidu.tieba.im.data.k c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar, long j) {
-        this.a = jVar;
+    public l(k kVar, long j, com.baidu.tieba.im.data.k kVar2) {
+        this.a = kVar;
         this.b = j;
+        this.c = kVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r9) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.b, "", "", "", ""));
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.data.k c = com.baidu.tieba.im.db.m.a().c(this.b);
+        if (c != null) {
+            this.c.a(c.b());
+            this.c.b(c.c());
+            com.baidu.tieba.im.db.m.a().a(this.c);
+        }
+        return null;
     }
 }

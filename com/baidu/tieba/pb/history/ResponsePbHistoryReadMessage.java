@@ -2,12 +2,12 @@ package com.baidu.tieba.pb.history;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.data.aj;
+import com.baidu.tieba.data.ak;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ResponsePbHistoryReadMessage extends CustomResponsedMessage<Object> {
-    public final List<aj> datas;
+    public final List<ak> datas;
 
     public ResponsePbHistoryReadMessage() {
         super(2001190);

@@ -1,115 +1,70 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ t a;
-    private com.baidu.tbadk.core.util.aq b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private int g;
-    private int h;
-    private boolean i;
+public class u extends com.baidu.adp.base.e {
+    private v a = null;
+    private x b = null;
+    private z c = null;
 
-    public u(t tVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.a = tVar;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
-        this.h = i2;
-        this.i = z;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        String str;
-        String str2 = TbConfig.SERVER_ADDRESS;
-        if (this.g == 0) {
-            str = String.valueOf(str2) + "c/c/bawu/delthread";
-        } else {
-            str = String.valueOf(str2) + "c/c/bawu/delpost";
-        }
-        this.b = new com.baidu.tbadk.core.util.aq(str);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        if (this.g == 0) {
-            if (this.h == 0) {
-                this.b.a("delete_my_thread", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
-        } else if (this.g == 1) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", "0");
-            this.b.a("src", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
-        } else if (this.g == 2) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            this.b.a("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            }
-        }
-        if (this.h == 0 && !this.i) {
-            this.b.a("is_vipdel", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        } else {
-            this.b.a("is_vipdel", "0");
-        }
-        this.b.a().a().a = true;
-        this.b.i();
-        if (this.b.a().b().b()) {
-            return null;
-        }
-        return this.b.f();
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        a();
+        return false;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.base.h hVar;
+    public void a() {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
+        }
         if (this.b != null) {
-            this.b.g();
+            this.b.cancel();
+            this.b = null;
         }
-        this.a.a = null;
-        super.cancel(true);
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(null);
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        super.onPostExecute(str);
-        this.a.a = null;
-        if (this.b == null) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(null);
-            return;
+    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
         }
-        v vVar = new v(this.a);
-        vVar.c = this.g;
-        vVar.d = this.f;
-        vVar.b = str;
-        if (str == null) {
-            vVar.a = true;
+        this.mLoadDataMode = 0;
+        this.a = new v(this, str, str2, str3, str4, i, i2, z);
+        this.a.setPriority(2);
+        this.a.execute(new String[0]);
+    }
+
+    public boolean b() {
+        return (this.a == null && this.b == null && this.c == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.mLoadDataMode = i;
+        this.c = new z(this, str, str2, str3, i, str4);
+        this.c.setPriority(2);
+        String str6 = TbConfig.SERVER_ADDRESS;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
         } else {
-            vVar.a = false;
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
         }
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(vVar);
+        this.c.execute(str5);
     }
 }

@@ -43,6 +43,6 @@ public class n implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this.a.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.p(this.a.getContext(), str)));
     }
 }

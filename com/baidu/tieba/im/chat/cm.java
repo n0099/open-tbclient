@@ -4,18 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm implements View.OnLongClickListener {
-    final /* synthetic */ MsgleftView a;
+    final /* synthetic */ cb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(MsgleftView msgleftView) {
-        this.a = msgleftView;
+    public cm(cb cbVar) {
+        this.a = cbVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        TouchType touchType;
-        touchType = this.a.x;
-        touchType.set(true);
+        this.a.c.b(view, 10, this.a.d, 0L);
         return true;
     }
 }

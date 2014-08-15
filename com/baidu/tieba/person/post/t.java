@@ -12,6 +12,7 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener, r {
@@ -19,13 +20,13 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private q c;
     private boolean d;
     private String e;
-    private com.baidu.tbadk.core.view.q f;
+    private com.baidu.tbadk.core.view.u f;
     private y g;
     private int h;
     private boolean i = false;
     private boolean j = true;
-    private com.baidu.adp.framework.listener.b k = new u(this, 303002);
-    private HttpMessageListener l = new v(this, 1001503);
+    private com.baidu.adp.framework.listener.d k = new u(this, 303002);
+    private HttpMessageListener l = new v(this, CmdConfigHttp.USER_POST_HTTP_CMD);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -36,7 +37,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_thread_fragment, viewGroup, false);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_thread_fragment, viewGroup, false);
         this.b = new z(inflate);
         this.b.b.setTipTextByString(getArguments().getString("key_empty_view_text"));
         return inflate;
@@ -47,7 +48,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.e = getArguments().getString("key_uid");
         this.c = new q(getActivity(), this.e, getArguments().getString("key_portrait_url"));
         this.b.a.setAdapter((ListAdapter) this.c);
-        this.f = new com.baidu.tbadk.core.view.q(getActivity());
+        this.f = new com.baidu.tbadk.core.view.u(getActivity());
         this.f.a(new w(this));
         this.b.a.setPullRefresh(this.f);
         this.c.a(this);
@@ -62,9 +63,9 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         if (isAdded()) {
             if (this.b.b != null) {
                 if (i == 1) {
-                    this.b.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d_1);
+                    this.b.b.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d_1);
                 } else {
-                    this.b.b.setBackgroundResource(com.baidu.tieba.s.cp_bg_line_d);
+                    this.b.b.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d);
                 }
             }
             if (this.f != null) {
@@ -112,7 +113,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         String stringExtra;
         boolean z;
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 18003 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.c != null && this.c.getCount() > 0) {
+        if (i2 == -1 && i == 18005 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.c != null && this.c.getCount() > 0) {
             int size = this.c.a.post_list.size();
             int i3 = 0;
             while (true) {
@@ -190,7 +191,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             return true;
         }
         this.c = null;
-        com.baidu.adp.lib.util.j.b((Context) getActivity(), com.baidu.tieba.y.his_post_not_available);
+        com.baidu.adp.lib.util.j.b((Context) getActivity(), com.baidu.tieba.x.his_post_not_available);
         new Timer().schedule(new x(this), 2000L);
         this.g.e();
         return false;

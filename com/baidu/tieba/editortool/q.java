@@ -49,7 +49,7 @@ public class q extends BaseAdapter {
         LayoutInflater layoutInflater;
         if (view == null) {
             layoutInflater = this.a.v;
-            frameLayout = (FrameLayout) layoutInflater.inflate(com.baidu.tieba.w.editor_muti_image_item, (ViewGroup) null);
+            frameLayout = (FrameLayout) layoutInflater.inflate(com.baidu.tieba.v.editor_muti_image_item, (ViewGroup) null);
         } else {
             frameLayout = view;
         }
@@ -61,14 +61,14 @@ public class q extends BaseAdapter {
         i3 = this.a.u;
         int i5 = i4 + i3;
         FrameLayout frameLayout2 = (FrameLayout) frameLayout;
-        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.v.iv_container);
-        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(com.baidu.tieba.v.shadow_container);
-        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(com.baidu.tieba.v.iv);
+        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.u.iv_container);
+        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(com.baidu.tieba.u.shadow_container);
+        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(com.baidu.tieba.u.iv);
         if (i5 > 0) {
             int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
             int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-            int i6 = skinType == 1 ? com.baidu.tieba.u.bg_add_photo_1 : com.baidu.tieba.u.bg_add_photo;
-            int i7 = skinType == 1 ? com.baidu.tieba.u.bg_add_photo_foregroundselector_1 : com.baidu.tieba.u.bg_add_photo_foregroundselector;
+            int i6 = skinType == 1 ? com.baidu.tieba.t.bg_add_photo_1 : com.baidu.tieba.t.bg_add_photo;
+            int i7 = skinType == 1 ? com.baidu.tieba.t.bg_add_photo_foregroundselector_1 : com.baidu.tieba.t.bg_add_photo_foregroundselector;
             frameLayout3.setBackgroundResource(i6);
             frameLayout3.setForeground(this.a.getResources().getDrawable(i7));
             imageFileInfo.clearPageActions();
@@ -81,8 +81,8 @@ public class q extends BaseAdapter {
         }
         frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
         frameLayout2.setOnClickListener(new s(this, viewGroup));
-        ImageView imageView = (ImageView) frameLayout2.findViewById(com.baidu.tieba.v.delete);
-        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.u.btn_add_photo_close_n_1 : com.baidu.tieba.u.btn_add_photo_close_n);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(com.baidu.tieba.u.delete);
+        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.t.btn_add_photo_close_n_1 : com.baidu.tieba.t.btn_add_photo_close_n);
         imageView.setOnClickListener(new t(this, frameLayout2));
         return frameLayout2;
     }

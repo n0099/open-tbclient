@@ -1,187 +1,84 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.kirin.KirinConfig;
+import android.database.Cursor;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class i {
-    private static Object w = new Object();
-    private static i x;
-    private com.baidu.tbadk.core.data.e h;
-    private int p;
-    private int q;
-    private int r;
-    private int s;
-    private Handler v;
-    private final int a = 5;
-    private final int b = 0;
-    private final int c = 1;
-    private final int d = 2;
-    private final int e = 3;
-    private final byte f = 0;
-    private final byte g = 1;
-    private int i = 0;
-    private final int j = 5;
-    private boolean k = false;
-    private long l = 0;
-    private final long m = 86400000;
-    private final float n = 100.0f;
-    private float o = 0.0f;
-    private BdAsyncTaskParallel t = null;
-    private final l u = new l(this, null);
-
-    public static i a() {
-        if (x == null) {
-            synchronized (i.class) {
-                if (x == null) {
-                    x = new i();
-                }
-            }
-        }
-        return x;
-    }
-
-    private i() {
-        this.v = null;
-        this.v = new j(this);
-    }
-
-    public com.baidu.tbadk.core.data.e b() {
-        return this.h;
-    }
-
-    public void a(com.baidu.tbadk.core.data.e eVar) {
-        synchronized (w) {
-            this.h = eVar;
+    public static void a() {
+        com.baidu.adp.base.a.c b;
+        if (TbadkApplication.getCurrentAccount() != null && (b = com.baidu.tbadk.j.a().b()) != null) {
+            b.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", (Object[]) new String[]{TbadkApplication.getCurrentAccount()});
         }
     }
 
-    public void a(int i, String str) {
-        this.v.sendMessage(this.v.obtainMessage(1, i, 0, str));
-    }
-
-    public void a(long j, String str) {
-        this.v.sendMessage(this.v.obtainMessage(0, (int) j, 0, str));
-    }
-
-    public void b(int i, String str) {
-        int i2 = 1;
-        synchronized (w) {
-            if (b() == null) {
-                this.o += 20.0f;
-            } else {
-                this.o += b().b();
-            }
-            this.r++;
-            this.q++;
-            this.u.a(i);
-            int i3 = this.r;
-            int i4 = this.q;
-            int i5 = this.p;
-            int i6 = this.p != 0 ? this.s / this.p : 0;
-            String lVar = this.u.toString();
-            if (b() != null && this.l > 0 && System.currentTimeMillis() - this.l > 86400000) {
-                b().a(true);
-                this.i = 0;
-            }
-            if (b() != null && b().d()) {
-                if (this.r < 5) {
-                    i2 = 0;
-                } else if (this.o < 100.0f || this.q < b().g() || this.p < b().e()) {
-                    if (this.o >= 100.0f && this.q >= b().g()) {
-                        i2 = 2;
-                    } else {
-                        i2 = (this.o < 100.0f || this.p < b().e()) ? 0 : 3;
-                    }
-                }
-                a(i2, i3, i4, lVar, i5, i6);
+    public static void a(String str) {
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+            if (str != null && b != null) {
+                b.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{str, TbadkApplication.getCurrentAccount()});
             }
         }
     }
 
-    public void b(long j, String str) {
-        int i = 0;
-        int i2 = 0;
-        int i3 = KirinConfig.READ_TIME_OUT;
-        if (b() != null) {
-            i3 = b().f();
+    public static boolean a(com.baidu.tbadk.coreExtra.data.b bVar) {
+        if (TbadkApplication.getCurrentAccount() == null) {
+            return false;
         }
-        synchronized (w) {
-            if (j >= i3) {
-                if (b() == null) {
-                    this.o += 10.0f;
-                } else {
-                    this.o += b().c();
-                }
-                this.p++;
-                this.s = (int) (this.s + j);
-                this.r++;
-                int i4 = this.r;
-                int i5 = this.q;
-                int i6 = this.p;
-                if (this.p != 0) {
-                    i = this.s / this.p;
-                }
-                String lVar = this.u.toString();
-                if (b() != null && this.l > 0 && System.currentTimeMillis() - this.l > 86400000) {
-                    b().a(true);
-                    this.i = 0;
-                }
-                if (b() != null && b().d()) {
-                    if (this.r >= 5) {
-                        if (this.o >= 100.0f && this.q >= b().g() && this.p >= b().e()) {
-                            i2 = 1;
-                        } else if (this.o >= 100.0f && this.q >= b().g()) {
-                            i2 = 2;
-                        } else if (this.o >= 100.0f && this.p >= b().e()) {
-                            i2 = 3;
-                        } else {
-                            i2 = 0;
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        Date date = new Date();
+        if (bVar == null || b == null) {
+            return false;
+        }
+        b.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{bVar.a(), TbadkApplication.getCurrentAccount()});
+        return b.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{bVar.a(), Long.valueOf(bVar.b()), Integer.valueOf(bVar.c()), TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+    }
+
+    public static com.baidu.tbadk.coreExtra.data.b b(String str) {
+        Cursor cursor;
+        Exception e;
+        com.baidu.tbadk.coreExtra.data.b bVar;
+        if (TbadkApplication.getCurrentAccount() == null) {
+            return null;
+        }
+        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+        try {
+            cursor = b.a("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkApplication.getCurrentAccount()});
+            try {
+                try {
+                    if (cursor.moveToFirst()) {
+                        bVar = new com.baidu.tbadk.coreExtra.data.b();
+                        try {
+                            bVar.a(str);
+                            bVar.a(cursor.getInt(3));
+                            bVar.a(cursor.getLong(2));
+                        } catch (Exception e2) {
+                            e = e2;
+                            b.a(e, "getChunkUploadDataByMd5");
+                            com.baidu.adp.lib.e.a.a(cursor);
+                            return bVar;
                         }
+                    } else {
+                        bVar = null;
                     }
-                    a(i2, i4, i5, lVar, i6, i);
-                    return;
+                    com.baidu.adp.lib.e.a.a(cursor);
+                } catch (Exception e3) {
+                    bVar = null;
+                    e = e3;
                 }
-                return;
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.adp.lib.e.a.a(cursor);
+                throw th;
             }
-            if (b() == null) {
-                this.o -= 20.0f;
-            } else {
-                this.o -= b().a();
-            }
-            if (this.o < 0.0f) {
-                this.o = 0.0f;
-            }
+        } catch (Exception e4) {
+            cursor = null;
+            e = e4;
+            bVar = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
         }
-    }
-
-    private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (b() != null && b().d() && i != 0 && !this.k) {
-            a(i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
-        }
-    }
-
-    private void a(int i, int i2, int i3, String str, int i4, String str2) {
-        if (this.t == null) {
-            this.t = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
-        }
-        k kVar = new k(this, i, i2, i3, str, i4, str2);
-        kVar.setParallel(this.t);
-        kVar.execute(new Object[0]);
-        this.k = true;
-        com.baidu.adp.lib.stats.o a = ae.a();
-        a.a("act", "fallback");
-        a.a("type", com.baidu.tbadk.core.frameworkData.a.START);
-        com.baidu.adp.lib.stats.d.b().a("img", a);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        this.r = 0;
-        this.p = 0;
-        this.q = 0;
-        this.s = 0;
-        this.o = 0.0f;
-        this.u.a();
+        return bVar;
     }
 }

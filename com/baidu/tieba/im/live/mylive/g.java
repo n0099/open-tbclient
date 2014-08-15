@@ -24,7 +24,7 @@ public class g implements DialogInterface.OnClickListener {
         progressBar.setVisibility(0);
         liveCardData = this.a.k;
         int groupId = liveCardData.getGroupId();
-        if (com.baidu.adp.lib.f.b.a(com.baidu.tieba.im.live.d.b().i(), 0) == groupId) {
+        if (com.baidu.adp.lib.e.b.a(com.baidu.tieba.im.live.d.b().i(), 0) == groupId) {
             this.a.j = true;
         } else {
             this.a.j = false;

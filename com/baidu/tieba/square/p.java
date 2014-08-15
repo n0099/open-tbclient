@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class p extends BaseAdapter implements com.baidu.tieba.view.u {
+public class p extends BaseAdapter implements com.baidu.tieba.view.s {
     private t a = null;
     private ArrayList<ap> b = new ArrayList<>();
     private q c;
 
     public p(Context context) {
         this.c = null;
-        this.c = new q(context);
+        this.c = new q(context, false);
     }
 
     public void a(ArrayList<ap> arrayList) {
@@ -55,14 +55,14 @@ public class p extends BaseAdapter implements com.baidu.tieba.view.u {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void b() {
         if (this.a != null) {
             this.a.b();
         }
     }
 
-    @Override // com.baidu.tieba.view.u
+    @Override // com.baidu.tieba.view.s
     public void a(View view, int i, int i2) {
         if (this.a != null) {
             this.a.a(this.c, 0, 0);

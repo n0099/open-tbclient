@@ -7,7 +7,6 @@ import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -34,7 +33,7 @@ public class TiebaActiveService extends Service {
     private String getChannelyFile() {
         String str = null;
         try {
-            File d = z.d(TbConfig.CHANNEL_FILE);
+            File d = com.baidu.tbadk.core.util.s.d(TbConfig.CHANNEL_FILE);
             if (d != null) {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
                 str = bufferedReader.readLine();
@@ -52,7 +51,7 @@ public class TiebaActiveService extends Service {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = z.f(TbConfig.CHANNEL_FILE);
+                File f = com.baidu.tbadk.core.util.s.f(TbConfig.CHANNEL_FILE);
                 if (f != null) {
                     FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);

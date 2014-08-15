@@ -1,34 +1,50 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
 import android.content.DialogInterface;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(FrsActivity frsActivity) {
+    public ao(FrsActivity frsActivity, com.baidu.tbadk.core.data.n nVar) {
         this.a = frsActivity;
+        this.b = nVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.be beVar;
-        g gVar;
-        g gVar2;
-        dialogInterface.dismiss();
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            beVar = this.a.J;
-            gVar = this.a.H;
-            String name = gVar.g().getName();
-            gVar2 = this.a.H;
-            beVar.a(name, Long.valueOf(gVar2.g().getId()).longValue());
-            return;
+        String str;
+        String str2;
+        boolean z;
+        cu cuVar;
+        switch (i) {
+            case 0:
+                str = this.a.x;
+                if (str != null) {
+                    FrsActivity frsActivity = this.a;
+                    com.baidu.tbadk.core.atomData.bb bbVar = new com.baidu.tbadk.core.atomData.bb(this.a);
+                    com.baidu.tbadk.core.data.n nVar = this.b;
+                    str2 = this.a.q;
+                    z = this.a.y;
+                    frsActivity.sendMessage(new CustomMessage(2004001, bbVar.a(nVar, str2, null, 18003, true, false, z)));
+                    break;
+                }
+                break;
+            case 1:
+                this.a.c(this.b);
+                break;
+            case 2:
+                this.a.d(this.b);
+                break;
         }
-        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.y.login_to_use), true, 11036);
+        com.baidu.tieba.util.p B = com.baidu.tieba.ai.c().B();
+        if (B != null && this.b != null && !B.b(this.b.h())) {
+            B.a(this.b.h());
+        }
+        cuVar = this.a.z;
+        cuVar.z();
     }
 }

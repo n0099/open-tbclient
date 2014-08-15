@@ -27,7 +27,7 @@ public class OldUserData extends a implements Serializable {
     public void setToUserData(UserData userData) {
         if (userData != null) {
             userData.setUserIdLong(Math.max(this.id, this.userId));
-            userData.setUserName((i.b(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+            userData.setUserName((i.c(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
             userData.setPortrait(this.portrait);
             userData.setSex(this.sex);
             userData.setPosition(this.position);
@@ -152,7 +152,7 @@ public class OldUserData extends a implements Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);

@@ -1,6 +1,7 @@
 package com.baidu.tieba.account;
 
 import android.content.DialogInterface;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 /* loaded from: classes.dex */
 class j implements DialogInterface.OnCancelListener {
     final /* synthetic */ i a;
@@ -15,5 +16,6 @@ class j implements DialogInterface.OnCancelListener {
         AccountActivity accountActivity;
         accountActivity = this.a.a;
         accountActivity.destroyWaitingDialog();
+        BdSocketLinkService.startService(true, "account changed");
     }
 }

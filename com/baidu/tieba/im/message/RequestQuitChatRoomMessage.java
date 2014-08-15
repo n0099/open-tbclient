@@ -18,6 +18,10 @@ public class RequestQuitChatRoomMessage extends TbSocketMessage {
         this.mTag = i3;
     }
 
+    public int getGroupId() {
+        return this.mGroupId;
+    }
+
     public int getChatTag() {
         return this.mTag;
     }

@@ -17,15 +17,15 @@ class l implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;
         NewUserGuideActivity newUserGuideActivity4;
-        newUserGuideActivity = this.a.c;
+        newUserGuideActivity = this.a.d;
         if (newUserGuideActivity != null) {
-            newUserGuideActivity2 = this.a.c;
-            if (newUserGuideActivity2.j().a()) {
-                newUserGuideActivity4 = this.a.c;
-                newUserGuideActivity4.k();
+            newUserGuideActivity2 = this.a.d;
+            if (newUserGuideActivity2.i().a()) {
+                newUserGuideActivity4 = this.a.d;
+                newUserGuideActivity4.j();
                 return;
             }
-            newUserGuideActivity3 = this.a.c;
+            newUserGuideActivity3 = this.a.d;
             RightSlideViewPager h = newUserGuideActivity3.h();
             if (h != null) {
                 h.setCurrentItem(1, true);

@@ -1,9 +1,11 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements DialogInterface.OnClickListener {
+public class f implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,20 +13,24 @@ public class f implements DialogInterface.OnClickListener {
         this.a = updatesActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<GroupNewsPojo> linkedList) {
         t tVar;
-        UpdatesItemData updatesItemData;
-        switch (i) {
-            case 0:
-                tVar = this.a.b;
-                tVar.a(true);
-                UpdatesActivity updatesActivity = this.a;
-                updatesItemData = this.a.i;
-                updatesActivity.a(updatesItemData);
-                return;
-            default:
-                return;
-        }
+        p pVar;
+        t tVar2;
+        t tVar3;
+        p pVar2;
+        List<UpdatesItemData> a = p.a(linkedList);
+        tVar = this.a.b;
+        tVar.a(a);
+        pVar = this.a.i;
+        pVar.a(a);
+        tVar2 = this.a.b;
+        tVar2.a(false);
+        tVar3 = this.a.b;
+        pVar2 = this.a.i;
+        tVar3.a(pVar2.d());
+        this.a.e();
     }
 }

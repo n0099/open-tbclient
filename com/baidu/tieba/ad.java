@@ -1,48 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
-    final /* synthetic */ ac a;
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar) {
-        this.a = acVar;
+    public ad(ab abVar) {
+        this.a = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        ag agVar;
         boolean z;
-        boolean z2;
-        ah ahVar;
-        boolean z3;
-        Context context;
-        Drawable drawable;
-        TextView textView;
-        Context context2;
-        z = this.a.d;
-        TiebaStatic.eventStat(this.a.getContext(), "upgrade_channel", z ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        this.a.f = true;
-        z2 = this.a.e;
-        if (z2) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                context2 = this.a.a;
-                drawable = context2.getResources().getDrawable(u.btn_dailog_choose_d_1);
-            } else {
-                context = this.a.a;
-                drawable = context.getResources().getDrawable(u.btn_dailog_choose_d);
-            }
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView = this.a.m;
-            textView.setCompoundDrawables(drawable, null, null, null);
-        }
-        ahVar = this.a.u;
-        z3 = this.a.e;
-        ahVar.a(z3);
+        agVar = this.a.v;
+        z = this.a.e;
+        agVar.b(z);
     }
 }

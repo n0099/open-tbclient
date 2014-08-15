@@ -25,7 +25,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Field;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class j {
     static int b;
@@ -299,9 +298,9 @@ public class j {
                     sb.append(stackTrace[i].getMethodName());
                     sb.append("  lines = ");
                     sb.append(stackTrace[i].getLineNumber());
-                    sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+                    sb.append("\n");
                 }
-                throw new Error("can not be call not thread! trace = " + sb.toString());
+                BdLog.e("can not be call not thread! trace = \n" + sb.toString());
             }
         }
     }

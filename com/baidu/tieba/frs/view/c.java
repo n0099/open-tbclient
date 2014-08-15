@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.view;
 
+import android.app.Activity;
 import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -17,14 +18,16 @@ public class c implements Runnable {
         PopupWindow popupWindow2;
         boolean z;
         PopupWindow popupWindow3;
-        popupWindow = this.a.y;
+        Activity activity;
+        popupWindow = this.a.A;
         if (popupWindow != null) {
-            popupWindow2 = this.a.y;
+            popupWindow2 = this.a.A;
             if (popupWindow2.isShowing()) {
-                z = this.a.al;
+                z = this.a.aq;
                 if (!z) {
-                    popupWindow3 = this.a.y;
-                    popupWindow3.dismiss();
+                    popupWindow3 = this.a.A;
+                    activity = this.a.E;
+                    com.baidu.adp.lib.e.d.a(popupWindow3, activity);
                 }
             }
         }

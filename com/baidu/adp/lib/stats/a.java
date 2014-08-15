@@ -16,9 +16,11 @@ class a extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void c(boolean z) {
-        if (!this.g.mIsOnlyWifi || this.g.mIsNetworkWifi) {
-            d.b().a(this.h);
+        if (z) {
+            if (!this.g.mIsOnlyWifi || this.g.mIsNetworkWifi) {
+                f.c().a(this.h);
+            }
+            this.g.mCurrentFileSize = 0L;
         }
-        this.g.mCurrentFileSize = 0L;
     }
 }

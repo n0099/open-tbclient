@@ -1,102 +1,206 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.data.GroupLevelInfo;
-import com.baidu.tieba.im.message.ResponseGroupLevelMessage;
-import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import java.util.List;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-class n extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ GroupLevelActivity a;
+public class n extends com.baidu.adp.base.f {
+    protected NavigationBar a;
+    private GroupLevelActivity b;
+    private View c;
+    private View d;
+    private ImageView e;
+    private ImageView f;
+    private ImageView g;
+    private TextView h;
+    private TextView i;
+    private ViewGroup j;
+    private TextView k;
+    private ProgressBar l;
+    private TextView m;
+    private TextView n;
+    private TextView o;
+    private TextView p;
+    private TextView q;
+    private TextView r;
+    private ProgressBar s;
+    private ImageView[] t;
+    private TextView[] u;
+    private TextView[] v;
+    private String[] w;
+    private Button x;
+    private TextView y;
+    private boolean z;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(GroupLevelActivity groupLevelActivity, int i) {
-        super(i);
-        this.a = groupLevelActivity;
+    public n(GroupLevelActivity groupLevelActivity, boolean z) {
+        super(groupLevelActivity);
+        this.t = new ImageView[4];
+        this.u = new TextView[4];
+        this.v = new TextView[4];
+        this.w = new String[4];
+        this.a = null;
+        this.b = groupLevelActivity;
+        this.z = z;
+        groupLevelActivity.setContentView(com.baidu.tieba.v.im_grouplevel_activity);
+        b(groupLevelActivity);
+        a(groupLevelActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        o oVar;
-        GroupLevelInfo.LevelInfo levelInfo;
-        o oVar2;
-        o oVar3;
-        o oVar4;
-        o oVar5;
-        o oVar6;
-        o oVar7;
-        oVar = this.a.b;
-        oVar.a(false);
-        if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
-        } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
-            ResponseGroupLevelMessage responseGroupLevelMessage = (ResponseGroupLevelMessage) socketResponsedMessage;
-            if (responseGroupLevelMessage.getError() != 0) {
-                if (responseGroupLevelMessage.getError() > 0) {
-                    if (!TextUtils.isEmpty(responseGroupLevelMessage.getErrorString())) {
-                        this.a.showToast(responseGroupLevelMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.showToast(com.baidu.tieba.y.neterror);
-                return;
-            }
-            GroupLevelInfo groupLevelInfo = responseGroupLevelMessage.getGroupLevelInfo();
-            if (groupLevelInfo != null) {
-                int grade = groupLevelInfo.getGrade();
-                List<GroupLevelInfo.LevelInfo> levelInfos = groupLevelInfo.getLevelInfos();
-                List<GroupLevelInfo.LevelInfo> vipLevelInfos = groupLevelInfo.getVipLevelInfos();
-                if (levelInfos.size() >= 4 && vipLevelInfos.size() >= 4) {
-                    if (groupLevelInfo.isMemGroup()) {
-                        levelInfo = vipLevelInfos.get(grade);
-                    } else {
-                        levelInfo = levelInfos.get(grade);
-                    }
-                    int activeDay = groupLevelInfo.getActiveDay();
-                    int thresholdDay = levelInfo.getThresholdDay();
-                    String intro = levelInfo.getIntro();
-                    oVar2 = this.a.b;
-                    oVar2.a(grade, groupLevelInfo.isMemGroup());
-                    oVar3 = this.a.b;
-                    oVar3.e().setText(intro);
-                    oVar4 = this.a.b;
-                    oVar4.a(grade, activeDay, thresholdDay);
-                    oVar5 = this.a.b;
-                    oVar5.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                    oVar6 = this.a.b;
-                    TextView[] c = oVar6.c();
-                    for (int i = 1; i < levelInfos.size(); i++) {
-                        int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                        if (i <= c.length) {
-                            c[i].setText(this.a.getString(com.baidu.tieba.y.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
-                        }
-                    }
-                    oVar7 = this.a.b;
-                    TextView[] d = oVar7.d();
-                    for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
-                        int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                        if (i2 <= d.length) {
-                            d[i2].setText(this.a.getString(com.baidu.tieba.y.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum2)}));
-                        }
-                    }
-                }
-            }
-        } else if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
-            ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
-            if (responseUpgradeMemberGroupMessage.getError() == 0) {
-                this.a.a();
-            } else if (responseUpgradeMemberGroupMessage.getError() == 2230110) {
-                this.a.showToast(responseUpgradeMemberGroupMessage.getErrorString());
-                this.a.a();
+    private void a(GroupLevelActivity groupLevelActivity) {
+        this.d.setOnClickListener(this.b);
+        this.x.setOnClickListener(this.b);
+    }
+
+    private void b(GroupLevelActivity groupLevelActivity) {
+        this.c = groupLevelActivity.findViewById(com.baidu.tieba.u.parent);
+        this.s = (ProgressBar) groupLevelActivity.findViewById(com.baidu.tieba.u.progress_loading);
+        this.e = (ImageView) groupLevelActivity.findViewById(com.baidu.tieba.u.level_image_1);
+        this.f = (ImageView) groupLevelActivity.findViewById(com.baidu.tieba.u.level_image_2);
+        this.g = (ImageView) groupLevelActivity.findViewById(com.baidu.tieba.u.level_image_3);
+        this.h = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.text_current_level);
+        this.i = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.current_level);
+        this.j = (ViewGroup) groupLevelActivity.findViewById(com.baidu.tieba.u.grouplevel_active);
+        this.k = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.grouplevel_highest);
+        this.l = (ProgressBar) groupLevelActivity.findViewById(com.baidu.tieba.u.active_progress);
+        this.m = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.active_day_cur);
+        this.n = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.active_day_total);
+        this.o = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.active_condition);
+        this.p = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.group_max1);
+        this.q = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.group_max2);
+        this.r = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.group_max3);
+        this.v[1] = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.vgroup_max1);
+        this.v[2] = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.vgroup_max2);
+        this.v[3] = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.vgroup_max3);
+        this.t[1] = this.e;
+        this.t[2] = this.f;
+        this.t[3] = this.g;
+        this.w[1] = groupLevelActivity.getString(com.baidu.tieba.x.grouplevel_level_1);
+        this.w[2] = groupLevelActivity.getString(com.baidu.tieba.x.grouplevel_level_2);
+        this.w[3] = groupLevelActivity.getString(com.baidu.tieba.x.grouplevel_level_3);
+        this.u[1] = this.p;
+        this.u[2] = this.q;
+        this.u[3] = this.r;
+        this.a = (NavigationBar) groupLevelActivity.findViewById(com.baidu.tieba.u.grouplevel_top_bar);
+        this.a.setSystemClickable(false);
+        this.a.a(this.b.getResources().getString(com.baidu.tieba.x.grouplevel_title));
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.x = (Button) groupLevelActivity.findViewById(com.baidu.tieba.u.upgrade_mem_group_btn);
+        this.y = (TextView) groupLevelActivity.findViewById(com.baidu.tieba.u.upgrade_mem_group_tip);
+        if (this.z) {
+            this.x.setVisibility(8);
+            this.y.setVisibility(8);
+        }
+    }
+
+    public void a(boolean z, boolean z2, boolean z3, int i) {
+        String string;
+        if (z) {
+            this.h.setText(TbadkApplication.m252getInst().getString(com.baidu.tieba.x.grouplevel_vip_current_level));
+            ay.a(this.h, com.baidu.tieba.r.group_level_promote, 1);
+        } else {
+            this.h.setText(TbadkApplication.m252getInst().getString(com.baidu.tieba.x.grouplevel_current_level));
+            ay.a(this.h, com.baidu.tieba.r.group_level_secondtitle_text, 1);
+        }
+        if (z || !z2) {
+            this.x.setVisibility(8);
+            this.y.setVisibility(8);
+            return;
+        }
+        this.x.setVisibility(0);
+        this.y.setVisibility(0);
+        if (z3 && i > 0) {
+            this.x.setEnabled(true);
+            string = String.format(TbadkApplication.m252getInst().getString(com.baidu.tieba.x.upgrade_mem_group_left_num), String.valueOf(i));
+            ay.a(this.x, com.baidu.tieba.r.upgrade_mem_group_btn_text, 3);
+            this.x.setEnabled(true);
+        } else {
+            if (!z3) {
+                string = TbadkApplication.m252getInst().getString(com.baidu.tieba.x.upgrade_mem_group_cannot_up);
             } else {
-                this.a.showToast(responseUpgradeMemberGroupMessage.getErrorString());
+                string = TbadkApplication.m252getInst().getString(com.baidu.tieba.x.upgrade_mem_group_over_max_num);
             }
+            this.x.setEnabled(false);
+            ay.a(this.x, com.baidu.tieba.r.upgrade_mem_group_btn_cannotup_text, 3);
+        }
+        this.y.setText(string);
+    }
+
+    public View a() {
+        return this.d;
+    }
+
+    public Button b() {
+        return this.x;
+    }
+
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.c);
+        this.a.c(i);
+    }
+
+    public TextView[] c() {
+        return this.u;
+    }
+
+    public TextView[] d() {
+        return this.v;
+    }
+
+    public void a(boolean z) {
+        this.s.setVisibility(z ? 0 : 8);
+    }
+
+    public void a(int i, boolean z) {
+        int i2 = 1;
+        if (i <= 1) {
+            i = 1;
+        }
+        int i3 = com.baidu.tieba.t.icon_grade_big_star_s;
+        int i4 = com.baidu.tieba.t.icon_grade_big_star_n;
+        int i5 = com.baidu.tieba.t.icon_vip_grade_big_star_s;
+        int i6 = com.baidu.tieba.t.icon_vip_grade_big_star_n;
+        while (i2 <= i) {
+            if (z) {
+                ay.c(this.t[i2], i5);
+            } else {
+                ay.c(this.t[i2], i3);
+            }
+            i2++;
+        }
+        while (i2 <= 3) {
+            if (z) {
+                ay.c(this.t[i2], i6);
+            } else {
+                ay.c(this.t[i2], i4);
+            }
+            i2++;
+        }
+        this.i.setText(this.w[i]);
+    }
+
+    public TextView e() {
+        return this.o;
+    }
+
+    public void a(int i, int i2, int i3) {
+        if (i >= 1 && i <= 2) {
+            this.j.setVisibility(0);
+            this.k.setVisibility(8);
+            this.l.setProgress((int) ((i2 / i3) * 100.0f));
+            String string = this.b.getString(com.baidu.tieba.x.grouplevel_active_day_value, new Object[]{String.valueOf(i3)});
+            this.m.setText(String.valueOf(i2));
+            this.n.setText(string);
+        } else if (i >= 3) {
+            this.j.setVisibility(8);
+            this.k.setVisibility(0);
+            this.k.setText(com.baidu.tieba.x.grouplevel_highest_grade);
         }
     }
 }

@@ -6,16 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tieba.u;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class PersonalTalkSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c, p {
-    private q a;
-    private k b;
+public class PersonalTalkSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c, q {
+    private r a;
+    private l b;
     private long c;
 
     public static void a(long j) {
@@ -31,16 +32,16 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
         super.onCreate(bundle);
         b();
         a(bundle);
-        registerListener(205003, this.b.f());
-        registerListener(104102, this.b.f());
-        registerListener(2001118, this.b.g());
+        registerListener(205003, this.b.e());
+        registerListener(104102, this.b.e());
+        registerListener(2001118, this.b.f());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.e();
+        this.b.d();
     }
 
     @Override // android.app.Activity
@@ -55,11 +56,11 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
         } else {
             this.c = bundle.getLong("userId");
         }
-        this.b = new k(this, this, this.c);
+        this.b = new l(this, this, this.c);
     }
 
     private void b() {
-        this.a = new q(this);
+        this.a = new r(this);
         this.a.a(this);
     }
 
@@ -74,20 +75,20 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == v.user_info_lin) {
+        if (id == u.user_info_lin) {
             if (this.b != null && this.b.b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bb(this, String.valueOf(this.c), this.b.b().name)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, String.valueOf(this.c), this.b.b().name)));
             }
-        } else if (id == v.remove_from_black_man) {
-            new AlertDialog.Builder(this).setMessage(getString(y.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new b(this)).setNegativeButton(y.alert_no_button, new c(this)).create().show();
-        } else if (id == v.st_delete_talk_history) {
-            new AlertDialog.Builder(this).setMessage(getString(y.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new d(this)).setNegativeButton(y.alert_no_button, new g(this)).create().show();
-        } else if (id == v.add_to_black) {
-            new AlertDialog.Builder(this).setMessage(getString(y.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new h(this)).setNegativeButton(y.alert_no_button, new i(this)).create().show();
+        } else if (id == u.remove_from_black_man) {
+            new AlertDialog.Builder(this).setMessage(getString(x.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new c(this)).setNegativeButton(x.alert_no_button, new d(this)).create().show();
+        } else if (id == u.st_delete_talk_history) {
+            new AlertDialog.Builder(this).setMessage(getString(x.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new e(this)).setNegativeButton(x.alert_no_button, new h(this)).create().show();
+        } else if (id == u.add_to_black) {
+            new AlertDialog.Builder(this).setMessage(getString(x.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new i(this)).setNegativeButton(x.alert_no_button, new j(this)).create().show();
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.personaltalk.p
+    @Override // com.baidu.tieba.im.chat.personaltalk.q
     public void a() {
         closeLoadingDialog();
         if (this.a != null && this.b != null) {
@@ -97,7 +98,11 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
+        boolean a = this.b.a();
         this.b.a(switchState == BdSwitchView.SwitchState.ON);
-        new j(this, switchState).execute(new Void[0]);
+        new k(this, switchState).execute(new Void[0]);
+        if (a != this.b.a()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+        }
     }
 }

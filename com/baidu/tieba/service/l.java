@@ -1,9 +1,9 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.model.az;
+import com.baidu.tieba.model.ba;
 /* loaded from: classes.dex */
-class l implements az {
+class l implements ba {
     final /* synthetic */ ReportUserInfoService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +11,12 @@ class l implements az {
         this.a = reportUserInfoService;
     }
 
-    @Override // com.baidu.tieba.model.az
+    @Override // com.baidu.tieba.model.ba
     public void a() {
         BdLog.i("location_success");
     }
 
-    @Override // com.baidu.tieba.model.az
+    @Override // com.baidu.tieba.model.ba
     public void a(int i, String str) {
         BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
     }

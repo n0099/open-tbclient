@@ -21,21 +21,21 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         int i;
         int i2;
-        t tVar;
-        t tVar2;
+        r rVar;
+        r rVar2;
         if (customResponsedMessage instanceof PushMessage) {
             GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
             ValidateActivity validateActivity = this.a;
-            i = validateActivity.l;
-            validateActivity.l = i + 1;
+            i = validateActivity.j;
+            validateActivity.j = i + 1;
             ValidateActivity validateActivity2 = this.a;
-            i2 = validateActivity2.j;
-            validateActivity2.j = i2 + 1;
-            ValidateItemData a = n.a(p);
-            tVar = this.a.b;
-            tVar.d().b().add(0, a);
-            tVar2 = this.a.b;
-            tVar2.d().notifyDataSetChanged();
+            i2 = validateActivity2.h;
+            validateActivity2.h = i2 + 1;
+            ValidateItemData a = l.a(p);
+            rVar = this.a.b;
+            rVar.c().b().add(0, a);
+            rVar2 = this.a.b;
+            rVar2.c().notifyDataSetChanged();
         }
     }
 }

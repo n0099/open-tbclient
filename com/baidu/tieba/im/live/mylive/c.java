@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.live.mylive.MyLiveListAdapter;
 import com.baidu.tieba.im.message.RequestMyLiveListLocalMessage;
 import com.baidu.tieba.im.message.ResponseMyLiveListLocalMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -31,18 +31,18 @@ public class c extends CustomMessageListener {
         MyLiveListAdapter myLiveListAdapter3;
         MyLiveListAdapter myLiveListAdapter4;
         if (customResponsedMessage == null) {
-            this.a.a(y.neterror);
-            this.a.k();
+            this.a.a(x.neterror);
+            this.a.l();
         } else if (!(customResponsedMessage instanceof ResponseMyLiveListLocalMessage)) {
-            this.a.a(y.neterror);
-            this.a.k();
+            this.a.a(x.neterror);
+            this.a.l();
         } else {
             ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = (ResponseMyLiveListLocalMessage) customResponsedMessage;
             Message<?> orginalMessage = responseMyLiveListLocalMessage.getOrginalMessage();
             if (orginalMessage == null) {
-                this.a.k();
+                this.a.l();
             } else if (!(orginalMessage instanceof RequestMyLiveListLocalMessage)) {
-                this.a.k();
+                this.a.l();
             } else {
                 int type = ((RequestMyLiveListLocalMessage) orginalMessage).getType();
                 i = this.a.i;
@@ -53,7 +53,7 @@ public class c extends CustomMessageListener {
                         list = responseMyLiveListLocalMessage.getHotLiveListData().b();
                     }
                     if (list != null && !list.isEmpty()) {
-                        this.a.l();
+                        this.a.m();
                         myLiveListAdapter = this.a.h;
                         myLiveListAdapter.c(true);
                         myLiveListAdapter2 = this.a.h;
@@ -64,10 +64,10 @@ public class c extends CustomMessageListener {
                         myLiveListAdapter4.notifyDataSetChanged();
                         return;
                     }
-                    this.a.m();
+                    this.a.n();
                     return;
                 }
-                this.a.k();
+                this.a.l();
             }
         }
     }

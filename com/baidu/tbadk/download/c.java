@@ -33,7 +33,7 @@ public class c extends Handler {
                     downloadData5 = b.b;
                     a callback = downloadData5.getCallback();
                     downloadData6 = b.b;
-                    callback.b(downloadData6);
+                    callback.a(downloadData6);
                 }
             }
         }

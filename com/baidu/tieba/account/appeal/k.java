@@ -3,10 +3,9 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
 import java.lang.ref.WeakReference;
-import org.apache.commons.io.IOUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
@@ -28,14 +27,14 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
         str = j.a;
-        aq aqVar = new aq(str);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        aqVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
-        String i = aqVar.i();
-        if (aqVar.a().b().b()) {
+        ae aeVar = new ae(str);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
+        String h = aeVar.h();
+        if (aeVar.a().b().b()) {
             try {
-                ForbidReasonData forbidReasonData = (ForbidReasonData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForbidReasonData.class);
-                forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", IOUtils.LINE_SEPARATOR_UNIX);
+                ForbidReasonData forbidReasonData = (ForbidReasonData) new GsonBuilder().create().fromJson(h, (Class<Object>) ForbidReasonData.class);
+                forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                 return forbidReasonData;
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -45,8 +44,8 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
             }
         }
         ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-        forbidReasonData3.error.a = aqVar.d();
-        forbidReasonData3.error.b = aqVar.f();
+        forbidReasonData3.error.a = aeVar.c();
+        forbidReasonData3.error.b = aeVar.e();
         return forbidReasonData3;
     }
 
@@ -58,7 +57,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
         super.onPostExecute(forbidReasonData);
         l lVar = this.c.get();
         if (lVar != null) {
-            if (forbidReasonData.error.a == 0 && bm.c(forbidReasonData.error.b)) {
+            if (forbidReasonData.error.a == 0 && ba.c(forbidReasonData.error.b)) {
                 lVar.a(forbidReasonData);
             } else {
                 lVar.b(forbidReasonData);

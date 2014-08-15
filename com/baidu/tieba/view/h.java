@@ -1,24 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.data.MediaData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ CommonImageLayout a;
-    private final /* synthetic */ MediaData b;
+class h {
+    public final boolean a;
+    public final List<Object> b;
+    public final List<Object> c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(CommonImageLayout commonImageLayout, MediaData mediaData) {
-        this.a = commonImageLayout;
-        this.b = mediaData;
+    public static h a(List<Object> list, List<Object> list2) {
+        return new h(true, list, list2);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.a.o;
-        com.baidu.tbadk.browser.a.a(context, this.b.getVideoUrl());
+    public static h a() {
+        return new h(false, null, null);
+    }
+
+    private h(boolean z, List<Object> list, List<Object> list2) {
+        this.a = z;
+        this.b = list;
+        this.c = list2;
     }
 }

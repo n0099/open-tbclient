@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import java.io.ByteArrayOutputStream;
@@ -64,13 +65,13 @@ public class f {
                     }
                 } else {
                     g gVar = new g(this, str, b, sb, hVar);
-                    gVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a()));
+                    gVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     gVar.execute(new Object[0]);
                     return false;
                 }
             }
             if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.d.b().a("so", "load_" + str + ".so", "", "", -9101, sb.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.f.c().a("so", "load_" + str + ".so", "", "", -9101, sb.toString(), new Object[0]);
             }
         }
         return z;
@@ -158,11 +159,11 @@ public class f {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     } catch (Exception e2) {
-                                        com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
+                                        com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
                                     } catch (Throwable th) {
                                         byteArrayOutputStream2 = byteArrayOutputStream;
                                         th = th;
-                                        com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream2);
+                                        com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream2);
                                         throw th;
                                     }
                                 }
@@ -172,10 +173,10 @@ public class f {
                                 if (b(b, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
-                                    com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
+                                    com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
                                     break;
                                 }
-                                com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
+                                com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
                             } catch (Exception e3) {
                                 byteArrayOutputStream = null;
                             } catch (Throwable th2) {
@@ -183,19 +184,19 @@ public class f {
                             }
                         }
                     }
-                    com.baidu.adp.lib.f.a.a((InputStream) zipInputStream);
+                    com.baidu.adp.lib.e.a.a((InputStream) zipInputStream);
                 } catch (IOException e4) {
                     e = e4;
                     zipInputStream2 = zipInputStream;
                     sb.append("-Error5:");
                     sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
                     sb.append("-");
-                    com.baidu.adp.lib.f.a.a((InputStream) zipInputStream2);
+                    com.baidu.adp.lib.e.a.a((InputStream) zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
                     th = th3;
                     zipInputStream2 = zipInputStream;
-                    com.baidu.adp.lib.f.a.a((InputStream) zipInputStream2);
+                    com.baidu.adp.lib.e.a.a((InputStream) zipInputStream2);
                     throw th;
                 }
             }
@@ -213,17 +214,17 @@ public class f {
                 fileOutputStream = new FileOutputStream(new File(str));
                 try {
                     fileOutputStream.write(bArr);
-                    com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
                 } catch (Exception e) {
                     e = e;
                     sb.append("-Error4:");
                     sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
                     sb.append("-");
-                    com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
+                com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -232,7 +233,7 @@ public class f {
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
             throw th;
         }
     }

@@ -20,9 +20,8 @@ public class HotLiveListAdapter extends BaseAdapter {
     private HotLiveListActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private com.baidu.tbadk.editortool.aa d;
-    private boolean e;
-    private ArrayList<LiveCardData> f = new ArrayList<>();
+    private boolean d;
+    private ArrayList<LiveCardData> e = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public enum BOTTOM_TYPE {
@@ -42,34 +41,32 @@ public class HotLiveListAdapter extends BaseAdapter {
     }
 
     public boolean a() {
-        return this.e;
+        return this.d;
     }
 
     public void a(boolean z) {
-        this.e = z;
+        this.d = z;
     }
 
     public void a(List<LiveCardData> list) {
-        this.f.addAll(list);
+        this.e.addAll(list);
         b();
     }
 
     public void b(boolean z) {
         if (z) {
-            this.f.clear();
+            this.e.clear();
             this.c = false;
-            this.e = false;
+            this.d = false;
             return;
         }
         this.c = true;
-        this.e = false;
+        this.d = false;
         this.b = BOTTOM_TYPE.LINE;
     }
 
     public HotLiveListAdapter(HotLiveListActivity hotLiveListActivity) {
         this.a = hotLiveListActivity;
-        this.d = new com.baidu.tbadk.editortool.aa(hotLiveListActivity);
-        this.d.b(true);
     }
 
     public void c(boolean z) {
@@ -82,8 +79,8 @@ public class HotLiveListAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f != null) {
-            int size = this.f.size();
+        if (this.e != null) {
+            int size = this.e.size();
             if (this.c) {
                 return size + 1;
             }
@@ -95,10 +92,10 @@ public class HotLiveListAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.f.size()) {
+        if (itemId < 0 || itemId >= this.e.size()) {
             return null;
         }
-        return this.f.get(itemId);
+        return this.e.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -122,18 +119,18 @@ public class HotLiveListAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         y yVar;
-        if (this.f == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_hot_list_item, viewGroup, false);
+        if (this.e == null) {
+            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_hot_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
             yVar = new y();
-            yVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.item_more);
-            yVar.d = (TextView) view.findViewById(com.baidu.tieba.v.list_more_title);
-            yVar.e = (ProgressBar) view.findViewById(com.baidu.tieba.v.list_more_progress);
-            yVar.f = (ImageView) view.findViewById(com.baidu.tieba.v.list_more_line);
-            yVar.c = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more_text);
-            yVar.b = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.v.item_card);
+            yVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.item_more);
+            yVar.d = (TextView) view.findViewById(com.baidu.tieba.u.list_more_title);
+            yVar.e = (ProgressBar) view.findViewById(com.baidu.tieba.u.list_more_progress);
+            yVar.f = (ImageView) view.findViewById(com.baidu.tieba.u.list_more_line);
+            yVar.c = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_more_text);
+            yVar.b = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.u.item_card);
             view.setTag(yVar);
         } else {
             yVar = (y) view.getTag();
@@ -149,11 +146,11 @@ public class HotLiveListAdapter extends BaseAdapter {
             yVar.f.setVisibility(8);
             yVar.c.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                yVar.d.setText(com.baidu.tieba.y.live_hotlist_has_more);
+                yVar.d.setText(com.baidu.tieba.x.live_hotlist_has_more);
                 yVar.e.setVisibility(0);
                 return view;
             }
-            yVar.d.setText(com.baidu.tieba.y.live_hotlist_no_more);
+            yVar.d.setText(com.baidu.tieba.x.live_hotlist_no_more);
             yVar.e.setVisibility(8);
             return view;
         }
@@ -178,7 +175,7 @@ public class HotLiveListAdapter extends BaseAdapter {
 
     private void b() {
         HashSet hashSet = new HashSet();
-        Iterator<LiveCardData> it = this.f.iterator();
+        Iterator<LiveCardData> it = this.e.iterator();
         while (it.hasNext()) {
             if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
                 it.remove();

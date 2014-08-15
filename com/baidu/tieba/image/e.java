@@ -75,7 +75,7 @@ class e implements c {
                 multiImageView6.a(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
-        this.a.f();
+        this.a.c();
     }
 
     @Override // com.baidu.tieba.image.c
@@ -86,7 +86,7 @@ class e implements c {
             ImageViewerActivity imageViewerActivity = this.a;
             arrayList = this.a.c;
             imageViewerActivity.e = arrayList.size();
-            this.a.f();
+            this.a.c();
         }
     }
 }

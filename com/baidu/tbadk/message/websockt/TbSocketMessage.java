@@ -16,7 +16,7 @@ public abstract class TbSocketMessage extends SocketMessage {
     }
 
     public TbSocketMessage(int i, int i2) {
-        super(i, i2);
+        super(i, Integer.valueOf(i2));
         init();
     }
 

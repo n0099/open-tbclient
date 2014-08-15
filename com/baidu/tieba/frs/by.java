@@ -1,25 +1,18 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class by extends CustomMessageListener {
+class by implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public by(FrsImageActivity frsImageActivity, int i) {
-        super(i);
+    public by(FrsImageActivity frsImageActivity) {
         this.a = frsImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
-        }
-        this.a.a(customResponsedMessage);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

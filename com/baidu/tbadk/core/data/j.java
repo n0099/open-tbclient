@@ -1,53 +1,63 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private long a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private long f;
+    private ArrayList<String> c;
+    private int d = 0;
+    private UserData a = new UserData();
+    private AntiData b = new AntiData();
 
     public j() {
-        this.a = -1L;
-        this.b = null;
         this.c = null;
-        this.d = null;
-        this.e = "";
-        this.f = -1L;
+        this.c = new ArrayList<>();
+        a(0);
     }
 
-    public j(long j, long j2, String str, String str2, String str3) {
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = "";
-        this.f = -1L;
-        this.a = j;
-        this.f = j2;
-        this.b = str;
-        this.c = str2;
-        this.e = str3;
-    }
-
-    public String a() {
-        return this.e;
-    }
-
-    public long b() {
+    public UserData a() {
         return this.a;
     }
 
-    public long c() {
-        return this.f;
-    }
-
-    public String d() {
+    public AntiData b() {
         return this.b;
     }
 
-    public String e() {
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a.parserJson(jSONObject.optJSONObject("user"));
+            this.b.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.c.add(optJSONArray.optString(i, null));
+                }
+            }
+            a(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public ArrayList<String> c() {
         return this.c;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public int d() {
+        return this.d;
     }
 }

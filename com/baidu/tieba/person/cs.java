@@ -1,58 +1,63 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ cr a;
+public class cs extends BdAsyncTask<String, Integer, String> {
+    String a;
+    byte[] b;
+    final /* synthetic */ PersonImageActivity c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cs(cr crVar, int i) {
-        super(i);
-        this.a = crVar;
+    public cs(PersonImageActivity personImageActivity, String str, byte[] bArr) {
+        this.c = personImageActivity;
+        this.a = null;
+        this.b = null;
+        this.a = str;
+        this.b = bArr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
-        Message<?> orginalMessage;
-        com.baidu.tieba.model.c cVar;
-        com.baidu.tieba.model.c cVar2;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        com.baidu.tieba.model.c cVar3;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
-            RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-            if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    cVar3 = this.a.f;
-                    cVar3.a(1);
-                } else {
-                    cVar = this.a.f;
-                    cVar.a(0);
-                }
-                if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    cVar2 = this.a.f;
-                    if (cVar2.a() == 1) {
-                        cr crVar = this.a;
-                        baseFragmentActivity2 = this.a.h;
-                        crVar.b(baseFragmentActivity2.getString(com.baidu.tieba.y.black_list_added));
-                        return;
-                    }
-                    cr crVar2 = this.a;
-                    baseFragmentActivity = this.a.h;
-                    crVar2.b(baseFragmentActivity.getString(com.baidu.tieba.y.black_list_remove_success));
-                    return;
-                }
-                this.a.b(responseUpdateMaskInfoMessage.getErrorString());
-            }
+    public String doInBackground(String... strArr) {
+        switch (com.baidu.tbadk.core.util.s.a(this.a, this.b, this.c)) {
+            case -2:
+                return com.baidu.tbadk.core.util.s.b();
+            case -1:
+            default:
+                return this.c.getString(com.baidu.tieba.x.save_error);
+            case 0:
+                return this.c.getString(com.baidu.tieba.x.save_image_to_album);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        ProgressBar progressBar;
+        super.onPostExecute(str);
+        this.c.showToast(str);
+        this.c.b = null;
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        this.c.b = null;
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

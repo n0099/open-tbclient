@@ -21,7 +21,7 @@ public class FacePurchasePackageData extends com.baidu.tbadk.core.util.a impleme
     @SerializedName("puy_time")
     public long puyTime;
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ai
+    @Override // com.baidu.tbadk.core.util.a
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         if (this.coverUrl != null) {

@@ -1,18 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements CustomMessageTask.CustomRunnable<ap> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ap> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MainTabActivity.class);
-            customMessage.getData().startActivity();
-        }
-        return null;
+class ac extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.a = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.a.N = 0;
+        this.a.R = false;
+        this.a.a(false);
     }
 }

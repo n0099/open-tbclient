@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ImageInfo;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.data.IconData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UserData extends com.baidu.tbadk.data.UserData implements ai, bg, com.baidu.tbadk.core.view.p {
+public class UserData extends com.baidu.tbadk.data.UserData implements aa, av, com.baidu.tbadk.core.view.t {
     private static final long serialVersionUID = -2636990595209169859L;
     private boolean mIsChecked;
 
@@ -20,12 +20,10 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ai, bg, c
         this.mIsChecked = false;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
     public boolean isSupportImageSize() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getImageUrl() {
         LinkedList<IconData> iconInfo = getIconInfo();
         LinkedList<IconData> tShowInfo = getTShowInfo();
@@ -42,40 +40,37 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ai, bg, c
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
-    public LinkedList<ad> getImagesWithEmotions() {
+    public LinkedList<ImageInfo> getImagesWithEmotions() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.view.p
+    @Override // com.baidu.tbadk.core.view.t
     public boolean isChecked() {
         return this.mIsChecked;
     }
 
-    @Override // com.baidu.tbadk.core.view.p
+    @Override // com.baidu.tbadk.core.view.t
     public void setChecked(boolean z) {
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.bg
-    public LinkedList<bf> getImages() {
-        LinkedList<bf> linkedList = new LinkedList<>();
-        bf bfVar = new bf();
-        bfVar.a = getPortrait();
-        bfVar.d = 12;
-        linkedList.add(bfVar);
+    @Override // com.baidu.tbadk.core.util.av
+    public LinkedList<au> getImages() {
+        LinkedList<au> linkedList = new LinkedList<>();
+        au auVar = new au();
+        auVar.a = getPortrait();
+        auVar.d = 12;
+        linkedList.add(auVar);
         return linkedList;
     }
 }

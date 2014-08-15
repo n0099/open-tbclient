@@ -5,14 +5,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class b extends c<byte[]> {
-    public b(com.baidu.adp.base.i iVar) {
-        super(iVar);
+    public b(com.baidu.adp.base.a.c cVar) {
+        super(cVar);
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public String a(String str) {
         String str2 = "cache_kv_b" + Math.abs(str.hashCode());
-        this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.a.a("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -25,7 +25,7 @@ public class b extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
     protected m<byte[]> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
@@ -41,14 +41,14 @@ public class b extends c<byte[]> {
                     mVar.e = cursor.getLong(2);
                     mVar.f = cursor.getLong(3);
                     mVar.b = cursor.getBlob(4);
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                 } else {
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                 }
                 return mVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.f.a.a(cursor);
+                com.baidu.adp.lib.e.a.a(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -75,7 +75,7 @@ public class b extends c<byte[]> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean b(String str) {
-        this.a.a(this.a.a(), "DROP TABLE IF EXISTS " + this.b);
+        this.a.a("DROP TABLE IF EXISTS " + this.b);
         return true;
     }
 }

@@ -13,6 +13,6 @@ class v implements com.baidu.tbadk.widget.richText.r {
 
     @Override // com.baidu.tbadk.widget.richText.r
     public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.l(this.a, str, str2, str3, str4, str5, str6, 1, i, i2)));
+        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.m(this.a, str, str2, str3, str4, str5, str6, 1, i, i2)));
     }
 }

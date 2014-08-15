@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class SingleSquareActivity extends BaseFragmentActivity {
-    private af c;
+    private af d;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010010, new ae());
@@ -27,9 +27,9 @@ public class SingleSquareActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         if (!h()) {
             FragmentManager supportFragmentManager = getSupportFragmentManager();
-            this.c = new af();
+            this.d = new af();
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-            beginTransaction.add(16908290, this.c);
+            beginTransaction.add(16908290, this.d);
             beginTransaction.commitAllowingStateLoss();
         }
     }
@@ -55,8 +55,8 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.c != null) {
-            this.c.onActivityResult(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
         }
     }
 
@@ -68,7 +68,7 @@ public class SingleSquareActivity extends BaseFragmentActivity {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.r.a((Activity) this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ao(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ar(this, intent)));
             finish();
             return true;
         }

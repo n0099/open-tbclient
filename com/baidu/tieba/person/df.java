@@ -1,52 +1,30 @@
 package com.baidu.tieba.person;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class df extends com.baidu.adp.base.f {
-    View a;
-    TextView b;
-    TextView c;
+public class df implements com.baidu.adp.widget.ListView.x {
+    final /* synthetic */ ct a;
 
-    public df(BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
-        super(baseFragmentActivity);
-        a(baseFragmentActivity, onClickListener);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public df(ct ctVar) {
+        this.a = ctVar;
     }
 
-    private void a(Context context, View.OnClickListener onClickListener) {
-        this.a = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.person_info_more_view, (ViewGroup) null);
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.v.person_info_more_view_item_friend);
-        this.b.setOnClickListener(onClickListener);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.v.person_info_more_view_item_black);
-        this.c.setOnClickListener(onClickListener);
-    }
-
-    public void a(boolean z, boolean z2) {
-        if (z) {
-            this.b.setVisibility(0);
-        } else {
-            this.b.setVisibility(8);
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
+        com.baidu.tieba.model.av avVar;
+        bd bdVar;
+        bd bdVar2;
+        if (!this.a.a()) {
+            avVar = this.a.e;
+            if (avVar.e()) {
+                bdVar2 = this.a.l;
+                bdVar2.b();
+                return;
+            }
+            this.a.a(true);
+            bdVar = this.a.l;
+            bdVar.d();
+            this.a.o();
         }
-        if (z2) {
-            this.c.setText(com.baidu.tieba.y.delete_to_black_list);
-        } else {
-            this.c.setText(com.baidu.tieba.y.add_to_black_list);
-        }
-    }
-
-    public View a() {
-        return this.a;
-    }
-
-    public View b() {
-        return this.b;
-    }
-
-    public View c() {
-        return this.c;
     }
 }

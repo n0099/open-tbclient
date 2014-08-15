@@ -29,7 +29,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     private int f;
     private AlertDialog g;
     private final Handler i = new Handler();
-    private final Runnable j = new ac(this);
+    private final Runnable j = new aa(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i, int i2) {
         Intent intent = new Intent(activity, FaceBuyWebViewActivity.class);
@@ -50,10 +50,10 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     }
 
     private void b() {
-        setContentView(com.baidu.tieba.w.face_buy_webview_activity);
-        this.a = (BaseWebView) findViewById(com.baidu.tieba.v.webview);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ad(this));
+        setContentView(com.baidu.tieba.v.face_buy_webview_activity);
+        this.a = (BaseWebView) findViewById(com.baidu.tieba.u.webview);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
         this.b.a("");
         this.a.setOnLoadUrlListener(this);
         this.a.setOnPageFinishedListener(this);
@@ -113,7 +113,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
             this.b.c(i);
         }
         if (this.a != null) {
-            com.baidu.tbadk.core.util.bk.a(this.a, i);
+            com.baidu.tbadk.core.util.ay.a(this.a, i);
         }
     }
 
@@ -144,21 +144,21 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     public void c() {
         if (this.g == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(com.baidu.tieba.y.alerm_title);
+            builder.setTitle(com.baidu.tieba.x.alert_title);
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
-            builder.setMessage(com.baidu.tieba.y.quit_buy_confirm);
-            builder.setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ae(this));
-            builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, new af(this));
+            builder.setMessage(com.baidu.tieba.x.quit_buy_confirm);
+            builder.setPositiveButton(com.baidu.tieba.x.alert_yes_button, new ac(this));
+            builder.setNegativeButton(com.baidu.tieba.x.alert_no_button, new ad(this));
             this.g = builder.create();
         }
-        this.g.show();
+        com.baidu.adp.lib.e.d.a(this.g, this);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         if (str != null) {
-            if (com.baidu.tbadk.core.util.bm.c(str) || com.baidu.tbadk.core.util.bm.c(this.d)) {
+            if (com.baidu.tbadk.core.util.ba.c(str) || com.baidu.tbadk.core.util.ba.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {

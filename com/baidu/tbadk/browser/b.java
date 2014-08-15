@@ -1,35 +1,29 @@
 package com.baidu.tbadk.browser;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.util.bs;
+import android.util.Log;
+import android.view.View;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-class b implements bs {
-    @Override // com.baidu.tbadk.core.util.bs
-    public boolean a(Context context, String[] strArr) {
-        String str = strArr[0];
-        String str2 = strArr.length > 1 ? strArr[1] : null;
-        String str3 = strArr.length > 2 ? strArr[2] : null;
-        if (str.startsWith("opfeature:")) {
-            a.a(context, a.a(str.replaceFirst("opfeature:", ""), str3));
-        } else if (str.startsWith("web:")) {
-            a.a(context, a.a(str.replaceFirst("web:", ""), str3));
-        } else if (str.startsWith("topic:")) {
-            TbWebViewActivity.startActivityWithCookie(context, str.substring(6), str2);
-        } else if (str.startsWith("zb:")) {
-            TbWebViewActivity.startActivity(context, context.getString(com.baidu.tieba.y.kn_zhibo), str.substring(3));
-        } else if (str.startsWith("jctj:")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2010020, new com.baidu.tbadk.core.atomData.i(context, null)));
-        } else if (!str.startsWith("list:")) {
-            return false;
-        } else {
-            String substring = str.substring(5);
-            if (!TextUtils.isEmpty(substring)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.p(context, substring, str3)));
-            }
-        }
-        return true;
+class b implements View.OnClickListener {
+    final /* synthetic */ GameWebViewActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(GameWebViewActivity gameWebViewActivity) {
+        this.a = gameWebViewActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        boolean z2;
+        this.a.mNavigationBar.setVisibility(0);
+        NavigationBar navigationBar = this.a.mNavigationBar;
+        GameWebViewActivity gameWebViewActivity = this.a;
+        NavigationBar navigationBar2 = this.a.mNavigationBar;
+        z = this.a.c;
+        navigationBar.startAnimation(new c(gameWebViewActivity, navigationBar2, !z));
+        StringBuilder sb = new StringBuilder("startAnimation");
+        z2 = this.a.c;
+        Log.d("mNavigationBar", sb.append(z2 ? false : true).toString());
     }
 }

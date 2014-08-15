@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class j implements com.baidu.tieba.pb.sub.h {
+class j implements com.baidu.tieba.pb.sub.g {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,86 +13,86 @@ class j implements com.baidu.tieba.pb.sub.h {
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.pb.sub.h
+    @Override // com.baidu.tieba.pb.sub.g
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.data.at atVar) {
-        bt btVar;
-        bt btVar2;
-        com.baidu.tieba.pb.sub.f fVar;
-        bm bmVar;
-        com.baidu.tieba.pb.sub.f fVar2;
-        bt btVar3;
-        bm bmVar2;
-        AntiData i2;
-        com.baidu.tieba.pb.sub.f fVar3;
+    public void a(boolean z, int i, String str, com.baidu.tieba.data.au auVar) {
+        bs bsVar;
+        bs bsVar2;
+        com.baidu.tieba.pb.sub.e eVar;
+        bl blVar;
+        com.baidu.tieba.pb.sub.e eVar2;
+        bs bsVar3;
+        bl blVar2;
+        AntiData j;
+        com.baidu.tieba.pb.sub.e eVar3;
         String str2;
-        bt btVar4;
-        bm bmVar3;
+        bs bsVar4;
+        bl blVar3;
         String str3;
-        com.baidu.tieba.pb.sub.f fVar4;
-        bm bmVar4;
-        this.a.D();
-        btVar = this.a.D;
-        btVar.d(str);
-        btVar2 = this.a.D;
-        btVar2.G();
+        com.baidu.tieba.pb.sub.e eVar4;
+        bl blVar4;
+        this.a.G();
+        bsVar = this.a.D;
+        bsVar.d(str);
+        bsVar2 = this.a.D;
+        bsVar2.G();
         if (!z) {
             if (i == 4 || i == 28) {
-                bmVar4 = this.a.x;
-                if (bmVar4.o()) {
+                blVar4 = this.a.x;
+                if (blVar4.o()) {
                     this.a.closeActivity();
                 }
             }
-        } else if (atVar != null) {
-            fVar = this.a.B;
-            String b = fVar.b();
-            bmVar = this.a.x;
-            ArrayList<com.baidu.tieba.data.am> d = bmVar.r().d();
-            int i3 = 0;
+        } else if (auVar != null) {
+            eVar = this.a.B;
+            String b = eVar.b();
+            blVar = this.a.x;
+            ArrayList<com.baidu.tieba.data.an> e = blVar.r().e();
+            int i2 = 0;
             while (true) {
-                if (i3 < d.size()) {
-                    com.baidu.tieba.data.am amVar = d.get(i3);
-                    if (amVar.l() == null || !amVar.l().equals(b)) {
-                        i3++;
+                if (i2 < e.size()) {
+                    com.baidu.tieba.data.an anVar = e.get(i2);
+                    if (anVar.d() == null || !anVar.d().equals(b)) {
+                        i2++;
                     } else {
-                        ArrayList<com.baidu.tieba.data.am> c = atVar.c();
-                        amVar.b(c.size());
-                        int size = amVar.i().size();
+                        ArrayList<com.baidu.tieba.data.an> d = auVar.d();
+                        anVar.a_(d.size());
+                        int size = anVar.n_().size();
                         while (true) {
-                            int i4 = size;
-                            if (i4 >= 2 || i4 >= c.size()) {
+                            int i3 = size;
+                            if (i3 >= 2 || i3 >= d.size()) {
                                 break;
                             }
-                            amVar.i().add(atVar.c().get(i4));
-                            size = i4 + 1;
+                            anVar.n_().add(auVar.d().get(i3));
+                            size = i3 + 1;
                         }
                     }
                 } else {
                     break;
                 }
             }
-            fVar2 = this.a.B;
-            String c2 = fVar2.c();
-            if (c2 != null) {
-                fVar3 = this.a.B;
-                if ("mention".equals(fVar3.c()) || c2.equals("person_post_reply")) {
+            eVar2 = this.a.B;
+            String c = eVar2.c();
+            if (c != null) {
+                eVar3 = this.a.B;
+                if ("mention".equals(eVar3.c()) || c.equals("person_post_reply")) {
                     str2 = this.a.J;
                     if (str2 != null) {
-                        btVar4 = this.a.D;
-                        bmVar3 = this.a.x;
-                        int k = bmVar3.r().k();
+                        bsVar4 = this.a.D;
+                        blVar3 = this.a.x;
+                        int l = blVar3.r().l();
                         str3 = this.a.J;
-                        boolean z2 = atVar.b() > 1;
-                        fVar4 = this.a.B;
-                        btVar4.a(atVar, k, str3, z2, fVar4.h() == 1);
-                        i2 = atVar.i();
-                        if (i2 == null) {
-                            Boolean valueOf = Boolean.valueOf(i2.isIfvoice());
-                            this.a.p = i2.getVoice_message();
-                            if (atVar.h() != null) {
-                                this.a.a(atVar.h().getName(), valueOf);
+                        boolean z2 = auVar.c() > 1;
+                        eVar4 = this.a.B;
+                        bsVar4.a(auVar, l, str3, z2, eVar4.h() == 1);
+                        j = auVar.j();
+                        if (j == null) {
+                            Boolean valueOf = Boolean.valueOf(j.isIfvoice());
+                            this.a.p = j.getVoice_message();
+                            if (auVar.i() != null) {
+                                this.a.a(auVar.i().getName(), valueOf);
                                 return;
                             }
                             return;
@@ -101,11 +101,11 @@ class j implements com.baidu.tieba.pb.sub.h {
                     }
                 }
             }
-            btVar3 = this.a.D;
-            bmVar2 = this.a.x;
-            btVar3.a(atVar, bmVar2.r().k());
-            i2 = atVar.i();
-            if (i2 == null) {
+            bsVar3 = this.a.D;
+            blVar2 = this.a.x;
+            bsVar3.a(auVar, blVar2.r().l());
+            j = auVar.j();
+            if (j == null) {
             }
         }
     }

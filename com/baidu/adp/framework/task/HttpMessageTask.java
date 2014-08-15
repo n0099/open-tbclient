@@ -3,14 +3,12 @@ package com.baidu.adp.framework.task;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.c.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     private e mConnectTimeOut;
     private boolean mIsImm;
     private HTTP_METHOD mMethod;
     private boolean mNeedGzip;
-    private BdAsyncTaskParallel mParallel;
     private Class<? extends HttpResponsedMessage> mResponsedClass;
     private String mUrl;
 
@@ -37,7 +35,6 @@ public class HttpMessageTask extends MessageTask {
         this.mMethod = HTTP_METHOD.POST;
         this.mNeedGzip = true;
         this.mIsImm = false;
-        this.mParallel = null;
         this.mUrl = str;
         this.mPriority = 1;
     }
@@ -89,13 +86,5 @@ public class HttpMessageTask extends MessageTask {
 
     public void setConnectTimeOut(e eVar) {
         this.mConnectTimeOut = eVar;
-    }
-
-    public BdAsyncTaskParallel getParallel() {
-        return this.mParallel;
-    }
-
-    public void setParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
-        this.mParallel = bdAsyncTaskParallel;
     }
 }

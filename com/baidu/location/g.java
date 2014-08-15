@@ -12,7 +12,6 @@ import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -280,7 +279,7 @@ public class g {
                 }
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
-                    randomAccessFile.seek(FileUtils.ONE_KB);
+                    randomAccessFile.seek(1024L);
                     j.s = randomAccessFile.readDouble();
                     j.f194byte = randomAccessFile.readDouble();
                     j.e = randomAccessFile.readBoolean();
@@ -435,7 +434,7 @@ public class g {
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(1L);
             randomAccessFile2.writeBoolean(true);
-            randomAccessFile2.seek(FileUtils.ONE_KB);
+            randomAccessFile2.seek(1024L);
             randomAccessFile2.writeDouble(j.s);
             randomAccessFile2.writeDouble(j.f194byte);
             randomAccessFile2.writeBoolean(j.e);

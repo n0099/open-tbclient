@@ -1,10 +1,12 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import org.json.JSONArray;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class a {
     public boolean a;
@@ -13,6 +15,14 @@ public class a {
     private int d;
     private ArrayList<c> e;
     private Context f;
+
+    public a(Context context, List<PbContent> list, boolean z) {
+        this.c = null;
+        this.d = 0;
+        this.e = null;
+        this.f = null;
+        a(context, list, -1, z);
+    }
 
     public a(Context context, JSONArray jSONArray, int i) {
         this.c = null;
@@ -35,6 +45,11 @@ public class a {
         a(jSONArray, i, z);
     }
 
+    private void a(Context context, List<PbContent> list, int i, boolean z) {
+        this.f = context;
+        a(list, i, z);
+    }
+
     public a(Context context, ArrayList<c> arrayList) {
         this.c = null;
         this.d = 0;
@@ -44,17 +59,8 @@ public class a {
         this.e = arrayList;
     }
 
-    private void a(JSONArray jSONArray, int i, boolean z) {
-        if (jSONArray != null) {
-            this.c = new ArrayList<>();
-            int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                i iVar = new i();
-                iVar.a(jSONArray.optJSONObject(i2));
-                if ((iVar.a() & i) != 0) {
-                    this.c.add(iVar);
-                }
-            }
+    private void a(int i, boolean z) {
+        if (this.c != null) {
             this.e = new ArrayList<>();
             this.d = 0;
             Iterator<i> it = this.c.iterator();
@@ -116,6 +122,39 @@ public class a {
         }
     }
 
+    private void a(JSONArray jSONArray, int i, boolean z) {
+        if (jSONArray != null) {
+            this.c = new ArrayList<>();
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                i iVar = new i();
+                iVar.a(jSONArray.optJSONObject(i2));
+                if ((iVar.a() & i) != 0) {
+                    this.c.add(iVar);
+                }
+            }
+            a(i, z);
+        }
+    }
+
+    private void a(List<PbContent> list, int i, boolean z) {
+        if (list != null) {
+            this.c = new ArrayList<>();
+            int size = list.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                PbContent pbContent = list.get(i2);
+                if (pbContent != null) {
+                    i iVar = new i();
+                    iVar.a(pbContent);
+                    if ((iVar.a() & i) != 0) {
+                        this.c.add(iVar);
+                    }
+                }
+            }
+            a(i, z);
+        }
+    }
+
     public ArrayList<c> a() {
         return this.e;
     }
@@ -132,9 +171,9 @@ public class a {
             if (i == size - 1 && cVar.a() == 1 && this.a) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.b));
             } else if (cVar.a() == 8) {
-                sb.append(this.f.getString(y.pic_str));
+                sb.append(this.f.getString(x.pic_str));
             } else if (cVar.a() == 512) {
-                sb.append(this.f.getString(y.voice_str));
+                sb.append(this.f.getString(x.voice_str));
             } else {
                 sb.append(cVar2);
             }

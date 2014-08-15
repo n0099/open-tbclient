@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -30,14 +30,14 @@ public class i extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = z.c(null, TbConfig.IMAGE_RESIZED_FILE);
+            c = s.c(null, TbConfig.IMAGE_RESIZED_FILE);
         } catch (Exception e) {
             e = e;
         }
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tbadk.core.util.h.b(c, com.baidu.adp.lib.util.j.a((Context) this.a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tbadk.core.util.d.b(c, com.baidu.adp.lib.util.j.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {

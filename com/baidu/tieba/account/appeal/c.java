@@ -1,7 +1,7 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 class c implements h {
     final /* synthetic */ b a;
@@ -17,7 +17,7 @@ class c implements h {
         AppealActivity appealActivity2;
         appealActivity = this.a.a;
         appealActivity2 = this.a.a;
-        appealActivity.a(appealActivity2.getString(y.appeal_post_success), true);
+        appealActivity.a(appealActivity2.getString(x.appeal_post_success), true);
     }
 
     @Override // com.baidu.tieba.account.appeal.h
@@ -26,9 +26,9 @@ class c implements h {
         AppealActivity appealActivity2;
         String string;
         appealActivity = this.a.a;
-        if (bm.c(appealData.errMsg)) {
+        if (ba.c(appealData.errMsg)) {
             appealActivity2 = this.a.a;
-            string = appealActivity2.getString(y.appeal_post_failure);
+            string = appealActivity2.getString(x.appeal_post_failure);
         } else {
             string = appealData.errMsg;
         }

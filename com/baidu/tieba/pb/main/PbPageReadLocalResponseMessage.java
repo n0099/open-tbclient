@@ -1,0 +1,70 @@
+package com.baidu.tieba.pb.main;
+
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.squareup.wire.Wire;
+import tbclient.PbPage.PbPageResIdl;
+/* loaded from: classes.dex */
+public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
+    private Context context;
+    private boolean markCache;
+    private com.baidu.tieba.data.aj pbData;
+    private String postId;
+    private int updateType;
+
+    public int getUpdateType() {
+        return this.updateType;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
+    }
+
+    public com.baidu.tieba.data.aj getPbData() {
+        return this.pbData;
+    }
+
+    public void setPbData(com.baidu.tieba.data.aj ajVar) {
+        this.pbData = ajVar;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public boolean isMarkCache() {
+        return this.markCache;
+    }
+
+    public void setMarkCache(boolean z) {
+        this.markCache = z;
+    }
+
+    public PbPageReadLocalResponseMessage() {
+        super(2004003);
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public void decodeInBackGround(int i, byte[] bArr) {
+        if (bArr != null) {
+            PbPageResIdl pbPageResIdl = (PbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, PbPageResIdl.class);
+            setError(pbPageResIdl.error.errorno.intValue());
+            setErrorString(pbPageResIdl.error.usermsg);
+            if (getError() == 0 && pbPageResIdl.data != null) {
+                this.pbData = new com.baidu.tieba.data.aj();
+                try {
+                    this.pbData.a(pbPageResIdl.data, this.context);
+                    if (!this.pbData.b()) {
+                        this.pbData = null;
+                    } else if (isMarkCache() && this.pbData.j() != null && !this.pbData.j().equals(this.postId)) {
+                        this.pbData = null;
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+}

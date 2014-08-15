@@ -1,36 +1,26 @@
 package com.baidu.tieba.im.groupUpdates;
-
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import java.util.LinkedList;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
+public class e implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ UpdatesActivity a;
+    private final /* synthetic */ com.baidu.tieba.im.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(UpdatesActivity updatesActivity) {
+    public e(UpdatesActivity updatesActivity, com.baidu.tieba.im.a aVar) {
         this.a = updatesActivity;
+        this.b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<GroupNewsPojo> linkedList) {
-        t tVar;
+    public void a(Boolean bool) {
         p pVar;
-        t tVar2;
-        t tVar3;
-        p pVar2;
-        List<UpdatesItemData> a = p.a(linkedList);
+        t tVar;
+        pVar = this.a.i;
+        pVar.b();
         tVar = this.a.b;
-        tVar.a(a);
-        pVar = this.a.j;
-        pVar.a(a);
-        tVar2 = this.a.b;
-        tVar2.a(false);
-        tVar3 = this.a.b;
-        pVar2 = this.a.j;
-        tVar3.a(pVar2.d());
-        this.a.f();
+        tVar.d();
+        this.a.a(false);
+        p.b(this.b);
     }
 }

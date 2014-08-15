@@ -1,30 +1,31 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.support.v4.view.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements View.OnClickListener {
-    final /* synthetic */ az a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.m b;
+public class bd implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ bc a;
+    private final /* synthetic */ IndicatorView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(az azVar, com.baidu.tbadk.core.data.m mVar) {
-        this.a = azVar;
-        this.b = mVar;
+    public bd(bc bcVar, IndicatorView indicatorView) {
+        this.a = bcVar;
+        this.b = indicatorView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        g gVar;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.a.b;
-        String userId = this.b.y().getUserId();
-        String name_show = this.b.y().getName_show();
-        gVar = this.a.d;
-        messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bb(context, userId, name_show, gVar.g().getName())));
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        if (this.b != null) {
+            this.b.setPosition(i);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

@@ -1,11 +1,8 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.slidingmenu.lib.SlidingMenu;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-class v implements SlidingMenu.OnOpenedListener {
+class v implements dt {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +10,34 @@ class v implements SlidingMenu.OnOpenedListener {
         this.a = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        g gVar;
-        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
-        gVar = this.a.H;
-        ArrayList<com.baidu.tbadk.core.data.l> recommendForumData = gVar.g().getRecommendForumData();
-        if (recommendForumData != null) {
-            Iterator<com.baidu.tbadk.core.data.l> it = recommendForumData.iterator();
-            while (it.hasNext()) {
-                TiebaStatic.eventStat(this.a, "sidebar_show", "sidebar_click", 1, "st_param", it.next().d);
+    @Override // com.baidu.tieba.frs.dt
+    public void a(String str) {
+        boolean z;
+        com.baidu.tbadk.core.data.n nVar;
+        com.baidu.tbadk.core.data.n nVar2;
+        int i = 1;
+        z = this.a.k;
+        if (z) {
+            nVar = this.a.j;
+            if (nVar != null) {
+                nVar2 = this.a.j;
+                if (nVar2.g().getIsLike() == 1) {
+                    i = 0;
+                }
             }
+            this.a.d(i);
         }
+        this.a.i = false;
+        com.baidu.tieba.pb.main.bp.a().f();
+    }
+
+    @Override // com.baidu.tieba.frs.dt
+    public void b(String str) {
+        boolean z;
+        z = this.a.k;
+        if (z && !TextUtils.isEmpty(str)) {
+            this.a.showToast(str);
+        }
+        this.a.i = false;
     }
 }

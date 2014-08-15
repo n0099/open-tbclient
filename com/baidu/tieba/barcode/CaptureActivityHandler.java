@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
@@ -56,9 +56,9 @@ public final class CaptureActivityHandler extends Handler {
     public void handleMessage(Message message) {
         Bitmap bitmap;
         float f;
-        if (message.what == v.restart_preview) {
+        if (message.what == u.restart_preview) {
             b();
-        } else if (message.what == v.decode_succeeded) {
+        } else if (message.what == u.decode_succeeded) {
             this.c = State.SUCCESS;
             Bundle data = message.getData();
             if (data == null) {
@@ -71,13 +71,13 @@ public final class CaptureActivityHandler extends Handler {
                 bitmap = copy;
             }
             this.a.a((Result) message.obj, bitmap, f);
-        } else if (message.what == v.decode_failed) {
+        } else if (message.what == u.decode_failed) {
             this.c = State.PREVIEW;
-            this.d.a(this.b.a(), v.decode);
-        } else if (message.what == v.return_scan_result) {
+            this.d.a(this.b.a(), u.decode);
+        } else if (message.what == u.return_scan_result) {
             this.a.setResult(-1, (Intent) message.obj);
             this.a.finish();
-        } else if (message.what == v.launch_product_query) {
+        } else if (message.what == u.launch_product_query) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
             intent.setData(Uri.parse((String) message.obj));
@@ -99,19 +99,19 @@ public final class CaptureActivityHandler extends Handler {
     public void a() {
         this.c = State.DONE;
         this.d.d();
-        Message.obtain(this.b.a(), v.quit).sendToTarget();
+        Message.obtain(this.b.a(), u.quit).sendToTarget();
         try {
             this.b.join(500L);
         } catch (InterruptedException e) {
         }
-        removeMessages(v.decode_succeeded);
-        removeMessages(v.decode_failed);
+        removeMessages(u.decode_succeeded);
+        removeMessages(u.decode_failed);
     }
 
     private void b() {
         if (this.c == State.SUCCESS) {
             this.c = State.PREVIEW;
-            this.d.a(this.b.a(), v.decode);
+            this.d.a(this.b.a(), u.decode);
             this.a.d();
         }
     }

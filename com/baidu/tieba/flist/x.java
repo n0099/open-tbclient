@@ -1,23 +1,24 @@
 package com.baidu.tieba.flist;
 
-import android.view.KeyEvent;
-import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnKeyListener {
-    final /* synthetic */ w a;
+public class x implements PopupWindow.OnDismissListener {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    public x(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (i == 4 && this.a.u.isShowing()) {
-            this.a.u.dismiss();
-            return false;
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        this.a.C = false;
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            this.a.A.setImageResource(com.baidu.tieba.t.btn_allsproutpop_down_1);
+        } else {
+            this.a.A.setImageResource(com.baidu.tieba.t.btn_allsproutpop_down);
         }
-        return false;
     }
 }

@@ -1,62 +1,54 @@
 package com.baidu.adp.lib.stats;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l {
-    final /* synthetic */ k a;
-    private long b;
-    private boolean c;
-    private int d;
-    private long e;
-    private boolean f;
+public class l extends BdAsyncTask<Object, Integer, Void> {
+    final /* synthetic */ f a;
+    private BdStatBase b;
 
-    private l(k kVar) {
-        this.a = kVar;
-        this.c = false;
-        this.d = 0;
-        this.f = false;
+    public l(f fVar, BdStatBase bdStatBase) {
+        BdAsyncTaskParallel bdAsyncTaskParallel;
+        BdUniqueId bdUniqueId;
+        BdAsyncTaskParallel bdAsyncTaskParallel2;
+        this.a = fVar;
+        this.b = null;
+        this.b = bdStatBase;
+        bdAsyncTaskParallel = fVar.E;
+        if (bdAsyncTaskParallel == null) {
+            fVar.E = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        }
+        bdUniqueId = f.b;
+        setTag(bdUniqueId);
+        bdAsyncTaskParallel2 = fVar.E;
+        setParallel(bdAsyncTaskParallel2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(k kVar, l lVar) {
-        this(kVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Object... objArr) {
+        this.a.c(this.b);
+        return null;
     }
 
-    public boolean a() {
-        return this.f;
-    }
-
-    public void a(boolean z) {
-        this.f = z;
-    }
-
-    public long b() {
-        return this.e;
-    }
-
-    public void a(long j) {
-        this.e = j;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public long d() {
-        return this.b;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public boolean e() {
-        return this.c;
-    }
-
-    public void b(boolean z) {
-        this.c = z;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Void r6) {
+        BdStatSwitchData bdStatSwitchData;
+        BdStatSwitchData bdStatSwitchData2;
+        super.onPostExecute(r6);
+        bdStatSwitchData = this.a.A;
+        if (!bdStatSwitchData.inSpecStrategy()) {
+            bdStatSwitchData2 = this.a.A;
+            if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
+                new i(this.a, false).execute(new Object[0]);
+            }
+        }
     }
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba.im.newFriend;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic a;
-    private final /* synthetic */ com.baidu.tieba.im.data.k b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ String d;
+public class x extends CustomMessageListener {
+    int a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.k kVar, String str, String str2) {
-        this.a = newFriendDbManagerStatic;
-        this.b = kVar;
-        this.c = str;
-        this.d = str2;
+    public x(int i) {
+        super(i);
+        this.a = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r9) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.b.a(), this.b.c(), this.b.b(), this.c, this.d));
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001179) {
+            com.baidu.tieba.im.e.a(new y(this), new z(this));
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,19 +17,17 @@ import java.util.ArrayList;
 public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private FrsGroupActivity b;
     private com.baidu.tieba.im.model.i c;
-    private k d;
+    private j d;
     private BdListView e;
     private Button f;
-    private com.baidu.tbadk.core.view.q g;
+    private com.baidu.tbadk.core.view.u g;
     private InitGuideView h;
     private GroupListAdapter i;
-    private Handler j;
-    private boolean k;
-    private final Runnable l = new c(this);
-    private final com.baidu.adp.framework.listener.b m = new d(this, 103002);
-    private final CustomMessageListener n = new e(this, 2001201);
-    private final com.baidu.adp.framework.listener.b o = new f(this, 0);
-    private final CustomMessageListener p = new g(this, 0);
+    private boolean j;
+    private final com.baidu.adp.framework.listener.d k = new c(this, 103002);
+    private final CustomMessageListener l = new d(this, 2001210);
+    private final com.baidu.adp.framework.listener.d m = new e(this, 0);
+    private final CustomMessageListener n = new f(this, 0);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -38,25 +35,24 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.b = (FrsGroupActivity) getActivity();
         this.c = this.b.g();
         this.d = this.b.h();
-        this.j = new Handler();
-        this.c.registerListener(this.m);
-        this.c.registerListener(this.n);
-        MessageManager.getInstance().registerListener(103104, this.o);
-        MessageManager.getInstance().registerListener(103105, this.o);
-        MessageManager.getInstance().registerListener(2001141, this.p);
+        this.c.registerListener(this.k);
+        this.c.registerListener(this.l);
+        a(103104, this.m);
+        a(103105, this.m);
+        a(2001141, this.n);
     }
 
     private void f() {
-        this.c.registerListener(this.m);
-        this.c.registerListener(this.n);
-        if (!this.c.b(getTag()) || this.k) {
+        this.c.registerListener(this.k);
+        this.c.registerListener(this.l);
+        if (!this.c.b(getTag()) || this.j) {
             i();
         }
     }
 
     private void g() {
-        this.c.a(this.m);
-        this.c.a(this.n);
+        this.c.a(this.k);
+        this.c.a(this.l);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -70,19 +66,19 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.w.im_frsgroup_list, (ViewGroup) null);
-        this.h = (InitGuideView) inflate.findViewById(com.baidu.tieba.v.group_guide);
-        this.f = (Button) inflate.findViewById(com.baidu.tieba.v.guide_create);
-        this.e = (BdListView) inflate.findViewById(com.baidu.tieba.v.group_list);
-        this.g = new com.baidu.tbadk.core.view.q(this.b);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.v.im_frsgroup_list, (ViewGroup) null);
+        this.h = (InitGuideView) inflate.findViewById(com.baidu.tieba.u.group_guide);
+        this.f = (Button) inflate.findViewById(com.baidu.tieba.u.guide_create);
+        this.e = (BdListView) inflate.findViewById(com.baidu.tieba.u.group_list);
+        this.g = new com.baidu.tbadk.core.view.u(this.b);
         this.e.setPullRefresh(this.g);
         this.i = new GroupListAdapter(this.b);
         this.e.setAdapter((ListAdapter) this.i);
         this.e.setOnScrollListener(this);
         this.e.setOnSrollToBottomListener(this);
-        this.g.a(new h(this));
-        this.e.setOnItemClickListener(new i(this));
-        this.f.setOnClickListener(new j(this));
+        this.g.a(new g(this));
+        this.e.setOnItemClickListener(new h(this));
+        this.f.setOnClickListener(new i(this));
         this.h.setCreateButton(this.f);
         return inflate;
     }
@@ -123,9 +119,9 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.c.a(this.m);
-        MessageManager.getInstance().unRegisterListener(this.p);
-        MessageManager.getInstance().unRegisterListener(this.p);
+        this.c.a(this.k);
+        MessageManager.getInstance().unRegisterListener(this.n);
+        MessageManager.getInstance().unRegisterListener(this.n);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -164,20 +160,8 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     }
 
     private void k() {
-        if (this.i.c()) {
+        if (this.i.b()) {
             a(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
-            if (this.j != null) {
-                this.j.removeCallbacks(this.l);
-                this.j.postDelayed(this.l, 90L);
-            }
-        } else if (this.j != null) {
-            this.j.removeCallbacks(this.l);
         }
     }
 
@@ -196,9 +180,9 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     public void c(int i) {
         super.c(i);
         if (i == 1) {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.u.list_divider_1));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.t.list_divider_1));
         } else {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.u.list_divider));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.t.list_divider));
         }
         this.g.a(i);
     }
@@ -211,27 +195,19 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.l);
-            this.j.postDelayed(this.l, 0L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (!z) {
             this.e.setDivider(getResources().getDrawable(17170445));
         } else if (skinType == 1) {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.u.list_divider_1));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.t.list_divider_1));
         } else {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.u.list_divider));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.t.list_divider));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
+    public void n() {
         c(false);
         this.h.f();
         switch (this.c.g()) {
@@ -260,7 +236,7 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                         i();
                         return;
                     } else {
-                        this.k = true;
+                        this.j = true;
                         return;
                     }
                 }

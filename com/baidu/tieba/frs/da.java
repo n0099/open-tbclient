@@ -3,84 +3,66 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class da implements com.baidu.tbadk.coreExtra.view.c {
-    final /* synthetic */ ct a;
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(ct ctVar) {
-        this.a = ctVar;
+    public da(cu cuVar) {
+        this.a = cuVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.c
     public void a() {
-        com.baidu.tbadk.core.data.f fVar;
-        com.baidu.tbadk.core.data.f fVar2;
-        com.baidu.tbadk.core.data.f fVar3;
-        com.baidu.tbadk.core.data.f fVar4;
-        com.baidu.tbadk.core.data.f fVar5;
-        com.baidu.tbadk.core.data.f fVar6;
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
-        BaseActivity baseActivity3;
-        BaseActivity baseActivity4;
+        com.baidu.tbadk.core.data.g gVar;
+        com.baidu.tbadk.core.data.g gVar2;
+        com.baidu.tbadk.core.data.g gVar3;
+        com.baidu.tbadk.core.data.g gVar4;
+        com.baidu.tbadk.core.data.g gVar5;
+        com.baidu.tbadk.core.data.g gVar6;
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        FrsActivity frsActivity3;
         Pattern pattern;
-        BaseActivity baseActivity5;
-        BaseActivity baseActivity6;
-        BaseActivity baseActivity7;
-        BaseActivity baseActivity8;
-        BaseActivity baseActivity9;
-        BaseActivity baseActivity10;
-        fVar = this.a.af;
-        String c = fVar.c();
-        fVar2 = this.a.af;
-        if (fVar2 != null) {
-            fVar3 = this.a.af;
-            if (fVar3.a() == 1) {
-                baseActivity10 = this.a.g;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.n(baseActivity10, c, false, "frs_banner")));
+        FrsActivity frsActivity4;
+        FrsActivity frsActivity5;
+        FrsActivity frsActivity6;
+        gVar = this.a.ah;
+        String c = gVar.c();
+        gVar2 = this.a.ah;
+        if (gVar2 != null) {
+            gVar3 = this.a.ah;
+            if (gVar3.a() == 1) {
+                frsActivity6 = this.a.i;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(frsActivity6, c, false, "frs_banner")));
                 return;
             }
-            fVar4 = this.a.af;
-            if (fVar4.a() != 2) {
-                fVar5 = this.a.af;
-                if (fVar5.a() == 3) {
-                    baseActivity4 = this.a.g;
-                    com.baidu.tbadk.browser.a.a(baseActivity4, c);
+            gVar4 = this.a.ah;
+            if (gVar4.a() != 2) {
+                gVar5 = this.a.ah;
+                if (gVar5.a() == 3) {
+                    frsActivity3 = this.a.i;
+                    com.baidu.tbadk.browser.a.a(frsActivity3, c);
                     return;
                 }
-                fVar6 = this.a.af;
-                if (fVar6.a() == 4) {
-                    baseActivity = this.a.g;
-                    if (baseActivity instanceof BaseActivity) {
-                        baseActivity2 = this.a.g;
-                        baseActivity3 = this.a.g;
-                        baseActivity2.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(baseActivity3).a(c, "frs_banner")));
-                    }
+                gVar6 = this.a.ah;
+                if (gVar6.a() == 4) {
+                    frsActivity = this.a.i;
+                    frsActivity2 = this.a.i;
+                    frsActivity.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(frsActivity2).a(c, "frs_banner")));
                 }
             } else if (c.contains("tieba.baidu.com")) {
-                pattern = ct.ag;
+                pattern = cu.ai;
                 Matcher matcher = pattern.matcher(c);
                 if (matcher.find()) {
                     try {
                         String group = matcher.group(2);
-                        baseActivity5 = this.a.g;
-                        if (baseActivity5 instanceof BaseFragmentActivity) {
-                            baseActivity9 = this.a.g;
-                            ((BaseFragmentActivity) baseActivity5).a(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(baseActivity9).a(group, null, "frs_banner")));
-                        } else {
-                            baseActivity6 = this.a.g;
-                            if (baseActivity6 instanceof BaseActivity) {
-                                baseActivity7 = this.a.g;
-                                baseActivity8 = this.a.g;
-                                baseActivity7.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(baseActivity8).a(group, null, "frs_banner")));
-                            }
-                        }
+                        frsActivity4 = this.a.i;
+                        frsActivity5 = this.a.i;
+                        frsActivity4.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(frsActivity5).a(group, null, "frs_banner")));
                     } catch (Exception e) {
                         BdLog.e(e.toString());
                     }
@@ -91,6 +73,6 @@ public class da implements com.baidu.tbadk.coreExtra.view.c {
 
     @Override // com.baidu.tbadk.coreExtra.view.c
     public void b() {
-        this.a.M();
+        this.a.L();
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.message.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.a.b;
 import com.baidu.tieba.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.message.ResponseFriendFeedLocalMessage;
 /* loaded from: classes.dex */
@@ -14,10 +14,12 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestFriendFeedLocalMessage)) {
             return null;
         }
-        byte[] a = b.a().e().a("friend_feed_data" + TbadkApplication.getCurrentAccount());
+        String str = "friend_feed_data" + TbadkApplication.getCurrentAccount();
+        t<byte[]> a = com.baidu.tbadk.core.a.a.a().a("tb.friend_feed");
+        byte[] a2 = a != null ? a.a(str) : null;
         ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = new ResponseFriendFeedLocalMessage();
         try {
-            responseFriendFeedLocalMessage.decodeInBackGround(2001172, a);
+            responseFriendFeedLocalMessage.decodeInBackGround(2001172, a2);
         } catch (Exception e) {
             e.printStackTrace();
         }

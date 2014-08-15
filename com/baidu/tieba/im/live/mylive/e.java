@@ -5,10 +5,10 @@ import android.widget.ProgressBar;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.message.ResponseSubscribeLiveGroupMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.b {
+public class e extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,22 +33,22 @@ public class e extends com.baidu.adp.framework.listener.b {
         progressBar.setVisibility(8);
         if (socketResponsedMessage.getCmd() == 107105) {
             if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
-                this.a.a(y.neterror);
+                this.a.a(x.neterror);
                 return;
             }
             ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
             if (responseSubscribeLiveGroupMessage.getError() == 0) {
                 i = this.a.i;
                 if (i == 2) {
-                    this.a.a(y.live_mylive_canclmark_success);
+                    this.a.a(x.live_mylive_canclmark_success);
                     myLiveListAdapter = this.a.h;
                     liveCardData = this.a.k;
                     myLiveListAdapter.a(liveCardData);
-                    if (!this.a.i()) {
-                        this.a.l();
+                    if (!this.a.j()) {
+                        this.a.m();
                         return;
                     }
-                    this.a.m();
+                    this.a.n();
                     myLiveActivity = this.a.b;
                     if (myLiveActivity != null) {
                         myLiveActivity2 = this.a.b;
@@ -63,7 +63,7 @@ public class e extends com.baidu.adp.framework.listener.b {
                     this.a.b(responseSubscribeLiveGroupMessage.getErrorString());
                 }
             } else {
-                this.a.a(y.neterror);
+                this.a.a(x.neterror);
             }
         }
     }

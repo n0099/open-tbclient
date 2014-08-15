@@ -63,7 +63,7 @@ public class j extends BaseAdapter {
         Map map3;
         Map map4;
         if (view == null) {
-            view = LayoutInflater.from(this.c).inflate(com.baidu.tieba.w.motu_albums_activity_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.c).inflate(com.baidu.tieba.v.motu_albums_activity_item, (ViewGroup) null);
             k a3 = a(view);
             view.setTag(a3);
             kVar = a3;
@@ -103,8 +103,8 @@ public class j extends BaseAdapter {
 
     private k a(View view) {
         k kVar = new k(this);
-        kVar.b = (ImageView) view.findViewById(com.baidu.tieba.v.albums_item_photo_iv);
-        kVar.c = (TextView) view.findViewById(com.baidu.tieba.v.albums_name_tv);
+        kVar.b = (ImageView) view.findViewById(com.baidu.tieba.u.albums_item_photo_iv);
+        kVar.c = (TextView) view.findViewById(com.baidu.tieba.u.albums_name_tv);
         return kVar;
     }
 }

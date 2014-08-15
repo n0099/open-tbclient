@@ -46,14 +46,14 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     private HashMap<String, Boolean> v = null;
     private int w = 0;
 
-    protected abstract void a(String str, bu buVar);
+    protected abstract void a(String str, bs bsVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.w.image_activity_2);
+        setContentView(com.baidu.tieba.v.image_activity_2);
         a(bundle);
         a();
         d();
@@ -71,7 +71,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tbadk.core.util.bk.d(i));
+            this.j.setBackgroundColor(com.baidu.tbadk.core.util.ay.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -135,17 +135,17 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         this.k = new a(this);
         this.m = new c(this);
         this.l = new d(this);
-        this.i = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
-        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.image_activity_save_button, this.k);
+        this.i = (NavigationBar) findViewById(com.baidu.tieba.u.navigation_bar);
+        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.image_activity_save_button, this.k);
         if (this.x) {
             this.g.setVisibility(8);
         }
-        this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.e = (TextView) findViewById(com.baidu.tieba.v.save);
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
+        this.e = (TextView) findViewById(com.baidu.tieba.u.save);
         this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
         this.h = this.i.a("");
         this.e.setClickable(false);
-        this.j = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.j = (MultiImageView) findViewById(com.baidu.tieba.u.viewpager);
         this.j.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
         this.j.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.j.setOnPageChangeListener(this.m);
@@ -168,7 +168,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
             }
             if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
-                this.h.setText(getString(com.baidu.tieba.y.image_recommend));
+                this.h.setText(getString(com.baidu.tieba.x.image_recommend));
                 this.e.setVisibility(4);
                 return;
             }

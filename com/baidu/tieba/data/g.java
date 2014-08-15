@@ -8,7 +8,6 @@ import android.text.style.ImageSpan;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.regex.Pattern;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
@@ -78,10 +77,10 @@ public class g {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + " ");
-                com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
-                if (g != null) {
-                    BitmapDrawable j2 = g.j();
-                    j2.setBounds(0, 0, g.c(), g.d());
+                com.baidu.adp.widget.a.a f = com.baidu.tieba.ai.c().f(this.b);
+                if (f != null) {
+                    BitmapDrawable j2 = f.j();
+                    j2.setBounds(0, 0, f.c(), f.d());
                     spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
@@ -106,7 +105,7 @@ public class g {
                 if (!this.b.endsWith(" ")) {
                     this.b = String.valueOf(this.b) + " ";
                 }
-                String string = context.getString(com.baidu.tieba.y.video);
+                String string = context.getString(com.baidu.tieba.x.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.b);
                 spannableString4.setSpan(new h(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -119,15 +118,15 @@ public class g {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
-        com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
-        if (g != null) {
-            BitmapDrawable j2 = g.j();
+        com.baidu.adp.widget.a.a f = com.baidu.tieba.ai.c().f(this.b);
+        if (f != null) {
+            BitmapDrawable j2 = f.j();
             if (i - i2 > 0) {
-                d = g.d() + ((i - i2) >> 1);
+                d = f.d() + ((i - i2) >> 1);
             } else {
-                d = g.d();
+                d = f.d();
             }
-            j2.setBounds(0, 0, g.c(), d);
+            j2.setBounds(0, 0, f.c(), d);
             spannableString.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
         }
         return spannableString;
@@ -145,14 +144,12 @@ public class g {
                     this.g = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     this.h = jSONObject.optString("cdn_src", null);
-                    try {
+                    if (this.b != null && this.b.length() > 0) {
                         String[] split = this.b.split(",");
                         if (split.length > 1) {
                             this.d = Integer.valueOf(split[0]).intValue();
                             this.e = Integer.valueOf(split[1]).intValue();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
                     if (this.d <= 0) {
                         this.d = 1;
@@ -177,11 +174,11 @@ public class g {
                     }
                 }
                 if (this.a != 0) {
-                    this.b = this.b.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
-                    this.g = this.g.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
+                    this.b = this.b.replaceAll("\n", "");
+                    this.g = this.g.replaceAll("\n", "");
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

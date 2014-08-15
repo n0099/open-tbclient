@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
@@ -15,7 +16,7 @@ public class c implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        this.a.f = com.baidu.tbadk.core.account.o.a(this.a.s()) % 3;
+        this.a.g = com.baidu.tbadk.core.account.o.a(this.a.s()) % 3;
         String str = "";
         switch (this.a.s()) {
             case 2:
@@ -31,9 +32,9 @@ public class c implements View.OnClickListener {
                 str = "friend";
                 break;
         }
-        HttpMessage httpMessage = new HttpMessage(1001506);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", str);
-        i = this.a.f;
+        i = this.a.g;
         httpMessage.addParam("val", String.valueOf(i + 1));
         this.a.a(httpMessage);
     }

@@ -2,7 +2,6 @@ package com.baidu.channelrtc.medialivesender;
 
 import android.util.Log;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class LiveNativeSender {
     public static final String AUDIOENGINE = "audioels";
@@ -37,7 +36,7 @@ public class LiveNativeSender {
             String[] strArr = new String[3];
             UserCmdResponse userCmdResponse = new UserCmdResponse();
             try {
-                String[] split = str.split(IOUtils.LINE_SEPARATOR_UNIX, 4);
+                String[] split = str.split("\n", 4);
                 userCmdResponse.setCallID(Integer.parseInt(split[1]));
                 userCmdResponse.setExtraData(split[2]);
                 userCmdResponse.setResponse(split[3]);

@@ -1,25 +1,60 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.editortool.aa;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class g implements Runnable {
-    final /* synthetic */ ValidateActivity a;
+public class g extends BaseAdapter {
+    ValidateActivity a;
+    List<ValidateItemData> b = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(ValidateActivity validateActivity) {
         this.a = validateActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        t tVar;
-        aa aaVar;
-        tVar = this.a.b;
-        BdListView c = tVar.c();
-        aaVar = this.a.h;
-        aj.a(c, aaVar, 0, 1);
+    public void a() {
+        this.a = null;
+    }
+
+    public void a(List<ValidateItemData> list) {
+        if (list != null) {
+            this.b.addAll(list);
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.size();
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        h hVar = null;
+        if (view != null) {
+            hVar = (h) view.getTag();
+        }
+        h hVar2 = hVar == null ? new h(this.a) : hVar;
+        hVar2.a(this.b.get(i));
+        return hVar2.a();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.b.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    public List<ValidateItemData> b() {
+        return this.b;
     }
 }

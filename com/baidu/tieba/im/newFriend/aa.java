@@ -1,7 +1,20 @@
 package com.baidu.tieba.im.newFriend;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public interface aa {
-    void a(int i, int i2, View view, com.baidu.tieba.im.data.k kVar);
+class aa extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aa(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            com.baidu.tbadk.core.sharedPref.b.a().a("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
+        }
+    }
 }

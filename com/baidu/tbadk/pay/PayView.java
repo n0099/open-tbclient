@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.f;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PayView extends f {
     private BaseActivity mActivity;
@@ -19,9 +19,9 @@ public class PayView extends f {
     }
 
     private void initUI() {
-        this.mActivity.setContentView(w.pay_activity);
-        this.mRoot = this.mActivity.findViewById(v.container);
-        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(v.pay_progress);
+        this.mActivity.setContentView(v.pay_activity);
+        this.mRoot = this.mActivity.findViewById(u.container);
+        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(u.pay_progress);
     }
 
     public void showProgress() {

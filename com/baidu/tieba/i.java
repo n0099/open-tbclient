@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.graphics.Bitmap;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class i implements Runnable {
     final /* synthetic */ LogoActivity a;
@@ -20,7 +21,11 @@ class i implements Runnable {
         Bitmap bitmap2;
         ImageView imageView3;
         AlphaAnimation alphaAnimation;
-        this.a.d = com.baidu.tbadk.core.util.h.a(this.a, u.logo);
+        if (com.baidu.tbadk.h.a().a(TbadkApplication.isMem + TbadkApplication.getCurrentAccount(), false)) {
+            this.a.d = com.baidu.tbadk.core.util.d.a(this.a, t.logo_vip);
+        } else {
+            this.a.d = com.baidu.tbadk.core.util.d.a(this.a, t.logo);
+        }
         bitmap = this.a.d;
         if (bitmap != null) {
             imageView = this.a.c;

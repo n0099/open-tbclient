@@ -1,45 +1,94 @@
 package com.baidu.tbadk.widget;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class j extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(TbImageView tbImageView) {
-        this.a = tbImageView;
+import android.content.Context;
+import android.graphics.Paint;
+import android.os.Build;
+import android.util.AttributeSet;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import java.lang.reflect.Method;
+/* loaded from: classes.dex */
+public class j extends TbImageView {
+    private boolean d;
+
+    public j(Context context) {
+        this(context, null, 0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        k kVar;
-        k kVar2;
-        this.a.e();
-        kVar = this.a.d;
-        if (kVar != null) {
-            kVar2 = this.a.d;
-            kVar2.a(str, aVar != null);
+    public j(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.d = false;
+        a(context, attributeSet, i);
+    }
+
+    public j(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    private void a(Context context, AttributeSet attributeSet, int i) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        String trim = Build.MODEL.trim();
+        if (trim != null) {
+            String[] strArr = {"M040", "M045"};
+            int length = strArr.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    z3 = false;
+                    break;
+                } else if (strArr[i2].equalsIgnoreCase(trim)) {
+                    z3 = true;
+                    break;
+                } else {
+                    i2++;
+                }
+            }
+            String[] strArr2 = {"HTC T329D"};
+            int length2 = strArr2.length;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length2) {
+                    z2 = z3;
+                    z = false;
+                    break;
+                } else if (strArr2[i3].equalsIgnoreCase(trim)) {
+                    z2 = z3;
+                    z = true;
+                    break;
+                } else {
+                    i3++;
+                }
+            }
+        } else {
+            z = false;
+            z2 = false;
+        }
+        if (Build.VERSION.SDK_INT >= 11) {
+            CompatibleUtile.getInstance().closeViewGpu(this);
+            try {
+                Method method = getClass().getMethod("setLayerType", Integer.TYPE, Paint.class);
+                if (method != null) {
+                    method.invoke(this, 1, null);
+                }
+            } catch (Exception e) {
+            }
+        }
+        if (z2 || z) {
+            this.d = false;
+        } else {
+            this.d = true;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(Object... objArr) {
-        super.a(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(String str) {
-        k kVar;
-        k kVar2;
-        super.a(str);
-        this.a.e();
-        kVar = this.a.d;
-        if (kVar != null) {
-            kVar2 = this.a.d;
-            kVar2.a();
+    @Override // com.baidu.adp.newwidget.a.b
+    public void setDrawerType(int i) {
+        if (i == 0) {
+            super.setDrawerType(i);
+        } else if (i == 1) {
+            super.setDrawerType(this.d ? 4 : 5);
+        } else {
+            super.setDrawerType(i);
         }
     }
 }

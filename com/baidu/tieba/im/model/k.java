@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +12,6 @@ import com.baidu.tieba.im.message.ClearGroupInfoCacheMessage;
 import com.baidu.tieba.im.message.RequestGroupInfoLocalMessage;
 import com.baidu.tieba.im.message.RequestGroupInfoMessage;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.e {
@@ -20,11 +20,15 @@ public class k extends com.baidu.adp.base.e {
     private int c;
     private long d;
     private String e;
-    private com.baidu.tieba.im.message.f f;
+    private com.baidu.tieba.im.message.j f;
     private RequestGroupInfoMessage g;
     private RequestGroupInfoLocalMessage h;
     private PhotoUrlData i;
     private boolean j;
+
+    public k(Context context) {
+        super(context);
+    }
 
     public void a(PhotoUrlData photoUrlData) {
         this.i = photoUrlData;
@@ -148,12 +152,12 @@ public class k extends com.baidu.adp.base.e {
         bundle.putString("default_invite_msg", this.e);
     }
 
-    public void a(com.baidu.tieba.im.message.f fVar) {
+    public void a(com.baidu.tieba.im.message.j jVar) {
         this.i = null;
-        this.f = fVar;
+        this.f = jVar;
     }
 
-    public com.baidu.tieba.im.message.f f() {
+    public com.baidu.tieba.im.message.j f() {
         return this.f;
     }
 
@@ -171,8 +175,7 @@ public class k extends com.baidu.adp.base.e {
     }
 
     public String b(PhotoUrlData photoUrlData) {
-        String str;
-        String str2 = "";
+        StringBuilder sb = new StringBuilder();
         if (photoUrlData == null) {
             return null;
         }
@@ -181,30 +184,23 @@ public class k extends com.baidu.adp.base.e {
             return null;
         }
         this.i = photoUrlData;
-        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
-            return "";
-        }
-        int size = this.f.d().size();
-        List<PhotoUrlData> d = this.f.d();
-        int i = 1;
-        while (i < size) {
-            if (d.get(i) == null) {
-                str = str2;
-            } else if (d.get(i).getPicId().equals(picId)) {
-                str = str2;
-            } else {
-                str = String.valueOf(str2) + d.get(i).getPicId();
-                if (i != size - 1) {
-                    str = String.valueOf(str) + ",";
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0) {
+            int size = this.f.d().size();
+            List<PhotoUrlData> d = this.f.d();
+            for (int i = 1; i < size; i++) {
+                if (d.get(i) != null && !picId.equals(d.get(i).getPicId())) {
+                    sb.append(d.get(i).getPicId());
+                    if (i != size - 1) {
+                        sb.append(",");
+                    }
                 }
             }
-            i++;
-            str2 = str;
         }
-        return str2;
+        return sb.toString();
     }
 
     public String c(PhotoUrlData photoUrlData) {
+        StringBuilder sb = new StringBuilder();
         if (photoUrlData == null) {
             return null;
         }
@@ -213,18 +209,20 @@ public class k extends com.baidu.adp.base.e {
             return null;
         }
         this.i = photoUrlData;
-        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
-            return picId;
-        }
-        List<PhotoUrlData> d = this.f.d();
-        int size = d.size();
-        String str = "";
-        for (int i = 1; i < size; i++) {
-            if (d.get(i) != null) {
-                str = String.valueOf(str) + d.get(i).getPicId() + ",";
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0) {
+            List<PhotoUrlData> d = this.f.d();
+            int size = d.size();
+            for (int i = 1; i < size; i++) {
+                if (d.get(i) != null) {
+                    sb.append(d.get(i).getPicId());
+                    sb.append(",");
+                }
             }
+            sb.append(picId);
+        } else {
+            sb.append(picId);
         }
-        return String.valueOf(str) + picId;
+        return sb.toString();
     }
 
     public void h() {
@@ -259,20 +257,23 @@ public class k extends com.baidu.adp.base.e {
 
     public void j() {
         if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
-            Iterator<PhotoUrlData> it = this.f.d().iterator();
+            int i = 0;
             while (true) {
-                if (!it.hasNext()) {
+                if (i >= this.f.d().size()) {
+                    i = -1;
                     break;
-                }
-                PhotoUrlData next = it.next();
-                if (next != null && next.getPicId().equals(this.i.getPicId())) {
-                    this.f.d().remove(next);
+                } else if (this.f.d().get(i) == null || this.f.d().get(i).getPicId() == null || !this.f.d().get(i).getPicId().equals(this.i.getPicId())) {
+                    i++;
+                } else {
+                    this.f.d().remove(i);
                     break;
                 }
             }
             if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
                 this.f.d().remove(0);
             }
+            this.f.d().add(i, this.f.d().get(0));
+            this.f.d().remove(0);
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.i.getBigurl());
             photoUrlData.setPicId(this.i.getPicId());

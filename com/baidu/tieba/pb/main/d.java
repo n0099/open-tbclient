@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tieba.data.MarkData;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class d implements com.baidu.tieba.model.aj {
+class d implements com.baidu.tieba.model.ak {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,44 +11,44 @@ class d implements com.baidu.tieba.model.aj {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.model.aj
+    @Override // com.baidu.tieba.model.ak
     public void a(boolean z, boolean z2, String str) {
-        bt btVar;
-        com.baidu.tieba.model.ah ahVar;
-        bm bmVar;
-        bm bmVar2;
-        bt btVar2;
-        bm bmVar3;
-        com.baidu.tieba.model.ah ahVar2;
-        btVar = this.a.D;
-        btVar.x();
+        bs bsVar;
+        com.baidu.tieba.model.ai aiVar;
+        bl blVar;
+        bl blVar2;
+        bs bsVar2;
+        bl blVar3;
+        com.baidu.tieba.model.ai aiVar2;
+        bsVar = this.a.D;
+        bsVar.x();
         if (z) {
-            ahVar = this.a.y;
-            ahVar.a(z2);
-            bmVar = this.a.x;
-            bmVar.c(z2);
-            bmVar2 = this.a.x;
-            if (!bmVar2.B()) {
-                btVar2 = this.a.D;
-                bmVar3 = this.a.x;
-                btVar2.a(bmVar3.r());
+            aiVar = this.a.y;
+            aiVar.a(z2);
+            blVar = this.a.x;
+            blVar.c(z2);
+            blVar2 = this.a.x;
+            if (!blVar2.B()) {
+                bsVar2 = this.a.D;
+                blVar3 = this.a.x;
+                bsVar2.a(blVar3.r());
             } else {
-                this.a.A();
+                this.a.D();
             }
             if (z2) {
-                ahVar2 = this.a.y;
-                MarkData b = ahVar2.b();
+                aiVar2 = this.a.y;
+                MarkData b = aiVar2.b();
                 if (b != null) {
-                    this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.y.add_mark_on_pb), Integer.valueOf(b.getFloor())));
+                    this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.x.add_mark_on_pb), Integer.valueOf(b.getFloor())));
                     return;
                 } else {
-                    this.a.showToast(this.a.getString(com.baidu.tieba.y.add_mark));
+                    this.a.showToast(this.a.getString(com.baidu.tieba.x.add_mark));
                     return;
                 }
             }
-            this.a.showToast(this.a.getString(com.baidu.tieba.y.remove_mark));
+            this.a.showToast(this.a.getString(com.baidu.tieba.x.remove_mark));
             return;
         }
-        this.a.showToast(this.a.getString(com.baidu.tieba.y.update_mark_failed));
+        this.a.showToast(this.a.getString(com.baidu.tieba.x.update_mark_failed));
     }
 }

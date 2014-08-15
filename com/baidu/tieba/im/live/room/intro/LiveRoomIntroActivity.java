@@ -3,18 +3,17 @@ package com.baidu.tieba.im.live.room.intro;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.atomData.an;
 /* loaded from: classes.dex */
 public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
     private e a = null;
     private d b = null;
-    private final com.baidu.adp.framework.listener.b c = new a(this, 0);
+    private final com.baidu.adp.framework.listener.d c = new a(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ak.class, LiveRoomIntroActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(an.class, LiveRoomIntroActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,17 +26,10 @@ public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickL
             this.b = new d(getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0), getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID, 0), getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME));
         }
         this.a = new e(this);
-        MessageManager.getInstance().registerListener(107004, this.c);
+        registerListener(107004, this.c);
         this.b.a(this);
         this.a.a(true);
         this.a.a(this.b.a());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.c);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener

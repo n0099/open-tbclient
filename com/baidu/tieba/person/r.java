@@ -1,25 +1,12 @@
 package com.baidu.tieba.person;
-
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ q a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar) {
-        this.a = qVar;
+public class r extends d {
+    public r(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (aVar != null) {
-            headImageView = this.a.j;
-            headImageView.setImageResource(0);
-            headImageView2 = this.a.j;
-            aVar.a(headImageView2);
-        }
+    @Override // com.baidu.tieba.person.d
+    protected com.baidu.tbadk.core.d a() {
+        return new t();
     }
 }

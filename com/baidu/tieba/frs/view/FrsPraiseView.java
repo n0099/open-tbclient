@@ -8,11 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FrsPraiseView extends LinearLayout {
@@ -40,13 +35,13 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     private void a() {
-        this.b = View.inflate(this.a, w.frs_item_praise, this);
-        this.c = (TextView) this.b.findViewById(v.frs_go_praise_list_num);
-        this.d = (TextView) this.b.findViewById(v.frs_praise_user_name_text1);
-        this.e = (TextView) this.b.findViewById(v.frs_praise_user_name_text2);
-        setOnClickListener(new g(this));
-        this.e.setOnClickListener(new h(this));
-        this.d.setOnClickListener(new i(this));
+        this.b = View.inflate(this.a, com.baidu.tieba.v.frs_item_praise, this);
+        this.c = (TextView) this.b.findViewById(com.baidu.tieba.u.frs_go_praise_list_num);
+        this.d = (TextView) this.b.findViewById(com.baidu.tieba.u.frs_praise_user_name_text1);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.u.frs_praise_user_name_text2);
+        setOnClickListener(new k(this));
+        this.e.setOnClickListener(new l(this));
+        this.d.setOnClickListener(new m(this));
     }
 
     public void a(PraiseData praiseData, String str, String str2, boolean z) {
@@ -86,11 +81,11 @@ public class FrsPraiseView extends LinearLayout {
                 }
             }
             if (num <= 2) {
-                this.c.setText(this.a.getString(y.common_praise_view_text));
+                this.c.setText(this.a.getString(com.baidu.tieba.x.common_praise_view_text));
             } else if (num <= 999999) {
-                this.c.setText(String.valueOf(this.a.getString(y.common_praise_view_text1)) + num + this.a.getString(y.common_praise_view_text2));
+                this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.common_praise_view_text1)) + num + this.a.getString(com.baidu.tieba.x.common_praise_view_text2));
             } else {
-                this.c.setText(String.valueOf(this.a.getString(y.common_praise_view_text1)) + "999999+" + this.a.getString(y.common_praise_view_text2));
+                this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.common_praise_view_text1)) + "999999+" + this.a.getString(com.baidu.tieba.x.common_praise_view_text2));
             }
         }
     }
@@ -105,26 +100,26 @@ public class FrsPraiseView extends LinearLayout {
     public void a(int i) {
         if (this.i) {
             if (i == 1) {
-                this.b.setBackgroundResource(u.praise_head_selector_1);
-                this.c.setTextColor(this.a.getResources().getColor(s.cp_cont_d_1));
-                this.d.setTextColor(this.a.getResources().getColor(s.cp_cont_c_1));
-                this.e.setTextColor(this.a.getResources().getColor(s.cp_cont_c_1));
+                this.b.setBackgroundResource(com.baidu.tieba.t.praise_head_selector_1);
+                this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_d_1));
+                this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c_1));
+                this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c_1));
                 return;
             }
-            this.b.setBackgroundResource(u.praise_head_selector);
-            this.c.setTextColor(this.a.getResources().getColor(s.cp_cont_d));
-            this.d.setTextColor(this.a.getResources().getColor(s.cp_cont_c));
-            this.e.setTextColor(this.a.getResources().getColor(s.cp_cont_c));
+            this.b.setBackgroundResource(com.baidu.tieba.t.praise_head_selector);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_d));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c));
         } else if (i == 1) {
-            this.b.setBackgroundResource(u.praise_view_btn_color_1);
-            this.c.setTextColor(this.a.getResources().getColor(s.cp_cont_d_1));
-            this.d.setTextColor(this.a.getResources().getColor(s.cp_cont_c_1));
-            this.e.setTextColor(this.a.getResources().getColor(s.cp_cont_c_1));
+            this.b.setBackgroundResource(com.baidu.tieba.t.praise_view_btn_color_1);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_d_1));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c_1));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c_1));
         } else {
-            this.b.setBackgroundResource(u.praise_view_btn_color);
-            this.c.setTextColor(this.a.getResources().getColor(s.cp_cont_d));
-            this.d.setTextColor(this.a.getResources().getColor(s.cp_cont_c));
-            this.e.setTextColor(this.a.getResources().getColor(s.cp_cont_c));
+            this.b.setBackgroundResource(com.baidu.tieba.t.praise_view_btn_color);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_d));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.cp_cont_c));
         }
     }
 }

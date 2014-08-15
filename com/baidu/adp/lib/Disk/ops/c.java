@@ -19,7 +19,7 @@ public class c extends DiskFileOperate {
         this.i = new d();
     }
 
-    public boolean v() {
+    public boolean w() {
         return this.i.a;
     }
 
@@ -27,14 +27,14 @@ public class c extends DiskFileOperate {
         this.i.a = z;
     }
 
-    public Bitmap w() {
+    public Bitmap x() {
         return this.g;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void a(byte[] bArr) {
         super.a(bArr);
-        if (!v() && j.a(bArr)) {
+        if (!w() && j.a(bArr)) {
             f(true);
         }
     }

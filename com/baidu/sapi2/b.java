@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -147,11 +146,11 @@ public final class b {
             }
 
             public static String a(String str) {
-                return b(str).replace(IOUtils.DIR_SEPARATOR_UNIX, '-');
+                return b(str).replace('/', '-');
             }
 
             public static String b(String str) {
-                return str.replace(':', IOUtils.DIR_SEPARATOR_UNIX);
+                return str.replace(':', '/');
             }
 
             public static String c(String str) {
@@ -190,13 +189,15 @@ public final class b {
 
         static a a(JSONObject jSONObject) {
             a aVar = new a();
-            try {
-                aVar.b = jSONObject.optBoolean(b.e, true);
-                JSONArray optJSONArray = jSONObject.optJSONArray(b.f);
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    aVar.b().add(C0007a.a(optJSONArray.getJSONObject(i)));
+            if (jSONObject != null) {
+                try {
+                    aVar.b = jSONObject.optBoolean(b.e, true);
+                    JSONArray optJSONArray = jSONObject.optJSONArray(b.f);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        aVar.b().add(C0007a.a(optJSONArray.getJSONObject(i)));
+                    }
+                } catch (JSONException e) {
                 }
-            } catch (JSONException e) {
             }
             return aVar;
         }

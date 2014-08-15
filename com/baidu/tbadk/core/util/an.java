@@ -1,39 +1,36 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class an {
-    public static String a(String str) {
-        String str2 = "";
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(str.getBytes());
-            byte[] digest = messageDigest.digest();
-            StringBuffer stringBuffer = new StringBuffer("");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < digest.length) {
-                    int i3 = digest[i2];
-                    if (i3 < 0) {
-                        i3 += 256;
-                    }
-                    if (i3 < 16) {
-                        stringBuffer.append("0");
-                    }
-                    stringBuffer.append(Integer.toHexString(i3));
-                    i = i2 + 1;
-                } else {
-                    str2 = stringBuffer.toString();
-                    return stringBuffer.toString();
+    private static ArrayList<ao> b = new ArrayList<>();
+    public static AtomicInteger a = new AtomicInteger(0);
+
+    public static int a(int i) {
+        return a.getAndSet(i);
+    }
+
+    public static int b(int i) {
+        return a.addAndGet(i);
+    }
+
+    public static synchronized void a(ao aoVar) {
+        synchronized (an.class) {
+            if (aoVar != null) {
+                if (b.size() <= 20) {
+                    b.add(aoVar);
                 }
             }
-        } catch (NoSuchAlgorithmException e) {
-            String str3 = str2;
-            BdLog.e(e.getMessage());
-            return str3;
         }
+    }
+
+    public static synchronized ao a() {
+        ao remove;
+        synchronized (an.class) {
+            int size = b.size();
+            remove = size > 0 ? b.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

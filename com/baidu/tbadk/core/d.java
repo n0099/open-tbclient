@@ -10,20 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bo;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.k;
 /* loaded from: classes.dex */
 public abstract class d extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
-    private o c;
+    private k c;
     private boolean d;
     private String e;
-    private int b = 0;
+    private BdUniqueId b = null;
     protected int a = -1;
 
     @Override // android.support.v4.app.Fragment
@@ -38,8 +39,8 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
 
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
-        this.b = com.baidu.adp.framework.d.a().b();
-        this.c = o.a();
+        this.b = BdUniqueId.gen();
+        this.c = k.a();
         super.onCreate(bundle);
     }
 
@@ -80,6 +81,14 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         }
     }
 
+    public void a(String str, boolean z) {
+        if (z) {
+            this.c.a(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+        } else {
+            j.a((Context) TbadkApplication.m252getInst().getApp(), str);
+        }
+    }
+
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
@@ -93,7 +102,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         super.onResume();
         if (d_()) {
             b(TbadkApplication.m252getInst().getSkinType());
-            bo.a(getClass().getName());
+            be.a(getClass().getName());
             if (this.d) {
                 e();
             }
@@ -185,7 +194,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
 
     public void a(Message<?> message) {
         if (message != null) {
-            if (message.getTag() == 0) {
+            if (message.getTag() == null) {
                 message.setTag(this.b);
             }
             MessageManager.getInstance().sendMessage(message);
@@ -193,20 +202,20 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     }
 
     public void a(MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == 0) {
+        if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.b);
         }
         MessageManager.getInstance().registerListener(messageListener);
     }
 
     public void a(int i, MessageListener<?> messageListener) {
-        if (messageListener != null && messageListener.getTag() == 0) {
+        if (messageListener != null && messageListener.getTag() == null) {
             messageListener.setTag(this.b);
         }
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    public int d() {
+    public BdUniqueId d() {
         return this.b;
     }
 

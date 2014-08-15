@@ -99,19 +99,19 @@ public class LivePlayingImageView extends ImageView {
                 setVisibility(8);
                 return;
             case 2:
-                setImageResource(com.baidu.tieba.u.icon_live_play_default);
+                setImageResource(com.baidu.tieba.t.icon_live_play_default);
                 setVisibility(0);
                 return;
             case 3:
-                setImageResource(com.baidu.tieba.u.live_play);
+                setImageResource(com.baidu.tieba.t.live_play);
                 setVisibility(0);
                 return;
             case 4:
-                setImageResource(com.baidu.tieba.u.icon_live_play_default);
+                setImageResource(com.baidu.tieba.t.icon_live_play_default);
                 setVisibility(0);
                 return;
             case 5:
-                setImageResource(com.baidu.tieba.u.icon_live_play_default);
+                setImageResource(com.baidu.tieba.t.icon_live_play_default);
                 setVisibility(0);
                 return;
             default:

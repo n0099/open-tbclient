@@ -1,29 +1,34 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.widget.AdapterView;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ d a;
-    private final /* synthetic */ ImMessageCenterShowItemData b;
+public class h implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(d dVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.a = dVar;
-        this.b = imMessageCenterShowItemData;
+    public h(e eVar) {
+        this.a = eVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.p pVar;
-        switch (i) {
-            case 0:
-                pVar = this.a.d;
-                pVar.a(this.b, new i(this));
-                return;
-            default:
-                return;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        n nVar;
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        if (i < 0) {
+            return false;
         }
+        e eVar = this.a;
+        nVar = this.a.g;
+        eVar.e = (ImMessageCenterShowItemData) nVar.getItem(i);
+        e eVar2 = this.a;
+        imMessageCenterShowItemData = this.a.e;
+        eVar2.a(imMessageCenterShowItemData);
+        if (this.a.b != null) {
+            com.baidu.adp.lib.e.d.a(this.a.b, this.a.getActivity());
+        }
+        return true;
     }
 }

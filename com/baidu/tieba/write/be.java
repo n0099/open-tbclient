@@ -1,8 +1,9 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements View.OnClickListener {
+public class be implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,6 +13,7 @@ class be implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.showDialog(com.baidu.tieba.v.live_time_rel);
+        this.a.a();
+        this.a.p();
     }
 }

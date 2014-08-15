@@ -26,7 +26,7 @@ class aa implements com.baidu.tbadk.core.account.g {
     }
 
     @Override // com.baidu.tbadk.core.account.g
-    public void onFailure(String str, String str2) {
+    public void onFailure(String str, int i, String str2) {
         this.a.showToast(str2);
     }
 }

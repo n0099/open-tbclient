@@ -9,10 +9,10 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.f {
@@ -29,6 +29,7 @@ public class h extends com.baidu.adp.base.f {
     private TextView k;
     private TextView l;
     private ProgressBar m;
+    private ProgressBar n;
 
     public h(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity);
@@ -45,31 +46,35 @@ public class h extends com.baidu.adp.base.f {
         this.k = null;
         this.l = null;
         this.m = null;
-        this.b = praiseListActivity;
-        praiseListActivity.setContentView(w.zan_list_activity);
-        this.c = praiseListActivity.findViewById(v.zan_list_page_parent);
-        this.d = (NavigationBar) praiseListActivity.findViewById(v.zan_list_page_navigationbar);
-        this.e = praiseListActivity.findViewById(v.zan_list_page_has_data_parent);
-        this.f = praiseListActivity.findViewById(v.zan_list_page_no_data_parent);
-        this.i = (BdListView) praiseListActivity.findViewById(v.zan_list_page_list);
-        this.m = (ProgressBar) praiseListActivity.findViewById(v.zan_list_page_progress);
-        this.a = new d(praiseListActivity);
-        this.i.setAdapter((ListAdapter) this.a);
-        this.i.setOnScrollListener(this.a);
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a("");
-        LayoutInflater from = LayoutInflater.from(praiseListActivity);
-        this.g = from.inflate(w.zan_list_head, (ViewGroup) null);
-        this.g.setOnClickListener(praiseListActivity);
-        this.h = (TextView) this.g.findViewById(v.zan_list_head_text);
-        this.h.setText(str);
-        this.i.addHeaderView(this.g);
-        this.j = from.inflate(w.zan_list_foot, (ViewGroup) null);
-        this.k = (TextView) this.j.findViewById(v.zan_list_foot_text_continue);
-        this.l = (TextView) this.j.findViewById(v.zan_list_foot_text_more);
-        this.k.setOnClickListener(praiseListActivity);
-        this.i.addFooterView(this.j);
-        this.i.setOnItemClickListener(praiseListActivity);
+        this.n = null;
+        if (praiseListActivity != null) {
+            this.b = praiseListActivity;
+            praiseListActivity.setContentView(v.zan_list_activity);
+            this.c = praiseListActivity.findViewById(u.zan_list_page_parent);
+            this.d = (NavigationBar) praiseListActivity.findViewById(u.zan_list_page_navigationbar);
+            this.e = praiseListActivity.findViewById(u.zan_list_page_has_data_parent);
+            this.f = praiseListActivity.findViewById(u.zan_list_page_no_data_parent);
+            this.i = (BdListView) praiseListActivity.findViewById(u.zan_list_page_list);
+            this.m = (ProgressBar) praiseListActivity.findViewById(u.zan_list_page_progress);
+            this.a = new d(praiseListActivity);
+            this.i.setAdapter((ListAdapter) this.a);
+            this.i.setOnScrollListener(this.a);
+            this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.d.a("");
+            LayoutInflater from = LayoutInflater.from(praiseListActivity);
+            this.g = from.inflate(v.zan_list_head, (ViewGroup) null);
+            this.g.setOnClickListener(praiseListActivity);
+            this.h = (TextView) this.g.findViewById(u.zan_list_head_text);
+            this.h.setText(str);
+            this.i.addHeaderView(this.g);
+            this.j = from.inflate(v.zan_list_foot, (ViewGroup) null);
+            this.k = (TextView) this.j.findViewById(u.zan_list_foot_text_continue);
+            this.l = (TextView) this.j.findViewById(u.zan_list_foot_text_more);
+            this.n = (ProgressBar) this.j.findViewById(u.zan_list_foot_progress);
+            this.k.setOnClickListener(praiseListActivity);
+            this.i.addFooterView(this.j);
+            this.i.setOnItemClickListener(praiseListActivity);
+        }
     }
 
     public void a() {
@@ -78,27 +83,33 @@ public class h extends com.baidu.adp.base.f {
         }
     }
 
+    public void a(boolean z) {
+        if (z) {
+            this.n.setVisibility(0);
+        } else {
+            this.m.setVisibility(0);
+        }
+    }
+
     public void b() {
-        this.m.setVisibility(0);
-    }
-
-    public void c() {
         this.m.setVisibility(8);
+        this.n.setVisibility(8);
     }
 
-    public boolean d() {
-        return this.m.getVisibility() == 0;
+    public boolean c() {
+        return this.m.getVisibility() == 0 || this.n.getVisibility() == 0;
     }
 
     public void a(int i, List<a> list, int i2, int i3) {
         this.m.setVisibility(8);
+        this.n.setVisibility(8);
         if (i > 0) {
-            this.d.a(String.format(this.b.getString(y.praise_list_title_count), Integer.valueOf(i)));
+            this.d.a(String.format(this.b.getString(x.praise_list_title_count), Integer.valueOf(i)));
         } else {
             this.d.a("");
         }
         if (list == null || list.size() < 1) {
-            e();
+            d();
             return;
         }
         this.e.setVisibility(0);
@@ -117,13 +128,13 @@ public class h extends com.baidu.adp.base.f {
             case 1003:
                 this.j.setVisibility(0);
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    this.j.setBackgroundResource(u.bg_pack_1);
+                    this.j.setBackgroundResource(t.bg_pack_1);
                 } else {
-                    this.j.setBackgroundResource(u.bg_pack);
+                    this.j.setBackgroundResource(t.bg_pack);
                 }
                 this.k.setVisibility(8);
                 this.l.setVisibility(0);
-                this.l.setText(String.format(this.b.getString(y.praise_item_more), Integer.valueOf(i3)));
+                this.l.setText(String.format(this.b.getString(x.praise_item_more), Integer.valueOf(i3)));
                 return;
             default:
                 this.j.setVisibility(8);
@@ -131,30 +142,33 @@ public class h extends com.baidu.adp.base.f {
         }
     }
 
-    public void e() {
+    public void d() {
         this.m.setVisibility(8);
+        this.n.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(0);
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
-        cVar.a(i == 1);
-        cVar.a(this.c);
-        cVar.a(this.g);
-        cVar.a(this.j);
-        this.d.c(i);
-        if (i == 1) {
-            this.j.setBackgroundResource(u.bg_pack_1);
-        } else {
-            this.j.setBackgroundResource(u.bg_pack);
+        if (cVar != null) {
+            cVar.a(i == 1);
+            cVar.a(this.c);
+            cVar.a(this.g);
+            cVar.a(this.j);
+            this.d.c(i);
+            if (i == 1) {
+                this.j.setBackgroundResource(t.bg_pack_1);
+            } else {
+                this.j.setBackgroundResource(t.bg_pack);
+            }
         }
     }
 
-    public View f() {
+    public View e() {
         return this.g;
     }
 
-    public View g() {
+    public View f() {
         return this.k;
     }
 }

@@ -8,7 +8,6 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.io.FilenameUtils;
 /* loaded from: classes.dex */
 public class TypeToken<T> {
     final int hashCode;
@@ -153,7 +152,7 @@ public class TypeToken<T> {
         for (Class<?> cls : clsArr) {
             sb.append(cls.getName()).append(", ");
         }
-        sb.append("but got: ").append(type.getClass().getName()).append(", for type token: ").append(type.toString()).append(FilenameUtils.EXTENSION_SEPARATOR);
+        sb.append("but got: ").append(type.getClass().getName()).append(", for type token: ").append(type.toString()).append('.');
         return new AssertionError(sb.toString());
     }
 

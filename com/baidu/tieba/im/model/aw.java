@@ -1,25 +1,43 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class aw extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ MsglistModel b;
-    private final /* synthetic */ CommonGroupChatMessage c;
-    private final /* synthetic */ LinkedList d;
+public class aw {
+    private static aw a;
+    private com.baidu.adp.lib.d.a<String, String> b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.b = msglistModel;
-        this.c = commonGroupChatMessage;
-        this.d = linkedList;
+    private aw() {
+        this.b = null;
+        this.b = new com.baidu.adp.lib.d.a<>(256);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.getGroupId(), this.d, false));
+    public static synchronized aw a() {
+        aw awVar;
+        synchronized (aw.class) {
+            if (a == null) {
+                a = new aw();
+            }
+            awVar = a;
+        }
+        return awVar;
+    }
+
+    public void a(String str, Long l) {
+        if (str != null && str.length() > 0) {
+            this.b.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str, String.valueOf(l));
+        }
+    }
+
+    public boolean a(String str) {
+        if (str == null || str.length() <= 0) {
+            return false;
+        }
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TbadkApplication.getCurrentAccount()) + str));
+        if (TextUtils.isEmpty(a2)) {
+            return false;
+        }
+        return UtilHelper.isSameDay(com.baidu.adp.lib.e.b.a(a2, 0L), System.currentTimeMillis());
     }
 }

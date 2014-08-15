@@ -17,12 +17,12 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, Fragment.instantiate(this, d.class.getName()));
+        beginTransaction.add(16908290, Fragment.instantiate(this, e.class.getName()));
         beginTransaction.commit();
     }
 
     private static void g() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

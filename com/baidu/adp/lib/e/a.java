@@ -1,35 +1,61 @@
 package com.baidu.adp.lib.e;
+
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public abstract class a<T> {
-    private boolean a;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a() {
-        this.a = true;
+public class a {
+    public static void a(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean b() {
-        return this.a;
+    public static void a(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str, e eVar) {
+    public static void a(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(String str, e eVar) {
+    public static void a(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(T t, String str, e eVar) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Object... objArr) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(String str, e eVar) {
+    public static void a(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null) {
+            try {
+                httpURLConnection.disconnect();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

@@ -21,9 +21,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EmotionManageActivity extends BaseActivity {
-    private List<u> a;
-    private v c;
-    private s d;
+    private List<s> a;
+    private t c;
+    private q d;
     private LinearLayout e;
     private NavigationBar f;
     private View g;
@@ -34,12 +34,12 @@ public class EmotionManageActivity extends BaseActivity {
     private BdListView l;
     private TextView m;
     private View n;
-    private t o;
+    private r o;
     private final List<String> b = new LinkedList();
     private boolean p = false;
-    private final View.OnClickListener q = new p(this);
-    private final AdapterView.OnItemClickListener r = new q(this);
-    private final CustomMessageListener s = new r(this, 0);
+    private final View.OnClickListener q = new n(this);
+    private final AdapterView.OnItemClickListener r = new o(this);
+    private final CustomMessageListener s = new p(this, 0);
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, EmotionManageActivity.class));
@@ -49,7 +49,7 @@ public class EmotionManageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.activity_emotion_manage);
+        setContentView(com.baidu.tieba.v.activity_emotion_manage);
         a();
         b();
         a(true);
@@ -70,24 +70,24 @@ public class EmotionManageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        com.baidu.tbadk.core.util.bk.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
+        com.baidu.tbadk.core.util.ay.f((View) this.h, com.baidu.tieba.t.navi_del_text_bg);
     }
 
     private void a() {
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.emotion_manage_root);
-        this.f = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.f.a(com.baidu.tieba.y.title_activity_emotion_manage);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.u.emotion_manage_root);
+        this.f = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.f.a(com.baidu.tieba.x.title_activity_emotion_manage);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(com.baidu.tieba.y.delete)) + "(" + this.b.size() + ")", this.q);
+        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(com.baidu.tieba.x.delete)) + "(" + this.b.size() + ")", this.q);
         f();
-        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.edit), this.q);
-        this.j = (TextView) findViewById(com.baidu.tieba.v.emotion_manager_title);
-        this.k = (ImageView) findViewById(com.baidu.tieba.v.emotion_manage_enter_line_list_up);
-        this.l = (BdListView) findViewById(com.baidu.tieba.v.emotion_manage_list);
+        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.x.edit), this.q);
+        this.j = (TextView) findViewById(com.baidu.tieba.u.emotion_manager_title);
+        this.k = (ImageView) findViewById(com.baidu.tieba.u.emotion_manage_enter_line_list_up);
+        this.l = (BdListView) findViewById(com.baidu.tieba.u.emotion_manage_list);
         this.l.setOnItemClickListener(this.r);
-        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.w.emotion_manage_list_footer, (ViewGroup) null);
+        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.v.emotion_manage_list_footer, (ViewGroup) null);
         this.l.addFooterView(this.n);
-        this.m = (TextView) this.n.findViewById(com.baidu.tieba.v.emotion_manage_enter_record);
+        this.m = (TextView) this.n.findViewById(com.baidu.tieba.u.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);
         getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         getLayoutMode().a((View) this.e);
@@ -97,9 +97,9 @@ public class EmotionManageActivity extends BaseActivity {
 
     private void b() {
         registerListener(2001120, this.s);
-        this.c = new v(this, null);
+        this.c = new t(this, null);
         this.c.execute(new String[0]);
-        this.o = new t(this, null);
+        this.o = new r(this, null);
         this.l.setAdapter((ListAdapter) this.o);
     }
 
@@ -110,7 +110,7 @@ public class EmotionManageActivity extends BaseActivity {
             this.b.clear();
         } else {
             for (String str : this.b) {
-                Iterator<u> it = this.a.iterator();
+                Iterator<s> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -134,13 +134,13 @@ public class EmotionManageActivity extends BaseActivity {
     public void c() {
         if (this.a != null) {
             if (this.a.size() == 0) {
-                this.j.setText(com.baidu.tieba.y.emotion_manage_title_nodata);
+                this.j.setText(com.baidu.tieba.x.emotion_manage_title_nodata);
                 this.i.setEnabled(false);
                 this.k.setVisibility(8);
                 e();
                 return;
             }
-            this.j.setText(com.baidu.tieba.y.emotion_manage_title);
+            this.j.setText(com.baidu.tieba.x.emotion_manage_title);
             this.i.setEnabled(true);
             this.k.setVisibility(0);
         }
@@ -165,7 +165,7 @@ public class EmotionManageActivity extends BaseActivity {
         this.g.setVisibility(8);
         this.h.setVisibility(0);
         f();
-        this.i.setText(getString(com.baidu.tieba.y.cancel));
+        this.i.setText(getString(com.baidu.tieba.x.cancel));
         this.p = true;
         this.n.setVisibility(8);
     }
@@ -174,7 +174,7 @@ public class EmotionManageActivity extends BaseActivity {
     public void e() {
         this.g.setVisibility(0);
         this.h.setVisibility(8);
-        this.i.setText(getString(com.baidu.tieba.y.edit));
+        this.i.setText(getString(com.baidu.tieba.x.edit));
         this.p = false;
         this.n.setVisibility(0);
     }
@@ -182,28 +182,28 @@ public class EmotionManageActivity extends BaseActivity {
     private void f() {
         int size = this.b.size();
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.h.setText(String.valueOf(getString(com.baidu.tieba.y.delete)) + "(" + size + ")");
+        this.h.setText(String.valueOf(getString(com.baidu.tieba.x.delete)) + "(" + size + ")");
         if (size == 0) {
             this.h.setEnabled(false);
             if (skinType == 1) {
-                this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_disable_1));
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.emotion_manage_del_disable_1));
                 return;
             } else {
-                this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_disable));
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.emotion_manage_del_disable));
                 return;
             }
         }
         this.h.setEnabled(true);
         if (skinType == 1) {
-            this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_enable_1));
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.emotion_manage_del_enable_1));
         } else {
-            this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_enable));
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.r.emotion_manage_del_enable));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.d = new s(this, null);
+        this.d = new q(this, null);
         this.d.execute(this.b);
     }
 

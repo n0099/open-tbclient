@@ -32,11 +32,11 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
         Context context;
         Context context2;
         String str = this.c;
-        context = this.a.e;
+        context = this.a.d;
         List<ImageFileInfo> a = a(str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         if (a == null || a.size() <= 0) {
             String str2 = this.c;
-            context2 = this.a.e;
+            context2 = this.a.d;
             return a(str2, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         }
         return a;
@@ -72,12 +72,12 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    com.baidu.adp.lib.f.a.a(cursor);
+                    com.baidu.adp.lib.e.a.a(cursor);
                     return arrayList;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.f.a.a(cursor);
+                com.baidu.adp.lib.e.a.a(cursor);
                 throw th;
             }
         } catch (Exception e2) {
@@ -86,7 +86,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.adp.lib.f.a.a(cursor);
+            com.baidu.adp.lib.e.a.a(cursor);
             throw th;
         }
         if (cursor.moveToFirst()) {
@@ -102,10 +102,10 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                     arrayList.add(imageFileInfo);
                 }
             } while (cursor.moveToNext());
-            com.baidu.adp.lib.f.a.a(cursor);
+            com.baidu.adp.lib.e.a.a(cursor);
             return arrayList;
         }
-        com.baidu.adp.lib.f.a.a(cursor);
+        com.baidu.adp.lib.e.a.a(cursor);
         return arrayList;
     }
 }

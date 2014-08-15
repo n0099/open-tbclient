@@ -1,59 +1,55 @@
 package com.baidu.adp.newwidget.a;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.widget.ImageView;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
-public class g extends i {
-    private final Paint l = new Paint();
-    private final Paint m = new Paint();
-    private final Rect n = new Rect(0, 0, 0, 0);
-    private final Rect o = new Rect(0, 0, 0, 0);
+public class g extends l {
+    private Path l;
+    private boolean m;
+    private Rect n;
+    private final Paint o = new Paint();
+    private final Paint p = new Paint();
 
     public g() {
-        this.l.setColor(-16777216);
-        this.l.setStyle(Paint.Style.FILL);
-        this.l.setAntiAlias(true);
-        this.m.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.o.setColor(-16777216);
+        this.o.setStyle(Paint.Style.FILL);
+        this.o.setAntiAlias(true);
+        this.p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    @Override // com.baidu.adp.newwidget.a.c, com.baidu.adp.newwidget.a.a
-    public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.d != null) {
-            canvas.concat(this.d);
-        }
-        if (dVar.a()) {
-            Bitmap bitmap = dVar.a.getBitmap();
-            if (this.k) {
-                a(canvas, bitmap);
-                return;
+    private void a(Rect rect) {
+        boolean z = false;
+        if (rect != null) {
+            if (this.l == null || this.m != this.g.b) {
+                z = true;
             }
-            this.o.set(0, 0, dVar.d(), dVar.e());
-            dVar.b.a(canvas, this.o, this.e, this.a);
-        } else if (dVar.b()) {
-            if (this.k) {
-                a(canvas, dVar.b.h());
-                return;
+            if (this.n == null || !this.n.contains(rect)) {
+                z = true;
             }
-            this.o.set(0, 0, dVar.d(), dVar.e());
-            dVar.b.a(canvas, this.o, this.e, this.a);
-        } else {
-            this.o.set(0, 0, dVar.d(), dVar.e());
-            dVar.b.a(canvas, this.o, this.e, this.a);
+            this.m = this.g.b;
+            if (z) {
+                this.n = rect;
+                this.l = new Path();
+                if (this.m) {
+                    this.l.addCircle((rect.right + rect.left) / 2, (rect.top + rect.bottom) / 2, Math.min(rect.width(), rect.height()) / 2, Path.Direction.CCW);
+                } else {
+                    this.l.addRoundRect(new RectF(rect), this.g.a, this.g.a, Path.Direction.CCW);
+                }
+                this.l.close();
+            }
         }
     }
 
-    protected void a(Canvas canvas, Bitmap bitmap) {
-        this.o.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        this.n.set(0, 0, (int) this.e.width(), (int) this.e.height());
+    @Override // com.baidu.adp.newwidget.a.a
+    protected void a(Canvas canvas, Drawable drawable) {
         canvas.save();
-        canvas.drawARGB(0, 0, 0, 0);
-        canvas.drawPath(this.i, this.l);
-        canvas.drawBitmap(bitmap, this.o, this.e, this.m);
+        a(drawable.getBounds());
         canvas.restore();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.guide;
 import android.view.View;
 import android.widget.Button;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ap;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,9 +36,9 @@ public class n implements View.OnClickListener {
                 }
                 m mVar = this.a;
                 newUserGuideActivity2 = this.a.o;
-                ap apVar = new ap(newUserGuideActivity2);
+                as asVar = new as(newUserGuideActivity2);
                 z = this.a.r;
-                mVar.a(new CustomMessage(2015001, apVar.a(1, z)));
+                mVar.a(new CustomMessage(2015001, asVar.a(1, z)));
                 newUserGuideActivity3 = this.a.o;
                 newUserGuideActivity3.finish();
                 return;
@@ -51,10 +51,10 @@ public class n implements View.OnClickListener {
             newUserGuideActivity4 = this.a.o;
             com.baidu.tbadk.core.f.a(newUserGuideActivity4, "newUserInterestSelect");
             newUserGuideActivity5 = this.a.o;
-            u uVar = new u(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new o(this));
+            t tVar = new t(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new o(this));
             view2 = this.a.c;
             view2.setVisibility(0);
-            uVar.a();
+            tVar.a();
             this.a.t = true;
         }
     }

@@ -33,7 +33,7 @@ public class PbEditorToolButtonContainer extends i {
     }
 
     protected void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.pb_editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_tool_button_container, (ViewGroup) this, true);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -55,8 +55,8 @@ public class PbEditorToolButtonContainer extends i {
 
     protected void e() {
         d();
-        this.c = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_more);
-        this.b = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_audio);
+        this.c = (EditorToolButton) findViewById(com.baidu.tieba.u.tool_more);
+        this.b = (EditorToolButton) findViewById(com.baidu.tieba.u.tool_audio);
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
@@ -114,6 +114,16 @@ public class PbEditorToolButtonContainer extends i {
             this.b.a();
         } else {
             this.b.b();
+        }
+    }
+
+    public void a(int i) {
+        boolean z = i == 1;
+        if (this.d != null) {
+            this.d.setBackgroundResource(z ? com.baidu.tieba.t.icon_news_list_prompt_1 : com.baidu.tieba.t.icon_news_list_prompt);
+        }
+        if (this.e != null) {
+            this.e.setBackgroundResource(z ? com.baidu.tieba.t.icon_news_list_prompt_1 : com.baidu.tieba.t.icon_news_list_prompt);
         }
     }
 

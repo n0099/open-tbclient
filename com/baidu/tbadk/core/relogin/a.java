@@ -29,7 +29,7 @@ public class a extends HttpMessageListener {
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
             if ((statusCode == 200 && error != 0) || statusCode != 200) {
-                this.a.b(TbadkApplication.getCurrentAccountObj());
+                this.a.a(TbadkApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     j.a(TbadkApplication.m252getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
@@ -37,7 +37,7 @@ public class a extends HttpMessageListener {
                 arrayList.clear();
                 return;
             }
-            this.a.c();
+            this.a.e();
         }
     }
 }

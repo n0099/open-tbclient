@@ -22,6 +22,7 @@ class h implements aj {
     public View a(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.view.b bVar;
         BubbleListData.BubbleData f;
+        BubbleListData bubbleListData;
         View.OnClickListener onClickListener;
         if (view == null) {
             bVar = new com.baidu.tieba.view.b(this.b);
@@ -31,10 +32,11 @@ class h implements aj {
         }
         f = this.a.f(i);
         if (f != null) {
-            bVar.a(f, this.a.c, com.baidu.tieba.model.d.a(this.a.b.getB_info()));
+            bubbleListData = this.a.c;
+            bVar.a(f, com.baidu.tieba.model.e.a(bubbleListData.getB_info()));
             bVar.setGravity(17);
             bVar.setTag(Integer.valueOf(i));
-            onClickListener = this.a.k;
+            onClickListener = this.a.j;
             bVar.setOnClickListener(onClickListener);
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();

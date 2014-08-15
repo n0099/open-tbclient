@@ -1,11 +1,10 @@
 package com.baidu.tbadk.browser;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.adp.lib.guide.b {
+public class n implements View.OnClickListener {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,34 +12,18 @@ public class n implements com.baidu.adp.lib.guide.b {
         this.a = tbWebViewActivity;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.w.tb_webview_pop_install_plugin, (ViewGroup) null);
-        if (inflate != null) {
-            inflate.findViewById(com.baidu.tieba.v.install).setOnClickListener(new o(this));
-            inflate.findViewById(com.baidu.tieba.v.btn_close);
-            inflate.setOnClickListener(new p(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseWebView baseWebView;
+        BaseWebView baseWebView2;
+        BaseWebView baseWebView3;
+        baseWebView = this.a.mWebView;
+        if (baseWebView != null) {
+            baseWebView2 = this.a.mWebView;
+            if (baseWebView2.canGoBack()) {
+                baseWebView3 = this.a.mWebView;
+                baseWebView3.goBack();
+            }
         }
-        return inflate;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
     }
 }

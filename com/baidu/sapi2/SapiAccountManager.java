@@ -19,7 +19,7 @@ public final class SapiAccountManager {
     public static final String SESSION_STOKEN = "stoken";
     public static final String SESSION_UID = "uid";
     public static final int VERSION_CODE = 29;
-    public static final String VERSION_NAME = "6.5.2";
+    public static final String VERSION_NAME = "6.5.3";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static d c;

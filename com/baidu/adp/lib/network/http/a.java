@@ -38,20 +38,20 @@ public class a {
 
     public void a() {
         this.a.b().a = true;
-        com.baidu.adp.lib.f.a.a(this.b);
+        com.baidu.adp.lib.e.a.a(this.b);
     }
 
     private HttpURLConnection a(URL url) {
         String defaultHost;
-        BdNetUtil.NetTpyeEnmu netType = BdNetUtil.getNetType();
+        BdNetUtil.NetTpyeEnum netType = BdNetUtil.getNetType();
         try {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (netType == BdNetUtil.NetTpyeEnmu.UNAVAIL) {
+        if (netType == BdNetUtil.NetTpyeEnum.UNAVAIL) {
             return null;
         }
-        if ((netType == BdNetUtil.NetTpyeEnmu.NET || netType == BdNetUtil.NetTpyeEnmu.WAP) && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
+        if ((netType == BdNetUtil.NetTpyeEnum.NET || netType == BdNetUtil.NetTpyeEnum.WAP) && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
             if (a(defaultHost)) {
                 StringBuilder sb = new StringBuilder(80);
                 sb.append("http://");
@@ -149,8 +149,8 @@ public class a {
                     } catch (Throwable th2) {
                         inputStream = inputStream2;
                         th = th2;
-                        com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
-                        com.baidu.adp.lib.f.a.a(inputStream);
+                        com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
+                        com.baidu.adp.lib.e.a.a(inputStream);
                         throw th;
                     }
                 }
@@ -165,8 +165,8 @@ public class a {
         } else {
             bArr = null;
         }
-        com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
-        com.baidu.adp.lib.f.a.a(inputStream2);
+        com.baidu.adp.lib.e.a.a((OutputStream) byteArrayOutputStream);
+        com.baidu.adp.lib.e.a.a(inputStream2);
         return bArr;
     }
 
@@ -228,10 +228,8 @@ public class a {
             byte[] a2 = a(this.b);
             if (a2 != null) {
                 dVar.b = a2.length;
+                this.a.b().h = a2.length;
                 this.a.b().g = a(this.a.b().c, a2);
-            }
-            if (this.a.b().g != null) {
-                dVar.b = this.a.b().g.length;
             }
             dVar.d = new Date().getTime() - time;
             dVar.j = -9;
@@ -239,7 +237,7 @@ public class a {
             if (this.f != null) {
                 this.f.cancel();
             }
-            com.baidu.adp.lib.f.a.a(this.b);
+            com.baidu.adp.lib.e.a.a(this.b);
         }
     }
 
@@ -296,7 +294,7 @@ public class a {
             dVar.d = new Date().getTime() - currentTimeMillis;
             dVar.j = -9;
         } finally {
-            com.baidu.adp.lib.f.a.a(this.b);
+            com.baidu.adp.lib.e.a.a(this.b);
         }
     }
 }

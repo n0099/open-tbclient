@@ -1,44 +1,33 @@
 package com.baidu.tieba.im.newFriend;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.core.dialog.BdToast;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ap extends com.baidu.adp.base.e {
-    private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask c = new TbHttpMessageTask(1001900, b);
-    private at a;
-    private HttpMessageListener d = new aq(this, 1001900);
+class ap implements ba {
+    final /* synthetic */ NewFriendsActivity a;
 
-    static {
-        c.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(c);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(NewFriendsActivity newFriendsActivity) {
+        this.a = newFriendsActivity;
     }
 
-    public ap(at atVar) {
-        this.a = null;
-        this.a = atVar;
+    @Override // com.baidu.tieba.im.newFriend.ba
+    public void a(String str) {
+        String str2;
+        this.a.b();
+        com.baidu.tbadk.h a = com.baidu.tbadk.h.a();
+        str2 = this.a.c;
+        a.b(str2, true);
     }
 
-    public void a() {
-        registerListener(this.d);
-    }
-
-    public void b() {
-        HttpMessage httpMessage = new HttpMessage(1001900);
-        httpMessage.setTag(1001900);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+    @Override // com.baidu.tieba.im.newFriend.ba
+    public void b(String str) {
+        av avVar;
+        av avVar2;
+        avVar = this.a.d;
+        avVar.b();
+        avVar2 = this.a.d;
+        avVar2.a((List<com.baidu.tieba.im.data.k>) null);
+        BdToast.a(this.a, str);
     }
 }

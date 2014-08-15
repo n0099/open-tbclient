@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ao;
-import com.baidu.tbadk.core.atomData.bn;
+import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.bw;
 import com.baidu.tbadk.core.f;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.List;
@@ -57,7 +57,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
             TiebaStatic.pushMsg(j, 2, stringExtra, string);
         }
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkApplication.m252getInst().getApp().getSystemService("activity")).getRunningTasks(500);
-        String a = bn.a();
+        String a = bw.a();
         for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
                 if (5 == this.b.getIntExtra("class", -1)) {
@@ -67,6 +67,8 @@ public class a extends BdAsyncTask<String, Integer, String> {
                     if (a != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(a)) {
                         this.b.putExtra("class", 21);
                     }
+                } else if (10 == this.b.getIntExtra("class", -1)) {
+                    this.b.putExtra("class", 12);
                 }
                 str2 = DealIntentService.ACTION_ON_POST_EXSIT;
                 return str2;
@@ -91,7 +93,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
             if (!str.equals(str2)) {
                 str3 = DealIntentService.ACTION_ON_POST_START;
                 if (str.equals(str3)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao(this.a, this.b)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ar(this.a, this.b)));
                 }
             } else {
                 this.b.addFlags(268435456);

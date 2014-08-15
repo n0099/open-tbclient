@@ -47,9 +47,9 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
                 a = fVar.a(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.s<String> H = ai.c().H();
-                if (H != null) {
-                    a = H.a("dailyrecommend");
+                com.baidu.adp.lib.cache.t<String> G = ai.c().G();
+                if (G != null) {
+                    a = G.a("dailyrecommend");
                     break;
                 }
             default:
@@ -103,16 +103,17 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
                     qVar3 = this.a.b;
                     String sb = new StringBuilder(String.valueOf(this.b.c())).toString();
                     lVar3 = this.a.c;
-                    qVar3.a(false, sb, lVar3, this.c);
+                    qVar3.a(false, sb, lVar3, this.c, false);
                     return;
                 }
                 qVar2 = this.a.b;
                 lVar2 = this.a.c;
-                qVar2.a(false, "db no data!", lVar2, this.c);
+                qVar2.a(false, "db no data!", lVar2, this.c, false);
                 return;
             }
             return;
         }
+        boolean z2 = lVar.a().size() > 0;
         if (this.c == 1) {
             this.a.c = lVar;
             this.a.f = true;
@@ -133,7 +134,7 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
         if (qVar4 != null) {
             qVar5 = this.a.b;
             lVar5 = this.a.c;
-            qVar5.a(true, null, lVar5, this.c);
+            qVar5.a(true, null, lVar5, this.c, z2);
         }
     }
 

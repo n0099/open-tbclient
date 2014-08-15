@@ -2,11 +2,29 @@ package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> implements b<T> {
     private final int mCmd;
+    private Message<?> mOrginalMessage;
     private int mError = 0;
     private String mErrorString = null;
-    private Message<?> mOrginalMessage;
+    private int mDownSize = 0;
+    private long mCostTime = 0;
 
     public abstract boolean hasError();
+
+    public int getDownSize() {
+        return this.mDownSize;
+    }
+
+    public void setDownSize(int i) {
+        this.mDownSize = i;
+    }
+
+    public long getCostTime() {
+        return this.mCostTime;
+    }
+
+    public void setCostTime(long j) {
+        this.mCostTime = j;
+    }
 
     public int getError() {
         return this.mError;

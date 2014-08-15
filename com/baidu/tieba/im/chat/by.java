@@ -1,28 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.widget.TextView;
+import com.baidu.tieba.im.message.FakeSystemGroupChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class by implements View.OnLongClickListener {
-    final /* synthetic */ MsgActivityView a;
+public class by extends com.baidu.adp.base.d<ChatMessage> {
+    private TextView b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public by(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    public by(Context context) {
+        super(context, com.baidu.tieba.v.msg_msg_chat_rule_view);
+        this.b = (TextView) a(com.baidu.tieba.u.tex_msgcontent);
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.adp.lib.b.b bVar;
-        com.baidu.adp.lib.b.b bVar2;
-        int i;
-        bVar = this.a.v;
-        if (bVar != null) {
-            bVar2 = this.a.v;
-            i = this.a.t;
-            bVar2.b(view, 8, i, 0L);
-            return true;
+    public void a(ChatMessage chatMessage) {
+        String str;
+        if (chatMessage == null) {
+            this.b = null;
+        } else if ((chatMessage instanceof FakeSystemGroupChatMessage) && (str = ((FakeSystemGroupChatMessage) chatMessage).mSystemMsg) != null) {
+            this.b.setText(str);
         }
-        return true;
     }
 }

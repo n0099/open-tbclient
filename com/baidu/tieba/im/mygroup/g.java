@@ -22,16 +22,16 @@ class g extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        k kVar;
-        k kVar2;
-        k kVar3;
+        j jVar;
+        j jVar2;
+        j jVar3;
         b bVar;
         b bVar2;
         EnterGuideCenterView enterGuideCenterView;
         EnterGuideCenterView enterGuideCenterView2;
         if (this.a.getActivity() != null && this.a.b != null) {
-            kVar = this.a.d;
-            if (kVar != null) {
+            jVar = this.a.d;
+            if (jVar != null) {
                 ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
                 if (responseGroupsByUidLocalMessage.getError() != 0) {
                     if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
@@ -49,16 +49,15 @@ class g extends CustomMessageListener {
                     if (groups.size() > 0) {
                         enterGuideCenterView2 = this.a.g;
                         enterGuideCenterView2.b(8);
-                        this.a.a();
                     } else {
                         enterGuideCenterView = this.a.g;
                         enterGuideCenterView.b(0);
                     }
                 }
-                kVar2 = this.a.d;
-                if (kVar2 != null) {
-                    kVar3 = this.a.d;
-                    kVar3.a();
+                jVar2 = this.a.d;
+                if (jVar2 != null) {
+                    jVar3 = this.a.d;
+                    jVar3.a();
                 }
             }
         }

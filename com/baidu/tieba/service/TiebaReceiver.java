@@ -9,7 +9,6 @@ public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        TbadkApplication.getCurrentAccount();
         if (!action.equals(com.baidu.tieba.data.e.b()) && action.equals(com.baidu.tieba.data.e.d())) {
             TbadkApplication.m252getInst().refreshNewVersion(true);
         }

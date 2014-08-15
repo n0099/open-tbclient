@@ -5,12 +5,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.d<UpdatesItemData> {
@@ -25,7 +25,7 @@ public class k extends com.baidu.adp.base.d<UpdatesItemData> {
     private TextView j;
 
     public k(LiveNotifyActivity liveNotifyActivity) {
-        super(liveNotifyActivity, w.live_notify_list_item);
+        super(liveNotifyActivity, v.live_notify_list_item);
         this.d = null;
         this.e = null;
         this.f = null;
@@ -38,13 +38,13 @@ public class k extends com.baidu.adp.base.d<UpdatesItemData> {
     }
 
     void b() {
-        this.d = a(v.live_notfiy_list_item_root);
-        this.e = (LiveNotifyCardView) a(v.live_notfiy_list_item_card);
-        this.f = (HeadImageView) a(v.live_notfiy_list_item_userinfo_head);
-        this.g = (ImageView) a(v.live_notfiy_list_item_userinfo_delete);
-        this.h = (TextView) a(v.live_notfiy_list_item_userinfo_name);
-        this.i = (TextView) a(v.live_notfiy_list_item_userinfo_time);
-        this.j = (TextView) a(v.live_notfiy_list_item_userinfo_content);
+        this.d = a(u.live_notfiy_list_item_root);
+        this.e = (LiveNotifyCardView) a(u.live_notfiy_list_item_card);
+        this.f = (HeadImageView) a(u.live_notfiy_list_item_userinfo_head);
+        this.g = (ImageView) a(u.live_notfiy_list_item_userinfo_delete);
+        this.h = (TextView) a(u.live_notfiy_list_item_userinfo_name);
+        this.i = (TextView) a(u.live_notfiy_list_item_userinfo_time);
+        this.j = (TextView) a(u.live_notfiy_list_item_userinfo_content);
         this.d.setClickable(true);
         this.d.setOnClickListener(new l(this));
         this.g.setOnClickListener(new m(this));
@@ -53,7 +53,7 @@ public class k extends com.baidu.adp.base.d<UpdatesItemData> {
 
     public void c() {
         if (this.c != null) {
-            if (this.b.b()) {
+            if (this.b.a()) {
                 this.g.setVisibility(0);
             } else {
                 this.g.setVisibility(8);
@@ -66,7 +66,7 @@ public class k extends com.baidu.adp.base.d<UpdatesItemData> {
             this.f.setClickable(false);
             Date date = new Date();
             date.setTime(this.c.getTime());
-            this.i.setText(bm.e(date));
+            this.i.setText(ba.e(date));
             if (!TextUtils.isEmpty(this.c.getContent())) {
                 this.j.setText(this.c.getContent());
             } else {
@@ -82,9 +82,9 @@ public class k extends com.baidu.adp.base.d<UpdatesItemData> {
             this.b.getLayoutMode().a(this.a);
             this.g.setSelected(this.c.isSelected());
             if (this.c.isSelected()) {
-                this.d.setBackgroundResource(z ? u.bg_information_down_s_1 : u.bg_information_down_s);
+                this.d.setBackgroundResource(z ? t.bg_information_down_s_1 : t.bg_information_down_s);
             } else {
-                this.d.setBackgroundResource(z ? u.selector_group_updates_bottom_bg_1 : u.selector_group_updates_bottom_bg);
+                this.d.setBackgroundResource(z ? t.selector_group_updates_bottom_bg_1 : t.selector_group_updates_bottom_bg);
             }
             if (this.c.getLiveCardData() != null) {
                 this.e.setData(this.c.getLiveCardData());

@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ai;
+import com.baidu.tbadk.core.atomData.al;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -74,20 +74,20 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(w.live_notify_card_view, this);
-        this.b = (ViewGroup) inflate.findViewById(v.live_notify_card_root);
-        this.c = (ViewGroup) inflate.findViewById(v.live_notify_card_card_middle);
-        this.d = (TextView) inflate.findViewById(v.live_notify_card_card_name);
-        this.e = (TextView) inflate.findViewById(v.live_notify_card_card_listener_count);
-        this.f = (TextView) inflate.findViewById(v.live_notify_card_card_liker_count);
-        this.g = (TextView) inflate.findViewById(v.live_notify_card_card_author);
-        this.h = (TextView) inflate.findViewById(v.live_notify_card_card_intro);
-        this.i = (ViewGroup) inflate.findViewById(v.live_notify_card_card_right);
-        this.j = (TextView) inflate.findViewById(v.live_notify_card_card_state_living);
-        this.k = (TextView) inflate.findViewById(v.live_notify_card_card_time);
-        this.l = (ViewGroup) inflate.findViewById(v.live_notify_card_card_state_willstart_layout);
-        this.m = (TextView) inflate.findViewById(v.live_notify_card_card_state_willstart_text);
-        this.n = (TextView) inflate.findViewById(v.live_notify_card_card_state_close);
+        View inflate = LayoutInflater.from(context).inflate(v.live_notify_card_view, this);
+        this.b = (ViewGroup) inflate.findViewById(u.live_notify_card_root);
+        this.c = (ViewGroup) inflate.findViewById(u.live_notify_card_card_middle);
+        this.d = (TextView) inflate.findViewById(u.live_notify_card_card_name);
+        this.e = (TextView) inflate.findViewById(u.live_notify_card_card_listener_count);
+        this.f = (TextView) inflate.findViewById(u.live_notify_card_card_liker_count);
+        this.g = (TextView) inflate.findViewById(u.live_notify_card_card_author);
+        this.h = (TextView) inflate.findViewById(u.live_notify_card_card_intro);
+        this.i = (ViewGroup) inflate.findViewById(u.live_notify_card_card_right);
+        this.j = (TextView) inflate.findViewById(u.live_notify_card_card_state_living);
+        this.k = (TextView) inflate.findViewById(u.live_notify_card_card_time);
+        this.l = (ViewGroup) inflate.findViewById(u.live_notify_card_card_state_willstart_layout);
+        this.m = (TextView) inflate.findViewById(u.live_notify_card_card_state_willstart_text);
+        this.n = (TextView) inflate.findViewById(u.live_notify_card_card_state_close);
         this.c.measure(0, 0);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
         layoutParams.height = this.c.getMeasuredHeight();
@@ -166,21 +166,21 @@ public class LiveNotifyCardView extends RelativeLayout {
     }
 
     private void e() {
-        this.m.setText(y.live_card_count_down);
-        bk.f((View) this.m, u.bg_live_orange);
+        this.m.setText(x.live_card_count_down);
+        ay.f((View) this.m, t.bg_live_orange);
         this.r = 2;
     }
 
     private void f() {
         this.k.setText(c(this.o));
-        this.m.setText(y.live_card_foreshowt);
-        bk.f((View) this.m, u.bg_live_yellow);
+        this.m.setText(x.live_card_foreshowt);
+        ay.f((View) this.m, t.bg_live_yellow);
         this.r = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ai(this.a, this.p)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this.a, this.p)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

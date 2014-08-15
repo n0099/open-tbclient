@@ -1,10 +1,9 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements View.OnClickListener {
+public class bi implements View.OnFocusChangeListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,8 +11,10 @@ public class bi implements View.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a((int) TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            this.a.a();
+        }
     }
 }

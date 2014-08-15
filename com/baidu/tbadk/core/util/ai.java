@@ -1,15 +1,26 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.LinkedList;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-public interface ai {
-    LinkedList<String> getForumPhotoUrl();
+class ai extends TimerTask {
+    final /* synthetic */ NetWorkCoreByBdHttp a;
 
-    LinkedList<String> getImageUrl();
+    private ai(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
+        this.a = netWorkCoreByBdHttp;
+    }
 
-    LinkedList<ad> getImagesWithEmotions();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ai(NetWorkCoreByBdHttp netWorkCoreByBdHttp, ai aiVar) {
+        this(netWorkCoreByBdHttp);
+    }
 
-    LinkedList<String> getPhotoUrl();
-
-    boolean isSupportImageSize();
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        try {
+            this.a.b();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
 }

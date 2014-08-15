@@ -1,36 +1,24 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class y {
-    private StringBuilder a;
+class y {
+    int a;
+    int b;
+    long c;
 
-    public y() {
-        this.a = null;
-        this.a = null;
+    private y() {
+        this.a = 0;
+        this.b = 0;
+        this.c = 0L;
     }
 
-    public void a(String str, Object obj) {
-        if (!bm.c(str) && obj != null) {
-            try {
-                if (this.a == null) {
-                    this.a = new StringBuilder();
-                    this.a.append(str);
-                    this.a.append("=");
-                    this.a.append(obj.toString());
-                } else {
-                    this.a.append("|");
-                    this.a.append(str);
-                    this.a.append("=");
-                    this.a.append(obj.toString());
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(y yVar) {
+        this();
     }
 
-    public String toString() {
-        return this.a != null ? this.a.toString() : "";
+    public void a() {
+        this.a = 0;
+        this.b = 0;
+        this.c = 0L;
     }
 }

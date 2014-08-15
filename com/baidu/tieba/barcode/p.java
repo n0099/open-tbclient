@@ -3,9 +3,8 @@ package com.baidu.tieba.barcode;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class p extends BroadcastReceiver {
+final class p extends BroadcastReceiver {
     final /* synthetic */ n this$0;
 
     private p(n nVar) {

@@ -1,6 +1,8 @@
 package com.baidu.tieba.frs;
+
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class cn implements com.baidu.tbadk.core.view.m {
+class cn implements SlidingMenu.OnClosedListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,10 +10,13 @@ class cn implements com.baidu.tbadk.core.view.m {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public void a(boolean z) {
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.a.r;
         if (z) {
-            this.a.s = null;
+            this.a.r = false;
+            this.a.t = null;
             this.a.c(1);
         }
     }

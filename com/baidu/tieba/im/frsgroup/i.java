@@ -1,11 +1,8 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes.dex */
-class i implements AdapterView.OnItemClickListener {
+class i implements View.OnClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,20 +10,14 @@ class i implements AdapterView.OnItemClickListener {
         this.a = bVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GroupListAdapter groupListAdapter;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         FrsGroupActivity frsGroupActivity;
-        int h;
         FrsGroupActivity frsGroupActivity2;
-        groupListAdapter = this.a.i;
-        GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
-        if (groupInfoData != null) {
-            frsGroupActivity = this.a.b;
-            h = this.a.h();
-            com.baidu.tbadk.core.atomData.v vVar = new com.baidu.tbadk.core.atomData.v(frsGroupActivity, groupInfoData.getGroupId(), h);
+        frsGroupActivity = this.a.b;
+        if (frsGroupActivity != null) {
             frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.a(new CustomMessage(2008011, vVar));
+            frsGroupActivity2.k();
         }
     }
 }

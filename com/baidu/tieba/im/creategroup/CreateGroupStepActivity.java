@@ -12,26 +12,25 @@ import android.widget.CompoundButton;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
-import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class CreateGroupStepActivity extends BaseActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener, com.baidu.tieba.im.e.h {
+public class CreateGroupStepActivity extends BaseActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener, com.baidu.tieba.im.d.h {
     com.baidu.tieba.im.model.a b;
     n a = null;
     private int c = 1014;
     private GroupAddressInfoData d = new GroupAddressInfoData();
     private int e = 0;
-    private com.baidu.adp.framework.listener.b f = new j(this, 0);
+    private com.baidu.adp.framework.listener.d f = new j(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         int i = 3;
         super.onCreate(bundle);
-        this.b = new com.baidu.tieba.im.model.a();
+        this.b = new com.baidu.tieba.im.model.a(this);
         this.b.setUniqueId(getUniqueId());
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra("group_type", 3);
@@ -55,7 +54,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(y.neterror);
+            showToast(com.baidu.tieba.x.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }
@@ -113,10 +112,10 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    bj.b(this);
+                    ax.b(this);
                     return;
                 case 12010:
-                    bj.a(this);
+                    ax.a(this);
                     return;
                 default:
                     return;
@@ -230,7 +229,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         this.a.H();
     }
 
-    @Override // com.baidu.tieba.im.e.h
+    @Override // com.baidu.tieba.im.d.h
     public void a(String str, List<String> list, double d, double d2) {
         this.a.b(String.valueOf(d));
         this.a.a(String.valueOf(d2));
@@ -245,12 +244,12 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         this.a.e(str);
     }
 
-    @Override // com.baidu.tieba.im.e.h
+    @Override // com.baidu.tieba.im.d.h
     public void a() {
         this.a.o();
     }
 
-    @Override // com.baidu.tieba.im.e.h
+    @Override // com.baidu.tieba.im.d.h
     public void b() {
         this.a.n();
     }

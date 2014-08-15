@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class BlackMembersListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private i a;
-    private com.baidu.tieba.im.model.y b;
-    private final com.baidu.adp.framework.listener.b c = new a(this, 107009);
-    private final com.baidu.adp.framework.listener.b d = new b(this, 107109);
+    private com.baidu.tieba.im.model.q b;
+    private final com.baidu.adp.framework.listener.d c = new a(this, 107009);
+    private final com.baidu.adp.framework.listener.d d = new b(this, 107109);
 
     static {
         TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.e.class, BlackMembersListActivity.class);
@@ -52,7 +52,7 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
     }
 
     private void c() {
-        showLoadingDialog(getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
+        showLoadingDialog(getString(com.baidu.tieba.x.group_tab_enterchatroom_loading), null);
         this.b.a(this.b.b(), this.b.c(), 20);
     }
 
@@ -92,19 +92,19 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
         e e = this.a.e();
         if (!e.b()) {
             e.c(true);
-            textView.setText(com.baidu.tieba.y.done);
-            bk.g(textView, TbadkApplication.m252getInst().getSkinType());
+            textView.setText(com.baidu.tieba.x.done);
+            ay.g(textView, TbadkApplication.m252getInst().getSkinType());
             e.notifyDataSetChanged();
             return;
         }
         e.c(false);
-        textView.setText(com.baidu.tieba.y.edit);
-        bk.i(textView, TbadkApplication.m252getInst().getSkinType());
+        textView.setText(com.baidu.tieba.x.edit);
+        ay.i(textView, TbadkApplication.m252getInst().getSkinType());
         e.notifyDataSetChanged();
     }
 
     public void a(Bundle bundle) {
-        this.b = new com.baidu.tieba.im.model.y();
+        this.b = new com.baidu.tieba.im.model.q(this);
         if (bundle == null) {
             this.b.a(getIntent());
         } else {

@@ -9,9 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.editortool.aa;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.t;
 import com.baidu.tieba.view.CustomTextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,9 @@ public class j {
     private final Context a;
     private final int b;
     private final int c;
-    private aa d;
-    private View.OnClickListener e;
-    private boolean f = false;
-    private int g = -16777216;
+    private View.OnClickListener d;
+    private boolean e = false;
+    private int f = -16777216;
 
     public j(Context context) {
         this.a = context;
@@ -35,7 +33,7 @@ public class j {
     }
 
     public void a(boolean z) {
-        this.f = z;
+        this.e = z;
     }
 
     public void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.g> list, boolean z) {
@@ -44,7 +42,7 @@ public class j {
         CharSequence d;
         if (textView != null && linearLayout != null && list != null) {
             if (list != null && list.size() > 0) {
-                if (this.f) {
+                if (this.e) {
                     list = a(list);
                 }
                 com.baidu.tieba.data.g gVar = list.get(0);
@@ -178,9 +176,9 @@ public class j {
         customTextView.setLineSpacing(0.0f, 1.2f);
         customTextView.setTextSize(TbConfig.getContentSize());
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            customTextView.setTextColor(bk.a(1));
+            customTextView.setTextColor(ay.a(1));
         } else {
-            customTextView.setTextColor(this.g);
+            customTextView.setTextColor(this.f);
         }
         a(customTextView, gVar);
         customTextView.setMovementMethod(LinkMovementMethod.getInstance());
@@ -196,24 +194,24 @@ public class j {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
         layoutParams.topMargin = com.baidu.adp.lib.util.j.a(this.a, 15.0f);
         layoutParams.bottomMargin = 0;
-        com.baidu.adp.widget.a.a d = this.d.d(gVar.e());
+        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(gVar.e());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setMaxWidth(a2);
-        if (d != null) {
+        if (c != null) {
             imageView.setTag(null);
-            d.a(imageView);
+            c.a(imageView);
         } else {
             imageView.setTag(gVar.e());
-            imageView.setImageBitmap(com.baidu.tbadk.core.util.h.a(u.image_default));
+            imageView.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.image_default));
         }
         imageView.setClickable(true);
         imageView.setFocusable(false);
-        imageView.setOnClickListener(this.e);
+        imageView.setOnClickListener(this.d);
         imageView.setLayoutParams(layoutParams);
         return imageView;
     }
 
     public void a(int i) {
-        this.g = i;
+        this.f = i;
     }
 }

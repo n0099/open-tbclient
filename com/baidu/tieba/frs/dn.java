@@ -1,35 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dn extends PagerAdapter {
-    private ArrayList<View> a;
+public class dn extends HttpMessageListener {
+    final /* synthetic */ dm a;
 
-    public dn(ArrayList<View> arrayList) {
-        this.a = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dn(dm dmVar, int i) {
+        super(i);
+        this.a = dmVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.a.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.a.get(i));
-        return this.a.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.a.get(i));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        cq cqVar;
+        dp a;
+        int a2;
+        cq cqVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001702) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            int error = httpResponsedMessage.getError();
+            if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ImageForumResponsedMessage)) {
+                cqVar = this.a.l;
+                if (cqVar == null) {
+                    return;
+                }
+                a = this.a.a(httpResponsedMessage, statusCode, error);
+                a2 = this.a.a(httpResponsedMessage);
+                cqVar2 = this.a.l;
+                cqVar2.a(a2, ((ImageForumResponsedMessage) httpResponsedMessage).mJSONObject, a);
+            }
+        }
     }
 }

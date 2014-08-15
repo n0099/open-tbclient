@@ -26,8 +26,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new y(this);
-        this.g = new z(this);
+        this.f = new w(this);
+        this.g = new x(this);
         a(context);
     }
 
@@ -37,8 +37,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new y(this);
-        this.g = new z(this);
+        this.f = new w(this);
+        this.g = new x(this);
         a(context);
     }
 
@@ -48,18 +48,18 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new y(this);
-        this.g = new z(this);
+        this.f = new w(this);
+        this.g = new x(this);
         a(context);
     }
 
     private void a(Context context) {
         this.a = (Activity) context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.widget_search_box, this);
-        this.c = (LinearLayout) findViewById(com.baidu.tieba.v.search_bg_layout);
-        this.d = (TextView) findViewById(com.baidu.tieba.v.search_bar_text);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.widget_search_box, this);
+        this.c = (LinearLayout) findViewById(com.baidu.tieba.u.search_bg_layout);
+        this.d = (TextView) findViewById(com.baidu.tieba.u.search_bar_text);
         this.c.setOnClickListener(this.g);
-        this.e = (TextView) findViewById(com.baidu.tieba.v.search_from_qr);
+        this.e = (TextView) findViewById(com.baidu.tieba.u.search_from_qr);
         this.e.setOnClickListener(this.f);
     }
 
@@ -79,12 +79,12 @@ public class SearchBoxView extends RelativeLayout {
             baseFragmentActivity.c().a((View) this);
         }
         if (i == 1) {
-            this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text_1));
-            setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg_1));
+            this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.r.search_box_bg_1));
             return;
         }
-        this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text));
-        setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg));
+        this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text));
+        setBackgroundColor(getResources().getColor(com.baidu.tieba.r.search_box_bg));
     }
 
     @Override // android.view.View

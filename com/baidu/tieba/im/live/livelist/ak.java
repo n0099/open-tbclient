@@ -21,23 +21,23 @@ public class ak extends com.baidu.adp.base.f {
     public ak(LiveGroupHistoryActivity liveGroupHistoryActivity) {
         super(liveGroupHistoryActivity);
         this.a = liveGroupHistoryActivity;
-        liveGroupHistoryActivity.setContentView(com.baidu.tieba.w.live_group_history_activity);
+        liveGroupHistoryActivity.setContentView(com.baidu.tieba.v.live_group_history_activity);
         a(liveGroupHistoryActivity);
         b(liveGroupHistoryActivity);
     }
 
     private void a(LiveGroupHistoryActivity liveGroupHistoryActivity) {
-        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.rootView);
-        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.d.a(this.a.getString(com.baidu.tieba.y.live_group_histroy_title));
+        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.u.rootView);
+        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.d.a(this.a.getString(com.baidu.tieba.x.live_group_histroy_title));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     private void b(LiveGroupHistoryActivity liveGroupHistoryActivity) {
-        this.e = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.card_layout);
-        this.f = (LiveBroadcastCard) this.a.findViewById(com.baidu.tieba.v.group_card);
-        this.g = (BdListView) this.a.findViewById(com.baidu.tieba.v.history_list);
-        this.h = (TextView) this.a.findViewById(com.baidu.tieba.v.history_nodata);
+        this.e = (ViewGroup) this.a.findViewById(com.baidu.tieba.u.card_layout);
+        this.f = (LiveBroadcastCard) this.a.findViewById(com.baidu.tieba.u.group_card);
+        this.g = (BdListView) this.a.findViewById(com.baidu.tieba.u.history_list);
+        this.h = (TextView) this.a.findViewById(com.baidu.tieba.u.history_nodata);
         this.b = new ai(this.a);
         this.g.setAdapter((ListAdapter) this.b);
     }

@@ -3,9 +3,9 @@ package com.baidu.tieba.im.updategroup;
 import android.content.Intent;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class d extends com.baidu.adp.framework.listener.b {
+class d extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ UpdateGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ class d extends com.baidu.adp.framework.listener.b {
             aVar = this.a.c;
             aVar.a(false);
             if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
-                this.a.showToast(y.group_update_fail);
+                this.a.showToast(x.group_update_fail);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage;
@@ -33,7 +33,7 @@ class d extends com.baidu.adp.framework.listener.b {
                 this.a.a(responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
                 return;
             }
-            this.a.showToast(y.group_update_success);
+            this.a.showToast(x.group_update_success);
             Intent intent = this.a.getIntent();
             aVar2 = this.a.c;
             intent.putExtra("group_text", aVar2.k());

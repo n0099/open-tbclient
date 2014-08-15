@@ -1,25 +1,17 @@
 package com.baidu.tieba.person;
 
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ay {
-    LinearLayout a;
-    RelativeLayout b;
-    RelativeLayout c;
-    RelativeLayout d;
-    RelativeLayout e;
-    TextView f;
-    TextView g;
+    View a;
+    LinearLayout b;
+    TextView c;
+    LinearLayout d;
+    LinearLayout e;
+    LinearLayout f;
+    ImageView g;
     TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    final /* synthetic */ aw l;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(aw awVar) {
-        this.l = awVar;
-    }
 }

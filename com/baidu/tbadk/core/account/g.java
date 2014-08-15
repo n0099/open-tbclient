@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AccountData;
 public interface g {
     void onBeforeLogin(String str);
 
-    void onFailure(String str, String str2);
+    void onFailure(String str, int i, String str2);
 
     void onSuccess(AccountData accountData);
 }

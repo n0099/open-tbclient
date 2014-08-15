@@ -1,7 +1,15 @@
 package com.baidu.tieba.im.chat;
-
-import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
-public interface bu {
-    void a(LinkedHashMap<String, String> linkedHashMap);
+public class bu {
+    public static long a(long j) {
+        return 1 + j;
+    }
+
+    public static long b(long j) {
+        return 100 * j;
+    }
+
+    public static long c(long j) {
+        return j / 100;
+    }
 }

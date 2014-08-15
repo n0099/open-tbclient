@@ -31,7 +31,7 @@ public class v implements ViewPager.OnPageChangeListener {
         if (indicatorView != null) {
             tVar = this.a.e;
             if (tVar != null) {
-                arrayList = this.a.m;
+                arrayList = this.a.p;
                 if (arrayList.size() > 1) {
                     tVar2 = this.a.e;
                     int count = tVar2.getCount();
@@ -79,7 +79,7 @@ public class v implements ViewPager.OnPageChangeListener {
             tVar = this.a.e;
             if (tVar != null) {
                 if (i == 0) {
-                    arrayList = this.a.m;
+                    arrayList = this.a.p;
                     if (arrayList.size() > 1) {
                         viewPager4 = this.a.c;
                         int currentItem = viewPager4.getCurrentItem();
@@ -96,15 +96,15 @@ public class v implements ViewPager.OnPageChangeListener {
                                 viewPager5.setCurrentItem(1, false);
                                 viewPager6 = this.a.c;
                                 viewPager6.invalidate();
-                                handler3 = this.a.n;
+                                handler3 = this.a.q;
                                 handler3.removeMessages(0);
-                                handler4 = this.a.n;
+                                handler4 = this.a.q;
                                 i3 = q.l;
                                 handler4.sendEmptyMessageDelayed(0, i3);
                             } else {
-                                handler = this.a.n;
+                                handler = this.a.q;
                                 handler.removeMessages(0);
-                                handler2 = this.a.n;
+                                handler2 = this.a.q;
                                 i2 = q.l;
                                 handler2.sendEmptyMessageDelayed(0, i2);
                             }

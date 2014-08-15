@@ -20,24 +20,24 @@ class q extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        LiveRoomChatView z2;
-        LiveRoomChatView z3;
+        LiveRoomChatView x;
+        LiveRoomChatView x2;
         if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
             NetWorkChangeMessage netWorkChangeMessage = (NetWorkChangeMessage) customResponsedMessage;
             if (netWorkChangeMessage.mState == 1 || netWorkChangeMessage.mState == 2) {
-                z = this.a.s;
+                z = this.a.r;
                 if (z) {
-                    z2 = this.a.z();
-                    if (z2.U() != 1 || this.a.x().r) {
+                    x = this.a.x();
+                    if (x.U() != 1 || this.a.v().r) {
                         return;
                     }
-                    this.a.D();
+                    this.a.B();
                     return;
                 }
-                this.a.D();
+                this.a.B();
             } else if (netWorkChangeMessage.mState == 0 || netWorkChangeMessage.mState == -1) {
-                z3 = this.a.z();
-                z3.d(1);
+                x2 = this.a.x();
+                x2.d(1);
                 LivePlayingStatusMgr.a().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
             }
         }

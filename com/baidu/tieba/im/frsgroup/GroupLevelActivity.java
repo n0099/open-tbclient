@@ -9,15 +9,16 @@ import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends BaseActivity {
     private com.baidu.tieba.im.model.l a;
-    private o b;
+    private n b;
     private com.baidu.tbadk.core.dialog.a c;
-    private com.baidu.tbadk.core.dialog.d d = new l(this);
-    private com.baidu.tbadk.core.dialog.d e = new m(this);
-    private com.baidu.adp.framework.listener.b f = new n(this, 0);
+    private com.baidu.tbadk.core.dialog.d d = new k(this);
+    private com.baidu.tbadk.core.dialog.d e = new l(this);
+    private com.baidu.adp.framework.listener.d f = new m(this, 0);
 
-    public static void a(Context context, long j) {
+    public static void a(Context context, long j, boolean z) {
         Intent intent = new Intent(context, GroupLevelActivity.class);
         intent.putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
+        intent.putExtra("is_mem", z);
         ((Activity) context).startActivity(intent);
     }
 
@@ -67,7 +68,7 @@ public class GroupLevelActivity extends BaseActivity {
     }
 
     public void a(Bundle bundle) {
-        this.a = new com.baidu.tieba.im.model.l();
+        this.a = new com.baidu.tieba.im.model.l(this);
         if (bundle == null) {
             this.a.a(getIntent());
         } else {
@@ -78,11 +79,11 @@ public class GroupLevelActivity extends BaseActivity {
     }
 
     private void b(Bundle bundle) {
-        this.b = new o(this);
+        this.b = new n(this, this.a.b());
         this.c = new com.baidu.tbadk.core.dialog.a(this);
-        this.c.b(com.baidu.tieba.y.upgrade_mem_group_if_up);
-        this.c.a(com.baidu.tieba.y.alert_yes_btn, this.d);
-        this.c.b(com.baidu.tieba.y.alert_no_button, this.e);
+        this.c.b(com.baidu.tieba.x.upgrade_mem_group_if_up);
+        this.c.a(com.baidu.tieba.x.alert_yes_btn, this.d);
+        this.c.b(com.baidu.tieba.x.alert_no_button, this.e);
         this.c.a();
     }
 }

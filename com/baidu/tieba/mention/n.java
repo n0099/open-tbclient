@@ -1,21 +1,37 @@
 package com.baidu.tieba.mention;
 
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bg;
 /* loaded from: classes.dex */
-public class n implements AbsListView.OnScrollListener {
-    final /* synthetic */ l a;
+class n implements View.OnClickListener {
+    final /* synthetic */ k a;
+    private String b;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.a = lVar;
+    public n(k kVar) {
+        this.a = kVar;
+        b(null);
+        a(null);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (this.b != null && this.b.length() > 0) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.a.a;
+            messageManager.sendMessage(new CustomMessage(2002003, new bg(context, this.b, this.c)));
+        }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

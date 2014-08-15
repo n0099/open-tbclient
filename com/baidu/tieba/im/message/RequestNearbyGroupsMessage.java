@@ -76,8 +76,8 @@ public class RequestNearbyGroupsMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.lat = Double.valueOf(com.baidu.adp.lib.f.b.a(getLat(), 0.0d));
-        builder.lng = Double.valueOf(com.baidu.adp.lib.f.b.a(getLng(), 0.0d));
+        builder.lat = Double.valueOf(com.baidu.adp.lib.e.b.a(getLat(), 0.0d));
+        builder.lng = Double.valueOf(com.baidu.adp.lib.e.b.a(getLng(), 0.0d));
         builder.geo = Integer.valueOf(getGeo());
         builder.offset = Integer.valueOf(getOffset());
         builder.rn = Integer.valueOf(getRn());

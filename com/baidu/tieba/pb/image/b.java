@@ -18,7 +18,7 @@ class b extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
         BaseViewPager baseViewPager;
         if (aVar != null && i != 1) {
             imagePbActivity = this.a.a;
-            baseViewPager = imagePbActivity.x;
+            baseViewPager = imagePbActivity.w;
             ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
             if (imagePbImageView != null) {
                 imagePbImageView.invalidate();

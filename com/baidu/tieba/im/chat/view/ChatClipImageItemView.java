@@ -8,18 +8,18 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import com.baidu.adp.newwidget.a.g;
-import com.baidu.adp.newwidget.a.i;
+import com.baidu.adp.newwidget.a.h;
 import com.baidu.adp.newwidget.a.j;
-import com.baidu.adp.newwidget.a.l;
+import com.baidu.adp.newwidget.a.k;
+import com.baidu.adp.newwidget.a.n;
 import com.baidu.adp.widget.a.a;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public class ChatClipImageItemView extends TbImageView implements j {
+public class ChatClipImageItemView extends TbImageView implements k {
     public int d;
-    public i e;
+    public j e;
     private boolean f;
     private final Path g;
     private boolean h;
@@ -63,9 +63,9 @@ public class ChatClipImageItemView extends TbImageView implements j {
             }
         }
         if (z) {
-            this.e = new g();
+            this.e = new h();
         } else {
-            this.e = new l();
+            this.e = new n();
         }
         this.e.a(this);
         this.b = this.e;
@@ -112,11 +112,11 @@ public class ChatClipImageItemView extends TbImageView implements j {
         a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.i();
-        i iVar = this.e;
+        j jVar = this.e;
         if (z3 || z2) {
             z = true;
         }
-        iVar.a(z);
+        jVar.a(z);
         return bdImage;
     }
 
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements j {
         return super.getDefaultBdImage();
     }
 
-    @Override // com.baidu.adp.newwidget.a.j
+    @Override // com.baidu.adp.newwidget.a.k
     public Path a(RectF rectF) {
         if (rectF == null) {
             return null;
@@ -179,7 +179,7 @@ public class ChatClipImageItemView extends TbImageView implements j {
         return path;
     }
 
-    @Override // com.baidu.adp.newwidget.a.j
+    @Override // com.baidu.adp.newwidget.a.k
     public void a(Canvas canvas) {
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.Disk.ops;
 
+import com.baidu.adp.lib.Disk.g;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 import java.io.OutputStream;
@@ -20,6 +21,7 @@ public class DiskFileOperate {
     private int m;
     private String n;
     private String o;
+    private g p;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -31,7 +33,8 @@ public class DiskFileOperate {
         DELETE,
         DELETE_FILES,
         INFO,
-        RENAME;
+        RENAME,
+        CUSTOM;
 
         /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
@@ -76,6 +79,7 @@ public class DiskFileOperate {
         this.m = 0;
         this.n = null;
         this.o = null;
+        this.p = null;
         this.f = str;
         this.e = str2;
         this.b = action;
@@ -97,6 +101,7 @@ public class DiskFileOperate {
         this.m = 0;
         this.n = null;
         this.o = null;
+        this.p = null;
         this.f = str;
         this.e = str2;
         this.n = str3;
@@ -217,7 +222,7 @@ public class DiskFileOperate {
     public void m() {
         synchronized (this) {
             if (this.j != null) {
-                com.baidu.adp.lib.f.a.a(this.j);
+                com.baidu.adp.lib.e.a.a(this.j);
                 this.j = null;
             }
         }
@@ -270,5 +275,13 @@ public class DiskFileOperate {
 
     public String t() {
         return this.o;
+    }
+
+    public g u() {
+        return this.p;
+    }
+
+    public void a(g gVar) {
+        this.p = gVar;
     }
 }

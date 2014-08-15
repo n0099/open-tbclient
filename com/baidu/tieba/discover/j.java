@@ -1,16 +1,24 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.tbadk.TbConfig;
+import android.widget.ImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class j {
-    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/found";
-    private l b;
-
-    public j(l lVar) {
-        this.b = lVar;
+class j extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(int i) {
+        super(i);
     }
 
-    public void a() {
-        new k(this.b).execute(new String[0]);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImageView imageView;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
+            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).a;
+            imageView = DiscoverDelegateStatic.c;
+            imageView.setVisibility(z ? 0 : 8);
+        }
     }
 }

@@ -7,6 +7,7 @@ import tbclient.AddFriend.ReqData;
 public class RequestAddFriendMessage extends TbSocketMessage {
     private long friendId;
     private String message;
+    private String st_type;
 
     public long getFriendId() {
         return this.friendId;
@@ -24,6 +25,14 @@ public class RequestAddFriendMessage extends TbSocketMessage {
         this.message = str;
     }
 
+    public String getSt_type() {
+        return this.st_type;
+    }
+
+    public void setSt_type(String str) {
+        this.st_type = str;
+    }
+
     public RequestAddFriendMessage() {
         super(304100);
     }
@@ -33,6 +42,7 @@ public class RequestAddFriendMessage extends TbSocketMessage {
         ReqData.Builder builder = new ReqData.Builder();
         builder.friend_id = Long.valueOf(getFriendId());
         builder.message = getMessage();
+        builder.st_type = getSt_type();
         AddFriendReqIdl.Builder builder2 = new AddFriendReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

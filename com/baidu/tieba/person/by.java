@@ -1,15 +1,84 @@
 package com.baidu.tieba.person;
 
-import java.util.Date;
+import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by {
-    int a;
-    int b;
+public class by extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ PersonChangeActivity a;
+    private com.baidu.tbadk.core.util.ae b = null;
+    private com.baidu.tieba.model.au c;
 
-    public String a() {
-        if (this.a == 0 || this.b == 0) {
-            return null;
+    public by(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.au auVar) {
+        this.a = personChangeActivity;
+        this.c = null;
+        this.c = auVar;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.a.x = null;
+        if (this.b != null) {
+            this.b.f();
         }
-        return String.valueOf(String.format("%.2f", Double.valueOf(this.a / 1000.0d))) + "km | " + com.baidu.tbadk.core.util.bm.a(new Date(), new Date(Long.valueOf(this.b).longValue() * 1000));
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        Boolean bool;
+        this.a.x = null;
+        this.a.closeLoadingDialog();
+        if (this.b != null) {
+            if (this.b.a().b().b()) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.x.success));
+                Intent intent = new Intent();
+                bool = this.a.b;
+                if (bool.booleanValue()) {
+                    intent.putExtra("person_change_data", this.c.a());
+                } else {
+                    intent.putExtra("data", this.c.a());
+                }
+                com.baidu.tieba.ai.c().a(this.c.a());
+                this.a.setResult(-1, intent);
+                this.a.finish();
+            } else {
+                this.a.showToast(this.b.e());
+            }
+        }
+        super.onPostExecute(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        DialogInterface.OnCancelListener onCancelListener;
+        PersonChangeActivity personChangeActivity = this.a;
+        String string = this.a.getString(com.baidu.tieba.x.saving);
+        onCancelListener = this.a.z;
+        personChangeActivity.showLoadingDialog(string, onCancelListener);
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        if (this.c != null) {
+            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
+            this.b.a("sex", String.valueOf(this.c.a().getSex()));
+            this.b.a("intro", this.c.a().getIntro());
+            this.b.i();
+            if (this.b.a().b().b()) {
+                com.baidu.tieba.util.k.c();
+            }
+        }
+        return null;
     }
 }

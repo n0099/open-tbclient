@@ -1,34 +1,21 @@
 package com.baidu.tbadk.core.util;
+
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af {
-    int a;
-    ag b;
-    ag c;
-    ag d;
-    ag e;
-
-    private af() {
-        this.a = 0;
-        this.b = new ag(null);
-        this.c = new ag(null);
-        this.d = new ag(null);
-        this.e = new ag(null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(af afVar) {
-        this();
-    }
-
-    public int a() {
-        return this.b.a + this.c.a + this.d.a + this.e.a;
-    }
-
-    public void b() {
-        this.a = 0;
-        this.b.a();
-        this.c.a();
-        this.d.a();
-        this.e.a();
+public class af extends Handler {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        try {
+            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
+            if (netWorkCore != null) {
+                netWorkCore.b();
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

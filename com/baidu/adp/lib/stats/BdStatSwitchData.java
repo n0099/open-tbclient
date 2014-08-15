@@ -8,7 +8,6 @@ import org.json.JSONObject;
 public class BdStatSwitchData implements Serializable {
     private static final long serialVersionUID = -4426491450548432115L;
     private BdStatFirstSwitchData error;
-    private String mAppVersion;
     private String mData;
     private int uploadInterval;
     private long specifiedExpired = 0;
@@ -101,14 +100,6 @@ public class BdStatSwitchData implements Serializable {
         return this.specifiedExpired > System.currentTimeMillis();
     }
 
-    public String getAppVersion() {
-        return this.mAppVersion;
-    }
-
-    public void setAppVersion(String str) {
-        this.mAppVersion = str;
-    }
-
     public void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -137,9 +128,6 @@ public class BdStatSwitchData implements Serializable {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.debug.setAppVersion(this.mAppVersion);
-                    this.stat.setAppVersion(this.mAppVersion);
-                    this.error.setAppVersion(this.mAppVersion);
                     this.debug.parserJson(optJSONObject.optJSONArray("debug"));
                     this.stat.parserJson(optJSONObject.optJSONArray("stat"));
                     this.error.parserJson(optJSONObject.optJSONArray("error"));

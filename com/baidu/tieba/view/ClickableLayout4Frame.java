@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class ClickableLayout4Frame extends FrameLayout {
-    private g a;
+    private e a;
 
     public ClickableLayout4Frame(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -23,8 +23,8 @@ public class ClickableLayout4Frame extends FrameLayout {
         this.a = null;
     }
 
-    public void setOnkeyUpListener(g gVar) {
-        this.a = gVar;
+    public void setOnkeyUpListener(e eVar) {
+        this.a = eVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View

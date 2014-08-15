@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.LocalPicModel;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk extends com.baidu.adp.base.h {
+public class dk implements DialogInterface.OnClickListener {
     final /* synthetic */ TalkableActivity a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(TalkableActivity talkableActivity) {
+    public dk(TalkableActivity talkableActivity, int i) {
         this.a = talkableActivity;
+        this.b = i;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.a.e != null) {
-                this.a.e.a(responseData.getSPathGen(), responseData.getBitmap(), this.a.k);
-                return;
-            }
-            return;
-        }
-        this.a.showToast(com.baidu.tieba.y.pic_parser_error);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.a.a(this.b);
     }
 }

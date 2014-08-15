@@ -19,8 +19,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.GroupImageView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -36,7 +35,7 @@ public class LiveBroadcastCard extends RelativeLayout {
     private ag b;
     private Context c;
     private ViewGroup d;
-    private HeadImageView e;
+    private GroupImageView e;
     private ViewGroup f;
     private TextView g;
     private ViewGroup h;
@@ -106,34 +105,31 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.c = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.w.livebroadcastcardview, this);
-        this.d = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_root);
-        this.e = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.card_head);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.v.livebroadcastcardview, this);
+        this.d = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_root);
+        this.e = (GroupImageView) inflate.findViewById(com.baidu.tieba.u.card_head);
         this.e.setDrawBorder(true);
-        this.e.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
-        this.e.setNightDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140_1);
-        this.e.setBackgroundColor(0);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_middle);
-        this.g = (TextView) inflate.findViewById(com.baidu.tieba.v.card_name);
-        this.h = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_texts_center);
-        this.i = (TextView) inflate.findViewById(com.baidu.tieba.v.card_listener_count);
-        this.j = (TextView) inflate.findViewById(com.baidu.tieba.v.card_liker_count);
-        this.k = (TextView) inflate.findViewById(com.baidu.tieba.v.card_author);
-        this.l = (TextView) inflate.findViewById(com.baidu.tieba.v.card_intro);
-        this.m = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_right);
-        this.n = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_state);
-        this.o = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_living);
-        this.p = (TextView) inflate.findViewById(com.baidu.tieba.v.card_time);
-        this.q = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_state_willstart_layout);
-        this.r = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_willstart_text);
-        this.s = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_close);
-        this.t = (Button) inflate.findViewById(com.baidu.tieba.v.card_delete);
-        this.u = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_top_image);
-        this.v = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_listener_iamge);
-        this.w = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_liker_image);
+        this.f = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_middle);
+        this.g = (TextView) inflate.findViewById(com.baidu.tieba.u.card_name);
+        this.h = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_texts_center);
+        this.i = (TextView) inflate.findViewById(com.baidu.tieba.u.card_listener_count);
+        this.j = (TextView) inflate.findViewById(com.baidu.tieba.u.card_liker_count);
+        this.k = (TextView) inflate.findViewById(com.baidu.tieba.u.card_author);
+        this.l = (TextView) inflate.findViewById(com.baidu.tieba.u.card_intro);
+        this.m = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_right);
+        this.n = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_state);
+        this.o = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_living);
+        this.p = (TextView) inflate.findViewById(com.baidu.tieba.u.card_time);
+        this.q = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_state_willstart_layout);
+        this.r = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_willstart_text);
+        this.s = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_close);
+        this.t = (Button) inflate.findViewById(com.baidu.tieba.u.card_delete);
+        this.u = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_top_image);
+        this.v = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_listener_iamge);
+        this.w = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_liker_image);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.LiveBroadcastCard);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.LiveBroadcastCard);
             this.x = obtainStyledAttributes.getBoolean(0, false);
             this.y = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
@@ -198,29 +194,29 @@ public class LiveBroadcastCard extends RelativeLayout {
             }
             this.u.setVisibility(this.z ? 0 : 8);
             if (this.A) {
-                bk.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
-                bk.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
-                bk.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
-                bk.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
-                bk.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
-                bk.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
-                bk.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
-                HeadImageView headImageView = this.e;
+                com.baidu.tbadk.core.util.ay.a(this.g, com.baidu.tieba.r.cp_cont_e, 1);
+                com.baidu.tbadk.core.util.ay.a(this.i, com.baidu.tieba.r.cp_cont_e, 1);
+                com.baidu.tbadk.core.util.ay.a(this.j, com.baidu.tieba.r.cp_cont_e, 1);
+                com.baidu.tbadk.core.util.ay.a(this.k, com.baidu.tieba.r.cp_cont_e, 1);
+                com.baidu.tbadk.core.util.ay.a(this.l, com.baidu.tieba.r.cp_cont_e, 1);
+                com.baidu.tbadk.core.util.ay.c(this.v, com.baidu.tieba.t.icon_live_list_pop_d);
+                com.baidu.tbadk.core.util.ay.c(this.w, com.baidu.tieba.t.icon_live_list_like_d);
+                GroupImageView groupImageView = this.e;
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask_1);
+                    color = this.c.getResources().getColor(com.baidu.tieba.r.live_broadcast_card_head_mask_1);
                 } else {
-                    color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask);
+                    color = this.c.getResources().getColor(com.baidu.tieba.r.live_broadcast_card_head_mask);
                 }
-                headImageView.setForegroundColor(color);
+                groupImageView.setForegroundColor(color);
                 return;
             }
-            bk.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
-            bk.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
-            bk.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
-            bk.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
-            bk.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
-            bk.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
-            bk.c(this.w, com.baidu.tieba.u.icon_live_list_like);
+            com.baidu.tbadk.core.util.ay.a(this.g, com.baidu.tieba.r.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.ay.a(this.i, com.baidu.tieba.r.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.ay.a(this.j, com.baidu.tieba.r.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.ay.a(this.k, com.baidu.tieba.r.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.ay.a(this.l, com.baidu.tieba.r.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.ay.c(this.v, com.baidu.tieba.t.icon_live_list_pop);
+            com.baidu.tbadk.core.util.ay.c(this.w, com.baidu.tieba.t.icon_live_list_like);
             this.e.setForegroundColor(0);
         }
     }
@@ -284,9 +280,9 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.o.setVisibility(8);
         this.q.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(com.baidu.tieba.y.live_card_close);
-        bk.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
-        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28));
+        this.s.setText(com.baidu.tieba.x.live_card_close);
+        com.baidu.tbadk.core.util.ay.a(this.s, com.baidu.tieba.r.cp_cont_d, 1);
+        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.s.ds28));
         this.E = 4;
     }
 
@@ -294,28 +290,28 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.o.setVisibility(8);
         this.q.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(com.baidu.tieba.y.live_card_hide);
-        bk.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
-        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
+        this.s.setText(com.baidu.tieba.x.live_card_hide);
+        com.baidu.tbadk.core.util.ay.a(this.s, com.baidu.tieba.r.cp_cont_d, 1);
+        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.s.ds32));
         this.E = 5;
     }
 
     private void f() {
-        this.r.setText(com.baidu.tieba.y.live_card_count_down);
-        bk.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
+        this.r.setText(com.baidu.tieba.x.live_card_count_down);
+        com.baidu.tbadk.core.util.ay.f((View) this.r, com.baidu.tieba.t.bg_live_orange);
         this.E = 2;
     }
 
     private void g() {
         this.p.setText(c(this.B));
-        this.r.setText(com.baidu.tieba.y.live_card_foreshowt);
-        bk.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
+        this.r.setText(com.baidu.tieba.x.live_card_foreshowt);
+        com.baidu.tbadk.core.util.ay.f((View) this.r, com.baidu.tieba.t.bg_live_yellow);
         this.E = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ai(this.c, this.C)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.al(this.c, this.C)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

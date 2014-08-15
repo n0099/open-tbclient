@@ -1,29 +1,21 @@
 package com.baidu.tieba.signall;
 
-import android.graphics.Camera;
-import android.graphics.Matrix;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends Animation {
-    private Camera a = new Camera();
-    private View b;
+public class m implements DialogInterface.OnClickListener {
+    final /* synthetic */ SignAllForumActivity a;
 
-    public m(View view) {
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(SignAllForumActivity signAllForumActivity) {
+        this.a = signAllForumActivity;
     }
 
-    @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
-        int width = this.b.getWidth() / 2;
-        int height = this.b.getHeight() / 2;
-        Matrix matrix = transformation.getMatrix();
-        this.a.save();
-        this.a.translate(0.0f, 0.0f, (-150.0f) * (1.0f - f));
-        this.a.getMatrix(matrix);
-        this.a.restore();
-        matrix.preTranslate(-width, -height);
-        matrix.postTranslate(width, height);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.c;
+        alertDialog.dismiss();
     }
 }

@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
     private TextView a;
@@ -28,16 +28,11 @@ public final class ShareFromPBView extends LinearLayout {
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(w.share_from_pb_view, this);
+        LayoutInflater.from(getContext()).inflate(v.share_from_pb_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(v.chat_title);
-        this.b = (HeadImageView) findViewById(v.chat_group_img);
-        this.c = (TextView) findViewById(v.chat_group_desc);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
+        this.a = (TextView) findViewById(u.chat_title);
+        this.b = (HeadImageView) findViewById(u.chat_group_img);
+        this.c = (TextView) findViewById(u.chat_group_desc);
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
@@ -47,8 +42,9 @@ public final class ShareFromPBView extends LinearLayout {
 
     private void b() {
         this.a.setText(this.d.getTitle());
-        this.b.setDefaultResource(u.pic_avatar_ba_140);
-        this.b.setTag(this.d.getImageUrl());
+        this.b.setDefaultResource(t.icon_default_ba_120);
+        this.b.setAutoChangeStyle(false);
+        this.b.a(this.d.getImageUrl(), 10, false);
         this.c.setText(this.d.getContent());
     }
 }

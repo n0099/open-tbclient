@@ -11,8 +11,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LiveRoomReplayPlayer extends RelativeLayout {
     private Context a;
@@ -56,16 +56,16 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
     private void a(Context context) {
         this.a = context;
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.b.inflate(w.live_room_replay_player, (ViewGroup) this, true);
-        this.d = (HeadImageView) this.c.findViewById(v.live_room_replay_player_hosthead);
+        this.c = this.b.inflate(v.live_room_replay_player, (ViewGroup) this, true);
+        this.d = (HeadImageView) this.c.findViewById(u.live_room_replay_player_hosthead);
         this.d.setIsRound(true);
-        this.e = (TextView) this.c.findViewById(v.live_room_replay_player_hostname);
-        this.f = (TextView) this.c.findViewById(v.live_room_replay_player_hostlike);
-        this.g = (TextView) this.c.findViewById(v.live_chat_room_player_position);
-        this.i = (TextView) this.c.findViewById(v.live_chat_room_player_duration);
-        this.j = (ImageView) this.c.findViewById(v.live_room_replay_player_pauseorplay);
+        this.e = (TextView) this.c.findViewById(u.live_room_replay_player_hostname);
+        this.f = (TextView) this.c.findViewById(u.live_room_replay_player_hostlike);
+        this.g = (TextView) this.c.findViewById(u.live_chat_room_player_position);
+        this.i = (TextView) this.c.findViewById(u.live_chat_room_player_duration);
+        this.j = (ImageView) this.c.findViewById(u.live_room_replay_player_pauseorplay);
         j.a(this.a, this.j, 10, 10, 10, 10);
-        this.h = (SeekBar) this.c.findViewById(v.live_room_replay_player_seekbar);
+        this.h = (SeekBar) this.c.findViewById(u.live_room_replay_player_seekbar);
         this.h.setOnSeekBarChangeListener(this.m);
     }
 

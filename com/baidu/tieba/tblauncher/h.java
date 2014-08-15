@@ -1,33 +1,67 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class h extends HttpMessageListener {
+class h extends PagerAdapter {
     final /* synthetic */ GuideActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(GuideActivity guideActivity, int i) {
-        super(i);
+    private h(GuideActivity guideActivity) {
         this.a = guideActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001520) {
-            this.a.a = false;
-        } else if (httpResponsedMessage.getError() == 0) {
-            if (((ShowNewUserGuideResponseMessage) httpResponsedMessage).isJump == 1) {
-                this.a.a = true;
-                return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ h(GuideActivity guideActivity, h hVar) {
+        this(guideActivity);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        ArrayList arrayList;
+        arrayList = this.a.e;
+        return arrayList.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(View view, int i) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        arrayList = this.a.e;
+        if (i < arrayList.size()) {
+            arrayList2 = this.a.e;
+            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
+            arrayList3 = this.a.e;
+            if (i == arrayList3.size() - 1) {
+                arrayList5 = this.a.e;
+                ((View) arrayList5.get(i)).setOnClickListener(this.a.b);
             }
-            this.a.a = false;
-            com.baidu.tbadk.core.sharedPref.b.a().c("jump_to_new_user_guide", false);
-        } else {
-            this.a.a = false;
+            arrayList4 = this.a.e;
+            return arrayList4.get(i);
         }
+        View view2 = new View(this.a);
+        view2.setBackgroundColor(-1);
+        ((ViewPager) view).addView(view2, 0);
+        return view2;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView((View) obj);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
     }
 }

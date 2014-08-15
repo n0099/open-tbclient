@@ -1,81 +1,178 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.chat.officialBar.OfficialSettingItemData;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tbadk.img.d {
-    final /* synthetic */ MsglistModel a;
+public class ar extends com.baidu.adp.base.e {
+    private final LinkedList<ImMessageCenterShowItemData> a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(MsglistModel msglistModel) {
-        this.a = msglistModel;
+    public ar(Context context) {
+        super(context);
+        this.a = new LinkedList<>();
     }
 
-    @Override // com.baidu.tbadk.img.d
-    public synchronized void a(String str, ImageUploadResult imageUploadResult) {
-        HashMap hashMap;
-        com.baidu.tbadk.img.a aVar;
-        ChatMessage chatMessage;
-        String str2;
-        int i;
-        String str3;
-        bb bbVar;
-        bb bbVar2;
-        int i2 = 0;
-        synchronized (this) {
-            synchronized (MsglistModel.class) {
-                hashMap = this.a.d;
-                aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
-            }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.c()) != null) {
-                if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
-                    long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
-                    if (imageUploadResult != null) {
-                        TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload pic http fail", imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis);
-                    } else {
-                        TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
+    public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.chat.notify.a aVar) {
+        if (imMessageCenterShowItemData != null) {
+            String friendId = imMessageCenterShowItemData.getFriendId();
+            String ownerName = imMessageCenterShowItemData.getOwnerName();
+            if (!TextUtils.isEmpty(friendId) && !TextUtils.isEmpty(ownerName)) {
+                Iterator<ImMessageCenterShowItemData> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    this.a.e(chatMessage);
-                    if (chatMessage instanceof CommonGroupChatMessage) {
-                        com.baidu.tieba.im.i.a(new as(this, (CommonGroupChatMessage) chatMessage), null);
-                    } else if (chatMessage instanceof PersonalChatMessage) {
-                        com.baidu.tieba.im.i.a(new at(this, (PersonalChatMessage) chatMessage), null);
-                    } else if (chatMessage instanceof OfficialChatMessage) {
-                        com.baidu.tieba.im.i.a(new au(this, (OfficialChatMessage) chatMessage), null);
-                    }
-                } else {
-                    long currentTimeMillis2 = System.currentTimeMillis() - chatMessage.getLogTime();
-                    if (imageUploadResult.picInfo.bigPic == null) {
-                        str2 = "";
-                    } else {
-                        str2 = imageUploadResult.picInfo.bigPic.picUrl;
-                    }
-                    TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload pic http suc bigUrl: " + str2, imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis2);
-                    String str4 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
-                    if (imageUploadResult.picInfo.smallPic != null) {
-                        str3 = imageUploadResult.picInfo.smallPic.picUrl;
-                        i2 = imageUploadResult.picInfo.smallPic.width;
-                        i = imageUploadResult.picInfo.smallPic.height;
-                        this.a.a(str, str3);
-                    } else {
-                        i = 0;
-                        str3 = null;
-                    }
-                    chatMessage.setContent(this.a.a(str4, str3, i2, i));
-                    com.baidu.tieba.im.chat.w.b().a(chatMessage);
-                    bbVar = this.a.g;
-                    if (bbVar != null) {
-                        bbVar2 = this.a.g;
-                        bbVar2.a(1);
+                    ImMessageCenterShowItemData next = it.next();
+                    if (next != null && friendId.equals(next.getFriendId()) && ownerName.equals(next.getOwnerName())) {
+                        this.a.remove(next);
+                        break;
                     }
                 }
+                if (aVar != null) {
+                    aVar.a();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new com.baidu.tieba.im.message.h(friendId, 4, false)));
             }
         }
+    }
+
+    private ImMessageCenterShowItemData a(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        if (imMessageCenterPojo == null) {
+            return null;
+        }
+        if (imMessageCenterPojo.getIs_hidden() == 1 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || imMessageCenterPojo.getLast_content_time() == 0) {
+            return null;
+        }
+        if (imMessageCenterShowItemData == null) {
+            imMessageCenterShowItemData = new ImMessageCenterShowItemData();
+        }
+        imMessageCenterShowItemData.setFriendId(imMessageCenterPojo.getGid());
+        imMessageCenterShowItemData.setOwnerId(TbadkApplication.getCurrentAccount());
+        imMessageCenterShowItemData.setFriendName(imMessageCenterPojo.getGroup_name());
+        imMessageCenterShowItemData.setFriendPortrait(imMessageCenterPojo.getGroup_head());
+        imMessageCenterShowItemData.setServerTime(imMessageCenterPojo.getLast_content_time());
+        imMessageCenterShowItemData.setUnReadCount(imMessageCenterPojo.getUnread_count());
+        imMessageCenterShowItemData.setSendStatus(imMessageCenterPojo.getSend_status());
+        if (TextUtils.isEmpty(imMessageCenterPojo.getLast_content())) {
+            imMessageCenterPojo.setLast_content("");
+            imMessageCenterShowItemData.setUnReadCount(0);
+        }
+        imMessageCenterShowItemData.setMsgContent(imMessageCenterPojo.getLast_content());
+        return imMessageCenterShowItemData;
+    }
+
+    public void a(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tieba.im.chat.notify.a aVar) {
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid()) && imMessageCenterPojo.getCustomGroupType() == 4) {
+            int size = this.a.size();
+            int i = 0;
+            while (true) {
+                if (i >= size) {
+                    imMessageCenterShowItemData = null;
+                    break;
+                } else if (!imMessageCenterPojo.getGid().equals(this.a.get(i).getFriendId())) {
+                    i++;
+                } else {
+                    imMessageCenterShowItemData = this.a.remove(i);
+                    break;
+                }
+            }
+            b(imMessageCenterPojo, imMessageCenterShowItemData);
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void b(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tieba.im.chat.notify.a aVar) {
+        if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid()) && imMessageCenterPojo.getCustomGroupType() == 4) {
+            int size = this.a.size();
+            int i = 0;
+            while (true) {
+                if (i >= size) {
+                    break;
+                } else if (!imMessageCenterPojo.getGid().equals(this.a.get(i).getFriendId())) {
+                    i++;
+                } else {
+                    this.a.remove(i);
+                    break;
+                }
+            }
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void a(List<ImMessageCenterPojo> list, com.baidu.tieba.im.chat.notify.a aVar) {
+        this.a.clear();
+        if (list == null) {
+            if (aVar != null) {
+                aVar.a();
+                return;
+            }
+            return;
+        }
+        for (ImMessageCenterPojo imMessageCenterPojo : list) {
+            if (a(imMessageCenterPojo)) {
+                b(imMessageCenterPojo, (ImMessageCenterShowItemData) null);
+            }
+        }
+        if (aVar != null) {
+            aVar.a();
+        }
+    }
+
+    private void b(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        ImMessageCenterShowItemData a;
+        if (a(imMessageCenterPojo) && (a = a(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
+            a.setSendStatus(imMessageCenterPojo.getSend_status());
+            OfficialSettingItemData b = com.baidu.tieba.im.chat.officialBar.ay.a().b(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (b != null) {
+                a.setGroupSetting(b);
+            }
+            a(a, this.a);
+        }
+    }
+
+    private boolean a(ImMessageCenterPojo imMessageCenterPojo) {
+        return imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4;
+    }
+
+    public LinkedList<ImMessageCenterShowItemData> a() {
+        return this.a;
+    }
+
+    private void a(ImMessageCenterShowItemData imMessageCenterShowItemData, List<ImMessageCenterShowItemData> list) {
+        if (imMessageCenterShowItemData != null && list != null) {
+            int size = list.size();
+            int i = 0;
+            while (i < size) {
+                ImMessageCenterShowItemData imMessageCenterShowItemData2 = list.get(i);
+                if (imMessageCenterShowItemData2 != null && imMessageCenterShowItemData2.getServerTime() < imMessageCenterShowItemData.getServerTime()) {
+                    break;
+                }
+                i++;
+            }
+            list.add(i, imMessageCenterShowItemData);
+        }
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

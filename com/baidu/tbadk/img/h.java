@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
@@ -27,7 +27,7 @@ public class h {
     private Object l;
     private int a = 102400;
     private String h = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
-    private aq i = null;
+    private ae i = null;
 
     public h(String str) {
         this.f = str;
@@ -51,7 +51,7 @@ public class h {
     public void a() {
         this.g = true;
         if (this.i != null) {
-            this.i.g();
+            this.i.f();
         }
     }
 
@@ -97,20 +97,20 @@ public class h {
             b = this.j.b(imageFileInfo, true);
         }
         imageFileInfo.setPageActionsList(pageActionsList);
-        if (b != null && (a = z.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
+        if (b != null && (a = s.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
             return a(a);
         }
         return null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:110:0x039c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x03a7, code lost:
         r4 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:111:0x039d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x03a8, code lost:
         r4 = null;
         r3 = r4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x03ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x03b8, code lost:
         r3 = r10;
         r4 = r11;
      */
@@ -156,8 +156,8 @@ public class h {
         r4 = null;
         r3 = r10;
      */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x02c7 A[Catch: all -> 0x037b, TryCatch #6 {all -> 0x037b, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:95:0x0372, B:91:0x0353, B:93:0x035e, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:122:0x00d2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0372 A[Catch: all -> 0x037b, TRY_ENTER, TRY_LEAVE, TryCatch #6 {all -> 0x037b, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:95:0x0372, B:91:0x0353, B:93:0x035e, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:122:0x00d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x02c7 A[Catch: all -> 0x0386, TryCatch #4 {all -> 0x0386, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:98:0x037d, B:91:0x0353, B:93:0x035c, B:94:0x0366, B:96:0x036c, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:119:0x00d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x037d A[Catch: all -> 0x0386, TRY_ENTER, TRY_LEAVE, TryCatch #4 {all -> 0x0386, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:98:0x037d, B:91:0x0353, B:93:0x035c, B:94:0x0366, B:96:0x036c, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:119:0x00d2 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -175,7 +175,7 @@ public class h {
             try {
                 File file = new File(str);
                 long length = file.length();
-                String a = bm.a(z.a(file));
+                String a = ba.a(s.a(file));
                 sb.append("path=");
                 sb.append(str);
                 sb.append("|length=");
@@ -186,7 +186,7 @@ public class h {
                     imageUploadResult = new ImageUploadResult();
                     try {
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.file_not_exist);
+                        imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(x.file_not_exist);
                         TiebaStatic.imgError("", TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult.error_msg, sb.toString());
                     } catch (Exception e2) {
                         randomAccessFile = null;
@@ -197,7 +197,7 @@ public class h {
                             BdLog.e(e.getMessage());
                         }
                         TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.f) + "ex: " + e.getMessage(), sb.toString());
-                        com.baidu.adp.lib.f.a.a(randomAccessFile);
+                        com.baidu.adp.lib.e.a.a(randomAccessFile);
                         this.i = null;
                         return imageUploadResult;
                     }
@@ -250,7 +250,7 @@ public class h {
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
-                                        this.i = new aq(TbConfig.UPLOAD_IMG_URL);
+                                        this.i = new ae(TbConfig.UPLOAD_IMG_URL);
                                         this.i.a("resourceId", str2);
                                         this.i.a("chunkNo", String.valueOf(i3));
                                         if (i3 >= j2) {
@@ -271,7 +271,7 @@ public class h {
                                         if (bArr != null) {
                                             this.i.a("chunk", bArr);
                                         }
-                                        imageUploadResult2 = ImageUploadResult.parser(this.i.j());
+                                        imageUploadResult2 = ImageUploadResult.parser(this.i.i());
                                         if (imageUploadResult2 == null) {
                                             break;
                                         }
@@ -288,8 +288,9 @@ public class h {
                                             } else {
                                                 int i5 = i3 + 1;
                                                 long j4 = j3 + i4;
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.a) : j4;
                                                 if (this.k != null) {
-                                                    this.k.a(str, this.l, j4, length);
+                                                    this.k.a(str, this.l, j5, length);
                                                 }
                                                 i = i5;
                                                 j = j4;
@@ -316,18 +317,18 @@ public class h {
                                     e = e4;
                                 }
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            com.baidu.adp.lib.f.a.a(randomAccessFile);
-                            this.i = null;
-                            throw th;
+                        } catch (Exception e5) {
+                            e = e5;
+                            imageUploadResult = null;
                         }
-                    } catch (Exception e5) {
-                        e = e5;
-                        imageUploadResult = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.baidu.adp.lib.e.a.a(randomAccessFile);
+                        this.i = null;
+                        throw th;
                     }
                 }
-                com.baidu.adp.lib.f.a.a(randomAccessFile2);
+                com.baidu.adp.lib.e.a.a(randomAccessFile2);
                 this.i = null;
             } catch (Throwable th3) {
                 randomAccessFile = null;

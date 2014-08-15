@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.editortool.e {
-    private LinkedList<com.baidu.tbadk.editortool.ae> a;
+    private LinkedList<com.baidu.tbadk.editortool.ad> a;
 
     @Override // com.baidu.tbadk.editortool.e
     public int a() {
@@ -15,7 +15,7 @@ public class a extends com.baidu.tbadk.editortool.e {
 
     @Override // com.baidu.tbadk.editortool.e
     public void a(com.baidu.tbadk.editortool.f fVar) {
-        if (com.baidu.tbadk.core.util.z.a() && this.a != null) {
+        if (com.baidu.tbadk.core.util.s.a() && this.a != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.editortool.e {
     public synchronized void a(List<com.baidu.tbadk.editortool.x> list) {
         if (list != null) {
             if (!list.isEmpty()) {
-                LinkedList<com.baidu.tbadk.editortool.ae> linkedList = new LinkedList<>();
+                LinkedList<com.baidu.tbadk.editortool.ad> linkedList = new LinkedList<>();
                 boolean z = false;
                 for (com.baidu.tbadk.editortool.x xVar : list) {
                     if (!TextUtils.isEmpty(xVar.getGroupId()) && xVar.IsValid()) {
@@ -52,13 +52,13 @@ public class a extends com.baidu.tbadk.editortool.e {
                 }
                 this.a = linkedList;
                 if (z) {
-                    com.baidu.tbadk.editortool.ab.a().b();
+                    com.baidu.tbadk.editortool.aa.a().b();
                 }
             }
         }
         if (this.a != null) {
             this.a = null;
-            com.baidu.tbadk.editortool.ab.a().b();
+            com.baidu.tbadk.editortool.aa.a().b();
         }
     }
 }

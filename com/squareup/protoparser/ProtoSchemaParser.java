@@ -15,7 +15,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class ProtoSchemaParser {
     private static final int MAX_TAG_VALUE = 536870911;
@@ -641,7 +640,7 @@ public final class ProtoSchemaParser {
                 break;
             }
             String readComment = readComment();
-            str = str == null ? readComment : str + IOUtils.LINE_SEPARATOR_UNIX + readComment;
+            str = str == null ? readComment : str + "\n" + readComment;
         }
         return str != null ? str : "";
     }

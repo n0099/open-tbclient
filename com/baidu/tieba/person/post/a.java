@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bk;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
@@ -31,17 +31,17 @@ class a implements View.OnClickListener {
     private int o;
 
     public a(View view) {
-        this.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.top_line);
-        this.b = (HeadImageView) view.findViewById(com.baidu.tieba.v.portrait);
-        this.c = (TextView) view.findViewById(com.baidu.tieba.v.username);
-        this.d = (TextView) view.findViewById(com.baidu.tieba.v.reply_time);
-        this.e = (TextView) view.findViewById(com.baidu.tieba.v.forum_name);
-        this.f = (TextView) view.findViewById(com.baidu.tieba.v.reply_count);
-        this.i = (LinearLayout) view.findViewById(com.baidu.tieba.v.item_content);
-        this.j = (ColumnLayout) view.findViewById(com.baidu.tieba.v.item_header);
-        this.k = (ColumnLayout) view.findViewById(com.baidu.tieba.v.item_footer);
-        this.g = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_thread);
-        this.h = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_child);
+        this.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.top_line);
+        this.b = (HeadImageView) view.findViewById(com.baidu.tieba.u.portrait);
+        this.c = (TextView) view.findViewById(com.baidu.tieba.u.username);
+        this.d = (TextView) view.findViewById(com.baidu.tieba.u.reply_time);
+        this.e = (TextView) view.findViewById(com.baidu.tieba.u.forum_name);
+        this.f = (TextView) view.findViewById(com.baidu.tieba.u.reply_count);
+        this.i = (LinearLayout) view.findViewById(com.baidu.tieba.u.item_content);
+        this.j = (ColumnLayout) view.findViewById(com.baidu.tieba.u.item_header);
+        this.k = (ColumnLayout) view.findViewById(com.baidu.tieba.u.item_footer);
+        this.g = (LinearLayout) view.findViewById(com.baidu.tieba.u.person_thread);
+        this.h = (LinearLayout) view.findViewById(com.baidu.tieba.u.person_child);
         this.o = com.baidu.adp.lib.util.j.a(view.getContext(), 42.0f);
         if (this.i != null) {
             this.i.setOnClickListener(this);
@@ -57,9 +57,9 @@ class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.v.forum_name) {
+        if (view.getId() == com.baidu.tieba.u.forum_name) {
             if (view.getContext() instanceof BaseActivity) {
-                ((BaseActivity) view.getContext()).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.r(view.getContext()).a((String) view.getTag(), "")));
+                ((BaseActivity) view.getContext()).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(view.getContext()).a((String) view.getTag(), "")));
             }
         } else if (this.n != null) {
             this.n.a(view);
@@ -101,7 +101,7 @@ class a implements View.OnClickListener {
                             String str7 = postList.user_name;
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.post_id);
-                            String a = bm.a(postList.create_time * 1000);
+                            String a = ba.a(postList.create_time * 1000);
                             String str8 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str7;
@@ -113,7 +113,7 @@ class a implements View.OnClickListener {
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.content[0].post_id);
                             strArr[2] = String.valueOf(postList.content[0].post_type);
-                            String a2 = bm.a(postList.create_time * 1000);
+                            String a2 = ba.a(postList.create_time * 1000);
                             String str10 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str9;
@@ -188,17 +188,17 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        bk.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
-        bk.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
-        bk.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
-        bk.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
-        bk.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
+        ay.a(this.e, com.baidu.tieba.r.cp_cont_d, 1);
+        ay.a(this.d, com.baidu.tieba.r.cp_cont_d, 1);
+        ay.a(this.c, com.baidu.tieba.r.cp_cont_f, 1);
+        ay.f(this.g, com.baidu.tieba.r.cp_bg_line_c);
+        ay.f(this.h, com.baidu.tieba.t.daily_recommend_item_selector);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c_1));
+            this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.t.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.r.cp_link_tip_c_1));
             return;
         }
-        this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c));
+        this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.t.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.r.cp_link_tip_c));
     }
 }

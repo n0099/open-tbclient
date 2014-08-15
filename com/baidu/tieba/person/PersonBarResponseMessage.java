@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private t data;
+    private s data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +22,14 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public PersonBarResponseMessage(int i) {
         super(i);
         this.errCode = 0;
-        this.data = new t();
+        this.data = new s();
     }
 
-    public void setPersonBarData(t tVar) {
-        this.data = tVar;
+    public void setPersonBarData(s sVar) {
+        this.data = sVar;
     }
 
-    public t getPersonBarData() {
+    public s getPersonBarData() {
         return this.data;
     }
 
@@ -55,7 +55,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.s<String> q;
+        com.baidu.adp.lib.cache.t<String> b;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -65,8 +65,8 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (q = com.baidu.tbadk.core.a.b.a().q()) != null) {
-                        q.a(str, parseToString, 604800000L);
+                    if (parseToString != null && (b = com.baidu.tbadk.core.a.a.a().b("tb.my_pages")) != null) {
+                        b.a(str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

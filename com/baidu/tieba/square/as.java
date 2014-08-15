@@ -7,7 +7,7 @@ public class as extends BdAsyncTask<Object, am, am> {
     final /* synthetic */ aq a;
     private int c;
     private com.baidu.tieba.a.c b = null;
-    private com.baidu.adp.lib.cache.s<String> d = null;
+    private com.baidu.adp.lib.cache.t<String> d = null;
 
     public as(aq aqVar, int i) {
         this.a = aqVar;
@@ -24,7 +24,7 @@ public class as extends BdAsyncTask<Object, am, am> {
         am amVar;
         String str = null;
         this.b = new com.baidu.tieba.a.c();
-        this.d = com.baidu.tbadk.core.a.b.a().r();
+        this.d = com.baidu.tbadk.core.a.a.a().b("tb.square");
         if (this.c == 0) {
             String a = this.d.a("square_cache_key");
             if (a == null) {

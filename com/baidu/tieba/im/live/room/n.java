@@ -27,7 +27,7 @@ class n implements com.baidu.tieba.im.a<Boolean> {
                 gVar = this.a.d;
                 gVar.N();
             }
-            if (this.a.x() != null && this.b != null) {
+            if (this.a.v() != null && this.b != null) {
                 String name = this.b.getName();
                 if (!TextUtils.isEmpty(name)) {
                     gVar2 = this.a.d;

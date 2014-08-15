@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.o> {
     com.baidu.tieba.square.o a;
     final /* synthetic */ c b;
-    private aq c;
+    private ae c;
 
     private d(c cVar) {
         this.b = cVar;
@@ -49,15 +49,15 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.o> {
         String str;
         String str2;
         String str3;
-        String i;
+        String h;
         String str4;
         String str5;
         String str6 = null;
-        com.baidu.adp.lib.cache.s<String> p = com.baidu.tbadk.core.a.b.a().p();
-        if (p != null) {
+        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.my_posts");
+        if (b != null) {
             StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
             str5 = this.b.c;
-            str6 = p.a(append.append(str5).append("_dir").toString());
+            str6 = b.a(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
             this.a.b(str6);
@@ -65,34 +65,34 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.o> {
             publishProgress(new Integer[0]);
         }
         try {
-            this.c = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            aq aqVar = this.c;
+            this.c = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
+            ae aeVar = this.c;
             str = this.b.c;
-            aqVar.a("menu_name", str);
-            aq aqVar2 = this.c;
+            aeVar.a("menu_name", str);
+            ae aeVar2 = this.c;
             str2 = this.b.d;
-            aqVar2.a("menu_type", str2);
-            aq aqVar3 = this.c;
+            aeVar2.a("menu_type", str2);
+            ae aeVar3 = this.c;
             str3 = this.b.e;
-            aqVar3.a("menu_id", str3);
-            i = this.c.i();
+            aeVar3.a("menu_id", str3);
+            h = this.c.h();
         } catch (Exception e) {
             this.a.a(e.getMessage());
             BdLog.detailException(e);
         }
-        if (i == null) {
+        if (h == null) {
             return this.a;
         }
         if (this.c.a().b().b()) {
-            this.a.b(i);
+            this.a.b(h);
             this.b.f = true;
-            if (p != null) {
+            if (b != null) {
                 StringBuilder append2 = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
                 str4 = this.b.c;
-                p.a(append2.append(str4).append("_dir").toString(), i, 86400000L);
+                b.a(append2.append(str4).append("_dir").toString(), h, 86400000L);
             }
         } else {
-            this.a.a(this.c.f());
+            this.a.a(this.c.e());
             this.b.f = false;
         }
         return this.a;
@@ -128,7 +128,7 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.o> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.g();
+            this.c.f();
             this.c = null;
         }
     }

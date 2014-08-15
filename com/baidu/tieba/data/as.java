@@ -1,70 +1,36 @@
 package com.baidu.tieba.data;
 
-import android.graphics.Color;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bm;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class as {
-    private String d;
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private boolean h = false;
-    private long e = 0;
-    private final UserData f = new UserData();
-    private String g = null;
-    private boolean i = true;
+    private ArrayList<ae> a;
 
-    public boolean a() {
-        return this.i;
+    public as() {
+        a(new ArrayList<>());
     }
 
-    public String b() {
-        return this.b;
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    ae aeVar = new ae();
+                    aeVar.a(jSONArray.getJSONObject(i));
+                    this.a.add(aeVar);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return;
+                }
+            }
+        }
     }
 
-    public String c() {
+    public ArrayList<ae> a() {
         return this.a;
     }
 
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
-        return this.c;
-    }
-
-    public String f() {
-        return this.g;
-    }
-
-    public long g() {
-        return this.e;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optString("pid");
-                this.h = jSONObject.optInt("is_floor", 0) != 0;
-                this.e = jSONObject.optLong("time", 0L) * 1000;
-                this.f.parserJson(jSONObject.optJSONObject("author"));
-                this.g = jSONObject.optString("content");
-                this.d = jSONObject.optString("fname");
-                this.c = bm.a(this.c, (Color) null);
-                String a = bm.a(this.g, (Color) null);
-                if (!a.equals(this.g)) {
-                    this.g = a;
-                    this.i = false;
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public void a(ArrayList<ae> arrayList) {
+        this.a = arrayList;
     }
 }

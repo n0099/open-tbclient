@@ -11,7 +11,6 @@ import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class an extends Thread {
     private static long f = 0;
@@ -300,7 +299,7 @@ public class an extends Thread {
     private Map<String, String> e(byte[] bArr) {
         String str = new String(bArr, "UTF-8");
         HashMap hashMap = new HashMap();
-        String[] split = str.split(IOUtils.LINE_SEPARATOR_WINDOWS);
+        String[] split = str.split("\r\n");
         for (String str2 : split) {
             if (str2.length() > 0) {
                 String[] split2 = str2.split(": ");

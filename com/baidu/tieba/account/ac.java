@@ -17,11 +17,13 @@ public class ac extends AuthorizationListener {
     public void onSuccess() {
         com.baidu.tbadk.core.account.g gVar;
         SapiAccount session = SapiAccountManager.getInstance().getSession();
-        String str = session.username;
-        String str2 = session.bduss;
-        String str3 = session.ptoken;
-        gVar = this.a.c;
-        com.baidu.tbadk.core.account.f.a(str, str2, str3, gVar);
+        if (session != null) {
+            String str = session.username;
+            String str2 = session.bduss;
+            String str3 = session.ptoken;
+            gVar = this.a.c;
+            com.baidu.tbadk.core.account.f.a(str, str2, str3, gVar);
+        }
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -29,7 +31,7 @@ public class ac extends AuthorizationListener {
         if (str != null && !"".equals(str)) {
             this.a.showToast(str);
         } else {
-            this.a.showToast(com.baidu.tieba.y.data_load_error);
+            this.a.showToast(com.baidu.tieba.x.data_load_error);
         }
         this.a.finish();
     }

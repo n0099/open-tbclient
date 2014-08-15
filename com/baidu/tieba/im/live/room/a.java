@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseLiveGroupLikeListMessage;
 import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
 /* loaded from: classes.dex */
-class a extends com.baidu.adp.framework.listener.b {
+class a extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ LiveGroupLikeListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,7 +33,7 @@ class a extends com.baidu.adp.framework.listener.b {
         e eVar2;
         this.a.hideProgressBar();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.y.neterror);
+            this.a.showToast(com.baidu.tieba.x.neterror);
         } else if (socketResponsedMessage.getCmd() == 107006 && (socketResponsedMessage instanceof ResponseLiveGroupLikeListMessage)) {
             dVar = this.a.c;
             dVar.g();

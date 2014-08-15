@@ -1,34 +1,35 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.searchfriend.cache.RequestRecommendWriteMessage;
 /* loaded from: classes.dex */
-public class c implements View.OnFocusChangeListener {
+class c extends CustomMessageListener {
     final /* synthetic */ SearchFriendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(SearchFriendActivity searchFriendActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(SearchFriendActivity searchFriendActivity, int i) {
+        super(i);
         this.a = searchFriendActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        if (z) {
-            SearchFriendActivity searchFriendActivity = this.a;
-            inputMethodManager2 = this.a.a;
-            editText2 = this.a.d;
-            searchFriendActivity.ShowSoftKeyPad(inputMethodManager2, editText2);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        l lVar;
+        l lVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof s)) {
+            s sVar = (s) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(sVar.a) && !TextUtils.isEmpty(sVar.b)) {
+                lVar = this.a.d;
+                lVar.a(sVar.a, sVar.b);
+                SearchFriendActivity searchFriendActivity = this.a;
+                lVar2 = this.a.d;
+                searchFriendActivity.sendMessage(new RequestRecommendWriteMessage(lVar2.a()));
+            }
         }
-        SearchFriendActivity searchFriendActivity2 = this.a;
-        inputMethodManager = this.a.a;
-        editText = this.a.d;
-        searchFriendActivity2.HidenSoftKeyPad(inputMethodManager, editText);
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
 import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
+class j implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +10,14 @@ public class j implements View.OnClickListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
         EditText editText;
+        EditText editText2;
         editText = this.a.c;
-        editText.setText("");
-        this.a.A = "";
+        editText.requestFocus();
+        SquareSearchActivity squareSearchActivity = this.a;
+        editText2 = this.a.c;
+        com.baidu.adp.lib.util.j.b(squareSearchActivity, editText2);
     }
 }
