@@ -1,7 +1,6 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -66,15 +65,14 @@ public class aw extends BaseAdapter {
     }
 
     private View a() {
-        LayoutInflater from = LayoutInflater.from(this.a);
         ax axVar = new ax(this, null);
-        View inflate = from.inflate(com.baidu.tieba.v.face_purchase_record_item, (ViewGroup) null);
-        axVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.u.cover);
-        axVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.title);
-        axVar.c = (TextView) inflate.findViewById(com.baidu.tieba.u.time);
-        axVar.d = (TextView) inflate.findViewById(com.baidu.tieba.u.price);
-        inflate.setTag(axVar);
-        return inflate;
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.face_purchase_record_item, null);
+        axVar.a = (TbImageView) a.findViewById(com.baidu.tieba.u.cover);
+        axVar.b = (TextView) a.findViewById(com.baidu.tieba.u.title);
+        axVar.c = (TextView) a.findViewById(com.baidu.tieba.u.time);
+        axVar.d = (TextView) a.findViewById(com.baidu.tieba.u.price);
+        a.setTag(axVar);
+        return a;
     }
 
     private void a(int i, ax axVar) {

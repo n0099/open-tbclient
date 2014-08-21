@@ -211,7 +211,7 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
                 }
             }
             RequestLiveGroupOwnerGagMessage requestLiveGroupOwnerGagMessage = new RequestLiveGroupOwnerGagMessage();
-            requestLiveGroupOwnerGagMessage.setGroupId(com.baidu.adp.lib.e.b.a(str, 0));
+            requestLiveGroupOwnerGagMessage.setGroupId(com.baidu.adp.lib.e.c.a(str, 0));
             requestLiveGroupOwnerGagMessage.setType(i);
             requestLiveGroupOwnerGagMessage.setUserIds(sb.toString());
             requestLiveGroupOwnerGagMessage.setUserNames(sb2.toString());

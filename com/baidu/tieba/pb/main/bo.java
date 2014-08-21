@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class bo extends com.baidu.adp.base.f {
@@ -54,7 +53,7 @@ public class bo extends com.baidu.adp.base.f {
     }
 
     private void g() {
-        this.a = this.g.getLayoutInflater().inflate(com.baidu.tieba.v.pb_more_view, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(this.g, com.baidu.tieba.v.pb_more_view, null);
         this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.pb_more_view_item_mark);
         this.b.setOnClickListener(this.h);
         this.c = (TextView) this.a.findViewById(com.baidu.tieba.u.pb_more_view_item_share);

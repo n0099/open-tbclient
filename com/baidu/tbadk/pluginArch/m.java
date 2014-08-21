@@ -1,113 +1,34 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import java.io.File;
-import java.io.IOException;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes.dex */
-public class m {
-    public static final String a = o.c();
-    private static String b = null;
+class m implements b {
+    final /* synthetic */ l a;
+    private final /* synthetic */ DownloadData b;
 
-    @SuppressLint({"SdCardPath"})
-    private static String c() {
-        if (b == null) {
-            Context context = d.a().a;
-            File filesDir = context.getFilesDir();
-            if (filesDir == null) {
-                filesDir = new File(context.getFilesDir().getAbsolutePath());
-                try {
-                    if (!filesDir.exists()) {
-                        com.baidu.adp.lib.util.commonsio.a.e(filesDir);
-                    }
-                } catch (IOException e) {
-                }
-            }
-            b = filesDir.getAbsolutePath();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(l lVar, DownloadData downloadData) {
+        this.a = lVar;
+        this.b = downloadData;
+    }
+
+    @Override // com.baidu.tbadk.pluginArch.b
+    public void a(int i, String str) {
+        i iVar;
+        j jVar;
+        i iVar2;
+        j jVar2;
+        BdLog.i("startDownload_install_" + this.b.getId() + "_" + i + "_" + str);
+        iVar = this.a.a;
+        jVar = iVar.e;
+        if (jVar != null) {
+            iVar2 = this.a.a;
+            jVar2 = iVar2.e;
+            jVar2.a(this.b, i, str);
         }
-        return b;
-    }
-
-    public static File a(String str) {
-        return f(str);
-    }
-
-    public static File b(String str) {
-        return f(str);
-    }
-
-    public static File c(String str) {
-        File file = new File(String.valueOf(e(str).getAbsolutePath()) + "/so/" + a);
-        if (!file.exists()) {
-            try {
-                com.baidu.adp.lib.util.commonsio.a.e(file);
-            } catch (IOException e) {
-            }
+        if (i == 0) {
+            ac.a().d();
         }
-        return file;
-    }
-
-    public static File d(String str) {
-        if (str == null) {
-            return null;
-        }
-        return new File(String.valueOf(e(str).getAbsolutePath()) + "/plugin.xml");
-    }
-
-    public static File e(String str) {
-        if (str == null) {
-            return null;
-        }
-        File file = new File(String.valueOf(c()) + "/pluginsEX/" + str);
-        if (!file.exists()) {
-            try {
-                com.baidu.adp.lib.util.commonsio.a.e(file);
-                return file;
-            } catch (IOException e) {
-                return file;
-            }
-        }
-        return file;
-    }
-
-    public static File f(String str) {
-        if (str == null) {
-            return null;
-        }
-        return new File(String.valueOf(e(str).getAbsolutePath()) + "/" + str + ".apk");
-    }
-
-    public static File a() {
-        File file = new File(String.valueOf(c()) + "/pluginsEX/optimised/");
-        if (!file.exists()) {
-            try {
-                com.baidu.adp.lib.util.commonsio.a.e(file);
-            } catch (IOException e) {
-            }
-        }
-        return file;
-    }
-
-    public static File g(String str) {
-        File file = new File(String.valueOf(c()) + "/pluginsEX/download/", str);
-        if (!file.exists()) {
-            try {
-                com.baidu.adp.lib.util.commonsio.a.e(file);
-            } catch (IOException e) {
-            }
-        }
-        return file;
-    }
-
-    public static File b() {
-        return new File(String.valueOf(c()) + "/pluginsEX/InstallConfig.xml");
-    }
-
-    public static File h(String str) {
-        File e = e(str);
-        if (e != null) {
-            return new File(e, "EnableConfig.xml");
-        }
-        return null;
     }
 }

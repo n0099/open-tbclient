@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tbadk.pluginArch.o;
+import com.baidu.tbadk.pluginArch.p;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.x;
@@ -42,7 +42,7 @@ public class PluginCenterActivity extends BaseActivity {
         this.a = new a(this);
         ConfigInfos d = com.baidu.tbadk.pluginArch.d.a().d();
         if (d != null) {
-            if (o.b()) {
+            if (p.b()) {
                 Iterator<ConfigInfos.PluginConfig> it = d.getConfigs().iterator();
                 while (it.hasNext()) {
                     if ("live".equals(it.next().name)) {

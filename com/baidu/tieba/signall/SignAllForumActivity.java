@@ -15,20 +15,21 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.au;
 import com.baidu.tbadk.core.util.ap;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d {
-    private aa a;
+    private ab a;
     private e b;
     private AlertDialog c;
-    private t d;
+    private u d;
     private boolean e;
     private boolean f;
     private final CustomMessageListener g = new j(this, 2001200);
-    private g h = new k(this);
-    private u i = new l(this);
+    private final CustomMessageListener h = new k(this, 2001228);
+    private g i = new l(this);
+    private v j = new m(this);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010030, new i());
@@ -83,13 +84,14 @@ public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.
             com.baidu.tbadk.core.f.a(this, "signall_noyify_click");
         }
         registerListener(this.g);
+        registerListener(this.h);
+        c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,7 +101,7 @@ public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.
     }
 
     private void b() {
-        this.a = new aa(this);
+        this.a = new ab(this);
         this.a.a((com.baidu.adp.widget.ListView.d) this);
         this.a.a((AdapterView.OnItemClickListener) this);
         e();
@@ -107,11 +109,11 @@ public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.
 
     private void c() {
         this.b = new e(this);
-        this.b.a(this.h);
-        this.d = t.a(this);
-        this.d.a(this.i);
+        this.b.a(this.i);
+        this.d = u.a(this);
+        this.d.a(this.j);
         if (this.d.a) {
-            this.h.a(this.d.a());
+            this.i.a(this.d.a());
             this.a.c().setSigning(90);
             return;
         }
@@ -159,7 +161,7 @@ public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.
             }
             com.baidu.tbadk.core.f.a(this, "signall_click");
         } else if (view == this.a.h()) {
-            sendMessage(new CustomMessage(2002001, new at(this, 2, "msign")));
+            sendMessage(new CustomMessage(2002001, new au(this, 2, "msign")));
         }
     }
 
@@ -182,7 +184,7 @@ public class SignAllForumActivity extends BaseActivity implements com.baidu.adp.
     }
 
     private void e() {
-        this.c = new AlertDialog.Builder(this).setPositiveButton(com.baidu.tieba.x.signallforum_signnow, new m(this)).create();
+        this.c = new AlertDialog.Builder(this).setPositiveButton(com.baidu.tieba.x.signallforum_signnow, new n(this)).create();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

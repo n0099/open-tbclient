@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -82,7 +80,7 @@ public class an extends RelativeLayout {
     }
 
     private void j() {
-        this.b = ((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.person_center_head_view, (ViewGroup) this, true);
+        this.b = com.baidu.adp.lib.e.b.a().a(getContext(), com.baidu.tieba.v.person_center_head_view, this, true);
         this.n = (BdExpandImageView) this.b.findViewById(com.baidu.tieba.u.user_info_center_head_cover_im);
         this.c = (ViewPager) this.b.findViewById(com.baidu.tieba.u.user_info_center_head_viewpager);
         this.d = (LinearLayout) this.b.findViewById(com.baidu.tieba.u.user_info_center_head_point);

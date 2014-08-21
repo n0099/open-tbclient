@@ -2,7 +2,6 @@ package com.baidu.tieba.person.post;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -66,7 +65,7 @@ public class h extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         k kVar;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_post_item_reply, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(viewGroup.getContext(), com.baidu.tieba.v.person_post_item_reply, viewGroup, false);
             kVar = new k(view);
             view.setTag(kVar);
         } else {

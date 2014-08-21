@@ -168,6 +168,9 @@ public class a {
         for (int i = 0; i < size; i++) {
             c cVar = this.e.get(i);
             String cVar2 = cVar.toString();
+            if (cVar.a() == 1 && cVar.h() > 0) {
+                cVar2 = cVar2.substring(cVar.h());
+            }
             if (i == size - 1 && cVar.a() == 1 && this.a) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.b));
             } else if (cVar.a() == 8) {

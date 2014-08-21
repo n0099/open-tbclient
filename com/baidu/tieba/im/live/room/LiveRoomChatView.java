@@ -26,7 +26,7 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
     private LiveRoomChatForcast n;
     private aq o;
     private View p;
-    private com.baidu.tbadk.core.view.m q;
+    private com.baidu.tbadk.core.view.n q;
     private be r;
     private Button s;
     private Button t;
@@ -310,7 +310,7 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
 
     private void b(MsglistActivity msglistActivity) {
         this.r = new be(msglistActivity, msglistActivity);
-        this.q = new com.baidu.tbadk.core.view.m(msglistActivity, this.r.a(), this.a, msglistActivity.getResources().getDrawable(com.baidu.tieba.r.custom_liveroom_more_background), null);
+        this.q = new com.baidu.tbadk.core.view.n(msglistActivity, this.r.a(), this.a, msglistActivity.getResources().getDrawable(com.baidu.tieba.r.custom_liveroom_more_background), null);
         this.q.a(msglistActivity);
         this.q.a((int) msglistActivity.getResources().getDimension(com.baidu.tieba.s.ds376));
     }
@@ -331,7 +331,7 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
     public void A() {
         super.A();
         if (this.q != null) {
-            this.q.dismiss();
+            com.baidu.adp.lib.e.e.a(this.q, this.v);
         }
     }
 

@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
-    private com.baidu.tbadk.core.view.u d;
+    private com.baidu.tbadk.core.view.v d;
     private LinearLayout e;
-    private com.baidu.tbadk.core.view.c f;
-    private com.baidu.tbadk.core.view.o g;
+    private com.baidu.tbadk.core.view.d f;
+    private com.baidu.tbadk.core.view.p g;
     private NoNetworkView h;
     private c b = null;
     private BdListView c = null;
@@ -23,13 +23,13 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(com.baidu.tieba.v.at_me_activity, viewGroup, false);
-        this.d = new com.baidu.tbadk.core.view.u(getActivity());
+        this.d = new com.baidu.tbadk.core.view.v(getActivity());
         this.d.a(this);
         this.c = (BdListView) inflate.findViewById(com.baidu.tieba.u.atme_lv);
         this.c.setDividerHeight(0);
         this.c.setPullRefresh(this.d);
         this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.bodyNotLogin);
-        this.g = new com.baidu.tbadk.core.view.o(inflate, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
+        this.g = new com.baidu.tbadk.core.view.p(inflate, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
         this.b = new c(this, 2, new b(this));
         this.b.a(this.c);
         this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.u.mention_layout_atme));
@@ -116,7 +116,7 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     private void g() {
         if (this.f == null) {
-            this.f = new com.baidu.tbadk.core.view.c(getActivity(), getString(com.baidu.tieba.x.login_msg_tab), getString(com.baidu.tieba.x.login_msg_form), 3);
+            this.f = new com.baidu.tbadk.core.view.d(getActivity(), getString(com.baidu.tieba.x.login_msg_tab), getString(com.baidu.tieba.x.login_msg_form), 3);
             this.e.addView(this.f.b());
             this.f.b(TbadkApplication.m252getInst().getSkinType());
         } else {

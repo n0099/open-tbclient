@@ -20,23 +20,23 @@ class d implements com.baidu.tieba.model.ak {
         bs bsVar2;
         bl blVar3;
         com.baidu.tieba.model.ai aiVar2;
-        bsVar = this.a.D;
+        bsVar = this.a.E;
         bsVar.x();
         if (z) {
-            aiVar = this.a.y;
+            aiVar = this.a.z;
             aiVar.a(z2);
-            blVar = this.a.x;
+            blVar = this.a.y;
             blVar.c(z2);
-            blVar2 = this.a.x;
+            blVar2 = this.a.y;
             if (!blVar2.B()) {
-                bsVar2 = this.a.D;
-                blVar3 = this.a.x;
+                bsVar2 = this.a.E;
+                blVar3 = this.a.y;
                 bsVar2.a(blVar3.r());
             } else {
                 this.a.D();
             }
             if (z2) {
-                aiVar2 = this.a.y;
+                aiVar2 = this.a.z;
                 MarkData b = aiVar2.b();
                 if (b != null) {
                     this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.x.add_mark_on_pb), Integer.valueOf(b.getFloor())));

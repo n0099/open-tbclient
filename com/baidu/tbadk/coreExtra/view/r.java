@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -102,12 +101,12 @@ public class r extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.big_image_next, (ViewGroup) null);
-            ((TextView) inflate.findViewById(com.baidu.tieba.u.thread_name)).setText(this.i);
-            viewGroup.addView(inflate);
-            inflate.setOnClickListener(this.c);
-            inflate.setOnLongClickListener(this.d);
-            return inflate;
+            View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.big_image_next, null);
+            ((TextView) a.findViewById(com.baidu.tieba.u.thread_name)).setText(this.i);
+            viewGroup.addView(a);
+            a.setOnClickListener(this.c);
+            a.setOnLongClickListener(this.d);
+            return a;
         }
         av avVar = new av(this.a);
         String str = i < this.b.size() ? this.b.get(i) : null;

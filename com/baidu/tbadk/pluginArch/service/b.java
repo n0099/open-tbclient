@@ -57,7 +57,7 @@ class b implements com.baidu.tbadk.download.a {
     @Override // com.baidu.tbadk.download.a
     public void a(DownloadData downloadData, int i, String str) {
         BdLog.i("startDownload_server_fail_" + downloadData.getId() + "_" + str);
-        a(6, downloadData);
+        a(6, downloadData, i, str);
     }
 
     private void a(int i, DownloadData downloadData) {
@@ -66,6 +66,23 @@ class b implements com.baidu.tbadk.download.a {
             if (obtain != null) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("download_data", downloadData);
+                obtain.setData(bundle);
+                try {
+                    messenger.send(obtain);
+                } catch (RemoteException e) {
+                }
+            }
+        }
+    }
+
+    private void a(int i, DownloadData downloadData, int i2, String str) {
+        for (Messenger messenger : PluginDownloadService.access$0(this.a)) {
+            Message obtain = Message.obtain((Handler) null, i);
+            if (obtain != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("download_data", downloadData);
+                bundle.putInt("errorCode", i2);
+                bundle.putString("errorMsg", str);
                 obtain.setData(bundle);
                 try {
                     messenger.send(obtain);

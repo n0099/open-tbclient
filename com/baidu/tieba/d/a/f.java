@@ -7,174 +7,176 @@ import tbclient.App;
 public class f extends an implements d {
     public boolean a = false;
     public String b;
-    public long c;
-    private a d;
-    private int e;
+    public String c;
+    public long d;
+    private a e;
+    private int f;
 
     @Override // com.baidu.tieba.data.an
     public void a(JSONObject jSONObject) {
-        this.d = new a(jSONObject);
+        this.e = new a(jSONObject);
     }
 
     public void a(App app) {
-        this.d = new a(app);
+        this.e = new a(app);
     }
 
     public a p() {
-        return this.d;
+        return this.e;
     }
 
     public String q() {
-        return this.d == null ? "" : this.d.a;
+        return this.e == null ? "" : this.e.a;
     }
 
     public int r() {
-        return this.e;
+        return this.f;
     }
 
     @Override // com.baidu.tieba.d.a.c
     public void a(int i) {
-        this.e = i;
+        this.f = i;
     }
 
     public boolean s() {
-        if (this.d == null) {
+        if (this.e == null) {
             return false;
         }
-        return this.d.a();
+        return this.e.a();
     }
 
     public boolean t() {
-        if (this.d == null) {
+        if (this.e == null) {
             return false;
         }
-        return this.d.b();
+        return this.e.b();
     }
 
     public boolean u() {
-        if (this.d == null) {
+        if (this.e == null) {
             return false;
         }
-        return this.d.c();
+        return this.e.c();
     }
 
     @Override // com.baidu.tieba.d.a.c
     public String a() {
-        if (this.d == null) {
+        if (this.e == null) {
             return null;
         }
-        return this.d.g;
+        return this.e.g;
     }
 
     @Override // com.baidu.tieba.d.a.c
     public String h_() {
-        if (this.d == null) {
+        if (this.e == null) {
             return null;
         }
-        return this.d.f;
+        return this.e.f;
     }
 
     @Override // com.baidu.tieba.d.a.c
     public String i_() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.d;
+        return this.e.t.d;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public String j_() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.b;
+        return this.e.t.b;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public String k_() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.c;
+        return this.e.t.c;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public String f() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.d;
+        return this.e.t.d;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public String l_() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.e;
+        return this.e.t.e;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public long m_() {
-        if (this.d == null) {
+        if (this.e == null) {
             return 0L;
         }
-        return this.d.r * 1000;
+        return this.e.r * 1000;
     }
 
     public int v() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return -1;
         }
-        return this.d.t.g;
+        return this.e.t.g;
     }
 
     public int w() {
-        if (this.d == null) {
-            return 0;
+        int a = this.e != null ? com.baidu.adp.lib.e.c.a(this.e.h, 0) : 0;
+        if (a < 2 || a > 30) {
+            return 7;
         }
-        return com.baidu.adp.lib.e.b.a(this.d.h, 0);
+        return a;
     }
 
     public String x() {
-        if (this.d == null || this.d.t == null) {
+        if (this.e == null || this.e.t == null) {
             return null;
         }
-        return this.d.t.f;
+        return this.e.t.f;
     }
 
     public com.baidu.tbadk.core.data.a y() {
         com.baidu.tbadk.core.data.a aVar = new com.baidu.tbadk.core.data.a();
-        if (this.d != null) {
-            aVar.b = this.d.a;
-            aVar.c = this.d.b;
-            aVar.d = this.d.c;
-            aVar.e = this.d.d;
-            aVar.f = this.d.f;
-            aVar.g = this.d.g;
+        if (this.e != null) {
+            aVar.b = this.e.a;
+            aVar.c = this.e.b;
+            aVar.d = this.e.c;
+            aVar.e = this.e.d;
+            aVar.f = this.e.f;
+            aVar.g = this.e.g;
             try {
-                aVar.h = Integer.parseInt(this.d.h.trim());
+                aVar.h = Integer.parseInt(this.e.h.trim());
             } catch (Exception e) {
                 aVar.h = -1;
             }
-            aVar.i = this.d.i;
-            aVar.j = this.d.j;
-            aVar.k = this.d.l;
-            aVar.m = this.d.m;
-            aVar.n = this.d.n;
-            aVar.o = this.d.o;
-            aVar.p = this.d.p;
-            aVar.l = this.d.k;
-            aVar.q = this.d.q;
-            aVar.r = this.d.r * 1000;
-            if (this.d.t != null) {
-                aVar.s.f = this.d.t.f;
-                aVar.s.a = this.d.t.a;
-                aVar.s.e = this.d.t.e;
-                aVar.s.g = this.d.t.g;
-                aVar.s.d = this.d.t.d;
-                aVar.s.b = this.d.t.b;
-                aVar.s.c = this.d.t.c;
+            aVar.i = this.e.i;
+            aVar.j = this.e.j;
+            aVar.k = this.e.l;
+            aVar.m = this.e.m;
+            aVar.n = this.e.n;
+            aVar.o = this.e.o;
+            aVar.p = this.e.p;
+            aVar.l = this.e.k;
+            aVar.q = this.e.q;
+            aVar.r = this.e.r * 1000;
+            if (this.e.t != null) {
+                aVar.s.f = this.e.t.f;
+                aVar.s.a = this.e.t.a;
+                aVar.s.e = this.e.t.e;
+                aVar.s.g = this.e.t.g;
+                aVar.s.d = this.e.t.d;
+                aVar.s.b = this.e.t.b;
+                aVar.s.c = this.e.t.c;
             }
         }
         return aVar;

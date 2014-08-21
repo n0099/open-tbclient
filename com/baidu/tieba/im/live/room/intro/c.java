@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.live.room.intro;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.u;
@@ -27,7 +25,7 @@ public class c {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.a = LayoutInflater.from(context).inflate(v.live_room_list_item, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, v.live_room_list_item, null);
         this.b = (LiveBroadcastCard) this.a.findViewById(u.live_rom_item);
         this.c = this.a.findViewById(u.live_rom_item_line_2dp);
         this.d = this.a.findViewById(u.live_rom_item_line_1dp);

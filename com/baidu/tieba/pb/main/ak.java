@@ -1,31 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ PbActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ int d;
-    private final /* synthetic */ cw e;
-    private final /* synthetic */ ShareFromPBMsgData f;
+    private final /* synthetic */ cw b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(PbActivity pbActivity, int i, String str, int i2, cw cwVar, ShareFromPBMsgData shareFromPBMsgData) {
+    public ak(PbActivity pbActivity, cw cwVar) {
         this.a = pbActivity;
-        this.b = i;
-        this.c = str;
-        this.d = i2;
-        this.e = cwVar;
-        this.f = shareFromPBMsgData;
+        this.b = cwVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.x(this.a, this.b, this.c, this.d, "from_share", this.e.getLeaveMsg(), this.f.toChatMessageContent())));
-        aVar.c();
+        aVar.d();
+        this.a.HidenSoftKeyPad((InputMethodManager) this.a.getSystemService("input_method"), this.b.getChatMsgView());
     }
 }

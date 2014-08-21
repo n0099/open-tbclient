@@ -2,9 +2,7 @@ package com.baidu.tieba.person;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
@@ -39,7 +37,7 @@ public class PersonListActivity extends BaseActivity {
     public dw b = new dl(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bh.class, PersonListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bi.class, PersonListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -156,7 +154,7 @@ public class PersonListActivity extends BaseActivity {
         this.h = new dr(this, getIntent().getBooleanExtra("follow", false), z, this.i.c(), dmVar, dnVar, dpVar, cdo);
         this.c = (BdListView) findViewById(com.baidu.tieba.u.list);
         this.c.setAdapter((ListAdapter) this.h);
-        this.d = LayoutInflater.from(this).inflate(com.baidu.tieba.v.person_list_newheader, (ViewGroup) null);
+        this.d = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.person_list_newheader, null);
         this.e = this.d.findViewById(com.baidu.tieba.u.newheader_root);
         this.d.setVisibility(8);
         this.d.setClickable(false);
@@ -313,7 +311,7 @@ public class PersonListActivity extends BaseActivity {
         if (this.h != null && this.h.getItemViewType(this.a) == 0 && (userData = (UserData) this.h.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(this, "enter_chat", "personlistclick", 1, new Object[0]);
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bj(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bk(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
             } catch (Exception e) {
                 e.printStackTrace();
             }

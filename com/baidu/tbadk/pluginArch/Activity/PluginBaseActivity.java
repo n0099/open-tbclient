@@ -5,7 +5,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import com.baidu.tbadk.pluginArch.a.a;
-import com.baidu.tbadk.pluginArch.x;
+import com.baidu.tbadk.pluginArch.y;
 /* loaded from: classes.dex */
 public class PluginBaseActivity extends Activity {
     private AssetManager a;
@@ -20,7 +20,7 @@ public class PluginBaseActivity extends Activity {
     protected void a() {
         a aVar = (a) getClass().getAnnotation(a.class);
         if (aVar != null) {
-            this.b = x.a().a(aVar.a(), super.getResources());
+            this.b = y.a().a(aVar.a(), super.getResources());
             if (this.b != null) {
                 this.a = this.b.getAssets();
             }

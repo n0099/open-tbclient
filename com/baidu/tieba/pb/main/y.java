@@ -29,22 +29,22 @@ class y implements View.OnLongClickListener {
         if (sparseArray != null) {
             this.a.c = (com.baidu.tieba.data.an) sparseArray.get(com.baidu.tieba.u.tag_clip_board);
             if (this.a.c != null) {
-                aiVar = this.a.y;
+                aiVar = this.a.z;
                 if (aiVar.a() && this.a.c.d() != null) {
                     String d = this.a.c.d();
-                    blVar = this.a.x;
+                    blVar = this.a.y;
                     if (d.equals(blVar.q())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.u.tag_is_subpb)).booleanValue();
-                        bsVar = this.a.D;
-                        onClickListener = this.a.am;
+                        bsVar = this.a.E;
+                        onClickListener = this.a.an;
                         bsVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
                 boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.u.tag_is_subpb)).booleanValue();
-                bsVar = this.a.D;
-                onClickListener = this.a.am;
+                bsVar = this.a.E;
+                onClickListener = this.a.an;
                 bsVar.a(onClickListener, z, booleanValue2);
             }
         }

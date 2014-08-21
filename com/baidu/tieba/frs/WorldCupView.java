@@ -3,9 +3,7 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
@@ -50,7 +48,7 @@ public class WorldCupView extends RelativeLayout {
     }
 
     private void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.worldcup_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.worldcup_view, this, true);
         this.b = (RelativeLayout) findViewById(com.baidu.tieba.u.news);
         this.c = (TextView) findViewById(com.baidu.tieba.u.news_title);
         this.d = findViewById(com.baidu.tieba.u.news_divider);
@@ -93,7 +91,7 @@ public class WorldCupView extends RelativeLayout {
         } else if (!TextUtils.isEmpty(tVar.b())) {
             setNewsLayVisible(true);
             this.c.setText(tVar.b());
-            this.b.setOnClickListener(new dx(this, tVar));
+            this.b.setOnClickListener(new dz(this, tVar));
         } else {
             setNewsLayVisible(false);
         }
@@ -122,7 +120,7 @@ public class WorldCupView extends RelativeLayout {
                 this.j.setVisibility(0);
             }
             this.h.a(uVar.c(), 10, false);
-            this.e.setOnClickListener(new dy(this, uVar));
+            this.e.setOnClickListener(new ea(this, uVar));
         }
     }
 
@@ -134,7 +132,7 @@ public class WorldCupView extends RelativeLayout {
             return;
         }
         setLotteryGameLayVisible(true);
-        this.l.setOnClickListener(new dz(this, sVar));
+        this.l.setOnClickListener(new eb(this, sVar));
         ArrayList<com.baidu.tbadk.core.data.v> a = rVar.a();
         if (a != null && a.size() == 2) {
             com.baidu.tbadk.core.data.v vVar = a.get(0);
@@ -165,7 +163,7 @@ public class WorldCupView extends RelativeLayout {
                 str4 = rVar.c();
             }
             this.s.setText(str4);
-            this.m.setOnClickListener(new ea(this, rVar));
+            this.m.setOnClickListener(new ec(this, rVar));
             return;
         }
         setLotteryGameLayVisible(false);

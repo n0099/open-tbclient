@@ -2,7 +2,6 @@ package com.baidu.tieba.album;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -65,27 +64,27 @@ public class h extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.u.big_image);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.album_big_image_item, null);
+        TbImageView tbImageView = (TbImageView) a.findViewById(com.baidu.tieba.u.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setNightDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
         tbImageView.setNightDefaultBgResource(0);
-        ImageFileInfo a = a(i);
+        ImageFileInfo a2 = a(i);
         this.f.put(Integer.valueOf(i), false);
-        if (a != null) {
-            a.clearPageActions();
-            a.addPageAction(com.baidu.tbadk.img.effect.d.a(this.d, this.e));
-            tbImageView.setTag(a.toCachedKey(false));
-            if (this.b.a(a, false) != null) {
+        if (a2 != null) {
+            a2.clearPageActions();
+            a2.addPageAction(com.baidu.tbadk.img.effect.d.a(this.d, this.e));
+            tbImageView.setTag(a2.toCachedKey(false));
+            if (this.b.a(a2, false) != null) {
                 tbImageView.invalidate();
                 this.f.put(Integer.valueOf(i), true);
             } else {
-                this.b.a(a, new i(this, viewGroup, i), false);
+                this.b.a(a2, new i(this, viewGroup, i), false);
             }
         }
-        ((ViewPager) viewGroup).addView(inflate, 0);
-        return inflate;
+        ((ViewPager) viewGroup).addView(a, 0);
+        return a;
     }
 }

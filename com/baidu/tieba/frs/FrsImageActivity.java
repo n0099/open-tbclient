@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -41,11 +40,11 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     public static boolean a = true;
     public static boolean b = true;
     public static boolean c = true;
-    private di p;
+    private dk p;
     private com.baidu.tieba.model.n q;
     private com.baidu.tieba.model.af w;
     private com.baidu.tieba.model.bf x;
-    private cp y;
+    private cq y;
     private int e = 0;
     private String f = null;
     private int g = 0;
@@ -56,25 +55,25 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     private int l = 1;
     private String m = null;
     private int n = 0;
-    private cr o = null;
+    private cs o = null;
     private boolean r = false;
     private boolean s = false;
-    private dm t = null;
-    private dj u = null;
+    private Cdo t = null;
+    private dl u = null;
     private boolean v = false;
     private int z = 0;
     private int A = 0;
-    private final cq B = new bw(this);
-    private final cq C = new ch(this);
-    public final CustomMessageListener d = new cj(this, 2012111);
-    private final View.OnClickListener D = new ck(this);
-    private final com.baidu.tieba.frs.view.z E = new cl(this);
-    private final View.OnClickListener F = new cm(this);
-    private final SlidingMenu.OnClosedListener G = new cn(this);
-    private final com.baidu.tbadk.core.view.q H = new co(this);
-    private final com.baidu.adp.widget.ScrollView.m I = new bx(this);
-    private final SlidingMenu.OnOpenedListener J = new by(this);
-    private final CustomMessageListener K = new bz(this, 2001124);
+    private final cr B = new bx(this);
+    private final cr C = new ci(this);
+    public final CustomMessageListener d = new ck(this, 2012111);
+    private final View.OnClickListener D = new cl(this);
+    private final com.baidu.tieba.frs.view.z E = new cm(this);
+    private final View.OnClickListener F = new cn(this);
+    private final SlidingMenu.OnClosedListener G = new co(this);
+    private final com.baidu.tbadk.core.view.r H = new cp(this);
+    private final com.baidu.adp.widget.ScrollView.m I = new by(this);
+    private final SlidingMenu.OnOpenedListener J = new bz(this);
+    private final CustomMessageListener K = new ca(this, 2001124);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -98,7 +97,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     }
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2003002, new ci());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2003002, new cj());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -127,7 +126,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     }
 
     private void e() {
-        this.o = new cr(this, this.D);
+        this.o = new cs(this, this.D);
         this.o.m().b();
         b(this.o.l().getLineWidth());
         this.o.a(this.E);
@@ -184,13 +183,13 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                     com.baidu.adp.lib.util.j.a((Context) this, this.t.f().getForbid_info());
                     return;
                 } else if (this.t.b() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ce(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, this.t.f(), 13003, false, false, null, false, false, null, null, null, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, this.t.f(), 13003, false, false, null, false, false, null, null, null, 0)));
                     return;
                 } else {
                     return;
                 }
             }
-            com.baidu.adp.lib.e.d.a(this.o.q(), this);
+            com.baidu.adp.lib.e.e.a(this.o.q(), this);
         }
     }
 
@@ -206,7 +205,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                     b();
                     return;
                 case 11016:
-                    com.baidu.adp.lib.e.d.a(this.o.q(), this);
+                    com.baidu.adp.lib.e.e.a(this.o.q(), this);
                     return;
                 case 11036:
                     c();
@@ -217,7 +216,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                             com.baidu.adp.lib.util.j.a((Context) this, this.t.f().getForbid_info());
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 12001, 12010, null, this.t.b().getId(), this.t.b().getName(), this.t.f())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cg(this, 12001, 12010, null, this.t.b().getId(), this.t.b().getName(), this.t.f())));
                         return;
                     }
                     return;
@@ -227,7 +226,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                             com.baidu.adp.lib.util.j.a((Context) this, this.t.f().getForbid_info());
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 12002, 12009, intent.getData(), this.t.b().getId(), this.t.b().getName(), this.t.f())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cg(this, 12002, 12009, intent.getData(), this.t.b().getId(), this.t.b().getName(), this.t.f())));
                         return;
                     }
                     return;
@@ -235,10 +234,10 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                 case 12010:
                     if (this.t != null && this.t.b() != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ce(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, null, 13003, false, false, null, false, true, null, null, null, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, null, 13003, false, false, null, false, true, null, null, null, 0)));
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ce(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, null, 13003, false, false, null, false, true, intent.getStringExtra("filename"), null, null, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 0, this.t.b().getId(), this.t.b().getName(), null, null, 0, null, 13003, false, false, null, false, true, intent.getStringExtra("filename"), null, null, 0)));
                         return;
                     }
                     return;
@@ -356,7 +355,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     }
 
     private void b(int i) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(com.baidu.tieba.v.water_fall_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.water_fall_item, null);
         linearLayout.measure(View.MeasureSpec.makeMeasureSpec(i, 1073741824), 0);
         this.e = linearLayout.findViewById(com.baidu.tieba.u.image).getMeasuredWidth();
     }
@@ -398,11 +397,11 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     private View h() {
         View footer = this.o.l().getFooter();
         if (footer == null) {
-            View inflate = LayoutInflater.from(this).inflate(com.baidu.tieba.v.water_page, (ViewGroup) null);
-            this.o.l().b(inflate);
-            com.baidu.tbadk.core.util.ay.b((TextView) inflate.findViewById(com.baidu.tieba.u.page_text), TbadkApplication.m252getInst().getSkinType());
-            inflate.setOnClickListener(new ca(this));
-            return inflate;
+            View a2 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.water_page, null);
+            this.o.l().b(a2);
+            com.baidu.tbadk.core.util.ay.b((TextView) a2.findViewById(com.baidu.tieba.u.page_text), TbadkApplication.m252getInst().getSkinType());
+            a2.setOnClickListener(new cb(this));
+            return a2;
         }
         return footer;
     }
@@ -411,16 +410,16 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     public View i() {
         View header2 = this.o.l().getHeader2();
         if (header2 == null) {
-            View inflate = LayoutInflater.from(this).inflate(com.baidu.tieba.v.water_page, (ViewGroup) null);
-            inflate.setVisibility(0);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.page_text);
+            View a2 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.water_page, null);
+            a2.setVisibility(0);
+            TextView textView = (TextView) a2.findViewById(com.baidu.tieba.u.page_text);
             textView.setText(com.baidu.tieba.x.pre_page);
             textView.setVisibility(0);
             com.baidu.tbadk.core.util.ay.b(textView, TbadkApplication.m252getInst().getSkinType());
-            ((ProgressBar) inflate.findViewById(com.baidu.tieba.u.progress)).setVisibility(8);
-            this.o.l().a(inflate);
-            inflate.setOnClickListener(new cb(this));
-            return inflate;
+            ((ProgressBar) a2.findViewById(com.baidu.tieba.u.progress)).setVisibility(8);
+            this.o.l().a(a2);
+            a2.setOnClickListener(new cc(this));
+            return a2;
         }
         return header2;
     }
@@ -480,13 +479,13 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
             this.l = 1;
         }
         c(this.l);
-        this.p = new di(this);
+        this.p = new dk(this);
         this.q = new com.baidu.tieba.model.n();
-        this.q.setLoadDataCallBack(new cc(this));
+        this.q.setLoadDataCallBack(new cd(this));
         this.w = new com.baidu.tieba.model.af();
-        this.w.setLoadDataCallBack(new cd(this));
+        this.w.setLoadDataCallBack(new ce(this));
         this.x = new com.baidu.tieba.model.bf();
-        this.x.a(new ce(this));
+        this.x.a(new cf(this));
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             k();
@@ -518,7 +517,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i) {
         if (this.t == null) {
-            this.t = new dm();
+            this.t = new Cdo();
         }
         this.t.a(this.m, this.f);
         this.t.a(this.B);
@@ -597,7 +596,7 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
                             }
                             Bitmap a3 = com.baidu.tbadk.core.util.d.a(com.baidu.tieba.t.image_default);
                             int height = b2 < a3.getHeight() ? a3.getHeight() : b2;
-                            FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) LayoutInflater.from(this).inflate(com.baidu.tieba.v.water_fall_item, (ViewGroup) null);
+                            FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.water_fall_item, null);
                             frsWaterFallItem.a(this.mSkinType);
                             TbImageView tbImageView = (TbImageView) frsWaterFallItem.findViewById(com.baidu.tieba.u.image);
                             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
@@ -640,9 +639,9 @@ public class FrsImageActivity extends BaseActivity implements com.baidu.adp.widg
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(com.baidu.tieba.x.attention_cancel_info));
         builder.setTitle(getString(com.baidu.tieba.x.alert_title));
-        builder.setPositiveButton(getString(com.baidu.tieba.x.attention_cancel), new cf(this));
-        builder.setNegativeButton(getString(com.baidu.tieba.x.cancel), new cg(this));
-        com.baidu.adp.lib.e.d.a(builder.create(), this);
+        builder.setPositiveButton(getString(com.baidu.tieba.x.attention_cancel), new cg(this));
+        builder.setNegativeButton(getString(com.baidu.tieba.x.cancel), new ch(this));
+        com.baidu.adp.lib.e.e.a(builder.create(), this);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c

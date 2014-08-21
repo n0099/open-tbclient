@@ -2,8 +2,8 @@ package com.baidu.tieba.friendfeed;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ay;
-import com.baidu.tbadk.core.atomData.cd;
+import com.baidu.tbadk.core.atomData.az;
+import com.baidu.tbadk.core.atomData.ce;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -63,10 +63,10 @@ class a implements as {
                 writeData.setVcodeMD5(eVar.a());
                 writeData.setVcodeUrl(eVar.b());
                 if (eVar.c().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ay(this.a, 12006, writeData, false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new az(this.a, 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cd(this.a, writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this.a, writeData, 12006)));
                     return;
                 }
             }

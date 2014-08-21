@@ -2,9 +2,12 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import android.text.SpannableString;
+import android.text.TextUtils;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
@@ -76,6 +79,32 @@ public class bg {
                 a(context, strArr[0], z, bkVar);
             }
         }
+    }
+
+    public static Map<String, String> a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        HashMap hashMap = new HashMap();
+        String[] split = str.split("[&]");
+        if (split != null) {
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
+        }
+        return null;
+    }
+
+    public static String b(String str) {
+        String[] split = str.split("[?]");
+        if (split == null || split.length <= 0 || split.length <= 1 || split[1] == null) {
+            return null;
+        }
+        return split[1];
     }
 
     public void a(Context context, String[] strArr) {

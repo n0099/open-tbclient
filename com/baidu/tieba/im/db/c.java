@@ -36,7 +36,7 @@ public class c {
         return cVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [81=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [83=5] */
     public int a(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
@@ -61,7 +61,7 @@ public class c {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [165=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00ad */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.String] */
@@ -147,7 +147,7 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [225=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0143 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0145 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0147 */
@@ -230,7 +230,7 @@ public class c {
         return commonMsgPojo;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [282=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [292=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0168 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.String] */
@@ -298,7 +298,7 @@ public class c {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [437=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [465=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0239 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.String] */
@@ -557,15 +557,16 @@ public class c {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0084: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:20:0x0084 */
-    public boolean f(String str) {
+    public boolean a(String str, int i) {
         Cursor cursor;
-        Cursor cursor2;
-        Cursor cursor3 = null;
+        Cursor cursor2 = null;
         try {
             try {
                 String str2 = "tb_group_msg_" + str;
-                cursor = g.a().a("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT 1000, 1", null);
+                if (i < 1000) {
+                    i = 1000;
+                }
+                cursor = g.a().a("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
                 try {
                     String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
                     com.baidu.adp.lib.util.m.a(cursor);
@@ -583,8 +584,8 @@ public class c {
                 }
             } catch (Throwable th) {
                 th = th;
-                cursor3 = cursor2;
-                com.baidu.adp.lib.util.m.a(cursor3);
+                cursor2 = 1000;
+                com.baidu.adp.lib.util.m.a(cursor2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -592,7 +593,7 @@ public class c {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.adp.lib.util.m.a(cursor3);
+            com.baidu.adp.lib.util.m.a(cursor2);
             throw th;
         }
     }

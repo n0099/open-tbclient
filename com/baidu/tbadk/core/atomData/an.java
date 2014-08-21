@@ -3,10 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class an extends com.baidu.tbadk.core.frameworkData.a {
-    public an(Context context, int i, int i2, String str) {
+    public an(Context context, int i, String str) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, i);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID, i2);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME, str);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, i);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, str);
     }
 }

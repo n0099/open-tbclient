@@ -1,135 +1,135 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tbadk.pluginArch.service.RemoteSynchronousDataService;
+import android.util.Xml;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab h;
-    private Messenger a;
-    private Messenger b = new Messenger(new ad(this, null));
-    private ac c = new ac(this, null);
-    private Context d = TbadkApplication.m252getInst().getApplicationContext();
-    private int e;
-    private String f;
-    private ConfigInfos g;
+    public aa a;
+    private File b;
 
-    private ab() {
+    public ab(File file) {
+        this.b = null;
+        this.b = file;
     }
 
-    public static synchronized ab a() {
-        ab abVar;
-        synchronized (ab.class) {
-            if (h == null) {
-                h = new ab();
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [100=7, 102=7, 103=5] */
+    public void a() {
+        FileInputStream fileInputStream;
+        XmlPullParser newPullParser = Xml.newPullParser();
+        FileInputStream fileInputStream2 = null;
+        try {
+            fileInputStream = new FileInputStream(this.b);
+        } catch (FileNotFoundException e) {
+            fileInputStream = null;
+        } catch (IOException e2) {
+            fileInputStream = null;
+        } catch (NullPointerException e3) {
+            fileInputStream = null;
+        } catch (NumberFormatException e4) {
+            fileInputStream = null;
+        } catch (XmlPullParserException e5) {
+            fileInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            newPullParser.setInput(fileInputStream, "UTF-8");
+            this.a = new aa();
+            for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.next()) {
+                String name = newPullParser.getName();
+                switch (eventType) {
+                    case 2:
+                        if (name.equals("plugin")) {
+                            continue;
+                        } else if (name.equals("version")) {
+                            this.a.e = Integer.parseInt(newPullParser.nextText());
+                            continue;
+                        } else if (name.equals("name")) {
+                            this.a.a = newPullParser.nextText();
+                            continue;
+                        } else if (name.equals("jar")) {
+                            this.a.b = newPullParser.nextText();
+                            continue;
+                        } else if (name.equals("so")) {
+                            if (this.a.c == null) {
+                                this.a.c = new ArrayList();
+                            }
+                            this.a.c.add(newPullParser.nextText());
+                            continue;
+                        } else if (newPullParser.getName().equals("res")) {
+                            this.a.d = newPullParser.nextText();
+                            continue;
+                        } else if (newPullParser.getName().equals("resourceloadtype")) {
+                            this.a.f = Integer.parseInt(newPullParser.nextText());
+                            continue;
+                        } else if (newPullParser.getName().equals("interfacename")) {
+                            this.a.g = newPullParser.nextText();
+                            continue;
+                        } else if (newPullParser.getName().equals("implclassname")) {
+                            this.a.h = newPullParser.nextText();
+                            continue;
+                        } else {
+                            continue;
+                        }
+                }
             }
-            abVar = h;
-        }
-        return abVar;
-    }
-
-    public void e() {
-        Message obtain = Message.obtain((Handler) null, 0);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = this.b;
-                this.a.send(obtain);
-            } catch (RemoteException e) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e6) {
+                }
             }
-        }
-    }
-
-    private void f() {
-        if (this.a != null) {
-            Message obtain = Message.obtain((Handler) null, 1);
-            try {
-                obtain.replyTo = this.b;
-                this.a.send(obtain);
-            } catch (RemoteException e) {
+        } catch (FileNotFoundException e7) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e8) {
+                }
             }
-        }
-    }
-
-    public void b() {
-        this.d.bindService(new Intent(this.d, RemoteSynchronousDataService.class), this.c, 1);
-    }
-
-    public void c() {
-        f();
-        BdLog.i("close");
-        if (this.a != null) {
-            this.d.unbindService(this.c);
-        }
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            this.e = 2;
-            this.f = str;
-            b();
-        }
-    }
-
-    public void b(String str) {
-        Message obtain = Message.obtain((Handler) null, 2);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = this.b;
-                Bundle bundle = new Bundle();
-                bundle.putString("pluginName", str);
-                obtain.setData(bundle);
-                this.a.send(obtain);
-                BdLog.i("send-WHAT_OPERATE_FORBIDDEN");
-            } catch (RemoteException e) {
+        } catch (IOException e9) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e10) {
+                }
             }
-        }
-    }
-
-    public void d() {
-        this.e = 3;
-        b();
-    }
-
-    public void g() {
-        Message obtain = Message.obtain((Handler) null, 3);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = this.b;
-                this.a.send(obtain);
-                BdLog.i("send-WHAT_INSTALL_PLUGIN");
-            } catch (RemoteException e) {
+        } catch (NullPointerException e11) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e12) {
+                }
             }
-        }
-    }
-
-    public void a(ConfigInfos configInfos) {
-        if (configInfos != null) {
-            this.e = 4;
-            this.g = configInfos;
-            b();
-        }
-    }
-
-    public void b(ConfigInfos configInfos) {
-        Message obtain = Message.obtain((Handler) null, 4);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = this.b;
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("configinfos", configInfos);
-                obtain.setData(bundle);
-                this.a.send(obtain);
-                BdLog.i("send-WHAT_NET_CONFIG");
-            } catch (RemoteException e) {
+        } catch (NumberFormatException e13) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e14) {
+                }
             }
+        } catch (XmlPullParserException e15) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e16) {
+                }
+            }
+        } catch (Throwable th2) {
+            fileInputStream2 = fileInputStream;
+            th = th2;
+            if (fileInputStream2 != null) {
+                try {
+                    fileInputStream2.close();
+                } catch (IOException e17) {
+                }
+            }
+            throw th;
         }
     }
 }

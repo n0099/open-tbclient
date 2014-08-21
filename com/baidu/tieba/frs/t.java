@@ -12,13 +12,13 @@ class t implements SlidingMenu.OnClosedListener {
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
     public void onClosed() {
-        cu cuVar;
-        cu cuVar2;
-        cuVar = this.a.z;
-        if (cuVar.n().d()) {
-            cuVar2 = this.a.z;
-            cuVar2.n().b(false);
-            this.a.D();
+        cv cvVar;
+        cv cvVar2;
+        cvVar = this.a.B;
+        if (cvVar.n().d()) {
+            cvVar2 = this.a.B;
+            cvVar2.n().b(false);
+            this.a.E();
         }
     }
 }

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -48,7 +47,7 @@ public class BannerView extends RelativeLayout {
 
     private void a(Context context) {
         this.f = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.bannerview, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.bannerview, this);
         this.e = (Button) findViewById(com.baidu.tieba.u.btn_close);
         this.e.setOnClickListener(this.b);
         setOnClickListener(this.b);

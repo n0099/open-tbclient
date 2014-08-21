@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        bg.a().a(new d());
-        bg.a().a(new e());
+        bg.a().a(new b());
+        bg.a().a(new c());
     }
 }

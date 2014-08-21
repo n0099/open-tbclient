@@ -27,7 +27,7 @@ public class dm implements View.OnClickListener {
                 drVar3 = this.a.h;
                 UserData userData = (UserData) drVar3.getItem(intValue);
                 if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this.a, userData.getUserId(), userData.getName_show(), null, "focus")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(this.a, userData.getUserId(), userData.getName_show(), null, "focus")));
                 }
             }
         }

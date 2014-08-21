@@ -2,7 +2,6 @@ package com.baidu.tieba.im.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ public class NumCountDownView extends LinearLayout {
     }
 
     public void a(Context context) {
-        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.v.num_count_down_view, this);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.num_count_down_view, this);
         this.a.setLayoutParams(new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(com.baidu.tieba.s.num_count_down_width), -2));
         setOrientation(0);
         setMinimumHeight(context.getResources().getDimensionPixelSize(com.baidu.tieba.s.num_count_down_min_height));

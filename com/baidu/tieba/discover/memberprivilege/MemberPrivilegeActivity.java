@@ -12,8 +12,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.av;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -25,7 +25,7 @@ public class MemberPrivilegeActivity extends BaseActivity {
     private final CustomMessageListener c = new b(this, 2001200);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(au.class, MemberPrivilegeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(av.class, MemberPrivilegeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,6 +80,6 @@ public class MemberPrivilegeActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        sendMessage(new CustomMessage(2002001, new at(this, 0, "pay")));
+        sendMessage(new CustomMessage(2002001, new au(this, 0, "pay")));
     }
 }

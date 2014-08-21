@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private s a;
+    private t a;
 
-    public void setTagData(t tVar) {
-        setTag(tVar);
+    public void setTagData(u uVar) {
+        setTag(uVar);
         a();
     }
 
@@ -24,12 +24,12 @@ public class TbCheckBox extends ImageView {
     }
 
     private void c() {
-        setOnClickListener(new r(this));
+        setOnClickListener(new s(this));
         a();
     }
 
-    public void setStatedChangedListener(s sVar) {
-        this.a = sVar;
+    public void setStatedChangedListener(t tVar) {
+        this.a = tVar;
     }
 
     public void a() {
@@ -47,16 +47,16 @@ public class TbCheckBox extends ImageView {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof t)) {
+        if (tag == null || !(tag instanceof u)) {
             return false;
         }
-        return ((t) tag).isChecked();
+        return ((u) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof t)) {
-            ((t) tag).setChecked(z);
+        if (tag != null && (tag instanceof u)) {
+            ((u) tag).setChecked(z);
         }
         a();
         if (this.a != null) {

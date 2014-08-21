@@ -17,7 +17,7 @@ public class GameInstallReceiver extends BroadcastReceiver {
                 if (split != null && split.length == 2) {
                     dataString = split[1];
                 }
-                new ae(this, dataString).execute(new Void[0]);
+                new ag(this, dataString).execute(new Void[0]);
             }
         }
     }

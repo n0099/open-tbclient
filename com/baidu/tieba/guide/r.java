@@ -3,9 +3,7 @@ package com.baidu.tieba.guide;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -48,7 +46,7 @@ public class r extends Dialog implements a {
 
     @Override // android.app.Dialog, com.baidu.tieba.guide.a
     public void show() {
-        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.a)) {
+        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.a)) {
             super.show();
         }
     }
@@ -67,7 +65,7 @@ public class r extends Dialog implements a {
             layoutParams.setMargins(0, i == 0 ? this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
             a.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.e.addView(LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.new_user_line_item, (ViewGroup) null));
+                this.e.addView(com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.new_user_line_item, null));
             }
             i++;
         }
@@ -102,7 +100,7 @@ public class r extends Dialog implements a {
     @Override // android.app.Dialog, com.baidu.tieba.guide.a
     public void hide() {
         if (this.a instanceof Activity) {
-            com.baidu.adp.lib.e.d.b(this, (Activity) this.a);
+            com.baidu.adp.lib.e.e.b(this, (Activity) this.a);
         } else {
             super.dismiss();
         }

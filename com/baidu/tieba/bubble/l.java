@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.au;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
     final /* synthetic */ k a;
@@ -25,6 +25,6 @@ class l implements View.OnClickListener {
             dVar2 = h.a;
             dVar2.a();
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new at(this.b, true, 23004, "expiring")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new au(this.b, true, 23004, "expiring")));
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.memorycache;
 
 import android.util.SparseArray;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,7 +22,7 @@ public class l implements b {
             ImMessageCenterPojo next = it.next();
             h = this.a.h(next);
             if (h) {
-                this.b.put(com.baidu.adp.lib.e.b.a(next.getGid(), 0), Long.valueOf(bu.c(next.getPulled_msgId())));
+                this.b.put(com.baidu.adp.lib.e.c.a(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.chat.bu.c(next.getPulled_msgId())));
             }
         }
     }

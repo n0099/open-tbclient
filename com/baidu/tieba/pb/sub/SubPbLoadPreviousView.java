@@ -2,9 +2,7 @@ package com.baidu.tieba.pb.sub;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,7 +30,7 @@ public class SubPbLoadPreviousView extends LinearLayout {
     private void e() {
         setOrientation(0);
         setClickable(true);
-        LayoutInflater.from(this.a).inflate(v.sub_pb_load_previous, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, v.sub_pb_load_previous, this, true);
         this.b = (TextView) findViewById(u.btn_loadprevious);
         this.c = (ProgressBar) findViewById(u.progress);
     }

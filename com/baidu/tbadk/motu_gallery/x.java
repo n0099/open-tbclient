@@ -3,7 +3,6 @@ package com.baidu.tbadk.motu_gallery;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.io.FileNotFoundException;
@@ -21,7 +20,7 @@ public class x extends LinearLayout {
     }
 
     private void a() {
-        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.motu_albums_selected_item, this);
+        com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.motu_albums_selected_item, this);
         this.a = (ImageView) findViewById(com.baidu.tieba.u.image);
     }
 

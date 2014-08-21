@@ -1,19 +1,29 @@
 package com.baidu.tieba.im.newFriend;
 
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
-class aq extends com.baidu.tieba.im.b<List<com.baidu.tieba.im.data.k>> {
+class aq extends CustomMessageListener {
     final /* synthetic */ NewFriendsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(NewFriendsActivity newFriendsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq(NewFriendsActivity newFriendsActivity, int i) {
+        super(i);
         this.a = newFriendsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public List<com.baidu.tieba.im.data.k> a() {
-        return com.baidu.tieba.im.db.m.a().d();
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
+            if (((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 1) {
+                this.a.a();
+            } else {
+                this.a.c();
+            }
+        }
     }
 }

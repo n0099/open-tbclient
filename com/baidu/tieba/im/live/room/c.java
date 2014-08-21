@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.live.room;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -23,7 +21,7 @@ class c {
         this.d = null;
         this.e = null;
         this.f = null;
-        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.v.live_group_like_list_item, (ViewGroup) null);
+        this.b = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.live_group_like_list_item, null);
         this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.u.zan_list_item_head);
         this.d = (TextView) this.b.findViewById(com.baidu.tieba.u.zan_list_item_name);
         this.e = (TextView) this.b.findViewById(com.baidu.tieba.u.zan_list_item_time);

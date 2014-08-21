@@ -72,7 +72,7 @@ public class TbCDNTachometerService extends Service {
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);
             intent.putExtra("isNormal", z);
-            com.baidu.adp.lib.e.c.a(context, intent);
+            com.baidu.adp.lib.e.d.a(context, intent);
         }
     }
 

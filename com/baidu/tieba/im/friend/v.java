@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.core.view.s {
+public class v implements com.baidu.tbadk.core.view.t {
     final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class v implements com.baidu.tbadk.core.view.s {
         this.a = sVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.s
+    @Override // com.baidu.tbadk.core.view.t
     public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
         InviteFriendCandidateList inviteFriendCandidateList;
         InviteFriendListActivity inviteFriendListActivity;

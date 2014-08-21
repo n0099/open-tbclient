@@ -79,7 +79,7 @@ public class a extends ai {
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         int i = 0;
-        if (this.c != null && this.c.getB_info() != null) {
+        if (this.c != null && this.c.getB_info() != null && this.c.getB_info().size() > 0) {
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
             if (this.c.getB_info().get(0).getBcode() != 0) {

@@ -20,7 +20,7 @@ public class ac extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         List list;
         af afVar;
-        List<ba> list2;
+        List<bb> list2;
         List list3;
         this.a.hideProgressBar();
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001156 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {

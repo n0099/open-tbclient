@@ -17,10 +17,10 @@ public class p implements View.OnClickListener {
     public void onClick(View view) {
         r rVar;
         r rVar2;
-        rVar = this.a.E;
+        rVar = this.a.D;
         if (rVar != null) {
             e g = this.b.g();
-            rVar2 = this.a.E;
+            rVar2 = this.a.D;
             rVar2.a(view, g.b.e, g.b.h, g.b.i, g.b.c, g.b.d, g.b.b, g.b.f, g.b.g);
         }
     }

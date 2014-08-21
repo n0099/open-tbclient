@@ -14,7 +14,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     private ay b;
     private String c;
     private com.baidu.adp.base.h d = new at(this);
-    private com.baidu.tbadk.core.view.q e = new au(this);
+    private com.baidu.tbadk.core.view.r e = new au(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);

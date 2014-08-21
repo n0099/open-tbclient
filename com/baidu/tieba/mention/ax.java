@@ -1,57 +1,40 @@
 package com.baidu.tieba.mention;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.squareup.wire.Wire;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ aw a;
+public class ax implements CustomMessageTask.CustomRunnable {
+    final /* synthetic */ SingleMentionActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(aw awVar, int i) {
-        super(i);
-        this.a = awVar;
+    public ax(SingleMentionActivity singleMentionActivity) {
+        this.a = singleMentionActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        BaseFragmentActivity baseFragmentActivity3;
-        ay ayVar;
-        BaseFragmentActivity baseFragmentActivity4;
-        BaseFragmentActivity baseFragmentActivity5;
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            baseFragmentActivity = this.a.a;
-            baseFragmentActivity.c(com.baidu.tieba.x.neterror);
-            return;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tieba.model.al> run(CustomMessage customMessage) {
+        com.baidu.adp.lib.cache.t i;
+        if (customMessage == null) {
+            return null;
         }
-        CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
-        if (checkPostResponseMessage.hasError()) {
-            if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                baseFragmentActivity5 = this.a.a;
-                baseFragmentActivity5.a(checkPostResponseMessage.getErrorString());
-                return;
+        i = this.a.i();
+        byte[] bArr = (byte[]) i.a("replyme_cache");
+        com.baidu.tieba.model.al alVar = new com.baidu.tieba.model.al();
+        if (bArr != null && this.a.d != null && this.a.d.a() != null && this.a.d.a().h() == 1) {
+            try {
+                alVar.a(((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class)).data);
+                if (!alVar.a()) {
+                    this.a.h();
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            baseFragmentActivity4 = this.a.a;
-            baseFragmentActivity4.c(com.baidu.tieba.x.neterror);
-            return;
         }
-        long forumId = checkPostResponseMessage.getForumId();
-        long postState = checkPostResponseMessage.getPostState();
-        if (postState == 1) {
-            ayVar = this.a.b;
-            ayVar.a(new StringBuilder(String.valueOf(forumId)).toString());
-        } else if (postState == 0) {
-            baseFragmentActivity3 = this.a.a;
-            baseFragmentActivity3.c(com.baidu.tieba.x.thread_delete_tip);
-        } else if (postState == -1) {
-            baseFragmentActivity2 = this.a.a;
-            baseFragmentActivity2.c(com.baidu.tieba.x.thread_shield_tip);
-        }
+        return new CustomResponsedMessage<>(2001229, alVar);
     }
 }

@@ -9,7 +9,7 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tbadk.pluginArch.d;
-import com.baidu.tbadk.pluginArch.n;
+import com.baidu.tbadk.pluginArch.o;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public class RemoteSynchronousDataService extends Service {
         if (data != null) {
             String string = data.getString("pluginName");
             if (!TextUtils.isEmpty(string)) {
-                n.a().b(string);
+                o.a().c(string);
             }
         }
     }

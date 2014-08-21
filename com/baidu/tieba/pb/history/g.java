@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.history;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -45,7 +44,7 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         h hVar;
         if (view == null) {
-            view = LayoutInflater.from(TbadkApplication.m252getInst()).inflate(v.pb_history_list_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(TbadkApplication.m252getInst(), v.pb_history_list_item, null);
             hVar = new h(view);
             view.setTag(hVar);
         } else {

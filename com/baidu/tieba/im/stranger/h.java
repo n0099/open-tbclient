@@ -18,15 +18,14 @@ public class h {
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.chat.notify.a aVar) {
         if (imMessageCenterShowItemData != null) {
             String friendId = imMessageCenterShowItemData.getFriendId();
-            String ownerName = imMessageCenterShowItemData.getOwnerName();
-            if (!TextUtils.isEmpty(friendId) && !TextUtils.isEmpty(ownerName)) {
+            if (!TextUtils.isEmpty(friendId)) {
                 Iterator<ImMessageCenterShowItemData> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     ImMessageCenterShowItemData next = it.next();
-                    if (next != null && friendId.equals(next.getFriendId()) && ownerName.equals(next.getOwnerName())) {
+                    if (next != null && friendId.equals(next.getFriendId())) {
                         this.a.remove(next);
                         break;
                     }

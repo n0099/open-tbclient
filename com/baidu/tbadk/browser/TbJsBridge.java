@@ -27,7 +27,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        LoginActivity.a(this.mActivity, com.baidu.adp.lib.e.b.a(String.valueOf(i), 0));
+        LoginActivity.a(this.mActivity, com.baidu.adp.lib.e.c.a(String.valueOf(i), 0));
     }
 
     @JavascriptInterface
@@ -40,9 +40,8 @@ public class TbJsBridge {
             hVar.d = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
-        dVar.b(false);
         dVar.a(hVar, true);
-        dVar.a();
+        dVar.c();
     }
 
     @JavascriptInterface
@@ -54,7 +53,7 @@ public class TbJsBridge {
         intent.putExtra(PayActivityConfig.QUAN_NUM, str3);
         intent.putExtra(PayActivityConfig.IS_LEFT, str4);
         intent.putExtra(PayActivityConfig.PROPS_MON, str5);
-        com.baidu.adp.lib.e.c.a(this.mActivity, intent);
+        com.baidu.adp.lib.e.d.a(this.mActivity, intent);
     }
 
     @JavascriptInterface
@@ -62,6 +61,6 @@ public class TbJsBridge {
         Intent intent = new Intent(this.mActivity, DealIntentService.class);
         intent.putExtra("class", 23);
         intent.putExtra("wanted_type", str);
-        com.baidu.adp.lib.e.c.a(this.mActivity, intent);
+        com.baidu.adp.lib.e.d.a(this.mActivity, intent);
     }
 }

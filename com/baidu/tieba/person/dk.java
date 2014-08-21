@@ -1,9 +1,7 @@
 package com.baidu.tieba.person;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
@@ -18,7 +16,7 @@ public class dk extends com.baidu.adp.base.f {
     }
 
     private void a(Context context, View.OnClickListener onClickListener) {
-        this.a = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.person_info_more_view, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.person_info_more_view, null);
         this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.person_info_more_view_item_friend);
         this.b.setOnClickListener(onClickListener);
         this.c = (TextView) this.a.findViewById(com.baidu.tieba.u.person_info_more_view_item_black);

@@ -16,6 +16,6 @@ public class i implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
         dialog = this.a.j;
-        dialog.dismiss();
+        com.baidu.adp.lib.e.e.b(dialog, this.a.a);
     }
 }

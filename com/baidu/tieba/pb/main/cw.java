@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.main;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,7 +31,7 @@ public final class cw extends LinearLayout {
     }
 
     private void a(Context context) {
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.thread_to_group_share_view, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.thread_to_group_share_view, this);
         setOrientation(1);
         this.a = (EditText) findViewById(com.baidu.tieba.u.chat_msg);
         this.b = (BarImageView) findViewById(com.baidu.tieba.u.chat_group_img);

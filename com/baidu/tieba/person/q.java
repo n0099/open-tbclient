@@ -1,192 +1,144 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ColumnLayout;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.more.SettingTextFunctionIntroView;
-import java.util.LinkedList;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q {
-    protected UserIconBox a;
-    private final BaseFragmentActivity b;
-    private UserData c;
-    private final NavigationBar d;
-    private final View e;
-    private final View f;
-    private final ColumnLayout g;
-    private final LinearLayout h;
-    private final TextView i;
-    private final HeadImageView j;
-    private final TextView k;
-    private final TextView l;
-    private final ProgressBar m;
-    private final MoreDiscoveryWidget n;
-    private final MoreDiscoveryWidget o;
-    private final MoreDiscoveryWidget p;
-    private final MoreDiscoveryWidget q;
-    private LinkedList<IconData> r;
+public class q extends BdAsyncTask<Boolean, p, p> {
+    final /* synthetic */ p a;
+    private com.baidu.tbadk.core.util.ae b;
+    private p c;
+    private volatile boolean d;
+    private boolean e;
 
-    public q(BaseFragmentActivity baseFragmentActivity, m mVar) {
-        this.a = null;
-        this.b = baseFragmentActivity;
-        this.e = mVar.getView();
-        this.f = this.e.findViewById(com.baidu.tieba.u.parent);
-        this.d = (NavigationBar) this.f.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.d.a(this.b.getString(com.baidu.tieba.x.more));
-        this.a = (UserIconBox) this.e.findViewById(com.baidu.tieba.u.user_tshow_icon_box);
-        this.g = (ColumnLayout) this.f.findViewById(com.baidu.tieba.u.user_info);
-        this.g.setOnClickListener(mVar);
-        this.h = (LinearLayout) this.f.findViewById(com.baidu.tieba.u.user_layout);
-        this.i = (TextView) this.f.findViewById(com.baidu.tieba.u.user_login);
-        this.j = (HeadImageView) this.f.findViewById(com.baidu.tieba.u.user_photo);
-        this.j.setAutoChangeStyle(true);
-        this.j.setIsRound(true);
-        this.k = (TextView) this.f.findViewById(com.baidu.tieba.u.user_name);
-        this.l = (TextView) this.f.findViewById(com.baidu.tieba.u.user_signature);
-        this.m = (ProgressBar) this.f.findViewById(com.baidu.tieba.u.progress);
-        this.n = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.my_collection);
-        this.n.setOnClickListener(mVar);
-        this.o = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.member_benefits);
-        this.o.setOnClickListener(mVar);
-        this.p = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.face_store);
-        this.p.setOnClickListener(mVar);
-        this.q = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.settings);
-        this.q.setOnClickListener(mVar);
-        a();
+    private q(p pVar) {
+        this.a = pVar;
+        this.c = null;
+        this.d = false;
+        this.e = false;
     }
 
-    public void a() {
-        this.j.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.j.setDefaultResource(com.baidu.tieba.t.icon_default_avatar100);
-        this.j.setNightDefaultResource(com.baidu.tieba.t.icon_default_avatar100_1);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ q(p pVar, q qVar) {
+        this(pVar);
     }
 
-    public void a(o oVar) {
-        if (oVar != null) {
-            this.m.setVisibility(0);
-        }
-    }
-
-    public void a(o oVar, boolean z) {
-        this.m.setVisibility(8);
-        if (z) {
-            if (oVar.b() != null && oVar.b().length() > 0) {
-                f();
-            } else {
-                e();
-            }
-            b(oVar);
-            d(oVar);
-        }
-        if (oVar.getErrorString() != null && !oVar.e()) {
-            this.b.a(oVar.getErrorString());
-        }
-    }
-
-    public void b(o oVar) {
-        if (oVar != null) {
-            this.c = oVar.a();
-            if (this.c != null) {
-                this.k.setText(this.c.getName_show());
-                this.r = this.c.getTShowInfo();
-                if (this.a != null) {
-                    this.a.removeAllViews();
-                    this.a.a(this.r, 4, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_width), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_height), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_margin), true);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public p doInBackground(Boolean... boolArr) {
+        Context context;
+        Context context2;
+        boolean booleanValue = boolArr[0].booleanValue();
+        this.e = boolArr[1].booleanValue();
+        if (booleanValue) {
+            try {
+                String b = com.baidu.tieba.util.k.b();
+                if (b != null) {
+                    context = this.a.e;
+                    this.c = new p(context);
+                    this.c.c(b);
+                    publishProgress(this.c);
+                    this.e = false;
                 }
-                String intro = this.c.getIntro();
-                if (intro != null && intro.length() > 0) {
-                    this.l.setVisibility(0);
-                    this.l.setText(this.c.getIntro());
-                    return;
+            } catch (Exception e) {
+                e.printStackTrace();
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (!this.d && this.a.b() != null) {
+            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+            this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
+            this.b.a("has_plist", "0");
+            String h = this.b.h();
+            if (this.b.a().b().b()) {
+                context2 = this.a.e;
+                this.c = new p(context2);
+                this.c.c(h);
+                if (this.c.a() != null) {
+                    com.baidu.tieba.util.k.c(h);
+                    AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+                    if (currentAccountObj == null) {
+                        return null;
+                    }
+                    if (!TextUtils.isEmpty(this.c.a().getPortrait())) {
+                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.c.a().getPortrait());
+                        currentAccountObj.setPortrait(this.c.a().getPortrait());
+                    }
                 }
-                this.l.setVisibility(8);
             }
         }
+        return this.c;
     }
 
-    public void c(o oVar) {
-        if (oVar != null) {
-            if (oVar.c() > 0 && !oVar.d()) {
-                this.n.c();
-            } else {
-                this.n.d();
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(p... pVarArr) {
+        com.baidu.adp.base.h hVar;
+        boolean z = false;
+        super.onProgressUpdate(pVarArr);
+        p pVar = pVarArr[0];
+        if (pVar != null) {
+            this.a.a(pVar.a());
+            z = true;
         }
+        this.a.mLoadDataMode = 2;
+        this.a.setErrorString(null);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(Boolean.valueOf(z));
     }
 
-    public void b() {
-        c();
-        d();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.h hVar;
+        super.cancel();
+        this.d = true;
+        if (this.b != null) {
+            this.b.f();
+            this.b = null;
+        }
+        this.a.b = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(false);
     }
 
-    public void c() {
-        VersionData A = com.baidu.tieba.ai.c().A();
-        boolean z = A != null && A.hasNewVer();
-        boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(SettingTextFunctionIntroView.f, false);
-        if (z || !a) {
-            this.q.c();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(p pVar) {
+        Context context;
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        super.onPostExecute(pVar);
+        this.a.b = null;
+        this.a.mLoadDataMode = 1;
+        if (pVar != null) {
+            this.a.i = true;
+            this.a.a(pVar.a());
+            com.baidu.tbadk.imageManager.e.a().a(pVar.a().getPortrait());
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(true);
+            return;
+        }
+        this.a.i = false;
+        if (this.b != null && this.e) {
+            this.a.setErrorString(this.b.e());
         } else {
-            this.q.d();
+            p pVar2 = this.a;
+            context = this.a.e;
+            pVar2.setErrorString(context.getString(com.baidu.tieba.x.neterror));
         }
-    }
-
-    public void d() {
-        if (!com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_member_benifit", false)) {
-            this.o.a();
-        } else {
-            this.o.b();
-        }
-    }
-
-    public void e() {
-        this.i.setVisibility(0);
-        this.h.setVisibility(8);
-    }
-
-    public void f() {
-        this.i.setVisibility(8);
-        this.h.setVisibility(0);
-    }
-
-    public void d(o oVar) {
-        String portrait;
-        if (oVar != null && oVar.a() != null && (portrait = oVar.a().getPortrait()) != null && portrait.length() > 0) {
-            this.j.a(portrait, 12, false);
-        }
-    }
-
-    public void a(int i) {
-        this.b.c().a(i == 1);
-        this.b.c().a(this.f);
-        this.j.b();
-        this.d.c(i);
-        this.n.a(i);
-        this.o.a(i);
-        this.p.a(i);
-        this.q.a(i);
-    }
-
-    public void g() {
-        if (this.m != null) {
-            this.m.setVisibility(8);
-        }
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.p.a();
-        } else {
-            this.p.b();
-        }
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(false);
     }
 }

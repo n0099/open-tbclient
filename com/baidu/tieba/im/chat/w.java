@@ -60,7 +60,7 @@ public class w {
         if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
             groupId = String.valueOf(chatMessage.getToUserId());
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(groupId, chatMessage.getCustomGroupType(), chatMessage, false)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(groupId, chatMessage.getCustomGroupType(), chatMessage, 3)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

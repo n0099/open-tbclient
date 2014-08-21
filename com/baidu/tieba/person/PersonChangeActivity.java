@@ -315,7 +315,7 @@ public class PersonChangeActivity extends BaseActivity {
             this.B = builder.create();
             this.B.setCanceledOnTouchOutside(true);
         }
-        com.baidu.adp.lib.e.d.a(this.B, this);
+        com.baidu.adp.lib.e.e.a(this.B, this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -346,7 +346,7 @@ public class PersonChangeActivity extends BaseActivity {
                 case 12010:
                     this.u.a().setPhotoChanged(true);
                     h();
-                    m.a(true);
+                    n.a(true);
                     return;
                 default:
                     return;

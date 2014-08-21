@@ -1,37 +1,71 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
+import android.content.Context;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.GroupsByUidMessage;
+import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes.dex */
-class x extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ v a;
+public class x extends com.baidu.adp.base.e {
+    public int a;
+    public int b;
+    public long c;
+    private RequestUserPermissionMessage d;
+    private boolean e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(v vVar, int i) {
-        super(i);
-        this.a = vVar;
+    public x(Context context) {
+        super(context);
+        this.e = false;
+        this.a = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.b = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.c = 0L;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        switch (socketResponsedMessage.getCmd()) {
-            case 103101:
-            case 103102:
-            case 103104:
-            case 103105:
-            case 103112:
-            case 2001109:
-                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
-                    this.a.c = true;
-                    return;
-                }
+    public x(Context context, long j) {
+        super(context);
+        this.e = false;
+        this.a = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.b = com.baidu.adp.lib.util.j.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        this.c = j;
+    }
+
+    public void a() {
+        if (this.c == 0) {
+            if (this.e) {
+                super.sendMessage(new GroupsByUidMessage(this.a, this.b));
                 return;
-            default:
-                return;
+            }
+            this.e = true;
+            super.sendMessage(new GroupsByUidLocalMessage());
+            return;
         }
+        super.sendMessage(new GroupsByUidMessage(this.c, this.a, this.b));
+    }
+
+    public void a(long j) {
+        this.d = b(j);
+        super.sendMessage(this.d);
+    }
+
+    private RequestUserPermissionMessage b(long j) {
+        RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
+        requestUserPermissionMessage.setForumId(j);
+        return requestUserPermissionMessage;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.d = null;
     }
 }

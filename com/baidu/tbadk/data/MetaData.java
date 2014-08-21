@@ -1,5 +1,6 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -12,6 +13,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class MetaData implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    private int gender;
     private int is_myfriend;
     private int is_like = 0;
     private String userId = null;
@@ -47,7 +49,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.e.b.a(this.userId, 0L);
+        return c.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -150,10 +152,19 @@ public class MetaData implements Serializable {
         this.is_myfriend = i;
     }
 
+    public int getGender() {
+        return this.gender;
+    }
+
+    public void setGender(int i) {
+        this.gender = i;
+    }
+
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0009: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Integer)] */
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = new StringBuilder().append(user.id).toString();
+            this.gender = user.gender.intValue();
             this.type = user.type.intValue();
             this.userName = user.name;
             this.level_id = user.level_id.intValue();
@@ -198,6 +209,7 @@ public class MetaData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.userId = jSONObject.optString("id");
+                this.gender = jSONObject.optInt("gender", 0);
                 this.type = jSONObject.optInt("type", 0);
                 this.userName = jSONObject.optString("name");
                 this.level_id = jSONObject.optInt("level_id", 0);

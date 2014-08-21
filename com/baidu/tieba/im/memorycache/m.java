@@ -30,7 +30,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
             b.add(imMessageCenterPojo);
             imMessageCenterPojo.setCustomGroupType(7);
             imMessageCenterPojo.setGid(String.valueOf(11));
-            imMessageCenterPojo.setPulled_msgId(a);
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(a));
             imMessageCenterPojo.setIs_hidden(1);
         }
         if (a2 != -1) {
@@ -38,7 +38,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
             b.add(imMessageCenterPojo2);
             imMessageCenterPojo2.setCustomGroupType(8);
             imMessageCenterPojo2.setGid(String.valueOf(12));
-            imMessageCenterPojo2.setPulled_msgId(a2);
+            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(a2));
             imMessageCenterPojo2.setIs_hidden(1);
         }
         return new MemoryGetFromDBMessage(b, data);

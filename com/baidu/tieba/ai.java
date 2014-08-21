@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.atomData.InvokeOnAccountChangedMessageConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.NetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.data.BannerData;
@@ -30,7 +30,6 @@ import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.more.AppsActivity;
-import com.baidu.tieba.pb.main.bp;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.SDCardChangeReceiver;
 import com.baidu.tieba.service.SignAlertReceiver;
@@ -132,15 +131,15 @@ public class ai {
             new as(null).execute(new String[0]);
             NetWorkCore.j();
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.addMessageRule(new com.baidu.tbadk.b.d(0));
-            messageManager.addMessageRule(new com.baidu.tbadk.b.a(0));
-            messageManager.addResponsedMessageRule(new com.baidu.tbadk.b.c(0));
-            messageManager.addRemovedMessageRule(new com.baidu.tbadk.b.b(0));
+            messageManager.addMessageRule(new com.baidu.tbadk.a.d(0));
+            messageManager.addMessageRule(new com.baidu.tbadk.a.a(0));
+            messageManager.addResponsedMessageRule(new com.baidu.tbadk.a.c(0));
+            messageManager.addRemovedMessageRule(new com.baidu.tbadk.a.b(0));
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 com.baidu.tbadk.core.sharedPref.b.a().b();
             }
             U();
-            bo.a(TbadkApplication.m252getInst());
+            bp.a(TbadkApplication.m252getInst());
             TbConfig.initBigImageWidth(TbadkApplication.m252getInst());
             TbConfig.initFriendPhotoConfig(TbadkApplication.m252getInst());
             try {
@@ -185,11 +184,15 @@ public class ai {
                 TbadkApplication.m252getInst().sendMessageForEnterBackground();
                 g();
             }
-            com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-            if (a != null && (hao123Plugin = (Hao123Plugin) a.a(Hao123Plugin.class)) != null) {
-                hao123Plugin.init();
-                if (TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
-                    hao123Plugin.openFloating(application);
+            if (TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
+                try {
+                    com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("hao123");
+                    if (a != null && (hao123Plugin = (Hao123Plugin) a.a(Hao123Plugin.class)) != null) {
+                        hao123Plugin.init();
+                        hao123Plugin.openFloating(application);
+                    }
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
                 }
             }
         }
@@ -377,7 +380,7 @@ public class ai {
         } else {
             com.baidu.tieba.runing.a.a().d();
         }
-        bp.a().f();
+        com.baidu.tieba.pb.main.bp.a().f();
     }
 
     public static void o() {

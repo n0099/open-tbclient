@@ -26,7 +26,7 @@ public class AtListActivity extends BaseActivity implements AdapterView.OnItemCl
     private LinearLayout f;
     private Button g;
     private View p;
-    private com.baidu.tbadk.core.view.o q;
+    private com.baidu.tbadk.core.view.p q;
     private NavigationBar t;
     private LinearLayout u;
     private LinearLayout v;
@@ -56,7 +56,7 @@ public class AtListActivity extends BaseActivity implements AdapterView.OnItemCl
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.v.at_list_activity);
-        this.q = new com.baidu.tbadk.core.view.o(this, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
+        this.q = new com.baidu.tbadk.core.view.p(this, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
         a(bundle);
         a();
         a((String) null);

@@ -1,8 +1,6 @@
 package com.baidu.tieba.recommend;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ListAdapter;
@@ -32,7 +30,7 @@ public class r extends com.baidu.adp.base.f {
     public r(DailyRecommendActivity dailyRecommendActivity, x xVar, l lVar) {
         super(dailyRecommendActivity);
         this.a = dailyRecommendActivity;
-        this.d = LayoutInflater.from(this.mContext).inflate(v.daily_recommend_view, (ViewGroup) null);
+        this.d = com.baidu.adp.lib.e.b.a().a(this.mContext, v.daily_recommend_view, null);
         this.a.setContentView(this.d);
         this.b = (PinnedHeaderListView) this.d.findViewById(u.pinnedHeaderListview);
         this.i = new i(dailyRecommendActivity, lVar);

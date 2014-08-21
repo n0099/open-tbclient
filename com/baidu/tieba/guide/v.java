@@ -15,7 +15,7 @@ public class v implements bg {
     @Override // com.baidu.tieba.model.bg
     public void a(String str, long j) {
         a aVar;
-        int a = com.baidu.adp.lib.e.b.a(String.valueOf(j), 0);
+        int a = com.baidu.adp.lib.e.c.a(String.valueOf(j), 0);
         aVar = this.a.c;
         aVar.b(a);
         this.a.a(a, false);

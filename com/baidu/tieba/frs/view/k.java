@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bn;
+import com.baidu.tbadk.core.atomData.bo;
 import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -35,6 +35,6 @@ public class k implements View.OnClickListener {
         str = this.a.g;
         str2 = this.a.h;
         z = this.a.i;
-        messageManager.sendMessage(new CustomMessage(2002007, new bn(context, str, str2, str3, z)));
+        messageManager.sendMessage(new CustomMessage(2002007, new bo(context, str, str2, str3, z)));
     }
 }

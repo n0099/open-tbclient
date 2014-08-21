@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -16,8 +15,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bo;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import java.util.ArrayList;
@@ -37,10 +36,9 @@ public class a {
     private DialogInterface.OnCancelListener l;
     private AlertDialog m;
     private final ViewGroup n;
-    private final LayoutInflater o;
     private int b = -1;
-    private boolean p = false;
-    private boolean q = true;
+    private boolean o = false;
+    private boolean p = true;
 
     public a a(String str) {
         this.c = str;
@@ -98,23 +96,22 @@ public class a {
     }
 
     public a a(boolean z) {
-        this.q = z;
+        this.p = z;
         return this;
     }
 
     public a(Activity activity) {
         this.a = activity;
-        this.o = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.n = (ViewGroup) this.o.inflate(v.dialog_bdalert, (ViewGroup) null);
+        this.n = (ViewGroup) com.baidu.adp.lib.e.b.a().a(activity, v.dialog_bdalert, null);
     }
 
     public a a() {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (!this.p) {
-            this.p = true;
-            d();
+        if (!this.o) {
+            this.o = true;
+            e();
             TextView textView = (TextView) this.n.findViewById(u.title);
             LinearLayout linearLayout = (LinearLayout) this.n.findViewById(u.content);
             TextView textView2 = (TextView) this.n.findViewById(u.message);
@@ -164,7 +161,7 @@ public class a {
         return this;
     }
 
-    private void d() {
+    private void e() {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (this.a instanceof BaseActivity) {
             BaseActivity baseActivity = (BaseActivity) this.a;
@@ -225,42 +222,57 @@ public class a {
     }
 
     public a b() {
-        if (!this.p) {
+        return b(false);
+    }
+
+    private a b(boolean z) {
+        if (!this.o) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.m != null) {
-            com.baidu.adp.lib.e.d.a(this.m, this.a);
+            if (z) {
+                com.baidu.adp.lib.e.e.a(this.m, this.a);
+            } else {
+                this.m.show();
+            }
         } else {
             this.m = new AlertDialog.Builder(this.a).create();
-            this.m.setCanceledOnTouchOutside(this.q);
+            this.m.setCanceledOnTouchOutside(this.p);
             if (this.l != null) {
                 this.m.setOnCancelListener(this.l);
             }
-            if (com.baidu.adp.lib.e.d.a(this.m, this.a)) {
-                Window window = this.m.getWindow();
-                if (this.b == -1) {
-                    this.b = 17;
-                }
-                window.setGravity(this.b);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.dimAmount = 0.5f;
-                window.setAttributes(attributes);
-                window.addFlags(2);
-                window.setLayout(-2, -2);
-                window.setContentView(this.n);
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                bo.a(this.n, false, (bq) new b(this, atomicBoolean));
-                if (atomicBoolean.get()) {
-                    window.clearFlags(131080);
-                }
+            if (z) {
+                com.baidu.adp.lib.e.e.a(this.m, this.a);
+            } else {
+                this.m.show();
+            }
+            Window window = this.m.getWindow();
+            if (this.b == -1) {
+                this.b = 17;
+            }
+            window.setGravity(this.b);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.dimAmount = 0.5f;
+            window.setAttributes(attributes);
+            window.addFlags(2);
+            window.setLayout(-2, -2);
+            window.setContentView(this.n);
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            bp.a(this.n, false, (br) new b(this, atomicBoolean));
+            if (atomicBoolean.get()) {
+                window.clearFlags(131080);
             }
         }
         return this;
     }
 
-    public void c() {
+    public a c() {
+        return b(true);
+    }
+
+    public void d() {
         if (this.m != null) {
-            com.baidu.adp.lib.e.d.b(this.m, this.a);
+            com.baidu.adp.lib.e.e.b(this.m, this.a);
         }
     }
 

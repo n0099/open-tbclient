@@ -1,13 +1,11 @@
 package com.baidu.tieba.game;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.List;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.game.RequestGameDetailMessage;
+import com.baidu.tbadk.game.ResponseGameDetailMessage;
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
+class w extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ GameDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,53 +18,30 @@ class w extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
-        ab abVar3;
-        ab abVar4;
-        z zVar;
-        ab abVar5;
-        ab abVar6;
-        ab abVar7;
-        if (customResponsedMessage instanceof DownloadMessage) {
-            abVar = this.a.b;
-            if (abVar != null) {
-                abVar2 = this.a.b;
-                if (!TextUtils.isEmpty(abVar2.a())) {
-                    List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 < data.size()) {
-                            DownloadData downloadData = data.get(i2);
-                            abVar3 = this.a.b;
-                            if (!abVar3.a().equals(downloadData.getId())) {
-                                i = i2 + 1;
-                            } else {
-                                if (downloadData.getStatus() == 0) {
-                                    abVar6 = this.a.b;
-                                    abVar6.c(4);
-                                    ac a = ac.a();
-                                    abVar7 = this.a.b;
-                                    a.i(abVar7);
-                                } else if (downloadData.getStatus() == 2) {
-                                    abVar4 = this.a.b;
-                                    abVar4.c(3);
-                                }
-                                zVar = this.a.a;
-                                abVar5 = this.a.b;
-                                zVar.a(abVar5);
-                                return;
-                            }
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            }
-        } else {
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        aa aaVar;
+        com.baidu.tbadk.game.b bVar;
+        com.baidu.tbadk.game.b bVar2;
+        CustomMessageListener customMessageListener;
+        this.a.closeLoadingDialog();
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseGameDetailMessage)) {
             this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
+            return;
+        }
+        ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
+        if (!(responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage)) {
+            this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
+            return;
+        }
+        this.a.b = com.baidu.tbadk.game.b.a(responseGameDetailMessage.getGameInfo());
+        aaVar = this.a.a;
+        bVar = this.a.b;
+        aaVar.b(bVar);
+        bVar2 = this.a.b;
+        if (bVar2.c() == 1) {
+            GameDetailActivity gameDetailActivity = this.a;
+            customMessageListener = this.a.e;
+            gameDetailActivity.registerListener(customMessageListener);
         }
     }
 }

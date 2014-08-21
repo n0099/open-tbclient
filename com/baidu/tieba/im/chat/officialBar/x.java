@@ -17,7 +17,7 @@ class x extends com.baidu.tieba.im.b<Void> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Void a() {
-        ay.a().a(TbadkApplication.getCurrentAccount(), OfficialBarChatActivity.b, this.b);
+        az.a().a(TbadkApplication.getCurrentAccount(), OfficialBarChatActivity.b, this.b);
         return null;
     }
 }

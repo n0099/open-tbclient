@@ -17,11 +17,11 @@ public class aj extends com.baidu.adp.base.h {
         com.baidu.tieba.model.af afVar2;
         String str;
         String str2;
-        cu cuVar;
+        cv cvVar;
         g gVar;
         g gVar2;
         String str3;
-        cu cuVar2;
+        cv cvVar2;
         g gVar3;
         g gVar4;
         String str4;
@@ -32,37 +32,37 @@ public class aj extends com.baidu.adp.base.h {
             str4 = this.a.q;
             a.a(str4, false);
             ((com.baidu.tieba.data.ab) obj).b(1);
-            gVar5 = this.a.L;
+            gVar5 = this.a.N;
             gVar5.a((com.baidu.tieba.data.ab) obj);
             z = true;
         }
         if (!z) {
-            afVar = this.a.M;
+            afVar = this.a.O;
             if (afVar.getErrorCode() == 22) {
                 this.a.showToast(this.a.getString(com.baidu.tieba.x.had_liked_forum));
             } else {
                 FrsActivity frsActivity = this.a;
-                afVar2 = this.a.M;
+                afVar2 = this.a.O;
                 frsActivity.showToast(afVar2.getErrorString());
             }
-            this.a.D();
+            this.a.E();
             return;
         }
-        str = this.a.R;
+        str = this.a.T;
         if (str.equals("normal_page")) {
-            cuVar2 = this.a.z;
-            gVar3 = this.a.L;
+            cvVar2 = this.a.B;
+            gVar3 = this.a.N;
             ForumData i = gVar3.i();
-            gVar4 = this.a.L;
-            cuVar2.b(1, i, gVar4, true);
+            gVar4 = this.a.N;
+            cvVar2.b(1, i, gVar4, true);
         } else {
-            str2 = this.a.R;
+            str2 = this.a.T;
             if (str2.equals("frs_page")) {
-                cuVar = this.a.z;
-                gVar = this.a.L;
+                cvVar = this.a.B;
+                gVar = this.a.N;
                 ForumData i2 = gVar.i();
-                gVar2 = this.a.L;
-                cuVar.a(1, i2, gVar2, true);
+                gVar2 = this.a.N;
+                cvVar.a(1, i2, gVar2, true);
             }
         }
         this.a.showToast(this.a.getString(com.baidu.tieba.x.like_success));

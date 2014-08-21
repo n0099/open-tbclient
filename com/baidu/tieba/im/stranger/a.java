@@ -13,7 +13,7 @@ class a implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.core.dialog.a aVar2;
         h hVar;
         aVar2 = this.a.e;
-        aVar2.c();
+        aVar2.d();
         hVar = this.a.c;
         hVar.b();
         this.a.finish();

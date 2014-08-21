@@ -3,9 +3,7 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +30,7 @@ public class MoreDiscoveryWidget extends FrameLayout {
         super(context, attributeSet, i);
         this.f = new int[2];
         this.e = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.more_discovery_widget, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.more_discovery_widget, this, true);
         this.a = (ImageView) findViewById(com.baidu.tieba.u.widget_icon);
         this.b = (TextView) findViewById(com.baidu.tieba.u.widget_text);
         this.c = (ImageView) findViewById(com.baidu.tieba.u.widget_new);

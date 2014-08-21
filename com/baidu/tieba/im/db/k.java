@@ -45,7 +45,7 @@ public class k {
         if (a2 != null) {
             while (a2.moveToNext()) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.e.b.a(a2.getString(a2.getColumnIndex("pull_msgid")), 0L));
+                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.e.c.a(a2.getString(a2.getColumnIndex("pull_msgid")), 0L));
                 imMessageCenterPojo.setGid(a2.getString(a2.getColumnIndex("gid")));
                 imMessageCenterPojo.setGroup_name(a2.getString(a2.getColumnIndex(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME)));
                 imMessageCenterPojo.setGroup_head(a2.getString(a2.getColumnIndex("group_head")));
@@ -92,7 +92,7 @@ public class k {
                 if (cursor.moveToNext()) {
                     imMessageCenterPojo = new ImMessageCenterPojo();
                     try {
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.e.b.a(cursor.getString(cursor.getColumnIndex("pull_msgid")), 0L));
+                        imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.e.c.a(cursor.getString(cursor.getColumnIndex("pull_msgid")), 0L));
                         imMessageCenterPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                         imMessageCenterPojo.setGroup_name(cursor.getString(cursor.getColumnIndex(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME)));
                         imMessageCenterPojo.setGroup_head(cursor.getString(cursor.getColumnIndex("group_head")));

@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ag;
+import com.baidu.tbadk.core.atomData.ah;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public class b implements View.OnClickListener {
         if (view == imageView && TbadkApplication.isLogin()) {
             TiebaStatic.eventStat(this.a, "msg_newchat_tab_c", "click", 1, new Object[0]);
             TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ag(this.a, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ah(this.a, true)));
         }
     }
 }

@@ -26,7 +26,7 @@ class g implements com.baidu.tieba.im.a<Boolean> {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupDeleteMsgResponsedMessage());
         personalTalkSettingActivity2 = this.a.a;
         j = personalTalkSettingActivity2.c;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(j), 2, null, true)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(j), 2, null, 1)));
         StringBuilder sb = new StringBuilder("clear cache by person:");
         personalTalkSettingActivity3 = this.a.a;
         j2 = personalTalkSettingActivity3.c;

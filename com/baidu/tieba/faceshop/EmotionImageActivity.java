@@ -82,7 +82,7 @@ public class EmotionImageActivity extends BaseActivity {
             layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
         }
         this.b.setLayoutParams(layoutParams);
-        boolean b = com.baidu.tbadk.c.c.b();
+        boolean b = com.baidu.tbadk.b.c.b();
         com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
         aVar.b = this.k;
         aVar.e = this.f;

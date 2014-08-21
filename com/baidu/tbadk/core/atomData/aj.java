@@ -3,10 +3,8 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.tbadk.core.frameworkData.a {
-    public aj(Context context, String str, int i, int i2) {
+    public aj(Context context, String str) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME, str);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, i);
-        getIntent().putExtra("likers", i2);
+        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, str);
     }
 }

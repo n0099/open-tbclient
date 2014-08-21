@@ -40,9 +40,12 @@ public abstract class a {
 
     public void a(f fVar, int i, boolean z) {
         if (!fVar.a) {
-            com.baidu.tbadk.distribute.a.a().a(this.a.getContext(), fVar.y(), "show", "pb", fVar.b, fVar.c);
-            com.baidu.tbadk.distribute.a.a().a(fVar.y(), fVar.b, fVar.c, "PB", "show");
+            com.baidu.tbadk.distribute.a.a().a(this.a.getContext(), fVar.y(), "show", "pb", fVar.c, fVar.d);
+            com.baidu.tbadk.distribute.a.a().a(fVar.y(), fVar.c, fVar.d, "PB", "show");
             fVar.a = true;
+        }
+        if (fVar != null) {
+            com.baidu.tbadk.distribute.a.a = fVar.b;
         }
         this.h = fVar;
         this.j = i;

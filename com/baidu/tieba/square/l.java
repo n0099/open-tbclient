@@ -1,13 +1,12 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
     View.OnClickListener a = new m(this);
@@ -41,9 +40,9 @@ public class l extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bo.b(view);
+            bp.b(view);
         }
-        bo.a(view);
+        bp.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
             View findViewById = view.findViewById(com.baidu.tieba.u.container);
@@ -59,23 +58,22 @@ public class l extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            bo.a(findViewById, itemViewType, skinType);
+            bp.a(findViewById, itemViewType, skinType);
             a(viewGroup, (n) view.getTag(), i);
         }
         return view;
     }
 
     private View a(ViewGroup viewGroup, int i) {
-        LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
+            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
         }
-        View inflate = from.inflate(com.baidu.tieba.v.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.a);
+        View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_second_dir_item, viewGroup, false);
+        a.setOnClickListener(this.a);
         n nVar = new n();
-        nVar.a = (TextView) inflate.findViewById(com.baidu.tieba.u.name);
-        inflate.setTag(nVar);
-        return inflate;
+        nVar.a = (TextView) a.findViewById(com.baidu.tieba.u.name);
+        a.setTag(nVar);
+        return a;
     }
 
     private void a(ViewGroup viewGroup, n nVar, int i) {

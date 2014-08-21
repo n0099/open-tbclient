@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tbadk.core.view.u a;
+    private com.baidu.tbadk.core.view.v a;
     private af b;
     private com.baidu.tieba.im.model.u c;
     private final com.baidu.adp.framework.listener.d d = new p(this, 103005);
@@ -71,7 +71,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     private void d() {
         this.b = new af(this);
         BdListView i = this.b.i();
-        this.a = new com.baidu.tbadk.core.view.u(this);
+        this.a = new com.baidu.tbadk.core.view.v(this);
         this.a.a(new t(this, i));
         i.setPullRefresh(this.a);
         i.setOnScrollListener(this);

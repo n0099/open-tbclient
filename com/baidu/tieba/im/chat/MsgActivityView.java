@@ -9,7 +9,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsgActivityView extends cb {
+public class MsgActivityView extends cc {
     private HeadImageView p;
     private TextView q;
     private TextView r;
@@ -47,7 +47,7 @@ public class MsgActivityView extends cb {
                     String optString6 = optJSONObject.optString("activityUserName");
                     this.q.setText(optString);
                     Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(com.baidu.adp.lib.e.b.a(optString2, 0L) * 1000);
+                    calendar.setTimeInMillis(com.baidu.adp.lib.e.c.a(optString2, 0L) * 1000);
                     int i = calendar.get(11);
                     int i2 = calendar.get(12);
                     int i3 = calendar.get(7) - 1;
@@ -103,17 +103,17 @@ public class MsgActivityView extends cb {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(com.baidu.adp.lib.b.a aVar) {
         this.u = aVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(com.baidu.adp.lib.b.b bVar) {
         this.v = bVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void b(int i) {
         this.t = i;
     }

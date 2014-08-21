@@ -6,4 +6,9 @@ public class aa extends com.baidu.tbadk.core.frameworkData.a {
     public aa(Context context) {
         super(context);
     }
+
+    public aa a(String str) {
+        getIntent().putExtra("from_page", str);
+        return this;
+    }
 }

@@ -1,22 +1,16 @@
 package com.baidu.tbadk.browser;
-
-import android.content.Context;
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements DialogInterface.OnClickListener {
-    final /* synthetic */ e a;
-    private final /* synthetic */ Context b;
-    private final /* synthetic */ String c;
+public class f implements Runnable {
+    final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, Context context, String str) {
-        this.a = eVar;
-        this.b = context;
-        this.c = str;
+    public f(TbWebViewActivity tbWebViewActivity) {
+        this.a = tbWebViewActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        a.a(this.b, this.c);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.refresh();
     }
 }

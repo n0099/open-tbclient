@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
 import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tieba.x;
@@ -39,7 +39,7 @@ class e extends HttpMessageListener {
                         hVar2 = this.a.a;
                         hVar2.a((String) null);
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
-                        this.a.sendMessage(new CustomMessage(2002003, new bg(this.a, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, "search")));
+                        this.a.sendMessage(new CustomMessage(2002003, new bh(this.a, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, "search")));
                         return;
                     }
                     this.a.showToast(this.a.getString(x.neterror));

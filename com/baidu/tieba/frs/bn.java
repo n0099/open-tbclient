@@ -1,21 +1,29 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.tieba.view.ChildViewPager;
 /* loaded from: classes.dex */
 class bn {
-    View a;
+    ChildViewPager a;
     TextView b;
-    View c;
+    IndicatorView c;
     TextView d;
-    final /* synthetic */ bc e;
+    View e;
+    View f;
+    ImageView g;
+    RelativeLayout h;
+    final /* synthetic */ bd i;
 
-    private bn(bc bcVar) {
-        this.e = bcVar;
+    private bn(bd bdVar) {
+        this.i = bdVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bn(bc bcVar, bn bnVar) {
-        this(bcVar);
+    public /* synthetic */ bn(bd bdVar, bn bnVar) {
+        this(bdVar);
     }
 }

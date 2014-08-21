@@ -2,7 +2,6 @@ package com.baidu.tieba.game;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -21,45 +20,45 @@ public class o implements View.OnClickListener {
         GameCenterHomeActivity gameCenterHomeActivity;
         GameCenterHomeActivity gameCenterHomeActivity2;
         int intValue = ((Integer) view.getTag()).intValue();
-        list = this.a.l;
+        list = this.a.m;
         if (intValue < list.size() && intValue >= 0) {
-            list2 = this.a.l;
-            ab abVar = (ab) list2.get(intValue);
-            if (abVar != null) {
-                if (abVar.c() == 2) {
-                    gameCenterHomeActivity2 = this.a.a;
-                    UtilHelper.launchWebGameActivity(gameCenterHomeActivity2, abVar.b(), abVar.h());
-                    ac.a().i(abVar);
+            list2 = this.a.m;
+            com.baidu.tbadk.game.b bVar = (com.baidu.tbadk.game.b) list2.get(intValue);
+            if (bVar != null) {
+                if (bVar.c() == 2) {
+                    gameCenterHomeActivity2 = this.a.b;
+                    com.baidu.tbadk.game.a.a(gameCenterHomeActivity2, bVar.b(), bVar.h(), bVar.a());
+                    ae.a().i(bVar);
                     this.a.d().add(this.a.c().get(intValue));
                     this.a.c().remove(intValue);
                     this.a.e();
                     return;
                 }
-                switch (ac.a().j(abVar)) {
+                switch (ae.a().j(bVar)) {
                     case 1:
-                        ac.a().d(abVar);
+                        ae.a().d(bVar);
                         if (com.baidu.adp.lib.network.willdelete.h.a()) {
                             return;
                         }
-                        this.a.j();
+                        this.a.k();
                         return;
                     case 2:
-                        ac.a().c(abVar);
+                        ae.a().c(bVar);
                         return;
                     case 3:
-                        ac.a().d(abVar);
+                        ae.a().d(bVar);
                         if (com.baidu.adp.lib.network.willdelete.h.a()) {
                             return;
                         }
-                        this.a.j();
+                        this.a.k();
                         return;
                     case 4:
-                        ac.a().f(abVar);
+                        ae.a().f(bVar);
                         return;
                     case 5:
-                        ac.a().e(abVar);
-                        gameCenterHomeActivity = this.a.a;
-                        TiebaStatic.eventStat(gameCenterHomeActivity, "start_game", "click", 1, abVar.a());
+                        ae.a().e(bVar);
+                        gameCenterHomeActivity = this.a.b;
+                        TiebaStatic.eventStat(gameCenterHomeActivity, "start_game", "click", 1, bVar.a());
                         return;
                     default:
                         return;

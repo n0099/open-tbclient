@@ -28,10 +28,10 @@ public class u extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.a.a = new com.baidu.tbadk.core.d[]{(com.baidu.tbadk.core.d) fragment, new an(), new a()};
+            this.a.a = new com.baidu.tbadk.core.d[]{(com.baidu.tbadk.core.d) fragment, new al(), new a()};
             this.a.b = new int[]{0, 1, 2};
         } else {
-            this.a.a = new com.baidu.tbadk.core.d[]{new an(), new a()};
+            this.a.a = new com.baidu.tbadk.core.d[]{new al(), new a()};
             this.a.b = new int[]{1, 2};
         }
         t tVar = this.a;

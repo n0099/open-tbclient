@@ -2,9 +2,7 @@ package com.baidu.tieba.editortool;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class PbEditorToolButtonContainer extends i {
@@ -33,7 +31,7 @@ public class PbEditorToolButtonContainer extends i {
     }
 
     protected void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_tool_button_container, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.pb_editor_tool_button_container, this, true);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View

@@ -1,26 +1,46 @@
 package com.baidu.tieba.pb.main;
+
+import android.content.Intent;
+import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements Runnable {
+public class ao implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ PbActivity a;
+    private final /* synthetic */ MarkData b;
+    private final /* synthetic */ MarkData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PbActivity pbActivity) {
+    public ao(PbActivity pbActivity, MarkData markData, MarkData markData2) {
         this.a = pbActivity;
+        this.b = markData;
+        this.c = markData2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        bsVar = this.a.D;
-        if (!bsVar.E()) {
-            bsVar3 = this.a.D;
-            bsVar3.b(false);
-            return;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.model.ai aiVar;
+        com.baidu.tieba.model.ai aiVar2;
+        com.baidu.tieba.model.ai aiVar3;
+        com.baidu.tieba.model.ai aiVar4;
+        com.baidu.tieba.model.ai aiVar5;
+        com.baidu.tieba.model.ai aiVar6;
+        aiVar = this.a.z;
+        if (aiVar.a()) {
+            aiVar5 = this.a.z;
+            aiVar5.e();
+            aiVar6 = this.a.z;
+            aiVar6.a(false);
         }
-        bsVar2 = this.a.D;
-        bsVar2.b(true);
+        aiVar2 = this.a.z;
+        aiVar2.a(this.b);
+        aiVar3 = this.a.z;
+        aiVar3.a(true);
+        aiVar4 = this.a.z;
+        aiVar4.d();
+        this.c.setPostId(this.b.getPostId());
+        Intent intent = new Intent();
+        intent.putExtra("mark", this.c);
+        this.a.setResult(-1, intent);
+        this.a.y();
     }
 }

@@ -81,7 +81,7 @@ public class o {
                 imMessageCenterPojo2.setGid(String.valueOf("-1002"));
                 imMessageCenterPojo2.setCustomGroupType(-3);
                 imMessageCenterPojo2.setUnread_count(1);
-                imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.e.b.a(groupNewsPojo3.getNotice_id(), 0L));
+                imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.e.c.a(groupNewsPojo3.getNotice_id(), 0L));
                 imMessageCenterPojo2.setLast_content_time(groupNewsPojo3.getTime());
                 imMessageCenterPojo2.setLast_content(groupNewsPojo3.getContent());
                 imMessageCenterPojo2.setIs_hidden(0);
@@ -92,7 +92,7 @@ public class o {
                 imMessageCenterPojo3.setGid(String.valueOf("-1003"));
                 imMessageCenterPojo3.setCustomGroupType(-4);
                 imMessageCenterPojo3.setUnread_count(1);
-                imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.e.b.a(groupNewsPojo2.getNotice_id(), 0L));
+                imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.e.c.a(groupNewsPojo2.getNotice_id(), 0L));
                 imMessageCenterPojo3.setLast_content_time(groupNewsPojo2.getTime());
                 imMessageCenterPojo3.setLast_content(groupNewsPojo2.getContent());
                 imMessageCenterPojo3.setIs_hidden(0);
@@ -103,7 +103,7 @@ public class o {
                 imMessageCenterPojo4.setGid(String.valueOf("-1004"));
                 imMessageCenterPojo4.setCustomGroupType(-5);
                 imMessageCenterPojo4.setUnread_count(1);
-                imMessageCenterPojo4.setLast_rid(com.baidu.adp.lib.e.b.a(groupNewsPojo.getNotice_id(), 0L));
+                imMessageCenterPojo4.setLast_rid(com.baidu.adp.lib.e.c.a(groupNewsPojo.getNotice_id(), 0L));
                 imMessageCenterPojo4.setLast_content_time(groupNewsPojo.getTime());
                 imMessageCenterPojo4.setLast_content(groupNewsPojo.getContent());
                 imMessageCenterPojo4.setIs_hidden(0);

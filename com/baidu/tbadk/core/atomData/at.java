@@ -1,28 +1,43 @@
 package com.baidu.tbadk.core.atomData;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
+import android.content.Intent;
 /* loaded from: classes.dex */
 public class at extends com.baidu.tbadk.core.frameworkData.a {
-    public at(Context context, int i) {
+    public at(Context context) {
         super(context);
-        getIntent().putExtra("member_type", i);
     }
 
-    public at(Context context, int i, String str) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+    public at a(int i) {
+        return a(i, false);
     }
 
-    public at(Context context, boolean z, int i, String str) {
-        super(context);
-        if (str != null) {
-            getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+    public at a(int i, boolean z) {
+        Intent intent = getIntent();
+        intent.setFlags(603979776);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        if (i >= 0) {
+            intent.putExtra("locate_type", i);
+        }
+        intent.putExtra("is_new_user", z);
+        intent.putExtra("close_dialog", true);
+        return this;
+    }
+
+    public at b(int i, boolean z) {
+        Intent intent = getIntent();
+        intent.setFlags(603979776);
+        intent.putExtra("refresh_all", true);
+        if (i >= 0) {
+            intent.putExtra("locate_type", i);
         }
         if (z) {
-            setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(i);
+            intent.addFlags(268435456);
         }
+        intent.putExtra("close_dialog", true);
+        return this;
     }
 }

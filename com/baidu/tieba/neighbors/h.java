@@ -1,6 +1,9 @@
 package com.baidu.tieba.neighbors;
+
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tbadk.core.dialog.d {
+public class h implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ NeighborsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +11,15 @@ class h implements com.baidu.tbadk.core.dialog.d {
         this.a = neighborsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.c();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        BdListView bdListView;
+        if (!com.baidu.adp.lib.util.j.c()) {
+            bdListView = this.a.o;
+            bdListView.d();
+            return;
+        }
+        this.a.m();
+        this.a.b(false);
     }
 }

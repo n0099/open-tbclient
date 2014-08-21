@@ -1,18 +1,26 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj implements Runnable {
+public class dj extends com.baidu.adp.base.h {
     final /* synthetic */ TalkableActivity a;
-    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dj(TalkableActivity talkableActivity, String str) {
+    public dj(TalkableActivity talkableActivity) {
         this.a = talkableActivity;
-        this.b = str;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.e.d(this.b);
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+            if (this.a.e != null) {
+                this.a.e.a(responseData.getSPathGen(), responseData.getBitmap());
+                return;
+            }
+            return;
+        }
+        this.a.showToast(com.baidu.tieba.x.pic_parser_error);
     }
 }

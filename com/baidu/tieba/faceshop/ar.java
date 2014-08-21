@@ -1,7 +1,6 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -49,7 +48,7 @@ public class ar extends BaseAdapter {
         int measuredWidth = viewGroup.getMeasuredWidth() / 4;
         if (view == null) {
             as asVar = new as(this, null);
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.face_package_item_image, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.face_package_item_image, null);
             asVar.a = (TbImageView) view.findViewById(com.baidu.tieba.u.image);
             view.setTag(asVar);
         }

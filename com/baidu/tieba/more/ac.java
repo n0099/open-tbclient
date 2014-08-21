@@ -2,7 +2,6 @@ package com.baidu.tieba.more;
 
 import android.app.AlertDialog;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.BaseActivity;
@@ -126,11 +125,11 @@ public class ac extends com.baidu.adp.base.f {
     }
 
     private void f() {
-        View inflate = this.a.getLayoutInflater().inflate(com.baidu.tieba.v.quit_dialog, (ViewGroup) null);
-        ((LinearLayout) inflate.findViewById(com.baidu.tieba.u.id_close_ll)).setOnClickListener(new ad(this));
-        ((LinearLayout) inflate.findViewById(com.baidu.tieba.u.id_quit_ll)).setOnClickListener(new ae(this));
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.quit_dialog, null);
+        ((LinearLayout) a.findViewById(com.baidu.tieba.u.id_close_ll)).setOnClickListener(new ad(this));
+        ((LinearLayout) a.findViewById(com.baidu.tieba.u.id_quit_ll)).setOnClickListener(new ae(this));
         this.d = new AlertDialog.Builder(this.mContext).create();
-        this.d.setView(inflate, 0, 0, 0, 0);
+        this.d.setView(a, 0, 0, 0, 0);
     }
 
     private void a(View.OnClickListener onClickListener) {
@@ -153,7 +152,7 @@ public class ac extends com.baidu.adp.base.f {
 
     public void d() {
         if (this.d != null) {
-            com.baidu.adp.lib.e.d.a(this.d, this.a);
+            com.baidu.adp.lib.e.e.a(this.d, this.a);
         }
     }
 }

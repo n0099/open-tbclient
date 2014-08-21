@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.dialog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,34 +20,32 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<Integer, Integer[]> o = new HashMap<>(2);
+    private static final HashMap<Integer, Integer[]> n = new HashMap<>(2);
     private String a;
     private List<Object> b;
     private h c;
-    private final LayoutInflater d;
-    private final Activity e;
+    private final Activity d;
+    private final ViewGroup e;
     private final ViewGroup f;
-    private final ViewGroup g;
-    private final TextView h;
-    private final View i;
-    private AlertDialog n;
+    private final TextView g;
+    private final View h;
+    private AlertDialog m;
+    private int j = -1;
     private int k = -1;
-    private int l = -1;
-    private boolean m = false;
-    private int j = v.dialog_bdlist_item;
+    private boolean l = false;
+    private int i = v.dialog_bdlist_item;
 
     static {
-        o.put(0, new Integer[]{Integer.valueOf(t.dialg_alert_btn_bg), Integer.valueOf(t.dialog_bdalert_button_textcolor_pressed)});
-        o.put(1, new Integer[]{Integer.valueOf(t.btn_blue_square), Integer.valueOf(r.share_copy_pb_url)});
+        n.put(0, new Integer[]{Integer.valueOf(t.dialg_alert_btn_bg), Integer.valueOf(t.dialog_bdalert_button_textcolor_pressed)});
+        n.put(1, new Integer[]{Integer.valueOf(t.btn_blue_square), Integer.valueOf(r.share_copy_pb_url)});
     }
 
     public e(Activity activity) {
-        this.e = activity;
-        this.d = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.f = (ViewGroup) this.d.inflate(v.dialog_bdlist, (ViewGroup) null);
-        this.h = (TextView) this.f.findViewById(u.dialog_title_list);
-        this.g = (ViewGroup) this.f.findViewById(u.dialog_content);
-        this.i = this.f.findViewById(u.line_bg);
+        this.d = activity;
+        this.e = (ViewGroup) com.baidu.adp.lib.e.b.a().a(activity, v.dialog_bdlist, null);
+        this.g = (TextView) this.e.findViewById(u.dialog_title_list);
+        this.f = (ViewGroup) this.e.findViewById(u.dialog_content);
+        this.h = this.e.findViewById(u.line_bg);
     }
 
     public e a(Object[] objArr, h hVar) {
@@ -69,25 +66,25 @@ public class e {
     }
 
     public e a(int i) {
-        this.k = i;
+        this.j = i;
         return this;
     }
 
     public e b(int i) {
-        this.l = i;
+        this.k = i;
         return this;
     }
 
     public e a() {
-        if (!this.m) {
-            this.m = true;
+        if (!this.l) {
+            this.l = true;
             if (!TextUtils.isEmpty(this.a)) {
-                this.h.setText(this.a);
+                this.g.setText(this.a);
+                this.g.setVisibility(0);
                 this.h.setVisibility(0);
-                this.i.setVisibility(0);
             } else {
+                this.g.setVisibility(8);
                 this.h.setVisibility(8);
-                this.i.setVisibility(8);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
@@ -101,24 +98,24 @@ public class e {
     }
 
     public e b() {
-        if (!this.m) {
+        if (!this.l) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.n != null) {
-            com.baidu.adp.lib.e.d.a(this.n, this.e);
+        if (this.m != null) {
+            com.baidu.adp.lib.e.e.a(this.m, this.d);
         } else {
-            this.n = new AlertDialog.Builder(this.e).create();
-            this.n.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.e.d.a(this.n, this.e)) {
-                Window window = this.n.getWindow();
+            this.m = new AlertDialog.Builder(this.d).create();
+            this.m.setCanceledOnTouchOutside(true);
+            if (com.baidu.adp.lib.e.e.a(this.m, this.d)) {
+                Window window = this.m.getWindow();
+                if (this.j == -1) {
+                    this.j = g.a;
+                }
                 if (this.k == -1) {
-                    this.k = g.a;
+                    this.k = 17;
                 }
-                if (this.l == -1) {
-                    this.l = 17;
-                }
-                window.setGravity(this.l);
-                window.setContentView(this.f);
+                window.setGravity(this.k);
+                window.setContentView(this.e);
             }
         }
         return this;
@@ -126,28 +123,28 @@ public class e {
 
     private void d() {
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        if (this.e instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) this.e;
+        if (this.d instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) this.d;
             baseActivity.getLayoutMode().a(skinType == 1);
-            baseActivity.getLayoutMode().a((View) this.f);
-        } else if (this.e instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.e;
+            baseActivity.getLayoutMode().a((View) this.e);
+        } else if (this.d instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.d;
             baseFragmentActivity.c().a(skinType == 1);
-            baseFragmentActivity.c().a((View) this.f);
+            baseFragmentActivity.c().a((View) this.e);
         }
     }
 
     public void c() {
-        if (this.n != null) {
-            com.baidu.adp.lib.e.d.b(this.n, this.e);
+        if (this.m != null) {
+            com.baidu.adp.lib.e.e.b(this.m, this.d);
         }
     }
 
     private View d(int i) {
         String valueOf;
-        View inflate = LayoutInflater.from(this.e).inflate(this.j, this.g, false);
-        LinearLayout linearLayout = (LinearLayout) inflate;
-        TextView textView = (TextView) inflate.findViewById(u.dialog_item_btn);
+        View a = com.baidu.adp.lib.e.b.a().a(this.d, this.i, this.f, false);
+        LinearLayout linearLayout = (LinearLayout) a;
+        TextView textView = (TextView) a.findViewById(u.dialog_item_btn);
         Object obj = this.b.get(i);
         if (obj instanceof Object[]) {
             Object[] objArr = (Object[]) obj;
@@ -163,18 +160,18 @@ public class e {
         if (this.c != null) {
             linearLayout.setOnClickListener(new f(this, i, textView));
         }
-        this.g.addView(inflate);
-        return inflate;
+        this.f.addView(a);
+        return a;
     }
 
     public View c(int i) {
-        if (this.g == null) {
+        if (this.f == null) {
             return null;
         }
-        int childCount = this.g.getChildCount();
+        int childCount = this.f.getChildCount();
         if (i < 0 || i > childCount - 1) {
             return null;
         }
-        return this.g.getChildAt(i);
+        return this.f.getChildAt(i);
     }
 }

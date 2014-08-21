@@ -28,7 +28,7 @@ public class h extends com.baidu.adp.base.d<ValidateItemData> {
     void b() {
         this.b = this.a.findViewById(u.root_view);
         this.c = (HeadImageView) this.b.findViewById(u.iv_head);
-        this.c.setIsRound(true);
+        this.c.setIsRound(false);
         this.d = (TextView) this.b.findViewById(u.tv_user_name);
         this.e = (TextView) this.b.findViewById(u.tv_group_name);
         this.f = (TextView) this.b.findViewById(u.tv_apply_reason);

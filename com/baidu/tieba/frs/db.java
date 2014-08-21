@@ -1,50 +1,61 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageView;
+import com.baidu.tieba.frs.view.FrsHeaderView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db implements View.OnTouchListener {
-    final /* synthetic */ cu a;
+public class db implements Runnable {
+    final /* synthetic */ cv a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cu cuVar) {
-        this.a = cuVar;
+    public db(cv cvVar) {
+        this.a = cvVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
         int i;
-        ImageView imageView;
-        ImageView imageView2;
-        int i2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (view.getId() == com.baidu.tieba.u.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.a.N;
-                if (i == 1) {
-                    imageView2 = this.a.p;
-                    imageView2.setImageResource(com.baidu.tieba.t.pic_fresh_n_1);
-                } else {
-                    imageView = this.a.p;
-                    imageView.setImageResource(com.baidu.tieba.t.pic_fresh_n);
-                }
-            }
-            if (motionEvent.getAction() == 0) {
-                i2 = this.a.N;
-                if (i2 == 1) {
-                    imageView4 = this.a.p;
-                    imageView4.setImageResource(com.baidu.tieba.t.pic_fresh_s_1);
-                    return false;
-                }
-                imageView3 = this.a.p;
-                imageView3.setImageResource(com.baidu.tieba.t.pic_fresh_s);
-                return false;
-            }
-            return false;
+        String str;
+        String str2;
+        FrsHeaderView frsHeaderView;
+        FrsHeaderView frsHeaderView2;
+        com.baidu.tieba.frs.view.n nVar;
+        com.baidu.tieba.frs.view.n nVar2;
+        com.baidu.adp.lib.guide.d dVar2;
+        dVar = this.a.ap;
+        if (dVar != null) {
+            dVar2 = this.a.ap;
+            dVar2.a();
         }
-        return false;
+        if (!com.baidu.tbadk.h.a().a(FrsActivity.b, false)) {
+            i = this.a.an;
+            if (i == 1) {
+                str = this.a.V;
+                if (str == "frs_page") {
+                    nVar = this.a.B;
+                    if (nVar != null) {
+                        nVar2 = this.a.B;
+                        if (nVar2.c()) {
+                            com.baidu.tbadk.h.a().b(FrsActivity.b, true);
+                            this.a.d();
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                str2 = this.a.V;
+                if (str2 == "normal_page") {
+                    frsHeaderView = this.a.A;
+                    if (frsHeaderView != null) {
+                        frsHeaderView2 = this.a.A;
+                        if (frsHeaderView2.a()) {
+                            com.baidu.tbadk.h.a().b(FrsActivity.b, true);
+                            this.a.d();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tieba.im.chat.officialBar.MultiContentView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class MsgMultiImageTextView extends cb {
+public class MsgMultiImageTextView extends cc {
     private MultiContentView p;
 
     public MsgMultiImageTextView(Context context) {

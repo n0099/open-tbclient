@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.nearbygroups;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -131,7 +129,7 @@ public class l implements a {
     }
 
     public void b() {
-        this.c = LayoutInflater.from(this.b).inflate(v.im_group_list_item, (ViewGroup) null);
+        this.c = com.baidu.adp.lib.e.b.a().a(this.b, v.im_group_list_item, null);
         this.a = (LinearLayout) this.c.findViewById(u.list_item);
         this.p = (TextView) this.c.findViewById(u.isMeizi);
         this.q = (TextView) this.c.findViewById(u.isNewCreate);

@@ -11,7 +11,7 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bi;
+import com.baidu.tbadk.core.atomData.bj;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -39,7 +39,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     HttpMessageListener e = new c(this, CmdConfigHttp.SET_PRIVATE_CMD);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bi.class, PersonPostActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bj.class, PersonPostActivity.class);
         r = new int[]{com.baidu.tieba.t.icon_pop_key_all, com.baidu.tieba.t.icon_pop_key_f, com.baidu.tieba.t.icon_pop_key_d};
         s = new int[]{com.baidu.tieba.x.info_privacy_all, com.baidu.tieba.x.info_privacy_friend, com.baidu.tieba.x.info_privacy_hide};
         t = new int[]{1, 2, 3};

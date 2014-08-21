@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
 import com.baidu.tieba.data.FeedData;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -31,7 +31,7 @@ public class c {
     private int h = 1;
     private i k = null;
     private j l = null;
-    private com.baidu.tbadk.core.view.o m = null;
+    private com.baidu.tbadk.core.view.p m = null;
     private String o = null;
     AlertDialog a = null;
     private final Handler p = new Handler();
@@ -63,8 +63,8 @@ public class c {
         this.o = str;
     }
 
-    public void a(com.baidu.tbadk.core.view.o oVar) {
-        this.m = oVar;
+    public void a(com.baidu.tbadk.core.view.p pVar) {
+        this.m = pVar;
     }
 
     public void a() {
@@ -100,7 +100,7 @@ public class c {
                     com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.c).a(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).a(feedData.getThread_id(), feedData.getPost_id(), "mention")));
         }
     }
 
@@ -210,8 +210,8 @@ public class c {
                     if (this.b.isAdded()) {
                         if (this.b instanceof a) {
                             ((a) this.b).c(TbadkApplication.m252getInst().getSkinType());
-                        } else if (this.b instanceof an) {
-                            ((an) this.b).c(TbadkApplication.m252getInst().getSkinType());
+                        } else if (this.b instanceof al) {
+                            ((al) this.b).c(TbadkApplication.m252getInst().getSkinType());
                         }
                     }
                 }
@@ -254,7 +254,7 @@ public class c {
     }
 
     private void b(FeedData feedData) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.c).b(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).b(feedData.getThread_id(), feedData.getPost_id(), "mention")));
     }
 
     public void f() {

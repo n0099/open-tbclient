@@ -3,7 +3,6 @@ package com.baidu.tieba.im.view;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -11,10 +10,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bo;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +72,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     }
 
     public void a(UserData userData) {
-        bo.a((ViewGroup) this.c, false, (bq) new j(this, userData));
+        bp.a((ViewGroup) this.c, false, (br) new j(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -105,7 +104,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.horizontal_panel_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.horizontal_panel_view, this, true);
         setOrientation(1);
         this.c = (LinearLayout) findViewById(com.baidu.tieba.u.user_layout);
         setHorizontalScrollBarEnabled(false);
@@ -129,7 +128,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
             HeadImageView headImageView = (HeadImageView) view;
             if (!TextUtils.isEmpty(headImageView.getUserId())) {
                 com.baidu.tbadk.core.f.a(getContext(), "snap_chat_member_head_click");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.a, headImageView.getUserId(), headImageView.getUserName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.a, headImageView.getUserId(), headImageView.getUserName())));
             }
         }
     }

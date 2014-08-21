@@ -13,7 +13,7 @@ public class h {
         View inflate = LinearLayout.inflate(baseFragmentActivity, v.forum_feed_guide, null);
         iVar.a = (LinearLayout) inflate.findViewById(u.forum_feed_login_container);
         iVar.c = (NoNetworkView) inflate.findViewById(u.view_no_network);
-        iVar.b = new com.baidu.tbadk.core.view.c(baseFragmentActivity, str, str, 0);
+        iVar.b = new com.baidu.tbadk.core.view.d(baseFragmentActivity, str, str, 0);
         iVar.a.addView(iVar.b.b());
         inflate.setTag(iVar);
         a(baseFragmentActivity, inflate, i);

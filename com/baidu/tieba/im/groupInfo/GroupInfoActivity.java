@@ -14,6 +14,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.ax;
@@ -203,7 +204,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (view == this.b.l()) {
             if (this.c.f() != null && this.c.f().b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this, String.valueOf(this.c.f().b().getAuthorId()), this.c.f().b().getAuthorName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this, String.valueOf(this.c.f().b().getAuthorId()), this.c.f().b().getAuthorName())));
             }
         } else if (view == this.b.m()) {
             GroupLevelActivity.a(this, this.c.d(), this.c.f().j());
@@ -213,7 +214,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             } else if (this.c.f() != null) {
                 if (this.c.f().g()) {
                     if (this.c.f().b() != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.x(this, (int) this.c.d(), this.c.f().b().getName(), this.c.f().b().getAuthorId(), "group_info")));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.y(this, (int) this.c.d(), this.c.f().b().getName(), this.c.f().b().getAuthorId(), "group_info")));
                     }
                 } else if (this.c.l()) {
                     showToast(com.baidu.tieba.x.has_recent_join);

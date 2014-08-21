@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.bt;
 import com.baidu.tieba.im.chat.bu;
-import com.baidu.tieba.im.chat.df;
+import com.baidu.tieba.im.chat.dh;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.data.VoiceMsgData;
@@ -150,7 +150,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.e {
         userData.setPortrait(com.baidu.tieba.im.c.b());
         g.setUserInfo(userData);
         try {
-            j = com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0L);
+            j = com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0L);
         } catch (Exception e) {
             j = 0;
         }
@@ -390,7 +390,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.e {
                 gVar.b = h.b;
                 gVar.a = h.a;
                 gVar.c = chatMessage2;
-                gVar.d = true;
+                gVar.d = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(gVar));
             }
         }
@@ -424,7 +424,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.e {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return true;
             }
-            if (this.u == 0 || this.u == com.baidu.adp.lib.e.b.a(loadHistoryResponsedMessage.getData().a, 0L)) {
+            if (this.u == 0 || this.u == com.baidu.adp.lib.e.c.a(loadHistoryResponsedMessage.getData().a, 0L)) {
                 List<ChatMessage> list = loadHistoryResponsedMessage.getData().b;
                 boolean z = loadHistoryResponsedMessage.getData().c;
                 int a = a(this.s.getChatMessages(), list);
@@ -494,7 +494,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.e {
             ChatMessage chatMessage = (ChatMessage) responseCommitMessage.getOrginalMessage();
             if (responseCommitMessage.getError() != 0) {
                 TiebaStatic.imLog(responseCommitMessage.getCmd(), 0, "", "", String.valueOf(f(chatMessage)) + "rid" + chatMessage.getRecordId(), responseCommitMessage.getError(), responseCommitMessage.getErrorString(), System.currentTimeMillis() - chatMessage.getLogTime());
-                if (responseCommitMessage.getError() > 0) {
+                if (responseCommitMessage.getError() > 0 && responseCommitMessage.getError() != 3160008) {
                     this.t.showToast(responseCommitMessage.getErrorString());
                     if (chatMessage.getRecordId() != responseCommitMessage.getRecordId()) {
                         responseCommitMessage.setRecordId(chatMessage.getRecordId());
@@ -727,7 +727,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.e {
             if (i2 >= 0 && i < size) {
                 for (ChatMessage chatMessage : list) {
                     if (chatMessage.getMsgType() == 4) {
-                        df.a = com.baidu.tbadk.c.c.a();
+                        dh.a = com.baidu.tbadk.b.c.a();
                     }
                     long userId = chatMessage.getUserId();
                     String portrait = chatMessage.getUserInfo().getPortrait();

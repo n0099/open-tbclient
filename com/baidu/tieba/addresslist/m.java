@@ -1,6 +1,5 @@
 package com.baidu.tieba.addresslist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,7 +16,6 @@ import java.util.List;
 public class m extends BaseAdapter {
     final /* synthetic */ QuickSearchActivity a;
     private List<com.baidu.tbadk.coreExtra.relationship.b> b;
-    private LayoutInflater c;
 
     private m(QuickSearchActivity quickSearchActivity) {
         this.a = quickSearchActivity;
@@ -31,7 +29,6 @@ public class m extends BaseAdapter {
 
     public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
         this.b = list;
-        this.c = LayoutInflater.from(this.a);
     }
 
     @Override // android.widget.Adapter
@@ -67,7 +64,7 @@ public class m extends BaseAdapter {
             return null;
         }
         if (view == null) {
-            view = this.c.inflate(v.quick_search_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.quick_search_item, null);
             n nVar2 = new n(this.a, null);
             nVar2.a = (HeadImageView) view.findViewById(u.quick_search_item_icon);
             nVar2.b = (TextView) view.findViewById(u.quick_search_item_text);

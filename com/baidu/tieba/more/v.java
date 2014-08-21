@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -93,7 +91,7 @@ public class v extends FrameLayout {
     }
 
     protected void c() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.image_problem_item_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.image_problem_item_view, this, true);
         this.b = (LinearLayout) findViewById(com.baidu.tieba.u.container);
         this.c = (TextView) findViewById(com.baidu.tieba.u.text);
         this.d = (TextView) findViewById(com.baidu.tieba.u.tip);

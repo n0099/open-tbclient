@@ -2,9 +2,7 @@ package com.baidu.tieba.person;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,23 +25,23 @@ public class ba {
 
     public View a() {
         bc bcVar = new bc(this);
-        View inflate = ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.person_center_relation_card_view, (ViewGroup) null);
-        bcVar.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.relationcardcontent);
-        bcVar.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.relationcarddisrelativelayout);
-        bcVar.c = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.relationcardlikerelativelayout);
-        bcVar.d = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.relationcardfriendrelativelayout);
-        bcVar.e = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.relationcardgrouprelativelayout);
-        bcVar.f = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcarddistextview);
-        bcVar.g = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcardliketextview);
-        bcVar.h = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcardfriendtextview);
-        bcVar.i = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcardgrouptextview);
-        bcVar.j = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcardlikearrow);
-        bcVar.k = (TextView) inflate.findViewById(com.baidu.tieba.u.relationcardfriendarrow);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.person_center_relation_card_view, null);
+        bcVar.a = (LinearLayout) a.findViewById(com.baidu.tieba.u.relationcardcontent);
+        bcVar.b = (RelativeLayout) a.findViewById(com.baidu.tieba.u.relationcarddisrelativelayout);
+        bcVar.c = (RelativeLayout) a.findViewById(com.baidu.tieba.u.relationcardlikerelativelayout);
+        bcVar.d = (RelativeLayout) a.findViewById(com.baidu.tieba.u.relationcardfriendrelativelayout);
+        bcVar.e = (RelativeLayout) a.findViewById(com.baidu.tieba.u.relationcardgrouprelativelayout);
+        bcVar.f = (TextView) a.findViewById(com.baidu.tieba.u.relationcarddistextview);
+        bcVar.g = (TextView) a.findViewById(com.baidu.tieba.u.relationcardliketextview);
+        bcVar.h = (TextView) a.findViewById(com.baidu.tieba.u.relationcardfriendtextview);
+        bcVar.i = (TextView) a.findViewById(com.baidu.tieba.u.relationcardgrouptextview);
+        bcVar.j = (TextView) a.findViewById(com.baidu.tieba.u.relationcardlikearrow);
+        bcVar.k = (TextView) a.findViewById(com.baidu.tieba.u.relationcardfriendarrow);
         bcVar.d.setOnClickListener(this.b);
         bcVar.e.setOnClickListener(this.b);
         bcVar.c.setOnClickListener(this.b);
-        inflate.setTag(bcVar);
-        return inflate;
+        a.setTag(bcVar);
+        return a;
     }
 
     public void a(View view) {

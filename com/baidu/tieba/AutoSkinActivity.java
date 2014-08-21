@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 /* loaded from: classes.dex */
 public class AutoSkinActivity extends BaseActivity {
     protected ViewGroup a = null;
@@ -44,7 +44,7 @@ public class AutoSkinActivity extends BaseActivity {
             this.e = (ListView) findViewById(u.list);
         }
         this.g = (ViewGroup) findViewById(u.body_container);
-        bo.b(this.g);
+        bp.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,7 +60,7 @@ public class AutoSkinActivity extends BaseActivity {
             this.e.invalidateViews();
         }
         if (this.g != null) {
-            bo.a(this.g, i);
+            bp.a(this.g, i);
         }
     }
 

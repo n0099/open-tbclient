@@ -2,7 +2,6 @@ package com.baidu.tieba.game;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,25 +19,25 @@ public class p implements View.OnClickListener {
         List list2;
         GameCenterHomeActivity gameCenterHomeActivity;
         GameCenterHomeActivity gameCenterHomeActivity2;
-        list = this.a.m;
+        list = this.a.n;
         if (list != null) {
             int intValue = ((Integer) view.getTag()).intValue();
-            list2 = this.a.m;
-            ab abVar = (ab) list2.get(intValue);
-            if (abVar != null) {
-                if (abVar.c() == 2) {
-                    gameCenterHomeActivity2 = this.a.a;
-                    UtilHelper.launchWebGameActivity(gameCenterHomeActivity2, abVar.b(), abVar.h());
+            list2 = this.a.n;
+            com.baidu.tbadk.game.b bVar = (com.baidu.tbadk.game.b) list2.get(intValue);
+            if (bVar != null) {
+                if (bVar.c() == 2) {
+                    gameCenterHomeActivity2 = this.a.b;
+                    com.baidu.tbadk.game.a.a(gameCenterHomeActivity2, bVar.b(), bVar.h(), bVar.a());
                     return;
                 }
-                switch (ac.a().j(abVar)) {
+                switch (ae.a().j(bVar)) {
                     case 4:
-                        ac.a().f(abVar);
+                        ae.a().f(bVar);
                         return;
                     case 5:
-                        ac.a().e(abVar);
-                        gameCenterHomeActivity = this.a.a;
-                        TiebaStatic.eventStat(gameCenterHomeActivity, "start_game", "click", 1, abVar.a());
+                        ae.a().e(bVar);
+                        gameCenterHomeActivity = this.a.b;
+                        TiebaStatic.eventStat(gameCenterHomeActivity, "start_game", "click", 1, bVar.a());
                         return;
                     default:
                         return;

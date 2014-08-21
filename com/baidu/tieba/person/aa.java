@@ -1,39 +1,33 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t a;
+class aa implements View.OnClickListener {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(t tVar) {
-        this.a = tVar;
+    public aa(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ac acVar;
-        boolean z;
-        ac acVar2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ad adVar;
+        ad adVar2;
         PersonBarActivity g;
         PersonBarActivity g2;
-        acVar = this.a.c;
-        if (acVar.getItem(i) != null) {
-            z = this.a.l;
-            if (!z) {
-                this.a.d = i;
-                acVar2 = this.a.c;
-                ForumData forumData = (ForumData) acVar2.getItem(i);
-                if (forumData != null) {
-                    g = this.a.g();
-                    if (g != null) {
-                        t tVar = this.a;
-                        g2 = this.a.g();
-                        tVar.a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(g2).a(forumData.getName(), "tb_mytieba")));
-                    }
+        int intValue = ((Integer) view.getTag()).intValue();
+        if (intValue >= 0) {
+            adVar = this.a.c;
+            if (intValue < adVar.getCount()) {
+                adVar2 = this.a.c;
+                ForumData forumData = (ForumData) adVar2.getItem(intValue);
+                g = this.a.g();
+                if (g != null) {
+                    g2 = this.a.g();
+                    this.a.a(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(g2, com.baidu.adp.lib.e.c.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }

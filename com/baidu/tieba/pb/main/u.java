@@ -24,11 +24,11 @@ class u implements com.baidu.tbadk.widget.richText.s {
         bl blVar3;
         try {
             TiebaStatic.eventStat(this.a, "pic_pb", "");
-            blVar = this.a.x;
+            blVar = this.a.y;
             com.baidu.tieba.data.aj r = blVar.r();
             a = this.a.a(str, i);
             ArrayList<com.baidu.tbadk.widget.richText.c> a3 = a.a();
-            i2 = this.a.aj;
+            i2 = this.a.ak;
             com.baidu.tbadk.widget.richText.c cVar = a3.get(i2);
             if (cVar != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
@@ -72,9 +72,9 @@ class u implements com.baidu.tbadk.widget.richText.s {
                         z = r.m() == 1;
                     }
                     PbActivity pbActivity = this.a;
-                    com.baidu.tbadk.core.atomData.af afVar = new com.baidu.tbadk.core.atomData.af(this.a);
-                    blVar2 = this.a.x;
-                    pbActivity.sendMessage(new CustomMessage(2010000, afVar.a(arrayList, i3, str3, str4, str5, z, str2, blVar2.z())));
+                    com.baidu.tbadk.core.atomData.ag agVar = new com.baidu.tbadk.core.atomData.ag(this.a);
+                    blVar2 = this.a.y;
+                    pbActivity.sendMessage(new CustomMessage(2010000, agVar.a(arrayList, i3, str3, str4, str5, z, str2, blVar2.z())));
                     return;
                 }
                 a2 = this.a.a(cVar);
@@ -94,8 +94,8 @@ class u implements com.baidu.tbadk.widget.richText.s {
                     z2 = r.m() == 1;
                 }
                 PbActivity pbActivity2 = this.a;
-                blVar3 = this.a.x;
-                pbActivity2.sendMessage(new CustomMessage(2010000, new com.baidu.tbadk.core.atomData.af(this.a).a(arrayList, 0, str6, str7, str8, z2, arrayList.get(0), blVar3.z())));
+                blVar3 = this.a.y;
+                pbActivity2.sendMessage(new CustomMessage(2010000, new com.baidu.tbadk.core.atomData.ag(this.a).a(arrayList, 0, str6, str7, str8, z2, arrayList.get(0), blVar3.z())));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

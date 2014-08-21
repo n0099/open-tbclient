@@ -13,6 +13,6 @@ class bf implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ae(this.a)));
+        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.af(this.a)));
     }
 }

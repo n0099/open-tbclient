@@ -70,7 +70,7 @@ public class AppealActivity extends BaseActivity {
         builder.setTitle(getString(x.anti_title));
         builder.setMessage(str);
         builder.setPositiveButton(getString(x.anti_no_chance_pos), new e(this, z));
-        com.baidu.adp.lib.e.d.a(builder.create(), this);
+        com.baidu.adp.lib.e.e.a(builder.create(), this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

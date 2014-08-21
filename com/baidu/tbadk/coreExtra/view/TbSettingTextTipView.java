@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -83,7 +81,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     protected void f() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.tb_setting_text_tip_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.tb_setting_text_tip_view, this, true);
         this.b = (LinearLayout) findViewById(com.baidu.tieba.u.container);
         this.c = (TextView) findViewById(com.baidu.tieba.u.text);
         this.d = (TextView) findViewById(com.baidu.tieba.u.tip);

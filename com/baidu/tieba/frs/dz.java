@@ -7,12 +7,12 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class dz implements View.OnClickListener {
     final /* synthetic */ WorldCupView a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.s b;
+    private final /* synthetic */ com.baidu.tbadk.core.data.t b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dz(WorldCupView worldCupView, com.baidu.tbadk.core.data.s sVar) {
+    public dz(WorldCupView worldCupView, com.baidu.tbadk.core.data.t tVar) {
         this.a = worldCupView;
-        this.b = sVar;
+        this.b = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,7 +20,7 @@ public class dz implements View.OnClickListener {
         Context context;
         Context context2;
         context = this.a.a;
-        com.baidu.tbadk.core.f.a(context, "wcup_lottery");
+        com.baidu.tbadk.core.f.a(context, "wcup_qq");
         if (!TextUtils.isEmpty(this.b.a())) {
             com.baidu.tbadk.core.util.bg a = com.baidu.tbadk.core.util.bg.a();
             context2 = this.a.a;

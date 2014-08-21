@@ -143,7 +143,7 @@ public class r extends BdAsyncTask<String, Integer, be> {
         super.onPostExecute(beVar);
         this.b.mSyncTask = null;
         if (beVar != null) {
-            com.baidu.tbadk.c.a.a().b();
+            com.baidu.tbadk.b.a.a().b();
             this.b.mModel = beVar;
             beVar2 = this.b.mModel;
             if (beVar2.c().hasNewVer()) {

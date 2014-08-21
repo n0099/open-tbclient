@@ -11,8 +11,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
 import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.am;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
@@ -33,7 +33,7 @@ public class LiveNotifyActivity extends BaseActivity {
     private CustomMessageListener i = new b(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ak.class, LiveNotifyActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(al.class, LiveNotifyActivity.class);
     }
 
     public static void a(Context context) {
@@ -173,7 +173,7 @@ public class LiveNotifyActivity extends BaseActivity {
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !a() && updatesItemData.getLiveCardData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this, updatesItemData.getLiveCardData().getGroupId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new am(this, updatesItemData.getLiveCardData().getGroupId())));
         }
     }
 

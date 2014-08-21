@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.nearbygroups;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,7 +34,7 @@ public class j implements a {
     }
 
     public void b() {
-        this.e = LayoutInflater.from(this.d).inflate(v.nearby_group_guide, (ViewGroup) null);
+        this.e = com.baidu.adp.lib.e.b.a().a(this.d, v.nearby_group_guide, null);
         this.a = (LinearLayout) this.e.findViewById(u.guide_parent);
         this.b = (TextView) this.e.findViewById(u.guide_tip);
         this.c = (Button) this.e.findViewById(u.guide_setting);

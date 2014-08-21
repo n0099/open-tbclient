@@ -1,26 +1,44 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 public class bg extends com.baidu.tbadk.core.frameworkData.a {
-    public bg(Context context, String str, String str2) {
+    public bg(Context context, String str, int i) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str2);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", str);
+        intent.putExtra("key_sex", i);
     }
 
-    public bg(Context context, String str, String str2, String str3) {
+    public bg(Context context, String str, int i, int i2) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str2);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FROM, str3);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", str);
+        intent.putExtra("key_sex", i);
+        intent.putExtra("key_current_tab", i2);
     }
 
-    public bg(Context context, String str, String str2, String str3, String str4) {
+    public bg(Context context, int i, int i2) {
         super(context);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str2);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.FROM, str3);
-        getIntent().putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", TbadkApplication.getCurrentAccount());
+        intent.putExtra("key_sex", 0);
+        intent.putExtra("key_from_where", i2);
+        intent.putExtra("tb_request_code", i);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(i);
+    }
+
+    public bg(Context context, int i) {
+        super(context);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", TbadkApplication.getCurrentAccount());
+        intent.putExtra("key_sex", 0);
+        intent.putExtra("tb_request_code", i);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(i);
     }
 }

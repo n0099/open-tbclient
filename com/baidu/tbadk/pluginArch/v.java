@@ -1,7 +1,28 @@
 package com.baidu.tbadk.pluginArch;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* loaded from: classes.dex */
-public interface v {
-    void a(ConfigInfos configInfos);
+public class v {
+    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_NET_CONFIGS;
+    private ConfigInfos b;
+    private w c;
+    private boolean d;
+
+    public ConfigInfos a() {
+        return this.b;
+    }
+
+    public void a(ConfigInfos configInfos) {
+        this.b = configInfos;
+    }
+
+    public ConfigInfos a(w wVar) {
+        this.c = wVar;
+        if (this.b == null && !this.d) {
+            this.d = true;
+            new x(this, null).execute(new Void[0]);
+        }
+        return this.b;
+    }
 }

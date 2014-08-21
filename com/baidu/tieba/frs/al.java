@@ -1,5 +1,7 @@
 package com.baidu.tieba.frs;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
@@ -20,17 +22,17 @@ public class al extends com.baidu.adp.base.h {
         boolean z;
         String str;
         String str2;
-        cu cuVar;
+        cv cvVar;
         com.baidu.tieba.model.bb bbVar;
         com.baidu.tieba.model.bb bbVar2;
         String str3;
         String str4;
-        cu cuVar2;
-        cu cuVar3;
+        cv cvVar2;
+        cv cvVar3;
         g gVar;
         String str5;
         String str6;
-        cu cuVar4;
+        cv cvVar4;
         g gVar2;
         g gVar3;
         g gVar4;
@@ -39,18 +41,19 @@ public class al extends com.baidu.adp.base.h {
         g gVar6;
         g gVar7;
         g gVar8;
-        cu cuVar5;
-        cu cuVar6;
+        cv cvVar5;
+        cv cvVar6;
         g gVar9;
         g gVar10;
-        cu cuVar7;
+        cv cvVar7;
         g gVar11;
         g gVar12;
         g gVar13;
         g gVar14;
-        cu cuVar8;
+        cv cvVar8;
         String str8;
         g gVar15;
+        g gVar16;
         if (obj == null || !(obj instanceof SignData)) {
             signData = null;
             z = false;
@@ -59,76 +62,79 @@ public class al extends com.baidu.adp.base.h {
             f a = f.a();
             str8 = this.a.q;
             a.a(str8, false);
-            gVar15 = this.a.L;
+            gVar15 = this.a.N;
             gVar15.a(signData);
+            gVar16 = this.a.N;
+            signData.setForumId(gVar16.i().getId());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001228, signData));
             z = true;
         }
-        str = this.a.R;
+        str = this.a.T;
         if (str.equals("normal_page")) {
-            cuVar8 = this.a.z;
-            cuVar8.C();
+            cvVar8 = this.a.B;
+            cvVar8.C();
         } else {
-            str2 = this.a.R;
+            str2 = this.a.T;
             if (str2.equals("frs_page")) {
-                cuVar = this.a.z;
-                cuVar.E();
+                cvVar = this.a.B;
+                cvVar.E();
             }
         }
         if (z) {
-            gVar = this.a.L;
+            gVar = this.a.N;
             AntiData l = gVar.l();
-            str5 = this.a.R;
+            str5 = this.a.T;
             if (str5.equals("normal_page")) {
-                cuVar7 = this.a.z;
-                gVar11 = this.a.L;
+                cvVar7 = this.a.B;
+                gVar11 = this.a.N;
                 int signed = gVar11.i().getSignData().getSigned();
-                gVar12 = this.a.L;
+                gVar12 = this.a.N;
                 int bonusPoint = gVar12.i().getSignData().getBonusPoint();
-                gVar13 = this.a.L;
+                gVar13 = this.a.N;
                 ForumData i = gVar13.i();
-                gVar14 = this.a.L;
-                cuVar7.b(signed, bonusPoint, i, gVar14);
+                gVar14 = this.a.N;
+                cvVar7.b(signed, bonusPoint, i, gVar14);
             } else {
-                str6 = this.a.R;
+                str6 = this.a.T;
                 if (str6.equals("frs_page")) {
-                    cuVar4 = this.a.z;
-                    gVar2 = this.a.L;
+                    cvVar4 = this.a.B;
+                    gVar2 = this.a.N;
                     int signed2 = gVar2.i().getSignData().getSigned();
-                    gVar3 = this.a.L;
+                    gVar3 = this.a.N;
                     int bonusPoint2 = gVar3.i().getSignData().getBonusPoint();
-                    gVar4 = this.a.L;
+                    gVar4 = this.a.N;
                     ForumData i2 = gVar4.i();
-                    gVar5 = this.a.L;
-                    cuVar4.a(signed2, bonusPoint2, i2, gVar5);
+                    gVar5 = this.a.N;
+                    cvVar4.a(signed2, bonusPoint2, i2, gVar5);
                 }
             }
             if (signData != null) {
                 int i3 = -1;
-                cuVar6 = this.a.z;
-                if (cuVar6.m()) {
-                    gVar10 = this.a.L;
+                cvVar6 = this.a.B;
+                if (cvVar6.m()) {
+                    gVar10 = this.a.N;
                     i3 = gVar10.i().getUser_level() + 1;
                 }
                 com.baidu.tieba.ai c = com.baidu.tieba.ai.c();
-                gVar9 = this.a.L;
+                gVar9 = this.a.N;
                 c.a(gVar9.i().getName(), signData.getBonusPoint(), i3);
             }
             if (AntiHelper.b(l) || AntiHelper.a(l) || AntiHelper.c(l)) {
                 str7 = this.a.q;
                 l.setBlock_forum_name(str7);
-                gVar6 = this.a.L;
+                gVar6 = this.a.N;
                 l.setBlock_forum_id(gVar6.i().getId());
-                gVar7 = this.a.L;
+                gVar7 = this.a.N;
                 l.setUser_name(gVar7.k().getUserName());
-                gVar8 = this.a.L;
+                gVar8 = this.a.N;
                 l.setUser_id(gVar8.k().getUserId());
                 AntiHelper.a(this.a, l, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
                 return;
             }
             StringBuilder sb = new StringBuilder(100);
             if (signData != null) {
-                cuVar5 = this.a.z;
-                if (!cuVar5.G()) {
+                cvVar5 = this.a.B;
+                if (!cvVar5.G()) {
                     sb.append(this.a.getString(com.baidu.tieba.x.sign_success));
                     sb.append("!\n");
                     sb.append(String.format(this.a.getString(com.baidu.tieba.x.sign_user), Integer.valueOf(signData.getUserSignRank())));
@@ -145,22 +151,22 @@ public class al extends com.baidu.adp.base.h {
             }
             return;
         }
-        bbVar = this.a.O;
+        bbVar = this.a.Q;
         if (bbVar.getErrorCode() == 160002) {
-            str3 = this.a.R;
+            str3 = this.a.T;
             if (str3.equals("normal_page")) {
-                cuVar3 = this.a.z;
-                cuVar3.f(1);
+                cvVar3 = this.a.B;
+                cvVar3.f(1);
             } else {
-                str4 = this.a.R;
+                str4 = this.a.T;
                 if (str4.equals("frs_page")) {
-                    cuVar2 = this.a.z;
-                    cuVar2.e(1);
+                    cvVar2 = this.a.B;
+                    cvVar2.e(1);
                 }
             }
         }
         FrsActivity frsActivity = this.a;
-        bbVar2 = this.a.O;
+        bbVar2 = this.a.Q;
         frsActivity.showToast(bbVar2.getErrorString());
     }
 }

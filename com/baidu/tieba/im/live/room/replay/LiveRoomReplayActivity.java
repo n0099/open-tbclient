@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ao;
+import com.baidu.tbadk.core.atomData.ap;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
@@ -39,7 +39,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
     private final CustomMessageListener n = new d(this, 2001161);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ao.class, LiveRoomReplayActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ap.class, LiveRoomReplayActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -172,7 +172,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
         if (statusInfo == BdNetUtil.NetworkStateInfo.UNAVAIL) {
             showToast(x.neterror);
         } else if (statusInfo != BdNetUtil.NetworkStateInfo.WIFI) {
-            com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(x.live_chat_room_nonwifi_prompts_play).setPositiveButton(x.live_chat_room_nonwifi_prompts_play_yes, new f(this)).setNegativeButton(x.live_chat_room_nonwifi_prompts_play_no, new g(this)).create(), this);
+            com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(x.live_chat_room_nonwifi_prompts_play).setPositiveButton(x.live_chat_room_nonwifi_prompts_play_yes, new f(this)).setNegativeButton(x.live_chat_room_nonwifi_prompts_play_no, new g(this)).create(), this);
         } else {
             this.k.sendEmptyMessage(1);
         }

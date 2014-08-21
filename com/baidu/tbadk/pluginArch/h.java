@@ -1,153 +1,126 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import android.text.TextUtils;
+import android.content.ContextWrapper;
+import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tbadk.pluginArch.service.PluginDownloadService;
+import dalvik.system.DexClassLoader;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.Iterator;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h {
-    private Context a;
-    private Messenger b;
-    private Messenger c = new Messenger(new k(this, null));
-    private ServiceConnection d = new j(this, null);
-    private i e;
-    private String[] f;
+    private ClassLoader a;
+    private ClassLoader b;
+    private LinkedList<File> c = new LinkedList<>();
+    private LinkedList<File> d = new LinkedList<>();
+    private Context e;
+    private boolean f;
 
     public h(Context context) {
-        this.a = context;
+        this.e = context;
+        this.b = this.e.getClassLoader();
     }
 
-    public void a(ConfigInfos.PluginConfig pluginConfig, i iVar) {
-        if (pluginConfig == null || TextUtils.isEmpty(pluginConfig.name)) {
-            return;
+    public void a(File file) {
+        this.c.add(file);
+        if (this.f) {
+            b();
+            a();
         }
-        a(new String[]{pluginConfig.name}, iVar);
     }
 
-    private void a(String[] strArr, i iVar) {
-        this.e = iVar;
-        if (this.b != null && d()) {
-            BdLog.i("startDownload_add");
-            a(strArr);
-            return;
+    public void b(File file) {
+        this.d.add(file);
+        if (this.f) {
+            b();
+            a();
         }
-        BdLog.i("startDownload_bind");
-        this.f = strArr;
-        this.a.bindService(new Intent(this.a, PluginDownloadService.class), this.d, 1);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: android.os.Bundle */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tbadk.download.DownloadData[], java.io.Serializable] */
-    public void a(String[] strArr) {
-        if (strArr != null && strArr.length != 0) {
-            int length = strArr.length;
-            ?? r2 = new DownloadData[length];
-            for (int i = 0; i < length; i++) {
-                r2[i] = a(d.a().b(strArr[i]));
+    public synchronized void a() {
+        String str;
+        String str2;
+        if (!this.f) {
+            StringBuilder sb = new StringBuilder();
+            Iterator<File> it = this.c.iterator();
+            while (it.hasNext()) {
+                sb.append(it.next().getAbsolutePath());
+                sb.append(File.pathSeparator);
             }
-            BdLog.i("startDownload_add_msg");
-            Message obtain = Message.obtain((Handler) null, 3);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("download_datas", r2);
-            if (obtain != null) {
-                obtain.setData(bundle);
-                try {
-                    this.b.send(obtain);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
+            if (sb.length() <= 0) {
+                str = "";
+            } else {
+                str = sb.substring(0, sb.length() - 1);
+            }
+            StringBuilder sb2 = new StringBuilder();
+            Iterator<File> it2 = this.d.iterator();
+            while (it2.hasNext()) {
+                File next = it2.next();
+                File[] listFiles = next.listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    sb2.append(next);
+                    sb2.append(File.pathSeparator);
                 }
             }
+            if (sb2.length() <= 0) {
+                str2 = "";
+            } else {
+                str2 = sb2.substring(0, sb2.length() - 1);
+            }
+            this.a = new DexClassLoader(str, n.a().getAbsolutePath(), str2, this.e.getClassLoader());
+            a(this.e, this.a);
+            this.f = true;
         }
     }
 
-    public void c() {
-        Message obtain = Message.obtain(null, 1, null);
-        if (obtain != null) {
-            try {
-                obtain.replyTo = this.c;
-                this.b.send(obtain);
-            } catch (RemoteException e) {
+    public synchronized void b() {
+        this.a = null;
+        a(this.e, this.b);
+        this.f = false;
+    }
+
+    private void a(Context context, ClassLoader classLoader) {
+        Object obj;
+        try {
+            if (Build.VERSION.SDK_INT <= 7) {
+                obj = a(Class.forName("android.app.ApplicationContext"), "mPackageInfo").get(context.getApplicationContext());
+            } else {
+                obj = a(Class.forName("android.app.ContextImpl"), "mPackageInfo").get(a(ContextWrapper.class, "mBase").get(context.getApplicationContext()));
             }
+            a(obj.getClass(), "mClassLoader").set(obj, classLoader);
+            u.a("plugin_dexloader");
+        } catch (IllegalAccessException e) {
+            BdLog.e("IllegalAccessException");
+            this.f = false;
+            u.a("plugin_dexloader", e.getMessage(), null);
+        } catch (IllegalArgumentException e2) {
+            BdLog.e("IllegalArgumentException");
+            this.f = false;
+            u.a("plugin_dexloader", e2.getMessage(), null);
+        } catch (Throwable th) {
+            BdLog.e("Throwable " + th.getMessage());
+            this.f = false;
+            u.a("plugin_dexloader", th.getMessage(), null);
         }
     }
 
-    public void a() {
-        if (this.b != null && d()) {
-            try {
-                try {
-                    this.b.send(Message.obtain((Handler) null, 2));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                    try {
-                        this.a.unbindService(this.d);
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-            } finally {
-                try {
-                    this.a.unbindService(this.d);
-                } catch (Throwable th2) {
-                    th2.printStackTrace();
-                }
-            }
-        }
+    public ClassLoader c() {
+        return this.a;
     }
 
-    public void b() {
-        if (UtilHelper.getNetStatusInfo(this.a) == UtilHelper.NetworkStateInfo.WIFI) {
-            ArrayList arrayList = new ArrayList();
-            if (!d.a().c("motu")) {
-                arrayList.add("motu");
+    private Field a(Class<?> cls, String str) {
+        Field[] declaredFields;
+        for (Field field : cls.getDeclaredFields()) {
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
             }
-            if (!d.a().c("browser")) {
-                arrayList.add("browser");
-            }
-            if (!o.b() && !d.a().c("live")) {
-                arrayList.add("live");
-            }
-            if (!d.a().c("lightapp")) {
-                arrayList.add("lightapp");
-            }
-            a((String[]) arrayList.toArray(new String[arrayList.size()]), (i) null);
-        }
-    }
-
-    private DownloadData a(ConfigInfos.PluginConfig pluginConfig) {
-        if (pluginConfig == null) {
-            return null;
-        }
-        DownloadData downloadData = new DownloadData(pluginConfig.name, pluginConfig.newest.url);
-        String str = String.valueOf(pluginConfig.name) + ".tbplugin";
-        downloadData.setName(str);
-        downloadData.setPath(String.valueOf(m.g(pluginConfig.name).getAbsolutePath()) + File.separator + str);
-        return downloadData;
-    }
-
-    private boolean d() {
-        List<ActivityManager.RunningServiceInfo> runningServices = ((ActivityManager) this.a.getSystemService("activity")).getRunningServices(100);
-        if (runningServices != null) {
-            for (ActivityManager.RunningServiceInfo runningServiceInfo : runningServices) {
-                if (runningServiceInfo != null && runningServiceInfo.service != null && PluginDownloadService.class.getName().equals(runningServiceInfo.service.getClassName())) {
-                    return true;
-                }
+            if (field.getName().equals(str)) {
+                return field;
             }
         }
-        return false;
+        return null;
     }
 }

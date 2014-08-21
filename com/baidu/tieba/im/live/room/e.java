@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.live.room;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -53,8 +51,7 @@ public class e extends com.baidu.adp.base.f {
         this.i.setAdapter((ListAdapter) this.b);
         this.i.setOnScrollListener(this.b);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        LayoutInflater from = LayoutInflater.from(this.a);
-        this.g = from.inflate(com.baidu.tieba.v.live_group_like_list_head, (ViewGroup) null);
+        this.g = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_group_like_list_head, null);
         this.g.setOnClickListener(this.a);
         this.h = (TextView) this.g.findViewById(com.baidu.tieba.u.zan_list_head_text);
         if (i > 0) {
@@ -64,7 +61,7 @@ public class e extends com.baidu.adp.base.f {
         }
         this.h.setText(str);
         this.i.addHeaderView(this.g);
-        this.j = from.inflate(com.baidu.tieba.v.live_group_like_list_foot, (ViewGroup) null);
+        this.j = com.baidu.adp.lib.e.b.a().a(liveGroupLikeListActivity, com.baidu.tieba.v.live_group_like_list_foot, null);
         this.k = (TextView) this.j.findViewById(com.baidu.tieba.u.zan_list_foot_text_continue);
         this.l = (TextView) this.j.findViewById(com.baidu.tieba.u.zan_list_foot_text_more);
         this.k.setOnClickListener(this.a);

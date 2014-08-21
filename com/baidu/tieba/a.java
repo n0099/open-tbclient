@@ -20,9 +20,9 @@ public class a {
 
     public void a(Activity activity, Object obj) {
         this.c = obj;
-        String g = com.baidu.tbadk.c.a.a().g();
-        long f = com.baidu.tbadk.c.a.a().f();
-        boolean c = com.baidu.tbadk.c.a.a().c();
+        String g = com.baidu.tbadk.b.a.a().g();
+        long f = com.baidu.tbadk.b.a.a().f();
+        boolean c = com.baidu.tbadk.b.a.a().c();
         if (TextUtils.isEmpty(g) || !c || f <= 0) {
             if (this.a != null) {
                 this.a.a(obj);

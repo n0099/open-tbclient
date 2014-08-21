@@ -15,9 +15,9 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         com.baidu.tbadk.coreExtra.view.c cVar;
         com.baidu.tbadk.coreExtra.view.c cVar2;
-        cVar = this.a.av;
+        cVar = this.a.au;
         if (cVar != null) {
-            cVar2 = this.a.av;
+            cVar2 = this.a.au;
             cVar2.a();
         }
     }

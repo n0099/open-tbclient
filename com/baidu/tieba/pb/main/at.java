@@ -17,9 +17,9 @@ class at implements Handler.Callback {
         bl blVar2;
         switch (message.what) {
             case 2:
-                blVar = this.a.x;
+                blVar = this.a.y;
                 if (blVar != null) {
-                    blVar2 = this.a.x;
+                    blVar2 = this.a.y;
                     if (blVar2.B()) {
                         this.a.D();
                         break;

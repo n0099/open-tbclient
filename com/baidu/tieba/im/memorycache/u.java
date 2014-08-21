@@ -36,13 +36,11 @@ public class u extends com.baidu.adp.framework.listener.d {
         } else {
             chatMessage.getLocalData().setStatus((short) 3);
             long msgId = ((ResponseCommitGroupMessage) socketResponsedMessage).getMsgId();
-            String groupId = ((ResponseCommitGroupMessage) socketResponsedMessage).getGroupId();
             long recordId = ((ResponseCommitGroupMessage) socketResponsedMessage).getRecordId();
             chatMessage.setMsgId(msgId);
             chatMessage.setRecordId(recordId);
-            c.b().a(chatMessage.getCustomGroupType(), msgId, groupId);
         }
-        c.b().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), false);
+        c.b().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new v(this, c.b().a(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
         customMessageTask.setParallel(com.baidu.tbadk.k.b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

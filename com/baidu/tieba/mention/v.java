@@ -11,7 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.data.FeedData;
 import java.util.ArrayList;
@@ -21,42 +21,41 @@ public class v {
     private Activity c;
     private int i;
     private BdUniqueId j;
-    private int n;
-    private com.baidu.tieba.b.a p;
+    private int m;
+    private com.baidu.tieba.b.a o;
     private ViewGroup d = null;
     private BdListView e = null;
     private k f = null;
     private com.baidu.tieba.model.al g = null;
     private int h = 1;
-    private ad k = null;
-    private Handler l = new Handler();
-    private com.baidu.tbadk.core.view.o m = null;
-    private String o = null;
+    private ab k = null;
+    private com.baidu.tbadk.core.view.p l = null;
+    private String n = null;
     AlertDialog a = null;
-    private final Handler q = new Handler();
-    private com.baidu.adp.framework.listener.a r = new w(this, CmdConfigHttp.REPLYME_HTTP_CMD, 303007);
+    private final Handler p = new Handler();
+    private com.baidu.adp.framework.listener.a q = new w(this, CmdConfigHttp.REPLYME_HTTP_CMD, 303007);
 
-    public v(com.baidu.tbadk.core.d dVar, int i, ac acVar) {
+    public v(com.baidu.tbadk.core.d dVar, int i, aa aaVar) {
         this.b = null;
         this.c = null;
         this.i = -1;
         this.j = null;
-        this.p = null;
+        this.o = null;
         this.b = dVar;
         this.c = this.b.getActivity();
         this.i = i;
         this.j = BdUniqueId.gen();
-        this.r.a(this.j);
-        MessageManager.getInstance().registerListener(this.r);
-        this.p = new com.baidu.tieba.b.a("replymeStat");
+        this.q.a(this.j);
+        MessageManager.getInstance().registerListener(this.q);
+        this.o = new com.baidu.tieba.b.a("replymeStat");
     }
 
     public void a() {
         b();
         this.g.cancelLoadData();
-        if (this.p != null) {
-            this.p.b();
-            this.p = null;
+        if (this.o != null) {
+            this.o.b();
+            this.o = null;
         }
     }
 
@@ -65,7 +64,7 @@ public class v {
     }
 
     public void a(int i) {
-        this.n = i;
+        this.m = i;
     }
 
     public void a(BdListView bdListView) {
@@ -77,11 +76,11 @@ public class v {
     }
 
     public void a(String str) {
-        this.o = str;
+        this.n = str;
     }
 
-    public void a(com.baidu.tbadk.core.view.o oVar) {
-        this.m = oVar;
+    public void a(com.baidu.tbadk.core.view.p pVar) {
+        this.l = pVar;
     }
 
     public void c() {
@@ -90,8 +89,16 @@ public class v {
 
     public void d() {
         this.h = 1;
-        this.n = 3;
-        f();
+        this.m = 3;
+        g();
+    }
+
+    public void a(com.baidu.tieba.model.al alVar) {
+        a(alVar, true);
+    }
+
+    public int e() {
+        return this.h;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,16 +124,16 @@ public class v {
                     com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.c).a(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).a(feedData.getThread_id(), feedData.getPost_id(), "mention")));
         }
     }
 
-    public void e() {
+    public void f() {
         this.h = 1;
         this.f = new k(this.c, null);
         this.f.a(this.i);
-        if (this.b instanceof an) {
-            this.f.a((an) this.b);
+        if (this.b instanceof al) {
+            this.f.a((al) this.b);
         }
         this.f.b(TbadkApplication.m252getInst().getFontSize());
         this.e.setAdapter((ListAdapter) this.f);
@@ -134,9 +141,9 @@ public class v {
         this.e.setOnSrollToBottomListener(new y(this));
     }
 
-    public void f() {
+    public void g() {
         boolean z = false;
-        switch (this.n) {
+        switch (this.m) {
             case 2:
                 z = true;
                 break;
@@ -157,22 +164,22 @@ public class v {
             a(this.g, true);
             return;
         }
-        if (this.n != 4) {
+        if (this.m != 4) {
             this.h = 1;
         }
-        j();
+        k();
         a(true);
         com.baidu.tieba.model.al alVar = new com.baidu.tieba.model.al();
         l();
-        alVar.a(this.n, this.h);
+        alVar.a(this.m, this.h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    public void j() {
         if (this.g != null && this.g.c().f() == 1) {
             this.h++;
-            this.n = 4;
-            f();
+            this.m = 4;
+            g();
         }
     }
 
@@ -180,7 +187,7 @@ public class v {
     public void a(com.baidu.tieba.model.al alVar, boolean z) {
         a(false);
         if (alVar != null && alVar.b() != null) {
-            if (this.n == 4 && this.g != null) {
+            if (this.m == 4 && this.g != null) {
                 ArrayList<FeedData> b = this.g.b();
                 b.addAll(alVar.b());
                 alVar.a(b);
@@ -200,28 +207,28 @@ public class v {
                     int firstVisiblePosition = this.e.getFirstVisiblePosition();
                     this.f.a(b2, z);
                     this.f.notifyDataSetChanged();
-                    if (this.n == 2 || this.n == 3) {
+                    if (this.m == 2 || this.m == 3) {
                         this.e.setSelectionFromTop(0, 0);
-                    } else if (this.n == 4 && Build.VERSION.SDK_INT < 11) {
-                        this.q.postDelayed(new z(this, firstVisiblePosition), 10L);
+                    } else if (this.m == 4 && Build.VERSION.SDK_INT < 11) {
+                        this.p.postDelayed(new z(this, firstVisiblePosition), 10L);
                     }
                     if (b2.size() == 0) {
-                        this.m.b(0);
+                        this.l.b(0);
                     } else {
-                        this.m.b(8);
+                        this.l.b(8);
                     }
                     if (this.b.isAdded()) {
                         if (this.b instanceof a) {
                             ((a) this.b).c(TbadkApplication.m252getInst().getSkinType());
-                        } else if (this.b instanceof an) {
-                            ((an) this.b).c(TbadkApplication.m252getInst().getSkinType());
+                        } else if (this.b instanceof al) {
+                            ((al) this.b).c(TbadkApplication.m252getInst().getSkinType());
                         }
                     }
                 }
             }
             p pVar = (p) this.b.getParentFragment();
             if (pVar != null) {
-                if (this.n == 3 || this.n == 2) {
+                if (this.m == 3 || this.m == 2) {
                     if (z) {
                         pVar.a(this.i, false);
                         return;
@@ -235,14 +242,14 @@ public class v {
         }
     }
 
-    public void g() {
+    public void h() {
         if (this.f != null && this.f.d() != TbadkApplication.m252getInst().getFontSize()) {
             this.f.b(TbadkApplication.m252getInst().getFontSize());
             this.f.notifyDataSetChanged();
         }
     }
 
-    private void j() {
+    private void k() {
         a(false);
         if (this.k != null) {
             this.k.cancel();
@@ -258,7 +265,7 @@ public class v {
 
     private void a(boolean z) {
         if (z) {
-            switch (this.n) {
+            switch (this.m) {
                 case 1:
                 case 2:
                 case 3:
@@ -275,7 +282,7 @@ public class v {
                     return;
             }
         }
-        switch (this.n) {
+        switch (this.m) {
             case 1:
             case 2:
             case 3:
@@ -293,24 +300,17 @@ public class v {
         }
     }
 
-    private com.baidu.adp.lib.cache.t<byte[]> k() {
-        return com.baidu.tbadk.core.a.a.a().a("tb_user_profile", TbadkApplication.getCurrentAccountName());
-    }
-
     private void l() {
-        k().a("replyme_cache", new aa(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
-        com.baidu.tbadk.core.a.a.a().d("tb_user_profile", TbadkApplication.getCurrentAccountName());
+        if (this.b != null) {
+            this.b.a(new CustomMessage(2001229));
+        }
     }
 
     private void b(FeedData feedData) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.c).b(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).b(feedData.getThread_id(), feedData.getPost_id(), "mention")));
     }
 
-    public void h() {
+    public void i() {
         if (this.f != null) {
             this.f.notifyDataSetChanged();
         }

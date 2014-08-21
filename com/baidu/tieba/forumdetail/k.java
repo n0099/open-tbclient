@@ -7,8 +7,6 @@ class k {
     TextView b;
     TextView c;
     TextView d;
-    TextView e;
-    TextView f;
 
     private k() {
     }

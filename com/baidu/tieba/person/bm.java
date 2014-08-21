@@ -19,7 +19,7 @@ public class bm implements DialogInterface.OnClickListener {
         dialog = this.a.A;
         if (dialog != null) {
             dialog2 = this.a.A;
-            dialog2.dismiss();
+            com.baidu.adp.lib.e.e.b(dialog2, this.a);
         }
         this.a.f();
     }

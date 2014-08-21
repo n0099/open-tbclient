@@ -50,7 +50,7 @@ public class GroupLevelActivity extends BaseActivity {
             closeActivity();
         } else if (view == this.b.b()) {
             com.baidu.tbadk.core.f.a(this, "im_group_level_upgrade_mem");
-            this.c.b();
+            this.c.c();
         }
     }
 

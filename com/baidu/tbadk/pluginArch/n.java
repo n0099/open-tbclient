@@ -1,229 +1,113 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.text.TextUtils;
-import android.util.Xml;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes.dex */
 public class n {
-    static n a = null;
-    private HashMap<String, com.baidu.tbadk.pluginArch.bean.a> b = new HashMap<>();
+    public static final String a = p.c();
+    private static String b = null;
 
-    public static n a() {
-        n nVar;
-        synchronized (n.class) {
-            if (a == null) {
-                a = new n();
+    @SuppressLint({"SdCardPath"})
+    private static String c() {
+        if (b == null) {
+            Context context = d.a().a;
+            File filesDir = context.getFilesDir();
+            if (filesDir == null) {
+                filesDir = new File(context.getFilesDir().getAbsolutePath());
+                try {
+                    if (!filesDir.exists()) {
+                        com.baidu.adp.lib.util.commonsio.a.e(filesDir);
+                    }
+                } catch (IOException e) {
+                }
             }
-            nVar = a;
+            b = filesDir.getAbsolutePath();
         }
-        return nVar;
+        return b;
     }
 
-    private n() {
+    public static File a(String str) {
+        return f(str);
     }
 
-    public com.baidu.tbadk.pluginArch.bean.a a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        com.baidu.tbadk.pluginArch.bean.a aVar = this.b.get(str);
-        if (aVar == null) {
-            c(str);
-            com.baidu.tbadk.pluginArch.bean.a aVar2 = this.b.get(str);
-            if (aVar2 == null) {
-                com.baidu.tbadk.pluginArch.bean.a aVar3 = new com.baidu.tbadk.pluginArch.bean.a();
-                aVar3.a = str;
-                this.b.put(str, aVar3);
-                return aVar3;
+    public static File b(String str) {
+        return f(str);
+    }
+
+    public static File c(String str) {
+        File file = new File(String.valueOf(e(str).getAbsolutePath()) + "/so/" + a);
+        if (!file.exists()) {
+            try {
+                com.baidu.adp.lib.util.commonsio.a.e(file);
+            } catch (IOException e) {
             }
-            return aVar2;
         }
-        return aVar;
+        return file;
     }
 
-    public void a(com.baidu.tbadk.pluginArch.bean.a aVar) {
-        if (aVar != null) {
-            this.b.put(aVar.a, aVar);
-            d(aVar.a);
-        }
-    }
-
-    public com.baidu.tbadk.pluginArch.bean.a b(String str) {
+    public static File d(String str) {
         if (str == null) {
             return null;
         }
-        this.b.put(str, null);
-        return a(str);
+        return new File(String.valueOf(e(str).getAbsolutePath()) + "/plugin.xml");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(String str) {
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
-        com.baidu.tbadk.pluginArch.bean.a aVar = null;
-        fileInputStream2 = null;
-        if (str != null) {
-            File h = m.h(str);
-            if (h != null) {
-                try {
-                    if (h.exists()) {
-                        XmlPullParser newPullParser = Xml.newPullParser();
-                        fileInputStream = new FileInputStream(h);
-                        try {
-                            try {
-                                newPullParser.setInput(fileInputStream, "UTF-8");
-                                for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.next()) {
-                                    switch (eventType) {
-                                        case 2:
-                                            if ("forbidden".equals(newPullParser.getName())) {
-                                                aVar = new com.baidu.tbadk.pluginArch.bean.a();
-                                                aVar.a = str;
-                                            }
-                                            if ("user".equals(newPullParser.getName()) && aVar != null) {
-                                                aVar.b.add(newPullParser.nextText());
-                                                continue;
-                                            }
-                                            break;
-                                        case 3:
-                                            if ("forbidden".equals(newPullParser.getName()) && aVar != null && aVar.a != null) {
-                                                this.b.put(str, aVar);
-                                                continue;
-                                            }
-                                            break;
-                                    }
-                                }
-                                fileInputStream2 = fileInputStream;
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                if (fileInputStream != null) {
-                                    try {
-                                        fileInputStream.close();
-                                        return;
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                        return;
-                                    }
-                                }
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    fileInputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = null;
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-            }
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
+    public static File e(String str) {
+        if (str == null) {
+            return null;
+        }
+        File file = new File(String.valueOf(c()) + "/pluginsEX/" + str);
+        if (!file.exists()) {
+            try {
+                com.baidu.adp.lib.util.commonsio.a.e(file);
+                return file;
+            } catch (IOException e) {
+                return file;
             }
         }
+        return file;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00a5 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v1, types: [int] */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    private void d(String str) {
-        File h;
-        FileOutputStream fileOutputStream;
-        if (str != null && (h = m.h(str)) != null) {
-            com.baidu.tbadk.pluginArch.bean.a aVar = this.b.get(str);
-            if (aVar != null) {
-                ?? size = aVar.b.size();
-                try {
-                    if (size != 0) {
-                        try {
-                            fileOutputStream = new FileOutputStream(h, false);
-                            try {
-                                XmlSerializer newSerializer = Xml.newSerializer();
-                                newSerializer.setOutput(fileOutputStream, "UTF-8");
-                                newSerializer.startDocument("UTF-8", true);
-                                newSerializer.startTag(null, "forbidden");
-                                for (String str2 : aVar.b) {
-                                    newSerializer.startTag(null, "user");
-                                    newSerializer.text(str2);
-                                    newSerializer.endTag(null, "user");
-                                }
-                                newSerializer.endTag(null, "forbidden");
-                                newSerializer.endDocument();
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                        return;
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                        return;
-                                    }
-                                }
-                                return;
-                            } catch (Exception e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                        return;
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                        return;
-                                    }
-                                }
-                                return;
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            fileOutputStream = null;
-                        } catch (Throwable th) {
-                            th = th;
-                            size = 0;
-                            if (size != 0) {
-                                try {
-                                    size.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            if (h.exists() && h.isFile()) {
-                h.delete();
+    public static File f(String str) {
+        if (str == null) {
+            return null;
+        }
+        return new File(String.valueOf(e(str).getAbsolutePath()) + "/" + str + ".apk");
+    }
+
+    public static File a() {
+        File file = new File(String.valueOf(c()) + "/pluginsEX/optimised/");
+        if (!file.exists()) {
+            try {
+                com.baidu.adp.lib.util.commonsio.a.e(file);
+            } catch (IOException e) {
             }
         }
+        return file;
+    }
+
+    public static File g(String str) {
+        File file = new File(String.valueOf(c()) + "/pluginsEX/download/", str);
+        if (!file.exists()) {
+            try {
+                com.baidu.adp.lib.util.commonsio.a.e(file);
+            } catch (IOException e) {
+            }
+        }
+        return file;
+    }
+
+    public static File b() {
+        return new File(String.valueOf(c()) + "/pluginsEX/InstallConfig.xml");
+    }
+
+    public static File h(String str) {
+        File e = e(str);
+        if (e != null) {
+            return new File(e, "EnableConfig.xml");
+        }
+        return null;
     }
 }

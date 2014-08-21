@@ -1,53 +1,83 @@
 package com.baidu.tbadk.browser;
 
-import android.util.Log;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
-import org.xml.sax.helpers.DefaultHandler;
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends DefaultHandler {
-    final /* synthetic */ TbWebViewActivity a;
-    private HashMap<String, String> b;
-
-    private t(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
-        this.b = new HashMap<>();
-    }
+public class t extends WebViewClient {
+    final /* synthetic */ WebTbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(TbWebViewActivity tbWebViewActivity, t tVar) {
-        this(tbWebViewActivity);
+    public t(WebTbActivity webTbActivity) {
+        this.a = webTbActivity;
     }
 
-    public String a(String str) {
-        return this.b.get(str);
-    }
-
-    @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-    public void startDocument() {
-        super.startDocument();
-    }
-
-    @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-    public void startElement(String str, String str2, String str3, Attributes attributes) {
-        super.startElement(str, str2, str3, attributes);
-        Log.d("yxj", "localName:" + str2);
-        if (str2.equals("meta") && attributes != null) {
-            String value = attributes.getValue("name");
-            if ("screen-orientation".equals(value)) {
-                Log.d("yxj", String.valueOf(value) + " :" + attributes.getValue("content"));
-                this.b.put(value, attributes.getValue("content"));
-            }
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageFinished(webView, str);
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.j;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.j;
+            imageView.setEnabled(false);
         }
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.k;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.k;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.m;
+        progressBar.setVisibility(8);
+        imageView3 = this.a.l;
+        imageView3.setVisibility(0);
     }
 
-    @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-    public void characters(char[] cArr, int i, int i2) {
-        super.characters(cArr, i, i2);
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageStarted(webView, str, bitmap);
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.j;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.j;
+            imageView.setEnabled(false);
+        }
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.k;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.k;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.m;
+        progressBar.setVisibility(0);
+        imageView3 = this.a.l;
+        imageView3.setVisibility(4);
     }
 
-    @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-    public void endElement(String str, String str2, String str3) {
-        super.endElement(str, str2, str3);
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        if ((this.a.h == null || !this.a.h.a(str)) && !com.baidu.tbadk.b.f.a(this.a, str)) {
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return true;
     }
 }

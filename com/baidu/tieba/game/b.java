@@ -6,7 +6,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.ai;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,7 +42,7 @@ public class b {
             downloadData.setStatusMsg(null);
         } else {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(ai.c().d().getString(com.baidu.tieba.x.download_fail_over_max));
+            downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail_over_max));
         }
         a(downloadData);
         e eVar = new e(this);
@@ -109,13 +108,26 @@ public class b {
             sb.append(String.valueOf(downloadData.getSize() / 1000));
             sb.append("K");
             this.i = sb.toString();
-            ap.a((Context) ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + ai.c().d().getResources().getString(com.baidu.tieba.x.download_will_begin), this.h, this.i, downloadData.getName(), true);
+            ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.x.download_will_begin), this.h, this.i, downloadData.getName(), true);
         }
     }
 
     public void c(DownloadData downloadData) {
+        String string;
         if (downloadData != null) {
-            ap.a((Context) ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + ai.c().d().getResources().getString(com.baidu.tieba.x.download_fail_tip), this.h, this.i, ai.c().d().getString(com.baidu.tieba.x.download_fail_tip), false);
+            switch (downloadData.getErrorCode()) {
+                case 1:
+                    string = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail_tip_sdcrad);
+                    break;
+                case 2:
+                default:
+                    string = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail_tip);
+                    break;
+                case 3:
+                    string = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_fail_tip_net);
+                    break;
+            }
+            ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), String.valueOf(downloadData.getName()) + com.baidu.tieba.ai.c().d().getResources().getString(com.baidu.tieba.x.download_fail_tip), this.h, this.i, string, false);
         }
     }
 

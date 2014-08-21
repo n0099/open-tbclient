@@ -17,9 +17,10 @@ class aa extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseSearchPersonHistoryWriteMessage)) {
-            ResponseSearchPersonHistoryWriteMessage responseSearchPersonHistoryWriteMessage = (ResponseSearchPersonHistoryWriteMessage) customResponsedMessage;
-            this.a.hideProgressBar();
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseSearchPersonHistoryReadMessage)) {
+            return;
         }
+        this.a.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
+        this.a.hideProgressBar();
     }
 }

@@ -20,7 +20,7 @@ class bi implements DialogInterface.OnClickListener {
         com.baidu.tbadk.core.f.a(this.a, "clear_group_msg_at_gsetting");
         this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.deleting));
         bmVar = this.a.b;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(bmVar.b(), 1, null, true)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(bmVar.b(), 1, null, 1)));
         com.baidu.tieba.im.e.a(new bj(this), new bk(this));
         StringBuilder sb = new StringBuilder("clear cache by group:");
         bmVar2 = this.a.b;

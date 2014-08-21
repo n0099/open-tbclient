@@ -14,6 +14,7 @@ public class p implements com.baidu.tbadk.core.dialog.d {
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bk(this.a, "live", 23005)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bl(this.a, "live", 23005)));
+        aVar.d();
     }
 }

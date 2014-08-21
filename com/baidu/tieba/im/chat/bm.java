@@ -84,7 +84,7 @@ public class bm extends com.baidu.adp.base.e {
     }
 
     public int c() {
-        return com.baidu.adp.lib.e.b.a(this.a, 0);
+        return com.baidu.adp.lib.e.c.a(this.a, 0);
     }
 
     public void b(String str) {

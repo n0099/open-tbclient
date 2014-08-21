@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.atomData.ch;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -80,7 +80,7 @@ public class k implements w {
                                 MessageManager messageManager = MessageManager.getInstance();
                                 FriendFeedActivity friendFeedActivity3 = this.a;
                                 writeImagesInfo4 = this.a.k;
-                                messageManager.sendMessage(new CustomMessage(2002001, new cg(friendFeedActivity3, 12012, writeImagesInfo4, intValue)));
+                                messageManager.sendMessage(new CustomMessage(2002001, new ch(friendFeedActivity3, 12012, writeImagesInfo4, intValue)));
                             }
                         }
                     }
@@ -95,7 +95,7 @@ public class k implements w {
                         return;
                     }
                     alertDialog3 = this.a.o;
-                    com.baidu.adp.lib.e.d.a(alertDialog3, this.a);
+                    com.baidu.adp.lib.e.e.a(alertDialog3, this.a);
                 }
             }
         } else {

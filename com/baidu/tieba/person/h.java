@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class h {
     EditMarkActivity a;
     private BdListView c;
-    private com.baidu.tbadk.core.view.u d;
+    private com.baidu.tbadk.core.view.v d;
     private LinearLayout e;
     private j f;
     private TextView g;
@@ -44,7 +44,7 @@ public class h {
         this.f = new j(editMarkActivity);
         this.f.d(false);
         this.f.b();
-        this.d = new com.baidu.tbadk.core.view.u(editMarkActivity);
+        this.d = new com.baidu.tbadk.core.view.v(editMarkActivity);
         this.d.a(editMarkActivity);
         this.c = (BdListView) editMarkActivity.findViewById(com.baidu.tieba.u.list);
         this.c.setAdapter((ListAdapter) this.f);
@@ -208,7 +208,7 @@ public class h {
             this.j = builder.create();
             this.j.setCanceledOnTouchOutside(true);
         }
-        com.baidu.adp.lib.e.d.a(this.j, this.a);
+        com.baidu.adp.lib.e.e.a(this.j, this.a);
     }
 
     public void b(int i) {
@@ -226,7 +226,7 @@ public class h {
 
     public void i() {
         if (this.j != null) {
-            this.j.dismiss();
+            com.baidu.adp.lib.e.e.b(this.j, this.a);
             this.j = null;
         }
         if (this.i != null) {

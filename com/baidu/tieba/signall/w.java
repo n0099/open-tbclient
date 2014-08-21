@@ -1,226 +1,103 @@
 package com.baidu.tieba.signall;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.LayoutInflater;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Scroller;
-import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import java.util.Random;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ai;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends FrameLayout {
-    private int a;
-    private Context b;
-    private ProgressBar c;
-    private ImageView d;
-    private TextView e;
-    private TextView f;
-    private TextView g;
-    private Scroller h;
-    private int i;
-    private boolean j;
-    private Runnable k;
-    private Runnable l;
-    private Runnable m;
+public class w extends BdAsyncTask<String, Integer, s> {
+    final /* synthetic */ u a;
+    private h b = null;
 
-    public w(Context context) {
-        super(context);
-        this.a = 0;
-        this.i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-        this.k = new x(this);
-        this.l = new y(this);
-        this.m = new z(this);
-        c();
+    public w(u uVar) {
+        this.a = uVar;
+        setPriority(3);
     }
 
-    private void c() {
-        this.b = getContext();
-        ((LayoutInflater) this.b.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.signallforum_progress_view, this);
-        this.c = (ProgressBar) findViewById(com.baidu.tieba.u.signallforum_progress);
-        this.d = (ImageView) findViewById(com.baidu.tieba.u.signallforum_icon);
-        this.e = (TextView) findViewById(com.baidu.tieba.u.signallforun_status);
-        this.f = (TextView) findViewById(com.baidu.tieba.u.signallforun_message1);
-        this.g = (TextView) findViewById(com.baidu.tieba.u.signallforun_message2);
-        a();
-        this.h = new Scroller(this.b, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.t.bg_all_sign));
-        bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-        setBackgroundDrawable(bitmapDrawable);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        super.onPreExecute();
+        this.a.a = true;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchSetPressed(boolean z) {
-    }
-
-    public void a() {
-        removeCallbacks(this.k);
-        removeCallbacks(this.l);
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        if (this.j) {
-            this.c.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.t.vip_singnallforum_progress));
-        } else {
-            this.c.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.t.singnallforum_progress));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public s doInBackground(String... strArr) {
+        s sVar;
+        if (strArr[0] == null) {
+            return null;
         }
-        switch (this.a) {
-            case 0:
-                this.c.setClickable(true);
-                this.c.setProgress(0);
-                this.c.setSecondaryProgress(0);
-                if (this.j) {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.btn_vip_all_sign_1 : com.baidu.tieba.t.btn_vip_all_sign);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
+        String[] split = strArr[0].split(",");
+        int ceil = (int) Math.ceil(split.length / 50.0f);
+        for (int i = 0; i < ceil; i++) {
+            int i2 = i * 50;
+            StringBuilder sb = new StringBuilder();
+            for (int i3 = 0; i3 < 50 && i2 + i3 < split.length; i3++) {
+                if (i2 + i3 == split.length - 1) {
+                    sb.append(split[i2 + i3]);
                 } else {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.btn_all_sign_1 : com.baidu.tieba.t.btn_all_sign);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
+                    sb.append(String.valueOf(split[i2 + i3]) + ",");
                 }
-                this.e.setText(com.baidu.tieba.x.signallforum_begin);
-                return;
-            case 1:
-                post(this.m);
-                this.c.setClickable(false);
-                this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_conduct_1 : com.baidu.tieba.t.bg_all_sign_conduct);
-                if (this.j) {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
-                } else {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
-                }
-                this.e.setText(com.baidu.tieba.x.signallforum_ing);
-                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.c.getMax()) / 100;
-                if (nextInt - this.c.getProgress() < 0) {
-                    this.h.startScroll(nextInt, 0, this.c.getProgress() - nextInt, 0, this.i);
-                } else {
-                    this.h.startScroll(this.c.getProgress(), 0, nextInt - this.c.getProgress(), 0, this.i);
-                }
-                post(this.k);
-                return;
-            case 2:
-                this.c.setClickable(true);
-                if (this.j) {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_vip_sign_ok_d_1 : com.baidu.tieba.t.bg_vip_sign_ok_d);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_ok_1 : com.baidu.tieba.t.icon_vip_sign_ok);
-                } else {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_ok_d_1 : com.baidu.tieba.t.bg_all_sign_ok_d);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_ok_1 : com.baidu.tieba.t.icon_all_sign_ok);
-                }
-                this.c.setProgress(0);
-                this.e.setText(com.baidu.tieba.x.signallforum_success);
-                return;
-            case 3:
-                this.c.setClickable(false);
-                if (this.j) {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
-                } else {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
-                }
-                this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_conduct_1 : com.baidu.tieba.t.bg_all_sign_conduct);
-                this.e.setText(com.baidu.tieba.x.can_not_sign);
-                return;
-            default:
-                return;
+            }
+            this.b = new h();
+            if (UtilHelper.getNetStatusInfo(ai.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                a(sb.toString());
+            }
         }
+        sVar = this.a.c;
+        return sVar;
     }
 
-    public int getCurrentStatus() {
-        return this.a;
-    }
-
-    public void setSigning(int i) {
-        if (this.a != 1 && this.a == 0) {
-            this.c.setProgress(i);
-            this.a = 1;
-            a();
+    private s a(String str) {
+        s sVar;
+        s sVar2;
+        String a = this.b.a(str);
+        if (this.b.b()) {
+            sVar = this.a.c;
+            sVar.a(a);
+            sVar2 = this.a.c;
+            return sVar2;
         }
+        this.a.c = null;
+        return null;
     }
 
-    public void b() {
-        if (this.a != 2) {
-            this.a = 2;
-            a();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.b.a();
+        this.b = null;
+        this.a.b = null;
+        this.a.a = false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(s sVar) {
+        v vVar;
+        s sVar2;
+        v vVar2;
+        v vVar3;
+        s sVar3;
+        this.a.a = false;
+        this.a.b = null;
+        vVar = this.a.d;
+        if (vVar != null) {
+            sVar2 = this.a.c;
+            if (sVar2 != null) {
+                vVar3 = this.a.d;
+                sVar3 = this.a.c;
+                vVar3.a(sVar3);
+                return;
+            }
+            String c = this.b != null ? this.b.c() : null;
+            vVar2 = this.a.d;
+            vVar2.a(c);
         }
-    }
-
-    public ProgressBar getProgressBar() {
-        return this.c;
-    }
-
-    public ImageView getIcon() {
-        return this.d;
-    }
-
-    public TextView getmStatus() {
-        return this.e;
-    }
-
-    public TextView getMessage1() {
-        return this.f;
-    }
-
-    public TextView getMessage2() {
-        return this.g;
-    }
-
-    public int getProgress() {
-        return this.c.getProgress();
-    }
-
-    public void setDuration(int i) {
-        this.i = i;
-    }
-
-    public void setmCurrentStatus(int i) {
-        this.a = i;
-        a();
-    }
-
-    public void setmContext(Context context) {
-        this.b = context;
-    }
-
-    public void setmProgress(ProgressBar progressBar) {
-        this.c = progressBar;
-    }
-
-    public void setmIcon(ImageView imageView) {
-        this.d = imageView;
-    }
-
-    public void setmStatus(TextView textView) {
-        this.e = textView;
-    }
-
-    public void setmMessage1(TextView textView) {
-        this.f = textView;
-    }
-
-    public void setmMessage2(TextView textView) {
-        this.g = textView;
-    }
-
-    public void setmScroller(Scroller scroller) {
-        this.h = scroller;
-    }
-
-    public void setHasPrivilege(boolean z) {
-        this.j = z;
-        a();
-    }
-
-    public void setProgressAnimation(Runnable runnable) {
-        this.k = runnable;
-    }
-
-    public void setCheckRunnable(Runnable runnable) {
-        this.l = runnable;
-    }
-
-    public void setChangeSizeRunnable(Runnable runnable) {
-        this.m = runnable;
     }
 }

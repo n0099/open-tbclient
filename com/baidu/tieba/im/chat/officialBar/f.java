@@ -3,9 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -34,7 +32,7 @@ public class f extends RelativeLayout {
     }
 
     private void b() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.msg_multi_pic_text_top_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.msg_multi_pic_text_top_view, this, true);
         this.b = (TbImageView) findViewById(com.baidu.tieba.u.top_content_pic);
         this.c = (TextView) findViewById(com.baidu.tieba.u.top_title);
         this.d = (TextView) findViewById(com.baidu.tieba.u.show_time);

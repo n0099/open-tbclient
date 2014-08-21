@@ -13,7 +13,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.atomData.z;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -217,15 +217,15 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
             if (!TextUtils.isEmpty(updatesType)) {
                 try {
                     if (updatesType.equals("group_level_up")) {
-                        GroupLevelActivity.a(this, com.baidu.adp.lib.e.b.a(groupId, 0L), updatesItemData.isShown());
+                        GroupLevelActivity.a(this, com.baidu.adp.lib.e.c.a(groupId, 0L), updatesItemData.isShown());
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
                             com.baidu.tbadk.core.f.a(this, "update_activity_group_event_click");
                             bg.a().a(this, new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
-                            GroupActivityActivity.a(this, com.baidu.adp.lib.e.b.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.e.b.a(updatesItemData.getGroupId(), 0L), 1);
+                            GroupActivityActivity.a(this, com.baidu.adp.lib.e.c.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.e.c.a(updatesItemData.getGroupId(), 0L), 1);
                         } else {
-                            sendMessage(new CustomMessage(2008011, new y(this, Long.parseLong(groupId), 0)));
+                            sendMessage(new CustomMessage(2008011, new z(this, Long.parseLong(groupId), 0)));
                         }
                     }
                 } catch (Exception e) {
@@ -260,7 +260,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                 this.h = updatesItemData;
                 d();
             }
-            this.c.show();
+            com.baidu.adp.lib.e.e.a(this.c, this);
         }
     }
 

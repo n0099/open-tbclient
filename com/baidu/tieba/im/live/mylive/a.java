@@ -13,18 +13,18 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tbadk.coreExtra.view.ag;
 import com.baidu.tieba.im.message.RequestSubscribeLiveGroupMessage;
 import com.baidu.tieba.im.model.am;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.d implements x, ag {
     private MyLiveActivity b;
     private am c;
     private BdListView d;
     private ProgressBar e;
-    private u f;
+    private v f;
     private MyLiveNoDataView g;
     private MyLiveListAdapter h;
     private boolean j;
@@ -53,17 +53,17 @@ public class a extends com.baidu.tbadk.core.d implements x, ag {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(v.mylive_fragment, (ViewGroup) null);
-        this.g = (MyLiveNoDataView) inflate.findViewById(com.baidu.tieba.u.mylive_fragment_live_guide);
-        this.d = (BdListView) inflate.findViewById(com.baidu.tieba.u.mylive_fragment_live_list);
-        this.f = new u(this.b);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.v.mylive_fragment, (ViewGroup) null);
+        this.g = (MyLiveNoDataView) inflate.findViewById(u.mylive_fragment_live_guide);
+        this.d = (BdListView) inflate.findViewById(u.mylive_fragment_live_list);
+        this.f = new v(this.b);
         this.d.setPullRefresh(this.f);
         this.h = new MyLiveListAdapter(this.b, this);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
         this.f.a(new f(this));
-        this.e = (ProgressBar) inflate.findViewById(com.baidu.tieba.u.mylive_fragment_live_list_progress);
+        this.e = (ProgressBar) inflate.findViewById(u.mylive_fragment_live_list_progress);
         return inflate;
     }
 

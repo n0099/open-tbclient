@@ -36,7 +36,7 @@ public abstract class MsglistActivity extends TalkableActivity implements bt {
             if (a((bt) this)) {
                 q();
                 m();
-                df.a = com.baidu.tbadk.c.c.a();
+                dh.a = com.baidu.tbadk.b.c.a();
             }
         } catch (Exception e) {
         }

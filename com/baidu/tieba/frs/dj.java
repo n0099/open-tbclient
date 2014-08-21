@@ -1,55 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.widget.ListView;
+import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public class dj {
-    private ForumData a = new ForumData();
-    private ArrayList<com.baidu.tieba.data.ay> b = new ArrayList<>();
-    private ArrayList<String> c = new ArrayList<>();
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private AntiData g = new AntiData();
-    private com.baidu.tieba.data.ah h = new com.baidu.tieba.data.ah();
+public class dj implements Runnable {
+    private int a;
+    private int b;
+    private PbEditor c;
+    private ListView d;
+    private Activity e;
+    private int f;
 
-    public ArrayList<com.baidu.tieba.data.ay> a() {
-        return this.b;
+    public dj(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
+        this.b = i2;
+        this.a = i;
+        this.c = pbEditor;
+        this.d = listView;
+        this.f = i3;
+        this.e = activity;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("forum"));
-                this.h.a(jSONObject.optJSONObject("user"));
-                this.g.parserJson(jSONObject.optJSONObject("anti"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
-                if (optJSONObject != null) {
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.ay ayVar = new com.baidu.tieba.data.ay();
-                            ayVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(ayVar);
-                        }
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            this.c.add(optJSONArray2.optString(i2));
-                        }
-                    }
-                    this.d = optJSONObject.optInt("has_more", 0);
-                    this.e = optJSONObject.optInt("amount", 0);
-                    this.f = optJSONObject.optInt("current_count", 0);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.c.getLocationInWindow(iArr);
+        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.j.a(this.e));
+        this.d.invalidate();
     }
 }

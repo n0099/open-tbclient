@@ -1,49 +1,43 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ds extends HttpMessageListener {
-    final /* synthetic */ dr a;
+public class ds extends PagerAdapter {
+    private ArrayList<View> a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ds(dr drVar, int i) {
-        super(i);
-        this.a = drVar;
+    public ds(ArrayList<View> arrayList) {
+        this.a = arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        dt dtVar;
-        dt dtVar2;
-        dt dtVar3;
-        dt dtVar4;
-        dt dtVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                dtVar = this.a.a;
-                if (dtVar != null) {
-                    dtVar2 = this.a.a;
-                    dtVar2.b(null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                dtVar5 = this.a.a;
-                dtVar5.a(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            dtVar3 = this.a.a;
-            if (dtVar3 != null) {
-                dtVar4 = this.a.a;
-                dtVar4.b(praiseResponseMessage.getErrMsg());
-            }
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        if (this.a == null) {
+            return 0;
+        }
+        return this.a.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (this.a == null) {
+            return null;
+        }
+        viewGroup.addView(this.a.get(i));
+        return this.a.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        if (this.a != null) {
+            viewGroup.removeView(this.a.get(i));
         }
     }
 }

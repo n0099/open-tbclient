@@ -28,7 +28,7 @@ class ci implements AdapterView.OnItemClickListener {
                 if (userData != null && userData.getUserId() != null) {
                     cd cdVar = this.a;
                     f = this.a.f();
-                    cdVar.a(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(f, userData.getUserId(), userData.getName_show())));
+                    cdVar.a(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(f, userData.getUserId(), userData.getName_show())));
                 }
             }
         }

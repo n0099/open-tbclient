@@ -9,9 +9,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bj;
-import com.baidu.tbadk.core.atomData.bz;
-import com.baidu.tbadk.core.atomData.x;
+import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.ca;
+import com.baidu.tbadk.core.atomData.y;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity;
@@ -53,7 +53,7 @@ public class f implements AdapterView.OnItemClickListener {
                     fragmentActivity7 = this.a.d;
                     TiebaStatic.eventStat(fragmentActivity7, "chat_list_to_group", "click", 1, new Object[0]);
                     fragmentActivity8 = this.a.d;
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new x(fragmentActivity8, Integer.parseInt(imMessageCenterShowItemData.getFriendId()), imMessageCenterShowItemData.getFriendName(), 0L, "msg_lstb")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new y(fragmentActivity8, Integer.parseInt(imMessageCenterShowItemData.getFriendId()), imMessageCenterShowItemData.getFriendName(), 0L, "msg_lstb")));
                 } else if (imMessageCenterShowItemData.getOwnerName().equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT)) {
                     a(imMessageCenterShowItemData);
                     if (com.baidu.tbadk.coreExtra.messageCenter.a.a().u() != null) {
@@ -81,7 +81,7 @@ public class f implements AdapterView.OnItemClickListener {
                 } else if (ownerName.equals(WriteData.THREAD_TYPE_LBS)) {
                     MessageManager messageManager = MessageManager.getInstance();
                     fragmentActivity2 = this.a.d;
-                    messageManager.sendMessage(new CustomMessage(2002001, new bz(fragmentActivity2)));
+                    messageManager.sendMessage(new CustomMessage(2002001, new ca(fragmentActivity2)));
                 } else {
                     b(imMessageCenterShowItemData);
                 }
@@ -110,7 +110,7 @@ public class f implements AdapterView.OnItemClickListener {
             com.baidu.tbadk.core.f.a(fragmentActivity, "tab_msg_personal_chat_click");
             TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             fragmentActivity2 = this.a.d;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new bj(fragmentActivity2, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new bk(fragmentActivity2, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
         } catch (Exception e) {
             e.printStackTrace();
         }

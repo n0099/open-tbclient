@@ -82,11 +82,11 @@ class bb implements View.OnClickListener {
         Handler handler;
         bs bsVar31;
         bl blVar7;
-        com.baidu.tbadk.core.view.m mVar;
+        com.baidu.tbadk.core.view.n nVar;
         bs bsVar32;
         bl blVar8;
         br brVar6;
-        com.baidu.tbadk.core.view.m mVar2;
+        com.baidu.tbadk.core.view.n nVar2;
         bs bsVar33;
         bs bsVar34;
         bs bsVar35;
@@ -99,15 +99,15 @@ class bb implements View.OnClickListener {
         com.baidu.tieba.pb.sub.e eVar5;
         com.baidu.tieba.pb.sub.e eVar6;
         bs bsVar39;
-        com.baidu.tbadk.core.view.m mVar3;
+        com.baidu.tbadk.core.view.n nVar3;
         bl blVar11;
         br brVar7;
         br brVar8;
         br brVar9;
         br brVar10;
         br brVar11;
-        com.baidu.tbadk.core.view.m mVar4;
-        com.baidu.tbadk.core.view.m mVar5;
+        com.baidu.tbadk.core.view.n nVar4;
+        com.baidu.tbadk.core.view.n nVar5;
         br brVar12;
         br brVar13;
         br brVar14;
@@ -132,9 +132,9 @@ class bb implements View.OnClickListener {
         bs bsVar45;
         bs bsVar46;
         bs bsVar47;
-        com.baidu.tbadk.core.view.m mVar6;
+        com.baidu.tbadk.core.view.n nVar6;
         bs bsVar48;
-        com.baidu.tbadk.core.view.m mVar7;
+        com.baidu.tbadk.core.view.n nVar7;
         bs bsVar49;
         bs bsVar50;
         bl blVar15;
@@ -163,7 +163,7 @@ class bb implements View.OnClickListener {
         com.baidu.tieba.pb.sub.e eVar9;
         com.baidu.tieba.pb.sub.e eVar10;
         bs bsVar57;
-        com.baidu.tbadk.core.view.m mVar8;
+        com.baidu.tbadk.core.view.n nVar8;
         bl blVar29;
         boolean z;
         br brVar25;
@@ -172,8 +172,8 @@ class bb implements View.OnClickListener {
         br brVar28;
         br brVar29;
         br brVar30;
-        com.baidu.tbadk.core.view.m mVar9;
-        com.baidu.tbadk.core.view.m mVar10;
+        com.baidu.tbadk.core.view.n nVar9;
+        com.baidu.tbadk.core.view.n nVar10;
         br brVar31;
         br brVar32;
         br brVar33;
@@ -203,20 +203,20 @@ class bb implements View.OnClickListener {
         bl blVar38;
         bl blVar39;
         bs bsVar61;
-        bsVar = this.a.D;
+        bsVar = this.a.E;
         if (view == bsVar.R()) {
-            blVar39 = this.a.x;
+            blVar39 = this.a.y;
             if (blVar39.a(true)) {
-                bsVar61 = this.a.D;
+                bsVar61 = this.a.E;
                 bsVar61.w();
                 return;
             }
             return;
         }
-        bsVar2 = this.a.D;
+        bsVar2 = this.a.E;
         if (view == bsVar2.i) {
-            bsVar60 = this.a.D;
-            blVar38 = this.a.x;
+            bsVar60 = this.a.E;
+            blVar38 = this.a.y;
             if (!bsVar60.f(blVar38.o())) {
                 this.a.closeActivity();
                 return;
@@ -225,35 +225,35 @@ class bb implements View.OnClickListener {
                 return;
             }
         }
-        bsVar3 = this.a.D;
+        bsVar3 = this.a.E;
         if (view != bsVar3.V()) {
-            bsVar12 = this.a.D;
+            bsVar12 = this.a.E;
             if (view != bsVar12.W()) {
-                bsVar13 = this.a.D;
+                bsVar13 = this.a.E;
                 if (view != bsVar13.X()) {
-                    bsVar14 = this.a.D;
+                    bsVar14 = this.a.E;
                     if (view != bsVar14.Y()) {
-                        bsVar15 = this.a.D;
+                        bsVar15 = this.a.E;
                         if (view != bsVar15.r()) {
-                            bsVar16 = this.a.D;
+                            bsVar16 = this.a.E;
                             if (view == bsVar16.ag()) {
-                                blVar36 = this.a.x;
+                                blVar36 = this.a.y;
                                 if (blVar36 != null) {
-                                    blVar37 = this.a.x;
+                                    blVar37 = this.a.y;
                                     com.baidu.tbadk.browser.a.a(this.a, blVar37.r().d().p().c());
                                     return;
                                 }
                                 return;
                             }
-                            bsVar17 = this.a.D;
+                            bsVar17 = this.a.E;
                             if (view == bsVar17.q()) {
-                                bsVar58 = this.a.D;
+                                bsVar58 = this.a.E;
                                 bsVar58.ae();
                                 String currentAccount = TbadkApplication.getCurrentAccount();
                                 if (currentAccount != null && currentAccount.length() > 0) {
-                                    uVar3 = this.a.C;
+                                    uVar3 = this.a.D;
                                     if (!uVar3.b()) {
-                                        bsVar59 = this.a.D;
+                                        bsVar59 = this.a.E;
                                         bsVar59.o();
                                         SparseArray sparseArray = (SparseArray) view.getTag();
                                         if (sparseArray != null) {
@@ -261,22 +261,22 @@ class bb implements View.OnClickListener {
                                             int intValue = ((Integer) sparseArray.get(com.baidu.tieba.u.tag_manage_user_identity)).intValue();
                                             boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.u.tag_del_post_is_self)).booleanValue();
                                             int intValue2 = ((Integer) sparseArray.get(com.baidu.tieba.u.tag_del_post_type)).intValue();
-                                            blVar32 = this.a.x;
+                                            blVar32 = this.a.y;
                                             if (blVar32.o()) {
-                                                eVar11 = this.a.B;
+                                                eVar11 = this.a.C;
                                                 if (eVar11 != null) {
-                                                    eVar12 = this.a.B;
+                                                    eVar12 = this.a.C;
                                                     if (eVar12.e() != null) {
-                                                        eVar13 = this.a.B;
+                                                        eVar13 = this.a.C;
                                                         if (eVar13.e().i() != null) {
-                                                            eVar14 = this.a.B;
+                                                            eVar14 = this.a.C;
                                                             if (eVar14.e().n() != null) {
-                                                                uVar5 = this.a.C;
-                                                                eVar15 = this.a.B;
+                                                                uVar5 = this.a.D;
+                                                                eVar15 = this.a.C;
                                                                 String id = eVar15.e().i().getId();
-                                                                eVar16 = this.a.B;
+                                                                eVar16 = this.a.C;
                                                                 String name = eVar16.e().i().getName();
-                                                                eVar17 = this.a.B;
+                                                                eVar17 = this.a.C;
                                                                 uVar5.a(id, name, eVar17.e().n().h(), str, intValue2, intValue, booleanValue);
                                                                 return;
                                                             }
@@ -288,12 +288,12 @@ class bb implements View.OnClickListener {
                                                 }
                                                 return;
                                             }
-                                            uVar4 = this.a.C;
-                                            blVar33 = this.a.x;
+                                            uVar4 = this.a.D;
+                                            blVar33 = this.a.y;
                                             String id2 = blVar33.r().c().getId();
-                                            blVar34 = this.a.x;
+                                            blVar34 = this.a.y;
                                             String name2 = blVar34.r().c().getName();
-                                            blVar35 = this.a.x;
+                                            blVar35 = this.a.y;
                                             uVar4.a(id2, name2, blVar35.r().d().h(), str, intValue2, intValue, booleanValue);
                                             return;
                                         }
@@ -304,53 +304,53 @@ class bb implements View.OnClickListener {
                                 LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.x.login_to_use), true, 11017);
                                 return;
                             }
-                            bsVar18 = this.a.D;
+                            bsVar18 = this.a.E;
                             if (view != bsVar18.Z()) {
-                                bsVar19 = this.a.D;
+                                bsVar19 = this.a.E;
                                 if (view == bsVar19.t()) {
-                                    eVar10 = this.a.B;
+                                    eVar10 = this.a.C;
                                     if (eVar10.j()) {
-                                        bsVar57 = this.a.D;
+                                        bsVar57 = this.a.E;
                                         bsVar57.C();
                                         return;
                                     }
                                     return;
                                 }
-                                bsVar20 = this.a.D;
+                                bsVar20 = this.a.E;
                                 if (view == bsVar20.l()) {
-                                    eVar7 = this.a.B;
+                                    eVar7 = this.a.C;
                                     if (eVar7 != null) {
-                                        eVar8 = this.a.B;
+                                        eVar8 = this.a.C;
                                         if (eVar8.a() != null) {
                                             PbActivity pbActivity = this.a;
-                                            com.baidu.tbadk.core.atomData.bb bbVar = new com.baidu.tbadk.core.atomData.bb(this.a);
-                                            eVar9 = this.a.B;
-                                            pbActivity.sendMessage(new CustomMessage(2004001, bbVar.a(eVar9.a(), null, null)));
+                                            com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
+                                            eVar9 = this.a.C;
+                                            pbActivity.sendMessage(new CustomMessage(2004001, bcVar.a(eVar9.a(), null, null)));
                                             return;
                                         }
                                         return;
                                     }
                                     return;
                                 }
-                                bsVar21 = this.a.D;
+                                bsVar21 = this.a.E;
                                 if (view != bsVar21.c) {
-                                    bsVar22 = this.a.D;
+                                    bsVar22 = this.a.E;
                                     if (view != bsVar22.e) {
-                                        bsVar23 = this.a.D;
+                                        bsVar23 = this.a.E;
                                         if (view != bsVar23.d) {
-                                            bsVar24 = this.a.D;
+                                            bsVar24 = this.a.E;
                                             if (view == bsVar24.f) {
-                                                blVar19 = this.a.x;
+                                                blVar19 = this.a.y;
                                                 AdditionData n = blVar19.r().n();
                                                 if (!TextUtils.isEmpty(n.getWarnMsg())) {
                                                     com.baidu.adp.lib.util.j.a((Context) this.a, n.getWarnMsg());
                                                     return;
                                                 } else if (n.getAlreadyCount() != n.getTotalCount()) {
-                                                    blVar20 = this.a.x;
+                                                    blVar20 = this.a.y;
                                                     ForumData c = blVar20.r().c();
-                                                    blVar21 = this.a.x;
+                                                    blVar21 = this.a.y;
                                                     com.baidu.tbadk.core.data.n d = blVar21.r().d();
-                                                    blVar22 = this.a.x;
+                                                    blVar22 = this.a.y;
                                                     AntiData g = blVar22.r().g();
                                                     if (d.h() != null) {
                                                         if (g != null && g.getIfpost() == 0) {
@@ -358,12 +358,12 @@ class bb implements View.OnClickListener {
                                                             return;
                                                         }
                                                         int i = 0;
-                                                        blVar23 = this.a.x;
+                                                        blVar23 = this.a.y;
                                                         if (blVar23.r().h() != null) {
-                                                            blVar24 = this.a.x;
+                                                            blVar24 = this.a.y;
                                                             i = blVar24.r().h().getIsMem();
                                                         }
-                                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ce(this.a, 2, c.getId(), c.getName(), d.h(), n.getPostId(), 0, g, 13008, false, false, null, false, false, null, n, null, i)));
+                                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this.a, 2, c.getId(), c.getName(), d.h(), n.getPostId(), 0, g, 13008, false, false, null, false, false, null, n, null, i)));
                                                         return;
                                                     }
                                                     return;
@@ -372,14 +372,14 @@ class bb implements View.OnClickListener {
                                                     return;
                                                 }
                                             }
-                                            bsVar25 = this.a.D;
+                                            bsVar25 = this.a.E;
                                             if (view == bsVar25.h().b()) {
-                                                bsVar54 = this.a.D;
+                                                bsVar54 = this.a.E;
                                                 bsVar54.ad();
                                                 b = this.a.b(11009);
                                                 if (b) {
-                                                    blVar18 = this.a.x;
-                                                    bsVar55 = this.a.D;
+                                                    blVar18 = this.a.y;
+                                                    bsVar55 = this.a.E;
                                                     if (blVar18.h(bsVar55.L()) == null) {
                                                         return;
                                                     }
@@ -388,102 +388,102 @@ class bb implements View.OnClickListener {
                                                 }
                                                 return;
                                             }
-                                            bsVar26 = this.a.D;
+                                            bsVar26 = this.a.E;
                                             if (view == bsVar26.h().c()) {
-                                                bsVar53 = this.a.D;
+                                                bsVar53 = this.a.E;
                                                 bsVar53.ad();
                                                 this.a.G();
                                                 this.a.H();
                                                 return;
                                             }
-                                            bsVar27 = this.a.D;
+                                            bsVar27 = this.a.E;
                                             if (view == bsVar27.h().e()) {
-                                                bsVar51 = this.a.D;
+                                                bsVar51 = this.a.E;
                                                 bsVar51.ad();
-                                                blVar16 = this.a.x;
+                                                blVar16 = this.a.y;
                                                 if (blVar16.s() != null) {
-                                                    bsVar52 = this.a.D;
-                                                    blVar17 = this.a.x;
+                                                    bsVar52 = this.a.E;
+                                                    blVar17 = this.a.y;
                                                     bsVar52.a(blVar17.s());
                                                 }
                                                 TiebaStatic.eventStat(this.a, "pb_skip_page", "pbclick", 1, new Object[0]);
                                                 return;
                                             }
-                                            bsVar28 = this.a.D;
+                                            bsVar28 = this.a.E;
                                             if (view == bsVar28.h().f()) {
-                                                bsVar49 = this.a.D;
+                                                bsVar49 = this.a.E;
                                                 bsVar49.ad();
                                                 this.a.G();
-                                                bsVar50 = this.a.D;
+                                                bsVar50 = this.a.E;
                                                 bsVar50.u();
-                                                blVar15 = this.a.x;
+                                                blVar15 = this.a.y;
                                                 blVar15.y();
                                                 TiebaStatic.eventStat(this.a, "pb_set_desc", "pbclick", 1, new Object[0]);
                                                 return;
                                             }
-                                            brVar = this.a.H;
+                                            brVar = this.a.I;
                                             if (view != brVar.c()) {
-                                                bsVar29 = this.a.D;
+                                                bsVar29 = this.a.E;
                                                 if (bsVar29.d() != view) {
-                                                    brVar2 = this.a.H;
+                                                    brVar2 = this.a.I;
                                                     if (view == brVar2.e()) {
                                                         SparseArray sparseArray2 = (SparseArray) view.getTag();
                                                         if (sparseArray2 != null) {
                                                             if ("".equals(sparseArray2.get(com.baidu.tieba.u.tag_forbid_user_name)) || "".equals(sparseArray2.get(com.baidu.tieba.u.tag_del_post_id))) {
-                                                                bsVar47 = this.a.D;
+                                                                bsVar47 = this.a.E;
                                                                 bsVar47.a(((Integer) sparseArray2.get(com.baidu.tieba.u.tag_del_post_type)).intValue(), (String) sparseArray2.get(com.baidu.tieba.u.tag_del_post_id), ((Integer) sparseArray2.get(com.baidu.tieba.u.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray2.get(com.baidu.tieba.u.tag_del_post_is_self)).booleanValue());
                                                             } else {
-                                                                bsVar48 = this.a.D;
+                                                                bsVar48 = this.a.E;
                                                                 bsVar48.a(view);
                                                             }
-                                                            mVar6 = this.a.G;
-                                                            mVar6.dismiss();
+                                                            nVar6 = this.a.H;
+                                                            com.baidu.adp.lib.e.e.a(nVar6, this.a);
                                                             return;
                                                         }
                                                         return;
                                                     } else if (view.getId() != com.baidu.tieba.u.pb_head_function_manage_delormanage) {
-                                                        brVar3 = this.a.H;
+                                                        brVar3 = this.a.I;
                                                         if (view == brVar3.d() || view.getId() == com.baidu.tieba.u.sub_pb_more || view.getId() == com.baidu.tieba.u.sub_pb_item) {
-                                                            brVar4 = this.a.H;
+                                                            brVar4 = this.a.I;
                                                             if (view == brVar4.d()) {
-                                                                brVar6 = this.a.H;
+                                                                brVar6 = this.a.I;
                                                                 if (!brVar6.a()) {
-                                                                    mVar2 = this.a.G;
-                                                                    mVar2.dismiss();
-                                                                    bsVar33 = this.a.D;
+                                                                    nVar2 = this.a.H;
+                                                                    com.baidu.adp.lib.e.e.a(nVar2, this.a);
+                                                                    bsVar33 = this.a.E;
                                                                     bsVar33.b(true);
                                                                     return;
                                                                 }
                                                             }
                                                             try {
-                                                                blVar4 = this.a.x;
+                                                                blVar4 = this.a.y;
                                                                 if (blVar4.r() != null) {
-                                                                    bsVar30 = this.a.D;
+                                                                    bsVar30 = this.a.E;
                                                                     bsVar30.ad();
                                                                     SparseArray sparseArray3 = (SparseArray) view.getTag();
                                                                     com.baidu.tieba.data.an anVar = (com.baidu.tieba.data.an) sparseArray3.get(com.baidu.tieba.u.tag_load_sub_data);
                                                                     View view2 = (View) sparseArray3.get(com.baidu.tieba.u.tag_load_sub_view);
                                                                     if (anVar != null && view2 != null) {
-                                                                        blVar5 = this.a.x;
+                                                                        blVar5 = this.a.y;
                                                                         com.baidu.tieba.data.au a = blVar5.a(anVar);
-                                                                        eVar = this.a.B;
-                                                                        blVar6 = this.a.x;
+                                                                        eVar = this.a.C;
+                                                                        blVar6 = this.a.y;
                                                                         eVar.a(blVar6.g());
-                                                                        eVar2 = this.a.B;
+                                                                        eVar2 = this.a.C;
                                                                         eVar2.b(anVar.d());
-                                                                        eVar3 = this.a.B;
+                                                                        eVar3 = this.a.C;
                                                                         eVar3.d();
                                                                         this.a.G();
-                                                                        brVar5 = this.a.H;
+                                                                        brVar5 = this.a.I;
                                                                         if (view == brVar5.d()) {
-                                                                            mVar = this.a.G;
-                                                                            mVar.dismiss();
-                                                                            bsVar32 = this.a.D;
-                                                                            blVar8 = this.a.x;
+                                                                            nVar = this.a.H;
+                                                                            com.baidu.adp.lib.e.e.a(nVar, this.a);
+                                                                            bsVar32 = this.a.E;
+                                                                            blVar8 = this.a.y;
                                                                             bsVar32.a(true, a, false, null, null, view2, blVar8.r().l());
                                                                             return;
                                                                         } else if (view.getId() != com.baidu.tieba.u.sub_pb_item) {
-                                                                            handler = this.a.w;
+                                                                            handler = this.a.x;
                                                                             handler.post(new bc(this, a, view2));
                                                                             return;
                                                                         } else {
@@ -494,8 +494,8 @@ class bb implements View.OnClickListener {
                                                                             if (anVar2 != null) {
                                                                                 str3 = anVar2.d();
                                                                             }
-                                                                            bsVar31 = this.a.D;
-                                                                            blVar7 = this.a.x;
+                                                                            bsVar31 = this.a.E;
+                                                                            blVar7 = this.a.y;
                                                                             bsVar31.a(true, a, false, str2, str3, view2, blVar7.r().l());
                                                                             return;
                                                                         }
@@ -510,21 +510,21 @@ class bb implements View.OnClickListener {
                                                         }
                                                         int id3 = view.getId();
                                                         if (id3 == com.baidu.tieba.u.dialog_button_ok) {
-                                                            blVar13 = this.a.x;
+                                                            blVar13 = this.a.y;
                                                             com.baidu.tbadk.core.data.l s = blVar13.s();
-                                                            bsVar41 = this.a.D;
+                                                            bsVar41 = this.a.E;
                                                             int M = bsVar41.M();
                                                             if (M <= 0) {
                                                                 this.a.showToast(com.baidu.tieba.x.pb_page_error);
                                                                 return;
                                                             } else if (s == null || M <= s.a()) {
-                                                                bsVar42 = this.a.D;
+                                                                bsVar42 = this.a.E;
                                                                 bsVar42.ad();
                                                                 this.a.G();
-                                                                bsVar43 = this.a.D;
+                                                                bsVar43 = this.a.E;
                                                                 bsVar43.u();
-                                                                blVar14 = this.a.x;
-                                                                bsVar44 = this.a.D;
+                                                                blVar14 = this.a.y;
+                                                                bsVar44 = this.a.E;
                                                                 blVar14.c(bsVar44.M());
                                                                 return;
                                                             } else {
@@ -532,12 +532,12 @@ class bb implements View.OnClickListener {
                                                                 return;
                                                             }
                                                         } else if (id3 == com.baidu.tieba.u.dialog_button_cancel) {
-                                                            bsVar40 = this.a.D;
+                                                            bsVar40 = this.a.E;
                                                             bsVar40.ad();
                                                             return;
                                                         } else if (id3 == com.baidu.tieba.u.reply) {
-                                                            mVar3 = this.a.G;
-                                                            if (mVar3 != null) {
+                                                            nVar3 = this.a.H;
+                                                            if (nVar3 != null) {
                                                                 com.baidu.tieba.data.an anVar3 = null;
                                                                 if (view != null && view.getTag() != null) {
                                                                     SparseArray sparseArray5 = (SparseArray) view.getTag();
@@ -545,16 +545,16 @@ class bb implements View.OnClickListener {
                                                                     SparseArray sparseArray6 = new SparseArray();
                                                                     sparseArray6.put(com.baidu.tieba.u.tag_load_sub_data, anVar3);
                                                                     sparseArray6.put(com.baidu.tieba.u.tag_load_sub_view, (View) sparseArray5.get(com.baidu.tieba.u.tag_load_sub_view));
-                                                                    brVar16 = this.a.H;
+                                                                    brVar16 = this.a.I;
                                                                     brVar16.d().setTag(sparseArray6);
                                                                     SparseArray sparseArray7 = new SparseArray();
                                                                     sparseArray7.put(com.baidu.tieba.u.tag_clip_board, (com.baidu.tieba.data.an) ((SparseArray) view.getTag()).get(com.baidu.tieba.u.tag_clip_board));
                                                                     sparseArray7.put(com.baidu.tieba.u.tag_is_subpb, false);
-                                                                    brVar17 = this.a.H;
+                                                                    brVar17 = this.a.I;
                                                                     brVar17.c().setTag(sparseArray7);
                                                                     SparseArray sparseArray8 = (SparseArray) view.getTag();
                                                                     if (!((Boolean) sparseArray8.get(com.baidu.tieba.u.tag_should_manage_visible)).booleanValue()) {
-                                                                        brVar18 = this.a.H;
+                                                                        brVar18 = this.a.I;
                                                                         brVar18.e().setVisibility(8);
                                                                     } else {
                                                                         SparseArray sparseArray9 = new SparseArray();
@@ -563,32 +563,32 @@ class bb implements View.OnClickListener {
                                                                         sparseArray9.put(com.baidu.tieba.u.tag_del_post_id, sparseArray8.get(com.baidu.tieba.u.tag_del_post_id));
                                                                         sparseArray9.put(com.baidu.tieba.u.tag_del_post_type, sparseArray8.get(com.baidu.tieba.u.tag_del_post_type));
                                                                         sparseArray9.put(com.baidu.tieba.u.tag_forbid_user_name, sparseArray8.get(com.baidu.tieba.u.tag_forbid_user_name));
-                                                                        brVar19 = this.a.H;
+                                                                        brVar19 = this.a.I;
                                                                         brVar19.e().setTag(sparseArray9);
                                                                         int skinType = TbadkApplication.m252getInst().getSkinType();
                                                                         if (!"".equals(sparseArray8.get(com.baidu.tieba.u.tag_forbid_user_name)) && !"".equals(sparseArray8.get(com.baidu.tieba.u.tag_del_post_id))) {
                                                                             if (skinType == 1) {
-                                                                                brVar24 = this.a.H;
+                                                                                brVar24 = this.a.I;
                                                                                 brVar24.e().setImageResource(com.baidu.tieba.t.icon_pb_set_n_1);
                                                                             } else {
-                                                                                brVar23 = this.a.H;
+                                                                                brVar23 = this.a.I;
                                                                                 brVar23.e().setImageResource(com.baidu.tieba.t.icon_pb_set_n);
                                                                             }
                                                                         } else if (skinType == 1) {
-                                                                            brVar21 = this.a.H;
+                                                                            brVar21 = this.a.I;
                                                                             brVar21.e().setImageResource(com.baidu.tieba.t.icon_pb_del_n_1);
                                                                         } else {
-                                                                            brVar20 = this.a.H;
+                                                                            brVar20 = this.a.I;
                                                                             brVar20.e().setImageResource(com.baidu.tieba.t.icon_pb_del_n);
                                                                         }
-                                                                        brVar22 = this.a.H;
+                                                                        brVar22 = this.a.I;
                                                                         brVar22.e().setVisibility(0);
                                                                     }
                                                                 }
                                                                 boolean z2 = false;
-                                                                blVar11 = this.a.x;
+                                                                blVar11 = this.a.y;
                                                                 if (blVar11.r().i()) {
-                                                                    blVar12 = this.a.x;
+                                                                    blVar12 = this.a.y;
                                                                     String j = blVar12.r().j();
                                                                     if (anVar3 != null && !com.baidu.adp.lib.util.i.c(j) && j.equals(anVar3.d())) {
                                                                         z2 = true;
@@ -596,60 +596,60 @@ class bb implements View.OnClickListener {
                                                                 }
                                                                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
                                                                     if (z2) {
-                                                                        brVar14 = this.a.H;
+                                                                        brVar14 = this.a.I;
                                                                         brVar14.c().setText(com.baidu.tieba.x.marked);
-                                                                        brVar15 = this.a.H;
+                                                                        brVar15 = this.a.I;
                                                                         brVar15.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_s_1, 0, 0, 0);
                                                                     } else {
-                                                                        brVar12 = this.a.H;
+                                                                        brVar12 = this.a.I;
                                                                         brVar12.c().setText(com.baidu.tieba.x.mark);
-                                                                        brVar13 = this.a.H;
+                                                                        brVar13 = this.a.I;
                                                                         brVar13.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_n_1, 0, 0, 0);
                                                                     }
                                                                 } else if (z2) {
-                                                                    brVar9 = this.a.H;
+                                                                    brVar9 = this.a.I;
                                                                     brVar9.c().setText(com.baidu.tieba.x.marked);
-                                                                    brVar10 = this.a.H;
+                                                                    brVar10 = this.a.I;
                                                                     brVar10.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_s, 0, 0, 0);
                                                                 } else {
-                                                                    brVar7 = this.a.H;
+                                                                    brVar7 = this.a.I;
                                                                     brVar7.c().setText(com.baidu.tieba.x.mark);
-                                                                    brVar8 = this.a.H;
+                                                                    brVar8 = this.a.I;
                                                                     brVar8.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_n, 0, 0, 0);
                                                                 }
-                                                                brVar11 = this.a.H;
+                                                                brVar11 = this.a.I;
                                                                 brVar11.a(true);
-                                                                mVar4 = this.a.G;
-                                                                mVar4.a();
-                                                                mVar5 = this.a.G;
-                                                                mVar5.a(view, false);
+                                                                nVar4 = this.a.H;
+                                                                nVar4.a();
+                                                                nVar5 = this.a.H;
+                                                                nVar5.a(view, false);
                                                                 return;
                                                             }
                                                             return;
                                                         } else if (id3 == com.baidu.tieba.u.sub_post_load_more) {
-                                                            eVar6 = this.a.B;
+                                                            eVar6 = this.a.C;
                                                             if (eVar6.j()) {
-                                                                bsVar39 = this.a.D;
+                                                                bsVar39 = this.a.E;
                                                                 bsVar39.C();
                                                                 return;
                                                             }
                                                             return;
                                                         } else if (id3 == com.baidu.tieba.u.sub_pb_bottom_layout) {
-                                                            blVar10 = this.a.x;
+                                                            blVar10 = this.a.y;
                                                             if (blVar10.o()) {
                                                                 this.a.closeActivity();
                                                                 return;
                                                             }
                                                             this.a.G();
-                                                            bsVar38 = this.a.D;
+                                                            bsVar38 = this.a.E;
                                                             bsVar38.F();
-                                                            eVar5 = this.a.B;
+                                                            eVar5 = this.a.C;
                                                             eVar5.cancelLoadData();
                                                             return;
                                                         } else if (id3 == com.baidu.tieba.u.btn_loadprevious) {
-                                                            eVar4 = this.a.B;
+                                                            eVar4 = this.a.C;
                                                             if (eVar4.n()) {
-                                                                bsVar37 = this.a.D;
+                                                                bsVar37 = this.a.E;
                                                                 bsVar37.D();
                                                                 return;
                                                             }
@@ -658,29 +658,29 @@ class bb implements View.OnClickListener {
                                                             SharedPreferences.Editor edit = this.a.getSharedPreferences(TbConfig.SETTINGFILE, 0).edit();
                                                             edit.putBoolean("has_shown_pb_guide", true);
                                                             edit.commit();
-                                                            bsVar36 = this.a.D;
+                                                            bsVar36 = this.a.E;
                                                             bsVar36.p();
                                                             return;
                                                         } else if (id3 != com.baidu.tieba.u.pb_head_reverse_hint) {
                                                             return;
                                                         } else {
                                                             this.a.G();
-                                                            bsVar34 = this.a.D;
+                                                            bsVar34 = this.a.E;
                                                             bsVar34.ad();
-                                                            bsVar35 = this.a.D;
+                                                            bsVar35 = this.a.E;
                                                             bsVar35.u();
-                                                            blVar9 = this.a.x;
+                                                            blVar9 = this.a.y;
                                                             blVar9.y();
                                                             return;
                                                         }
                                                     } else {
                                                         SparseArray sparseArray10 = (SparseArray) view.getTag();
                                                         if (((Boolean) sparseArray10.get(com.baidu.tieba.u.tag_should_manage_visible)).booleanValue()) {
-                                                            bsVar46 = this.a.D;
+                                                            bsVar46 = this.a.E;
                                                             bsVar46.a(view);
                                                             return;
                                                         }
-                                                        bsVar45 = this.a.D;
+                                                        bsVar45 = this.a.E;
                                                         bsVar45.a(((Integer) sparseArray10.get(com.baidu.tieba.u.tag_del_post_type)).intValue(), (String) sparseArray10.get(com.baidu.tieba.u.tag_del_post_id), ((Integer) sparseArray10.get(com.baidu.tieba.u.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray10.get(com.baidu.tieba.u.tag_del_post_is_self)).booleanValue());
                                                         return;
                                                     }
@@ -689,14 +689,14 @@ class bb implements View.OnClickListener {
                                                 return;
                                             }
                                             this.a.a(view);
-                                            mVar7 = this.a.G;
-                                            mVar7.dismiss();
+                                            nVar7 = this.a.H;
+                                            com.baidu.adp.lib.e.e.a(nVar7, this.a);
                                             return;
                                         }
                                         this.a.G();
-                                        bsVar56 = this.a.D;
+                                        bsVar56 = this.a.E;
                                         bsVar56.u();
-                                        blVar25 = this.a.x;
+                                        blVar25 = this.a.y;
                                         blVar25.x();
                                         TiebaStatic.eventStat(this.a, "pb_set_host", "pbclick", 1, new Object[0]);
                                         return;
@@ -705,11 +705,11 @@ class bb implements View.OnClickListener {
                                     return;
                                 }
                                 TiebaStatic.eventStat(this.a, "pb_header_forum_name", "pbclick", 1, new Object[0]);
-                                blVar26 = this.a.x;
+                                blVar26 = this.a.y;
                                 String name3 = blVar26.r().c().getName();
-                                blVar27 = this.a.x;
+                                blVar27 = this.a.y;
                                 if (!TextUtils.isEmpty(blVar27.f())) {
-                                    blVar28 = this.a.x;
+                                    blVar28 = this.a.y;
                                     if (blVar28.f().equals(name3)) {
                                         this.a.finish();
                                         return;
@@ -721,56 +721,56 @@ class bb implements View.OnClickListener {
                                 }
                                 return;
                             }
-                            mVar8 = this.a.G;
-                            if (mVar8 != null) {
+                            nVar8 = this.a.H;
+                            if (nVar8 != null) {
                                 com.baidu.tieba.data.an anVar4 = null;
                                 if (view != null && view.getTag() != null) {
                                     anVar4 = (com.baidu.tieba.data.an) ((SparseArray) view.getTag()).get(com.baidu.tieba.u.tag_clip_board);
                                     SparseArray sparseArray11 = new SparseArray();
                                     sparseArray11.put(com.baidu.tieba.u.tag_clip_board, anVar4);
                                     sparseArray11.put(com.baidu.tieba.u.tag_is_subpb, false);
-                                    brVar35 = this.a.H;
+                                    brVar35 = this.a.I;
                                     brVar35.c().setTag(sparseArray11);
                                 }
-                                blVar29 = this.a.x;
+                                blVar29 = this.a.y;
                                 if (blVar29.r() != null) {
-                                    blVar30 = this.a.x;
+                                    blVar30 = this.a.y;
                                     if (blVar30.r().i()) {
-                                        blVar31 = this.a.x;
+                                        blVar31 = this.a.y;
                                         String j2 = blVar31.r().j();
                                         if (anVar4 != null && !com.baidu.adp.lib.util.i.c(j2) && j2.equals(anVar4.d())) {
                                             z = true;
                                             if (TbadkApplication.m252getInst().getSkinType() != 1) {
                                                 if (z) {
-                                                    brVar33 = this.a.H;
+                                                    brVar33 = this.a.I;
                                                     brVar33.c().setText(com.baidu.tieba.x.marked);
-                                                    brVar34 = this.a.H;
+                                                    brVar34 = this.a.I;
                                                     brVar34.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_s_1, 0, 0, 0);
                                                 } else {
-                                                    brVar31 = this.a.H;
+                                                    brVar31 = this.a.I;
                                                     brVar31.c().setText(com.baidu.tieba.x.mark);
-                                                    brVar32 = this.a.H;
+                                                    brVar32 = this.a.I;
                                                     brVar32.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_n_1, 0, 0, 0);
                                                 }
                                             } else if (z) {
-                                                brVar27 = this.a.H;
+                                                brVar27 = this.a.I;
                                                 brVar27.c().setText(com.baidu.tieba.x.marked);
-                                                brVar28 = this.a.H;
+                                                brVar28 = this.a.I;
                                                 brVar28.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_s, 0, 0, 0);
                                             } else {
-                                                brVar25 = this.a.H;
+                                                brVar25 = this.a.I;
                                                 brVar25.c().setText(com.baidu.tieba.x.mark);
-                                                brVar26 = this.a.H;
+                                                brVar26 = this.a.I;
                                                 brVar26.c().setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_pb_collect_n, 0, 0, 0);
                                             }
-                                            brVar29 = this.a.H;
+                                            brVar29 = this.a.I;
                                             brVar29.e().setVisibility(8);
-                                            brVar30 = this.a.H;
+                                            brVar30 = this.a.I;
                                             brVar30.a(false);
-                                            mVar9 = this.a.G;
-                                            mVar9.a();
-                                            mVar10 = this.a.G;
-                                            mVar10.a(view, false);
+                                            nVar9 = this.a.H;
+                                            nVar9.a();
+                                            nVar10 = this.a.H;
+                                            nVar10.a(view, false);
                                             return;
                                         }
                                     }
@@ -778,14 +778,14 @@ class bb implements View.OnClickListener {
                                 z = false;
                                 if (TbadkApplication.m252getInst().getSkinType() != 1) {
                                 }
-                                brVar29 = this.a.H;
+                                brVar29 = this.a.I;
                                 brVar29.e().setVisibility(8);
-                                brVar30 = this.a.H;
+                                brVar30 = this.a.I;
                                 brVar30.a(false);
-                                mVar9 = this.a.G;
-                                mVar9.a();
-                                mVar10 = this.a.G;
-                                mVar10.a(view, false);
+                                nVar9 = this.a.H;
+                                nVar9.a();
+                                nVar10 = this.a.H;
+                                nVar10.a(view, false);
                                 return;
                             }
                             return;
@@ -794,24 +794,24 @@ class bb implements View.OnClickListener {
                 }
             }
         }
-        bsVar4 = this.a.D;
+        bsVar4 = this.a.E;
         bsVar4.ae();
-        blVar = this.a.x;
+        blVar = this.a.y;
         if (blVar.r().l() == 1) {
-            uVar = this.a.C;
+            uVar = this.a.D;
             if (!uVar.b()) {
-                bsVar5 = this.a.D;
+                bsVar5 = this.a.E;
                 bsVar5.o();
                 int i2 = 0;
-                bsVar6 = this.a.D;
+                bsVar6 = this.a.E;
                 if (view != bsVar6.V()) {
-                    bsVar7 = this.a.D;
+                    bsVar7 = this.a.E;
                     if (view != bsVar7.W()) {
-                        bsVar8 = this.a.D;
+                        bsVar8 = this.a.E;
                         if (view != bsVar8.X()) {
-                            bsVar9 = this.a.D;
+                            bsVar9 = this.a.E;
                             if (view != bsVar9.Y()) {
-                                bsVar10 = this.a.D;
+                                bsVar10 = this.a.E;
                                 if (view == bsVar10.r()) {
                                     i2 = 2;
                                 }
@@ -827,14 +827,14 @@ class bb implements View.OnClickListener {
                 } else {
                     i2 = 6;
                 }
-                blVar2 = this.a.x;
+                blVar2 = this.a.y;
                 ForumData c2 = blVar2.r().c();
                 String name4 = c2.getName();
                 String id4 = c2.getId();
-                blVar3 = this.a.x;
+                blVar3 = this.a.y;
                 String h = blVar3.r().d().h();
-                uVar2 = this.a.C;
-                bsVar11 = this.a.D;
+                uVar2 = this.a.D;
+                bsVar11 = this.a.E;
                 uVar2.a(id4, name4, h, i2, bsVar11.s());
             }
         }

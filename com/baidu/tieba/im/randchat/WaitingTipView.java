@@ -2,9 +2,7 @@ package com.baidu.tieba.im.randchat;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -60,15 +58,15 @@ public class WaitingTipView extends RelativeLayout {
 
     private void a(Context context) {
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.v.im_waitting_tip, (ViewGroup) null);
-        this.b = (CircleBgView) inflate.findViewById(com.baidu.tieba.u.tip_head_layout);
-        this.c = (HeadImageView) inflate.findViewById(com.baidu.tieba.u.tip_head_image);
-        this.d = (TextView) inflate.findViewById(com.baidu.tieba.u.tip_head_text);
-        this.e = (TextView) inflate.findViewById(com.baidu.tieba.u.tip_text);
-        this.f = (Button) inflate.findViewById(com.baidu.tieba.u.tip_wait);
-        this.g = (Button) inflate.findViewById(com.baidu.tieba.u.tip_quit);
+        View a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.im_waitting_tip, null);
+        this.b = (CircleBgView) a.findViewById(com.baidu.tieba.u.tip_head_layout);
+        this.c = (HeadImageView) a.findViewById(com.baidu.tieba.u.tip_head_image);
+        this.d = (TextView) a.findViewById(com.baidu.tieba.u.tip_head_text);
+        this.e = (TextView) a.findViewById(com.baidu.tieba.u.tip_text);
+        this.f = (Button) a.findViewById(com.baidu.tieba.u.tip_wait);
+        this.g = (Button) a.findViewById(com.baidu.tieba.u.tip_quit);
         this.c.setIsRound(true);
-        addView(inflate);
+        addView(a);
     }
 
     public void a(HeadImageView headImageView, boolean z) {

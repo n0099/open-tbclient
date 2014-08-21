@@ -24,7 +24,7 @@ public class AccessTokenManager {
 
     public void asyncLoadAccessToken(String str) {
         if (com.baidu.adp.lib.util.j.b()) {
-            com.baidu.adp.lib.e.e.a().a(new b(this, str));
+            com.baidu.adp.lib.e.f.a().a(new b(this, str));
         } else {
             getAccesssTokenInBackground(str);
         }

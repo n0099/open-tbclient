@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.RelativeLayout;
@@ -27,7 +26,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private Context d;
     private boolean e;
     private int f;
-    private final ArrayList<q> g;
+    private final ArrayList<r> g;
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -52,7 +51,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void a(Context context, AttributeSet attributeSet) {
         this.d = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.no_network_view, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.no_network_view, this);
         this.b = (TextView) findViewById(com.baidu.tieba.u.no_network_guide);
         setOnClickListener(this);
         if (attributeSet != null) {
@@ -74,15 +73,15 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    public void a(q qVar) {
-        if (qVar != null && !this.g.contains(qVar)) {
-            this.g.add(qVar);
+    public void a(r rVar) {
+        if (rVar != null && !this.g.contains(rVar)) {
+            this.g.add(rVar);
         }
     }
 
-    public void b(q qVar) {
-        if (qVar != null && this.g.contains(qVar)) {
-            this.g.remove(qVar);
+    public void b(r rVar) {
+        if (rVar != null && this.g.contains(rVar)) {
+            this.g.remove(rVar);
         }
     }
 
@@ -134,7 +133,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation3.setFillAfter(true);
                 alphaAnimation3.setDuration(500L);
-                alphaAnimation3.setAnimationListener(new p(this));
+                alphaAnimation3.setAnimationListener(new q(this));
                 startAnimation(alphaAnimation3);
                 for (int i3 = 0; i3 < this.g.size(); i3++) {
                     this.g.get(i3).a(true);

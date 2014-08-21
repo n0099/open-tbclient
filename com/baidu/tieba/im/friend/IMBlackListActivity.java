@@ -66,7 +66,7 @@ public class IMBlackListActivity extends BaseActivity {
             e();
         }
         this.d.setMessage(String.format(getString(x.black_list_ensure_toremove_text), aVar.b()));
-        com.baidu.adp.lib.e.d.a(this.d, this);
+        com.baidu.adp.lib.e.e.a(this.d, this);
     }
 
     private void e() {

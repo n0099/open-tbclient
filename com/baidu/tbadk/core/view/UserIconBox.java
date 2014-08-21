@@ -11,7 +11,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     com.baidu.tbadk.imageManager.d a;
     private com.baidu.adp.lib.d.b<TbImageView> b;
-    private z c;
+    private aa c;
     private Context d;
     private LinearLayout.LayoutParams e;
 
@@ -19,7 +19,7 @@ public class UserIconBox extends LinearLayout {
         super(context);
         this.b = null;
         this.c = null;
-        this.a = new v(this);
+        this.a = new w(this);
         a(context);
     }
 
@@ -27,7 +27,7 @@ public class UserIconBox extends LinearLayout {
         super(context, attributeSet);
         this.b = null;
         this.c = null;
-        this.a = new v(this);
+        this.a = new w(this);
         a(context);
     }
 
@@ -35,15 +35,15 @@ public class UserIconBox extends LinearLayout {
         this.d = context;
         setOrientation(0);
         setGravity(16);
-        if (this.d instanceof aa) {
-            aa aaVar = (aa) this.d;
-            this.b = aaVar.c();
-            if (aaVar.a() != null && this.c == null) {
-                this.c = new z(aaVar.c_());
-                aaVar.a().setRecyclerListener(this.c);
+        if (this.d instanceof ab) {
+            ab abVar = (ab) this.d;
+            this.b = abVar.c();
+            if (abVar.a() != null && this.c == null) {
+                this.c = new aa(abVar.c_());
+                abVar.a().setRecyclerListener(this.c);
             }
         }
-        setOnHierarchyChangeListener(new x(this));
+        setOnHierarchyChangeListener(new y(this));
     }
 
     private LinearLayout.LayoutParams a(int i, int i2, int i3) {
@@ -96,6 +96,6 @@ public class UserIconBox extends LinearLayout {
     }
 
     public static com.baidu.adp.lib.d.b<TbImageView> a(Context context, int i) {
-        return new com.baidu.adp.lib.d.b<>(new y(context), i, 0);
+        return new com.baidu.adp.lib.d.b<>(new z(context), i, 0);
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.person.post;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.person.post.PersonPostModel;
@@ -78,7 +77,7 @@ public class q extends BaseAdapter implements b, g {
     public View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_post_item_thread, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(viewGroup.getContext(), com.baidu.tieba.v.person_post_item_thread, viewGroup, false);
             s sVar2 = new s(view);
             view.setTag(sVar2);
             sVar = sVar2;
@@ -111,12 +110,12 @@ public class q extends BaseAdapter implements b, g {
             sVar.l.setVisibility(8);
             if (com.baidu.tbadk.core.h.a().f() && postList.media != null && postList.media.length > 0) {
                 int min = Math.min(postList.media.length, 3);
-                String[] strArr = new String[min];
+                PersonPostModel.Media[] mediaArr = new PersonPostModel.Media[min];
                 for (int i2 = 0; i2 < min; i2++) {
-                    strArr[i2] = postList.media[i2].big_pic;
+                    mediaArr[i2] = postList.media[i2];
                 }
                 sVar.j.setVisibility(0);
-                sVar.j.setTags(strArr);
+                sVar.j.setTags(mediaArr);
             } else {
                 sVar.j.setVisibility(8);
                 sVar.j.setTags(null);
@@ -183,7 +182,7 @@ public class q extends BaseAdapter implements b, g {
         } else if (id == com.baidu.tieba.u.username) {
             this.e.finish();
         } else if ((id == com.baidu.tieba.u.item_content || id == com.baidu.tieba.u.item_header || id == com.baidu.tieba.u.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this.e).a(strArr[0], strArr[1], "person_post", 18005)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.e).a(strArr[0], strArr[1], "person_post", 18005)));
         }
     }
 }

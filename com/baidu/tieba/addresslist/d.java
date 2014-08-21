@@ -13,13 +13,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bf;
 import com.baidu.tbadk.core.atomData.bg;
-import com.baidu.tbadk.core.atomData.br;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.bs;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 import com.baidu.tieba.addresslist.view.AssortView;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d, com.baidu.tieba.addresslist.b.b, com.baidu.tieba.addresslist.view.a {
@@ -32,7 +32,7 @@ public class d extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     private View h;
     private AssortView i;
     private View j;
-    private u k;
+    private v k;
     private BdListView l;
     private com.baidu.tieba.addresslist.a.a m;
     private int n;
@@ -90,18 +90,18 @@ public class d extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     }
 
     private View a(LayoutInflater layoutInflater) {
-        this.h = layoutInflater.inflate(v.addresslist_fragment, (ViewGroup) null);
-        this.k = new u(TbadkApplication.m252getInst().getApplicationContext());
+        this.h = layoutInflater.inflate(com.baidu.tieba.v.addresslist_fragment, (ViewGroup) null);
+        this.k = new v(TbadkApplication.m252getInst().getApplicationContext());
         this.m = new com.baidu.tieba.addresslist.a.a(TbadkApplication.m252getInst().getApplicationContext(), this.g);
         this.m.a(this.o);
-        this.j = this.h.findViewById(com.baidu.tieba.u.addresslist_search_layout);
+        this.j = this.h.findViewById(u.addresslist_search_layout);
         this.j.setOnClickListener(this);
-        this.l = (BdListView) this.h.findViewById(com.baidu.tieba.u.addresslist_contacts_list);
+        this.l = (BdListView) this.h.findViewById(u.addresslist_contacts_list);
         this.l.setPullRefresh(this.k);
         this.l.setAdapter((ListAdapter) this.m);
         this.l.setOnItemClickListener(this);
         this.k.a(this);
-        this.i = (AssortView) this.h.findViewById(com.baidu.tieba.u.addresslist_assortview);
+        this.i = (AssortView) this.h.findViewById(u.addresslist_assortview);
         this.i.setClickable(true);
         this.i.setOnTouchListener(this);
         return this.h;
@@ -164,7 +164,7 @@ public class d extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.u.addresslist_search_layout) {
+        if (view.getId() == u.addresslist_search_layout) {
             Intent intent = new Intent();
             intent.setClass(getActivity(), QuickSearchActivity.class);
             startActivity(intent);
@@ -184,14 +184,14 @@ public class d extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
             this.m.notifyDataSetChanged();
             com.baidu.tbadk.core.f.a(TbadkApplication.m252getInst().getApplicationContext(), "contacts_new");
         } else if (i == 1) {
-            a(new CustomMessage(2002001, new br(getActivity())));
+            a(new CustomMessage(2002001, new bs(getActivity())));
         } else if (i == 2) {
-            a(new CustomMessage(2002001, new bf(getActivity(), 0, 1)));
+            a(new CustomMessage(2002001, new bg(getActivity(), 0, 1)));
             com.baidu.tbadk.core.f.a(TbadkApplication.m252getInst().getApplicationContext(), "contacts_mygp");
         } else {
             com.baidu.tbadk.coreExtra.relationship.b item = this.m.getItem(i);
             if (item != null && item.c() > 0) {
-                a(new CustomMessage(2002003, new bg(TbadkApplication.m252getInst().getApplicationContext(), String.valueOf(item.c()), item.b())));
+                a(new CustomMessage(2002003, new bh(TbadkApplication.m252getInst().getApplicationContext(), String.valueOf(item.c()), item.b())));
             }
         }
     }

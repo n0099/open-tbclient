@@ -1,10 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import android.widget.EditText;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
+public class x implements AbsListView.OnScrollListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +11,14 @@ public class x implements View.OnClickListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        editText = this.a.c;
-        if (editText.hasFocus()) {
-            SquareSearchActivity squareSearchActivity = this.a;
-            editText2 = this.a.c;
-            com.baidu.adp.lib.util.j.a(squareSearchActivity, editText2);
-            this.a.closeActivity();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            com.baidu.adp.lib.util.j.a(this.a, absListView);
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

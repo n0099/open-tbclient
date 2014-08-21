@@ -1,47 +1,83 @@
 package com.baidu.adp.lib.e;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
-public abstract class b {
-    public static int a(String str, int i) {
-        if (str != null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception e) {
-                return i;
-            }
-        }
-        return i;
+public class b {
+    private static b a = new b();
+
+    private b() {
     }
 
-    public static long a(String str, long j) {
-        if (str != null) {
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                return j;
-            }
-        }
-        return j;
+    public static b a() {
+        return a;
     }
 
-    public static float a(String str, float f) {
-        if (str != null) {
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception e) {
-                return f;
-            }
+    private LayoutInflater a(Context context) {
+        if (context == null) {
+            return null;
         }
-        return f;
+        return (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
-    public static double a(String str, double d) {
-        if (str != null) {
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception e) {
-                return d;
+    public View a(Context context, int i, ViewGroup viewGroup) {
+        View view = null;
+        if (context != null) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 >= 3) {
+                    break;
+                }
+                try {
+                    view = a(context).inflate(i, viewGroup);
+                    break;
+                } catch (OutOfMemoryError e) {
+                    if (i3 == 2) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i3 == 2) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+                i2 = i3 + 1;
             }
         }
-        return d;
+        return view;
+    }
+
+    public View a(Context context, int i, ViewGroup viewGroup, boolean z) {
+        View view = null;
+        if (context != null) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 >= 3) {
+                    break;
+                }
+                try {
+                    view = a(context).inflate(i, viewGroup, z);
+                    break;
+                } catch (OutOfMemoryError e) {
+                    if (i3 == 2) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i3 == 2) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+                i2 = i3 + 1;
+            }
+        }
+        return view;
     }
 }

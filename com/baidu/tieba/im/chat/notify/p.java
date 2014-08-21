@@ -2,9 +2,9 @@ package com.baidu.tieba.im.chat.notify;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.v;
 /* loaded from: classes.dex */
-public class p extends u {
+public class p extends v {
     public p(Context context) {
         super(context);
     }

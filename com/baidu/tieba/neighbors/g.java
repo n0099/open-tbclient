@@ -1,9 +1,10 @@
 package com.baidu.tieba.neighbors;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements com.baidu.tbadk.core.dialog.d {
+public class g implements r {
     final /* synthetic */ NeighborsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +12,12 @@ class g implements com.baidu.tbadk.core.dialog.d {
         this.a = neighborsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.a.sendMessage(new HttpMessage(CmdConfigHttp.CLEAR_LOCATION_INFO));
-        this.a.showProgressBarWithOffset(0, 0);
-        aVar.c();
+    @Override // com.baidu.tbadk.core.view.r
+    public void a(boolean z) {
+        BdListView bdListView;
+        if (z) {
+            bdListView = this.a.o;
+            bdListView.e();
+        }
     }
 }

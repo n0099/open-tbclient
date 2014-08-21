@@ -70,7 +70,7 @@ public class Hao123Model extends com.baidu.adp.base.e {
             for (Hao123Data.BarInfo barInfo : hao123Data.myBa) {
                 if (barInfo.baID.equals(str) && z) {
                     barInfo.qianDao = "yes";
-                    barInfo.level = String.valueOf(com.baidu.adp.lib.e.b.a(barInfo.level, 0) + i);
+                    barInfo.level = String.valueOf(com.baidu.adp.lib.e.c.a(barInfo.level, 0) + i);
                 }
             }
             setHao123Cache(new Gson().toJson(hao123Data));

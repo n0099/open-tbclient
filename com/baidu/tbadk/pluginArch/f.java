@@ -1,24 +1,34 @@
 package com.baidu.tbadk.pluginArch;
+
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.download.DownloadData;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements b {
+public class f implements j {
     final /* synthetic */ d a;
-    private String b;
-    private b c;
 
-    public f(d dVar, String str, b bVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(d dVar) {
         this.a = dVar;
-        this.b = null;
-        this.c = null;
-        this.b = str;
-        this.c = bVar;
     }
 
-    @Override // com.baidu.tbadk.pluginArch.b
-    public void a(int i, String str) {
-        this.a.a(i, str, this.b);
-        if (this.c != null) {
-            this.c.a(i, str);
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void a(DownloadData downloadData) {
+    }
+
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void a(DownloadData downloadData, int i, String str) {
+        if ("lightapp.tbplugin".equals(downloadData.getName())) {
+            TbadkApplication.m252getInst().getSharedPreferences("zeus", 2).edit().putString("T5SoPath", String.valueOf(n.c("lightapp").getAbsolutePath()) + File.separator).commit();
         }
+    }
+
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void b(DownloadData downloadData) {
+    }
+
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void c(DownloadData downloadData) {
     }
 }

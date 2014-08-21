@@ -56,7 +56,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {

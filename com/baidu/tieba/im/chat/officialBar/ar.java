@@ -26,7 +26,7 @@ public class ar implements AdapterView.OnItemClickListener {
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.ba(this.a, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(this.a, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e) {
                 e.printStackTrace();
             }

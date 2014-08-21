@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.stranger;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -57,7 +56,7 @@ public class f extends BaseAdapter {
         if (view != null) {
             b = (g) view.getTag();
         } else {
-            view = LayoutInflater.from(this.b).inflate(v.chat_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, v.chat_list_item, viewGroup, false);
             b = b(view);
             view.setTag(b);
         }

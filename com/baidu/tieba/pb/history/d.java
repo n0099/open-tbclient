@@ -15,6 +15,6 @@ class d implements com.baidu.tbadk.core.dialog.d {
         requestPbHistoryWriteMessage.setClear(true);
         pbHistoryActivity = this.a.a;
         pbHistoryActivity.sendMessage(requestPbHistoryWriteMessage);
-        aVar.c();
+        aVar.d();
     }
 }

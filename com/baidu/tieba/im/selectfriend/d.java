@@ -2,7 +2,6 @@ package com.baidu.tieba.im.selectfriend;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,43 +16,41 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
     private Context a;
-    private LayoutInflater b;
-    private List<com.baidu.tbadk.coreExtra.relationship.b> c;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> b;
+    private int c;
     private int d;
     private int e;
     private int f;
-    private int g;
 
     public d(Context context) {
         this.a = context;
-        this.b = LayoutInflater.from(this.a);
-        this.d = this.a.getResources().getColor(r.cp_cont_b);
-        this.e = this.a.getResources().getColor(r.cp_cont_b_1);
-        this.f = this.a.getResources().getColor(r.cp_cont_c);
-        this.g = this.a.getResources().getColor(r.cp_cont_c_1);
+        this.c = this.a.getResources().getColor(r.cp_cont_b);
+        this.d = this.a.getResources().getColor(r.cp_cont_b_1);
+        this.e = this.a.getResources().getColor(r.cp_cont_c);
+        this.f = this.a.getResources().getColor(r.cp_cont_c_1);
     }
 
     public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.c = list;
+        this.b = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.c == null) {
+        if (this.b == null) {
             return 0;
         }
-        return this.c.size();
+        return this.b.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public com.baidu.tbadk.coreExtra.relationship.b getItem(int i) {
-        if (this.c == null || i < 0 || i >= this.c.size()) {
+        if (this.b == null || i < 0 || i >= this.b.size()) {
             return null;
         }
-        return this.c.get(i);
+        return this.b.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -89,7 +86,7 @@ public class d extends BaseAdapter {
         com.baidu.tbadk.coreExtra.relationship.b item = getItem(i);
         if (getItemViewType(i) == 0) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof f)) {
-                view = this.b.inflate(v.select_friend_group_item, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.select_friend_group_item, null);
                 f fVar2 = new f(this, null);
                 fVar2.a = (TextView) view.findViewById(u.addresslist_group_item_key);
                 fVar2.b = view.findViewById(u.addresslist_group_item_divider);
@@ -101,13 +98,13 @@ public class d extends BaseAdapter {
             if (item.f() != null) {
                 fVar.a.setText(item.f());
             }
-            fVar.a.setTextColor(z ? this.g : this.f);
+            fVar.a.setTextColor(z ? this.f : this.e);
             fVar.b.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof e)) {
                 e eVar2 = new e(this, null);
-                view = this.b.inflate(v.select_friend_child_item, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.select_friend_child_item, null);
                 eVar2.a = (HeadImageView) view.findViewById(u.addresslist_child_item_icon);
                 eVar2.b = (TextView) view.findViewById(u.addresslist_child_item_name);
                 eVar2.c = view.findViewById(u.addresslist_child_item_divider);
@@ -120,7 +117,7 @@ public class d extends BaseAdapter {
                 eVar.b.setText(item.b());
                 eVar.a.a(item.d(), 12, false);
             }
-            eVar.b.setTextColor(z ? this.e : this.d);
+            eVar.b.setTextColor(z ? this.d : this.c);
             eVar.c.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
             view.setBackgroundResource(z ? t.select_friend_item_bg_1 : t.select_friend_item_bg);
             return view;

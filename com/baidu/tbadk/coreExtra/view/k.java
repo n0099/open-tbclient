@@ -1,9 +1,7 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.bl;
+import com.baidu.tbadk.core.atomData.bm;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* loaded from: classes.dex */
@@ -59,7 +57,6 @@ public class k extends HorizontalScrollView {
         addView(linearLayout);
         String[] stringArray = this.d.getResources().getStringArray(com.baidu.tieba.p.fiter_name);
         this.e = new ImageView[stringArray.length];
-        LayoutInflater from = LayoutInflater.from(this.d);
         int length = stringArray.length;
         int i = 0;
         int i2 = 0;
@@ -67,23 +64,23 @@ public class k extends HorizontalScrollView {
             String str = stringArray[i];
             String substring = str.substring(0, str.indexOf("|"));
             String substring2 = str.substring(str.indexOf("|") + 1);
-            View inflate = from.inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.filter_text);
+            View a = com.baidu.adp.lib.e.b.a().a(this.d, com.baidu.tieba.v.filter_item, null);
+            TextView textView = (TextView) a.findViewById(com.baidu.tieba.u.filter_text);
             textView.setText(substring2);
             textView.setTag(substring);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.u.filter_immage);
+            ImageView imageView = (ImageView) a.findViewById(com.baidu.tieba.u.filter_immage);
             imageView.setPadding(this.a, this.a, this.a, this.a);
             imageView.setTag(textView);
             imageView.setOnClickListener(new m(this));
             if (substring.equals(this.j)) {
-                this.f = inflate;
+                this.f = a;
                 this.g = imageView;
                 imageView.setBackgroundResource(com.baidu.tieba.t.bg_choose_filter);
                 textView.setSelected(true);
             }
             imageView.setImageResource(a(substring));
             this.e[i2] = imageView;
-            linearLayout.addView(inflate);
+            linearLayout.addView(a);
             i++;
             i2++;
         }
@@ -131,7 +128,7 @@ public class k extends HorizontalScrollView {
                 UtilHelper.showToast(getContext(), com.baidu.tieba.x.plugin_config_not_found);
                 return false;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bl(this.d, b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bm(this.d, b)));
             return false;
         } else if (!a.c()) {
             com.baidu.tbadk.coreExtra.c.a.a((BaseActivity) this.d, com.baidu.tieba.x.plugin_muto_not_install, new n(this), new o(this));

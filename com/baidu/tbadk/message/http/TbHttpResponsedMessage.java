@@ -45,6 +45,28 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String parseToString(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        return new String(bArr, getCharset());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String getCharset() {
+        int indexOf;
+        String contentType = getContentType();
+        if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
+            return "utf-8";
+        }
+        int indexOf2 = contentType.indexOf(32, indexOf);
+        if (indexOf2 == -1) {
+            return contentType.substring(indexOf + 8);
+        }
+        return contentType.substring(indexOf + 8, indexOf2);
+    }
+
     private int getMode(BdNetUtil.NetworkStateInfo networkStateInfo) {
         switch ($SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo()[networkStateInfo.ordinal()]) {
             case 2:

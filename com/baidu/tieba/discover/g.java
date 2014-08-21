@@ -60,9 +60,6 @@ public class g implements n {
                     discoverItemView = this.a.n;
                     discoverItemView.d(false);
                 }
-                if (i == size - 1) {
-                    discoverItemView2.d(true);
-                }
                 viewGroup2 = this.a.d;
                 viewGroup2.addView(discoverItemView2);
                 discoverItemView2.d(TbadkApplication.m252getInst().getSkinType());

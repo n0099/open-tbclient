@@ -53,7 +53,7 @@ public class af extends BdAsyncTask<String, Integer, String> {
         String str;
         this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
         com.baidu.tbadk.core.util.ae aeVar = this.b;
-        str = this.a.d;
+        str = this.a.c;
         aeVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
@@ -106,8 +106,8 @@ public class af extends BdAsyncTask<String, Integer, String> {
             }
             if (this.b != null) {
                 if (!this.b.a().b().b() || this.g == null) {
-                    context = this.a.b;
-                    context2 = this.a.b;
+                    context = this.a.a;
+                    context2 = this.a.a;
                     ((BaseActivity) context).showToast(context2.getString(com.baidu.tieba.x.image_pb_comment_fail));
                     return;
                 }
@@ -115,9 +115,9 @@ public class af extends BdAsyncTask<String, Integer, String> {
                     this.g.a((com.baidu.tieba.data.x) null);
                     this.g.notifyDataSetChanged();
                 }
-                hashMap = this.a.g;
+                hashMap = this.a.f;
                 if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.a.g;
+                    hashMap2 = this.a.f;
                     xVar = (com.baidu.tieba.data.x) hashMap2.get(this.g.e().d());
                     xVar.a(str);
                 }
@@ -127,9 +127,9 @@ public class af extends BdAsyncTask<String, Integer, String> {
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.a.q;
+                    arrayList2 = this.a.p;
                     if (((View) arrayList2.get(i)).getTag() instanceof x) {
-                        arrayList3 = this.a.q;
+                        arrayList3 = this.a.p;
                         x xVar2 = (x) ((View) arrayList3.get(i)).getTag();
                         if (xVar2.e() != null && this.h.equals(xVar2.e().d())) {
                             xVar2.notifyDataSetChanged();

@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
@@ -15,7 +15,7 @@ public class j extends com.baidu.adp.base.f {
     private FrsGroupActivity a;
     private View b;
     private View c;
-    private TextView d;
+    private LinearLayout d;
     private NavigationBar e;
     private RadioGroup f;
     private RadioButton g;
@@ -44,9 +44,8 @@ public class j extends com.baidu.adp.base.f {
         this.e = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
         this.c = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.a(this.a.getString(com.baidu.tieba.x.frsgroup_title));
-        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.x.frsgroup_create));
+        this.d = (LinearLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_create_group_btn, frsGroupActivity);
         this.c.setOnClickListener(frsGroupActivity);
-        this.d.setOnClickListener(frsGroupActivity);
         this.r = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.u.view_no_network);
     }
 
@@ -165,7 +164,7 @@ public class j extends com.baidu.adp.base.f {
         this.p.setVisibility(z ? 0 : 8);
     }
 
-    public TextView f() {
+    public LinearLayout f() {
         return this.d;
     }
 }

@@ -1,24 +1,23 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.Intent;
-import com.baidu.tieba.data.MarkData;
+import android.content.DialogInterface;
+import com.baidu.tieba.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements com.baidu.tbadk.core.dialog.d {
+public class aq implements DialogInterface.OnClickListener {
     final /* synthetic */ PbActivity a;
-    private final /* synthetic */ MarkData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(PbActivity pbActivity, MarkData markData) {
+    public aq(PbActivity pbActivity) {
         this.a = pbActivity;
-        this.b = markData;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        Intent intent = new Intent();
-        intent.putExtra("mark", this.b);
-        this.a.setResult(-1, intent);
-        this.a.y();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (!com.baidu.tbadk.core.util.s.a()) {
+            this.a.showToast(com.baidu.tbadk.core.util.s.b());
+        } else {
+            FileDownloader.download(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(com.baidu.tieba.x.download_baidu_video));
+        }
     }
 }

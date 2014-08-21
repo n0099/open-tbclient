@@ -20,16 +20,16 @@ public class o implements bi {
             if (lastIndexOf == -1 || lastIndexOf < indexOf) {
                 lastIndexOf = str.length();
             }
-            long a = com.baidu.adp.lib.e.b.a(str.substring(indexOf, lastIndexOf), 0L);
+            long a = com.baidu.adp.lib.e.c.a(str.substring(indexOf, lastIndexOf), 0L);
             if (a <= 0) {
                 return false;
             }
-            com.baidu.tbadk.core.atomData.y yVar = new com.baidu.tbadk.core.atomData.y(context, a, 0);
+            com.baidu.tbadk.core.atomData.z zVar = new com.baidu.tbadk.core.atomData.z(context, a, 0);
             if (context instanceof BaseActivity) {
-                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, yVar));
+                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, zVar));
                 return true;
             } else if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, yVar));
+                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, zVar));
                 return true;
             }
         }

@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -22,7 +21,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.cf;
+import com.baidu.tbadk.core.atomData.cg;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -65,7 +64,7 @@ public class WriteImageActivity extends BaseActivity {
     private final View.OnClickListener G = new bg(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(cf.class, WriteImageActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(cg.class, WriteImageActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -288,9 +287,9 @@ public class WriteImageActivity extends BaseActivity {
         if (this.D != null && strArr != null) {
             this.x.removeAllViews();
             this.m.setVisibility(0);
-            View inflate = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.u.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.filter_text);
+            View a2 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.filter_item, null);
+            ImageView imageView = (ImageView) a2.findViewById(com.baidu.tieba.u.filter_immage);
+            TextView textView = (TextView) a2.findViewById(com.baidu.tieba.u.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -298,9 +297,9 @@ public class WriteImageActivity extends BaseActivity {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.u.filter_immage);
-                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.u.filter_text);
+                View a3 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.filter_item, null);
+                ImageView imageView2 = (ImageView) a3.findViewById(com.baidu.tieba.u.filter_immage);
+                TextView textView2 = (TextView) a3.findViewById(com.baidu.tieba.u.filter_text);
                 textView2.setText(substring2);
                 imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.k.a(substring));
                 imageView2.setTag(textView2);
@@ -311,7 +310,7 @@ public class WriteImageActivity extends BaseActivity {
                 } else {
                     imageView2.setOnClickListener(new bn(this, substring, i2));
                 }
-                this.x.addView(inflate2);
+                this.x.addView(a3);
                 synchronized (this.F) {
                     this.E.put(substring, imageView2);
                 }

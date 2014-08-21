@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.live.room;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class v implements DialogInterface.OnClickListener {
@@ -12,7 +13,7 @@ class v implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+        com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
         this.a.F();
     }
 }

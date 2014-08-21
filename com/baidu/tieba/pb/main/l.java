@@ -16,10 +16,10 @@ class l extends com.baidu.adp.base.h {
         com.baidu.tieba.model.u uVar3;
         bl blVar;
         if (obj != null) {
-            uVar2 = this.a.C;
+            uVar2 = this.a.D;
             switch (uVar2.getLoadDataMode()) {
                 case 0:
-                    blVar = this.a.x;
+                    blVar = this.a.y;
                     blVar.D();
                     this.a.a((com.baidu.tieba.model.w) obj);
                     return;
@@ -31,7 +31,7 @@ class l extends com.baidu.adp.base.h {
                 case 4:
                 case 5:
                     PbActivity pbActivity = this.a;
-                    uVar3 = this.a.C;
+                    uVar3 = this.a.D;
                     pbActivity.a(uVar3.getLoadDataMode(), (com.baidu.tieba.model.aa) obj);
                     return;
                 case 6:
@@ -41,8 +41,8 @@ class l extends com.baidu.adp.base.h {
                     return;
             }
         }
-        bsVar = this.a.D;
-        uVar = this.a.C;
+        bsVar = this.a.E;
+        uVar = this.a.D;
         bsVar.a(uVar.getLoadDataMode(), false, (String) null, false);
     }
 }

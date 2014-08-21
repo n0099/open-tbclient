@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private s data;
+    private t data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +22,14 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public PersonBarResponseMessage(int i) {
         super(i);
         this.errCode = 0;
-        this.data = new s();
+        this.data = new t();
     }
 
-    public void setPersonBarData(s sVar) {
-        this.data = sVar;
+    public void setPersonBarData(t tVar) {
+        this.data = tVar;
     }
 
-    public s getPersonBarData() {
+    public t getPersonBarData() {
         return this.data;
     }
 

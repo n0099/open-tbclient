@@ -26,8 +26,8 @@ public class h implements View.OnClickListener {
             if (tag instanceof com.baidu.tieba.d.c.a) {
                 com.baidu.tieba.d.a.f h = ((com.baidu.tieba.d.c.a) tag).h();
                 if (!ba.c(h.p().d)) {
-                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "area_click", "pb", h.b, h.c);
-                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.b, h.c, "PB", "click");
+                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "area_click", "pb", h.c, h.d);
+                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.c, h.d, "PB", "click");
                     bg.a().a(view.getContext(), new String[]{h.p().d});
                 }
             }

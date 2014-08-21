@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private com.baidu.adp.lib.d.b<HeadImageView> a;
-    private ae b;
-    private ad c;
+    private af b;
+    private ae c;
     private Context d;
     private List<MetaData> e;
     private int f;
@@ -57,27 +57,27 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.d = context;
         this.h = com.baidu.adp.lib.util.j.a(this.d, this.h);
         this.f = (int) this.d.getResources().getDimension(com.baidu.tieba.s.ds60);
-        if (this.d instanceof af) {
-            af afVar = (af) this.d;
-            this.a = afVar.c();
-            if (afVar.a() != null && this.b == null) {
-                this.b = new ae(afVar.b());
-                afVar.a().setRecyclerListener(this.b);
+        if (this.d instanceof ag) {
+            ag agVar = (ag) this.d;
+            this.a = agVar.c();
+            if (agVar.a() != null && this.b == null) {
+                this.b = new af(agVar.b());
+                agVar.a().setRecyclerListener(this.b);
             }
         }
-        setOnHierarchyChangeListener(new ab(this));
+        setOnHierarchyChangeListener(new ac(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new ac(this, getChildCount() - 1, null));
+        view.setOnClickListener(new ad(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new ac(this, getChildCount() - 1, null));
+        view.setOnClickListener(new ad(this, getChildCount() - 1, null));
     }
 
     public void a(List<MetaData> list, boolean z) {
@@ -152,8 +152,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public void setOnChildClickListener(ad adVar) {
-        this.c = adVar;
+    public void setOnChildClickListener(ae aeVar) {
+        this.c = aeVar;
     }
 
     public void a() {

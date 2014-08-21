@@ -42,7 +42,7 @@ public class bh implements CustomMessageTask.CustomRunnable<String> {
                         if (imMessageCenterPojo2.getCustomGroupType() == 6) {
                             com.baidu.tieba.im.db.k.a().a(imMessageCenterPojo2);
                         } else {
-                            com.baidu.tieba.im.chat.receiveChatMsgHandler.q.a().a(imMessageCenterPojo2.getGid(), imMessageCenterPojo2.getPulled_msgId());
+                            com.baidu.tieba.im.chat.receiveChatMsgHandler.q.a().a(imMessageCenterPojo2.getGid(), com.baidu.tieba.im.chat.bu.c(imMessageCenterPojo2.getPulled_msgId()));
                         }
                     }
                 }

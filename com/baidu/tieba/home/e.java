@@ -13,7 +13,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.az;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.plugins.Hao123Plugin;
@@ -135,7 +134,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     public void e() {
         super.e();
         if (!TbadkApplication.isLogin()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new az(getActivity(), az.c)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ba(getActivity(), com.baidu.tbadk.core.atomData.ba.c)));
             getActivity().finish();
         }
         this.b.j();

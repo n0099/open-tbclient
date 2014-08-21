@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.group;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,8 +16,8 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
     private Context a;
     private ArrayList<c> b = new ArrayList<>();
-    private int[] c = {t.icon_nearby_group, t.icon_qr_code, t.icon_add_group};
-    private int[] d = {x.nearby_group_title, x.qr_code, x.group_tab_addgroup};
+    private int[] c = {t.icon_nearby_group, t.icon_qr_code, t.icon_qun_search};
+    private int[] d = {x.nearby_group_title, x.qr_code, x.add_group_title_main};
     private int[] e = {0, 1, 2};
     private int f = 0;
     private String g = "";
@@ -62,7 +61,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(v.discover_group_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.discover_group_item, viewGroup, false);
             bVar = new b(this, null);
             bVar.a = (HeadImageView) view.findViewById(u.portrait);
             bVar.b = (TextView) view.findViewById(u.title);

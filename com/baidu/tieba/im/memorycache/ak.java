@@ -38,17 +38,15 @@ public class ak extends com.baidu.adp.framework.listener.d {
                 chatMessage.setMsgId(msgId);
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
-                com.baidu.tieba.im.chat.w.a(com.baidu.adp.lib.e.b.a(responseCommitPersonalMessage.getGroupId(), 0));
-                c.b().a(-1, ((ResponseCommitPersonalMessage) socketResponsedMessage).getMsgId(), String.valueOf(com.baidu.tieba.im.chat.w.a));
+                com.baidu.tieba.im.chat.w.a(com.baidu.adp.lib.e.c.a(responseCommitPersonalMessage.getGroupId(), 0));
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                c.b().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), false);
+                c.b().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.b().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), false);
+                c.b().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
-            ImMessageCenterPojo a2 = c.b().a(String.valueOf(com.baidu.tieba.im.chat.w.a), -1);
             if (chatMessage instanceof PersonalChatMessage) {
                 a = c.b().a(String.valueOf(com.baidu.tieba.im.d.j.a(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
@@ -56,7 +54,7 @@ public class ak extends com.baidu.adp.framework.listener.d {
             } else {
                 return;
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, a2, a, chatMessage, socketResponsedMessage));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, a, chatMessage, socketResponsedMessage));
             customMessageTask.setParallel(com.baidu.tbadk.k.b());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import com.baidu.adp.lib.e.b;
+import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
 /* loaded from: classes.dex */
@@ -26,8 +26,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkApplication.m252getInst().getLocationShared()) {
-                this.lat = b.a(TbadkApplication.m252getInst().getLocationLat(), 0.0d);
-                this.lng = b.a(TbadkApplication.m252getInst().getLocationLng(), 0.0d);
+                this.lat = c.a(TbadkApplication.m252getInst().getLocationLat(), 0.0d);
+                this.lng = c.a(TbadkApplication.m252getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -80,9 +80,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
 
     public String getDevice() {
         try {
-            return new Gson().toJson(this.device);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            return new JSONObject(this.device).toString();
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
             return null;
         }
     }

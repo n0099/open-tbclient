@@ -47,6 +47,6 @@ class j extends com.baidu.adp.framework.listener.d {
         sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_name)) + ":" + addGroupInfoData.getName() + "\n");
         sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_number)) + ":" + addGroupInfoData.getGroupId() + "\n");
         sb.append(this.a.getResources().getString(com.baidu.tieba.x.group_create_share));
-        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.x.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(com.baidu.tieba.x.group_create_step_done_tip, new k(this)).setNegativeButton(com.baidu.tieba.x.group_create_step_share_tip, new l(this, addGroupInfoData)).create(), this.a);
+        com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.x.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(com.baidu.tieba.x.group_create_step_done_tip, new k(this)).setNegativeButton(com.baidu.tieba.x.group_create_step_share_tip, new l(this, addGroupInfoData)).create(), this.a);
     }
 }

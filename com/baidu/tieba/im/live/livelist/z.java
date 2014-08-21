@@ -14,7 +14,7 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
     private com.baidu.tieba.im.model.n c;
     private ad d;
     private BdListView e;
-    private com.baidu.tbadk.core.view.u f;
+    private com.baidu.tbadk.core.view.v f;
     private HotLiveInitGuideView g;
     private View h;
     private HotLiveListAdapter i;
@@ -62,7 +62,7 @@ public class z extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
         this.h = layoutInflater.inflate(com.baidu.tieba.v.live_hot_list, (ViewGroup) null);
         this.g = (HotLiveInitGuideView) this.h.findViewById(com.baidu.tieba.u.live_guide);
         this.e = (BdListView) this.h.findViewById(com.baidu.tieba.u.live_list);
-        this.f = new com.baidu.tbadk.core.view.u(this.b);
+        this.f = new com.baidu.tbadk.core.view.v(this.b);
         this.e.setPullRefresh(this.f);
         this.i = new HotLiveListAdapter(this.b);
         this.e.setAdapter((ListAdapter) this.i);

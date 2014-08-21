@@ -14,6 +14,6 @@ public class q implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(com.baidu.tieba.t.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new r(this)).setNegativeButton("取消", new s(this)).create().show();
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(com.baidu.tieba.t.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new r(this)).setNegativeButton("取消", new t(this)).create().show();
     }
 }

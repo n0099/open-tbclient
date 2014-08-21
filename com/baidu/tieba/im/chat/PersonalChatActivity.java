@@ -20,11 +20,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
     public static String b;
     private Handler m = new Handler();
     private com.baidu.adp.lib.guide.d n = null;
-    private Runnable o = new cw(this);
-    private Runnable p = new cx(this);
+    private Runnable o = new cx(this);
+    private Runnable p = new cy(this);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new ct());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new cu());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         b = "";
@@ -36,7 +36,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
         UserData c;
         super.c();
         if ((this.e instanceof CommonPersonalMsglistModel) && (c = ((CommonPersonalMsglistModel) this.e).c()) != null) {
-            com.baidu.tieba.im.e.a(new cy(this, c), new cz(this));
+            com.baidu.tieba.im.e.a(new cz(this, c), new da(this));
         }
     }
 
@@ -58,7 +58,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
     protected void a(UserData userData) {
-        com.baidu.tieba.im.e.a(new da(this, userData), null);
+        com.baidu.tieba.im.e.a(new db(this, userData), null);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -70,7 +70,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
         if ((this.e instanceof PersonalMsglistModel) && (c = ((PersonalMsglistModel) this.e).c()) != null) {
             this.d.a(c.getUserName(), false);
             this.d.a(this.e.i(), i);
-            this.d.a(new db(this));
+            this.d.a(new dc(this));
         }
     }
 
@@ -117,7 +117,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
             case 2:
                 ChatMessage b3 = this.e.b(i2);
                 if (b3 != null && b3.getUserInfo() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this, b3.getUserInfo().getUserId(), b3.getUserInfo().getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(this, b3.getUserInfo().getUserId(), b3.getUserInfo().getUserName())));
                     return;
                 }
                 return;
@@ -166,10 +166,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
     public void p() {
         super.p();
         x();
-        w();
+        this.c.postDelayed(new dd(this), 60L);
     }
 
-    private void w() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void w() {
         if (getIntent() != null) {
             String stringExtra = getIntent().getStringExtra("key_share_msg");
             if (!com.baidu.adp.lib.util.i.c(stringExtra)) {
@@ -198,7 +199,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
         if (this.d != null && this.d.m() != null) {
             int firstVisiblePosition = this.d.m().getFirstVisiblePosition();
             int lastVisiblePosition = this.d.m().getLastVisiblePosition();
-            cq a2 = this.d.a();
+            cr a2 = this.d.a();
             int i = lastVisiblePosition;
             while (true) {
                 if (i < firstVisiblePosition) {
@@ -214,7 +215,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
             if (view != null) {
                 com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
                 gVar.a(view).a(0).b(false);
-                gVar.a(new dc(this));
+                gVar.a(new de(this));
                 this.n = gVar.a();
                 this.n.a(this);
                 a(false);

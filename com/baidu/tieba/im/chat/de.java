@@ -1,26 +1,39 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class de extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ dd a;
+class de implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ PersonalChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(dd ddVar) {
-        this.a = ddVar;
+    public de(PersonalChatActivity personalChatActivity) {
+        this.a = personalChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        String a;
-        super.a((de) aVar, str, i);
-        if (aVar != null) {
-            dd ddVar = this.a;
-            a = this.a.a(this.a.a, aVar.k());
-            ddVar.a(a);
-            return;
-        }
-        this.a.a(this.a.b.getString(com.baidu.tieba.x.save_error));
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(com.baidu.tieba.v.stranger_tips, (ViewGroup) null);
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 3;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 16;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

@@ -21,7 +21,7 @@ public class g implements com.baidu.tieba.bubble.s {
         eVar.b(i);
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.d;
-        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.at(context, true, 23004, "pop_unable")));
+        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.au(context, true, 23004, "pop_unable")));
     }
 
     @Override // com.baidu.tieba.bubble.s

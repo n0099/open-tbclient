@@ -91,7 +91,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
                 finish();
                 return;
             } else {
-                w().T().show();
+                com.baidu.adp.lib.e.e.a(w().T(), this);
                 return;
             }
         }
@@ -99,7 +99,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
             if (this.u) {
                 v();
             } else {
-                w().U().show();
+                com.baidu.adp.lib.e.e.a(w().U(), this);
             }
         }
         super.onClick(view);
@@ -286,7 +286,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
                         finish();
                         return true;
                     } else if (w() != null) {
-                        w().T().show();
+                        com.baidu.adp.lib.e.e.a(w().T(), this);
                         return true;
                     } else {
                         return true;

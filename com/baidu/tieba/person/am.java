@@ -1,21 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
-    final /* synthetic */ aj a;
+class am extends BdAsyncTask<String, Integer, Void> {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(aj ajVar) {
-        this.a = ajVar;
+    public am(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.f;
-        ellipsizingTextView.setMaxLines(1000);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(String... strArr) {
+        com.baidu.tbadk.core.account.a.a(strArr[0], strArr[1]);
+        return null;
     }
 }

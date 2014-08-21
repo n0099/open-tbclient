@@ -2,7 +2,6 @@ package com.baidu.tieba.addresslist.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,45 +18,41 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
     private Context a;
-    private com.baidu.tbadk.core.c b;
-    private LayoutInflater c;
-    private List<com.baidu.tbadk.coreExtra.relationship.b> d;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> b;
+    private int c;
+    private boolean d;
     private int e;
-    private boolean f;
+    private int f;
     private int g;
     private int h;
-    private int i;
-    private int j;
 
     public a(Context context, com.baidu.tbadk.core.c cVar) {
         this.a = context;
-        this.b = cVar;
-        this.c = LayoutInflater.from(this.a);
-        this.g = this.a.getResources().getColor(r.cp_cont_b);
-        this.h = this.a.getResources().getColor(r.cp_cont_b_1);
-        this.i = this.a.getResources().getColor(r.cp_cont_c);
-        this.j = this.a.getResources().getColor(r.cp_cont_c_1);
+        this.e = this.a.getResources().getColor(r.cp_cont_b);
+        this.f = this.a.getResources().getColor(r.cp_cont_b_1);
+        this.g = this.a.getResources().getColor(r.cp_cont_c);
+        this.h = this.a.getResources().getColor(r.cp_cont_c_1);
     }
 
     public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.d = list;
+        this.b = list;
         notifyDataSetChanged();
     }
 
     public void a(int i) {
-        this.e = i;
+        this.c = i;
     }
 
     public void a(boolean z) {
-        this.f = z;
+        this.d = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.d == null) {
+        if (this.b == null) {
             return 3;
         }
-        return this.d.size() + 3;
+        return this.b.size() + 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +62,7 @@ public class a extends BaseAdapter {
         if (i < 3 || i >= getCount()) {
             return null;
         }
-        return this.d.get(i - 3);
+        return this.b.get(i - 3);
     }
 
     @Override // android.widget.Adapter
@@ -111,7 +106,7 @@ public class a extends BaseAdapter {
         boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         if (getItemViewType(i) == 0) {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
-                view = this.c.inflate(v.addresslist_header_new_friends, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.addresslist_header_new_friends, null);
                 d dVar4 = new d(this, null);
                 dVar4.a = (ImageView) view.findViewById(u.addresslist_new_friend_icon);
                 dVar4.b = (ImageView) view.findViewById(u.addresslist_new_friend_new_icon);
@@ -123,20 +118,20 @@ public class a extends BaseAdapter {
                 dVar3 = (d) view.getTag();
             }
             dVar3.a.setImageResource(z ? t.icon_new_friend_1 : t.icon_new_friend);
-            if (this.f) {
+            if (this.d) {
                 dVar3.b.setVisibility(0);
                 dVar3.b.setImageResource(z ? t.icon_news_down_bar_one_1 : t.icon_news_down_bar_one);
             } else {
                 dVar3.b.setVisibility(8);
             }
-            dVar3.c.setTextColor(z ? this.h : this.g);
+            dVar3.c.setTextColor(z ? this.f : this.e);
             dVar3.d.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
             view.setBackgroundResource(z ? t.addresslist_item_bg_1 : t.addresslist_item_bg);
-            a((TextView) view.findViewById(u.addresslist_new_friend_message), this.e);
+            a((TextView) view.findViewById(u.addresslist_new_friend_message), this.c);
             return view;
         } else if (getItemViewType(i) == 5) {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
-                view = this.c.inflate(v.addresslist_header_new_friends, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.addresslist_header_new_friends, null);
                 d dVar5 = new d(this, null);
                 dVar5.a = (ImageView) view.findViewById(u.addresslist_new_friend_icon);
                 dVar5.b = (ImageView) view.findViewById(u.addresslist_new_friend_new_icon);
@@ -149,15 +144,15 @@ public class a extends BaseAdapter {
             }
             dVar2.a.setImageResource(z ? t.icon_add_friend_1 : t.icon_add_friend);
             dVar2.b.setVisibility(8);
-            dVar2.c.setTextColor(z ? this.h : this.g);
-            dVar2.c.setText(this.a.getResources().getString(x.add_new_friend));
+            dVar2.c.setTextColor(z ? this.f : this.e);
+            dVar2.c.setText(this.a.getResources().getString(x.find_new_friend));
             dVar2.d.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
             view.setBackgroundResource(z ? t.addresslist_item_bg_1 : t.addresslist_item_bg);
             ((TextView) view.findViewById(u.addresslist_new_friend_message)).setVisibility(8);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
-                view = this.c.inflate(v.addresslist_header_my_groups, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.addresslist_header_my_groups, null);
                 d dVar6 = new d(this, null);
                 dVar6.a = (ImageView) view.findViewById(u.addresslist_my_groups_icon);
                 dVar6.c = (TextView) view.findViewById(u.addresslist_my_groups_text);
@@ -167,14 +162,14 @@ public class a extends BaseAdapter {
                 dVar = (d) view.getTag();
             }
             dVar.a.setImageResource(z ? t.icon_me_group_1 : t.icon_me_group);
-            dVar.c.setTextColor(z ? this.h : this.g);
+            dVar.c.setTextColor(z ? this.f : this.e);
             view.setBackgroundResource(z ? t.addresslist_item_bg_1 : t.addresslist_item_bg);
             return view;
         } else {
             com.baidu.tbadk.coreExtra.relationship.b item = getItem(i);
             if (getItemViewType(i) == 2) {
                 if (view == null || view.getTag() == null || !(view.getTag() instanceof c)) {
-                    view = this.c.inflate(v.addresslist_group_item, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.a, v.addresslist_group_item, null);
                     c cVar2 = new c(this, null);
                     cVar2.a = (TextView) view.findViewById(u.addresslist_group_item_key);
                     cVar2.b = view.findViewById(u.addresslist_group_item_divider);
@@ -186,13 +181,13 @@ public class a extends BaseAdapter {
                 if (item.f() != null) {
                     cVar.a.setText(item.f());
                 }
-                cVar.a.setTextColor(z ? this.j : this.i);
+                cVar.a.setTextColor(z ? this.h : this.g);
                 cVar.b.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
                 return view;
             } else if (getItemViewType(i) == 3) {
                 if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                     b bVar2 = new b(this, null);
-                    view = this.c.inflate(v.addresslist_child_item, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.a, v.addresslist_child_item, null);
                     bVar2.a = (HeadImageView) view.findViewById(u.addresslist_child_item_icon);
                     bVar2.b = (TextView) view.findViewById(u.addresslist_child_item_name);
                     bVar2.c = view.findViewById(u.addresslist_child_item_divider);
@@ -205,7 +200,7 @@ public class a extends BaseAdapter {
                     bVar.b.setText(item.b());
                     bVar.a.a(item.d(), 12, false);
                 }
-                bVar.b.setTextColor(z ? this.h : this.g);
+                bVar.b.setTextColor(z ? this.f : this.e);
                 bVar.c.setBackgroundResource(z ? r.cp_bg_line_b_1 : r.cp_bg_line_b);
                 view.setBackgroundResource(z ? t.addresslist_item_bg_1 : t.addresslist_item_bg);
                 return view;

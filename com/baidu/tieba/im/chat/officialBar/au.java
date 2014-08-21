@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -55,7 +54,7 @@ public class au extends BaseAdapter {
         if (view != null) {
             avVar = (av) view.getTag();
         } else {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.chat_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.chat_list_item, viewGroup, false);
             av b = b(view);
             view.setTag(b);
             avVar = b;

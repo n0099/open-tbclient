@@ -25,7 +25,7 @@ public class af extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     private Handler i = null;
     private Runnable j = null;
     private final ar l = new ag(this);
-    private final com.baidu.tbadk.core.view.q m = new ah(this);
+    private final com.baidu.tbadk.core.view.r m = new ah(this);
     private final View.OnKeyListener n = new ai(this);
     private final com.baidu.adp.widget.ListView.d o = new aj(this);
 

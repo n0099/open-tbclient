@@ -15,9 +15,9 @@ class s implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r5) {
-        ((com.baidu.tbadk.core.atomData.ba) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.ba) this.b.getData()).getContext(), OfficialBarChatActivity.class);
-        if (((com.baidu.tbadk.core.atomData.ba) this.b.getData()).a().getUserIdLong() != 0) {
-            ((com.baidu.tbadk.core.atomData.ba) this.b.getData()).startActivity();
+        ((com.baidu.tbadk.core.atomData.bb) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.bb) this.b.getData()).getContext(), OfficialBarChatActivity.class);
+        if (((com.baidu.tbadk.core.atomData.bb) this.b.getData()).a().getUserIdLong() != 0) {
+            ((com.baidu.tbadk.core.atomData.bb) this.b.getData()).startActivity();
         }
     }
 }

@@ -73,7 +73,7 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.e.b.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.e.c.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);

@@ -206,12 +206,12 @@ public class am {
         }
     }
 
-    public void a(com.baidu.tbadk.core.view.q qVar) {
-        this.e.a(qVar);
+    public void a(com.baidu.tbadk.core.view.r rVar) {
+        this.e.a(rVar);
     }
 
-    public void b(com.baidu.tbadk.core.view.q qVar) {
-        this.e.b(qVar);
+    public void b(com.baidu.tbadk.core.view.r rVar) {
+        this.e.b(rVar);
     }
 
     public void c(ak akVar) {
@@ -309,7 +309,7 @@ public class am {
     public void e() {
         if (this.w != null) {
             this.w.a();
-            com.baidu.adp.lib.e.d.a(this.w, this.a);
+            com.baidu.adp.lib.e.e.a(this.w, this.a);
         }
     }
 
@@ -321,7 +321,7 @@ public class am {
 
     public void g() {
         if (this.w != null) {
-            com.baidu.adp.lib.e.d.b(this.w, this.a);
+            com.baidu.adp.lib.e.e.b(this.w, this.a);
         }
     }
 
@@ -362,7 +362,7 @@ public class am {
             this.x.setVisibility(0);
             String str = "#(" + facePackageData.faceNameList.get(i) + ")";
             this.x.setTag(str);
-            if (com.baidu.tbadk.c.c.b()) {
+            if (com.baidu.tbadk.b.c.b()) {
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
                 aVar.e = new StringBuilder(String.valueOf(facePackageData.pid)).toString();
                 aVar.b = str;

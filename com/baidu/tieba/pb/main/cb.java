@@ -15,7 +15,13 @@ public class cb implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.at;
-        dialog.dismiss();
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.a.au;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.a.au;
+            pbActivity = this.a.k;
+            com.baidu.adp.lib.e.e.b(dialog2, pbActivity);
+        }
     }
 }

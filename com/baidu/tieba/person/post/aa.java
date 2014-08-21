@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
     final /* synthetic */ ReplyLinearLayout a;
@@ -20,9 +20,9 @@ class aa implements View.OnClickListener {
         if (strArr != null) {
             Context context = this.a.getContext();
             if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(context).a(strArr[1], strArr[2], "person_post_reply")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(context).a(strArr[1], strArr[2], "person_post_reply")));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(context).b(strArr[1], strArr[2], "person_post_reply")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(context).b(strArr[1], strArr[2], "person_post_reply")));
             }
         }
     }

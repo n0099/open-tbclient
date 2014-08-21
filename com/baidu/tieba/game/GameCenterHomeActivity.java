@@ -9,12 +9,13 @@ import com.baidu.tbadk.core.util.bg;
 public class GameCenterHomeActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
     private n a;
     private m b;
-    private final CustomMessageListener c = new f(this, 2001122);
-    private final com.baidu.adp.framework.listener.d d = new g(this, 303008);
-    private final CustomMessageListener e = new i(this, 2001224);
+    private final CustomMessageListener c = new f(this, 2001121);
+    private final CustomMessageListener d = new g(this, 2001122);
+    private final com.baidu.adp.framework.listener.d e = new h(this, 303008);
+    private final CustomMessageListener f = new j(this, 2001224);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(l.class, GameCenterHomeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.v.class, GameCenterHomeActivity.class);
         b();
     }
 
@@ -25,9 +26,10 @@ public class GameCenterHomeActivity extends BaseActivity implements com.baidu.ad
         setContentView(com.baidu.tieba.v.game_center_view);
         this.a = new n(this, null);
         this.b = new m(this);
-        this.b.registerListener(this.c);
         this.b.registerListener(this.d);
         this.b.registerListener(this.e);
+        this.b.registerListener(this.f);
+        this.b.registerListener(this.c);
         this.a.b().setVisibility(8);
         showLoadingDialog(getResources().getString(com.baidu.tieba.x.game_center_loading), null);
         a(false);
@@ -37,7 +39,7 @@ public class GameCenterHomeActivity extends BaseActivity implements com.baidu.ad
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a.f();
+        this.a.g();
         this.a.e();
     }
 
@@ -45,11 +47,11 @@ public class GameCenterHomeActivity extends BaseActivity implements com.baidu.ad
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.a.g();
+        this.a.h();
     }
 
     private static void b() {
-        bg.a().a(new k());
+        bg.a().a(new l());
     }
 
     @Override // com.baidu.adp.widget.ListView.x

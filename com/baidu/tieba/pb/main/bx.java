@@ -17,10 +17,16 @@ public class bx implements View.OnClickListener {
     public void onClick(View view) {
         Dialog dialog;
         Dialog dialog2;
-        dialog = this.a.ac;
+        Dialog dialog3;
+        PbActivity pbActivity;
+        dialog = this.a.ad;
         if (dialog != null) {
-            dialog2 = this.a.ac;
-            dialog2.dismiss();
+            dialog2 = this.a.ad;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.a.ad;
+                pbActivity = this.a.k;
+                com.baidu.adp.lib.e.e.b(dialog3, pbActivity);
+            }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {

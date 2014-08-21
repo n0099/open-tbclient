@@ -22,19 +22,19 @@ public class cp implements View.OnClickListener {
         if (this.a.h != null) {
             this.a.h.n();
             this.a.z();
-            this.a.aP = false;
+            this.a.aQ = false;
             pbActivity = this.a.k;
             PbEditor pbEditor = this.a.h;
-            tVar = this.a.aX;
+            tVar = this.a.aY;
             com.baidu.tieba.bubble.h.a(pbActivity, pbEditor, false, tVar);
         }
-        view2 = this.a.aJ;
+        view2 = this.a.aK;
         if (view2 != null) {
-            view3 = this.a.aJ;
+            view3 = this.a.aK;
             view3.setVisibility(8);
-            view4 = this.a.aI;
+            view4 = this.a.aJ;
             view4.setVisibility(8);
-            this.a.aP = false;
+            this.a.aQ = false;
         }
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.adp.widget.PinnedHeaderListView;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.im.view.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.f {
@@ -19,9 +19,9 @@ public class m extends com.baidu.adp.base.f {
     private TextView d;
     private h e;
     private PinnedHeaderListView f;
-    private u g;
+    private v g;
     private NoNetworkView h;
-    private v i;
+    private com.baidu.tieba.im.view.v i;
 
     public m(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
@@ -40,16 +40,16 @@ public class m extends com.baidu.adp.base.f {
 
     private void i() {
         this.e = new h(this.b);
-        this.i = new v(this.b);
+        this.i = new com.baidu.tieba.im.view.v(this.b);
         this.b.setContentView(com.baidu.tieba.v.nearby_group_activity);
-        this.c = this.b.findViewById(com.baidu.tieba.u.parent);
-        this.f = (PinnedHeaderListView) this.b.findViewById(com.baidu.tieba.u.nearby_list);
-        this.a = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.c = this.b.findViewById(u.parent);
+        this.f = (PinnedHeaderListView) this.b.findViewById(u.nearby_list);
+        this.a = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.a(this.b.getResources().getString(x.nearby_group_title));
         this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b);
-        this.h = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.view_no_network);
-        this.g = new u(this.b);
+        this.h = (NoNetworkView) this.b.findViewById(u.view_no_network);
+        this.g = new v(this.b);
         this.f.setPullRefresh(this.g);
         this.f.setAdapter((ListAdapter) this.e);
         this.f.setNextPage(this.i);

@@ -23,7 +23,7 @@ public class bp {
     private final BdListView e;
     private final bh f;
     private final NoNetworkView g;
-    private final com.baidu.tbadk.core.view.u h;
+    private final com.baidu.tbadk.core.view.v h;
     private final bq i;
     private final v j;
 
@@ -37,7 +37,7 @@ public class bp {
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(com.baidu.tieba.x.manage));
         this.g = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.u.view_no_network);
         this.e = (BdListView) baseActivity.findViewById(com.baidu.tieba.u.face_shop_list);
-        this.h = new com.baidu.tbadk.core.view.u(baseActivity);
+        this.h = new com.baidu.tbadk.core.view.v(baseActivity);
         this.f = new bh(baseActivity);
         this.i = new bq(this, baseActivity);
         this.e.setAdapter((ListAdapter) this.f);
@@ -94,12 +94,12 @@ public class bp {
         this.e.setOnSrollToBottomListener(xVar);
     }
 
-    public void a(com.baidu.tbadk.core.view.q qVar) {
-        this.g.a(qVar);
+    public void a(com.baidu.tbadk.core.view.r rVar) {
+        this.g.a(rVar);
     }
 
-    public void b(com.baidu.tbadk.core.view.q qVar) {
-        this.g.b(qVar);
+    public void b(com.baidu.tbadk.core.view.r rVar) {
+        this.g.b(rVar);
     }
 
     public void e() {
@@ -123,7 +123,7 @@ public class bp {
     public void h() {
         if (this.j != null) {
             this.j.a();
-            com.baidu.adp.lib.e.d.a(this.j, this.a);
+            com.baidu.adp.lib.e.e.a(this.j, this.a);
         }
     }
 
@@ -135,7 +135,7 @@ public class bp {
 
     public void j() {
         if (this.j != null) {
-            com.baidu.adp.lib.e.d.b(this.j, this.a);
+            com.baidu.adp.lib.e.e.b(this.j, this.a);
         }
     }
 

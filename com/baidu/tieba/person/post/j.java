@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bb;
+import com.baidu.tbadk.core.atomData.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements b {
@@ -33,12 +33,12 @@ public class j implements b {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 activity = this.a.e;
-                messageManager.sendMessage(new CustomMessage(2004001, new bb(activity).a(strArr[0], strArr[1], "person_post_reply")));
+                messageManager.sendMessage(new CustomMessage(2004001, new bc(activity).a(strArr[0], strArr[1], "person_post_reply")));
                 return;
             }
             MessageManager messageManager2 = MessageManager.getInstance();
             activity2 = this.a.e;
-            messageManager2.sendMessage(new CustomMessage(2004001, new bb(activity2).b(strArr[0], strArr[1], "person_post_reply")));
+            messageManager2.sendMessage(new CustomMessage(2004001, new bc(activity2).b(strArr[0], strArr[1], "person_post_reply")));
         }
     }
 }

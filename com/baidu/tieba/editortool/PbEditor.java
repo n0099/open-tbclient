@@ -6,10 +6,8 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
@@ -134,7 +132,7 @@ public class PbEditor extends LinearLayout {
     }
 
     protected void i() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.pb_editor_view, this, true);
         this.b = (PbEditorToolView) findViewById(com.baidu.tieba.u.pb_editor_tool_button);
         this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.u.pb_editor_tool_group);
     }

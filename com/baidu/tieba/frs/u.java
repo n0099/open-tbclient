@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-class u implements bl {
+class u implements bm {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,37 +18,37 @@ class u implements bl {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.bl
+    @Override // com.baidu.tieba.frs.bm
     public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.n nVar) {
-        cu cuVar;
-        cu cuVar2;
-        cu cuVar3;
-        cu cuVar4;
-        cu cuVar5;
+        cv cvVar;
+        cv cvVar2;
+        cv cvVar3;
+        cv cvVar4;
+        cv cvVar5;
         g gVar;
         g gVar2;
         g gVar3;
         String str;
         boolean z;
-        dr drVar;
-        cuVar = this.a.z;
-        if (i != cuVar.v().f() || view2 == null || view == null) {
-            cuVar2 = this.a.z;
-            if (i != cuVar2.v().e()) {
-                cuVar3 = this.a.z;
-                if (i != cuVar3.v().g()) {
-                    cuVar4 = this.a.z;
-                    if (i != cuVar4.v().h()) {
-                        cuVar5 = this.a.z;
-                        if (i == cuVar5.v().i()) {
+        dt dtVar;
+        cvVar = this.a.B;
+        if (i != cvVar.v().f() || view2 == null || view == null) {
+            cvVar2 = this.a.B;
+            if (i != cvVar2.v().e()) {
+                cvVar3 = this.a.B;
+                if (i != cvVar3.v().g()) {
+                    cvVar4 = this.a.B;
+                    if (i != cvVar4.v().h()) {
+                        cvVar5 = this.a.B;
+                        if (i == cvVar5.v().i()) {
                             com.baidu.tbadk.core.f.b(this.a.getParent(), "my_service_ck");
-                            gVar = this.a.L;
+                            gVar = this.a.N;
                             if (gVar != null) {
-                                gVar2 = this.a.L;
+                                gVar2 = this.a.N;
                                 if (gVar2.i() != null) {
-                                    gVar3 = this.a.L;
+                                    gVar3 = this.a.N;
                                     ForumData i3 = gVar3.i();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.ba(this.a, com.baidu.adp.lib.e.b.a(i3.getId(), 0L), i3.getName(), i3.getImage_url(), 0)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(this.a, com.baidu.adp.lib.e.c.a(i3.getId(), 0L), i3.getName(), i3.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -59,7 +59,7 @@ class u implements bl {
                     }
                     com.baidu.tbadk.core.f.a(this.a.getParent(), "forum_fortune_click");
                     if (TbadkApplication.isLogin()) {
-                        this.a.I();
+                        this.a.J();
                         return;
                     } else {
                         LoginActivity.a((Activity) this.a, (String) null, true, 18004);
@@ -67,9 +67,9 @@ class u implements bl {
                     }
                 }
                 FrsActivity frsActivity = this.a;
-                com.baidu.tbadk.core.atomData.bb bbVar = new com.baidu.tbadk.core.atomData.bb(this.a);
+                com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
                 str = this.a.q;
-                frsActivity.sendMessage(new CustomMessage(2004001, bbVar.a(nVar, str, null, 18003, true, false, false)));
+                frsActivity.sendMessage(new CustomMessage(2004001, bcVar.a(nVar, str, null, 18003, true, false, false)));
                 return;
             } else if (nVar != null) {
                 this.a.j = nVar;
@@ -77,8 +77,8 @@ class u implements bl {
                 if (!z) {
                     this.a.i = true;
                     int isLike = nVar.g() == null ? 0 : nVar.g().getIsLike();
-                    drVar = this.a.ay;
-                    drVar.a(nVar.f(), nVar.i(), isLike, "frs");
+                    dtVar = this.a.aA;
+                    dtVar.a(nVar.f(), nVar.i(), isLike, "frs");
                     return;
                 }
                 return;

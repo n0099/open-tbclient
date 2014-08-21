@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tbadk.core.view.ad {
+public class ar implements com.baidu.tbadk.core.view.ae {
     final /* synthetic */ aq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,22 +15,22 @@ public class ar implements com.baidu.tbadk.core.view.ad {
         this.a = aqVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ad
+    @Override // com.baidu.tbadk.core.view.ae
     public void a(int i) {
         List list;
         List list2;
         List list3;
         Activity activity;
-        list = this.a.f;
+        list = this.a.e;
         if (list != null) {
-            list2 = this.a.f;
+            list2 = this.a.e;
             if (list2.size() > 0) {
-                list3 = this.a.f;
+                list3 = this.a.e;
                 MetaData metaData = (MetaData) list3.get(i);
                 if (metaData != null) {
                     MessageManager messageManager = MessageManager.getInstance();
                     activity = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(activity, metaData.getUserId(), metaData.getName_show())));
+                    messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(activity, metaData.getUserId(), metaData.getName_show())));
                 }
             }
         }

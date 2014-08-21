@@ -18,8 +18,8 @@ public class g implements n {
     public void a(View view, Object obj) {
         BdListView bdListView;
         if (obj != null) {
-            if (obj instanceof com.baidu.tbadk.core.view.t) {
-                ((com.baidu.tbadk.core.view.t) obj).setChecked(false);
+            if (obj instanceof com.baidu.tbadk.core.view.u) {
+                ((com.baidu.tbadk.core.view.u) obj).setChecked(false);
             }
             bdListView = this.a.d;
             View findViewWithTag = bdListView.findViewWithTag(obj);

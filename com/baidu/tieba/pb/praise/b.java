@@ -1,9 +1,7 @@
 package com.baidu.tieba.pb.praise;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ba;
@@ -31,7 +29,7 @@ public class b {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.a = LayoutInflater.from(context).inflate(v.zan_list_item, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, v.zan_list_item, null);
         this.b = (HeadImageView) this.a.findViewById(u.zan_list_item_head);
         this.c = (TextView) this.a.findViewById(u.zan_list_item_name);
         this.d = (TextView) this.a.findViewById(u.zan_list_item_time);

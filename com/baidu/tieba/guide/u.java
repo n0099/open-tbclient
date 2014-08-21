@@ -22,7 +22,7 @@ public class u extends com.baidu.adp.base.h {
             newUserGuideActivity3 = this.a.a;
             newUserGuideActivity3.c(x.neterror);
         } else if (obj instanceof ab) {
-            int a = com.baidu.adp.lib.e.b.a(((ab) obj).a(), 0);
+            int a = com.baidu.adp.lib.e.c.a(((ab) obj).a(), 0);
             aVar = this.a.c;
             aVar.a(a);
             this.a.a(a, true);

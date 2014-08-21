@@ -32,21 +32,21 @@ public class bb implements View.OnClickListener {
             context3 = this.a.a;
             str3 = this.a.e;
             i3 = this.a.f;
-            CustomMessage customMessage = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bd(context3, str3, i3, 1));
+            CustomMessage customMessage = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.be(context3, str3, i3, 1));
             baseFragmentActivity3 = this.a.c;
             baseFragmentActivity3.a(customMessage);
         } else if (view.getId() == com.baidu.tieba.u.relationcardfriendrelativelayout) {
             context2 = this.a.a;
             str2 = this.a.e;
             i2 = this.a.f;
-            CustomMessage customMessage2 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.be(context2, str2, i2, 1));
+            CustomMessage customMessage2 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bf(context2, str2, i2, 1));
             baseFragmentActivity2 = this.a.c;
             baseFragmentActivity2.a(customMessage2);
         } else if (view.getId() == com.baidu.tieba.u.relationcardgrouprelativelayout) {
             context = this.a.a;
             str = this.a.e;
             i = this.a.f;
-            CustomMessage customMessage3 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bf(context, str, i, 1));
+            CustomMessage customMessage3 = new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bg(context, str, i, 1));
             baseFragmentActivity = this.a.c;
             baseFragmentActivity.a(customMessage3);
         }

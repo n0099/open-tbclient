@@ -99,11 +99,13 @@ public class t extends com.baidu.adp.base.f {
     }
 
     public void a(int i) {
-        this.i.setText(String.format(this.c.getString(x.del_count), Integer.valueOf(i)));
-        if (i == 0) {
-            this.i.setEnabled(false);
-        } else {
-            this.i.setEnabled(true);
+        if (this.i != null && this.c != null) {
+            this.i.setText(String.format(this.c.getString(x.del_count), Integer.valueOf(i)));
+            if (i == 0) {
+                this.i.setEnabled(false);
+            } else {
+                this.i.setEnabled(true);
+            }
         }
     }
 

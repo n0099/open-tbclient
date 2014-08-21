@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bw;
+import com.baidu.tbadk.core.atomData.bx;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.editortool.PbEditor;
@@ -17,10 +20,11 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     p d;
     VoiceManager e;
     private boolean f;
+    private CustomMessageListener g = new aw(this, 2001229);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bw.class, SingleMentionActivity.class);
-        bw.a(SingleMentionActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bx.class, SingleMentionActivity.class);
+        bx.a(SingleMentionActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,6 +49,8 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
         if (this.e != null) {
             this.e.onCreate(this);
         }
+        g();
+        a(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -138,9 +144,9 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     public void onActivityResult(int i, int i2, Intent intent) {
         if (this.d != null) {
             this.d.onActivityResult(i, i2, intent);
-        }
-        if (this.d.a() != null) {
-            this.d.a().onActivityResult(i, i2, intent);
+            if (this.d.a() != null) {
+                this.d.a().onActivityResult(i, i2, intent);
+            }
         }
     }
 
@@ -151,9 +157,9 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
                 finish();
                 return true;
             }
-            PbEditor i2 = this.d.a().i();
-            if (i2 != null && i2.p()) {
-                this.d.a().h();
+            PbEditor j = this.d.a().j();
+            if (j != null && j.p()) {
+                this.d.a().i();
                 return true;
             }
             finish();
@@ -209,5 +215,21 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
         if (this.e != null) {
             this.e.onDestory(this);
         }
+    }
+
+    private void g() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001229, new ax(this));
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        com.baidu.tbadk.core.a.a.a().d("tb_user_profile", TbadkApplication.getCurrentAccountName());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.baidu.adp.lib.cache.t<byte[]> i() {
+        return com.baidu.tbadk.core.a.a.a().a("tb_user_profile", TbadkApplication.getCurrentAccountName());
     }
 }

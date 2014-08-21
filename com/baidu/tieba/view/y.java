@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
-public class y extends com.baidu.tbadk.core.view.u {
+public class y extends com.baidu.tbadk.core.view.v {
     public y(Context context) {
         super(context);
     }

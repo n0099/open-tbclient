@@ -1,7 +1,5 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 public interface t {
-    boolean isChecked();
-
-    void setChecked(boolean z);
+    void a(TbCheckBox tbCheckBox, boolean z, Object obj);
 }

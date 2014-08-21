@@ -2,7 +2,6 @@ package com.baidu.tieba.frs.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class FrsOfficalBanner extends LinearLayout {
 
     private void a(Context context) {
         this.b = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.frs_offical_banner_view, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.frs_offical_banner_view, this);
         this.d = (LinearLayout) findViewById(com.baidu.tieba.u.banner_parent);
         this.c = (TextView) findViewById(com.baidu.tieba.u.tv_text);
         this.d.setOnClickListener(this.a);

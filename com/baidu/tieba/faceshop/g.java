@@ -46,8 +46,8 @@ public class g {
                     if (split2.length == 5) {
                         downloadData.setDescription(split2[1]);
                         downloadData.setCheck(split2[2]);
-                        downloadData.setWidth(com.baidu.adp.lib.e.b.a(split2[3], (int) Constants.MEDIA_INFO));
-                        downloadData.setHeight(com.baidu.adp.lib.e.b.a(split2[4].split(".png")[0], (int) Constants.MEDIA_INFO));
+                        downloadData.setWidth(com.baidu.adp.lib.e.c.a(split2[3], (int) Constants.MEDIA_INFO));
+                        downloadData.setHeight(com.baidu.adp.lib.e.c.a(split2[4].split(".png")[0], (int) Constants.MEDIA_INFO));
                     } else if (split2.length == 3) {
                         downloadData.setDescription(split2[1]);
                         downloadData.setCheck(split2[2].split(".png")[0]);

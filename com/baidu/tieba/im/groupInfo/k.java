@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.groupInfo;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* loaded from: classes.dex */
@@ -19,14 +20,14 @@ class k implements ac {
                 this.a.showToast(this.a.getString(com.baidu.tieba.x.has_set_portrait));
                 return;
             }
-            dialogInterface.dismiss();
+            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
             this.a.a(obj);
         } else if (i == 1) {
             if (i2 == 0) {
                 this.a.showToast(this.a.getString(com.baidu.tieba.x.group_portrait_cant_del));
                 return;
             }
-            dialogInterface.dismiss();
+            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
             if (obj != null && (obj instanceof PhotoUrlData)) {
                 this.a.a((PhotoUrlData) obj);
             }

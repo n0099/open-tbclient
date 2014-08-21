@@ -220,7 +220,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 }
                             }
                             if (obtainMessage instanceof OfficialChatMessage) {
-                                if (com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                                if (com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                                     longValue2 = msgInfo.userId.longValue();
                                 } else {
                                     longValue2 = msgInfo.toUid.longValue();
@@ -237,7 +237,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     ((GroupMsgData) hashMap2.get(String.valueOf(longValue2))).getListMessage().add(obtainMessage);
                                 }
                             } else if (obtainMessage instanceof PersonalChatMessage) {
-                                if (com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                                if (com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                                     longValue = msgInfo.userId.longValue();
                                 } else {
                                     longValue = msgInfo.toUid.longValue();
@@ -323,7 +323,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             case 5:
                 return new GroupChatMessage();
             case 6:
-                if (com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                if (com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                     intValue = msgInfo.userInfo.userType.intValue();
                 } else {
                     intValue = msgInfo.toUserInfo.userType.intValue();

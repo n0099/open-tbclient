@@ -124,7 +124,7 @@ public class AddFriendActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         if (!TextUtils.isEmpty(this.h) && !TextUtils.isEmpty(this.j) && !TextUtils.isEmpty(this.i)) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(com.baidu.adp.lib.e.b.a(this.h, 0L), this.j, this.i, TextUtils.isEmpty(str) ? String.valueOf(getString(x.my_name_is)) + TbadkApplication.getCurrentAccountName() : str, this.l));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(com.baidu.adp.lib.e.c.a(this.h, 0L), this.j, this.i, TextUtils.isEmpty(str) ? String.valueOf(getString(x.my_name_is)) + TbadkApplication.getCurrentAccountName() : str, this.l));
         }
     }
 

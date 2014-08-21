@@ -1,9 +1,11 @@
 package com.baidu.tieba.neighbors;
 
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.framework.listener.d {
+class c extends HttpMessageListener {
     final /* synthetic */ NeighborsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,20 +18,10 @@ class c extends com.baidu.adp.framework.listener.d {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ResponseGetNeighborsMessage responseGetNeighborsMessage;
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         Message<?> orginalMessage;
-        l lVar;
-        if ((socketResponsedMessage instanceof ResponseGetNeighborsMessage) && (orginalMessage = (responseGetNeighborsMessage = (ResponseGetNeighborsMessage) socketResponsedMessage).getOrginalMessage()) != null && orginalMessage.getTag() == this.a.getUniqueId()) {
-            this.a.h = false;
-            this.a.closeLoadingDialog();
-            lVar = this.a.o;
-            lVar.g();
-            if (!com.baidu.adp.lib.util.j.c()) {
-                this.a.g();
-            } else {
-                this.a.a(responseGetNeighborsMessage.getNeighborsData());
-            }
+        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0 && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && orginalMessage.getTag() == this.a.getUniqueId()) {
+            TbadkApplication.m252getInst().setLocationShared(true);
         }
     }
 }

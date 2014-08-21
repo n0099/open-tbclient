@@ -14,11 +14,12 @@ import com.baidu.tieba.pb.sub.SubPbLayout;
 import com.baidu.tieba.view.BaobaoTailView;
 /* loaded from: classes.dex */
 class bj {
-    public View A;
+    public TextView A;
     public View B;
-    final /* synthetic */ bf C;
-    private LinearLayout D;
-    private ImageView E;
+    public View C;
+    final /* synthetic */ bf D;
+    private LinearLayout E;
+    private ImageView F;
     public View a;
     public View b;
     public View c;
@@ -26,28 +27,28 @@ class bj {
     public HeadImageView e;
     public TextView f;
     public TextView g;
-    public TextView h;
+    public ImageView h;
     public TextView i;
-    public ImageView j;
+    public TextView j;
     public ImageView k;
-    public TbRichTextView l;
-    public View m;
-    public FrsPraiseView n;
-    public ImageView o;
-    public RelativeLayout p;
-    public SubPbLayout q;
-    public UserIconBox r;
-    public BaobaoTailView s;
-    UserIconBox t;
-    public LinearLayout u;
-    public TextView v;
-    public LinearLayout w;
-    public Button x;
-    public LinearLayout y;
-    public TextView z;
+    public ImageView l;
+    public TbRichTextView m;
+    public View n;
+    public FrsPraiseView o;
+    public ImageView p;
+    public RelativeLayout q;
+    public SubPbLayout r;
+    public UserIconBox s;
+    public BaobaoTailView t;
+    UserIconBox u;
+    public LinearLayout v;
+    public TextView w;
+    public LinearLayout x;
+    public Button y;
+    public LinearLayout z;
 
     private bj(bf bfVar) {
-        this.C = bfVar;
+        this.D = bfVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

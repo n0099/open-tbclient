@@ -35,7 +35,7 @@ public class af extends com.baidu.adp.base.f {
         this.c.addFooterView(this.f);
     }
 
-    public void a(List<ba> list) {
+    public void a(List<bb> list) {
         this.e.a(list);
     }
 

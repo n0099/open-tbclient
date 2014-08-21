@@ -1,105 +1,31 @@
 package com.baidu.tbadk.pluginArch;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.support.v4.view.MotionEventCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.pluginArch.exception.InstallException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-public class s extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ r a;
-    private String b = null;
-    private int c = 0;
+public class s {
+    private static BdAsyncTaskParallel a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private String b;
+    private Context c;
+    private String d;
+    private b e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.a = rVar;
+    public s(String str, String str2, b bVar) {
+        this.b = str;
+        this.d = str2;
+        this.e = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public synchronized Void doInBackground(Void... voidArr) {
-        String str;
-        try {
-            try {
-                str = this.a.d;
-                a(m.e(str));
-                this.c = 0;
-                this.b = null;
-            } catch (InstallException e) {
-                this.b = e.getMessage();
-                this.c = e.getErr();
-            }
-        } catch (StackOverflowError e2) {
-            this.b = e2.getMessage();
-            this.c = -1;
-        }
-        return null;
+    public s(Context context, String str, b bVar) {
+        this.c = context;
+        this.d = str;
+        this.e = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Void r4) {
-        b bVar;
-        b bVar2;
-        String str;
-        bVar = this.a.e;
-        if (bVar != null) {
-            bVar2 = this.a.e;
-            bVar2.a(this.c, this.b);
-            if (this.c != 0) {
-                String str2 = this.b;
-                str = this.a.d;
-                t.a("plugin_install", str2, str);
-            } else {
-                t.a("plugin_install");
-            }
-        }
-        super.onPostExecute(r4);
-    }
-
-    private void a(File file) {
-        String str;
-        Context context;
-        String str2;
-        String str3;
-        String str4;
-        Context context2;
-        String str5;
-        publishProgress(1, 0);
-        InputStream inputStream = null;
-        try {
-            context = this.a.c;
-            if (context == null) {
-                str2 = this.a.b;
-                if (str2 != null) {
-                    str3 = this.a.b;
-                    inputStream = new FileInputStream(new File(str3));
-                }
-            } else {
-                context2 = this.a.c;
-                AssetManager assets = context2.getAssets();
-                str5 = this.a.d;
-                inputStream = assets.open(String.valueOf(str5) + ".tbplugin");
-            }
-            if (inputStream == null) {
-                str4 = this.a.d;
-                throw new InstallException(str4, 2);
-            }
-            new a(inputStream, file.getAbsolutePath()).a();
-            publishProgress(1, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
-        } catch (IOException e) {
-            str = this.a.d;
-            throw new InstallException(str, 3);
-        }
+    public synchronized void a() {
+        t tVar = new t(this);
+        tVar.setParallel(a);
+        tVar.execute(new Void[0]);
     }
 }

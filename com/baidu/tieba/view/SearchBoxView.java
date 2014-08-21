@@ -3,7 +3,6 @@ package com.baidu.tieba.view;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -55,7 +54,7 @@ public class SearchBoxView extends RelativeLayout {
 
     private void a(Context context) {
         this.a = (Activity) context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.widget_search_box, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.widget_search_box, this);
         this.c = (LinearLayout) findViewById(com.baidu.tieba.u.search_bg_layout);
         this.d = (TextView) findViewById(com.baidu.tieba.u.search_bar_text);
         this.c.setOnClickListener(this.g);

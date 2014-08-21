@@ -29,7 +29,7 @@ public class t extends FragmentPagerAdapter {
     }
 
     private void a() {
-        this.a = new com.baidu.tbadk.core.d[]{new an(), new a()};
+        this.a = new com.baidu.tbadk.core.d[]{new al(), new a()};
         this.b = new int[]{1, 2};
         this.c = this.a.length;
     }

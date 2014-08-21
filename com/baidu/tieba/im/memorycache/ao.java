@@ -4,7 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
@@ -35,7 +34,7 @@ public class ao extends com.baidu.adp.framework.listener.d {
             if (addGroupInfo != null) {
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(bu.b(1L));
+                imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(1L));
                 c.b().b(imMessageCenterPojo);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ap(this, imMessageCenterPojo));
                 customMessageTask.setParallel(com.baidu.tbadk.k.b());

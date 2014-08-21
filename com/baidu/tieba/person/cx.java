@@ -18,7 +18,7 @@ public class cx implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.d dVar2;
         com.baidu.tieba.model.d dVar3;
         avVar = this.a.e;
-        int a = com.baidu.adp.lib.e.b.a(avVar.i(), -1);
+        int a = com.baidu.adp.lib.e.c.a(avVar.i(), -1);
         if (a > 0) {
             dVar = this.a.f;
             if (dVar.a() == 1) {

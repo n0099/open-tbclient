@@ -19,25 +19,26 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    private static a a = new a();
-    private Handler g = new b(this, Looper.getMainLooper());
-    private com.baidu.adp.framework.listener.d h = new c(this, 303101);
-    private CustomMessageListener i = new d(this, 2001121);
-    private ArrayList<AdReq> c = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.a> j = new ArrayList<>();
-    private boolean d = true;
-    private long e = TbConfig.USE_TIME_INTERVAL;
-    private int f = 10;
-    private boolean b = UtilHelper.isNetOk();
+    public static String a = null;
+    private static a b = new a();
+    private Handler h = new b(this, Looper.getMainLooper());
+    private com.baidu.adp.framework.listener.d i = new c(this, 303101);
+    private CustomMessageListener j = new d(this, 2001121);
+    private ArrayList<AdReq> d = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.a> k = new ArrayList<>();
+    private boolean e = true;
+    private long f = TbConfig.USE_TIME_INTERVAL;
+    private int g = 10;
+    private boolean c = UtilHelper.isNetOk();
 
     public static a a() {
-        return a;
+        return b;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        if (this.b != z) {
-            this.b = z;
+        if (this.c != z) {
+            this.c = z;
             if (z) {
                 c(true);
             } else {
@@ -47,24 +48,24 @@ public class a {
     }
 
     private void c() {
-        this.g.removeMessages(1);
+        this.h.removeMessages(1);
     }
 
     private void d() {
-        this.g.removeMessages(1);
-        this.g.sendEmptyMessageDelayed(1, this.e);
+        this.h.removeMessages(1);
+        this.h.sendEmptyMessageDelayed(1, this.f);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.c != null && this.c.size() < 20) {
-            this.c.add(adReq);
+        if (this.d != null && this.d.size() < 20) {
+            this.d.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(List<AdReq> list) {
-        if (this.c != null) {
-            this.c.addAll(list);
+        if (this.d != null) {
+            this.d.addAll(list);
         }
     }
 
@@ -74,28 +75,31 @@ public class a {
     public void b() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.registerTask(f());
-        messageManager.registerListener(this.h);
         messageManager.registerListener(this.i);
+        messageManager.registerListener(this.j);
     }
 
     public void a(boolean z) {
-        this.d = z;
-        c(true);
+        this.e = z;
     }
 
     public void a(int i) {
         if (i > 3600) {
-            this.e = 300000L;
+            this.f = 300000L;
         } else if (i <= 0) {
-            this.e = TbConfig.USE_TIME_INTERVAL;
+            this.f = TbConfig.USE_TIME_INTERVAL;
         } else {
-            this.e = i * 1000;
+            this.f = i * 1000;
         }
     }
 
     public void b(int i) {
-        if (i <= 20 && i > 0) {
-            this.f = i;
+        if (i > 20) {
+            this.g = 10;
+        } else if (i <= 0) {
+            this.g = 5;
+        } else {
+            this.g = i;
         }
     }
 
@@ -105,7 +109,7 @@ public class a {
             a(a2);
         }
         if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-            if (this.b) {
+            if (this.c) {
                 MessageManager.getInstance().sendMessage(new RequestDistributeMessage(a2));
             } else {
                 a(a2);
@@ -115,12 +119,12 @@ public class a {
     }
 
     private boolean e() {
-        return this.g.hasMessages(1);
+        return this.h.hasMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        if (this.b && this.d) {
+        if (this.c && this.e) {
             List<AdReq> d = d(z);
             if (z || !e()) {
                 d();
@@ -135,7 +139,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.c.size() < r3.f) goto L6;
+        if (r3.d.size() < r3.g) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -145,10 +149,10 @@ public class a {
         synchronized (this) {
             if (!z) {
             }
-            if (this.c.size() > 0) {
+            if (this.d.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.c);
-                this.c.clear();
+                arrayList.addAll(this.d);
+                this.d.clear();
             }
         }
         return arrayList;
@@ -163,7 +167,7 @@ public class a {
 
     public void a(Context context, com.baidu.tbadk.core.data.a aVar, String str, String str2, String str3, long j) {
         if (TextUtils.equals(str, "show")) {
-            this.j.add(aVar);
+            this.k.add(aVar);
         } else if (TextUtils.equals(str, "btn_click") || TextUtils.equals(str, "btn_download") || TextUtils.equals(str, "area_click") || TextUtils.equals(str, "area_download")) {
             StringBuilder sb = new StringBuilder(15);
             sb.append(String.valueOf(j.b(context)));
@@ -174,7 +178,7 @@ public class a {
     }
 
     public void a(Context context, String str, String str2, long j) {
-        if (this.j != null && this.j.size() > 0) {
+        if (this.k != null && this.k.size() > 0) {
             StringBuilder sb = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
@@ -186,12 +190,12 @@ public class a {
             StringBuilder sb9 = new StringBuilder();
             StringBuilder sb10 = new StringBuilder();
             StringBuilder sb11 = new StringBuilder();
-            int size = this.j.size();
+            int size = this.k.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size) {
-                    com.baidu.tbadk.core.data.a aVar = this.j.get(i2);
+                    com.baidu.tbadk.core.data.a aVar = this.k.get(i2);
                     if (aVar != null) {
                         if (i2 != size - 1) {
                             sb.append(aVar.p).append("|");
@@ -226,7 +230,7 @@ public class a {
                     sb12.append(",");
                     sb12.append(String.valueOf(j.c(context)));
                     TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str, "da_locate", sb2, "da_type", "show", "da_obj_id", sb3, "fid", str2, "tid", Long.valueOf(j), "da_good_id", sb4, "da_ext_info", sb5, "da_price", sb6, "da_verify", sb, "cuid", TbadkApplication.m252getInst().getCuid(), SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount(), "baiduid", TbadkApplication.getCurrentBduss(), "da_obj_name", sb7, "da_first_name", sb8, "da_second_name", sb9, "da_cpid", sb10, "da_abtest", sb11, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb12.toString(), "model", Build.MODEL);
-                    this.j.clear();
+                    this.k.clear();
                     return;
                 }
             }

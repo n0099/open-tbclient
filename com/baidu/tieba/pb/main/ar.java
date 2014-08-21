@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.main;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
-import com.baidu.tieba.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements DialogInterface.OnClickListener {
@@ -14,10 +14,8 @@ public class ar implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (!com.baidu.tbadk.core.util.s.a()) {
-            this.a.showToast(com.baidu.tbadk.core.util.s.b());
-        } else {
-            FileDownloader.download(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(com.baidu.tieba.x.download_baidu_video));
+        if (dialogInterface instanceof Dialog) {
+            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
         }
     }
 }

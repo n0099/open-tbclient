@@ -2,7 +2,7 @@ package com.baidu.tieba.write;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.cd;
+import com.baidu.tbadk.core.atomData.ce;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.util.AntiHelper;
@@ -33,10 +33,10 @@ class ac implements com.baidu.tieba.model.as {
                     writeData.setVcodeMD5(eVar.a());
                     writeData.setVcodeUrl(eVar.b());
                     if (eVar.c().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ay(this.a, 12006, writeData, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.az(this.a, 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cd(this.a, writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this.a, writeData, 12006)));
                         return;
                     }
                 }

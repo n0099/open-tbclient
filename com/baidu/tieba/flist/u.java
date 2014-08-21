@@ -3,9 +3,7 @@ package com.baidu.tieba.flist;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,8 +37,8 @@ public class u {
     LinearLayout p;
     TextView q;
     ImageView r;
-    com.baidu.tbadk.core.view.u s;
-    com.baidu.tbadk.core.view.u t;
+    com.baidu.tbadk.core.view.v s;
+    com.baidu.tbadk.core.view.v t;
     PopupWindow u;
     View v;
     ForumListActivity w;
@@ -65,13 +63,13 @@ public class u {
         this.k.setOnClickListener(forumListActivity);
         this.l = (TextView) forumListActivity.findViewById(com.baidu.tieba.u.tab_hot);
         this.l.setOnClickListener(forumListActivity);
-        this.s = new com.baidu.tbadk.core.view.u(forumListActivity);
-        this.t = new com.baidu.tbadk.core.view.u(forumListActivity);
-        this.m = (LinearLayout) forumListActivity.getLayoutInflater().inflate(com.baidu.tieba.v.forum_list_forum_footer, (ViewGroup) null);
+        this.s = new com.baidu.tbadk.core.view.v(forumListActivity);
+        this.t = new com.baidu.tbadk.core.view.v(forumListActivity);
+        this.m = (LinearLayout) com.baidu.adp.lib.e.b.a().a(forumListActivity, com.baidu.tieba.v.forum_list_forum_footer, null);
         this.b = this.m.findViewById(com.baidu.tieba.u.footer_background);
         this.n = (TextView) this.m.findViewById(com.baidu.tieba.u.footer_text);
         this.o = (ImageView) this.m.findViewById(com.baidu.tieba.u.footer_icon);
-        this.p = (LinearLayout) forumListActivity.getLayoutInflater().inflate(com.baidu.tieba.v.forum_list_forum_footer, (ViewGroup) null);
+        this.p = (LinearLayout) com.baidu.adp.lib.e.b.a().a(forumListActivity, com.baidu.tieba.v.forum_list_forum_footer, null);
         this.c = this.p.findViewById(com.baidu.tieba.u.footer_background);
         this.q = (TextView) this.p.findViewById(com.baidu.tieba.u.footer_text);
         this.r = (ImageView) this.p.findViewById(com.baidu.tieba.u.footer_icon);
@@ -82,13 +80,13 @@ public class u {
     }
 
     public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = LayoutInflater.from(this.w).inflate(com.baidu.tieba.v.forum_list__dir_menu, (ViewGroup) null);
-        this.x = (ListView) inflate.findViewById(com.baidu.tieba.u.dir_menu_list);
+        View a = com.baidu.adp.lib.e.b.a().a(this.w, com.baidu.tieba.v.forum_list__dir_menu, null);
+        this.x = (ListView) a.findViewById(com.baidu.tieba.u.dir_menu_list);
         this.x.setOnItemClickListener(onItemClickListener);
-        inflate.setBackgroundResource(com.baidu.tieba.t.bg_allsproutpop_dropdown);
+        a.setBackgroundResource(com.baidu.tieba.t.bg_allsproutpop_dropdown);
         this.D = this.y.getCount();
         this.x.setAdapter((ListAdapter) this.y);
-        return inflate;
+        return a;
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -114,13 +112,13 @@ public class u {
             this.u.setFocusable(true);
             this.v.setFocusable(true);
             this.v.setFocusableInTouchMode(true);
-            com.baidu.adp.lib.e.d.a(this.u, this.z, 0 - a, com.baidu.adp.lib.util.j.a((Context) this.w, 0.0f));
+            com.baidu.adp.lib.e.e.a(this.u, this.z, 0 - a, com.baidu.adp.lib.util.j.a((Context) this.w, 0.0f));
             this.v.setOnKeyListener(new v(this));
             this.v.setOnTouchListener(new w(this));
             this.u.setOnDismissListener(new x(this));
             return;
         }
-        com.baidu.adp.lib.e.d.a(this.u, this.w);
+        com.baidu.adp.lib.e.e.a(this.u, this.w);
         this.A.setImageResource(com.baidu.tieba.t.btn_allsproutpop_down);
         this.C = false;
     }
@@ -134,12 +132,16 @@ public class u {
     }
 
     public void c() {
-        if (this.d.getCurrentItem() == 0) {
-            this.i.d();
-        } else {
-            this.j.d();
+        if (this.B != null) {
+            this.B.setVisibility(8);
         }
-        this.B.setVisibility(8);
+        if (this.d != null) {
+            if (this.d.getCurrentItem() == 0 && this.i != null) {
+                this.i.d();
+            } else if (this.j != null) {
+                this.j.d();
+            }
+        }
     }
 
     public void d() {

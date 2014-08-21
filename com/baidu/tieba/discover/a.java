@@ -58,23 +58,23 @@ public class a extends com.baidu.tbadk.core.d {
         this.d = (ViewGroup) this.c.findViewById(com.baidu.tieba.u.mis_dis_container);
         this.e = (BannerView) this.c.findViewById(com.baidu.tieba.u.dis_banner);
         this.f = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_friendsnews);
-        this.g = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_quanbarebo);
-        this.h = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_findqunzu);
+        this.g = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_livetelecast);
+        this.h = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_findgroup);
         this.i = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_neighbors);
         this.j = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_laiyifa);
         this.k = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_square);
         this.l = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_qiandao);
         this.m = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_biaoqing);
-        this.n = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_tdou);
+        this.n = (DiscoverItemView) this.c.findViewById(com.baidu.tieba.u.item_member);
         this.f.a(com.baidu.tieba.t.icon_friendsnews).b(x.friendsnews).a(this.x).c(DiscoverItemView.f).a(TbadkApplication.m252getInst().isFriendFeedNew()).b(false).c(false);
-        this.g.a(com.baidu.tieba.t.icon_live_telecast).b(x.quanbarebo).a(this.x).a();
-        this.h.a(com.baidu.tieba.t.icon_group).b(x.faxianqunzu).a(this.x);
+        this.g.a(com.baidu.tieba.t.icon_live_telecast).b(x.livetelecast).a(this.x);
+        this.h.a(com.baidu.tieba.t.icon_find_group).b(x.findgroup).a(this.x);
         this.i.a(com.baidu.tieba.t.icon_neighbors).b(x.neighbors).a(this.x);
         this.j.a(com.baidu.tieba.t.icon_come_chat).b(x.laiyifa).a(this.x);
         this.k.a(com.baidu.tieba.t.icon_ba_square).b(x.square).a(this.x);
         this.l.a(com.baidu.tieba.t.icon_all_sign_dis).b(x.ba_all_sign).a(this.x);
-        this.m.a(com.baidu.tieba.t.icon_more_store).b(x.face_store).a(this.x).a(true).b(true).a();
-        this.n.a(com.baidu.tieba.t.icon_member_center).b(x.member_center).a(this.x).d(true).a(true).b(true);
+        this.m.a(com.baidu.tieba.t.icon_more_store).b(x.face_store).a(this.x).a(true).b(true).d(true);
+        this.n.a(com.baidu.tieba.t.icon_member_center).b(x.member_center).a(this.x).d(false).a(true).b(true);
         this.t.add(this.k);
         this.t.add(this.j);
         this.t.add(this.f);
@@ -90,7 +90,7 @@ public class a extends com.baidu.tbadk.core.d {
     public void f() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.b);
         aVar.b(x.warning_location_switch_off).a(x.isopen, this.y).b(x.cancel, this.z).a();
-        aVar.b();
+        aVar.c();
     }
 
     private void g() {

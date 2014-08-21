@@ -20,7 +20,7 @@ class d implements View.OnClickListener {
                     return;
                 }
                 RequestJoinGroupMessage requestJoinGroupMessage = new RequestJoinGroupMessage();
-                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.e.b.a(this.a.k, 0));
+                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.e.c.a(this.a.k, 0));
                 requestJoinGroupMessage.setUserMsg(this.a.b.getText().toString());
                 requestJoinGroupMessage.setJoinType(this.a.p);
                 requestJoinGroupMessage.setInviteUserId(this.a.n);

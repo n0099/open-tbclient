@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.chat.view.ChatClipImageItemView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgrightView extends cb {
+public class MsgrightView extends cc {
     private static final String q = MsgrightView.class.getName();
     protected TextView p;
     private ProgressBar r;
@@ -31,10 +31,10 @@ public class MsgrightView extends cb {
         this.t.setAutoChangeStyle(false);
         this.t.setDrawerType(1);
         this.t.setRadius(com.baidu.adp.lib.util.j.a(this.mContext, 4.0f));
-        this.t.setOnClickListener(new cr(this));
+        this.t.setOnClickListener(new cs(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
             if (this.p.getVisibility() != 8) {
@@ -53,7 +53,7 @@ public class MsgrightView extends cb {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void b(View view, ChatMessage chatMessage) {
         super.b(view, chatMessage);
         if (chatMessage == null) {
@@ -96,7 +96,7 @@ public class MsgrightView extends cb {
                 }
             }
             if (this.s.getVisibility() == 0) {
-                this.s.setOnClickListener(new cs(this));
+                this.s.setOnClickListener(new ct(this));
             }
             this.h.setVisibility(8);
             c(8);

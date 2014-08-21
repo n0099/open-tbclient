@@ -13,7 +13,7 @@ public class f extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void b(String str) {
         if (str != null) {
-            this.a = com.baidu.adp.lib.e.b.a(str, 0.0f);
+            this.a = com.baidu.adp.lib.e.c.a(str, 0.0f);
         }
     }
 

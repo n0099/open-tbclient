@@ -2,7 +2,6 @@ package com.baidu.tieba.home;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -164,7 +163,7 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 1) {
-            view = LayoutInflater.from(this.a).inflate(v.home_like_guide, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.home_like_guide, null);
             if (b() <= 4) {
                 view.setVisibility(0);
             } else {
@@ -174,7 +173,7 @@ public class m extends BaseAdapter {
             a(view);
         } else if (itemViewType == 2) {
             if (this.k == null) {
-                view = LayoutInflater.from(this.a).inflate(v.home_like_item_banner, (ViewGroup) null);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, v.home_like_item_banner, null);
                 this.k = (BannerView) view.findViewById(com.baidu.tieba.u.home_like_banner_view);
             }
             this.k.a("enter_bar_bck", "");
@@ -209,7 +208,7 @@ public class m extends BaseAdapter {
                 }
             }
         } else if (itemViewType == 4) {
-            view = LayoutInflater.from(this.a).inflate(v.home_new_recommend_notice, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.home_new_recommend_notice, null);
             if (c() > 0) {
                 view.setVisibility(0);
             } else {
@@ -252,43 +251,43 @@ public class m extends BaseAdapter {
     }
 
     private View a(s sVar) {
-        View inflate = LayoutInflater.from(this.a).inflate(v.home_like_item, (ViewGroup) null);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, v.home_like_item, null);
         s sVar2 = new s();
-        sVar2.a = (LinearLayout) inflate;
-        sVar2.e = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_icon_sign1);
-        sVar2.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.item_left);
+        sVar2.a = (LinearLayout) a;
+        sVar2.e = (TextView) a.findViewById(com.baidu.tieba.u.forum_icon_sign1);
+        sVar2.b = (RelativeLayout) a.findViewById(com.baidu.tieba.u.item_left);
         sVar2.b.setOnClickListener(this.i);
         sVar2.b.setOnLongClickListener(this.j);
-        sVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.u.home_lv_like_forum1);
-        sVar2.d = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_lv_like_grade1);
+        sVar2.c = (TextView) a.findViewById(com.baidu.tieba.u.home_lv_like_forum1);
+        sVar2.d = (TextView) a.findViewById(com.baidu.tieba.u.forum_lv_like_grade1);
         sVar2.f = new s();
-        sVar2.f.e = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_icon_sign2);
-        sVar2.f.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.item_right);
+        sVar2.f.e = (TextView) a.findViewById(com.baidu.tieba.u.forum_icon_sign2);
+        sVar2.f.b = (RelativeLayout) a.findViewById(com.baidu.tieba.u.item_right);
         sVar2.f.b.setOnClickListener(this.i);
         sVar2.f.b.setOnLongClickListener(this.j);
-        sVar2.f.c = (TextView) inflate.findViewById(com.baidu.tieba.u.home_lv_like_forum2);
-        sVar2.f.d = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_lv_like_grade2);
-        inflate.setTag(sVar2);
-        return inflate;
+        sVar2.f.c = (TextView) a.findViewById(com.baidu.tieba.u.home_lv_like_forum2);
+        sVar2.f.d = (TextView) a.findViewById(com.baidu.tieba.u.forum_lv_like_grade2);
+        a.setTag(sVar2);
+        return a;
     }
 
     private View a(t tVar) {
-        View inflate = LayoutInflater.from(this.a).inflate(v.home_recommend_item, (ViewGroup) null);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, v.home_recommend_item, null);
         t tVar2 = new t();
-        tVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.home_recommend_container);
-        tVar2.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.recommend_item_left);
+        tVar2.a = (LinearLayout) a.findViewById(com.baidu.tieba.u.home_recommend_container);
+        tVar2.b = (RelativeLayout) a.findViewById(com.baidu.tieba.u.recommend_item_left);
         tVar2.b.setOnClickListener(this.i);
-        tVar2.d = (TextView) inflate.findViewById(com.baidu.tieba.u.left_bar_name);
-        tVar2.e = (TextView) inflate.findViewById(com.baidu.tieba.u.left_focus_num);
-        tVar2.c = (BarImageView) inflate.findViewById(com.baidu.tieba.u.left_bar_pic);
+        tVar2.d = (TextView) a.findViewById(com.baidu.tieba.u.left_bar_name);
+        tVar2.e = (TextView) a.findViewById(com.baidu.tieba.u.left_focus_num);
+        tVar2.c = (BarImageView) a.findViewById(com.baidu.tieba.u.left_bar_pic);
         tVar2.f = new t();
-        tVar2.f.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.u.recommend_item_right);
+        tVar2.f.b = (RelativeLayout) a.findViewById(com.baidu.tieba.u.recommend_item_right);
         tVar2.f.b.setOnClickListener(this.i);
-        tVar2.f.d = (TextView) inflate.findViewById(com.baidu.tieba.u.right_bar_name);
-        tVar2.f.e = (TextView) inflate.findViewById(com.baidu.tieba.u.right_focus_num);
-        tVar2.f.c = (BarImageView) inflate.findViewById(com.baidu.tieba.u.right_bar_pic);
-        inflate.setTag(tVar2);
-        return inflate;
+        tVar2.f.d = (TextView) a.findViewById(com.baidu.tieba.u.right_bar_name);
+        tVar2.f.e = (TextView) a.findViewById(com.baidu.tieba.u.right_focus_num);
+        tVar2.f.c = (BarImageView) a.findViewById(com.baidu.tieba.u.right_bar_pic);
+        a.setTag(tVar2);
+        return a;
     }
 
     public void a(int i) {

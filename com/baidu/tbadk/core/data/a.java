@@ -50,10 +50,10 @@ public class a extends n {
             this.e = app.url;
             this.f = app.apk_url;
             this.g = app.apk_name;
-            try {
-                this.h = Integer.parseInt(app.pos_name.trim());
-            } catch (Exception e) {
-                this.h = -1;
+            if (TextUtils.isEmpty(app.pos_name) || TextUtils.isEmpty(app.pos_name.trim())) {
+                this.h = 3;
+            } else {
+                this.h = com.baidu.adp.lib.e.c.a(app.pos_name.trim(), 3);
             }
             this.i = app.first_name;
             this.j = app.second_name;
@@ -80,15 +80,15 @@ public class a extends n {
         AdReq.Builder builder = new AdReq.Builder();
         builder.da_cpid = String.valueOf(this.k);
         builder.da_ext_info = this.q;
-        builder.da_fid = Integer.valueOf(str);
+        builder.da_fid = Integer.valueOf(com.baidu.adp.lib.e.c.a(str, 0));
         builder.da_good_id = String.valueOf(this.s.a);
         builder.da_locate = String.valueOf(this.h);
         builder.da_obj_id = this.b;
         builder.da_page = str2;
+        builder.da_threadid = Long.valueOf(j);
         builder.da_plan_id = String.valueOf(this.n);
         builder.da_price = this.l;
         builder.da_task = "tbda";
-        builder.da_threadid = Long.valueOf(j);
         builder.da_type = str3;
         builder.da_user_id = this.o;
         builder.da_verify = this.p;

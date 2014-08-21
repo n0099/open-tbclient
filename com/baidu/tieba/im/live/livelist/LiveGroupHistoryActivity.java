@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ao;
+import com.baidu.tbadk.core.atomData.ap;
 import com.baidu.tbadk.core.data.LiveCardData;
 /* loaded from: classes.dex */
 public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
@@ -16,7 +16,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     private final com.baidu.adp.framework.listener.d d = new af(this, 107005);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ai.class, LiveGroupHistoryActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aj.class, LiveGroupHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -94,7 +94,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     public void g() {
         LiveCardData d = this.b.d();
         if (d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ao(this, d.getName(), this.c, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ap(this, d.getName(), this.c, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
         }
     }
 }

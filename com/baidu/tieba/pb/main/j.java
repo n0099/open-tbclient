@@ -34,21 +34,21 @@ class j implements com.baidu.tieba.pb.sub.g {
         com.baidu.tieba.pb.sub.e eVar4;
         bl blVar4;
         this.a.G();
-        bsVar = this.a.D;
+        bsVar = this.a.E;
         bsVar.d(str);
-        bsVar2 = this.a.D;
+        bsVar2 = this.a.E;
         bsVar2.G();
         if (!z) {
             if (i == 4 || i == 28) {
-                blVar4 = this.a.x;
+                blVar4 = this.a.y;
                 if (blVar4.o()) {
                     this.a.closeActivity();
                 }
             }
         } else if (auVar != null) {
-            eVar = this.a.B;
+            eVar = this.a.C;
             String b = eVar.b();
-            blVar = this.a.x;
+            blVar = this.a.y;
             ArrayList<com.baidu.tieba.data.an> e = blVar.r().e();
             int i2 = 0;
             while (true) {
@@ -73,24 +73,24 @@ class j implements com.baidu.tieba.pb.sub.g {
                     break;
                 }
             }
-            eVar2 = this.a.B;
+            eVar2 = this.a.C;
             String c = eVar2.c();
             if (c != null) {
-                eVar3 = this.a.B;
+                eVar3 = this.a.C;
                 if ("mention".equals(eVar3.c()) || c.equals("person_post_reply")) {
-                    str2 = this.a.J;
+                    str2 = this.a.K;
                     if (str2 != null) {
-                        bsVar4 = this.a.D;
-                        blVar3 = this.a.x;
+                        bsVar4 = this.a.E;
+                        blVar3 = this.a.y;
                         int l = blVar3.r().l();
-                        str3 = this.a.J;
+                        str3 = this.a.K;
                         boolean z2 = auVar.c() > 1;
-                        eVar4 = this.a.B;
+                        eVar4 = this.a.C;
                         bsVar4.a(auVar, l, str3, z2, eVar4.h() == 1);
                         j = auVar.j();
                         if (j == null) {
                             Boolean valueOf = Boolean.valueOf(j.isIfvoice());
-                            this.a.p = j.getVoice_message();
+                            this.a.q = j.getVoice_message();
                             if (auVar.i() != null) {
                                 this.a.a(auVar.i().getName(), valueOf);
                                 return;
@@ -101,8 +101,8 @@ class j implements com.baidu.tieba.pb.sub.g {
                     }
                 }
             }
-            bsVar3 = this.a.D;
-            blVar2 = this.a.x;
+            bsVar3 = this.a.E;
+            blVar2 = this.a.y;
             bsVar3.a(auVar, blVar2.r().l());
             j = auVar.j();
             if (j == null) {

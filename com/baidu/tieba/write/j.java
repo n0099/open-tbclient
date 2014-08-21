@@ -1,7 +1,6 @@
 package com.baidu.tieba.write;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 public class j extends BaseAdapter {
     private final Context a;
     private ArrayList<MetaData> b;
-    private com.baidu.tbadk.core.view.s c;
+    private com.baidu.tbadk.core.view.t c;
     private l d = null;
     private ViewGroup e = null;
     private boolean f;
@@ -37,8 +36,8 @@ public class j extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.tbadk.core.view.s sVar) {
-        this.c = sVar;
+    public void a(com.baidu.tbadk.core.view.t tVar) {
+        this.c = tVar;
     }
 
     @Override // android.widget.Adapter
@@ -112,7 +111,7 @@ public class j extends BaseAdapter {
 
     private k a() {
         k kVar = new k(this, null);
-        kVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.invite_friend_list_item, (ViewGroup) null);
+        kVar.a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.invite_friend_list_item, null);
         kVar.b = (HeadImageView) kVar.a.findViewById(com.baidu.tieba.u.photo);
         kVar.b.setIsRound(false);
         kVar.c = (TextView) kVar.a.findViewById(com.baidu.tieba.u.txt_user_name);

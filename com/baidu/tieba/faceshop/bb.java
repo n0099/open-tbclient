@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class bb implements com.baidu.tbadk.core.view.q {
+class bb implements com.baidu.tbadk.core.view.r {
     final /* synthetic */ FaceShopActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class bb implements com.baidu.tbadk.core.view.q {
         this.a = faceShopActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.q
+    @Override // com.baidu.tbadk.core.view.r
     public void a(boolean z) {
         bp bpVar;
         bp bpVar2;

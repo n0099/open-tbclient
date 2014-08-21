@@ -33,11 +33,13 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.LocalPicModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import java.util.ArrayList;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class TalkableActivity extends BaseActivity implements View.OnTouchListener, com.baidu.adp.lib.b.a, com.baidu.adp.lib.b.b, com.baidu.adp.widget.ListView.x, com.baidu.adp.widget.ListView.z, com.baidu.tbadk.core.voice.aa, com.baidu.tbadk.widget.richText.j {
+    private static String b = "tbgametype";
     protected VoiceManager h;
     protected boolean j;
     protected Handler c = new Handler();
@@ -45,14 +47,14 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
     protected MsglistModel e = null;
     protected LocalPicModel f = null;
     protected com.baidu.adp.base.h g = null;
-    protected dd i = null;
+    protected df i = null;
     protected com.baidu.tbadk.img.b<ChatMessage> k = null;
     private long a = -1;
-    protected com.baidu.adp.base.h l = new dg(this);
+    protected com.baidu.adp.base.h l = new di(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void r() {
-        this.g = new dh(this);
+        this.g = new dj(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +67,7 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
         } else {
             this.a = System.currentTimeMillis();
         }
-        this.k = new di(this);
+        this.k = new dk(this);
         c();
         t();
     }
@@ -97,10 +99,10 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             String string2 = getString(com.baidu.tieba.x.cancel);
             if (i == 12002) {
                 if (intent != null && intent.getData() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 12002, 12009, intent.getData(), null, null, null, a, string, string2, "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cg(this, 12002, 12009, intent.getData(), null, null, null, a, string, string2, "")));
                 }
             } else if (i == 12001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cf(this, 12001, 12010, null, null, null, null, a, string, string2, "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.cg(this, 12001, 12010, null, null, null, null, a, string, string2, "")));
             }
         } else if (i2 == 0) {
             if (i == 12010) {
@@ -112,11 +114,11 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
     }
 
     public void b(View view, int i, int i2, long j) {
-        ChatMessage b = this.e.b(i2);
+        ChatMessage b2 = this.e.b(i2);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-        if (b != null && b.getLocalData() != null && b.getLocalData().getStatus().shortValue() != 1) {
-            if (b.getUserInfo() != null && currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getID())) {
-                this.j = b.getUserInfo().getUserIdLong() == Long.parseLong(currentAccountObj.getID());
+        if (b2 != null && b2.getLocalData() != null && b2.getLocalData().getStatus().shortValue() != 1) {
+            if (b2.getUserInfo() != null && currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getID())) {
+                this.j = b2.getUserInfo().getUserIdLong() == Long.parseLong(currentAccountObj.getID());
             }
             if (i == 3 || i == 4 || i == 5 || i == 7 || i == 8 || i == 9 || i == 10) {
                 this.d.a(i2, a(i, this.j));
@@ -349,7 +351,7 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
         String k = this.d.k();
         if (!TextUtils.isEmpty(k)) {
             this.d.l();
-            this.c.postDelayed(new dj(this, k), 100L);
+            this.c.postDelayed(new dl(this, k), 100L);
         }
     }
 
@@ -485,23 +487,23 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, String str) {
-        ChatMessage b = this.e.b(i);
+        ChatMessage b2 = this.e.b(i);
         if (str.equals(getString(com.baidu.tieba.x.operate_copy))) {
-            if (b != null && b.getCacheData() != null) {
-                com.baidu.adp.lib.util.a.a(b.getContent());
+            if (b2 != null && b2.getCacheData() != null) {
+                com.baidu.adp.lib.util.a.a(b2.getContent());
                 showToast(com.baidu.tieba.x.op_result_copied);
             }
         } else if (str.equals(getString(com.baidu.tieba.x.msg_at))) {
-            if (b != null && b.getUserInfo() != null && b.getUserInfo().getUserName() != null) {
-                this.d.b(b.getUserInfo().getUserName());
+            if (b2 != null && b2.getUserInfo() != null && b2.getUserInfo().getUserName() != null) {
+                this.d.b(b2.getUserInfo().getUserName());
             }
         } else if (str.equals(getString(com.baidu.tieba.x.msg_delete))) {
             this.e.d(i);
             showToast(com.baidu.tieba.x.op_result_deleted);
         } else if (str.equals(getString(com.baidu.tieba.x.msg_img_save))) {
-            String a = com.baidu.tieba.im.d.j.a(b.getContent(), true);
+            String a = com.baidu.tieba.im.d.j.a(b2.getContent(), true);
             if (a != null) {
-                this.i = new dd(a, this);
+                this.i = new df(a, this);
                 this.i.a();
             }
         } else if (str.equals(getString(com.baidu.tieba.x.group_open_receiver)) || str.equals(getString(com.baidu.tieba.x.group_close_receiver))) {
@@ -518,15 +520,15 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
     }
 
     public void a(View view, int i, int i2, long j) {
-        ChatMessage b;
-        String content;
         ChatMessage b2;
+        String content;
+        ChatMessage b3;
         switch (i) {
             case 1:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(getString(com.baidu.tieba.x.operation));
-                builder.setPositiveButton(getString(com.baidu.tieba.x.msg_resend), new dk(this, i2));
-                builder.setNegativeButton(getString(com.baidu.tieba.x.delete), new dl(this, i2));
+                builder.setPositiveButton(getString(com.baidu.tieba.x.msg_resend), new dm(this, i2));
+                builder.setNegativeButton(getString(com.baidu.tieba.x.delete), new dn(this, i2));
                 builder.create().show();
                 return;
             case 2:
@@ -537,19 +539,19 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             default:
                 return;
             case 5:
-                if (!t() || (b2 = this.e.b(i2)) == null || !com.baidu.tieba.im.d.j.d(b2)) {
+                if (!t() || (b3 = this.e.b(i2)) == null || !com.baidu.tieba.im.d.j.d(b3)) {
                 }
                 return;
             case 6:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this, TbadkApplication.getCurrentAccount(), TbadkApplication.getCurrentAccountName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(this, TbadkApplication.getCurrentAccount(), TbadkApplication.getCurrentAccountName())));
                 return;
             case 8:
-                ChatMessage b3 = this.e.b(i2);
-                if (b3 != null && com.baidu.tieba.im.d.j.f(b3) && (b = this.e.b(i2)) != null && (content = b.getContent()) != null) {
+                ChatMessage b4 = this.e.b(i2);
+                if (b4 != null && com.baidu.tieba.im.d.j.f(b4) && (b2 = this.e.b(i2)) != null && (content = b2.getContent()) != null) {
                     try {
                         JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
                         if (optJSONObject != null) {
-                            GroupActivityActivity.a(this, com.baidu.adp.lib.e.b.a(optJSONObject.optString("activityId"), 0), com.baidu.adp.lib.e.b.a(optJSONObject.optString("groupId"), 0L), 2);
+                            GroupActivityActivity.a(this, com.baidu.adp.lib.e.c.a(optJSONObject.optString("activityId"), 0), com.baidu.adp.lib.e.c.a(optJSONObject.optString("groupId"), 0L), 2);
                             return;
                         }
                         return;
@@ -560,13 +562,13 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
                 }
                 return;
             case 10:
-                ChatMessage b4 = this.e.b(i2);
-                if (b4 != null && b4.getContent() != null) {
+                ChatMessage b5 = this.e.b(i2);
+                if (b5 != null && b5.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
-                    aVar.a(b4.getContent(), getClass().getName());
+                    aVar.a(b5.getContent(), getClass().getName());
                     if (aVar.a() == 1 && aVar.b() != null) {
                         if (!TextUtils.isEmpty(((ShareFromPBMsgData) aVar.b()).getThreadId()) || !TextUtils.isEmpty(((ShareFromPBMsgData) aVar.b()).getPostId())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(this).a(((ShareFromPBMsgData) aVar.b()).getThreadId(), ((ShareFromPBMsgData) aVar.b()).getPostId(), null)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bc(this).a(((ShareFromPBMsgData) aVar.b()).getThreadId(), ((ShareFromPBMsgData) aVar.b()).getPostId(), null)));
                             return;
                         }
                         return;
@@ -579,45 +581,71 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
                     showToast(com.baidu.tieba.x.rand_chat_waiting_net_error);
                     return;
                 }
-                ChatMessage b5 = this.e.b(i2);
-                if (b5 != null && b5.getContent() != null) {
+                ChatMessage b6 = this.e.b(i2);
+                if (b6 != null && b6.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar2 = new com.baidu.tieba.im.widget.a();
-                    aVar2.a(b5.getContent(), getClass().getName());
+                    aVar2.a(b6.getContent(), getClass().getName());
                     if (aVar2.a() == 1 && aVar2.b() != null) {
-                        String b6 = com.baidu.tbadk.a.a.b(((ShareFromGameCenterMsgData) aVar2.b()).getShareSourceUrl());
+                        String b7 = com.baidu.tbadk.game.a.b(((ShareFromGameCenterMsgData) aVar2.b()).getShareSourceUrl());
+                        if (!TextUtils.isEmpty(b7) && b7.equalsIgnoreCase("default")) {
+                            b7 = "";
+                        }
                         String shareUrl = ((ShareFromGameCenterMsgData) aVar2.b()).getShareUrl();
                         if (!TextUtils.isEmpty(shareUrl)) {
-                            TbWebViewActivity.startActivity(this, shareUrl);
-                            TiebaStatic.eventStat(this, "game_ck_link", "click", 1, b6);
-                            return;
+                            TiebaStatic.eventStat(this, "game_ck_link", "click", 1, b7);
+                            if (shareUrl.equalsIgnoreCase("default")) {
+                                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(this)));
+                                return;
+                            } else if (com.baidu.tbadk.game.a.a(shareUrl) == 2) {
+                                if (a(shareUrl)) {
+                                    sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.x(this, "", shareUrl, b7, true)));
+                                    return;
+                                } else {
+                                    TbWebViewActivity.startActivity(this, shareUrl);
+                                    return;
+                                }
+                            } else {
+                                return;
+                            }
                         }
-                        TbWebViewActivity.startActivity(this, "http://tieba.baidu.com/");
                         return;
                     }
                     return;
                 }
                 return;
             case 12:
-                ChatMessage b7 = this.e.b(i2);
-                if (b7 != null && b7.getContent() != null) {
+                ChatMessage b8 = this.e.b(i2);
+                if (b8 != null && b8.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar3 = new com.baidu.tieba.im.widget.a();
-                    aVar3.a(b7.getContent(), getClass().getName());
+                    aVar3.a(b8.getContent(), getClass().getName());
                     if (aVar3.a() == 1 && aVar3.b() != null) {
-                        String b8 = com.baidu.tbadk.a.a.b(((ShareFromGameCenterMsgData) aVar3.b()).getShareSourceUrl());
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(this, b8)));
-                        TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, b8);
+                        String shareSourceUrl = ((ShareFromGameCenterMsgData) aVar3.b()).getShareSourceUrl();
+                        if (!TextUtils.isEmpty(shareSourceUrl) && shareSourceUrl.equalsIgnoreCase("default")) {
+                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(this)));
+                            TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, shareSourceUrl);
+                            return;
+                        }
+                        String b9 = com.baidu.tbadk.game.a.b(shareSourceUrl);
+                        sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.w(this, b9)));
+                        TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, b9);
                         return;
                     }
                     return;
                 }
                 return;
             case 13:
-                ChatMessage b9 = this.e.b(i2);
-                if (b9 != null && b9.getContent() != null) {
+                ChatMessage b10 = this.e.b(i2);
+                if (b10 != null && b10.getContent() != null) {
                     try {
-                        String b10 = com.baidu.tbadk.a.a.b(new JSONArray(b9.getContent()).getJSONObject(0).optString("shareSourceUrl"));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(this, b10)));
-                        TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, b10);
+                        String optString = new JSONArray(b10.getContent()).getJSONObject(0).optString("shareSourceUrl");
+                        if (!TextUtils.isEmpty(optString) && optString.equalsIgnoreCase("default")) {
+                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(this)));
+                            TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, optString);
+                        } else {
+                            String b11 = com.baidu.tbadk.game.a.b(optString);
+                            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.w(this, b11)));
+                            TiebaStatic.eventStat(this, "game_ck_tail", "click", 1, b11);
+                        }
                         return;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -626,6 +654,15 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
                 }
                 return;
         }
+    }
+
+    public boolean a(String str) {
+        Map<String, String> a;
+        if (!TextUtils.isEmpty(str) && (a = com.baidu.tbadk.core.util.bg.a(com.baidu.tbadk.core.util.bg.b(str))) != null) {
+            String str2 = a.get(b);
+            return !TextUtils.isEmpty(str2) && str2.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        }
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

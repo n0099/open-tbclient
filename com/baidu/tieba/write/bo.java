@@ -51,7 +51,7 @@ public class bo extends BdAsyncTask<String, Void, Bitmap> {
                     this.a.showToast(com.baidu.tieba.x.plugin_config_not_found);
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bl(this.a, b)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bm(this.a, b)));
                 handler2 = this.a.C;
                 handler2.postDelayed(new bq(this), 500L);
                 cancel();

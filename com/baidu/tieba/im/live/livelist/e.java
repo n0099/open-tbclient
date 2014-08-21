@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.livelist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -99,7 +98,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.live_list_foot, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.live_list_foot, viewGroup, false);
             View findViewById = view.findViewById(com.baidu.tieba.u.bottom_line);
             ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.u.bottom_more);
             TextView textView = (TextView) view.findViewById(com.baidu.tieba.u.more_title);
@@ -120,7 +119,7 @@ public class e extends BaseAdapter {
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.live_black_members_list_item, viewGroup, false);
+                view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.live_black_members_list_item, viewGroup, false);
                 g gVar = new g(this);
                 gVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.u.item_head);
                 gVar.b = (TextView) view.findViewById(com.baidu.tieba.u.item_name);

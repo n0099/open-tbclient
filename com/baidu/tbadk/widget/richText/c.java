@@ -133,6 +133,10 @@ public class c {
         return this.g;
     }
 
+    public int h() {
+        return this.h;
+    }
+
     public void a(int i) {
         this.h = i;
     }

@@ -83,7 +83,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
         }
         try {
             this.c.setActivity(this);
-            this.c.setCallback(new v(this));
+            this.c.setCallback(new r(this));
             this.c.onCreate(bundle);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

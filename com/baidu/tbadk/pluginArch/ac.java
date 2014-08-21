@@ -1,51 +1,135 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Messenger;
+import android.os.RemoteException;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.pluginArch.service.RemoteSynchronousDataService;
 /* loaded from: classes.dex */
-public class ac implements ServiceConnection {
-    final /* synthetic */ ab a;
+public class ac {
+    private static ac h;
+    private Messenger a;
+    private Messenger b = new Messenger(new ae(this, null));
+    private ad c = new ad(this, null);
+    private Context d = TbadkApplication.m252getInst().getApplicationContext();
+    private int e;
+    private String f;
+    private ConfigInfos g;
 
-    private ac(ab abVar) {
-        this.a = abVar;
+    private ac() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(ab abVar, ac acVar) {
-        this(abVar);
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        BdLog.i("Connected");
-        ab.a(this.a, new Messenger(iBinder));
-        ab.a(this.a);
-        if (ab.b(this.a) == 2) {
-            if (ab.c(this.a) != null) {
-                ab.a(this.a, ab.c(this.a));
-                ab.a(this.a, -1);
-                ab.b(this.a, (String) null);
-                this.a.c();
+    public static synchronized ac a() {
+        ac acVar;
+        synchronized (ac.class) {
+            if (h == null) {
+                h = new ac();
             }
-        } else if (ab.b(this.a) == 3) {
-            ab.d(this.a);
-            ab.a(this.a, -1);
-            this.a.c();
-        } else if (ab.b(this.a) == 4 && ab.e(this.a) != null) {
-            ab.a(this.a, ab.e(this.a));
-            ab.a(this.a, -1);
-            ab.b(this.a, (ConfigInfos) null);
-            this.a.c();
+            acVar = h;
+        }
+        return acVar;
+    }
+
+    public void e() {
+        Message obtain = Message.obtain((Handler) null, 0);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = this.b;
+                this.a.send(obtain);
+            } catch (RemoteException e) {
+            }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        ab.a(this.a, (Messenger) null);
+    private void f() {
+        if (this.a != null) {
+            Message obtain = Message.obtain((Handler) null, 1);
+            try {
+                obtain.replyTo = this.b;
+                this.a.send(obtain);
+            } catch (RemoteException e) {
+            }
+        }
+    }
+
+    public void b() {
+        this.d.bindService(new Intent(this.d, RemoteSynchronousDataService.class), this.c, 1);
+    }
+
+    public void c() {
+        f();
+        BdLog.i("close");
+        if (this.a != null) {
+            this.d.unbindService(this.c);
+        }
+    }
+
+    public void a(String str) {
+        if (str != null) {
+            this.e = 2;
+            this.f = str;
+            b();
+        }
+    }
+
+    public void b(String str) {
+        Message obtain = Message.obtain((Handler) null, 2);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = this.b;
+                Bundle bundle = new Bundle();
+                bundle.putString("pluginName", str);
+                obtain.setData(bundle);
+                this.a.send(obtain);
+                BdLog.i("send-WHAT_OPERATE_FORBIDDEN");
+            } catch (RemoteException e) {
+            }
+        }
+    }
+
+    public void d() {
+        this.e = 3;
+        b();
+    }
+
+    public void g() {
+        Message obtain = Message.obtain((Handler) null, 3);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = this.b;
+                this.a.send(obtain);
+                BdLog.i("send-WHAT_INSTALL_PLUGIN");
+            } catch (RemoteException e) {
+            }
+        }
+    }
+
+    public void a(ConfigInfos configInfos) {
+        if (configInfos != null) {
+            this.e = 4;
+            this.g = configInfos;
+            b();
+        }
+    }
+
+    public void b(ConfigInfos configInfos) {
+        Message obtain = Message.obtain((Handler) null, 4);
+        if (obtain != null) {
+            try {
+                obtain.replyTo = this.b;
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("configinfos", configInfos);
+                obtain.setData(bundle);
+                this.a.send(obtain);
+                BdLog.i("send-WHAT_NET_CONFIG");
+            } catch (RemoteException e) {
+            }
+        }
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
@@ -33,7 +31,7 @@ public class a extends com.baidu.adp.base.f {
     }
 
     private void b() {
-        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.v.address_lbs_item, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(this.mContext, com.baidu.tieba.v.address_lbs_item, null);
         this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.text);
         this.c = (ImageView) this.a.findViewById(com.baidu.tieba.u.group_address_list_item_selected);
         this.a.setTag(this);

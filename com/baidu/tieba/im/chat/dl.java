@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dl implements DialogInterface.OnClickListener {
+public class dl implements Runnable {
     final /* synthetic */ TalkableActivity a;
-    private final /* synthetic */ int b;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dl(TalkableActivity talkableActivity, int i) {
+    public dl(TalkableActivity talkableActivity, String str) {
         this.a = talkableActivity;
-        this.b = i;
+        this.b = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.a.b(this.b);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.e.d(this.b);
     }
 }

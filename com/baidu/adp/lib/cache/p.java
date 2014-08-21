@@ -36,10 +36,10 @@ public class p<T> extends e<T> {
     @Override // com.baidu.adp.lib.cache.s
     public void e(String str) {
         if (this.b instanceof h) {
-            com.baidu.adp.lib.e.e.a().a(new q(this, str));
+            com.baidu.adp.lib.e.f.a().a(new q(this, str));
         }
         if (this.b instanceof g) {
-            com.baidu.adp.lib.e.e.a().a(new r(this, str));
+            com.baidu.adp.lib.e.f.a().a(new r(this, str));
         }
     }
 

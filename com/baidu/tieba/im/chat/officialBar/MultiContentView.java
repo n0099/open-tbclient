@@ -13,7 +13,7 @@ public class MultiContentView extends LinearLayout {
     private LinearLayout c;
     private com.baidu.adp.lib.d.b<f> d;
     private com.baidu.adp.lib.d.b<c> e;
-    private com.baidu.adp.lib.d.b<bb> f;
+    private com.baidu.adp.lib.d.b<bc> f;
     private com.baidu.adp.lib.b.b g;
     private int h;
     private boolean i;
@@ -176,40 +176,40 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    private bb getSingleView() {
-        bb bbVar = null;
+    private bc getSingleView() {
+        bc bcVar = null;
         if (this.f != null) {
-            bbVar = this.f.a();
+            bcVar = this.f.a();
         }
-        if (bbVar == null || bbVar.getParent() == null) {
-            bbVar = new bb(this.a);
+        if (bcVar == null || bcVar.getParent() == null) {
+            bcVar = new bc(this.a);
         }
-        bbVar.setOnItemViewLongClickListener(this.g);
-        bbVar.setPosition(this.h);
+        bcVar.setOnItemViewLongClickListener(this.g);
+        bcVar.setPosition(this.h);
         if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
             if (this.k == 2) {
-                bbVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg_1);
+                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg_1);
             } else if (this.k == 1) {
-                bbVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg_1);
+                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg_1);
             }
-            bbVar.a(true);
+            bcVar.a(true);
         } else {
             if (this.k == 2) {
-                bbVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg);
+                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg);
             } else if (this.k == 1) {
-                bbVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg);
+                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg);
             }
-            bbVar.a(false);
+            bcVar.a(false);
         }
-        return bbVar;
+        return bcVar;
     }
 
-    private void a(p pVar, bb bbVar, View view) {
-        if (pVar != null && bbVar != null) {
-            bbVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            bbVar.setTime(this.j);
-            bbVar.a(pVar, view);
-            this.c.addView(bbVar);
+    private void a(p pVar, bc bcVar, View view) {
+        if (pVar != null && bcVar != null) {
+            bcVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            bcVar.setTime(this.j);
+            bcVar.a(pVar, view);
+            this.c.addView(bcVar);
         }
     }
 

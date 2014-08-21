@@ -15,22 +15,22 @@ public class ak implements com.baidu.tieba.model.bg {
         g gVar;
         String str3;
         String str4;
-        cu cuVar;
-        cu cuVar2;
+        cv cvVar;
+        cv cvVar2;
         f a = f.a();
         str2 = this.a.q;
         a.a(str2, false);
-        gVar = this.a.L;
+        gVar = this.a.N;
         gVar.i().setLike(0);
-        str3 = this.a.R;
+        str3 = this.a.T;
         if (str3.equals("normal_page")) {
-            cuVar2 = this.a.z;
-            cuVar2.g(0);
+            cvVar2 = this.a.B;
+            cvVar2.g(0);
         } else {
-            str4 = this.a.R;
+            str4 = this.a.T;
             if (str4.equals("frs_page")) {
-                cuVar = this.a.z;
-                cuVar.h(0);
+                cvVar = this.a.B;
+                cvVar.h(0);
             }
         }
         com.baidu.tieba.ai.c().e(str);

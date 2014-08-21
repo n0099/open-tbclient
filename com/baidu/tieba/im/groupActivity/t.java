@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.groupActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,9 +20,11 @@ public class t implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
+        Context context;
         this.a.f();
         dialog = this.a.r;
-        dialog.show();
+        context = this.a.mContext;
+        com.baidu.adp.lib.e.e.a(dialog, (Activity) context);
         TiebaStatic.eventStat(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);
     }
 }

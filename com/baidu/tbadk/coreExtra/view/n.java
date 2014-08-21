@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.tbadk.core.dialog.d {
@@ -19,6 +19,7 @@ public class n implements com.baidu.tbadk.core.dialog.d {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.d;
-        messageManager.sendMessage(new CustomMessage(2002001, new bk(context, "motu")));
+        messageManager.sendMessage(new CustomMessage(2002001, new bl(context, "motu")));
+        aVar.d();
     }
 }

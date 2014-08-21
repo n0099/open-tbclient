@@ -2,7 +2,6 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
@@ -26,7 +25,7 @@ public class b implements x {
         this.d = null;
         this.f = null;
         this.a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.v.create_group_step4_view, (ViewGroup) null);
+        this.b = com.baidu.adp.lib.e.b.a().a(createGroupStepActivity, com.baidu.tieba.v.create_group_step4_view, null);
         this.c = (ImageView) this.b.findViewById(com.baidu.tieba.u.step4_img_bg);
         this.d = (TextView) this.b.findViewById(com.baidu.tieba.u.txt_tip_view);
         this.f = (ImageView) this.b.findViewById(com.baidu.tieba.u.create_group_address_rightarrwow);

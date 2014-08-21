@@ -1,239 +1,49 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.BarImageView;
-import java.util.ArrayList;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du extends com.baidu.adp.base.f {
-    public LinearLayout a;
-    private LinearLayout b;
-    private BdSwitchView c;
-    private BdSwitchView d;
-    private View e;
-    private TextView f;
-    private TextView g;
-    private LinearLayout h;
-    private LinearLayout i;
-    private LinearLayout j;
-    private LinearLayout k;
-    private View l;
-    private TextView m;
-    private View n;
-    private View.OnClickListener o;
-    private boolean p;
-    private final com.baidu.adp.widget.BdSwitchView.c q;
+public class du extends HttpMessageListener {
+    final /* synthetic */ dt a;
 
-    public du(Context context) {
-        super(context);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.a = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.q = new dv(this);
-        g();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public du(dt dtVar, int i) {
+        super(i);
+        this.a = dtVar;
     }
 
-    public View a() {
-        return this.e;
-    }
-
-    public void b() {
-        e();
-        f();
-    }
-
-    private void g() {
-        this.e = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.v.frs_sidebar, (ViewGroup) null);
-        this.m = (TextView) this.e.findViewById(com.baidu.tieba.u.add_recommend);
-        this.n = this.e.findViewById(com.baidu.tieba.u.recommend_forum_layout_line);
-        this.a = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.forum_manager_center);
-        this.a.setVisibility(8);
-        this.l = this.e.findViewById(com.baidu.tieba.u.forum_manager_center_line);
-        this.l.setVisibility(8);
-        this.d = (BdSwitchView) this.e.findViewById(com.baidu.tieba.u.thrift_mode_switch);
-        this.d.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.b = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.eyeshield_mode);
-        this.c = (BdSwitchView) this.e.findViewById(com.baidu.tieba.u.eyeshield_mode_switch);
-        this.c.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.mContext);
-        this.c.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.f = (TextView) this.e.findViewById(com.baidu.tieba.u.message_btn);
-        this.g = (TextView) this.e.findViewById(com.baidu.tieba.u.mention_btn);
-        this.h = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.message_layout);
-        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.mention_layout);
-        this.j = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.history_layout);
-        this.k = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.recommend_forum_layout);
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.a.setVisibility(0);
-            this.l.setVisibility(0);
-            return;
-        }
-        this.a.setVisibility(8);
-        this.l.setVisibility(8);
-    }
-
-    public BdSwitchView c() {
-        return this.c;
-    }
-
-    public boolean d() {
-        return this.p;
-    }
-
-    public void b(boolean z) {
-        this.p = z;
-    }
-
-    public void e() {
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.c.c();
-        } else {
-            this.c.d();
-        }
-    }
-
-    public void f() {
-        this.d.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.h.a().f()) {
-            this.d.c();
-        } else {
-            this.d.d();
-        }
-        this.d.setOnSwitchStateChangeListener(this.q);
-    }
-
-    public void a(di diVar, boolean z, boolean z2) {
-        if (!z && !z2) {
-            this.f.setVisibility(4);
-            this.g.setVisibility(4);
-            return;
-        }
-        if (z) {
-            a(this.f, diVar.b());
-        } else {
-            this.f.setVisibility(4);
-        }
-        if (z2) {
-            a(this.g, diVar.a());
-            return;
-        }
-        this.g.setVisibility(4);
-    }
-
-    private void a(TextView textView, long j) {
-        if (textView != null) {
-            boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-            if (j > 0) {
-                textView.setVisibility(0);
-                if (j < 10) {
-                    textView.setText(String.valueOf(j));
-                    textView.setBackgroundResource(z ? com.baidu.tieba.t.icon_news_head_prompt_one_1 : com.baidu.tieba.t.icon_news_head_prompt_one);
-                    return;
-                } else if (j < 100) {
-                    textView.setText(String.valueOf(j));
-                    textView.setBackgroundResource(z ? com.baidu.tieba.t.icon_news_head_prompt_two_1 : com.baidu.tieba.t.icon_news_head_prompt_two);
-                    return;
-                } else {
-                    textView.setText("   ");
-                    textView.setBackgroundResource(z ? com.baidu.tieba.t.icon_news_head_prompt_more_1 : com.baidu.tieba.t.icon_news_head_prompt_more);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        dv dvVar;
+        dv dvVar2;
+        dv dvVar3;
+        dv dvVar4;
+        dv dvVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+            if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                dvVar = this.a.a;
+                if (dvVar != null) {
+                    dvVar2 = this.a.a;
+                    dvVar2.b(null);
                     return;
                 }
+                return;
             }
-            textView.setVisibility(4);
-        }
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.o = onClickListener;
-        this.h.setOnClickListener(this.o);
-        this.i.setOnClickListener(this.o);
-        this.j.setOnClickListener(this.o);
-        this.a.setOnClickListener(this.o);
-    }
-
-    public void a(ArrayList<com.baidu.tbadk.core.data.m> arrayList) {
-        this.k.removeAllViews();
-        if (arrayList == null || arrayList.size() == 0) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(0);
-            return;
-        }
-        this.m.setVisibility(0);
-        this.n.setVisibility(8);
-        LayoutInflater from = LayoutInflater.from(this.mContext);
-        int size = arrayList.size();
-        if (size != 0) {
-            int i = size > 10 ? 10 : size;
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            com.baidu.tbadk.core.c layoutMode = ((BaseActivity) this.mContext).getLayoutMode();
-            layoutMode.a(skinType == 1);
-            for (int i2 = 0; i2 < i; i2++) {
-                LinearLayout linearLayout = (LinearLayout) from.inflate(com.baidu.tieba.v.frs_sidebar_item, (ViewGroup) null);
-                layoutMode.a((View) linearLayout);
-                String str = arrayList.get(i2).a;
-                String str2 = arrayList.get(i2).b;
-                String str3 = arrayList.get(i2).d;
-                dw dwVar = new dw(this);
-                dwVar.a = str;
-                dwVar.b = str3;
-                LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.recommend_forum_item_layout);
-                ((TextView) linearLayout.findViewById(com.baidu.tieba.u.recommend_forum_name)).setText(str);
-                linearLayout2.setOnClickListener(this.o);
-                linearLayout2.setTag(dwVar);
-                ((BarImageView) linearLayout.findViewById(com.baidu.tieba.u.recommend_forum_image)).a(str2, 10, false);
-                this.k.addView(linearLayout);
+            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+            if (praiseResponseMessage.getError() == 0) {
+                dvVar5 = this.a.a;
+                dvVar5.a(praiseResponseMessage.getErrMsg());
+                return;
+            }
+            dvVar3 = this.a.a;
+            if (dvVar3 != null) {
+                dvVar4 = this.a.a;
+                dvVar4.b(praiseResponseMessage.getErrMsg());
             }
         }
-    }
-
-    public void b(ArrayList<com.baidu.tieba.data.z> arrayList) {
-        if (arrayList != null) {
-            this.k.removeAllViews();
-            LayoutInflater from = LayoutInflater.from(this.mContext);
-            int size = arrayList.size();
-            if (size != 0) {
-                int i = size > 10 ? 10 : size;
-                int skinType = TbadkApplication.m252getInst().getSkinType();
-                com.baidu.tbadk.core.c layoutMode = ((BaseActivity) this.mContext).getLayoutMode();
-                layoutMode.a(skinType == 1);
-                for (int i2 = 0; i2 < i; i2++) {
-                    LinearLayout linearLayout = (LinearLayout) from.inflate(com.baidu.tieba.v.frs_sidebar_item, (ViewGroup) null);
-                    layoutMode.a((View) linearLayout);
-                    TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.u.recommend_forum_name);
-                    String b = arrayList.get(i2).b();
-                    textView.setText(b);
-                    textView.setTag(b);
-                    textView.setOnClickListener(this.o);
-                    this.k.addView(linearLayout);
-                }
-            }
-        }
-    }
-
-    public void a(int i) {
-        com.baidu.tbadk.core.c layoutMode = ((BaseActivity) this.mContext).getLayoutMode();
-        layoutMode.a(i == 1);
-        layoutMode.a(this.e);
     }
 }

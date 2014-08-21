@@ -2,7 +2,6 @@ package com.baidu.tieba.discover.memberprivilege;
 
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -101,7 +100,7 @@ public class c extends BaseAdapter {
         int color = this.a.getResources().getColor(r.cp_cont_b);
         int color2 = this.a.getResources().getColor(r.cp_cont_b_1);
         if (view == null || view.getTag() == null || !(view.getTag() instanceof e)) {
-            view = LayoutInflater.from(this.a).inflate(v.memberprivilege_headview, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.memberprivilege_headview, null);
             eVar = new e(null);
             eVar.a = (HeadImageView) view.findViewById(u.head_portrait);
             eVar.b = (TextView) view.findViewById(u.nonmember_stamp);
@@ -133,7 +132,7 @@ public class c extends BaseAdapter {
                 eVar.f.setTextColor(z ? color2 : color);
             }
             eVar.d.setText(kVar.a);
-            eVar.g.setText(x.continue_member);
+            eVar.g.setText(this.c == 1 ? x.continue_member : x.continue_vip_member);
             eVar.g.setOnClickListener(this.a);
         } else {
             eVar.b.setVisibility(0);
@@ -184,7 +183,7 @@ public class c extends BaseAdapter {
         d dVar;
         boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof d)) {
-            view = LayoutInflater.from(this.a).inflate(v.memberprivilege_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.memberprivilege_item, null);
             dVar = new d(null);
             dVar.a = (HeadImageView) view.findViewById(u.item_portrait);
             dVar.b = (TextView) view.findViewById(u.title);

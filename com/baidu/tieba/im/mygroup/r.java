@@ -1,50 +1,45 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
+import com.baidu.tieba.im.data.GroupPermData;
+import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
-public class r extends FragmentPagerAdapter {
-    public static int a = 1;
-    private int[] b;
-    private ArrayList<v> c;
+class r extends com.baidu.adp.framework.listener.d {
+    final /* synthetic */ PersonGroupActivity a;
 
-    public r(PersonGroupActivity personGroupActivity, boolean z) {
-        super(personGroupActivity.getSupportFragmentManager());
-        this.c = new ArrayList<>();
-        Bundle bundle = new Bundle();
-        bundle.putInt("page_type", 0);
-        v vVar = new v();
-        vVar.setArguments(bundle);
-        this.c.add(vVar);
-        if (z) {
-            this.b = new int[1];
-        } else {
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("page_type", 1);
-            v vVar2 = new v();
-            vVar2.setArguments(bundle2);
-            this.c.add(vVar2);
-            this.b = new int[]{0, 1};
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(PersonGroupActivity personGroupActivity, int i) {
+        super(i);
+        this.a = personGroupActivity;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [323=4] */
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103008 && (socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
+            try {
+                ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
+                if (responseUserPermissionMessage.getError() > 0) {
+                    this.a.a(responseUserPermissionMessage.getErrorString());
+                    return;
+                }
+                GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
+                if (groupPermData != null) {
+                    if (groupPermData.isCreatePersonal()) {
+                        CreateGroupStepActivity.a(this.a, 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                    } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
+                        this.a.a(groupPermData.getCreatePersonalTip());
+                    }
+                }
+            } catch (Exception e) {
+            } finally {
+                this.a.e();
+            }
         }
-        a = this.b.length;
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i >= a || i < 0) {
-            return null;
-        }
-        return this.c.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return a;
-    }
-
-    public int a(int i) {
-        return this.b[i];
     }
 }

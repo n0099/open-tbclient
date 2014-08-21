@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -15,7 +16,6 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private HashMap<String, String> mHeaders;
     private boolean mNeedProgress;
     private HashMap<String, Object> mParams;
-    private int mRawNum;
 
     /* loaded from: classes.dex */
     public enum SORT {
@@ -39,7 +39,6 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         this.mHeaders = null;
         this.mParams = null;
         this.mComparator = null;
-        this.mRawNum = 0;
         this.mNeedProgress = false;
         initial();
     }
@@ -49,7 +48,6 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         this.mHeaders = null;
         this.mParams = null;
         this.mComparator = null;
-        this.mRawNum = 0;
         this.mNeedProgress = false;
         initial();
     }
@@ -67,11 +65,9 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             return null;
         }
         Object put = this.mParams.put(str, bArr);
-        this.mRawNum++;
         if (put == null || !(put instanceof byte[])) {
             return null;
         }
-        this.mRawNum--;
         return (byte[]) put;
     }
 
@@ -79,13 +75,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         if (str == null || obj == null) {
             return null;
         }
-        Object put = this.mParams.put(str, obj);
-        this.mRawNum++;
-        if (put != null) {
-            this.mRawNum--;
-            return put;
-        }
-        return put;
+        return this.mParams.put(str, obj);
     }
 
     public String addParam(String str, String str2) {
@@ -93,28 +83,18 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             return null;
         }
         Object put = this.mParams.put(str, str2);
-        if (put != null) {
-            if (put instanceof byte[]) {
-                this.mRawNum--;
-                return null;
-            } else if (put instanceof String) {
-                return (String) put;
-            }
+        if (put == null || !(put instanceof String)) {
+            return null;
         }
-        return null;
+        return (String) put;
     }
 
     public Object removeParam(String str) {
-        Object remove = this.mParams.remove(str);
-        if (remove != null && (remove instanceof byte[])) {
-            this.mRawNum--;
-        }
-        return remove;
+        return this.mParams.remove(str);
     }
 
     public void removeAllParams() {
         this.mParams.clear();
-        this.mRawNum = 0;
     }
 
     public String addHeader(String str, String str2) {
@@ -129,10 +109,6 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return this.mHeaders;
     }
 
-    public boolean hasRaw() {
-        return this.mRawNum > 0;
-    }
-
     private void initial() {
         this.mParams = new HashMap<>();
         this.mHeaders = new HashMap<>();
@@ -145,12 +121,20 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         if (this.mComparator != null) {
             Collections.sort(arrayList, this.mComparator);
         }
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            Map.Entry entry = (Map.Entry) arrayList.get(i);
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
             Object value = entry.getValue();
             if (!(value instanceof String) && !(value instanceof byte[])) {
-                entry.setValue(getByte(value));
+                Object obj = getByte(value);
+                if (obj == null) {
+                    obj = value.toString();
+                }
+                if (obj == null) {
+                    it.remove();
+                } else {
+                    entry.setValue(obj);
+                }
             }
         }
         return arrayList;

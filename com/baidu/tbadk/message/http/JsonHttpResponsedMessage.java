@@ -33,14 +33,6 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         TiebaStatic.netJson(eVar, getError(), getErrorString());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String parseToString(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        return new String(bArr, getCharset());
-    }
-
     protected JSONObject parseServerResponsedData(String str) {
         JSONObject jSONObject;
         Exception e;
@@ -69,18 +61,5 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             jSONObject = null;
             e = e3;
         }
-    }
-
-    protected String getCharset() {
-        int indexOf;
-        String contentType = getContentType();
-        if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
-            return "utf-8";
-        }
-        int indexOf2 = contentType.indexOf(32, indexOf);
-        if (indexOf2 == -1) {
-            return contentType.substring(indexOf + 8);
-        }
-        return contentType.substring(indexOf + 8, indexOf2);
     }
 }

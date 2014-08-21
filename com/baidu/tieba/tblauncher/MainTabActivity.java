@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
@@ -22,11 +21,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.atomData.ar;
-import com.baidu.tbadk.core.atomData.az;
-import com.baidu.tbadk.core.atomData.bc;
-import com.baidu.tbadk.core.atomData.bg;
-import com.baidu.tbadk.core.atomData.ce;
+import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.ba;
+import com.baidu.tbadk.core.atomData.bd;
+import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.cf;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.message.ExitAppMessage;
@@ -57,7 +56,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
     private long k = 0;
     private final long l = 2000;
     private final long m = 7200000;
-    private com.baidu.tbadk.core.view.m p = null;
+    private com.baidu.tbadk.core.view.n p = null;
     private View q = null;
     private HeadImageView r = null;
     private TextView s = null;
@@ -224,28 +223,28 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             this.F.setOnClickListener(new q(this));
             this.G = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.more_with_red_tag, this);
             this.H = (ImageView) this.G.findViewById(com.baidu.tieba.u.more_with_red_tag_msg);
-            View inflate = this.I.getLayoutInflater().inflate(com.baidu.tieba.v.main_tab_more_pop_window, (ViewGroup) null);
-            this.q = inflate.findViewById(com.baidu.tieba.u.more_pop_item_account);
+            View a2 = com.baidu.adp.lib.e.b.a().a(this.I, com.baidu.tieba.v.main_tab_more_pop_window, null);
+            this.q = a2.findViewById(com.baidu.tieba.u.more_pop_item_account);
             this.q.setOnClickListener(this);
-            this.r = (HeadImageView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_account_head);
-            this.s = (TextView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_account_name);
-            this.u = inflate.findViewById(com.baidu.tieba.u.more_pop_item_mark);
+            this.r = (HeadImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_account_head);
+            this.s = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_account_name);
+            this.u = a2.findViewById(com.baidu.tieba.u.more_pop_item_mark);
             this.u.setOnClickListener(this);
-            this.v = (ImageView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_mark_msg);
-            this.w = inflate.findViewById(com.baidu.tieba.u.more_pop_item_history);
+            this.v = (ImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_mark_msg);
+            this.w = a2.findViewById(com.baidu.tieba.u.more_pop_item_history);
             this.w.setOnClickListener(this);
-            this.x = inflate.findViewById(com.baidu.tieba.u.more_pop_item_mylive);
+            this.x = a2.findViewById(com.baidu.tieba.u.more_pop_item_mylive);
             this.x.setOnClickListener(new r(this));
-            this.y = inflate.findViewById(com.baidu.tieba.u.more_pop_item_setting);
+            this.y = a2.findViewById(com.baidu.tieba.u.more_pop_item_setting);
             this.y.setOnClickListener(this);
-            this.z = (ImageView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_setting_msg);
-            this.A = (TextView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_feedback);
+            this.z = (ImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_setting_msg);
+            this.A = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_feedback);
             this.A.setOnClickListener(this);
-            this.B = (TextView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_switchaccount);
+            this.B = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_switchaccount);
             this.B.setOnClickListener(this);
-            this.C = (TextView) inflate.findViewById(com.baidu.tieba.u.more_pop_item_exitapp);
+            this.C = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_exitapp);
             this.C.setOnClickListener(this);
-            this.p = new com.baidu.tbadk.core.view.m(this.I, inflate, this.o, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new s(this));
+            this.p = new com.baidu.tbadk.core.view.n(this.I, a2, this.o, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new s(this));
         }
     }
 
@@ -268,28 +267,28 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             o();
             a(true);
         } else if (view == this.q) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.I, currentAccountObj.getID(), currentAccountObj.getAccount())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.I, currentAccountObj.getID(), currentAccountObj.getAccount())));
             }
             this.R = false;
             a(true);
         } else if (view == this.u) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.I)));
             this.S = false;
             a(true);
         } else if (view == this.w) {
-            this.p.dismiss();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bc(this.I)));
+            com.baidu.adp.lib.e.e.a(this.p, this);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bd(this.I)));
         } else if (view == this.y) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             a(new CustomMessage(2015004, new com.baidu.tbadk.core.frameworkData.a(this.I)));
             this.P = false;
             a(true);
         } else if (view == this.A) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             AntiData antiData = new AntiData();
             antiData.setIfpost(1);
             if (antiData != null && antiData.getIfpost() == 0) {
@@ -297,12 +296,12 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
                 return;
             }
             antiData.setIfVoice(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this.I, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this.I, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
         } else if (view == this.B) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             a(new CustomMessage(2015006, new com.baidu.tbadk.core.frameworkData.a(this.I)));
         } else if (view == this.C) {
-            this.p.dismiss();
+            com.baidu.adp.lib.e.e.a(this.p, this);
             p().show();
         }
     }
@@ -383,7 +382,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         com.baidu.tbadk.coreExtra.messageCenter.a.a().a(false);
         com.baidu.tbadk.imageManager.e.a().c();
         if (this.b != null) {
-            this.b.dismiss();
+            com.baidu.adp.lib.e.e.a(this.b, this);
             this.b = null;
         }
         super.onDestroy();
@@ -443,7 +442,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        ar.a = false;
+        as.a = false;
         if (h) {
             h = false;
             CompatibleUtile.setAnim(this, com.baidu.tieba.o.down, com.baidu.tieba.o.hold);
@@ -484,7 +483,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         if (intExtra == 200) {
             finish();
         } else if (intExtra == 11) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new az(this, az.b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ba(this, ba.b)));
             finish();
         } else if (intExtra == 12) {
             TbadkApplication.m252getInst().notifyAppEnterBackground();
@@ -559,7 +558,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

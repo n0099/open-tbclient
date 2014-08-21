@@ -1,10 +1,17 @@
 package com.baidu.tieba.neighbors;
 
-import android.content.Context;
+import android.view.View;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tbadk.core.frameworkData.a {
-    public i(Context context, boolean z) {
-        super(context);
-        getIntent().putExtra("locating", z);
+class i implements View.OnClickListener {
+    final /* synthetic */ NeighborsActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(NeighborsActivity neighborsActivity) {
+        this.a = neighborsActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

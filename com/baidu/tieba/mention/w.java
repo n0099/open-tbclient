@@ -24,35 +24,35 @@ public class w extends com.baidu.adp.framework.listener.a {
         if ((responsedMessage instanceof ReplyMeSocketResponseMessage) || (responsedMessage instanceof ReplyMeHttpResponseMessage)) {
             if (responsedMessage instanceof ReplyMeSocketResponseMessage) {
                 ReplyMeSocketResponseMessage replyMeSocketResponseMessage = (ReplyMeSocketResponseMessage) responsedMessage;
-                aVar3 = this.a.p;
+                aVar3 = this.a.o;
                 if (aVar3 != null) {
                     long downSize = replyMeSocketResponseMessage.getDownSize();
                     long costTime = replyMeSocketResponseMessage.getCostTime();
-                    aVar4 = this.a.p;
+                    aVar4 = this.a.o;
                     aVar4.a(false, !responsedMessage.hasError(), replyMeSocketResponseMessage.getError(), replyMeSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.a.p = null;
+                    this.a.o = null;
                 }
                 if (!replyMeSocketResponseMessage.hasError() && replyMeSocketResponseMessage.getModel() != null) {
                     v vVar = this.a;
                     com.baidu.tieba.model.al model = replyMeSocketResponseMessage.getModel();
-                    i2 = this.a.n;
+                    i2 = this.a.m;
                     vVar.a(model, i2 == 4);
                 }
             }
             if (responsedMessage instanceof ReplyMeHttpResponseMessage) {
                 ReplyMeHttpResponseMessage replyMeHttpResponseMessage = (ReplyMeHttpResponseMessage) responsedMessage;
-                aVar = this.a.p;
+                aVar = this.a.o;
                 if (aVar != null) {
                     long downSize2 = replyMeHttpResponseMessage.getDownSize();
                     long costTime2 = replyMeHttpResponseMessage.getCostTime();
-                    aVar2 = this.a.p;
+                    aVar2 = this.a.o;
                     aVar2.a(true, !responsedMessage.hasError(), replyMeHttpResponseMessage.getError(), replyMeHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.a.p = null;
+                    this.a.o = null;
                 }
                 if (!replyMeHttpResponseMessage.hasError() && replyMeHttpResponseMessage.getModel() != null) {
                     v vVar2 = this.a;
                     com.baidu.tieba.model.al model2 = replyMeHttpResponseMessage.getModel();
-                    i = this.a.n;
+                    i = this.a.m;
                     vVar2.a(model2, i == 4);
                 }
             }

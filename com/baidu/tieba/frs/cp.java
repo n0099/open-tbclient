@@ -1,36 +1,18 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp extends BdAsyncTask<String, Integer, Boolean> {
+class cp implements com.baidu.tbadk.core.view.r {
     final /* synthetic */ FrsImageActivity a;
-    private final String b;
 
-    public cp(FrsImageActivity frsImageActivity, String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cp(FrsImageActivity frsImageActivity) {
         this.a = frsImageActivity;
-        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        boolean b;
-        b = this.a.b(this.b);
-        return Boolean.valueOf(b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.a.showToast(com.baidu.tieba.x.shortcut_has_add);
-        } else {
-            this.a.c(this.b);
+    @Override // com.baidu.tbadk.core.view.r
+    public void a(boolean z) {
+        if (z) {
+            this.a.t = null;
+            this.a.c(1);
         }
     }
 }

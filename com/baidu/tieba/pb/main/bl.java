@@ -351,6 +351,7 @@ public class bl extends com.baidu.adp.base.e {
         }
         pbPageRequestMessage pbpagerequestmessage = new pbPageRequestMessage();
         pbpagerequestmessage.setUpdateType(i);
+        pbpagerequestmessage.setLastids(com.baidu.tbadk.distribute.a.a);
         if (!this.f || this.e || this.q) {
             this.E = false;
         }
@@ -393,6 +394,7 @@ public class bl extends com.baidu.adp.base.e {
         switch (i) {
             case 1:
                 pbpagerequestmessage.set_back(0);
+                pbpagerequestmessage.set_banner(0);
                 if (!this.q) {
                     if (!this.f) {
                         if (this.l > 0) {
@@ -414,6 +416,7 @@ public class bl extends com.baidu.adp.base.e {
             case 2:
                 this.d = e2.get(0).d();
                 pbpagerequestmessage.set_back(1);
+                pbpagerequestmessage.set_banner(0);
                 if (this.q) {
                     if (this.f) {
                         if (this.l > 0) {
@@ -430,6 +433,7 @@ public class bl extends com.baidu.adp.base.e {
                 break;
             case 3:
                 if (this.q) {
+                    pbpagerequestmessage.set_banner(0);
                     a(F(), true, this.d, 3);
                 } else {
                     a(F(), false, this.d, 3);
@@ -451,6 +455,7 @@ public class bl extends com.baidu.adp.base.e {
                 pbpagerequestmessage.set_mark(1);
                 pbpagerequestmessage.set_pid(Long.parseLong(this.d));
                 pbpagerequestmessage.set_back(0);
+                pbpagerequestmessage.set_banner(0);
                 break;
             case 5:
                 pbpagerequestmessage.set_back(0);
@@ -461,6 +466,7 @@ public class bl extends com.baidu.adp.base.e {
                 pbpagerequestmessage.set_mark(1);
                 pbpagerequestmessage.set_pid(Long.parseLong(this.d));
                 pbpagerequestmessage.set_back(0);
+                pbpagerequestmessage.set_banner(0);
                 break;
         }
         pbpagerequestmessage.setIsFromMark(Boolean.valueOf(this.q));
@@ -521,13 +527,12 @@ public class bl extends com.baidu.adp.base.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.data.aj ajVar) {
-        String str;
         if (ajVar != null) {
-            if (ajVar.d() == null || ajVar.d().q() == null) {
-                str = null;
-            } else {
+            String str = null;
+            if (ajVar.d() != null && ajVar.d().q() != null) {
                 str = ajVar.d().q().getUserId();
             }
+            String str2 = str == null ? "" : str;
             com.baidu.tbadk.core.data.n d = ajVar.d();
             d.c(this.g);
             d.b(this.h);
@@ -535,7 +540,7 @@ public class bl extends com.baidu.adp.base.e {
             for (int i = 0; i < ajVar.e().size(); i++) {
                 com.baidu.tieba.data.an anVar = ajVar.e().get(i);
                 for (int i2 = 0; i2 < anVar.n_().size(); i2++) {
-                    anVar.n_().get(i2).a(this.x, str.equals(anVar.n_().get(i2).g().getUserId()));
+                    anVar.n_().get(i2).a(this.x, str2.equals(anVar.n_().get(i2).g().getUserId()));
                 }
             }
         }

@@ -31,6 +31,8 @@ import com.baidu.tieba.im.groupInfo.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
 import com.baidu.tieba.im.groupInfo.ResponseJoinGroupMessage;
 import com.baidu.tieba.im.live.ResponseGetAccessTokenMessage;
+import com.baidu.tieba.im.memorycache.bs;
+import com.baidu.tieba.im.memorycache.bu;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddLiveGroupMessage;
 import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
@@ -87,7 +89,8 @@ public class b {
     public static boolean a() {
         b();
         c();
-        return d();
+        d();
+        return e();
     }
 
     public static boolean b() {
@@ -212,6 +215,12 @@ public class b {
         MessageManager.getInstance().addResponsedMessageRule(new c(202006));
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.b.k());
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.j());
+        return true;
+    }
+
+    private static boolean e() {
+        MessageManager.getInstance().addResponsedMessageRule(new bs());
+        MessageManager.getInstance().addResponsedMessageRule(new bu());
         return true;
     }
 }

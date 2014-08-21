@@ -3,8 +3,6 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
@@ -28,7 +26,7 @@ public class GoOnAnimView extends LinearLayout {
     }
 
     private void a(Context context) {
-        LinearLayout linearLayout = (LinearLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.go_on_anim, (ViewGroup) null, false);
+        LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.go_on_anim, null, false);
         this.a = (ImageView) linearLayout.findViewById(com.baidu.tieba.u.tip_go_on_1);
         this.b = (ImageView) linearLayout.findViewById(com.baidu.tieba.u.tip_go_on_2);
         this.c = (ImageView) linearLayout.findViewById(com.baidu.tieba.u.tip_go_on_3);

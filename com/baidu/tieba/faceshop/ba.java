@@ -16,7 +16,7 @@ public class ba {
     private final NavigationBar c;
     private final NoNetworkView d;
     private final BdListView e;
-    private final com.baidu.tbadk.core.view.u f;
+    private final com.baidu.tbadk.core.view.v f;
     private final TextView g;
     private aw h;
 
@@ -30,7 +30,7 @@ public class ba {
         this.d = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.view_no_network);
         this.g = (TextView) this.b.findViewById(com.baidu.tieba.u.empty);
         this.e = (BdListView) this.b.findViewById(com.baidu.tieba.u.purchase_record_list);
-        this.f = new com.baidu.tbadk.core.view.u(baseActivity);
+        this.f = new com.baidu.tbadk.core.view.v(baseActivity);
         this.e.setPullRefresh(this.f);
     }
 
@@ -68,12 +68,12 @@ public class ba {
         this.f.a(dVar);
     }
 
-    public void a(com.baidu.tbadk.core.view.q qVar) {
-        this.d.a(qVar);
+    public void a(com.baidu.tbadk.core.view.r rVar) {
+        this.d.a(rVar);
     }
 
-    public void b(com.baidu.tbadk.core.view.q qVar) {
-        this.d.b(qVar);
+    public void b(com.baidu.tbadk.core.view.r rVar) {
+        this.d.b(rVar);
     }
 
     public void a(int i) {

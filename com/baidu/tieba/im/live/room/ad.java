@@ -27,7 +27,7 @@ class ad extends CustomMessageListener {
                 LivePublisherSayMessage livePublisherSayMessage = (LivePublisherSayMessage) customResponsedMessage;
                 if (livePublisherSayMessage.getChatMsg() != null && (livePublisherSayMessage.getChatMsg() instanceof ChatMessage)) {
                     ChatMessage chatMessage = (ChatMessage) livePublisherSayMessage.getChatMsg();
-                    if (com.baidu.adp.lib.e.b.a(chatMessage.getGroupId(), 0) == this.a.v().b.groupId.intValue()) {
+                    if (com.baidu.adp.lib.e.c.a(chatMessage.getGroupId(), 0) == this.a.v().b.groupId.intValue()) {
                         liveRoomChatView2 = this.a.p;
                         liveRoomChatView2.a(chatMessage);
                     }

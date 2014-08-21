@@ -1,51 +1,38 @@
 package com.baidu.tieba.game;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.LinkedList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.util.List;
-import tbclient.GameInfo;
-import tbclient.GetGameCenter.AdList;
-import tbclient.GetGameCenter.GameList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends CustomMessageListener {
-    final /* synthetic */ GameCenterHomeActivity a;
+public class i extends BdAsyncTask<String, Integer, List<com.baidu.tbadk.game.b>> {
+    final /* synthetic */ h a;
+    private final /* synthetic */ List b;
+    private final /* synthetic */ List c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(GameCenterHomeActivity gameCenterHomeActivity, int i) {
-        super(i);
-        this.a = gameCenterHomeActivity;
+    public i(h hVar, List list, List list2) {
+        this.a = hVar;
+        this.b = list;
+        this.c = list2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public List<com.baidu.tbadk.game.b> doInBackground(String... strArr) {
+        return ae.a().a(this.b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(List<com.baidu.tbadk.game.b> list) {
+        GameCenterHomeActivity gameCenterHomeActivity;
         n nVar;
-        nVar = this.a.a;
-        nVar.b().setVisibility(0);
-        this.a.closeLoadingDialog();
-        this.a.a(true);
-        if (!(customResponsedMessage instanceof ResponseGameCenterLocalMessage)) {
-            this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.neterror));
-            return;
-        }
-        ResponseGameCenterLocalMessage responseGameCenterLocalMessage = (ResponseGameCenterLocalMessage) customResponsedMessage;
-        if (responseGameCenterLocalMessage.getOrginalMessage() instanceof RequestGameCenterLocalMessage) {
-            GameList gameList = responseGameCenterLocalMessage.getGameList();
-            List<AdList> adList = responseGameCenterLocalMessage.getAdList();
-            List<GameInfo> list = gameList.game_info;
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    GameInfo gameInfo = list.get(i);
-                    if (gameInfo.game_type.intValue() == 1 || gameInfo.game_type.intValue() == 2) {
-                        linkedList.add(ab.a(gameInfo));
-                    }
-                }
-            }
-            new j(this, linkedList, adList).execute("");
-        }
+        gameCenterHomeActivity = this.a.a;
+        nVar = gameCenterHomeActivity.a;
+        nVar.a(this.c, this.b, list);
     }
 }

@@ -14,7 +14,6 @@ import android.text.InputFilter;
 import android.text.style.ImageSpan;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,8 +28,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ce;
 import com.baidu.tbadk.core.atomData.cf;
+import com.baidu.tbadk.core.atomData.cg;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.ay;
@@ -190,7 +189,7 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
         if (this.i == null) {
             this.i = new AlertDialog.Builder(this).create();
             this.i.setCanceledOnTouchOutside(true);
-            this.j = getLayoutInflater().inflate(com.baidu.tieba.v.pb_title_dialog, (ViewGroup) null);
+            this.j = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.pb_title_dialog, null);
         }
     }
 
@@ -383,7 +382,7 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
             b(0);
         }
         if (this.i != null && this.i.isShowing()) {
-            com.baidu.adp.lib.e.d.b(this.i, this);
+            com.baidu.adp.lib.e.e.b(this.i, this);
         }
         a(this.H, this.H);
     }
@@ -416,18 +415,18 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                     c(0);
                     return;
                 case 11016:
-                    com.baidu.adp.lib.e.d.a(this.G, this);
+                    com.baidu.adp.lib.e.e.a(this.G, this);
                     return;
                 case 12001:
                     if (this.E != null && this.E.h() != null && this.A != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 12001, 12010, null, this.E.i(), this.A, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cg(this, 12001, 12010, null, this.E.i(), this.A, null)));
                         return;
                     }
                     return;
                 case 12002:
                     if (this.E != null && this.E.h() != null && this.A != null) {
                         if (intent != null && intent.getData() != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 12002, 12009, intent.getData(), String.valueOf(this.E.i()), this.A, null)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cg(this, 12002, 12009, intent.getData(), String.valueOf(this.E.i()), this.A, null)));
                             return;
                         }
                         return;
@@ -444,10 +443,10 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                 case 12010:
                     if (this.E != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this, 1, this.E.i(), this.A, this.B, null, 0, null, 13002, false, false, null, false, true, null, null, null, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 1, this.E.i(), this.A, this.B, null, 0, null, 13002, false, false, null, false, true, null, null, null, 0)));
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this, 1, this.E.i(), this.A, this.B, null, 0, null, 13002, false, false, null, false, true, intent.getStringExtra("filename"), null, null, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 1, this.E.i(), this.A, this.B, null, 0, null, 13002, false, false, null, false, true, intent.getStringExtra("filename"), null, null, 0)));
                         return;
                     }
                     return;

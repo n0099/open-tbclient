@@ -3,7 +3,6 @@ package com.baidu.tieba.game;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.download.a {
     @Override // com.baidu.tbadk.download.a
@@ -30,10 +29,10 @@ public class a implements com.baidu.tbadk.download.a {
         if (downloadData == null) {
             return false;
         }
-        TiebaStatic.eventStat(ai.c().d(), "dl_game_success", downloadData.getId());
-        ap.a(ai.c().d(), downloadData.getNotifyId());
+        TiebaStatic.eventStat(com.baidu.tieba.ai.c().d(), "dl_game_success", downloadData.getId());
+        ap.a(com.baidu.tieba.ai.c().d(), downloadData.getNotifyId());
         b.a().a(downloadData);
-        ac.a().b(downloadData.getId());
+        ae.a().b(downloadData.getId());
         return true;
     }
 

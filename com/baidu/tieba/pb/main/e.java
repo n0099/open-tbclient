@@ -27,12 +27,12 @@ class e implements View.OnClickListener {
             str2 = (String) view.getTag();
         }
         if (str2 != null) {
-            blVar = this.a.x;
+            blVar = this.a.y;
             if (blVar != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 PbActivity pbActivity = this.a;
-                blVar2 = this.a.x;
-                messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(pbActivity, str2, str, blVar2.f(), "pb_head")));
+                blVar2 = this.a.y;
+                messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(pbActivity, str2, str, blVar2.f(), "pb_head")));
             }
         }
     }

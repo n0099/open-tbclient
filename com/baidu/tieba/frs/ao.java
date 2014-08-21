@@ -19,17 +19,17 @@ public class ao implements DialogInterface.OnClickListener {
         String str;
         String str2;
         boolean z;
-        cu cuVar;
+        cv cvVar;
         switch (i) {
             case 0:
-                str = this.a.x;
+                str = this.a.y;
                 if (str != null) {
                     FrsActivity frsActivity = this.a;
-                    com.baidu.tbadk.core.atomData.bb bbVar = new com.baidu.tbadk.core.atomData.bb(this.a);
+                    com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
                     com.baidu.tbadk.core.data.n nVar = this.b;
                     str2 = this.a.q;
-                    z = this.a.y;
-                    frsActivity.sendMessage(new CustomMessage(2004001, bbVar.a(nVar, str2, null, 18003, true, false, z)));
+                    z = this.a.A;
+                    frsActivity.sendMessage(new CustomMessage(2004001, bcVar.a(nVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
@@ -44,7 +44,7 @@ public class ao implements DialogInterface.OnClickListener {
         if (B != null && this.b != null && !B.b(this.b.h())) {
             B.a(this.b.h());
         }
-        cuVar = this.a.z;
-        cuVar.z();
+        cvVar = this.a.B;
+        cvVar.z();
     }
 }

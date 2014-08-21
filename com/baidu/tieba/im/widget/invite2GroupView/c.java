@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.x;
+import com.baidu.tbadk.core.atomData.y;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class c implements View.OnClickListener {
             inviteMsgData2 = this.a.e;
             String groupName = inviteMsgData2.getGroupName();
             inviteMsgData3 = this.a.e;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new x((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new y((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
         }
     }
 }

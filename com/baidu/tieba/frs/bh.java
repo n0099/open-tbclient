@@ -2,11 +2,11 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements Runnable {
-    final /* synthetic */ bc a;
+    final /* synthetic */ bd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bc bcVar) {
-        this.a = bcVar;
+    public bh(bd bdVar) {
+        this.a = bdVar;
     }
 
     @Override // java.lang.Runnable

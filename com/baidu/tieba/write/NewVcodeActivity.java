@@ -54,7 +54,7 @@ public class NewVcodeActivity extends BaseActivity {
     };
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ay.class, NewVcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.az.class, NewVcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

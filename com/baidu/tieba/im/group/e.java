@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.group;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements q {
+public class e implements r {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class e implements q {
         this.a = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.q
+    @Override // com.baidu.tbadk.core.view.r
     public void a(boolean z) {
         BdListView bdListView;
         if (z) {

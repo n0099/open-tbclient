@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tbadk.core.view.u a;
+    private com.baidu.tbadk.core.view.v a;
     private w b;
     private com.baidu.tieba.im.model.j c;
     private final com.baidu.adp.framework.listener.d d = new j(this, 107001);
@@ -42,7 +42,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
     private void b() {
         this.b = new w(this);
         BdListView d = this.b.d();
-        this.a = new com.baidu.tbadk.core.view.u(this);
+        this.a = new com.baidu.tbadk.core.view.v(this);
         this.a.a(new l(this));
         d.setPullRefresh(this.a);
         d.setOnScrollListener(this);

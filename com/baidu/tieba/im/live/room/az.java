@@ -43,7 +43,7 @@ class az extends com.baidu.adp.framework.listener.d {
             LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
             int intValue = liveGroupInfo.groupId.intValue();
             baVar = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.al(liveRoomEntranceActivity, intValue, baVar.a())));
+            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.am(liveRoomEntranceActivity, intValue, baVar.a())));
             handler = this.a.d;
             handler.sendEmptyMessageDelayed(2001, 300L);
         }

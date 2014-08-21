@@ -19,13 +19,14 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.atomData.ch;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.aa;
 import com.baidu.tbadk.core.voice.y;
@@ -35,7 +36,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.dr;
+import com.baidu.tieba.frs.dt;
 import com.baidu.tieba.model.ab;
 import com.baidu.tieba.model.ar;
 import com.baidu.tieba.model.as;
@@ -46,7 +47,7 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class FriendFeedActivity extends BaseActivity implements View.OnClickListener, x, aa, com.baidu.tieba.util.n, com.baidu.tieba.view.q {
     VoiceManager a;
-    private com.baidu.tbadk.core.view.u b;
+    private v b;
     private t c;
     private ab d;
     private FriendFeedThreadData f;
@@ -61,7 +62,7 @@ public class FriendFeedActivity extends BaseActivity implements View.OnClickList
     private final AbsListView.OnScrollListener n = new d(this);
     private AlertDialog o = null;
     private final q p = new e(this);
-    private final dr q = new dr(new f(this));
+    private final dt q = new dt(new f(this));
     private final com.baidu.adp.framework.listener.d r = new g(this, 303003);
     private final CustomMessageListener s = new h(this, 2001172);
 
@@ -140,7 +141,7 @@ public class FriendFeedActivity extends BaseActivity implements View.OnClickList
     private void f() {
         this.c = new t(this);
         BdListView d = this.c.d();
-        this.b = new com.baidu.tbadk.core.view.u(this);
+        this.b = new v(this);
         this.b.a(new i(this));
         d.setPullRefresh(this.b);
         d.setOnSrollToBottomListener(this);
@@ -239,7 +240,7 @@ public class FriendFeedActivity extends BaseActivity implements View.OnClickList
                     c(intent);
                     int size2 = this.k.size() - 1;
                     if (size2 > -1 && this.k != null && this.k.getChosedFiles() != null && (size = this.k.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cg(this, 12012, this.k, size2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ch(this, 12012, this.k, size2)));
                         return;
                     }
                     return;

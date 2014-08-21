@@ -1,125 +1,134 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.model.BarSuggestModel;
+import com.baidu.tieba.data.SearchPostModel;
 import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends BaseAdapter {
-    private final BaseActivity a;
-    private final String b;
-    private final boolean c = true;
-    private ArrayList<BarSuggestModel.Forum> d;
+public class ai extends BdAsyncTask<Object, Integer, SearchPostModel> {
+    ArrayList<BasicNameValuePair> a;
+    final /* synthetic */ SquareSearchActivity b;
+    private com.baidu.tbadk.core.util.ae c = null;
+    private String d;
 
-    public ai(BaseActivity baseActivity, ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.a = baseActivity;
-        this.b = baseActivity.getText(com.baidu.tieba.x.forum).toString();
-        this.d = arrayList;
+    public ai(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
+        this.b = squareSearchActivity;
+        this.d = null;
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    public void a(ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.d = arrayList;
-        if (this.d != null) {
-            notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        TextView textView;
+        EditText editText;
+        ListView listView;
+        ProgressBar progressBar;
+        textView = this.b.s;
+        textView.setVisibility(8);
+        SquareSearchActivity squareSearchActivity = this.b;
+        editText = this.b.c;
+        com.baidu.adp.lib.util.j.a(squareSearchActivity, editText);
+        listView = this.b.l;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.b.p;
+            progressBar.setVisibility(0);
         }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.d == null) {
-            return 0;
-        }
-        return this.d.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public BarSuggestModel.Forum getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.d.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception e;
-        View view2;
-        aj ajVar;
-        BarSuggestModel.Forum item;
+    public SearchPostModel doInBackground(Object... objArr) {
+        Exception exc;
+        SearchPostModel searchPostModel;
+        String str;
         try {
-            if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.square_dialog_search_item, (ViewGroup) null);
-                ajVar = new aj(this, null);
-                ajVar.b = (BarImageView) view.findViewById(com.baidu.tieba.u.forum_avatar);
-                ajVar.b.setGifIconSupport(false);
-                ajVar.a = (TextView) view.findViewById(com.baidu.tieba.u.name);
-                ajVar.c = (TextView) view.findViewById(com.baidu.tieba.u.member_count);
-                ajVar.d = (TextView) view.findViewById(com.baidu.tieba.u.thread_count);
-                ajVar.e = (TextView) view.findViewById(com.baidu.tieba.u.slogan);
-                view.setTag(ajVar);
-                view2 = view;
-            } else {
-                ajVar = (aj) view.getTag();
-                view2 = view;
+            this.c = new com.baidu.tbadk.core.util.ae(this.d);
+            Iterator<BasicNameValuePair> it = this.a.iterator();
+            while (it.hasNext()) {
+                this.c.a(it.next());
             }
+            String h = this.c.h();
+            if (!this.c.a().b().a() || h == null) {
+                return null;
+            }
+            SearchPostModel searchPostModel2 = new SearchPostModel();
             try {
-                item = getItem(i);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                a(view2);
-                return view2;
+                searchPostModel2.parserJson(h);
+                Iterator<BasicNameValuePair> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    BasicNameValuePair next = it2.next();
+                    if ("word".equals(next.getName())) {
+                        this.b.B = next.getValue();
+                    }
+                }
+                if (this.c.a().b().b()) {
+                    str = this.b.y;
+                    com.baidu.tieba.util.k.f(str);
+                    return searchPostModel2;
+                }
+                return searchPostModel2;
+            } catch (Exception e) {
+                searchPostModel = searchPostModel2;
+                exc = e;
+                BdLog.e(exc.getMessage());
+                return searchPostModel;
             }
-        } catch (Exception e3) {
-            e = e3;
-            view2 = view;
+        } catch (Exception e2) {
+            exc = e2;
+            searchPostModel = null;
         }
-        if (item != null) {
-            this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-            this.a.getLayoutMode().a(view2);
-            String str = item.avatar;
-            ajVar.b.setTag(str);
-            ajVar.b.a(str, 10, false);
-            ajVar.b.invalidate();
-            if (this.c) {
-                ajVar.a.setText(item.forum_name.concat(this.b));
-            } else {
-                ajVar.a.setText(item.forum_name);
-            }
-            ajVar.b.setTag(item.avatar);
-            ajVar.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.forum_list_attention_tv)) + " " + b(item.member_num));
-            ajVar.d.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.forum_list_thread_tv)) + " " + b(item.thread_num));
-            ajVar.e.setText(item.slogan);
-            a(view2);
-        }
-        return view2;
     }
 
-    private void a(View view) {
-        this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.getLayoutMode().a(view);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(SearchPostModel searchPostModel) {
+        ProgressBar progressBar;
+        e eVar;
+        e eVar2;
+        e eVar3;
+        progressBar = this.b.p;
+        progressBar.setVisibility(8);
+        eVar = this.b.o;
+        eVar.a(0);
+        eVar2 = this.b.o;
+        eVar2.notifyDataSetChanged();
+        if (searchPostModel == null || this.c == null || !this.c.a().b().a()) {
+            this.b.showToast(this.b.getString(com.baidu.tieba.x.neterror));
+        } else if (this.c.a().b().b()) {
+            this.b.v = searchPostModel;
+            eVar3 = this.b.o;
+            eVar3.notifyDataSetChanged();
+            this.b.o();
+        } else {
+            this.b.showToast(this.c.e());
+        }
+        this.b.x = null;
     }
 
-    public String b(int i) {
-        if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY)) + this.a.getString(com.baidu.tieba.x.member_count_unit);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.f();
+            this.c = null;
         }
-        return String.valueOf(i);
+        progressBar = this.b.p;
+        progressBar.setVisibility(8);
+        this.b.x = null;
+        super.cancel(true);
     }
 }

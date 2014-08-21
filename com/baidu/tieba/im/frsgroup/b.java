@@ -20,7 +20,7 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private j d;
     private BdListView e;
     private Button f;
-    private com.baidu.tbadk.core.view.u g;
+    private com.baidu.tbadk.core.view.v g;
     private InitGuideView h;
     private GroupListAdapter i;
     private boolean j;
@@ -70,7 +70,7 @@ public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.h = (InitGuideView) inflate.findViewById(com.baidu.tieba.u.group_guide);
         this.f = (Button) inflate.findViewById(com.baidu.tieba.u.guide_create);
         this.e = (BdListView) inflate.findViewById(com.baidu.tieba.u.group_list);
-        this.g = new com.baidu.tbadk.core.view.u(this.b);
+        this.g = new com.baidu.tbadk.core.view.v(this.b);
         this.e.setPullRefresh(this.g);
         this.i = new GroupListAdapter(this.b);
         this.e.setAdapter((ListAdapter) this.i);

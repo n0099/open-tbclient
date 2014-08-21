@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.r;
 import com.baidu.tieba.u;
@@ -87,7 +87,7 @@ public class QuickSearchActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.coreExtra.relationship.b item = this.h.getItem(i);
         if (item != null && item.c() > 0) {
-            sendMessage(new CustomMessage(2002003, new bg(TbadkApplication.m252getInst().getApplicationContext(), String.valueOf(item.c()), item.b())));
+            sendMessage(new CustomMessage(2002003, new bh(TbadkApplication.m252getInst().getApplicationContext(), String.valueOf(item.c()), item.b())));
         }
     }
 

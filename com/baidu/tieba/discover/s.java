@@ -1,7 +1,6 @@
 package com.baidu.tieba.discover;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -40,7 +39,7 @@ public class s extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         t tVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.discover_square_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.discover_square_item, viewGroup, false);
             t tVar2 = new t(null);
             tVar2.b = (TextView) view.findViewById(com.baidu.tieba.u.squre_name);
             tVar2.c = (BestStringsFitTextView) view.findViewById(com.baidu.tieba.u.description);

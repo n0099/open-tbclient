@@ -5,9 +5,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -178,7 +176,7 @@ public class j {
 
     public View a() {
         l lVar = new l(this);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.forum_feed_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.forum_feed_item, null);
         lVar.a = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumTop);
         lVar.b = (RelativeLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumBottom);
         lVar.c = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListFrsName);

@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.cd;
+import com.baidu.tbadk.core.atomData.ce;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class VcodeActivity extends BaseActivity {
     private final View.OnClickListener n = new x(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(cd.class, VcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ce.class, VcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -23,9 +23,9 @@ public class b implements ViewGroup.OnHierarchyChangeListener {
         } else if (view2 instanceof c) {
             bVar2 = this.a.e;
             bVar2.a((com.baidu.adp.lib.d.b) ((c) view2));
-        } else if (view2 instanceof bb) {
+        } else if (view2 instanceof bc) {
             bVar = this.a.f;
-            bVar.a((com.baidu.adp.lib.d.b) ((bb) view2));
+            bVar.a((com.baidu.adp.lib.d.b) ((bc) view2));
         }
     }
 

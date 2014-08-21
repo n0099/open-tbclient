@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,11 @@ public class d {
         StringBuilder sb = new StringBuilder();
         int size = this.a.size();
         for (int i = 0; i < size; i++) {
-            sb.append(this.a.get(i).b);
-            if (i != size - 1) {
-                sb.append(",");
+            if (!TextUtils.isEmpty(this.a.get(i).b)) {
+                sb.append(this.a.get(i).b);
+                if (i != size - 1) {
+                    sb.append(",");
+                }
             }
         }
         return sb.toString();

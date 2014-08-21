@@ -23,6 +23,6 @@ public class af implements com.baidu.tieba.im.a<Boolean> {
     public void a(Boolean bool) {
         this.b.setLogTime(System.currentTimeMillis());
         MessageManager.getInstance().sendMessage(this.b);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(this.b.getGroupId(), this.c.getCustomGroupType(), this.c, false)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(this.b.getGroupId(), this.c.getCustomGroupType(), this.c, 3)));
     }
 }

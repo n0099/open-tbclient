@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -135,31 +134,30 @@ public class dr extends BaseAdapter {
         View view2;
         if (this.d != null) {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.e);
                 ds dsVar2 = new ds(this, null);
                 if (getItemViewType(i) == 0) {
-                    View inflate = from.inflate(com.baidu.tieba.v.person_list_item, (ViewGroup) null);
-                    dsVar2.a = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.item_view);
+                    View a = com.baidu.adp.lib.e.b.a().a(this.e, com.baidu.tieba.v.person_list_item, null);
+                    dsVar2.a = (ViewGroup) a.findViewById(com.baidu.tieba.u.item_view);
                     dsVar2.a.setOnClickListener(this.l);
-                    dsVar2.b = (HeadImageView) inflate.findViewById(com.baidu.tieba.u.photo);
+                    dsVar2.b = (HeadImageView) a.findViewById(com.baidu.tieba.u.photo);
                     dsVar2.b.setIsRound(false);
                     dsVar2.b.setAutoChangeStyle(true);
-                    dsVar2.g = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.info);
-                    dsVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.u.name);
-                    dsVar2.i = (TextView) inflate.findViewById(com.baidu.tieba.u.at_list_nodata);
-                    dsVar2.d = (TextView) inflate.findViewById(com.baidu.tieba.u.intro);
-                    dsVar2.e = (ImageView) inflate.findViewById(com.baidu.tieba.u.chat);
-                    dsVar2.f = (TextView) inflate.findViewById(com.baidu.tieba.u.add);
+                    dsVar2.g = (LinearLayout) a.findViewById(com.baidu.tieba.u.info);
+                    dsVar2.c = (TextView) a.findViewById(com.baidu.tieba.u.name);
+                    dsVar2.i = (TextView) a.findViewById(com.baidu.tieba.u.at_list_nodata);
+                    dsVar2.d = (TextView) a.findViewById(com.baidu.tieba.u.intro);
+                    dsVar2.e = (ImageView) a.findViewById(com.baidu.tieba.u.chat);
+                    dsVar2.f = (TextView) a.findViewById(com.baidu.tieba.u.add);
                     dsVar2.e.setOnClickListener(this.j);
                     dsVar2.f.setOnClickListener(this.m);
-                    view2 = inflate;
+                    view2 = a;
                 } else {
-                    View inflate2 = from.inflate(com.baidu.tieba.v.new_pb_list_more, (ViewGroup) null);
-                    dsVar2.c = (TextView) inflate2.findViewById(com.baidu.tieba.u.pb_more_text);
-                    inflate2.setOnClickListener(this.k);
-                    dsVar2.h = (ProgressBar) inflate2.findViewById(com.baidu.tieba.u.progress);
+                    View a2 = com.baidu.adp.lib.e.b.a().a(this.e, com.baidu.tieba.v.new_pb_list_more, null);
+                    dsVar2.c = (TextView) a2.findViewById(com.baidu.tieba.u.pb_more_text);
+                    a2.setOnClickListener(this.k);
+                    dsVar2.h = (ProgressBar) a2.findViewById(com.baidu.tieba.u.progress);
                     this.h.add(dsVar2.h);
-                    view2 = inflate2;
+                    view2 = a2;
                 }
                 view2.setTag(dsVar2);
                 dsVar = dsVar2;

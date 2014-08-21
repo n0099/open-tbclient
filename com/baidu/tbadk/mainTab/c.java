@@ -68,6 +68,6 @@ public class c {
         if ("   ".equals(charSequence)) {
             return 100;
         }
-        return com.baidu.adp.lib.e.b.a(charSequence, -1);
+        return com.baidu.adp.lib.e.c.a(charSequence, -1);
     }
 }

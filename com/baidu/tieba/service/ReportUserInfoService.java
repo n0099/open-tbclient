@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bp;
+import com.baidu.tbadk.core.atomData.bq;
 import com.baidu.tieba.model.ay;
 /* loaded from: classes.dex */
 public class ReportUserInfoService extends Service {
@@ -13,7 +13,7 @@ public class ReportUserInfoService extends Service {
     private ay mModel;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bp.class, ReportUserInfoService.class);
+        TbadkApplication.m252getInst().RegisterIntent(bq.class, ReportUserInfoService.class);
     }
 
     @Override // android.app.Service

@@ -28,7 +28,7 @@ class s implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer3;
         writeImagesInfo = this.a.b;
         editorToolComponetContainer = this.a.a;
-        writeImagesInfo2 = editorToolComponetContainer.w;
+        writeImagesInfo2 = editorToolComponetContainer.v;
         if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.b.indexOfChild(view)) >= 0) {
             ImageFileInfo imageFileInfo = (ImageFileInfo) this.a.getItem(indexOfChild);
             if (imageFileInfo == null) {
@@ -43,7 +43,7 @@ class s implements View.OnClickListener {
                 return;
             }
             editorToolComponetContainer2 = this.a.a;
-            wVar = editorToolComponetContainer2.y;
+            wVar = editorToolComponetContainer2.x;
             wVar.a(42, Integer.valueOf(indexOfChild));
         }
     }

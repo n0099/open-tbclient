@@ -12,7 +12,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
     private af b;
     private aa c;
     private ac d;
-    private List<ba> e;
+    private List<bb> e;
     private int a = 0;
     private boolean f = false;
 
@@ -54,7 +54,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
         int i = (this.e == null || this.e.isEmpty()) ? 0 : this.e.get(this.e.size() - 1).d;
         this.f = true;
         showProgressBar();
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.a, com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0), i));
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.a, com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

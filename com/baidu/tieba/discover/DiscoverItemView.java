@@ -3,7 +3,6 @@ package com.baidu.tieba.discover;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,7 +13,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class DiscoverItemView extends LinearLayout {
@@ -62,7 +61,7 @@ public class DiscoverItemView extends LinearLayout {
 
     private void a(Context context) {
         this.h = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.discover_item, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.discover_item, this, true);
         setOrientation(1);
         this.a = (ViewGroup) findViewById(com.baidu.tieba.u.item_container);
         this.i = (TbImageView) findViewById(com.baidu.tieba.u.item_image);
@@ -118,13 +117,6 @@ public class DiscoverItemView extends LinearLayout {
         return this;
     }
 
-    public DiscoverItemView a() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.l.getLayoutParams();
-        layoutParams.height = (int) this.h.getResources().getDimension(com.baidu.tieba.s.ds2);
-        this.l.setLayoutParams(layoutParams);
-        return this;
-    }
-
     public DiscoverItemView c(boolean z) {
         this.l.setVisibility(z ? 0 : 8);
         return this;
@@ -159,7 +151,7 @@ public class DiscoverItemView extends LinearLayout {
             ay.c((ImageView) this.i, this.e);
         }
         this.i.b();
-        bo.a((ViewGroup) this, i);
+        bp.a((ViewGroup) this, i);
         ay.f(this, com.baidu.tieba.t.list_item_selector);
     }
 

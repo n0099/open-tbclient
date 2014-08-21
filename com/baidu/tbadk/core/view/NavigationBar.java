@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.view;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,9 +20,8 @@ public class NavigationBar extends RelativeLayout {
     private LinearLayout e;
     private TextView f;
     private Activity g;
-    private LayoutInflater h;
-    private int i;
-    private final View.OnClickListener j;
+    private int h;
+    private final View.OnClickListener i;
 
     /* loaded from: classes.dex */
     public enum ControlAlign {
@@ -60,35 +58,34 @@ public class NavigationBar extends RelativeLayout {
     public NavigationBar(Context context) {
         super(context);
         this.b = true;
-        this.i = 0;
-        this.j = new n(this);
+        this.h = 0;
+        this.i = new o(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.b = true;
-        this.i = 0;
-        this.j = new n(this);
+        this.h = 0;
+        this.i = new o(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.b = true;
-        this.i = 0;
-        this.j = new n(this);
+        this.h = 0;
+        this.i = new o(this);
         a(context);
     }
 
     private void a(Context context) {
         this.g = (Activity) context;
-        this.h = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.h.inflate(com.baidu.tieba.v.widget_navigation_bar, (ViewGroup) this, true);
-        this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.leftBox);
-        this.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.centerBox);
-        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.rightBox);
-        this.f = (TextView) inflate.findViewById(com.baidu.tieba.u.navBottomLine);
+        View a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.widget_navigation_bar, this, true);
+        this.c = (LinearLayout) a.findViewById(com.baidu.tieba.u.leftBox);
+        this.d = (LinearLayout) a.findViewById(com.baidu.tieba.u.centerBox);
+        this.e = (LinearLayout) a.findViewById(com.baidu.tieba.u.rightBox);
+        this.f = (TextView) a.findViewById(com.baidu.tieba.u.navBottomLine);
         setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         setGravity(48);
         a();
@@ -102,15 +99,15 @@ public class NavigationBar extends RelativeLayout {
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.i = View.MeasureSpec.getSize(i);
+        this.h = View.MeasureSpec.getSize(i);
         int measuredWidth = this.c.getMeasuredWidth() + getPaddingLeft();
-        this.d.measure(((this.i - measuredWidth) - (this.e.getMeasuredWidth() + getPaddingRight())) + 1073741824, this.d.getMeasuredHeight() + 1073741824);
+        this.d.measure(((this.h - measuredWidth) - (this.e.getMeasuredWidth() + getPaddingRight())) + 1073741824, this.d.getMeasuredHeight() + 1073741824);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.d.layout(this.c.getMeasuredWidth() + getPaddingLeft(), this.d.getTop(), this.i - (this.e.getMeasuredWidth() + getPaddingRight()), this.d.getBottom());
+        this.d.layout(this.c.getMeasuredWidth() + getPaddingLeft(), this.d.getTop(), this.h - (this.e.getMeasuredWidth() + getPaddingRight()), this.d.getBottom());
     }
 
     public TextView a(String str) {
@@ -131,7 +128,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public View a(ControlAlign controlAlign, ControlType controlType) {
-        return a(controlAlign, controlType, this.j);
+        return a(controlAlign, controlType, this.i);
     }
 
     public View a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
@@ -231,7 +228,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public View b(int i) {
-        return this.h.inflate(i, (ViewGroup) this, false);
+        return com.baidu.adp.lib.e.b.a().a(this.g, i, this, false);
     }
 
     public void c(int i) {

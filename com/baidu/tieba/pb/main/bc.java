@@ -21,11 +21,11 @@ class bc implements Runnable {
         PbActivity pbActivity2;
         bl blVar;
         pbActivity = this.a.a;
-        bsVar = pbActivity.D;
+        bsVar = pbActivity.E;
         com.baidu.tieba.data.au auVar = this.b;
         View view = this.c;
         pbActivity2 = this.a.a;
-        blVar = pbActivity2.x;
+        blVar = pbActivity2.y;
         bsVar.a(false, auVar, true, null, null, view, blVar.r().l());
     }
 }

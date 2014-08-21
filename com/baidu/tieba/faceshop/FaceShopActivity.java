@@ -19,7 +19,7 @@ public class FaceShopActivity extends BaseActivity {
     private bn b;
     private x c;
     private final HashMap<String, DownloadData> d = new HashMap<>();
-    private final com.baidu.tbadk.core.view.q e = new bb(this);
+    private final com.baidu.tbadk.core.view.r e = new bb(this);
     private final com.baidu.adp.base.h f = new bc(this);
     private final CustomMessageListener g = new bd(this, 0);
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -53,7 +52,7 @@ public class q extends FrameLayout {
         this.a = new s(this);
         this.b = context;
         this.m = z;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.carousel_topics_recommend, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.carousel_topics_recommend, this, true);
         this.o = (FrameLayout) findViewById(com.baidu.tieba.u.carousel_root_view);
         this.c = (ViewPager) findViewById(com.baidu.tieba.u.carousel_pager);
         if (z) {

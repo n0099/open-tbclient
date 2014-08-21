@@ -1,29 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements View.OnClickListener {
-    final /* synthetic */ bc a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
+public class bf implements com.baidu.tieba.view.d {
+    final /* synthetic */ bd a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(bc bcVar, com.baidu.tbadk.core.data.n nVar) {
-        this.a = bcVar;
-        this.b = nVar;
+    public bf(bd bdVar, com.baidu.tbadk.core.data.i iVar) {
+        this.a = bdVar;
+        this.b = iVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tieba.view.d
+    public void a(int i) {
         FrsActivity frsActivity;
-        g gVar;
-        MessageManager messageManager = MessageManager.getInstance();
-        frsActivity = this.a.b;
-        String userId = this.b.q().getUserId();
-        String name_show = this.b.q().getName_show();
-        gVar = this.a.d;
-        messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(frsActivity, userId, name_show, gVar.i().getName(), "frs_head")));
+        FrsActivity frsActivity2;
+        if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size()) {
+            frsActivity = this.a.b;
+            com.baidu.tbadk.core.f.a(frsActivity, "forum_live_ck");
+            MessageManager messageManager = MessageManager.getInstance();
+            frsActivity2 = this.a.b;
+            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.am(frsActivity2, this.b.a().get(i).getGroupId())));
+        }
     }
 }

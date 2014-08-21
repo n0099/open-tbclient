@@ -3,9 +3,7 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -97,7 +95,7 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     private void d() {
-        LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.setting_text_switch_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.setting_text_switch_view, this, true);
         this.c = (LinearLayout) findViewById(com.baidu.tieba.u.container);
         this.d = (TextView) findViewById(com.baidu.tieba.u.text);
         this.e = (BdSwitchView) findViewById(com.baidu.tieba.u.button);

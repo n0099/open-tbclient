@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class i {
     public LinearLayout a;
-    public com.baidu.tbadk.core.view.c b;
+    public com.baidu.tbadk.core.view.d b;
     public NoNetworkView c;
 
     private i() {

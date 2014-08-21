@@ -3,9 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -85,7 +83,7 @@ public class EmotionManageActivity extends BaseActivity {
         this.k = (ImageView) findViewById(com.baidu.tieba.u.emotion_manage_enter_line_list_up);
         this.l = (BdListView) findViewById(com.baidu.tieba.u.emotion_manage_list);
         this.l.setOnItemClickListener(this.r);
-        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.v.emotion_manage_list_footer, (ViewGroup) null);
+        this.n = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.emotion_manage_list_footer, null);
         this.l.addFooterView(this.n);
         this.m = (TextView) this.n.findViewById(com.baidu.tieba.u.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);

@@ -117,6 +117,9 @@ public class l extends BdAsyncTask<Boolean, String, j> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(j jVar) {
+        if (jVar == null) {
+            jVar = new j();
+        }
         this.b.b = null;
         this.b.f = jVar.g();
         ArrayList<MarkData> f = jVar.f();

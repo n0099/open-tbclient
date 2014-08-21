@@ -15,7 +15,7 @@ public class w implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (this.a.u.isShowing()) {
-            this.a.u.dismiss();
+            com.baidu.adp.lib.e.e.a(this.a.u, this.a.w);
             return false;
         }
         return false;

@@ -12,7 +12,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.au;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -31,7 +31,7 @@ public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageC
     public HttpMessageListener a = new b(this, CmdConfigHttp.MEMBER_PAY_CMD);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(at.class, MemberPayActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(au.class, MemberPayActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

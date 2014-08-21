@@ -3,7 +3,6 @@ package com.baidu.tieba.faceshop;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -114,19 +113,18 @@ public class bh extends BaseAdapter {
     }
 
     public View a(int i, ViewGroup viewGroup) {
-        LayoutInflater from = LayoutInflater.from(this.c);
         if (i == 1) {
             bl blVar = new bl(this, null);
-            View inflate = from.inflate(com.baidu.tieba.v.face_shop_list_tem, (ViewGroup) null);
-            blVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.title);
-            blVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.u.image);
-            blVar.c = (FrameLayout) inflate.findViewById(com.baidu.tieba.u.btn);
-            blVar.d = (TextView) inflate.findViewById(com.baidu.tieba.u.btn_text);
-            blVar.e = (TextView) inflate.findViewById(com.baidu.tieba.u.downloaded);
-            blVar.g = (FrameLayout) inflate.findViewById(com.baidu.tieba.u.downloading);
-            blVar.f = (ImageView) inflate.findViewById(com.baidu.tieba.u.downloading_up);
-            blVar.h = (TextView) inflate.findViewById(com.baidu.tieba.u.intro);
-            blVar.i = (TbImageView) inflate.findViewById(com.baidu.tieba.u.icon);
+            View a = com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.face_shop_list_tem, null);
+            blVar.b = (TextView) a.findViewById(com.baidu.tieba.u.title);
+            blVar.a = (TbImageView) a.findViewById(com.baidu.tieba.u.image);
+            blVar.c = (FrameLayout) a.findViewById(com.baidu.tieba.u.btn);
+            blVar.d = (TextView) a.findViewById(com.baidu.tieba.u.btn_text);
+            blVar.e = (TextView) a.findViewById(com.baidu.tieba.u.downloaded);
+            blVar.g = (FrameLayout) a.findViewById(com.baidu.tieba.u.downloading);
+            blVar.f = (ImageView) a.findViewById(com.baidu.tieba.u.downloading_up);
+            blVar.h = (TextView) a.findViewById(com.baidu.tieba.u.intro);
+            blVar.i = (TbImageView) a.findViewById(com.baidu.tieba.u.icon);
             blVar.i.setDefaultResource(0);
             blVar.i.setNightDefaultResource(0);
             blVar.i.setDefaultBgResource(0);
@@ -137,9 +135,9 @@ public class bh extends BaseAdapter {
             blVar.d.setClickable(false);
             blVar.c.setClickable(true);
             blVar.c.setOnClickListener(this.a);
-            blVar.j = (TbImageView) inflate.findViewById(com.baidu.tieba.u.title_tag);
-            inflate.setTag(blVar);
-            return inflate;
+            blVar.j = (TbImageView) a.findViewById(com.baidu.tieba.u.title_tag);
+            a.setTag(blVar);
+            return a;
         }
         return null;
     }

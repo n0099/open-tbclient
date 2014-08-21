@@ -1,94 +1,54 @@
 package com.baidu.tbadk.pluginArch;
 
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.TreeMap;
+import android.os.SystemClock;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x {
-    private static x c;
-    final TreeMap<String, WeakReference<Resources>> a = new TreeMap<>();
-    final LinkedList<File> b = new LinkedList<>();
+public class x extends BdAsyncTask<Void, Void, ConfigInfos> {
+    final /* synthetic */ v a;
+    private com.baidu.tbadk.core.util.ae b;
 
-    public static x a() {
-        x xVar;
-        synchronized (x.class) {
-            if (c == null) {
-                c = new x();
-            }
-            xVar = c;
-        }
-        return xVar;
+    private x(v vVar) {
+        this.a = vVar;
     }
 
-    public Resources a(String str, Resources resources) {
-        AssetManager b;
-        if (str != null && resources != null) {
-            WeakReference<Resources> weakReference = this.a.get(str);
-            Resources resources2 = weakReference != null ? weakReference.get() : null;
-            if (resources2 == null && (b = b(str)) != null) {
-                Resources resources3 = new Resources(b, resources.getDisplayMetrics(), resources.getConfiguration());
-                this.a.put(str, new WeakReference<>(resources3));
-                return resources3;
-            }
-            return resources2;
-        }
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ x(v vVar, x xVar) {
+        this(vVar);
     }
 
-    public void a(Context context) {
-        if (context != null) {
-            Iterator<File> it = this.b.iterator();
-            while (it.hasNext()) {
-                File next = it.next();
-                if (next.exists()) {
-                    try {
-                        context.getAssets().getClass().getMethod("addAssetPath", String.class).invoke(context.getResources().getAssets(), next.getAbsolutePath());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public ConfigInfos doInBackground(Void... voidArr) {
+        String str;
+        SystemClock.sleep(1500L);
+        str = v.a;
+        this.b = new com.baidu.tbadk.core.util.ae(str);
+        this.b.a("client_version", TbConfig.getVersion());
+        return ConfigInfos.parse(this.b.h());
     }
 
-    public boolean a(String str) {
-        File c2;
-        if (str == null || (c2 = c(str)) == null || !c2.exists()) {
-            return false;
-        }
-        this.b.add(c2);
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(ConfigInfos configInfos) {
+        w wVar;
+        this.a.d = false;
+        this.a.b = configInfos;
+        wVar = this.a.c;
+        wVar.a(configInfos);
     }
 
-    private AssetManager b(String str) {
-        AssetManager assetManager;
-        if (str == null) {
-            return null;
-        }
-        File c2 = c(str);
-        String absolutePath = (c2 == null || !c2.exists()) ? null : c2.getAbsolutePath();
-        if (absolutePath != null) {
-            try {
-                assetManager = (AssetManager) AssetManager.class.newInstance();
-                assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, absolutePath);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return assetManager;
-        }
-        assetManager = null;
-        return assetManager;
-    }
-
-    private File c(String str) {
-        if (str == null) {
-            return null;
-        }
-        return m.b(str);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.a.d = false;
+        this.b.f();
+        this.b = null;
     }
 }

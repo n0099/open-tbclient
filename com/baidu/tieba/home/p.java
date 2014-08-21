@@ -3,7 +3,6 @@ package com.baidu.tieba.home;
 import android.app.AlertDialog;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,7 +15,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.v;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.base.f {
@@ -31,7 +30,7 @@ public class p extends com.baidu.adp.base.f {
     private LinearLayout i;
     private ViewGroup j;
     private RelativeLayout k;
-    private com.baidu.tbadk.core.view.u l;
+    private v l;
     private NoNetworkView m;
     private View n;
     private View o;
@@ -66,7 +65,7 @@ public class p extends com.baidu.adp.base.f {
         this.d.setOnKeyListener(onKeyListener);
         this.d.setOnItemClickListener(eVar);
         this.d.setOnScrollListener(eVar);
-        this.l = new com.baidu.tbadk.core.view.u(baseFragmentActivity);
+        this.l = new v(baseFragmentActivity);
         this.d.setPullRefresh(this.l);
         com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
         iVar.setHeightDip(30);
@@ -148,8 +147,8 @@ public class p extends com.baidu.adp.base.f {
 
     public void h() {
         if (e()) {
+            this.n = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.enter_forum_interest_guide, null);
             FrameLayout frameLayout = (FrameLayout) this.b.findViewById(16908290);
-            this.n = ((LayoutInflater) this.b.getSystemService("layout_inflater")).inflate(v.enter_forum_interest_guide, (ViewGroup) null);
             this.n.setOnClickListener(new q(this, frameLayout));
             frameLayout.addView(this.n);
             g();
@@ -182,8 +181,8 @@ public class p extends com.baidu.adp.base.f {
         }
     }
 
-    public void a(com.baidu.tbadk.core.view.q qVar) {
-        this.m.a(qVar);
+    public void a(com.baidu.tbadk.core.view.r rVar) {
+        this.m.a(rVar);
     }
 
     public void a(int i) {
@@ -219,11 +218,11 @@ public class p extends com.baidu.adp.base.f {
     }
 
     public void q() {
-        com.baidu.adp.lib.e.d.a(this.g, this.b);
+        com.baidu.adp.lib.e.e.a(this.g, this.b);
     }
 
     public void r() {
-        com.baidu.adp.lib.e.d.a(this.h, this.b);
+        com.baidu.adp.lib.e.e.a(this.h, this.b);
     }
 
     public void s() {
@@ -236,7 +235,7 @@ public class p extends com.baidu.adp.base.f {
             builder.setNegativeButton(this.b.getString(x.cancel), this.c);
             this.f = builder.create();
         }
-        com.baidu.adp.lib.e.d.a(this.f, this.b);
+        com.baidu.adp.lib.e.e.a(this.f, this.b);
     }
 
     public AlertDialog t() {

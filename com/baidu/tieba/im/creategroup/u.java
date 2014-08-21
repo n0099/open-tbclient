@@ -252,7 +252,7 @@ public class u extends com.baidu.adp.base.f {
     }
 
     public void o() {
-        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.d).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.group_update_alert_save).setPositiveButton(com.baidu.tieba.x.group_update_canel, new v(this)).setNegativeButton(com.baidu.tieba.x.group_update_done, new w(this)).create(), this.d);
+        com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this.d).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.group_update_alert_save).setPositiveButton(com.baidu.tieba.x.group_update_canel, new v(this)).setNegativeButton(com.baidu.tieba.x.group_update_done, new w(this)).create(), this.d);
     }
 
     public void a(int i) {

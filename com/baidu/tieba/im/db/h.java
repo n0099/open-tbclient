@@ -31,7 +31,7 @@ public class h extends CustomMessageListener {
             }
             iVar = this.a.b;
             iVar.removeMessages(1);
-            this.a.c();
+            this.a.e();
         }
     }
 }

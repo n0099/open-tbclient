@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -269,9 +268,9 @@ public class EditHeadActivity extends BaseActivity {
     public void a(String[] strArr) {
         if (this.F != null && strArr != null) {
             this.C.removeAllViews();
-            View inflate = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.u.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.filter_text);
+            View a2 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.filter_item, null);
+            ImageView imageView = (ImageView) a2.findViewById(com.baidu.tieba.u.filter_immage);
+            TextView textView = (TextView) a2.findViewById(com.baidu.tieba.u.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -279,9 +278,9 @@ public class EditHeadActivity extends BaseActivity {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.v.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.u.filter_immage);
-                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.u.filter_text);
+                View a3 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.filter_item, null);
+                ImageView imageView2 = (ImageView) a3.findViewById(com.baidu.tieba.u.filter_immage);
+                TextView textView2 = (TextView) a3.findViewById(com.baidu.tieba.u.filter_text);
                 textView2.setText(substring2);
                 imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.k.a(substring));
                 imageView2.setTag(textView2);
@@ -292,7 +291,7 @@ public class EditHeadActivity extends BaseActivity {
                 } else {
                     imageView2.setOnClickListener(new i(this, substring, i2));
                 }
-                this.C.addView(inflate2);
+                this.C.addView(a3);
                 this.G.put(substring, imageView2);
                 i++;
                 i2 = i3;

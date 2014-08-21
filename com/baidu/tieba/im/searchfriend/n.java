@@ -3,7 +3,7 @@ package com.baidu.tieba.im.searchfriend;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,7 +29,7 @@ public class n implements View.OnClickListener {
             }
             MessageManager messageManager = MessageManager.getInstance();
             searchFriendActivity2 = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2002003, new bg(searchFriendActivity2, String.valueOf(cVar.c()), cVar.e(), null, "search")));
+            messageManager.sendMessage(new CustomMessage(2002003, new bh(searchFriendActivity2, String.valueOf(cVar.c()), cVar.e(), null, "add_frd")));
         }
     }
 }

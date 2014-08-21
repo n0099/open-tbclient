@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.livelist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -120,10 +119,10 @@ public class HotLiveListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         y yVar;
         if (this.e == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
+            return com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_hot_list_item, viewGroup, false);
             yVar = new y();
             yVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.item_more);
             yVar.d = (TextView) view.findViewById(com.baidu.tieba.u.list_more_title);

@@ -26,17 +26,17 @@ public class m implements AdapterView.OnItemClickListener {
         String str4;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null && (str = (String) sparseArray.get(u.tag_photo_username)) != null) {
-            String editable = this.a.L.getEditText().getText().toString();
+            String editable = this.a.M.getEditText().getText().toString();
             String string = this.a.f.getResources().getString(x.reply_sub_floor);
             String str5 = "^" + string.replace("%s", ".+") + "$";
             if (ba.c(editable) || editable.matches(str5)) {
-                str2 = this.a.R;
+                str2 = this.a.S;
                 if (str2 != null) {
                     Pattern compile = Pattern.compile(string.replace("%s", str));
-                    str3 = this.a.R;
+                    str3 = this.a.S;
                     if (compile.matcher(str3).lookingAt()) {
                         l lVar = this.a;
-                        str4 = this.a.R;
+                        str4 = this.a.S;
                         lVar.d(str4);
                     } else {
                         this.a.b(str);
@@ -48,7 +48,7 @@ public class m implements AdapterView.OnItemClickListener {
                 return;
             }
             Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(editable);
-            this.a.R = editable;
+            this.a.S = editable;
             if (!matcher.lookingAt()) {
                 this.a.b(str);
             } else {

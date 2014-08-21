@@ -22,17 +22,17 @@ public class q implements AdapterView.OnItemClickListener {
         List list2;
         GameCenterHomeActivity gameCenterHomeActivity;
         GameCenterHomeActivity gameCenterHomeActivity2;
-        list = this.a.l;
+        list = this.a.m;
         if (i < list.size()) {
-            list2 = this.a.l;
-            ab abVar = (ab) list2.get(i);
-            if (abVar != null && abVar.i() != 1) {
+            list2 = this.a.m;
+            com.baidu.tbadk.game.b bVar = (com.baidu.tbadk.game.b) list2.get(i);
+            if (bVar != null && bVar.i() != 1) {
                 MessageManager messageManager = MessageManager.getInstance();
-                gameCenterHomeActivity = this.a.a;
-                messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(gameCenterHomeActivity, abVar.a())));
-                this.a.b(abVar.a());
-                gameCenterHomeActivity2 = this.a.a;
-                TiebaStatic.eventStat(gameCenterHomeActivity2, "game_detail", "click", 1, abVar.a());
+                gameCenterHomeActivity = this.a.b;
+                messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.w(gameCenterHomeActivity, bVar.a())));
+                this.a.b(bVar.a());
+                gameCenterHomeActivity2 = this.a.b;
+                TiebaStatic.eventStat(gameCenterHomeActivity2, "game_detail", "click", 1, bVar.a());
             }
         }
     }

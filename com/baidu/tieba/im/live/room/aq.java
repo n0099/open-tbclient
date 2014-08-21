@@ -2,9 +2,7 @@ package com.baidu.tieba.im.live.room;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,63 +12,61 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class aq extends RelativeLayout {
     private Activity a;
-    private LayoutInflater b;
-    private TextView c;
-    private ImageView d;
-    private UserPhotoLayout e;
-    private List<MetaData> f;
-    private int g;
-    private View h;
+    private TextView b;
+    private ImageView c;
+    private UserPhotoLayout d;
+    private List<MetaData> e;
+    private int f;
+    private View g;
 
     public aq(Context context) {
         super(context);
-        this.f = null;
-        this.g = 0;
+        this.e = null;
+        this.f = 0;
         a(context);
     }
 
     public View getRoot() {
-        return this.h;
+        return this.g;
     }
 
     private void a(Context context) {
         this.a = (Activity) context;
-        this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.b.inflate(com.baidu.tieba.v.live_room_chat_like, (ViewGroup) this, true);
-        this.h = inflate.findViewById(com.baidu.tieba.u.chat_like_layout);
-        this.c = (TextView) inflate.findViewById(com.baidu.tieba.u.tvlike);
-        this.d = (ImageView) inflate.findViewById(com.baidu.tieba.u.ivlike);
-        this.e = (UserPhotoLayout) inflate.findViewById(com.baidu.tieba.u.horizontalScrollView);
-        this.e.setAutoChangeStyle(false);
-        this.e.setOnChildClickListener(new ar(this));
+        View a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.live_room_chat_like, this, true);
+        this.g = a.findViewById(com.baidu.tieba.u.chat_like_layout);
+        this.b = (TextView) a.findViewById(com.baidu.tieba.u.tvlike);
+        this.c = (ImageView) a.findViewById(com.baidu.tieba.u.ivlike);
+        this.d = (UserPhotoLayout) a.findViewById(com.baidu.tieba.u.horizontalScrollView);
+        this.d.setAutoChangeStyle(false);
+        this.d.setOnChildClickListener(new ar(this));
     }
 
     public List<MetaData> getMetaData() {
-        return this.f;
+        return this.e;
     }
 
     public void a(List<MetaData> list, int i) {
-        if (this.f != list || this.g != i) {
-            this.f = list;
-            this.g = i;
+        if (this.e != list || this.f != i) {
+            this.e = list;
+            this.f = i;
             a(true);
         }
     }
 
     private void a(boolean z) {
-        String valueOf = String.valueOf(this.g);
-        if (this.g > 999) {
+        String valueOf = String.valueOf(this.f);
+        if (this.f > 999) {
             valueOf = "999+";
         }
-        this.c.setText(valueOf);
-        this.e.a(this.f, z);
+        this.b.setText(valueOf);
+        this.d.a(this.e, z);
     }
 
     public ImageView getIvLike() {
-        return this.d;
+        return this.c;
     }
 
     public TextView getTvLike() {
-        return this.c;
+        return this.b;
     }
 }

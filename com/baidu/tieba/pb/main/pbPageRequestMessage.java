@@ -18,6 +18,7 @@ public class pbPageRequestMessage extends NetMessage {
     private boolean isFromMark;
     private long kz;
     private Integer last;
+    private String lastids;
     private Integer lz;
     private Integer mark;
     private String message_click;
@@ -274,6 +275,14 @@ public class pbPageRequestMessage extends NetMessage {
         this.isFromMark = bool.booleanValue();
     }
 
+    public String getLastids() {
+        return this.lastids;
+    }
+
+    public void setLastids(String str) {
+        this.lastids = str;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -303,8 +312,9 @@ public class pbPageRequestMessage extends NetMessage {
             builder.common = get_common();
             builder.msg_click = get_message_click();
             builder.last = get_last();
+            builder.lastids = getLastids();
             if (z) {
-                com.baidu.tbadk.c.d.a(builder, true);
+                com.baidu.tbadk.b.d.a(builder, true);
             }
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -23,12 +23,12 @@ public class bv implements Animation.AnimationListener {
         View view3;
         PbActivity pbActivity;
         bs bsVar = this.a;
-        view = this.a.aJ;
-        bsVar.aP = view.getVisibility() == 0;
+        view = this.a.aK;
+        bsVar.aQ = view.getVisibility() == 0;
         this.a.h.setVisibility(8);
-        view2 = this.a.aJ;
+        view2 = this.a.aK;
         view2.setVisibility(8);
-        view3 = this.a.aI;
+        view3 = this.a.aJ;
         view3.setVisibility(8);
         pbActivity = this.a.k;
         pbActivity.showToast(com.baidu.tieba.x.pb_double_click_tips, 0);

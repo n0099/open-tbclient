@@ -2,8 +2,6 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.aq {
     public WriteEditorToolButtonContainer(Context context) {
@@ -16,6 +14,6 @@ public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.a
 
     @Override // com.baidu.tieba.editortool.aq
     protected void e() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.write_editor_tool_button_container, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.write_editor_tool_button_container, this, true);
     }
 }

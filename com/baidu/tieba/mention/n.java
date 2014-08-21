@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
     final /* synthetic */ k a;
@@ -23,7 +23,7 @@ class n implements View.OnClickListener {
         if (this.b != null && this.b.length() > 0) {
             MessageManager messageManager = MessageManager.getInstance();
             context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2002003, new bg(context, this.b, this.c)));
+            messageManager.sendMessage(new CustomMessage(2002003, new bh(context, this.b, this.c)));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.live.mylive;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.widget.ProgressBar;
 import com.baidu.adp.framework.MessageManager;
@@ -17,14 +18,16 @@ public class g implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
+        MyLiveActivity myLiveActivity;
         ProgressBar progressBar;
         LiveCardData liveCardData;
-        dialogInterface.dismiss();
+        myLiveActivity = this.a.b;
+        com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, myLiveActivity);
         progressBar = this.a.e;
         progressBar.setVisibility(0);
         liveCardData = this.a.k;
         int groupId = liveCardData.getGroupId();
-        if (com.baidu.adp.lib.e.b.a(com.baidu.tieba.im.live.d.b().i(), 0) == groupId) {
+        if (com.baidu.adp.lib.e.c.a(com.baidu.tieba.im.live.d.b().i(), 0) == groupId) {
             this.a.j = true;
         } else {
             this.a.j = false;

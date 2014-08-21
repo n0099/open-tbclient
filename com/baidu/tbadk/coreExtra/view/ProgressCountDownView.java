@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -38,7 +37,7 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.v.progress_count_down_view, this);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.progress_count_down_view, this);
         this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.progress_count_down_text);
         this.c = (ProgressBar) this.a.findViewById(com.baidu.tieba.u.progress_count_down_progress);
     }

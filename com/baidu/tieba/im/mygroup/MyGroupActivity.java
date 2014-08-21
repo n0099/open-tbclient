@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class MyGroupActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private k d;
+    private l d;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.d = new k(this);
-        a(103008, new a(this, 0));
+        this.d = new l(this);
+        a(103008, new b(this, 0));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.debug.b;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import java.io.IOException;
@@ -53,7 +51,7 @@ public class m extends View {
         this.i = new com.baidu.adp.lib.debug.a.j();
         this.j = new com.baidu.adp.lib.debug.a.p(this.k);
         this.h = new com.baidu.adp.lib.debug.a.b(this.k);
-        this.a = LayoutInflater.from(this.k).inflate(com.baidu.adp.e.adp_debug_monitor_view, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(this.k, com.baidu.adp.e.adp_debug_monitor_view, null);
         this.b = this.a.findViewById(com.baidu.adp.d.monitor_view);
         this.c = (TextView) this.a.findViewById(com.baidu.adp.d.debug_text);
         this.l = (ImageButton) this.a.findViewById(com.baidu.adp.d.debug_switch);

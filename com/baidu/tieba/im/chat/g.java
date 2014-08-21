@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -44,7 +43,7 @@ public abstract class g extends com.baidu.adp.base.f implements com.baidu.tbadk.
     private ToolMoreView F;
     private LinearLayout G;
     private TextView H;
-    private cq I;
+    private cr I;
     private final AlertDialog J;
     private int K;
     private final Handler L;
@@ -138,10 +137,10 @@ public abstract class g extends com.baidu.adp.base.f implements com.baidu.tbadk.
         this.a = (NavigationBar) talkableActivity.findViewById(com.baidu.tieba.u.lay_title_bar);
         this.l = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, talkableActivity);
         this.m = this.a.a("");
-        View inflate = LayoutInflater.from(this.f).inflate(com.baidu.tieba.v.msg_chat_top_notify, (ViewGroup) null);
-        this.n = (ImageView) inflate.findViewById(com.baidu.tieba.u.img_receiver);
-        this.o = (ImageView) inflate.findViewById(com.baidu.tieba.u.img_close_notify);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, (View.OnClickListener) null);
+        View a = com.baidu.adp.lib.e.b.a().a(this.f, com.baidu.tieba.v.msg_chat_top_notify, null);
+        this.n = (ImageView) a.findViewById(com.baidu.tieba.u.img_receiver);
+        this.o = (ImageView) a.findViewById(com.baidu.tieba.u.img_close_notify);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, a, (View.OnClickListener) null);
         this.g = (FrameLayout) talkableActivity.findViewById(com.baidu.tieba.u.layout_bottom_input);
         if (z) {
             M();
@@ -154,7 +153,7 @@ public abstract class g extends com.baidu.adp.base.f implements com.baidu.tbadk.
         this.p = (NoNetworkView) talkableActivity.findViewById(com.baidu.tieba.u.view_no_network);
     }
 
-    public cq a() {
+    public cr a() {
         return this.I;
     }
 
@@ -167,7 +166,7 @@ public abstract class g extends com.baidu.adp.base.f implements com.baidu.tbadk.
         this.r = (BdListView) msglistActivity.findViewById(com.baidu.tieba.u.lis_msg);
         this.s = (ProgressBar) msglistActivity.findViewById(com.baidu.tieba.u.msg_progress);
         this.s.setVisibility(8);
-        this.I = new cq(msglistActivity);
+        this.I = new cr(msglistActivity);
         d();
         this.I.a(this.j);
         this.I.a((com.baidu.adp.lib.b.a) msglistActivity);
@@ -516,7 +515,7 @@ public abstract class g extends com.baidu.adp.base.f implements com.baidu.tbadk.
         if (strArr != null && strArr.length > 0) {
             a(this.f, strArr);
             this.h.getListView().setTag(Integer.valueOf(i));
-            com.baidu.adp.lib.e.d.a(this.h, this.f);
+            com.baidu.adp.lib.e.e.a(this.h, this.f);
         }
     }
 

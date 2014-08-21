@@ -1,19 +1,26 @@
 package com.baidu.tieba.im.newFriend;
-
-import java.util.List;
 /* loaded from: classes.dex */
-class ai extends com.baidu.tieba.im.b<List<com.baidu.tieba.im.data.k>> {
-    final /* synthetic */ NewFriendsActivity a;
+class ai {
+    private boolean a;
+    private int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(NewFriendsActivity newFriendsActivity) {
-        this.a = newFriendsActivity;
+    public ai(boolean z, int i) {
+        this.a = z;
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public List<com.baidu.tieba.im.data.k> a() {
-        return com.baidu.tieba.im.db.m.a().e();
+    public int hashCode() {
+        return (this.a ? 1 : 0) + this.b;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ai aiVar = (ai) obj;
+        return this.a == aiVar.a && this.b == aiVar.b;
     }
 }

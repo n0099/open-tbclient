@@ -84,18 +84,18 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
-        dk dkVar;
-        dk dkVar2;
+        dm dmVar;
+        dm dmVar2;
         this.a.r = null;
         this.a.a(false);
         if (this.b != null) {
             j jVar = new j();
             jVar.d = this.b.e();
             jVar.c = this.b.c();
-            dkVar = this.a.o;
-            if (dkVar != null) {
-                dkVar2 = this.a.o;
-                dkVar2.a(this.f, jVar);
+            dmVar = this.a.o;
+            if (dmVar != null) {
+                dmVar2 = this.a.o;
+                dmVar2.a(this.f, jVar);
             }
         }
     }

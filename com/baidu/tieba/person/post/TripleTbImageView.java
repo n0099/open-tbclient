@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
     public static final float[] a = {0.5f, 0.33f, 0.25f};
@@ -68,44 +69,34 @@ public class TripleTbImageView extends ViewGroup {
                 break;
         }
         if (length == 1) {
-            String str = (String) objArr[0];
-            this.b.setTag(str);
-            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.b.a(str, 10, this.h, this.h, false);
+            a((PersonPostModel.Media) objArr[0], this.b);
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
-            String str2 = (String) objArr[0];
-            this.b.setTag(str2);
-            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.b.a(str2, 10, this.h, this.h, false);
-            String str3 = (String) objArr[1];
-            this.c.setTag(str3);
-            this.c.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.c.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.c.a(str3, 10, this.h, this.h, false);
+            a((PersonPostModel.Media) objArr[0], this.b);
+            a((PersonPostModel.Media) objArr[1], this.c);
             this.d.setTag(null);
         } else if (length == 3) {
-            String str4 = (String) objArr[0];
-            this.b.setTag(str4);
-            this.b.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.b.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.b.a(str4, 10, this.h, this.h, false);
-            String str5 = (String) objArr[1];
-            this.c.setTag(str5);
-            this.c.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.c.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.c.a(str5, 10, this.h, this.h, false);
-            String str6 = (String) objArr[2];
-            this.d.setTag(str6);
-            this.d.setDefaultResource(com.baidu.tieba.t.pic_video);
-            this.d.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
-            this.d.a(str6, 10, this.h, this.h, false);
+            a((PersonPostModel.Media) objArr[0], this.b);
+            a((PersonPostModel.Media) objArr[1], this.c);
+            a((PersonPostModel.Media) objArr[2], this.d);
         }
         requestLayout();
         invalidate();
+    }
+
+    private void a(PersonPostModel.Media media, TbImageView tbImageView) {
+        if (media != null && tbImageView != null) {
+            if (media.type == 3) {
+                tbImageView.setDefaultResource(com.baidu.tieba.t.img_default_100);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.t.img_default_100_1);
+            } else if (media.type == 5) {
+                tbImageView.setDefaultResource(com.baidu.tieba.t.pic_video);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
+            }
+            tbImageView.setTag(media.big_pic);
+            tbImageView.a(media.big_pic, 10, this.h, this.h, false);
+        }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -147,24 +138,25 @@ public class TripleTbImageView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int min = Math.min(i4, getHeight());
         if (this.e != null && this.e.length != 0) {
             switch (this.e.length) {
                 case 1:
-                    this.b.layout(0, 0, i3, i4);
+                    this.b.layout(0, 0, i3 - this.f, min);
                     this.c.layout(0, 0, 0, 0);
                     this.d.layout(0, 0, 0, 0);
                     return;
                 case 2:
                     int measuredWidth = (getMeasuredWidth() - (this.f * 3)) >> 1;
-                    this.b.layout(this.f, 0, this.f + measuredWidth, i4);
-                    this.c.layout((this.f * 2) + measuredWidth, 0, (measuredWidth * 2) + (this.f * 2), i4);
+                    this.b.layout(this.f, 0, this.f + measuredWidth, min);
+                    this.c.layout((this.f * 2) + measuredWidth, 0, (measuredWidth * 2) + (this.f * 2), min);
                     this.d.layout(0, 0, 0, 0);
                     return;
                 case 3:
                     int measuredWidth2 = (getMeasuredWidth() - (this.f * 4)) / 3;
-                    this.b.layout(this.f, 0, this.f + measuredWidth2, i4);
-                    this.c.layout((this.f * 2) + measuredWidth2, 0, (measuredWidth2 * 2) + (this.f * 2), i4);
-                    this.d.layout((measuredWidth2 * 2) + (this.f * 3), 0, (measuredWidth2 * 3) + (this.f * 3), i4);
+                    this.b.layout(this.f, 0, this.f + measuredWidth2, min);
+                    this.c.layout((this.f * 2) + measuredWidth2, 0, (measuredWidth2 * 2) + (this.f * 2), min);
+                    this.d.layout((measuredWidth2 * 2) + (this.f * 3), 0, (measuredWidth2 * 3) + (this.f * 3), min);
                     return;
                 default:
                     return;

@@ -2,9 +2,9 @@ package com.baidu.tieba.im.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.e.b;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.t;
@@ -28,7 +28,7 @@ public final class ShareFromPBView extends LinearLayout {
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(v.share_from_pb_view, this);
+        b.a().a(getContext(), v.share_from_pb_view, this);
         setOrientation(1);
         this.a = (TextView) findViewById(u.chat_title);
         this.b = (HeadImageView) findViewById(u.chat_group_img);

@@ -2,16 +2,15 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* loaded from: classes.dex */
 public class bl extends com.baidu.tbadk.core.frameworkData.a {
-    public bl(Context context, ConfigInfos.PluginConfig pluginConfig) {
+    public bl(Context context, String str) {
         super(context);
-        getIntent().putExtra("plugin_config", pluginConfig);
+        getIntent().putExtra("name", str);
     }
 
-    public bl(Context context, ConfigInfos.PluginConfig pluginConfig, int i) {
-        this(context, pluginConfig);
+    public bl(Context context, String str, int i) {
+        this(context, str);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i);
     }

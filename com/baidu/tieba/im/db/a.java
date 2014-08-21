@@ -30,7 +30,7 @@ public abstract class a {
         this.c = cls;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [76=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=5] */
     public int a(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
@@ -55,7 +55,7 @@ public abstract class a {
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=5] */
     public long b(String str) {
         long j = 0;
         Cursor cursor = null;
@@ -70,7 +70,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                g(str);
+                f(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -81,7 +81,7 @@ public abstract class a {
         return j;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [206=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0170 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0172 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0174 */
@@ -134,7 +134,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        g(str);
+                        f(str);
                         com.baidu.adp.lib.util.m.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
@@ -167,7 +167,7 @@ public abstract class a {
         return commonMsgPojo;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [264=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [274=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x016e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.String] */
@@ -203,7 +203,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            g(str);
+                            f(str);
                             com.baidu.adp.lib.util.m.a(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -236,7 +236,7 @@ public abstract class a {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [425=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [453=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x027e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.String] */
@@ -299,7 +299,7 @@ public abstract class a {
                     try {
                         TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                         e2.printStackTrace();
-                        g(valueOf);
+                        f(valueOf);
                         com.baidu.adp.lib.util.m.a(cursor2);
                         return linkedList;
                     } catch (Throwable th2) {
@@ -384,7 +384,7 @@ public abstract class a {
             this.a = a();
         }
         if (!this.a.contains(valueOf)) {
-            g(valueOf);
+            f(valueOf);
             this.a.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
@@ -488,7 +488,7 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    g(next);
+                    f(next);
                 }
             }
         }
@@ -556,7 +556,7 @@ public abstract class a {
         }
     }
 
-    private synchronized void g(String str) {
+    private synchronized void f(String str) {
         if (!TextUtils.isEmpty(str)) {
             g.a().a("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.b) + str) + "(mid BIGINT PRIMARY KEY, " + SapiAccountManager.SESSION_UID + " TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
@@ -589,15 +589,16 @@ public abstract class a {
         this.a = null;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0087: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:20:0x0087 */
-    public boolean f(String str) {
+    public boolean a(String str, int i) {
         Cursor cursor;
-        Cursor cursor2;
-        Cursor cursor3 = null;
+        Cursor cursor2 = null;
         try {
             try {
                 String str2 = String.valueOf(this.b) + str;
-                cursor = g.a().a("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT 1000, 1", null);
+                if (i < 1000) {
+                    i = 1000;
+                }
+                cursor = g.a().a("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
                 try {
                     String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
                     com.baidu.adp.lib.util.m.a(cursor);
@@ -615,8 +616,8 @@ public abstract class a {
                 }
             } catch (Throwable th) {
                 th = th;
-                cursor3 = cursor2;
-                com.baidu.adp.lib.util.m.a(cursor3);
+                cursor2 = 1000;
+                com.baidu.adp.lib.util.m.a(cursor2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -624,7 +625,7 @@ public abstract class a {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.adp.lib.util.m.a(cursor3);
+            com.baidu.adp.lib.util.m.a(cursor2);
             throw th;
         }
     }

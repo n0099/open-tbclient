@@ -1,27 +1,49 @@
 package com.baidu.tbadk.b;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.a.d {
-    public d(int i) {
-        super(i);
+public class d {
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.a().b() && tbHttpMessageTask.isNeedLogin()) {
-                httpMessage.addParam("reloin_key", "reloin_value");
-                ReloginManager.a().a(httpMessage);
-                return null;
+    public static void a(Object obj, boolean z, boolean z2) {
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkApplication.getClientId();
+                if (!TbadkApplication.m252getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkApplication.m252getInst().getImei();
+                builder.from = TbadkApplication.getFrom();
+                builder.cuid = TbadkApplication.m252getInst().getCuid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z) {
+                    builder.BDUSS = TbadkApplication.getCurrentBduss();
+                }
+                if (z2) {
+                    builder.tbs = TbadkApplication.m252getInst().getTbs();
+                }
+                builder.pversion = "1.0.3";
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
             }
-            return httpMessage;
         }
-        return httpMessage;
     }
 }

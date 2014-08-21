@@ -204,7 +204,7 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         if (z) {
-            com.baidu.tbadk.c.d.a(builder, true);
+            com.baidu.tbadk.b.d.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

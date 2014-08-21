@@ -13,7 +13,7 @@ import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.data.FriendFeedThreadData;
 import com.baidu.tieba.editortool.PbEditor;
-import com.baidu.tieba.frs.dh;
+import com.baidu.tieba.frs.dj;
 import com.baidu.tieba.v;
 import com.baidu.tieba.x;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class t extends com.baidu.adp.base.f {
     private ViewGroup h;
     private BdListView i;
     private Handler j;
-    private dh k;
+    private dj k;
 
     public t(FriendFeedActivity friendFeedActivity) {
         super(friendFeedActivity);
@@ -88,7 +88,7 @@ public class t extends com.baidu.adp.base.f {
     }
 
     protected void a(int i, int i2) {
-        this.k = new dh(this.b, i, i2, this.a, this.i, this.e.getHeight());
+        this.k = new dj(this.b, i, i2, this.a, this.i, this.e.getHeight());
         this.j.postDelayed(this.k, 300L);
     }
 

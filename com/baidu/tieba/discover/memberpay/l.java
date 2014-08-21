@@ -4,9 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -126,36 +124,36 @@ public class l extends LinearLayout {
                         this.g = this.z.b;
                         this.A = this.g.c;
                         if (!this.i) {
-                            View inflate = LayoutInflater.from(this.j).inflate(v.memberpay_headview_pagerone, (ViewGroup) null);
-                            this.s = (ImageView) inflate.findViewById(u.arrowadv);
+                            View a = com.baidu.adp.lib.e.b.a().a(this.j, v.memberpay_headview_pagerone, null);
+                            this.s = (ImageView) a.findViewById(u.arrowadv);
                             this.s.setOnClickListener(this.j);
-                            this.v = (TextView) inflate.findViewById(u.desc_adv);
+                            this.v = (TextView) a.findViewById(u.desc_adv);
                             if (TextUtils.isEmpty(this.A) || TextUtils.getTrimmedLength(this.A) == 0) {
                                 this.A = this.j.getString(x.vip_member);
                             }
                             this.v.setText(this.A);
-                            View inflate2 = LayoutInflater.from(this.j).inflate(v.memberpay_headview_pagertwo, (ViewGroup) null);
-                            this.t = (ImageView) inflate2.findViewById(u.arrowcommon);
+                            View a2 = com.baidu.adp.lib.e.b.a().a(this.j, v.memberpay_headview_pagertwo, null);
+                            this.t = (ImageView) a2.findViewById(u.arrowcommon);
                             this.t.setOnClickListener(this.j);
-                            this.w = (TextView) inflate2.findViewById(u.desc_member);
+                            this.w = (TextView) a2.findViewById(u.desc_member);
                             if (TextUtils.isEmpty(this.B) || TextUtils.getTrimmedLength(this.B) == 0) {
                                 this.B = this.j.getString(x.member);
                             }
                             this.w.setText(this.B);
                             this.o = new ArrayList<>();
-                            this.o.add(inflate);
-                            this.o.add(inflate2);
+                            this.o.add(a);
+                            this.o.add(a2);
                             this.p = new c(this.j, this.o);
                             this.a.setAdapter(this.p);
                             this.a.setOnPageChangeListener(this.j);
                         } else {
-                            View inflate3 = LayoutInflater.from(this.j).inflate(v.memberpay_headview_pagerone, (ViewGroup) null);
-                            this.s = (ImageView) inflate3.findViewById(u.arrowadv);
+                            View a3 = com.baidu.adp.lib.e.b.a().a(this.j, v.memberpay_headview_pagerone, null);
+                            this.s = (ImageView) a3.findViewById(u.arrowadv);
                             this.s.setVisibility(8);
-                            this.v = (TextView) inflate3.findViewById(u.desc_adv);
+                            this.v = (TextView) a3.findViewById(u.desc_adv);
                             this.v.setText(this.A);
                             this.o = new ArrayList<>();
-                            this.o.add(inflate3);
+                            this.o.add(a3);
                             this.p = new c(this.j, this.o);
                             this.a.setAdapter(this.p);
                             this.h = 2;
@@ -383,9 +381,9 @@ public class l extends LinearLayout {
         boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         for (int i = 0; i < size; i++) {
             TableRow tableRow = new TableRow(this.j);
-            View inflate = LayoutInflater.from(this.j).inflate(v.member_pay_tablerow, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(u.text_left);
-            TextView textView2 = (TextView) inflate.findViewById(u.text_right);
+            View a = com.baidu.adp.lib.e.b.a().a(this.j, v.member_pay_tablerow, null);
+            TextView textView = (TextView) a.findViewById(u.text_left);
+            TextView textView2 = (TextView) a.findViewById(u.text_right);
             if (size == 1) {
                 textView.setBackgroundResource(z ? t.member_pay_onetablerow_left_shape_1 : t.member_pay_onetablerow_left_shape);
                 textView2.setBackgroundResource(z ? t.member_pay_onetablerow_right_shape_1 : t.member_pay_onetablerow_right_shape_1);
@@ -401,14 +399,14 @@ public class l extends LinearLayout {
             }
             for (int i2 = 0; i2 < 2; i2++) {
                 String str = list.get((i * 2) + i2).a;
-                SpannableString a = a(str == null ? "\u3000" : str, list.get((i * 2) + i2).b);
+                SpannableString a2 = a(str == null ? "\u3000" : str, list.get((i * 2) + i2).b);
                 if (i2 == 0) {
-                    textView.setText(a);
+                    textView.setText(a2);
                 } else {
-                    textView2.setText(a);
+                    textView2.setText(a2);
                 }
             }
-            tableRow.addView(inflate, new TableRow.LayoutParams(-1, -2));
+            tableRow.addView(a, new TableRow.LayoutParams(-1, -2));
             tableLayout.addView(tableRow, new TableLayout.LayoutParams(-1, -2));
         }
     }

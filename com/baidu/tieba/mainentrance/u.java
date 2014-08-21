@@ -1,10 +1,14 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
+import android.text.Selection;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
+public class u implements AdapterView.OnItemClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,50 +16,40 @@ class u implements View.OnClickListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
-        String str3;
+        int i3;
+        a aVar;
+        a aVar2;
         EditText editText;
-        String str4;
-        String str5;
-        String str6;
-        str = this.a.y;
-        if (str != null) {
-            str2 = this.a.y;
-            if (str2.trim().length() >= 1) {
-                i = this.a.z;
-                if (i != 0) {
-                    i2 = this.a.z;
-                    if (i2 == 3) {
-                        SquareSearchActivity squareSearchActivity = this.a;
-                        editText = this.a.c;
-                        com.baidu.adp.lib.util.j.a(squareSearchActivity, editText);
-                        str4 = this.a.y;
-                        if (!TextUtils.isEmpty(str4)) {
-                            str5 = this.a.y;
-                            if (str5.trim().length() != 0) {
-                                SquareSearchActivity squareSearchActivity2 = this.a;
-                                str6 = this.a.y;
-                                squareSearchActivity2.a(str6);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    SquareSearchActivity squareSearchActivity3 = this.a;
-                    str3 = this.a.y;
-                    squareSearchActivity3.a(1, str3);
-                    return;
-                }
-                this.a.d();
+        EditText editText2;
+        EditText editText3;
+        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
+        i2 = this.a.z;
+        if (i2 != 0) {
+            i3 = this.a.z;
+            if (i3 == 3) {
+                this.a.a(str);
+                return;
+            } else if (str != null && str.length() > 0) {
+                aVar = this.a.k;
+                aVar.a(i);
+                aVar2 = this.a.k;
+                aVar2.notifyDataSetChanged();
+                this.a.a(1, str);
+                editText = this.a.c;
+                editText.setText(str);
+                editText2 = this.a.c;
+                editText2.requestFocus();
+                editText3 = this.a.c;
+                Selection.setSelection(editText3.getText(), str.length());
+                return;
+            } else {
                 return;
             }
         }
-        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.write_keyword));
+        com.baidu.tieba.util.k.e(str);
+        this.a.sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(this.a).a(str, "tb_searchlist")));
     }
 }

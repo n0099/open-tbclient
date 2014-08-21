@@ -726,7 +726,7 @@ public class NetWorkCore implements v {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         j = 1024;
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                 } catch (SocketException e28) {
@@ -1167,7 +1167,7 @@ public class NetWorkCore implements v {
                                 } else {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                 }
                                 String str2 = new String(bArr, 0, bArr.length, o());
@@ -1608,7 +1608,7 @@ public class NetWorkCore implements v {
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, o());
@@ -2046,9 +2046,9 @@ public class NetWorkCore implements v {
                         int i4 = 0;
                         String headerField2 = this.j.getHeaderField("Content-Range");
                         if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
-                            i4 = com.baidu.adp.lib.e.b.a(headerField2.substring(indexOf + 1), 0);
+                            i4 = com.baidu.adp.lib.e.c.a(headerField2.substring(indexOf + 1), 0);
                         }
-                        int a3 = (i4 == 0 && this.o.b().a == 200 && (headerField = this.j.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.e.b.a(headerField, 0) : i4;
+                        int a3 = (i4 == 0 && this.o.b().a == 200 && (headerField = this.j.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.e.c.a(headerField, 0) : i4;
                         if (length >= a3) {
                             this.k = 0;
                             if (0 != 0) {

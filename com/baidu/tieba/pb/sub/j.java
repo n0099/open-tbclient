@@ -19,9 +19,9 @@ class j implements Runnable {
     public void run() {
         NavigationBar navigationBar;
         int[] iArr = new int[2];
-        this.a.L.getLocationInWindow(iArr);
+        this.a.M.getLocationInWindow(iArr);
         int height = iArr[1] - this.c.getHeight();
-        navigationBar = this.a.R;
+        navigationBar = this.a.S;
         this.a.d.setSelectionFromTop(this.b + 1, height - navigationBar.getHeight());
         this.a.d.invalidate();
     }

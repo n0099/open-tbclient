@@ -59,7 +59,7 @@ public class r extends com.baidu.adp.base.e {
 
     public void a(String str, int i, int i2) {
         RequestLiveGroupHistoryMessage requestLiveGroupHistoryMessage = new RequestLiveGroupHistoryMessage();
-        requestLiveGroupHistoryMessage.setGroupId(com.baidu.adp.lib.e.b.a(str, 0L));
+        requestLiveGroupHistoryMessage.setGroupId(com.baidu.adp.lib.e.c.a(str, 0L));
         requestLiveGroupHistoryMessage.setOffset(i);
         requestLiveGroupHistoryMessage.setRn(i2);
         super.sendMessage(requestLiveGroupHistoryMessage);

@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class az implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.bb> {
+class az implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.bc> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.bb> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.bc> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
             customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), PbActivity.class);
             if (TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK.equals(customMessage.getData().getIntent().getStringExtra("is_start_for_result"))) {

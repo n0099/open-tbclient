@@ -45,7 +45,7 @@ public class r extends PagerAdapter implements ViewPager.OnPageChangeListener, c
         this.h = new com.baidu.tbadk.coreExtra.view.k[this.e];
         while (true) {
             int i3 = i2;
-            if (i3 < linkedList.size()) {
+            if (i3 < this.e) {
                 a(linkedList.get(i3), i3);
                 this.b[i3] = linkedList.get(i3).cloneWithoutFilterAction(true);
                 this.b[i3].addPageAction(com.baidu.tbadk.img.effect.d.a(this.i, this.j));
@@ -123,9 +123,9 @@ public class r extends PagerAdapter implements ViewPager.OnPageChangeListener, c
                         this.g[i].b();
                     }
                 }
-            }
-            if (this.g[this.f] == null) {
-                this.g[this.f] = new t(this, this.f);
+                if (this.g[this.f] == null) {
+                    this.g[this.f] = new t(this, this.f);
+                }
             }
             String selectedFilter = this.h[this.f].getSelectedFilter();
             if (selectedFilter != null && !selectedFilter.equals("normal")) {

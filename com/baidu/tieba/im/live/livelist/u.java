@@ -18,6 +18,6 @@ public class u implements View.OnClickListener {
         FrsLiveListActivity frsLiveListActivity;
         MessageManager messageManager = MessageManager.getInstance();
         frsLiveListActivity = this.a.a;
-        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.aa(frsLiveListActivity)));
+        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ab(frsLiveListActivity)));
     }
 }

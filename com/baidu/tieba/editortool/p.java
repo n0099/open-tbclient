@@ -16,7 +16,7 @@ public class p implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.editortool.w wVar;
-        wVar = this.a.y;
+        wVar = this.a.x;
         wVar.a(this.b, null);
     }
 }

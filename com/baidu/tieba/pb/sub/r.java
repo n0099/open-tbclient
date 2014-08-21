@@ -19,9 +19,9 @@ class r implements w {
         } else if (i == 10) {
             this.b.a(27, obj);
         } else if (i == 34) {
-            this.a.r.setEnabled(true);
+            this.a.s.setEnabled(true);
         } else if (i == 33) {
-            this.a.r.setEnabled(false);
+            this.a.s.setEnabled(false);
         } else {
             this.b.a(i, obj);
         }

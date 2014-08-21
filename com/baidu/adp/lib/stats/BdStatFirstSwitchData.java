@@ -102,9 +102,9 @@ public class BdStatFirstSwitchData implements Serializable {
             return null;
         }
         int[] iArr = new int[3];
-        iArr[0] = com.baidu.adp.lib.e.b.a(split[0], -1);
-        iArr[1] = split.length > 1 ? com.baidu.adp.lib.e.b.a(split[1], -1) : -1;
-        iArr[2] = split.length > 2 ? com.baidu.adp.lib.e.b.a(split[2], -1) : -1;
+        iArr[0] = com.baidu.adp.lib.e.c.a(split[0], -1);
+        iArr[1] = split.length > 1 ? com.baidu.adp.lib.e.c.a(split[1], -1) : -1;
+        iArr[2] = split.length > 2 ? com.baidu.adp.lib.e.c.a(split[2], -1) : -1;
         return iArr;
     }
 }

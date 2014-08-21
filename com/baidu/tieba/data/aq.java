@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends ClickableSpan {
@@ -42,7 +42,7 @@ public class aq extends ClickableSpan {
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.d, this.c, this.b, null, "pb_floor")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.d, this.c, this.b, null, "pb_floor")));
         }
     }
 }

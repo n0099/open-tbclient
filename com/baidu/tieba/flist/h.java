@@ -16,7 +16,7 @@ class h implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
-        com.baidu.adp.lib.e.d.a(this.a.c.u, this.a);
+        com.baidu.adp.lib.e.e.a(this.a.c.u, this.a);
         this.a.r = i;
         this.a.c.d();
         ArrayList<com.baidu.tieba.square.w> arrayList = this.a.c.y.a().e;
