@@ -17,7 +17,7 @@ public class HotLiveListActivity extends BaseFragmentActivity implements ViewPag
     private boolean h = TbadkApplication.m252getInst().isLiveRecordOpen();
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aa.class, HotLiveListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ab.class, HotLiveListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

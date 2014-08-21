@@ -17,27 +17,27 @@ class s implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        cu cuVar;
-        cu cuVar2;
-        cu cuVar3;
-        cu cuVar4;
+        cv cvVar;
+        cv cvVar2;
+        cv cvVar3;
+        cv cvVar4;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
-        cu cuVar5;
+        cv cvVar5;
         if (i == 0) {
-            cuVar4 = this.a.z;
-            onItemLongClickListener = this.a.as;
-            cuVar4.a(onItemLongClickListener);
-            cuVar5 = this.a.z;
-            cuVar5.f(false);
-            this.a.W = false;
+            cvVar4 = this.a.B;
+            onItemLongClickListener = this.a.au;
+            cvVar4.a(onItemLongClickListener);
+            cvVar5 = this.a.B;
+            cvVar5.f(false);
+            this.a.Y = false;
             return;
         }
-        cuVar = this.a.z;
-        cuVar.a((AdapterView.OnItemLongClickListener) null);
-        cuVar2 = this.a.z;
-        cuVar2.f(true);
-        this.a.W = true;
-        cuVar3 = this.a.z;
-        cuVar3.U();
+        cvVar = this.a.B;
+        cvVar.a((AdapterView.OnItemLongClickListener) null);
+        cvVar2 = this.a.B;
+        cvVar2.f(true);
+        this.a.Y = true;
+        cvVar3 = this.a.B;
+        cvVar3.U();
     }
 }

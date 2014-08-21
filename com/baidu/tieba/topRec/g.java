@@ -3,7 +3,6 @@ package com.baidu.tieba.topRec;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -16,10 +15,10 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tieba.r;
 import com.baidu.tieba.t;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class g {
@@ -27,7 +26,7 @@ public class g {
     Handler b;
     private BdListView c;
     private Button d;
-    private u e;
+    private v e;
     private final View f;
     private LinearLayout g;
     private TextView h;
@@ -46,19 +45,19 @@ public class g {
         this.b = null;
         this.j = topRecActivity;
         this.b = new Handler();
-        this.j.setContentView(v.top_recommended_activity);
-        this.c = (BdListView) this.j.findViewById(com.baidu.tieba.u.top_list);
-        this.a = (NavigationBar) topRecActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.j.setContentView(com.baidu.tieba.v.top_recommended_activity);
+        this.c = (BdListView) this.j.findViewById(u.top_list);
+        this.a = (NavigationBar) topRecActivity.findViewById(u.view_navigation_bar);
         this.a.a(topRecActivity.getString(x.top_recommended));
-        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.nb_item_top_rec, (View.OnClickListener) null);
-        this.d = (Button) a.findViewById(com.baidu.tieba.u.title_finish);
+        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.nb_item_top_rec, (View.OnClickListener) null);
+        this.d = (Button) a.findViewById(u.title_finish);
         this.d.setOnClickListener(this.j);
-        this.m = (TextView) a.findViewById(com.baidu.tieba.u.title_finish_cover);
-        this.e = new u(this.j);
-        this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(v.forum_list_forum_footer, (ViewGroup) null);
-        this.f = this.g.findViewById(com.baidu.tieba.u.footer_background);
-        this.h = (TextView) this.g.findViewById(com.baidu.tieba.u.footer_text);
-        this.i = (ImageView) this.g.findViewById(com.baidu.tieba.u.footer_icon);
+        this.m = (TextView) a.findViewById(u.title_finish_cover);
+        this.e = new v(this.j);
+        this.g = (LinearLayout) com.baidu.adp.lib.e.b.a().a(topRecActivity, com.baidu.tieba.v.forum_list_forum_footer, null);
+        this.f = this.g.findViewById(u.footer_background);
+        this.h = (TextView) this.g.findViewById(u.footer_text);
+        this.i = (ImageView) this.g.findViewById(u.footer_icon);
         d();
         this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_a);
         this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_b);
@@ -66,7 +65,7 @@ public class g {
         this.p.setAnimationListener(new i(this));
         this.d.setText(String.valueOf(this.j.getString(x.done)) + "(" + this.k + ")");
         this.c.setPullRefresh(this.e);
-        this.l = (ProgressBar) this.j.findViewById(com.baidu.tieba.u.loading);
+        this.l = (ProgressBar) this.j.findViewById(u.loading);
         if (!n.a()) {
             this.q = new n(topRecActivity);
         }
@@ -127,7 +126,7 @@ public class g {
 
     public void b(int i) {
         this.a.c(i);
-        ay.b(this.j.findViewById(com.baidu.tieba.u.container), i);
+        ay.b(this.j.findViewById(u.container), i);
         ay.e((TextView) this.d, i);
         ay.d((TextView) this.d, i);
         ay.d(this.m, i);

@@ -2,7 +2,6 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -43,21 +42,21 @@ public class b extends RelativeLayout {
     }
 
     private void c() {
-        View inflate = LayoutInflater.from(this.a).inflate(getXmlLayoutResId(), this);
-        this.b = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.bubble_layout);
-        this.c = (TbImageView) inflate.findViewById(com.baidu.tieba.u.bubble_image);
-        this.d = (ImageView) inflate.findViewById(com.baidu.tieba.u.bubble_iamge_bg);
-        this.e = (ImageView) inflate.findViewById(com.baidu.tieba.u.free_tip);
-        this.f = (ImageView) inflate.findViewById(com.baidu.tieba.u.defualt_tip);
-        this.g = (ImageView) inflate.findViewById(com.baidu.tieba.u.bubble_notuse_iamge);
-        this.h = (ImageView) inflate.findViewById(com.baidu.tieba.u.bubble_round_up);
-        this.i = (ImageView) inflate.findViewById(com.baidu.tieba.u.bubble_round_full);
-        this.j = inflate.findViewById(com.baidu.tieba.u.bubble_center_line);
-        this.k = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.bubble_bottom_layout);
-        this.l = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.has_icon_name);
-        this.m = (TbImageView) inflate.findViewById(com.baidu.tieba.u.icon_iamge);
-        this.n = (TextView) inflate.findViewById(com.baidu.tieba.u.bubble_name);
-        this.o = (TextView) inflate.findViewById(com.baidu.tieba.u.no_icon_name);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, getXmlLayoutResId(), this);
+        this.b = (ViewGroup) a.findViewById(com.baidu.tieba.u.bubble_layout);
+        this.c = (TbImageView) a.findViewById(com.baidu.tieba.u.bubble_image);
+        this.d = (ImageView) a.findViewById(com.baidu.tieba.u.bubble_iamge_bg);
+        this.e = (ImageView) a.findViewById(com.baidu.tieba.u.free_tip);
+        this.f = (ImageView) a.findViewById(com.baidu.tieba.u.defualt_tip);
+        this.g = (ImageView) a.findViewById(com.baidu.tieba.u.bubble_notuse_iamge);
+        this.h = (ImageView) a.findViewById(com.baidu.tieba.u.bubble_round_up);
+        this.i = (ImageView) a.findViewById(com.baidu.tieba.u.bubble_round_full);
+        this.j = a.findViewById(com.baidu.tieba.u.bubble_center_line);
+        this.k = (ViewGroup) a.findViewById(com.baidu.tieba.u.bubble_bottom_layout);
+        this.l = (ViewGroup) a.findViewById(com.baidu.tieba.u.has_icon_name);
+        this.m = (TbImageView) a.findViewById(com.baidu.tieba.u.icon_iamge);
+        this.n = (TextView) a.findViewById(com.baidu.tieba.u.bubble_name);
+        this.o = (TextView) a.findViewById(com.baidu.tieba.u.no_icon_name);
     }
 
     public int getXmlLayoutResId() {

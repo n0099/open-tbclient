@@ -245,7 +245,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [457=10, 458=10, 462=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [456=10, 457=10, 461=10] */
     /* JADX WARN: Code restructure failed: missing block: B:124:0x034d, code lost:
         r8.b = r7;
         r8.e = r3 + 1;
@@ -390,7 +390,7 @@ public class ImgHttpClient implements com.baidu.adp.lib.resourceLoader.b {
                                             if (entity.getContentEncoding() != null && (value = entity.getContentEncoding().getValue()) != null && value.contains("gzip")) {
                                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                                com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                                com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                                 bArr4 = byteArrayOutputStream2.toByteArray();
                                                 break;
                                             }

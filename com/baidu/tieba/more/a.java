@@ -18,7 +18,7 @@ class a implements r {
             this.a.finish();
         } else if (i != 1) {
             if (i == 2) {
-                this.a.sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.z(this.a).a("from_about_page")));
+                this.a.sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.aa(this.a).a("from_about_page")));
             } else if (i == 3) {
                 com.baidu.tbadk.core.sharedPref.b.a().b(SettingTextFunctionIntroView.f, true);
                 AboutActivity aboutActivity = this.a;

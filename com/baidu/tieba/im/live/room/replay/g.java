@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.live.room.replay;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements DialogInterface.OnClickListener {
+class g implements DialogInterface.OnClickListener {
     final /* synthetic */ LiveRoomReplayActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

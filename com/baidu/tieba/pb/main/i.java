@@ -14,7 +14,7 @@ class i implements AbsListView.OnScrollListener {
     public void onScrollStateChanged(AbsListView absListView, int i) {
         bs bsVar;
         if (i == 2 || i == 1) {
-            bsVar = this.a.D;
+            bsVar = this.a.E;
             bsVar.ad();
         }
     }

@@ -1,25 +1,18 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic a;
-    private final /* synthetic */ com.baidu.tieba.im.data.k b;
+class ac extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.k kVar) {
-        this.a = newFriendDbManagerStatic;
-        this.b = kVar;
+    public ac(ab abVar) {
+        this.a = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Void a() {
-        com.baidu.tieba.im.db.m.a().a(this.b);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(com.baidu.tieba.im.db.m.a().b()));
+        this.a.a = com.baidu.tieba.im.db.m.a().b();
         return null;
     }
 }

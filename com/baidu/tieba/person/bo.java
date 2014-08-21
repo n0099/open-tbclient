@@ -33,6 +33,6 @@ public class bo implements DialogInterface.OnClickListener {
         }
         this.a.c();
         dialog = this.a.B;
-        dialog.dismiss();
+        com.baidu.adp.lib.e.e.b(dialog, this.a);
     }
 }

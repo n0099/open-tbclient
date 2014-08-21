@@ -9,9 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -101,7 +99,7 @@ public class r extends com.baidu.adp.base.f {
         this.ai = new s(this);
         this.c = groupInfoActivity;
         groupInfoActivity.setContentView(com.baidu.tieba.v.im_group_info_activity);
-        this.D = ((LayoutInflater) groupInfoActivity.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.group_activity_guide_toast, (ViewGroup) null);
+        this.D = com.baidu.adp.lib.e.b.a().a(groupInfoActivity, com.baidu.tieba.v.group_activity_guide_toast, null);
         a(groupInfoActivity);
         b(groupInfoActivity);
         c(groupInfoActivity);
@@ -229,9 +227,9 @@ public class r extends com.baidu.adp.base.f {
                 this.C.setFocusable(true);
             }
             if (this.C.isShowing()) {
-                this.C.dismiss();
+                com.baidu.adp.lib.e.e.a(this.C, this.c);
             } else {
-                com.baidu.adp.lib.e.d.a(this.C, this.i);
+                com.baidu.adp.lib.e.e.a(this.C, this.i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -656,7 +654,7 @@ public class r extends com.baidu.adp.base.f {
         if (this.s == null) {
             C();
         }
-        com.baidu.adp.lib.e.d.a(this.s, this.c);
+        com.baidu.adp.lib.e.e.a(this.s, this.c);
     }
 
     private void C() {
@@ -673,7 +671,7 @@ public class r extends com.baidu.adp.base.f {
             this.O = null;
         }
         b(obj, i);
-        com.baidu.adp.lib.e.d.a(this.O, this.c);
+        com.baidu.adp.lib.e.e.a(this.O, this.c);
     }
 
     public void u() {
@@ -702,7 +700,7 @@ public class r extends com.baidu.adp.base.f {
             builder.setItems(charSequenceArr, new w(this, str));
             AlertDialog create = builder.create();
             create.setCanceledOnTouchOutside(true);
-            com.baidu.adp.lib.e.d.a(create, this.c);
+            com.baidu.adp.lib.e.e.a(create, this.c);
         }
     }
 
@@ -710,7 +708,7 @@ public class r extends com.baidu.adp.base.f {
         if (this.M == null) {
             g(str);
         }
-        com.baidu.adp.lib.e.d.a(this.M, this.c);
+        com.baidu.adp.lib.e.e.a(this.M, this.c);
     }
 
     private void g(String str) {

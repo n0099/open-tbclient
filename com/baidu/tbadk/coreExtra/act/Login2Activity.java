@@ -21,7 +21,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bq;
+import com.baidu.tbadk.core.atomData.br;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -626,9 +626,9 @@ public class Login2Activity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         o();
-        bq bqVar = new bq(this);
-        bqVar.setRequestCode(22002);
-        bqVar.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bqVar));
+        br brVar = new br(this);
+        brVar.setRequestCode(22002);
+        brVar.setIntentAction(IntentAction.ActivityForResult);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, brVar));
     }
 }

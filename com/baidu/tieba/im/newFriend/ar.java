@@ -1,24 +1,28 @@
 package com.baidu.tieba.im.newFriend;
 
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponsePassFriendMessage;
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tieba.im.a<List<com.baidu.tieba.im.data.k>> {
+class ar extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ NewFriendsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(NewFriendsActivity newFriendsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ar(NewFriendsActivity newFriendsActivity, int i) {
+        super(i);
         this.a = newFriendsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(List<com.baidu.tieba.im.data.k> list) {
-        av avVar;
-        av avVar2;
-        avVar = this.a.d;
-        avVar.c().a(list);
-        avVar2 = this.a.d;
-        avVar2.c().notifyDataSetChanged();
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ResponsePassFriendMessage responsePassFriendMessage;
+        int error;
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof SocketResponsedMessage)) {
+            this.a.showToast(com.baidu.tieba.x.neterror);
+        } else if ((socketResponsedMessage instanceof ResponsePassFriendMessage) && (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) != 0 && error != 3100098) {
+            this.a.showToast(responsePassFriendMessage.getErrorString());
+        }
     }
 }

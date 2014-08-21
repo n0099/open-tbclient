@@ -1,8 +1,6 @@
 package com.baidu.tieba.discover;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
@@ -31,7 +29,7 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.fragmenttabindicator, (ViewGroup) null);
+        this.b = (FragmentTabIndicator) com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.fragmenttabindicator, null);
         c = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.h = this.b;

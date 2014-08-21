@@ -21,7 +21,7 @@ public class aa extends com.baidu.adp.framework.listener.d {
         RequestHistoryMessage requestHistoryMessage;
         List list;
         af afVar;
-        List<ba> list2;
+        List<bb> list2;
         this.a.hideProgressBar();
         this.a.f = false;
         if (socketResponsedMessage == null) {

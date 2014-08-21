@@ -5,9 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -99,7 +97,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     }
 
     public void b(Context context) {
-        LayoutInflater.from(context).inflate(v.play_voice_bnt, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.play_voice_bnt, this, true);
         this.c = (ImageView) findViewById(u.playingImg);
         this.d = (TextView) findViewById(u.playTime);
         this.e = (ProgressBar) findViewById(u.progress);

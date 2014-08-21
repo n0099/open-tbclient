@@ -13,11 +13,11 @@ class t implements cu {
         com.baidu.tieba.pb.sub.e eVar;
         com.baidu.tieba.pb.sub.e eVar2;
         bs bsVar;
-        eVar = this.a.B;
+        eVar = this.a.C;
         if (eVar != null) {
-            eVar2 = this.a.B;
+            eVar2 = this.a.C;
             if (eVar2.j()) {
-                bsVar = this.a.D;
+                bsVar = this.a.E;
                 bsVar.C();
             }
         }

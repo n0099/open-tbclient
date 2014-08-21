@@ -1,5 +1,6 @@
 package com.baidu.tieba.game;
 
+import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -36,7 +37,9 @@ public class ResponseGameCenterMessage extends TbSocketReponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if ((getOrginalMessage() instanceof RequestGameCenterMessage) && getError() == 0) {
+        RequestGameCenterMessage requestGameCenterMessage;
+        Message<?> orginalMessage = getOrginalMessage();
+        if ((orginalMessage instanceof RequestGameCenterMessage) && getError() == 0 && (requestGameCenterMessage = (RequestGameCenterMessage) orginalMessage) != null && requestGameCenterMessage.getPageNum() == 0) {
             saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.game_center_home"), "game_center_cache", bArr);
         }
     }

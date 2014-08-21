@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.style.TextAppearanceSpan;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -20,6 +19,7 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
     protected Context b;
@@ -57,6 +57,17 @@ public class a extends BaseAdapter {
     }
 
     public void a(ArrayList<an> arrayList) {
+        if (arrayList == null) {
+            this.a = new ArrayList<>();
+            return;
+        }
+        Iterator<an> it = arrayList.iterator();
+        while (it.hasNext()) {
+            an next = it.next();
+            if (next != null && next.g() != null) {
+                next.g().setPortrait(null);
+            }
+        }
         this.a = arrayList;
     }
 
@@ -112,11 +123,11 @@ public class a extends BaseAdapter {
 
     public View a() {
         b bVar = new b(this);
-        View inflate = LayoutInflater.from(this.b).inflate(v.new_sub_pb_list_item, (ViewGroup) null);
-        bVar.a = inflate;
-        bVar.b = (LinearLayout) inflate.findViewById(u.sub_pb_item_columnlayout);
-        bVar.c = (TextView) inflate.findViewById(u.manage_btn);
-        bVar.d = (TbRichTextView) inflate.findViewById(u.new_sub_pb_list_richText);
+        View a = com.baidu.adp.lib.e.b.a().a(this.b, v.new_sub_pb_list_item, null);
+        bVar.a = a;
+        bVar.b = (LinearLayout) a.findViewById(u.sub_pb_item_columnlayout);
+        bVar.c = (TextView) a.findViewById(u.manage_btn);
+        bVar.d = (TbRichTextView) a.findViewById(u.new_sub_pb_list_richText);
         bVar.d.setTextSize(TbConfig.getContentSizeOfLzl(this.b));
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             bVar.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.r.gray_night_3));
@@ -126,8 +137,8 @@ public class a extends BaseAdapter {
         bVar.c.setOnClickListener(this.c);
         SparseArray sparseArray = new SparseArray();
         sparseArray.put(u.tag_holder, bVar);
-        inflate.setTag(sparseArray);
-        return inflate;
+        a.setTag(sparseArray);
+        return a;
     }
 
     public void a(b bVar, an anVar, boolean z, boolean z2) {

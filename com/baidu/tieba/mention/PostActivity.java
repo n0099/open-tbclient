@@ -17,6 +17,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.view.CustomTextView;
@@ -34,7 +35,7 @@ public class PostActivity extends BaseActivity {
     private String h = null;
     private String i = null;
     private String j = null;
-    private ak k = null;
+    private ai k = null;
     private com.baidu.tieba.model.am l = null;
     private ImageView m;
     private TextView n;
@@ -129,13 +130,13 @@ public class PostActivity extends BaseActivity {
         this.c = (TextView) findViewById(com.baidu.tieba.u.title_text);
         this.a = (LinearLayout) findViewById(com.baidu.tieba.u.post);
         this.e = (ImageView) findViewById(com.baidu.tieba.u.back);
-        this.e.setOnClickListener(new ae(this));
+        this.e.setOnClickListener(new ac(this));
         this.d = (Button) findViewById(com.baidu.tieba.u.reply);
-        this.d.setOnClickListener(new af(this));
+        this.d.setOnClickListener(new ad(this));
         this.f = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
         this.f.setVisibility(8);
         this.m = (ImageView) findViewById(com.baidu.tieba.u.photo);
-        this.m.setOnClickListener(new ag(this));
+        this.m.setOnClickListener(new ae(this));
         this.n = (TextView) findViewById(com.baidu.tieba.u.user_name);
         this.n.getPaint().setFakeBoldText(true);
         this.o = (TextView) findViewById(com.baidu.tieba.u.floor);
@@ -157,19 +158,19 @@ public class PostActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.ay.a(this.c, i);
-        com.baidu.tbadk.core.util.ay.a(this.e, i);
-        com.baidu.tbadk.core.util.ay.e((TextView) this.d, i);
-        com.baidu.tbadk.core.util.ay.a(this.g, i);
-        com.baidu.tbadk.core.util.ay.d(this.b, i);
-        com.baidu.tbadk.core.util.ay.b(this.n, i);
+        ay.a(this.c, i);
+        ay.a(this.e, i);
+        ay.e((TextView) this.d, i);
+        ay.a(this.g, i);
+        ay.d(this.b, i);
+        ay.b(this.n, i);
         if (i == 1) {
             this.r.setTextColor(getResources().getColor(com.baidu.tieba.r.skin_1_second_common_color));
-            com.baidu.tbadk.core.util.ay.e((View) this.o, com.baidu.tieba.t.floor_bg_1);
+            ay.e((View) this.o, com.baidu.tieba.t.floor_bg_1);
             return;
         }
         this.r.setTextColor(-12040120);
-        com.baidu.tbadk.core.util.ay.e((View) this.o, com.baidu.tieba.t.floor_bg);
+        ay.e((View) this.o, com.baidu.tieba.t.floor_bg);
     }
 
     private void c() {
@@ -193,7 +194,7 @@ public class PostActivity extends BaseActivity {
             if (this.j != null) {
                 arrayList.add(new BasicNameValuePair(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.j));
             }
-            this.k = new ak(this, stringBuffer.toString(), arrayList);
+            this.k = new ai(this, stringBuffer.toString(), arrayList);
             this.k.setPriority(3);
             this.k.execute(stringBuffer.toString(), arrayList);
         } catch (Exception e) {
@@ -272,7 +273,7 @@ public class PostActivity extends BaseActivity {
                                 }
                                 imageView.setClickable(true);
                                 imageView.setFocusable(false);
-                                imageView.setOnClickListener(new aj(this, k, i5));
+                                imageView.setOnClickListener(new ah(this, k, i5));
                                 this.s.addView(imageView, layoutParams);
                                 i2 = i5;
                                 i4++;
@@ -315,13 +316,13 @@ public class PostActivity extends BaseActivity {
                 ArrayList<com.baidu.tieba.data.g> k = anVar.k();
                 String portrait = anVar.g().getPortrait();
                 if (this.l.b() && portrait != null && portrait.length() > 0) {
-                    com.baidu.adp.lib.resourceLoader.d.a().a(portrait, 12, new ah(this), getUniqueId());
+                    com.baidu.adp.lib.resourceLoader.d.a().a(portrait, 12, new af(this), getUniqueId());
                 }
                 int size = k.size();
                 if (this.u) {
                     for (int i = 0; i < size; i++) {
                         if (k.get(i).a() == 3) {
-                            com.baidu.adp.lib.resourceLoader.d.a().a(k.get(i).e(), 12, new ai(this), getUniqueId());
+                            com.baidu.adp.lib.resourceLoader.d.a().a(k.get(i).e(), 12, new ag(this), getUniqueId());
                         }
                     }
                 }

@@ -5,8 +5,8 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.u;
-import com.baidu.tieba.v;
+import com.baidu.tbadk.core.view.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.f {
@@ -16,7 +16,7 @@ public class d extends com.baidu.adp.base.f {
     private NoNetworkView d;
     private BdListView e;
     private a f;
-    private u g;
+    private v g;
 
     public d(DiscoverGroupActivity discoverGroupActivity) {
         super(discoverGroupActivity);
@@ -26,15 +26,15 @@ public class d extends com.baidu.adp.base.f {
     }
 
     private void c() {
-        this.b = View.inflate(this.a, v.discover_group_activity, null);
+        this.b = View.inflate(this.a, com.baidu.tieba.v.discover_group_activity, null);
         this.a.setContentView(this.b);
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.discovergroup_navigation_bar);
+        this.c = (NavigationBar) this.b.findViewById(u.discovergroup_navigation_bar);
         this.c.a(x.group_title_find_group);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.discovergroup_no_network);
+        this.d = (NoNetworkView) this.b.findViewById(u.discovergroup_no_network);
         this.d.a(new e(this));
-        this.e = (BdListView) this.b.findViewById(com.baidu.tieba.u.list_view);
-        this.g = new u(this.a);
+        this.e = (BdListView) this.b.findViewById(u.list_view);
+        this.g = new v(this.a);
         this.g.a(new f(this));
         this.e.setPullRefresh(this.g);
         this.f = new a(this.a);

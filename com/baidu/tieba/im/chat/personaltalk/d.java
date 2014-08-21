@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class d implements DialogInterface.OnClickListener {
@@ -12,6 +13,6 @@ class d implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+        com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
     }
 }

@@ -11,6 +11,7 @@ public class y {
     private String d = "";
     private int e = 0;
     private int f = 0;
+    private int g;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -21,6 +22,7 @@ public class y {
                 this.b = jSONObject.optString("name");
                 this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
                 this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                this.g = jSONObject.optInt("is_friend");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -36,6 +38,7 @@ public class y {
                 this.b = user.name;
                 this.c = user.name_show;
                 this.d = user.portrait;
+                this.g = user.is_friend.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -56,5 +59,9 @@ public class y {
 
     public String d() {
         return this.d;
+    }
+
+    public int e() {
+        return this.g;
     }
 }

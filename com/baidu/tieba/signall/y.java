@@ -1,15 +1,62 @@
 package com.baidu.tieba.signall;
+
+import android.widget.ProgressBar;
+import android.widget.Scroller;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements Runnable {
-    final /* synthetic */ w a;
+public class y implements Runnable {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar) {
-        this.a = wVar;
+    public y(x xVar) {
+        this.a = xVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.postDelayed(this, 2000L);
+        Scroller scroller;
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        Scroller scroller2;
+        Scroller scroller3;
+        ProgressBar progressBar3;
+        ProgressBar progressBar4;
+        Runnable runnable;
+        int i;
+        Scroller scroller4;
+        Runnable runnable2;
+        scroller = this.a.h;
+        if (!scroller.computeScrollOffset()) {
+            progressBar = this.a.c;
+            int progress = progressBar.getProgress();
+            progressBar2 = this.a.c;
+            int max = (progressBar2.getMax() * 9) / 10;
+            if (progress < max) {
+                scroller2 = this.a.h;
+                scroller2.startScroll(progress, 0, max - progress, 0, 5000);
+                this.a.post(this);
+                return;
+            }
+            return;
+        }
+        scroller3 = this.a.h;
+        int currX = scroller3.getCurrX();
+        progressBar3 = this.a.c;
+        if (currX >= (progressBar3.getMax() * 9) / 10) {
+            i = this.a.a;
+            if (i != 2) {
+                scroller4 = this.a.h;
+                scroller4.forceFinished(true);
+                x xVar = this.a;
+                runnable2 = this.a.l;
+                xVar.postDelayed(runnable2, 2000L);
+                return;
+            }
+        }
+        progressBar4 = this.a.c;
+        progressBar4.setProgress(currX);
+        x xVar2 = this.a;
+        runnable = this.a.k;
+        xVar2.postDelayed(runnable, 16L);
     }
 }

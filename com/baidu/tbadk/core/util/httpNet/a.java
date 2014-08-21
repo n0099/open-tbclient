@@ -269,7 +269,7 @@ public class a {
     public String e() {
         try {
             return ((WifiManager) TbadkApplication.m252getInst().getSystemService("wifi")).getConnectionInfo().getSSID();
-        } catch (Exception e) {
+        } catch (Error | Exception e) {
             return null;
         }
     }

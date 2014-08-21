@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
@@ -25,7 +23,7 @@ public class a extends LinearLayout {
 
     private void a() {
         setOrientation(1);
-        ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.official_history_item, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.official_history_item, this, true);
         setClickable(false);
         setFocusable(false);
         this.e = (LinearLayout) findViewById(com.baidu.tieba.u.history_container);

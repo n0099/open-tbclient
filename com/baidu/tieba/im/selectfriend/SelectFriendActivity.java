@@ -8,9 +8,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bt;
+import com.baidu.tbadk.core.atomData.bu;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.o;
+import com.baidu.tbadk.core.view.p;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
@@ -21,12 +21,12 @@ public class SelectFriendActivity extends BaseActivity {
     NavigationBar a;
     BdListView b;
     d c;
-    o d;
+    p d;
     private CustomMessageListener e = new a(this, 2001188);
     private AdapterView.OnItemClickListener f = new b(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bt.class, SelectFriendActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bu.class, SelectFriendActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,7 +43,7 @@ public class SelectFriendActivity extends BaseActivity {
         this.b.setOnItemClickListener(this.f);
         registerListener(this.e);
         MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
-        this.d = new o(this, t.pic_emotion05, t.pic_emotion05_1, u.no_data_container, u.no_data_image, u.no_data_image_text);
+        this.d = new p(this, t.pic_emotion05, t.pic_emotion05_1, u.no_data_container, u.no_data_image, u.no_data_image_text);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.friend;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,7 +13,7 @@ import java.util.List;
 public class p extends BaseAdapter {
     private final Context a;
     private List<com.baidu.tbadk.coreExtra.relationship.b> b;
-    private com.baidu.tbadk.core.view.s c;
+    private com.baidu.tbadk.core.view.t c;
     private r d = null;
     private ViewGroup e = null;
     private boolean f;
@@ -32,8 +31,8 @@ public class p extends BaseAdapter {
         this.b = list;
     }
 
-    public void a(com.baidu.tbadk.core.view.s sVar) {
-        this.c = sVar;
+    public void a(com.baidu.tbadk.core.view.t tVar) {
+        this.c = tVar;
     }
 
     @Override // android.widget.Adapter
@@ -107,7 +106,7 @@ public class p extends BaseAdapter {
 
     private q a() {
         q qVar = new q(this);
-        qVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.invite_friend_list_item, (ViewGroup) null);
+        qVar.a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.invite_friend_list_item, null);
         qVar.b = (HeadImageView) qVar.a.findViewById(com.baidu.tieba.u.photo);
         qVar.b.setIsRound(false);
         qVar.c = (TextView) qVar.a.findViewById(com.baidu.tieba.u.txt_user_name);

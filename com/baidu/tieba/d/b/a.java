@@ -31,8 +31,8 @@ public class a implements View.OnClickListener {
                 com.baidu.tieba.d.a.f h = aVar.h();
                 int g = aVar.g();
                 if (h != null) {
-                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "area_click", "pb", h.b, h.c);
-                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.b, h.c, "PB", "click");
+                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "area_click", "pb", h.c, h.d);
+                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.c, h.d, "PB", "click");
                     TiebaStatic.eventStat(view.getContext(), "pb_ck_app", null, 1, "app_name", h.a());
                     int r = h.r();
                     if (r == 0) {
@@ -49,7 +49,7 @@ public class a implements View.OnClickListener {
                             aVar2.a(x.alert_yes_button, new b(this, view, h, g, aVar));
                             aVar2.b(x.alert_no_button, new c(this));
                             aVar2.a();
-                            aVar2.b();
+                            aVar2.c();
                         }
                     } else if (r == 2) {
                         com.baidu.tieba.d.b.a(view.getContext(), h);

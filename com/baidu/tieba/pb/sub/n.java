@@ -13,8 +13,8 @@ class n implements AdapterView.OnItemLongClickListener {
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.a.K != null) {
-            this.a.K.onLongClick(view);
+        if (this.a.L != null) {
+            this.a.L.onLongClick(view);
             return false;
         }
         return false;

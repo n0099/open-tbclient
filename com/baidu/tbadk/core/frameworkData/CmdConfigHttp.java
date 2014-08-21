@@ -16,6 +16,7 @@ public class CmdConfigHttp {
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
     public static final int GETPAYINFO_CMD = 1001505;
     public static final int GET_LOCATION_PRI_CMD = 1001507;
+    public static final int H5_GAME_HTTP_CMD = 1002300;
     public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1001520;
     private static final int LOGIN_HTTP_BASE_CMD = 1001100;
     public static final int MEMBER_PAY_CMD = 1001532;

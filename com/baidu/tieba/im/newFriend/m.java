@@ -1,24 +1,25 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestAddFriendMessage;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
-class m implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ k a;
-    private final /* synthetic */ RequestAddFriendMessage b;
+class m extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ l a;
+    private final /* synthetic */ long b;
+    private final /* synthetic */ com.baidu.tieba.im.data.k c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar, RequestAddFriendMessage requestAddFriendMessage) {
-        this.a = kVar;
-        this.b = requestAddFriendMessage;
+    public m(l lVar, long j, com.baidu.tieba.im.data.k kVar) {
+        this.a = lVar;
+        this.b = j;
+        this.c = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r9) {
-        ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = new ResponseNewFriendUpdateUiMsg(-1, 0L, "", "", "", "");
-        responseNewFriendUpdateUiMsg.setContent(this.b.getMessage());
-        MessageManager.getInstance().dispatchResponsedMessageToUI(responseNewFriendUpdateUiMsg);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        if (!com.baidu.tieba.im.db.m.a().b(this.b)) {
+            com.baidu.tieba.im.db.m.a().a(this.c);
+            return null;
+        }
+        return null;
     }
 }

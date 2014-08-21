@@ -15,7 +15,7 @@ public class k implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tbadk.editortool.w wVar;
         this.a.b.setmImagetype(2);
-        wVar = this.a.y;
+        wVar = this.a.x;
         wVar.a(23, null);
     }
 }

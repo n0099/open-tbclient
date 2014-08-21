@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.atomData.z;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.im.model.an;
@@ -100,7 +100,7 @@ public class NearbyGroupsActivity extends BaseActivity {
         } else if (view.getId() == u.guide_setting) {
             this.d.a();
         } else if (view.getId() == u.list_item_content && (tag = view.getTag()) != null) {
-            sendMessage(new CustomMessage(2008011, new y(this, com.baidu.adp.lib.e.b.a(tag.toString(), 0L), 1)));
+            sendMessage(new CustomMessage(2008011, new z(this, com.baidu.adp.lib.e.c.a(tag.toString(), 0L), 1)));
         }
     }
 

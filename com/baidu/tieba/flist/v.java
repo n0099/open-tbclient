@@ -15,7 +15,7 @@ public class v implements View.OnKeyListener {
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && this.a.u.isShowing()) {
-            this.a.u.dismiss();
+            com.baidu.adp.lib.e.e.a(this.a.u, this.a.w);
             return false;
         }
         return false;

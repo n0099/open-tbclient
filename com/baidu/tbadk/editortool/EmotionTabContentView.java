@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -37,7 +36,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     private final Point o;
     private w p;
     private int q;
-    private LayoutInflater r;
+    private Context r;
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -58,9 +57,9 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     private void a(Context context) {
+        this.r = context;
         setOrientation(1);
-        this.r = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.r.inflate(com.baidu.tieba.v.emotion_tab_content, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.emotion_tab_content, this, true);
         this.a = (ViewPager) findViewById(com.baidu.tieba.u.face_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);

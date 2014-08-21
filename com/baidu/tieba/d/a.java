@@ -1,7 +1,6 @@
 package com.baidu.tieba.d;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.content.Context;
 import com.baidu.tieba.d.c.c;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
@@ -20,17 +19,17 @@ public class a {
         return a;
     }
 
-    public com.baidu.tieba.d.c.a a(LayoutInflater layoutInflater) {
-        if (layoutInflater == null) {
+    public com.baidu.tieba.d.c.a a(Context context) {
+        if (context == null) {
             return null;
         }
-        return new com.baidu.tieba.d.c.b(layoutInflater.inflate(v.pb_item_app_new, (ViewGroup) null));
+        return new com.baidu.tieba.d.c.b(com.baidu.adp.lib.e.b.a().a(context, v.pb_item_app_new, null));
     }
 
-    public com.baidu.tieba.d.c.a b(LayoutInflater layoutInflater) {
-        if (layoutInflater == null) {
+    public com.baidu.tieba.d.c.a b(Context context) {
+        if (context == null) {
             return null;
         }
-        return new c(layoutInflater.inflate(v.pb_item_app, (ViewGroup) null));
+        return new c(com.baidu.adp.lib.e.b.a().a(context, v.pb_item_app, null));
     }
 }

@@ -16,15 +16,15 @@ public class n implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cu cuVar;
-        cu cuVar2;
+        cv cvVar;
+        cv cvVar2;
         String str;
         int i2;
         int i3;
         int i4;
         if (i >= 0) {
-            cuVar = this.a.z;
-            long itemId = cuVar.v().getItemId(i);
+            cvVar = this.a.B;
+            long itemId = cvVar.v().getItemId(i);
             if (itemId == -1) {
                 i3 = this.a.t;
                 if (i3 > 1) {
@@ -34,8 +34,8 @@ public class n implements AdapterView.OnItemClickListener {
                     this.a.c(2);
                 }
             } else if (itemId != -2) {
-                cuVar2 = this.a.z;
-                com.baidu.tbadk.core.data.n nVar = (com.baidu.tbadk.core.data.n) cuVar2.v().getItem(i);
+                cvVar2 = this.a.B;
+                com.baidu.tbadk.core.data.n nVar = (com.baidu.tbadk.core.data.n) cvVar2.v().getItem(i);
                 if (nVar != null) {
                     if (nVar instanceof com.baidu.tbadk.core.data.a) {
                         com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) nVar;
@@ -76,9 +76,9 @@ public class n implements AdapterView.OnItemClickListener {
                             nVar.a(i6.substring(3));
                         }
                         FrsActivity frsActivity3 = this.a;
-                        com.baidu.tbadk.core.atomData.bb bbVar = new com.baidu.tbadk.core.atomData.bb(this.a);
+                        com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
                         str = this.a.q;
-                        frsActivity3.sendMessage(new CustomMessage(2004001, bbVar.a(nVar, str, null, 18003, true, false, z)));
+                        frsActivity3.sendMessage(new CustomMessage(2004001, bcVar.a(nVar, str, null, 18003, true, false, z)));
                     }
                 }
             } else {

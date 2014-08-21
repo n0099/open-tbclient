@@ -1,9 +1,9 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import com.baidu.tbadk.core.view.t;
+import com.baidu.tbadk.core.view.u;
 import tbclient.GetAddressList.friendList;
 /* loaded from: classes.dex */
-public class b implements t {
+public class b implements u {
     private boolean a = false;
     private String b;
     private long c;
@@ -71,12 +71,12 @@ public class b implements t {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.t
+    @Override // com.baidu.tbadk.core.view.u
     public boolean isChecked() {
         return this.a;
     }
 
-    @Override // com.baidu.tbadk.core.view.t
+    @Override // com.baidu.tbadk.core.view.u
     public void setChecked(boolean z) {
         this.a = z;
     }

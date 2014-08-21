@@ -1,74 +1,126 @@
 package com.baidu.tieba.im.mygroup;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ v a;
+public class y extends BaseAdapter {
+    private aa a;
+    private List<GroupInfoData> b = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(v vVar, int i) {
-        super(i);
-        this.a = vVar;
+    public void a(List<GroupInfoData> list) {
+        this.b = list;
+    }
+
+    public y(aa aaVar) {
+        this.a = aaVar;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.b.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
+    @Override // android.widget.Adapter
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonGroupActivity a;
-        int i;
-        t tVar;
-        t tVar2;
-        EnterGuideCenterView enterGuideCenterView;
-        EnterGuideCenterView enterGuideCenterView2;
-        a = this.a.a();
-        if (this.a.getActivity() != null && this.a.b != null && a != null && a.j() != null) {
-            if (socketResponsedMessage.getCmd() == 103003) {
-                this.a.b.d();
+    public GroupInfoData getItem(int i) {
+        int itemId = (int) getItemId(i);
+        if (itemId < 0 || itemId >= this.b.size()) {
+            return null;
+        }
+        return this.b.get(itemId);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        z zVar;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof z)) {
+            view = com.baidu.adp.lib.e.b.a().a(this.a.getActivity(), com.baidu.tieba.v.tab_my_group_item, viewGroup, false);
+            z zVar2 = new z();
+            zVar2.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.click_head);
+            zVar2.g = (ImageView) view.findViewById(com.baidu.tieba.u.diver_top);
+            zVar2.h = (ImageView) view.findViewById(com.baidu.tieba.u.diver_buttom_px);
+            zVar2.i = (ImageView) view.findViewById(com.baidu.tieba.u.diver_top_px);
+            zVar2.b = (GroupImageView) view.findViewById(com.baidu.tieba.u.item_head);
+            zVar2.c = (TextView) view.findViewById(com.baidu.tieba.u.item_group_name);
+            zVar2.d = (TextView) view.findViewById(com.baidu.tieba.u.item_group_num);
+            zVar2.e = (TextView) view.findViewById(com.baidu.tieba.u.item_introduce);
+            zVar2.f = (TextView) view.findViewById(com.baidu.tieba.u.isCreator);
+            zVar2.j = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade1);
+            zVar2.k = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade2);
+            zVar2.l = (ImageView) view.findViewById(com.baidu.tieba.u.item_grade3);
+            zVar2.m = new ImageView[4];
+            zVar2.m[1] = zVar2.j;
+            zVar2.m[2] = zVar2.k;
+            zVar2.m[3] = zVar2.l;
+            view.setTag(zVar2);
+            zVar = zVar2;
+        } else {
+            zVar = (z) view.getTag();
+        }
+        GroupInfoData groupInfoData = this.b.get(i);
+        zVar.b.setTag(null);
+        zVar.b.setDrawBorder(true);
+        if (groupInfoData != null) {
+            String portrait = groupInfoData.getPortrait();
+            if (!TextUtils.isEmpty(portrait)) {
+                zVar.b.a(portrait, 10, false);
+            } else {
+                zVar.b.a("", 10, false);
             }
-            ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
-            if (responseGroupsByUidMessage.getError() != 0) {
-                if (responseGroupsByUidMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidMessage.getErrorString())) {
-                    this.a.b(responseGroupsByUidMessage.getErrorString());
-                    return;
-                }
-                return;
+            zVar.a.setOnClickListener(this.a);
+            zVar.a.setTag(groupInfoData);
+            zVar.g.setVisibility(8);
+            zVar.i.setVisibility(8);
+            zVar.h.setVisibility(0);
+            zVar.c.setText(groupInfoData.getName());
+            zVar.d.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
+            zVar.e.setText(groupInfoData.getIntro());
+            if (groupInfoData.getIsGroupManager() == 1) {
+                zVar.f.setVisibility(0);
+            } else {
+                zVar.f.setVisibility(8);
             }
-            List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
-            i = this.a.h;
-            if (i == 1) {
-                groups = responseGroupsByUidMessage.getCommonGroups();
-            }
-            if (!a.i()) {
-                a.a(responseGroupsByUidMessage.getGroups());
-                a.b(responseGroupsByUidMessage.getCommonGroups());
-            }
-            a.b(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
-            if (groups != null) {
-                tVar = this.a.e;
-                tVar.a(groups);
-                tVar2 = this.a.e;
-                tVar2.notifyDataSetChanged();
-                if (groups.size() > 0) {
-                    enterGuideCenterView2 = this.a.f;
-                    enterGuideCenterView2.b(8);
-                } else {
-                    enterGuideCenterView = this.a.f;
-                    enterGuideCenterView.b(0);
-                }
-                this.a.b.setVisibility(0);
-            }
-            if (socketResponsedMessage.getCmd() == 103003) {
-                this.a.c = false;
-            } else if (socketResponsedMessage.getCmd() == 2001106 && a.j() != null) {
-                a.j().a();
+            a(zVar.m, groupInfoData.getGrade());
+        }
+        ((BaseFragmentActivity) this.a.getActivity()).c().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        ((BaseFragmentActivity) this.a.getActivity()).c().a(view);
+        if (groupInfoData != null && groupInfoData.isMemGroup()) {
+            ay.a(zVar.c, com.baidu.tieba.r.im_group_vip_text, 1);
+            ay.c(zVar.j, com.baidu.tieba.t.icon_vip_grade_big_small_s);
+            ay.c(zVar.k, com.baidu.tieba.t.icon_vip_grade_big_small_s);
+            ay.c(zVar.l, com.baidu.tieba.t.icon_vip_grade_big_small_s);
+        }
+        return view;
+    }
+
+    private void a(ImageView[] imageViewArr, int i) {
+        int i2 = i < 0 ? 0 : i;
+        if (i2 > 3) {
+            i2 = 3;
+        }
+        for (int i3 = 1; i3 <= 3; i3++) {
+            if (i3 <= i2) {
+                imageViewArr[i3].setVisibility(0);
+            } else {
+                imageViewArr[i3].setVisibility(8);
             }
         }
     }

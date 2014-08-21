@@ -2,13 +2,12 @@ package com.baidu.tieba.square;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.view.BarImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -43,13 +42,13 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bo.b(view);
+            bp.b(view);
         }
-        bo.a(view);
+        bp.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
             View findViewById = view.findViewById(com.baidu.tieba.u.container);
-            bo.a(findViewById, 1, skinType);
+            bp.a(findViewById, 1, skinType);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -62,21 +61,20 @@ public class c extends BaseAdapter {
     }
 
     private View a(ViewGroup viewGroup, int i) {
-        LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
+            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return from.inflate(com.baidu.tieba.v.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = from.inflate(com.baidu.tieba.v.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.a);
+        View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_first_dir_item, viewGroup, false);
+        a.setOnClickListener(this.a);
         e eVar = new e();
-        eVar.a = (BarImageView) inflate.findViewById(com.baidu.tieba.u.portrait);
-        eVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.name);
-        eVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.u.description);
-        inflate.setTag(eVar);
-        return inflate;
+        eVar.a = (BarImageView) a.findViewById(com.baidu.tieba.u.portrait);
+        eVar.b = (TextView) a.findViewById(com.baidu.tieba.u.name);
+        eVar.c = (BestStringsFitTextView) a.findViewById(com.baidu.tieba.u.description);
+        a.setTag(eVar);
+        return a;
     }
 
     private void a(ViewGroup viewGroup, e eVar, int i) {

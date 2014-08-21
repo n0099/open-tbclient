@@ -9,7 +9,7 @@ public class i {
     private final int d = 1;
     private com.baidu.adp.lib.d.b<f> e;
     private com.baidu.adp.lib.d.b<c> f;
-    private com.baidu.adp.lib.d.b<bb> g;
+    private com.baidu.adp.lib.d.b<bc> g;
 
     public static i a() {
         return a;
@@ -44,7 +44,7 @@ public class i {
         return this.f;
     }
 
-    public com.baidu.adp.lib.d.b<bb> c(Context context) {
+    public com.baidu.adp.lib.d.b<bc> c(Context context) {
         if (this.g == null) {
             f(context);
         }

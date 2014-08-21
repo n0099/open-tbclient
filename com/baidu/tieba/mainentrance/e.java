@@ -3,7 +3,6 @@ package com.baidu.tieba.mainentrance;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -117,10 +116,9 @@ public class e extends BaseAdapter {
         g gVar;
         if (this.a != null) {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.b);
                 if (getItemViewType(i) == 0) {
                     gVar = new g(this, null);
-                    view = from.inflate(com.baidu.tieba.v.search_post_item, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.search_post_item, null);
                     gVar.c = (TextView) view.findViewById(com.baidu.tieba.u.title);
                     gVar.f = view.findViewById(com.baidu.tieba.u.search_post_lv_search_forum_divider);
                     gVar.b = (TextView) view.findViewById(com.baidu.tieba.u.content);
@@ -131,7 +129,7 @@ public class e extends BaseAdapter {
                     fVar = null;
                 } else {
                     f fVar2 = new f(this, null);
-                    view = from.inflate(com.baidu.tieba.v.page_item, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.page_item, null);
                     fVar2.a = (TextView) view.findViewById(com.baidu.tieba.u.page_text);
                     fVar2.b = (ProgressBar) view.findViewById(com.baidu.tieba.u.progress);
                     if (this.d == null) {

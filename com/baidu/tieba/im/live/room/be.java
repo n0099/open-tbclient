@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.live.room;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.im.chat.TalkableActivity;
 /* loaded from: classes.dex */
@@ -85,7 +84,7 @@ public class be extends com.baidu.adp.base.f {
     }
 
     private void m() {
-        this.a = this.r.getLayoutInflater().inflate(com.baidu.tieba.v.im_chat_room_more_view, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(this.r, com.baidu.tieba.v.im_chat_room_more_view, null);
         this.b = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row1_host);
         this.c = this.a.findViewById(com.baidu.tieba.u.live_room_more_view_row3_host);
         this.d = (TextView) this.a.findViewById(com.baidu.tieba.u.live_room_more_view_inform_host);

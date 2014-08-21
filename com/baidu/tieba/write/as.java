@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.atomData.ch;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.LinkedList;
@@ -101,7 +101,7 @@ public class as implements com.baidu.tbadk.editortool.w {
             alertDialog2 = this.a.j;
             if (alertDialog2 != null) {
                 alertDialog3 = this.a.j;
-                com.baidu.adp.lib.e.d.a(alertDialog3, this.a);
+                com.baidu.adp.lib.e.e.a(alertDialog3, this.a);
             }
         } else if (i == 42) {
             int intValue = ((Integer) obj).intValue();
@@ -115,7 +115,7 @@ public class as implements com.baidu.tbadk.editortool.w {
                         MessageManager messageManager = MessageManager.getInstance();
                         WriteActivity writeActivity2 = this.a;
                         writeImagesInfo4 = this.a.D;
-                        messageManager.sendMessage(new CustomMessage(2002001, new cg(writeActivity2, 12012, writeImagesInfo4, intValue)));
+                        messageManager.sendMessage(new CustomMessage(2002001, new ch(writeActivity2, 12012, writeImagesInfo4, intValue)));
                     }
                 }
             }

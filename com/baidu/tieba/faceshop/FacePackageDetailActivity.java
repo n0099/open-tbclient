@@ -22,7 +22,7 @@ public class FacePackageDetailActivity extends BaseActivity {
     private x d;
     private boolean e = false;
     private final Rect f = new Rect();
-    private final com.baidu.tbadk.core.view.q g = new ae(this);
+    private final com.baidu.tbadk.core.view.r g = new ae(this);
     private final BaseActivity.LoadDataCallBack h = new af(this, this);
     private final CustomMessageListener i = new ag(this, 2001122);
 

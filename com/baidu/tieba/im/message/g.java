@@ -6,15 +6,15 @@ public class g {
     public String a;
     public int b;
     public ChatMessage c;
-    public boolean d;
+    public int d;
 
     public g() {
     }
 
-    public g(String str, int i, ChatMessage chatMessage, boolean z) {
+    public g(String str, int i, ChatMessage chatMessage, int i2) {
         this.a = str;
         this.b = i;
         this.c = chatMessage;
-        this.d = z;
+        this.d = i2;
     }
 }

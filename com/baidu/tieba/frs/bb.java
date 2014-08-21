@@ -1,36 +1,14 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends BdAsyncTask<String, Integer, Boolean> {
+class bb implements com.baidu.adp.widget.ListView.x {
     final /* synthetic */ FrsActivity a;
-    private final String b;
 
-    public bb(FrsActivity frsActivity, String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        boolean b;
-        b = this.a.b(this.b);
-        return Boolean.valueOf(b);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.a.showToast(com.baidu.tieba.x.shortcut_has_add);
-        } else {
-            this.a.a(this.b);
-        }
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
     }
 }

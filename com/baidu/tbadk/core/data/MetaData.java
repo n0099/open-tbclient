@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.data.IconData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements aa, av, com.baidu.tbadk.core.view.t {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements aa, av, com.baidu.tbadk.core.view.u {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
@@ -33,12 +33,12 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements aa, av, c
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.view.t
+    @Override // com.baidu.tbadk.core.view.u
     public boolean isChecked() {
         return this.mIsChecked;
     }
 
-    @Override // com.baidu.tbadk.core.view.t
+    @Override // com.baidu.tbadk.core.view.u
     public void setChecked(boolean z) {
         this.mIsChecked = z;
     }

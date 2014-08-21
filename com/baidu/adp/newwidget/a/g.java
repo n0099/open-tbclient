@@ -50,6 +50,11 @@ public class g extends l {
     protected void a(Canvas canvas, Drawable drawable) {
         canvas.save();
         a(drawable.getBounds());
+        try {
+            canvas.clipPath(this.l);
+        } catch (Exception e) {
+        }
+        drawable.draw(canvas);
         canvas.restore();
     }
 }

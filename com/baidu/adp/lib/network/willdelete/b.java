@@ -448,7 +448,7 @@ public class b {
                 atomicLong.set(file.length());
             }
         }
-        c cVar = new c(atomicInteger2, str2, atomicLong, atomicInteger);
+        c cVar = new c(atomicInteger2, str2, atomicLong, atomicInteger, file);
         do {
             try {
                 j = h.a() ? 2000000 : 200000;
@@ -574,7 +574,7 @@ public class b {
         throw e3;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1098=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1107=5] */
     /* JADX WARN: Removed duplicated region for block: B:170:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x003e  */
@@ -839,7 +839,7 @@ public class b {
         return fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1371=4, 1373=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1380=4, 1382=5] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:182:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0029  */
@@ -1120,6 +1120,7 @@ public class b {
         int i2;
         int read;
         String headerField;
+        boolean z2 = false;
         InputStream inputStream = null;
         try {
             f fVar = new f();
@@ -1155,12 +1156,17 @@ public class b {
                 i2 = 0;
             }
             int intValue2 = (i2 == 0 && httpURLConnection.getResponseCode() == 200 && (headerField = httpURLConnection.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i2;
+            if (gVar != null) {
+                gVar.a(headerField2 != null);
+            }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (dVar != null) {
                 dVar.a(intValue2, httpURLConnection, byteArrayOutputStream);
             }
             String contentEncoding = httpURLConnection.getContentEncoding();
-            boolean z2 = contentEncoding != null && contentEncoding.contains("gzip");
+            if (contentEncoding != null && contentEncoding.contains("gzip")) {
+                z2 = true;
+            }
             InputStream inputStream2 = httpURLConnection.getInputStream();
             if (aVar != null && aVar.c()) {
                 throw new BdHttpCancelException();

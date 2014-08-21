@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.chat.officialBar.ay;
+import com.baidu.tieba.im.chat.officialBar.az;
 import com.baidu.tieba.im.groupInfo.y;
 /* loaded from: classes.dex */
 public class b {
@@ -15,7 +15,7 @@ public class b {
 
     public synchronized void b() {
         com.baidu.tieba.im.chat.personaltalk.a.a().b();
-        ay.a().b();
+        az.a().b();
         y.a().b();
     }
 }

@@ -72,17 +72,17 @@ public class x<T> implements w<T> {
 
     @Override // com.baidu.adp.lib.cache.t
     public void a(String str, u<T> uVar) {
-        com.baidu.adp.lib.e.e.a().a(new y(this, str, uVar));
+        com.baidu.adp.lib.e.f.a().a(new y(this, str, uVar));
     }
 
     @Override // com.baidu.adp.lib.cache.t
     public void b(String str, T t, long j) {
-        com.baidu.adp.lib.e.e.a().a(new z(this, str, t, j));
+        com.baidu.adp.lib.e.f.a().a(new z(this, str, t, j));
     }
 
     @Override // com.baidu.adp.lib.cache.t
     public void d(String str) {
-        com.baidu.adp.lib.e.e.a().a(new aa(this, str));
+        com.baidu.adp.lib.e.f.a().a(new aa(this, str));
     }
 
     @Override // com.baidu.adp.lib.cache.w

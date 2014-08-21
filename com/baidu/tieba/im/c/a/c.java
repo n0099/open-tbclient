@@ -24,7 +24,7 @@ public abstract class c implements CustomMessageTask.CustomRunnable<com.baidu.ti
         }
         com.baidu.tieba.im.message.c data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-        LinkedList<ChatMessage> a = this.a.a(com.baidu.adp.lib.e.b.a(data.d, 0L), data.a, data.b, data.c);
+        LinkedList<ChatMessage> a = this.a.a(com.baidu.adp.lib.e.c.a(data.d, 0L), data.a, data.b, data.c);
         if (a == null) {
             return a(this.b);
         }

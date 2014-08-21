@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ce;
+import com.baidu.tbadk.core.atomData.cf;
 import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -70,7 +70,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                         if (anVar.d() != null) {
                             if (ajVar.g() == null || ajVar.g().getIfpost() != 0) {
                                 activity9 = this.b.c;
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(activity9, 2, ajVar.c().getId(), ajVar.c().getName(), ajVar.d().h(), anVar.d(), anVar.e(), ajVar.g(), 13001, false, ajVar.k(), this.e, false, false, null, null, null, i)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(activity9, 2, ajVar.c().getId(), ajVar.c().getName(), ajVar.d().h(), anVar.d(), anVar.e(), ajVar.g(), 13001, false, ajVar.k(), this.e, false, false, null, null, null, i)));
                             } else {
                                 activity10 = this.b.c;
                                 com.baidu.adp.lib.util.j.a((Context) activity10, ajVar.g().getForbid_info());
@@ -78,7 +78,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                             }
                         } else if (ajVar.g() == null || ajVar.g().getIfpost() != 0) {
                             activity7 = this.b.c;
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(activity7, 1, ajVar.c().getId(), ajVar.c().getName(), ajVar.d().h(), null, anVar.e(), ajVar.g(), 13002, false, ajVar.k(), this.e, false, false, null, null, null, i)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(activity7, 1, ajVar.c().getId(), ajVar.c().getName(), ajVar.d().h(), null, anVar.e(), ajVar.g(), 13002, false, ajVar.k(), this.e, false, false, null, null, null, i)));
                         } else {
                             activity8 = this.b.c;
                             com.baidu.adp.lib.util.j.a((Context) activity8, ajVar.g().getForbid_info());
@@ -100,7 +100,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                     if (d != null) {
                         if (j == null || j.getIfpost() != 0) {
                             activity5 = this.b.c;
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(activity5, 2, id, name, h, d, e, j, 13001, false, true, this.e, false, false, null, null, null, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(activity5, 2, id, name, h, d, e, j, 13001, false, true, this.e, false, false, null, null, null, 0)));
                         } else {
                             activity6 = this.b.c;
                             com.baidu.adp.lib.util.j.a((Context) activity6, j.getForbid_info());
@@ -108,7 +108,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                         }
                     } else if (j == null || j.getIfpost() != 0) {
                         activity3 = this.b.c;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(activity3, 1, id, name, h, null, e, j, 13002, false, true, this.e, false, false, null, null, null, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(activity3, 1, id, name, h, null, e, j, 13002, false, true, this.e, false, false, null, null, null, 0)));
                     } else {
                         activity4 = this.b.c;
                         com.baidu.adp.lib.util.j.a((Context) activity4, j.getForbid_info());

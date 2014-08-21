@@ -13,7 +13,6 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.ArrayList;
@@ -154,7 +153,7 @@ public class ImMemoryCacheRegisterStatic {
                     imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.a(groupUpdateMessage.getGroupType()));
                     imMessageCenterPojo.setGroup_head(groupUpdateMessage.getPortrait());
                     imMessageCenterPojo.setGroup_name(groupUpdateMessage.getName());
-                    imMessageCenterPojo.setPulled_msgId(bu.b(groupUpdateMessage.getLastMsgId()));
+                    imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(groupUpdateMessage.getLastMsgId()));
                     if (imMessageCenterPojo.getCustomGroupType() == -2 || imMessageCenterPojo.getCustomGroupType() == -1 || imMessageCenterPojo.getCustomGroupType() == 5 || imMessageCenterPojo.getCustomGroupType() == 6) {
                         imMessageCenterPojo.setIs_hidden(1);
                     }
@@ -189,7 +188,7 @@ public class ImMemoryCacheRegisterStatic {
                     com.baidu.tieba.im.pushNotify.f.a().a(imMessageCenterPojo5.getGid());
                     imMessageCenterPojo3 = imMessageCenterPojo5;
                 } else if (imMessageCenterPojo5.getCustomGroupType() == -1) {
-                    com.baidu.tieba.im.chat.w.a(com.baidu.adp.lib.e.b.a(imMessageCenterPojo5.getGid(), 0));
+                    com.baidu.tieba.im.chat.w.a(com.baidu.adp.lib.e.c.a(imMessageCenterPojo5.getGid(), 0));
                     imMessageCenterPojo4 = imMessageCenterPojo5;
                 } else if (imMessageCenterPojo5.getCustomGroupType() == 6 || imMessageCenterPojo5.getCustomGroupType() == 7 || imMessageCenterPojo5.getCustomGroupType() == 8) {
                     ArrayList arrayList5 = arrayList3;

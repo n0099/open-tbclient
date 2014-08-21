@@ -1,8 +1,7 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
     final /* synthetic */ PbActivity a;
@@ -14,6 +13,6 @@ class g implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbWebViewActivity.startActivityWithCookie(this.a, this.a.getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.av(this.a)));
     }
 }

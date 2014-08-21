@@ -62,45 +62,43 @@ public class ap {
     }
 
     private static boolean a(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
-        Notification notification;
         boolean z2;
+        Notification notification;
         boolean z3;
         boolean z4 = false;
         boolean z5 = false;
-        boolean z6 = false;
         if (!com.baidu.tbadk.coreExtra.messageCenter.a.c() && com.baidu.tbadk.coreExtra.messageCenter.a.b()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkApplication.m252getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                boolean z7 = audioManager.getRingerMode() == 0;
-                boolean z8 = audioManager.getRingerMode() == 1;
+                boolean z6 = audioManager.getRingerMode() == 0;
+                boolean z7 = audioManager.getRingerMode() == 1;
                 if (TbadkApplication.m252getInst().isMsgToneOn()) {
                     z4 = true;
-                    z4 = (z7 || z8) ? false : false;
+                    z4 = (z6 || z7) ? false : false;
                     if (audioManager.getStreamVolume(3) <= 0) {
                         z4 = false;
                     }
                 }
                 if (!TbadkApplication.m252getInst().isMsgVibrateOn()) {
-                    z2 = false;
-                } else {
-                    z2 = true;
-                    if (z7) {
-                        z2 = false;
-                    }
-                    if (z8) {
-                        z2 = true;
-                    }
-                }
-                if (!TbadkApplication.m252getInst().isMsgLightOn()) {
                     z3 = false;
                 } else {
                     z3 = true;
+                    if (z6) {
+                        z3 = false;
+                    }
+                    if (z7) {
+                        z3 = true;
+                    }
                 }
                 TbadkApplication.m252getInst().setLastNotifyTime(currentTimeMillis);
-                z6 = z3;
-                z5 = z2;
+                z5 = z3;
             }
+        }
+        if (!TbadkApplication.m252getInst().isMsgLightOn()) {
+            z2 = false;
+        } else {
+            z2 = true;
         }
         if (remoteViews != null) {
             notification = new Notification(com.baidu.tieba.t.icon, str3, System.currentTimeMillis());
@@ -156,7 +154,7 @@ public class ap {
         } else {
             notification.flags |= 16;
         }
-        if (z6) {
+        if (z2) {
             notification.flags |= 1;
             notification.defaults |= 4;
         }

@@ -2,9 +2,9 @@ package com.baidu.tieba.im.chat.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.e.b;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
@@ -27,7 +27,7 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public void a(Context context) {
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.chat_image_with_tail_item, this);
+        b.a().a(context, v.chat_image_with_tail_item, this);
         this.a = (ChatClipImageItemView) findViewById(u.img_msgitem_image_new);
         this.a.setDefaultResource(t.image_h_not);
         this.b = (LinearLayout) findViewById(u.small_tail);

@@ -34,8 +34,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ce;
-import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.atomData.cf;
+import com.baidu.tbadk.core.atomData.ch;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.LiveCardData;
@@ -118,7 +118,7 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
     private com.baidu.tieba.bubble.t ad = new bb(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ce.class, WriteActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(cf.class, WriteActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -237,7 +237,7 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (this.P != null && this.P.isShowing()) {
-                this.P.dismiss();
+                com.baidu.adp.lib.e.e.a(this.P, this);
                 return true;
             } else if (this.C.o()) {
                 this.B.c();
@@ -530,9 +530,6 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
             if (this.a.getTitle() != null) {
                 this.f.setText(this.a.getTitle());
                 this.f.setSelection(this.a.getTitle().length());
-            } else if (this.b) {
-                this.f.setText(getResources().getString(com.baidu.tieba.x.android_feedback));
-                this.f.setSelection(getResources().getString(com.baidu.tieba.x.android_feedback).length());
             }
         } else if (this.a.getType() != 1) {
             this.a.getType();
@@ -559,27 +556,6 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
                 this.i.setText(format);
                 this.i.setSelection(format.length());
             }
-        } else if (this.a.getType() == 0 && this.b) {
-            StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(getResources().getString(com.baidu.tieba.x.tieba_client));
-            stringBuffer.append(TbConfig.getVersion());
-            stringBuffer.append(", ");
-            stringBuffer.append(Build.VERSION.RELEASE);
-            stringBuffer.append(", ");
-            stringBuffer.append(Build.MODEL);
-            stringBuffer.append(", ");
-            UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this);
-            if (netStatusInfo == UtilHelper.NetworkStateInfo.WIFI) {
-                stringBuffer.append(NetworkChangeReceiver.WIFI_STRING);
-            } else if (netStatusInfo == UtilHelper.NetworkStateInfo.ThreeG) {
-                stringBuffer.append("3G");
-            } else if (netStatusInfo == UtilHelper.NetworkStateInfo.TwoG) {
-                stringBuffer.append("2G");
-            } else {
-                stringBuffer.append("UNKNOWN");
-            }
-            stringBuffer.append(":");
-            this.i.setText(stringBuffer);
         }
         this.i.setOnFocusChangeListener(this.ab);
         this.i.setOnTouchListener(new ap(this));
@@ -734,7 +710,7 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
     private void x() {
         try {
             if (this.u != null && this.u.isShowing()) {
-                this.u.dismiss();
+                com.baidu.adp.lib.e.e.b(this.u, this);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -1093,7 +1069,7 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
                 b(intent);
                 int size2 = this.D.size() - 1;
                 if (size2 > -1 && this.D != null && this.D.getChosedFiles() != null && (size = this.D.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cg(this, 12012, this.D, size2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ch(this, 12012, this.D, size2)));
                 }
             } else if (i == 12012) {
                 c(intent);
@@ -1271,7 +1247,7 @@ public class WriteActivity extends BaseActivity implements PopupWindow.OnDismiss
         this.P.b(i);
         this.O.setText(this.N.getPrefixs().get(i));
         z();
-        this.P.dismiss();
+        com.baidu.adp.lib.e.e.a(this.P, this);
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener

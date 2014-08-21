@@ -13,8 +13,8 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aq;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
@@ -28,9 +28,9 @@ public class LoginActivity extends BaseActivity {
     static {
         a();
         if (d) {
-            TbadkApplication.m252getInst().RegisterIntent(aq.class, Login2Activity.class);
+            TbadkApplication.m252getInst().RegisterIntent(ar.class, Login2Activity.class);
         } else {
-            TbadkApplication.m252getInst().RegisterIntent(aq.class, LoginActivity.class);
+            TbadkApplication.m252getInst().RegisterIntent(ar.class, LoginActivity.class);
         }
     }
 
@@ -162,9 +162,9 @@ public class LoginActivity extends BaseActivity {
 
     private void e() {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.z(this).a("from_logo_page")));
+            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.aa(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2015001, new as(this).a(1)));
+            sendMessage(new CustomMessage(2015001, new at(this).a(1)));
         }
         finish();
     }

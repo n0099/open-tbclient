@@ -2,8 +2,6 @@ package com.baidu.tieba.im.live.mylive;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -41,7 +39,7 @@ public class MyLiveNoDataView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.im_frsgroup_guide, (ViewGroup) null));
+        addView(com.baidu.adp.lib.e.b.a().a(context, v.im_frsgroup_guide, null));
         this.a = (ImageView) findViewById(u.guide_img);
         this.b = (TextView) findViewById(u.guide_tip1);
         this.c = (TextView) findViewById(u.guide_tip2);

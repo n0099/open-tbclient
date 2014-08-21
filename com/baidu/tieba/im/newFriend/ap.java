@@ -1,33 +1,23 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.tbadk.core.dialog.BdToast;
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap implements ba {
+public class ap implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ NewFriendsActivity a;
+    private final /* synthetic */ com.baidu.tieba.im.data.k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(NewFriendsActivity newFriendsActivity) {
+    public ap(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.k kVar) {
         this.a = newFriendsActivity;
+        this.b = kVar;
     }
 
-    @Override // com.baidu.tieba.im.newFriend.ba
-    public void a(String str) {
-        String str2;
-        this.a.b();
-        com.baidu.tbadk.h a = com.baidu.tbadk.h.a();
-        str2 = this.a.c;
-        a.b(str2, true);
-    }
-
-    @Override // com.baidu.tieba.im.newFriend.ba
-    public void b(String str) {
-        av avVar;
-        av avVar2;
-        avVar = this.a.d;
-        avVar.b();
-        avVar2 = this.a.d;
-        avVar2.a((List<com.baidu.tieba.im.data.k>) null);
-        BdToast.a(this.a, str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        az azVar;
+        if (bool.booleanValue()) {
+            azVar = this.a.d;
+            azVar.a(this.b);
+        }
     }
 }

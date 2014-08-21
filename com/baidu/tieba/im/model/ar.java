@@ -23,15 +23,14 @@ public class ar extends com.baidu.adp.base.e {
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.chat.notify.a aVar) {
         if (imMessageCenterShowItemData != null) {
             String friendId = imMessageCenterShowItemData.getFriendId();
-            String ownerName = imMessageCenterShowItemData.getOwnerName();
-            if (!TextUtils.isEmpty(friendId) && !TextUtils.isEmpty(ownerName)) {
+            if (!TextUtils.isEmpty(friendId)) {
                 Iterator<ImMessageCenterShowItemData> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     ImMessageCenterShowItemData next = it.next();
-                    if (next != null && friendId.equals(next.getFriendId()) && ownerName.equals(next.getOwnerName())) {
+                    if (next != null && friendId.equals(next.getFriendId())) {
                         this.a.remove(next);
                         break;
                     }
@@ -135,7 +134,7 @@ public class ar extends com.baidu.adp.base.e {
         ImMessageCenterShowItemData a;
         if (a(imMessageCenterPojo) && (a = a(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             a.setSendStatus(imMessageCenterPojo.getSend_status());
-            OfficialSettingItemData b = com.baidu.tieba.im.chat.officialBar.ay.a().b(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            OfficialSettingItemData b = com.baidu.tieba.im.chat.officialBar.az.a().b(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (b != null) {
                 a.setGroupSetting(b);
             }

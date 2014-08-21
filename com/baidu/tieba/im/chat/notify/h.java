@@ -27,7 +27,7 @@ public class h implements AdapterView.OnItemLongClickListener {
         imMessageCenterShowItemData = this.a.e;
         eVar2.a(imMessageCenterShowItemData);
         if (this.a.b != null) {
-            com.baidu.adp.lib.e.d.a(this.a.b, this.a.getActivity());
+            com.baidu.adp.lib.e.e.a(this.a.b, this.a.getActivity());
         }
         return true;
     }

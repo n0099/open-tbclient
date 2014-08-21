@@ -31,7 +31,7 @@ public class AppsActivity extends BaseActivity {
     }
 
     public static void a() {
-        com.baidu.adp.lib.e.e.a().a(new f());
+        com.baidu.adp.lib.e.f.a().a(new f());
         com.baidu.tbadk.core.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
     }
 

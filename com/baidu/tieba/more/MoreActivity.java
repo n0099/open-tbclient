@@ -14,8 +14,8 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bs;
-import com.baidu.tbadk.core.atomData.ce;
+import com.baidu.tbadk.core.atomData.bt;
+import com.baidu.tbadk.core.atomData.cf;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.data.PersonChangeData;
@@ -24,7 +24,7 @@ import com.baidu.tieba.person.PersonChangeActivity;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
     private ac a;
-    private com.baidu.tieba.person.o c;
+    private com.baidu.tieba.person.p c;
     private MoreModel b = null;
     private ab d = null;
 
@@ -132,7 +132,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData == null) {
-            this.c = new com.baidu.tieba.person.o(this);
+            this.c = new com.baidu.tieba.person.p(this);
             this.c.a(TbadkApplication.getCurrentAccount());
             this.c.setLoadDataCallBack(new z(this));
             this.c.a(true, true);
@@ -178,7 +178,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
     public void f() {
@@ -231,6 +231,6 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     }
 
     public void m() {
-        sendMessage(new CustomMessage(2002001, new bs(this)));
+        sendMessage(new CustomMessage(2002001, new bt(this)));
     }
 }

@@ -17,7 +17,7 @@ class ae extends HttpMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        dl dlVar;
+        dn dnVar;
         com.baidu.tieba.b.a aVar;
         com.baidu.tieba.b.a aVar2;
         if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
@@ -28,14 +28,13 @@ class ae extends HttpMessageListener {
             jVar.c = frsPageHttpResponseMessage.getError();
             jVar.d = frsPageHttpResponseMessage.getErrorString();
             jVar.e = frsPageHttpResponseMessage.getDownSize();
-            dlVar = this.a.aj;
-            dlVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
-            aVar = this.a.K;
+            dnVar = this.a.al;
+            dnVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
+            aVar = this.a.M;
             if (aVar != null) {
-                boolean z = frsPageHttpResponseMessage.getError() == 0;
-                aVar2 = this.a.K;
-                aVar2.a(true, z, frsPageHttpResponseMessage.getError(), frsPageHttpResponseMessage.getErrorString(), frsPageHttpResponseMessage.getDownSize(), frsPageHttpResponseMessage.getCostTime(), 0L);
-                this.a.K = null;
+                aVar2 = this.a.M;
+                aVar2.a(true, jVar.b, jVar.c, jVar.d, jVar.e);
+                this.a.M = null;
             }
         }
     }

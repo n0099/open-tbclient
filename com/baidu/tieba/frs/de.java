@@ -1,65 +1,50 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.frs.view.FrsOfficalBanner;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de implements com.baidu.adp.widget.ListView.y {
-    final /* synthetic */ cu a;
+public class de implements View.OnTouchListener {
+    final /* synthetic */ cv a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(cu cuVar) {
-        this.a = cuVar;
+    public de(cv cvVar) {
+        this.a = cvVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.y
-    public void a(boolean z) {
-        boolean z2;
-        BdListView bdListView;
-        FrsOfficalBanner frsOfficalBanner;
-        boolean z3;
-        BdListView bdListView2;
-        FrsOfficalBanner frsOfficalBanner2;
-        com.baidu.tieba.frs.view.n nVar;
-        BdListView bdListView3;
-        BdListView bdListView4;
-        FrsOfficalBanner frsOfficalBanner3;
-        com.baidu.tieba.frs.view.n nVar2;
-        com.baidu.tieba.frs.view.n nVar3;
-        z2 = this.a.as;
-        if (z2) {
-            int i = -1;
-            bdListView = this.a.r;
-            if (bdListView.getFirstVisiblePosition() == 0) {
-                bdListView3 = this.a.r;
-                if (bdListView3.getChildCount() > 0) {
-                    bdListView4 = this.a.r;
-                    i = bdListView4.getChildAt(0).getTop();
-                    frsOfficalBanner3 = this.a.ap;
-                    if (i <= (-frsOfficalBanner3.getHeight()) || i == 0) {
-                        nVar2 = this.a.A;
-                        nVar2.a();
-                    } else {
-                        nVar3 = this.a.A;
-                        nVar3.b();
-                    }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int i;
+        ImageView imageView;
+        ImageView imageView2;
+        int i2;
+        ImageView imageView3;
+        ImageView imageView4;
+        if (view.getId() == com.baidu.tieba.u.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                i = this.a.O;
+                if (i == 1) {
+                    imageView2 = this.a.q;
+                    imageView2.setImageResource(com.baidu.tieba.t.pic_fresh_n_1);
+                } else {
+                    imageView = this.a.q;
+                    imageView.setImageResource(com.baidu.tieba.t.pic_fresh_n);
                 }
             }
-            if (i != 0 && !z) {
-                z3 = this.a.h;
-                if (!z3) {
-                    bdListView2 = this.a.r;
-                    if (bdListView2.f()) {
-                        frsOfficalBanner2 = this.a.ap;
-                        frsOfficalBanner2.setVisibility(0);
-                        nVar = this.a.A;
-                        nVar.b();
-                        return;
-                    }
+            if (motionEvent.getAction() == 0) {
+                i2 = this.a.O;
+                if (i2 == 1) {
+                    imageView4 = this.a.q;
+                    imageView4.setImageResource(com.baidu.tieba.t.pic_fresh_s_1);
+                    return false;
                 }
+                imageView3 = this.a.q;
+                imageView3.setImageResource(com.baidu.tieba.t.pic_fresh_s);
+                return false;
             }
-            frsOfficalBanner = this.a.ap;
-            frsOfficalBanner.setVisibility(8);
+            return false;
         }
+        return false;
     }
 }

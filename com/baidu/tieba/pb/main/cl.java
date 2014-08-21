@@ -19,12 +19,18 @@ public class cl implements DialogInterface.OnKeyListener {
         PbActivity pbActivity;
         EditText editText;
         Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity2;
         if (i == 4) {
             pbActivity = this.a.k;
-            editText = this.a.N;
+            editText = this.a.O;
             com.baidu.adp.lib.util.j.a(pbActivity, editText);
-            dialog = this.a.J;
-            dialog.dismiss();
+            dialog = this.a.K;
+            if (dialog instanceof Dialog) {
+                dialog2 = this.a.K;
+                pbActivity2 = this.a.k;
+                com.baidu.adp.lib.e.e.b(dialog2, pbActivity2);
+            }
             return true;
         }
         return false;

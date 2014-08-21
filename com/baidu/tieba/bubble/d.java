@@ -2,7 +2,7 @@ package com.baidu.tieba.bubble;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.au;
 /* loaded from: classes.dex */
 class d implements s {
     final /* synthetic */ BubbleChooseActivity a;
@@ -17,7 +17,7 @@ class d implements s {
         com.baidu.tieba.model.e eVar;
         eVar = this.a.c;
         eVar.b(i);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new at(this.a, true, 23004, "pop_unable")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new au(this.a, true, 23004, "pop_unable")));
     }
 
     @Override // com.baidu.tieba.bubble.s

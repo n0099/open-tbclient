@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
@@ -133,7 +134,7 @@ public class bp extends com.baidu.adp.base.f {
             this.d.setCanceledOnTouchOutside(true);
         }
         if (!this.d.isShowing()) {
-            com.baidu.adp.lib.e.d.a(this.d, this.a);
+            com.baidu.adp.lib.e.e.a(this.d, this.a);
         }
     }
 
@@ -146,7 +147,7 @@ public class bp extends com.baidu.adp.base.f {
             this.c = new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.x.group_report).setItems(new CharSequence[]{new SpannableString(this.a.getString(com.baidu.tieba.x.group_report_ad)), new SpannableString(this.a.getString(com.baidu.tieba.x.group_report_sex)), new SpannableString(this.a.getString(com.baidu.tieba.x.group_report_lllegal))}, this.l).create();
         }
         this.c.setCanceledOnTouchOutside(true);
-        com.baidu.adp.lib.e.d.a(this.c, this.a);
+        com.baidu.adp.lib.e.e.a(this.c, this.a);
     }
 
     public void k() {
@@ -212,7 +213,7 @@ public class bp extends com.baidu.adp.base.f {
             this.m = new AlertDialog.Builder(this.mContext).setTitle(this.mContext.getString(com.baidu.tieba.x.alert_title)).setCancelable(false).setMessage(com.baidu.tieba.x.group_dismiss_alert).setPositiveButton(com.baidu.tieba.x.alert_yes_button, this.a).setNegativeButton(com.baidu.tieba.x.alert_no_button, new br(this)).create();
         }
         if (!this.m.isShowing()) {
-            com.baidu.adp.lib.e.d.a(this.m, this.a);
+            com.baidu.adp.lib.e.e.a(this.m, this.a);
         }
     }
 
@@ -222,15 +223,15 @@ public class bp extends com.baidu.adp.base.f {
 
     public void u() {
         if (this.m != null && this.m.isShowing()) {
-            this.m.dismiss();
+            com.baidu.adp.lib.e.e.b(this.m, (Activity) this.mContext);
             this.m = null;
         }
         if (this.c != null && this.c.isShowing()) {
-            this.c.dismiss();
+            com.baidu.adp.lib.e.e.b(this.c, (Activity) this.mContext);
             this.c = null;
         }
         if (this.d != null && this.d.isShowing()) {
-            this.d.dismiss();
+            com.baidu.adp.lib.e.e.b(this.d, (Activity) this.mContext);
             this.d = null;
         }
     }

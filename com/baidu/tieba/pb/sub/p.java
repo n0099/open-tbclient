@@ -18,7 +18,7 @@ class p implements Runnable {
     public void run() {
         if (this.b != null) {
             int[] iArr = new int[2];
-            this.a.L.getLocationInWindow(iArr);
+            this.a.M.getLocationInWindow(iArr);
             this.a.d.setSelectionFromTop(this.c + 1, iArr[1] - this.b.getHeight());
             this.a.d.invalidate();
         }

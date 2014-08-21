@@ -21,11 +21,11 @@ public class bw implements Animation.AnimationListener {
         boolean z;
         View view;
         View view2;
-        z = this.a.aP;
+        z = this.a.aQ;
         if (z) {
-            view = this.a.aJ;
+            view = this.a.aK;
             view.setVisibility(0);
-            view2 = this.a.aI;
+            view2 = this.a.aJ;
             view2.setVisibility(0);
             return;
         }

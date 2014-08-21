@@ -16,11 +16,11 @@ public class cc implements View.OnClickListener {
     public void onClick(View view) {
         PbListView pbListView;
         boolean z;
-        pbListView = this.a.aS;
+        pbListView = this.a.aT;
         pbListView.d();
         if (this.a.j != null) {
             be beVar = this.a.j;
-            z = this.a.aT;
+            z = this.a.aU;
             beVar.a(z);
         }
         this.a.ak();

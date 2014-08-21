@@ -51,6 +51,6 @@ class bh implements View.OnClickListener {
             return;
         }
         dialog = this.a.A;
-        dialog.show();
+        com.baidu.adp.lib.e.e.a(dialog, this.a);
     }
 }

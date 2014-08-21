@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.tieba.util.l {
@@ -31,6 +31,6 @@ public class j extends com.baidu.tieba.util.l {
         MessageManager messageManager = MessageManager.getInstance();
         Context a = a();
         str2 = this.a.g;
-        messageManager.sendMessage(new CustomMessage(2002003, new bg(a, str2, str4)));
+        messageManager.sendMessage(new CustomMessage(2002003, new bh(a, str2, str4)));
     }
 }

@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.GroupImageView;
+import android.view.View;
+import com.baidu.tieba.im.searchGroup.AddGroupActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u {
-    LinearLayout a;
-    GroupImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    ImageView g;
-    ImageView h;
-    ImageView i;
-    ImageView j;
-    ImageView k;
-    ImageView l;
-    ImageView[] m;
+public class u implements View.OnClickListener {
+    final /* synthetic */ PersonGroupActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(PersonGroupActivity personGroupActivity) {
+        this.a = personGroupActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AddGroupActivity.a(this.a);
+    }
 }

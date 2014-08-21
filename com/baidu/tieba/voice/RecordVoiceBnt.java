@@ -11,7 +11,6 @@ import android.graphics.SweepGradient;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -207,7 +206,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, y
     }
 
     private void b(Context context) {
-        LayoutInflater.from(context).inflate(v.record_voice_area, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.record_voice_area, this, true);
         setClickable(true);
         this.q = (TextView) findViewById(u.tip_error);
         this.r = (TextView) findViewById(u.tip_operator);

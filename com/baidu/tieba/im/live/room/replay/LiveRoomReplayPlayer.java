@@ -2,9 +2,7 @@ package com.baidu.tieba.im.live.room.replay;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -16,98 +14,96 @@ import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class LiveRoomReplayPlayer extends RelativeLayout {
     private Context a;
-    private LayoutInflater b;
-    private View c;
-    private HeadImageView d;
+    private View b;
+    private HeadImageView c;
+    private TextView d;
     private TextView e;
     private TextView f;
-    private TextView g;
-    private SeekBar h;
-    private TextView i;
-    private ImageView j;
-    private boolean k;
-    private int l;
-    private SeekBar.OnSeekBarChangeListener m;
+    private SeekBar g;
+    private TextView h;
+    private ImageView i;
+    private boolean j;
+    private int k;
+    private SeekBar.OnSeekBarChangeListener l;
 
     public LiveRoomReplayPlayer(Context context) {
         super(context);
-        this.k = false;
-        this.l = 0;
-        this.m = new i(this);
+        this.j = false;
+        this.k = 0;
+        this.l = new i(this);
         a(context);
     }
 
     public LiveRoomReplayPlayer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.k = false;
-        this.l = 0;
-        this.m = new i(this);
+        this.j = false;
+        this.k = 0;
+        this.l = new i(this);
         a(context);
     }
 
     public LiveRoomReplayPlayer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.k = false;
-        this.l = 0;
-        this.m = new i(this);
+        this.j = false;
+        this.k = 0;
+        this.l = new i(this);
         a(context);
     }
 
     private void a(Context context) {
         this.a = context;
-        this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.b.inflate(v.live_room_replay_player, (ViewGroup) this, true);
-        this.d = (HeadImageView) this.c.findViewById(u.live_room_replay_player_hosthead);
-        this.d.setIsRound(true);
-        this.e = (TextView) this.c.findViewById(u.live_room_replay_player_hostname);
-        this.f = (TextView) this.c.findViewById(u.live_room_replay_player_hostlike);
-        this.g = (TextView) this.c.findViewById(u.live_chat_room_player_position);
-        this.i = (TextView) this.c.findViewById(u.live_chat_room_player_duration);
-        this.j = (ImageView) this.c.findViewById(u.live_room_replay_player_pauseorplay);
-        j.a(this.a, this.j, 10, 10, 10, 10);
-        this.h = (SeekBar) this.c.findViewById(u.live_room_replay_player_seekbar);
-        this.h.setOnSeekBarChangeListener(this.m);
+        this.b = com.baidu.adp.lib.e.b.a().a(context, v.live_room_replay_player, this, true);
+        this.c = (HeadImageView) this.b.findViewById(u.live_room_replay_player_hosthead);
+        this.c.setIsRound(true);
+        this.d = (TextView) this.b.findViewById(u.live_room_replay_player_hostname);
+        this.e = (TextView) this.b.findViewById(u.live_room_replay_player_hostlike);
+        this.f = (TextView) this.b.findViewById(u.live_chat_room_player_position);
+        this.h = (TextView) this.b.findViewById(u.live_chat_room_player_duration);
+        this.i = (ImageView) this.b.findViewById(u.live_room_replay_player_pauseorplay);
+        j.a(this.a, this.i, 10, 10, 10, 10);
+        this.g = (SeekBar) this.b.findViewById(u.live_room_replay_player_seekbar);
+        this.g.setOnSeekBarChangeListener(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HeadImageView getHeadView() {
-        return this.d;
+        return this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TextView getNameView() {
-        return this.e;
+        return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TextView getLikeView() {
-        return this.f;
+        return this.e;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SeekBar getPlayerBar() {
-        return this.h;
+        return this.g;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TextView getPlayerDur() {
-        return this.i;
+        return this.h;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ImageView getPauseOrPlayView() {
-        return this.j;
+        return this.i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setNeedKeepDragPosition(boolean z) {
-        this.k = z;
+        this.j = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getNextStartPosition() {
-        int i = this.l;
-        this.l = 0;
+        int i = this.k;
+        this.k = 0;
         return i;
     }
 }

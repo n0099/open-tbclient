@@ -14,7 +14,7 @@ public class o implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        z = this.a.S;
+        z = this.a.T;
         if (z) {
             this.a.q();
         } else {

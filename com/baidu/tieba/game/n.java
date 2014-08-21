@@ -1,9 +1,8 @@
 package com.baidu.tieba.game;
 
 import android.os.Handler;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -11,6 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -23,32 +23,34 @@ import java.util.List;
 import tbclient.GetGameCenter.AdList;
 /* loaded from: classes.dex */
 public class n {
-    private GameCenterHomeActivity a;
-    private View.OnClickListener b;
-    private BdListView c;
-    private View d;
-    private TextView e;
+    private View a;
+    private GameCenterHomeActivity b;
+    private View.OnClickListener c;
+    private BdListView d;
+    private View e;
     private TextView f;
-    private View g;
+    private TextView g;
     private View h;
-    private TextView i;
-    private LinearLayout j;
-    private HorizontalScrollView k;
-    private List<ab> m;
-    private NavigationBar q;
-    private LinearLayout r;
-    private NoNetworkView s;
-    private View t;
-    private com.baidu.tieba.square.q p = null;
-    private Handler u = new Handler();
-    private com.baidu.adp.lib.guide.d v = null;
-    private View.OnClickListener w = new o(this);
-    private View.OnClickListener x = new p(this);
-    private AdapterView.OnItemClickListener y = new q(this);
-    private Runnable z = new r(this);
-    private List<ab> l = new LinkedList();
-    private List<AdList> n = new LinkedList();
-    private t o = new t(this, null);
+    private View i;
+    private TextView j;
+    private LinearLayout k;
+    private HorizontalScrollView l;
+    private NavigationBar r;
+    private LinearLayout s;
+    private NoNetworkView t;
+    private View u;
+    private boolean x;
+    private com.baidu.tieba.square.q q = null;
+    private Handler v = new Handler();
+    private com.baidu.adp.lib.guide.d w = null;
+    private View.OnClickListener y = new o(this);
+    private View.OnClickListener z = new p(this);
+    private AdapterView.OnItemClickListener A = new q(this);
+    private Runnable B = new r(this);
+    private List<com.baidu.tbadk.game.b> m = new LinkedList();
+    private List<com.baidu.tbadk.game.b> n = new LinkedList();
+    private List<AdList> o = new LinkedList();
+    private t p = new t(this, null);
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str) {
@@ -61,201 +63,254 @@ public class n {
     }
 
     public View a() {
-        return this.t;
+        return this.u;
     }
 
     public View b() {
-        return this.c;
+        return this.d;
     }
 
-    public List<ab> c() {
-        return this.l;
-    }
-
-    public List<ab> d() {
+    public List<com.baidu.tbadk.game.b> c() {
         return this.m;
     }
 
+    public List<com.baidu.tbadk.game.b> d() {
+        return this.n;
+    }
+
     public void a(int i) {
-        this.q.c(0);
-        if (this.s != null) {
-            this.s.a(0);
+        this.r.c(i);
+        if (this.t != null) {
+            this.t.a(i);
+        }
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.a);
+        this.b.getLayoutMode().a(this.e);
+        this.b.getLayoutMode().a(this.u);
+        if (this.q != null) {
+            this.q.a(i);
         }
     }
 
     public void e() {
-        i();
-        if (this.o != null) {
-            this.o.notifyDataSetChanged();
+        j();
+        if (this.p != null) {
+            this.p.notifyDataSetChanged();
         }
     }
 
     public void f() {
-        if (this.p != null) {
-            this.p.a();
+        if (this.m != null && this.m.size() != 0) {
+            for (com.baidu.tbadk.game.b bVar : this.m) {
+                if (ae.a().b(bVar)) {
+                    k();
+                    return;
+                }
+            }
         }
     }
 
     public void g() {
-        if (this.p != null) {
-            this.p.b();
+        if (this.q != null) {
+            this.q.a();
         }
     }
 
-    private void h() {
+    public void h() {
+        if (this.q != null) {
+            this.q.b();
+        }
+    }
+
+    private void i() {
         HashSet hashSet = new HashSet();
-        if (this.n != null && this.n.size() > 0) {
-            Iterator<AdList> it = this.n.iterator();
+        if (this.o != null && this.o.size() > 0) {
+            Iterator<AdList> it = this.o.iterator();
             while (it.hasNext()) {
-                if (!hashSet.add(it.next().img_url)) {
+                AdList next = it.next();
+                if (TextUtils.isEmpty(next.img_url) || TextUtils.isEmpty(next.link_url)) {
                     it.remove();
                 }
             }
-        }
-        hashSet.clear();
-        if (this.m != null && this.m.size() > 0) {
-            Iterator<ab> it2 = this.m.iterator();
+            Iterator<AdList> it2 = this.o.iterator();
             while (it2.hasNext()) {
-                if (!hashSet.add(it2.next().a())) {
+                if (!hashSet.add(it2.next().img_url)) {
                     it2.remove();
                 }
             }
         }
-        if (this.l != null && this.l.size() > 0) {
-            HashSet hashSet2 = new HashSet();
-            Iterator<ab> it3 = this.l.iterator();
+        hashSet.clear();
+        if (this.n != null && this.n.size() > 0) {
+            Iterator<com.baidu.tbadk.game.b> it3 = this.n.iterator();
             while (it3.hasNext()) {
-                if (!hashSet2.add(it3.next().a())) {
+                if (!hashSet.add(it3.next().a())) {
                     it3.remove();
                 }
             }
-            Iterator<ab> it4 = this.m.iterator();
+        }
+        if (this.m != null && this.m.size() > 0) {
+            HashSet hashSet2 = new HashSet();
+            Iterator<com.baidu.tbadk.game.b> it4 = this.m.iterator();
             while (it4.hasNext()) {
-                if (hashSet2.add(it4.next().a())) {
+                if (!hashSet2.add(it4.next().a())) {
                     it4.remove();
                 }
             }
-            Iterator<ab> it5 = this.l.iterator();
+            Iterator<com.baidu.tbadk.game.b> it5 = this.n.iterator();
             while (it5.hasNext()) {
-                if (!hashSet.add(it5.next().a())) {
+                if (hashSet2.add(it5.next().a())) {
                     it5.remove();
+                }
+            }
+            Iterator<com.baidu.tbadk.game.b> it6 = this.m.iterator();
+            while (it6.hasNext()) {
+                if (!hashSet.add(it6.next().a())) {
+                    it6.remove();
                 }
             }
         }
     }
 
-    public void a(List<AdList> list, List<ab> list2, List<ab> list3) {
-        this.n.addAll(list);
-        this.l.addAll(list2);
-        this.m = list3;
-        h();
-        if (this.n.size() >= 1) {
-            this.p.setVisibility(0);
+    public void a(List<AdList> list, List<com.baidu.tbadk.game.b> list2, List<com.baidu.tbadk.game.b> list3) {
+        a(list, list2, list3, false);
+    }
+
+    public void b(List<AdList> list, List<com.baidu.tbadk.game.b> list2, List<com.baidu.tbadk.game.b> list3) {
+        a(list, list2, list3, true);
+    }
+
+    private void a(List<AdList> list, List<com.baidu.tbadk.game.b> list2, List<com.baidu.tbadk.game.b> list3, boolean z) {
+        if (this.x) {
+            this.o.clear();
+            this.m.clear();
+            if (this.n != null) {
+                this.n.clear();
+            }
+        }
+        if (list != null) {
+            this.o.addAll(list);
+        }
+        if (list2 != null) {
+            this.m.addAll(list2);
+        }
+        if (list3 != null) {
+            this.n.addAll(list3);
+        }
+        if ((this.n == null || this.n.size() == 0) && ((this.m == null || this.m.size() == 0) && (this.o == null || this.o.size() == 0))) {
+            this.d.setVisibility(8);
+            return;
+        }
+        this.d.setVisibility(0);
+        this.h.setVisibility(0);
+        this.i.setVisibility(0);
+        this.q.getViewPagerBottomLine().setVisibility(0);
+        i();
+        this.x = z;
+        if (this.o.size() >= 1) {
+            this.q.setVisibility(0);
             ArrayList<ap> arrayList = new ArrayList<>();
-            int size = this.n.size() > 5 ? 5 : this.n.size();
+            int size = this.o.size() > 5 ? 5 : this.o.size();
             for (int i = 0; i < size; i++) {
                 ap apVar = new ap();
-                apVar.a(this.n.get(i).img_url);
-                apVar.b(this.n.get(i).link_url);
+                apVar.a(this.o.get(i).img_url);
+                apVar.b(this.o.get(i).link_url);
                 arrayList.add(apVar);
             }
-            this.p.a(arrayList);
+            this.q.a(arrayList);
         } else {
-            this.p.getViewPagerBottomLine().setVisibility(8);
-            this.p.a((ArrayList<ap>) null);
+            this.q.getViewPagerBottomLine().setVisibility(8);
+            this.q.a((ArrayList<ap>) null);
         }
-        i();
-        if ((this.m == null || this.m.size() == 0) && ((this.l == null || this.l.size() == 0) && (this.n == null || this.n.size() == 0))) {
-            this.g.setVisibility(8);
-            this.h.setVisibility(8);
-            this.p.getViewPagerBottomLine().setVisibility(8);
-        } else {
-            this.g.setVisibility(0);
-            this.h.setVisibility(0);
-            this.p.getViewPagerBottomLine().setVisibility(0);
-        }
-        this.o.notifyDataSetChanged();
+        j();
+        this.p.notifyDataSetChanged();
     }
 
     public n(GameCenterHomeActivity gameCenterHomeActivity, View.OnClickListener onClickListener) {
-        this.a = gameCenterHomeActivity;
-        this.b = onClickListener;
-        k();
+        this.b = gameCenterHomeActivity;
+        this.c = onClickListener;
+        l();
     }
 
-    private void i() {
-        String string = this.a.getResources().getString(com.baidu.tieba.x.game_center_undownload_num);
-        if (this.l == null || this.l.size() == 0) {
-            this.f.setText(String.format(string, 0));
-            this.i.setVisibility(0);
-            this.h.setVisibility(0);
-        } else {
-            this.i.setVisibility(8);
-            this.h.setVisibility(0);
-            this.f.setText(String.format(string, Integer.valueOf(this.l.size())));
-        }
+    private void j() {
+        String string = this.b.getResources().getString(com.baidu.tieba.x.game_center_undownload_num);
         if (this.m == null || this.m.size() == 0) {
-            this.r.setVisibility(8);
+            this.g.setText(String.format(string, 0));
+            this.j.setVisibility(0);
+            this.i.setVisibility(0);
+        } else {
+            this.j.setVisibility(8);
+            this.i.setVisibility(0);
+            this.g.setText(String.format(string, Integer.valueOf(this.m.size())));
+        }
+        if (this.n == null || this.n.size() == 0) {
+            this.s.setVisibility(8);
             return;
         }
-        this.r.setVisibility(0);
-        this.e.setText(String.format(this.a.getResources().getString(com.baidu.tieba.x.game_center_download_num), Integer.valueOf(this.m.size())));
+        this.s.setVisibility(0);
+        this.f.setText(String.format(this.b.getResources().getString(com.baidu.tieba.x.game_center_download_num), Integer.valueOf(this.n.size())));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.leftMargin = com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.s.ds30);
-        layoutParams.rightMargin = com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.s.ds30);
-        LayoutInflater layoutInflater = this.a.getLayoutInflater();
-        this.j.removeAllViews();
-        for (int i = 0; i < this.m.size(); i++) {
-            View inflate = layoutInflater.inflate(com.baidu.tieba.v.game_center_downloaded_item, (ViewGroup) null, false);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.u.game_center_downloaded_image);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.game_center_downloaded_game_name);
-            tbImageView.a(this.m.get(i).d(), 10, false);
-            tbImageView.setRadius(com.baidu.adp.lib.util.j.c(this.a, com.baidu.tieba.s.ds26));
-            String b = this.m.get(i).b();
+        layoutParams.leftMargin = com.baidu.adp.lib.util.j.c(this.b, com.baidu.tieba.s.ds30);
+        layoutParams.rightMargin = com.baidu.adp.lib.util.j.c(this.b, com.baidu.tieba.s.ds30);
+        this.k.removeAllViews();
+        for (int i = 0; i < this.n.size(); i++) {
+            View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.game_center_downloaded_item, null, false);
+            TbImageView tbImageView = (TbImageView) a.findViewById(com.baidu.tieba.u.game_center_downloaded_image);
+            TextView textView = (TextView) a.findViewById(com.baidu.tieba.u.game_center_downloaded_game_name);
+            tbImageView.a(this.n.get(i).d(), 10, false);
+            tbImageView.setDrawerType(1);
+            tbImageView.setRadius(com.baidu.adp.lib.util.j.c(this.b, com.baidu.tieba.s.ds26));
+            String b = this.n.get(i).b();
             if (com.baidu.tieba.game.a.a.a(b) > 14) {
                 b = String.valueOf(com.baidu.tieba.game.a.a.a(b, 0, 14)) + "...";
             }
             textView.setText(b);
-            inflate.setTag(Integer.valueOf(i));
-            inflate.setOnClickListener(this.x);
-            this.j.addView(inflate, layoutParams);
+            a.setTag(Integer.valueOf(i));
+            a.setOnClickListener(this.z);
+            a(a);
+            this.k.addView(a, layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
+    public void k() {
         com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-        gVar.a(this.q).a(0).b(false);
+        gVar.a(this.r).a(0).b(false);
         gVar.a(new s(this));
-        this.v = gVar.a();
-        this.v.a(this.a);
-        this.u.postDelayed(this.z, 3000L);
+        this.w = gVar.a();
+        this.w.a(this.b);
+        this.v.postDelayed(this.B, 3000L);
     }
 
-    private void k() {
-        this.s = (NoNetworkView) this.a.findViewById(com.baidu.tieba.u.view_no_network);
-        this.c = (BdListView) this.a.findViewById(com.baidu.tieba.u.game_center_list);
-        LayoutInflater layoutInflater = this.a.getLayoutInflater();
-        this.p = new com.baidu.tieba.square.q(this.a, true);
-        this.q = (NavigationBar) this.a.findViewById(com.baidu.tieba.u.game_center_navi);
-        this.q.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.q.a(this.a.getResources().getString(com.baidu.tieba.x.game_center));
-        this.c.addHeaderView(this.p);
-        this.d = layoutInflater.inflate(com.baidu.tieba.v.game_center_header_below, (ViewGroup) null, false);
-        this.r = (LinearLayout) this.d.findViewById(com.baidu.tieba.u.game_center_header_downloaded_part);
-        this.k = (HorizontalScrollView) this.d.findViewById(com.baidu.tieba.u.game_center_horizontal_scrollview);
-        this.e = (TextView) this.d.findViewById(com.baidu.tieba.u.game_center_header_download_num);
-        this.f = (TextView) this.d.findViewById(com.baidu.tieba.u.game_center_header_undownload_num);
-        this.g = this.d.findViewById(com.baidu.tieba.u.game_center_header_download_line);
-        this.h = this.d.findViewById(com.baidu.tieba.u.game_center_header_undownload_line);
-        this.i = (TextView) this.d.findViewById(com.baidu.tieba.u.waiting);
-        this.j = (LinearLayout) this.d.findViewById(com.baidu.tieba.u.game_center_header_horizontal_view);
-        this.c.addHeaderView(this.d);
-        this.t = (RelativeLayout) layoutInflater.inflate(com.baidu.tieba.v.game_center_list_footer, (ViewGroup) this.c, false);
-        this.t.setVisibility(8);
-        this.c.addFooterView(this.t);
-        this.c.setAdapter((ListAdapter) this.o);
-        this.c.setOnSrollToBottomListener(this.a);
-        this.c.setOnItemClickListener(this.y);
+    private void l() {
+        this.a = this.b.findViewById(com.baidu.tieba.u.game_center_home_view);
+        this.t = (NoNetworkView) this.b.findViewById(com.baidu.tieba.u.view_no_network);
+        this.d = (BdListView) this.b.findViewById(com.baidu.tieba.u.game_center_list);
+        this.q = new com.baidu.tieba.square.q(this.b, true);
+        this.r = (NavigationBar) this.b.findViewById(com.baidu.tieba.u.game_center_navi);
+        this.r.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.r.a(this.b.getResources().getString(com.baidu.tieba.x.game_center));
+        this.d.addHeaderView(this.q);
+        this.e = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.game_center_header_below, null, false);
+        this.s = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.game_center_header_downloaded_part);
+        this.l = (HorizontalScrollView) this.e.findViewById(com.baidu.tieba.u.game_center_horizontal_scrollview);
+        this.f = (TextView) this.e.findViewById(com.baidu.tieba.u.game_center_header_download_num);
+        this.g = (TextView) this.e.findViewById(com.baidu.tieba.u.game_center_header_undownload_num);
+        this.h = this.e.findViewById(com.baidu.tieba.u.game_center_header_download_line);
+        this.i = this.e.findViewById(com.baidu.tieba.u.game_center_header_undownload_line);
+        this.j = (TextView) this.e.findViewById(com.baidu.tieba.u.waiting);
+        this.k = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.game_center_header_horizontal_view);
+        this.d.addHeaderView(this.e);
+        this.u = (RelativeLayout) com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.game_center_list_footer, this.d, false);
+        this.u.setVisibility(8);
+        this.d.addFooterView(this.u);
+        this.d.setAdapter((ListAdapter) this.p);
+        this.d.setOnSrollToBottomListener(this.b);
+        this.d.setOnItemClickListener(this.A);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(View view) {
+        this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.b.getLayoutMode().a(view);
     }
 }

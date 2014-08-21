@@ -1,24 +1,28 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends CustomMessageListener {
-    int a;
+class x extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ long b;
+    private final /* synthetic */ com.baidu.tieba.im.data.k c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(int i) {
-        super(i);
-        this.a = 0;
+    public x(w wVar, long j, com.baidu.tieba.im.data.k kVar) {
+        this.a = wVar;
+        this.b = j;
+        this.c = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001179) {
-            com.baidu.tieba.im.e.a(new y(this), new z(this));
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.data.k c;
+        if (0 != this.b && (c = com.baidu.tieba.im.db.m.a().c(this.b)) != null) {
+            this.c.c(c.d());
+            this.c.a(c.b());
+            this.c.b(c.c());
+            com.baidu.tieba.im.db.m.a().a(this.c);
         }
+        return null;
     }
 }

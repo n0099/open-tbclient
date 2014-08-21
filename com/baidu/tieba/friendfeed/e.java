@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.dr;
+import com.baidu.tieba.frs.dt;
 /* loaded from: classes.dex */
 class e implements q {
     final /* synthetic */ FriendFeedActivity a;
@@ -20,7 +20,7 @@ class e implements q {
         t tVar2;
         t tVar3;
         boolean z;
-        dr drVar;
+        dt dtVar;
         tVar = this.a.c;
         if (i != tVar.c().e() || view2 == null || view == null) {
             tVar2 = this.a.c;
@@ -34,8 +34,8 @@ class e implements q {
             if (!z) {
                 this.a.e = true;
                 int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                drVar = this.a.q;
-                drVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
+                dtVar = this.a.q;
+                dtVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
                 return;
             }
             return;

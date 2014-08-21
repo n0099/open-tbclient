@@ -20,7 +20,7 @@ public class ah implements View.OnClickListener {
             com.baidu.tbadk.core.f.a(this.a.getContext(), this.a.getStatisticsKey());
         }
         if (LivePlayingStatusMgr.a().c() != 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.al(this.a.getContext(), LivePlayingStatusMgr.a().c())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.am(this.a.getContext(), LivePlayingStatusMgr.a().c())));
         }
     }
 }

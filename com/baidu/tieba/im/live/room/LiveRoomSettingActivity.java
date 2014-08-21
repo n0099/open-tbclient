@@ -31,7 +31,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     DialogInterface.OnClickListener b = new bi(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ap.class, LiveRoomSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aq.class, LiveRoomSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -111,7 +111,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
             this.e.q();
         } else if (view == this.e.c() || view == this.e.b()) {
             if (this.e.g() != null) {
-                this.e.g().show();
+                com.baidu.adp.lib.e.e.a(this.e.g(), this);
             }
         } else if (view == this.e.d()) {
             if (!d()) {

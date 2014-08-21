@@ -14,9 +14,9 @@ class o implements com.baidu.adp.widget.ListView.d {
     public void a(boolean z) {
         bl blVar;
         bs bsVar;
-        blVar = this.a.x;
+        blVar = this.a.y;
         if (!blVar.b(true)) {
-            bsVar = this.a.D;
+            bsVar = this.a.E;
             bsVar.y();
             return;
         }

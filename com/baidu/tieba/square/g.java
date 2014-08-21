@@ -1,7 +1,6 @@
 package com.baidu.tieba.square;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.view.BarImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -46,17 +45,17 @@ public class g extends BaseAdapter implements com.baidu.tieba.view.s {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            bo.b(view);
+            bp.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(com.baidu.tieba.u.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            bo.a(view);
+            bp.a(view);
             a(viewGroup, (i) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            bo.a(view);
+            bp.a(view);
             a(viewGroup, (i) view.getTag(), i, "normal");
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();
@@ -86,34 +85,33 @@ public class g extends BaseAdapter implements com.baidu.tieba.view.s {
     }
 
     private View a(int i, ViewGroup viewGroup, int i2) {
-        LayoutInflater from = LayoutInflater.from(this.b);
         if (i2 == 0) {
-            return from.inflate(com.baidu.tieba.v.bar_home_header, (ViewGroup) null);
+            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_header, null);
         }
         if (i2 == 2) {
-            View inflate = from.inflate(com.baidu.tieba.v.bar_home_all_dir_item, (ViewGroup) null);
+            View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_all_dir_item, null);
             an anVar = new an();
             anVar.f = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
             i iVar = new i();
-            iVar.a = (BarImageView) inflate.findViewById(com.baidu.tieba.u.portrait);
-            iVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.squre_name);
-            iVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.u.description);
+            iVar.a = (BarImageView) a.findViewById(com.baidu.tieba.u.portrait);
+            iVar.b = (TextView) a.findViewById(com.baidu.tieba.u.squre_name);
+            iVar.c = (BestStringsFitTextView) a.findViewById(com.baidu.tieba.u.description);
             iVar.d = anVar;
-            inflate.setOnClickListener(this.a);
-            inflate.setTag(iVar);
-            return inflate;
+            a.setOnClickListener(this.a);
+            a.setTag(iVar);
+            return a;
         }
-        View inflate2 = from.inflate(com.baidu.tieba.v.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.a);
+        View a2 = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_first_dir_item, null);
+        a2.setOnClickListener(this.a);
         an anVar2 = new an();
         anVar2.f = "0";
         i iVar2 = new i();
-        iVar2.a = (BarImageView) inflate2.findViewById(com.baidu.tieba.u.portrait);
-        iVar2.b = (TextView) inflate2.findViewById(com.baidu.tieba.u.squre_name);
-        iVar2.c = (BestStringsFitTextView) inflate2.findViewById(com.baidu.tieba.u.description);
+        iVar2.a = (BarImageView) a2.findViewById(com.baidu.tieba.u.portrait);
+        iVar2.b = (TextView) a2.findViewById(com.baidu.tieba.u.squre_name);
+        iVar2.c = (BestStringsFitTextView) a2.findViewById(com.baidu.tieba.u.description);
         iVar2.d = anVar2;
-        inflate2.setTag(iVar2);
-        return inflate2;
+        a2.setTag(iVar2);
+        return a2;
     }
 
     private void a(ViewGroup viewGroup, i iVar, int i, String str) {

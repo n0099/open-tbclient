@@ -28,7 +28,6 @@ class at extends com.baidu.adp.base.h {
                     baVar2.c();
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.x.neterror);
                     return;
                 }
             }

@@ -3,7 +3,6 @@ package com.baidu.tieba.im.live.livenotify;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.am;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.t;
@@ -74,20 +73,20 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(v.live_notify_card_view, this);
-        this.b = (ViewGroup) inflate.findViewById(u.live_notify_card_root);
-        this.c = (ViewGroup) inflate.findViewById(u.live_notify_card_card_middle);
-        this.d = (TextView) inflate.findViewById(u.live_notify_card_card_name);
-        this.e = (TextView) inflate.findViewById(u.live_notify_card_card_listener_count);
-        this.f = (TextView) inflate.findViewById(u.live_notify_card_card_liker_count);
-        this.g = (TextView) inflate.findViewById(u.live_notify_card_card_author);
-        this.h = (TextView) inflate.findViewById(u.live_notify_card_card_intro);
-        this.i = (ViewGroup) inflate.findViewById(u.live_notify_card_card_right);
-        this.j = (TextView) inflate.findViewById(u.live_notify_card_card_state_living);
-        this.k = (TextView) inflate.findViewById(u.live_notify_card_card_time);
-        this.l = (ViewGroup) inflate.findViewById(u.live_notify_card_card_state_willstart_layout);
-        this.m = (TextView) inflate.findViewById(u.live_notify_card_card_state_willstart_text);
-        this.n = (TextView) inflate.findViewById(u.live_notify_card_card_state_close);
+        View a = com.baidu.adp.lib.e.b.a().a(context, v.live_notify_card_view, this);
+        this.b = (ViewGroup) a.findViewById(u.live_notify_card_root);
+        this.c = (ViewGroup) a.findViewById(u.live_notify_card_card_middle);
+        this.d = (TextView) a.findViewById(u.live_notify_card_card_name);
+        this.e = (TextView) a.findViewById(u.live_notify_card_card_listener_count);
+        this.f = (TextView) a.findViewById(u.live_notify_card_card_liker_count);
+        this.g = (TextView) a.findViewById(u.live_notify_card_card_author);
+        this.h = (TextView) a.findViewById(u.live_notify_card_card_intro);
+        this.i = (ViewGroup) a.findViewById(u.live_notify_card_card_right);
+        this.j = (TextView) a.findViewById(u.live_notify_card_card_state_living);
+        this.k = (TextView) a.findViewById(u.live_notify_card_card_time);
+        this.l = (ViewGroup) a.findViewById(u.live_notify_card_card_state_willstart_layout);
+        this.m = (TextView) a.findViewById(u.live_notify_card_card_state_willstart_text);
+        this.n = (TextView) a.findViewById(u.live_notify_card_card_state_close);
         this.c.measure(0, 0);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
         layoutParams.height = this.c.getMeasuredHeight();
@@ -180,7 +179,7 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this.a, this.p)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new am(this.a, this.p)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

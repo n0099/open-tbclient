@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -26,10 +25,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj extends RelativeLayout {
-    private int A;
-    private boolean B;
-    private int C;
-    private View D;
+    private boolean A;
+    private int B;
+    private View C;
     public TextView a;
     public View b;
     public TbImageView c;
@@ -37,78 +35,77 @@ public class aj extends RelativeLayout {
     public final Handler d;
     private View e;
     private LiveRoomChatActivity f;
-    private LayoutInflater g;
-    private TextView h;
-    private ImageView i;
-    private TextView j;
-    private int k;
-    private LinearLayout l;
-    private ImageView m;
-    private TextView n;
+    private TextView g;
+    private ImageView h;
+    private TextView i;
+    private int j;
+    private LinearLayout k;
+    private ImageView l;
+    private TextView m;
+    private ImageView n;
     private ImageView o;
-    private ImageView p;
-    private CircleRippleView q;
-    private TextView r;
+    private CircleRippleView p;
+    private TextView q;
+    private ImageView r;
     private ImageView s;
-    private ImageView t;
-    private ProgressBar u;
-    private View v;
-    private long w;
-    private boolean x;
-    private HeadImageView y;
-    private View z;
+    private ProgressBar t;
+    private View u;
+    private long v;
+    private boolean w;
+    private HeadImageView x;
+    private View y;
+    private int z;
 
     public aj(Context context) {
         super(context);
-        this.k = 0;
-        this.q = null;
-        this.w = 0L;
-        this.x = true;
-        this.A = 2;
-        this.B = false;
-        this.C = 5;
+        this.j = 0;
+        this.p = null;
+        this.v = 0L;
+        this.w = true;
+        this.z = 2;
+        this.A = false;
+        this.B = 5;
         this.d = new ak(this);
         a(context);
     }
 
     private void a(Context context) {
         this.f = (LiveRoomChatActivity) context;
-        this.g = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.v = this.g.inflate(com.baidu.tieba.v.live_room_chat_header, (ViewGroup) this, true);
-        this.e = this.v.findViewById(com.baidu.tieba.u.header_root);
-        this.u = (ProgressBar) this.v.findViewById(com.baidu.tieba.u.progressBar);
-        this.p = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_normal_bg);
-        this.q = (CircleRippleView) this.v.findViewById(com.baidu.tieba.u.live_room_ripple_view);
-        this.y = (HeadImageView) this.v.findViewById(com.baidu.tieba.u.header_view);
-        this.y.setAutoChangeStyle(false);
-        this.y.setDrawBorder(false);
-        this.y.setIsRound(true);
-        this.y.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.y.setGifIconSupport(false);
-        this.o = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_stop_bg);
-        this.h = (TextView) this.v.findViewById(com.baidu.tieba.u.live_listener_count);
-        this.i = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_record_icon);
-        this.j = (TextView) this.v.findViewById(com.baidu.tieba.u.live_record_time);
-        this.s = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_small_set);
-        this.s.setOnClickListener(this.f);
-        this.t = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_room_like);
-        this.t.setOnTouchListener(new ap(this, null));
-        this.m = (ImageView) this.v.findViewById(com.baidu.tieba.u.live_room_anchor_portrait);
-        this.l = (LinearLayout) this.v.findViewById(com.baidu.tieba.u.live_room_anchor_portrait_ll);
-        this.r = (TextView) this.v.findViewById(com.baidu.tieba.u.live_chat_room_note);
-        this.z = this.v.findViewById(com.baidu.tieba.u.live_stop_host);
-        this.n = (TextView) this.v.findViewById(com.baidu.tieba.u.live_stop);
-        this.D = this.v.findViewById(com.baidu.tieba.u.live_chat_note_layout);
-        this.a = (TextView) this.v.findViewById(com.baidu.tieba.u.publish_show_text);
-        this.b = this.v.findViewById(com.baidu.tieba.u.image_show_layout);
-        this.c = (TbImageView) this.v.findViewById(com.baidu.tieba.u.image_show);
+        this.u = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.live_room_chat_header, this, true);
+        this.e = this.u.findViewById(com.baidu.tieba.u.header_root);
+        this.t = (ProgressBar) this.u.findViewById(com.baidu.tieba.u.progressBar);
+        this.o = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_normal_bg);
+        this.p = (CircleRippleView) this.u.findViewById(com.baidu.tieba.u.live_room_ripple_view);
+        this.x = (HeadImageView) this.u.findViewById(com.baidu.tieba.u.header_view);
+        this.x.setAutoChangeStyle(false);
+        this.x.setDrawBorder(false);
+        this.x.setIsRound(true);
+        this.x.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.x.setGifIconSupport(false);
+        this.n = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_stop_bg);
+        this.g = (TextView) this.u.findViewById(com.baidu.tieba.u.live_listener_count);
+        this.h = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_record_icon);
+        this.i = (TextView) this.u.findViewById(com.baidu.tieba.u.live_record_time);
+        this.r = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_small_set);
+        this.r.setOnClickListener(this.f);
+        this.s = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_room_like);
+        this.s.setOnTouchListener(new ap(this, null));
+        this.l = (ImageView) this.u.findViewById(com.baidu.tieba.u.live_room_anchor_portrait);
+        this.k = (LinearLayout) this.u.findViewById(com.baidu.tieba.u.live_room_anchor_portrait_ll);
+        this.q = (TextView) this.u.findViewById(com.baidu.tieba.u.live_chat_room_note);
+        this.y = this.u.findViewById(com.baidu.tieba.u.live_stop_host);
+        this.m = (TextView) this.u.findViewById(com.baidu.tieba.u.live_stop);
+        this.C = this.u.findViewById(com.baidu.tieba.u.live_chat_note_layout);
+        this.a = (TextView) this.u.findViewById(com.baidu.tieba.u.publish_show_text);
+        this.b = this.u.findViewById(com.baidu.tieba.u.image_show_layout);
+        this.c = (TbImageView) this.u.findViewById(com.baidu.tieba.u.image_show);
     }
 
     public void a(ChatMessage chatMessage) {
         switch (chatMessage.getMsgType()) {
             case 1:
                 this.b.setVisibility(8);
-                this.D.setVisibility(8);
+                this.C.setVisibility(8);
                 this.a.setVisibility(0);
                 this.a.setText(chatMessage.getContent());
                 break;
@@ -118,7 +115,7 @@ public class aj extends RelativeLayout {
                 break;
             case 4:
                 this.b.setVisibility(8);
-                this.D.setVisibility(8);
+                this.C.setVisibility(8);
                 String b = b(chatMessage);
                 this.a.setVisibility(0);
                 this.a.setText(b);
@@ -202,10 +199,10 @@ public class aj extends RelativeLayout {
                     if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("big_size")) != null) {
                         String[] split = optString.split(",");
                         if (split.length > 0) {
-                            chatMessage.setWidth(com.baidu.adp.lib.e.b.a(split[0], 0));
+                            chatMessage.setWidth(com.baidu.adp.lib.e.c.a(split[0], 0));
                         }
                         if (split.length > 1) {
-                            chatMessage.setHeight(com.baidu.adp.lib.e.b.a(split[1], 0));
+                            chatMessage.setHeight(com.baidu.adp.lib.e.c.a(split[1], 0));
                         }
                     }
                     LocalViewSize.a();
@@ -316,7 +313,7 @@ public class aj extends RelativeLayout {
     }
 
     public View getNoteLayout() {
-        return this.D;
+        return this.C;
     }
 
     public void setHeaderBackground(Drawable drawable) {
@@ -326,66 +323,66 @@ public class aj extends RelativeLayout {
     }
 
     public void setUserCount(int i) {
-        this.h.setText(String.valueOf(i));
+        this.g.setText(String.valueOf(i));
     }
 
     public void setIsHost(boolean z) {
-        this.B = z;
+        this.A = z;
     }
 
     public void a(int i, boolean z) {
-        this.C = i;
-        if (this.B) {
-            if (this.C == 1) {
+        this.B = i;
+        if (this.A) {
+            if (this.B == 1) {
                 h();
                 g();
-            } else if (this.C == 3) {
+            } else if (this.B == 3) {
                 h();
                 j();
-            } else if (this.C == 5) {
+            } else if (this.B == 5) {
                 h();
                 m();
-            } else if (this.C == 6) {
+            } else if (this.B == 6) {
                 h();
                 g();
             }
-        } else if (this.C == 1) {
+        } else if (this.B == 1) {
             h();
             l();
-        } else if (this.C == 3) {
+        } else if (this.B == 3) {
             h();
             j();
-        } else if (this.C == 5) {
+        } else if (this.B == 5) {
             h();
             m();
-        } else if (this.C == 6) {
+        } else if (this.B == 6) {
             h();
             k();
         }
     }
 
     private void g() {
-        this.m.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.icon_live_voice_selector));
+        this.l.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.icon_live_voice_selector));
+        this.k.setVisibility(0);
         this.l.setVisibility(0);
-        this.m.setVisibility(0);
     }
 
     private void h() {
-        this.u.setVisibility(8);
-        this.z.setVisibility(8);
-        this.n.setVisibility(8);
-        this.l.setVisibility(8);
-        this.m.setVisibility(8);
-        this.o.setVisibility(8);
+        this.t.setVisibility(8);
         this.y.setVisibility(8);
-        this.p.setVisibility(8);
-        this.q.b();
+        this.m.setVisibility(8);
+        this.k.setVisibility(8);
+        this.l.setVisibility(8);
+        this.n.setVisibility(8);
+        this.x.setVisibility(8);
+        this.o.setVisibility(8);
+        this.p.b();
     }
 
     private void i() {
-        this.y.setVisibility(0);
-        this.p.setVisibility(0);
-        this.q.a();
+        this.x.setVisibility(0);
+        this.o.setVisibility(0);
+        this.p.a();
     }
 
     private void j() {
@@ -394,137 +391,137 @@ public class aj extends RelativeLayout {
     }
 
     private void k() {
-        this.q.b();
-        this.n.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_end));
-        this.y.setVisibility(0);
+        this.p.b();
+        this.m.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_end));
+        this.x.setVisibility(0);
+        this.m.setVisibility(0);
         this.n.setVisibility(0);
-        this.o.setVisibility(0);
     }
 
     private void l() {
         h();
-        this.n.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_not_start));
-        if (this.B) {
-            this.z.setVisibility(0);
+        this.m.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_not_start));
+        if (this.A) {
             this.y.setVisibility(0);
-            this.o.setVisibility(0);
-        } else {
-            this.y.setVisibility(0);
+            this.x.setVisibility(0);
             this.n.setVisibility(0);
-            this.o.setVisibility(0);
+        } else {
+            this.x.setVisibility(0);
+            this.m.setVisibility(0);
+            this.n.setVisibility(0);
         }
-        this.q.b();
+        this.p.b();
     }
 
     private void m() {
         h();
-        this.n.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_pause));
-        if (this.B) {
-            this.z.setVisibility(0);
+        this.m.setText(this.f.getResources().getString(com.baidu.tieba.x.live_room_pause));
+        if (this.A) {
             this.y.setVisibility(0);
-            this.o.setVisibility(0);
-        } else {
-            this.y.setVisibility(0);
+            this.x.setVisibility(0);
             this.n.setVisibility(0);
-            this.o.setVisibility(0);
+        } else {
+            this.x.setVisibility(0);
+            this.m.setVisibility(0);
+            this.n.setVisibility(0);
         }
-        this.q.b();
+        this.p.b();
     }
 
     public ImageView getmLiveRoomLike() {
-        return this.t;
+        return this.s;
     }
 
     public ImageView getAnchorImg() {
-        return this.m;
+        return this.l;
     }
 
     public View getLiveStopView() {
-        return this.n;
+        return this.m;
     }
 
     public View getLiveStopHost() {
-        return this.z;
-    }
-
-    public void setHeaderImage(String str) {
-        this.y.a(str, 12, false);
-    }
-
-    public HeadImageView getHeaderImage() {
         return this.y;
     }
 
+    public void setHeaderImage(String str) {
+        this.x.a(str, 12, false);
+    }
+
+    public HeadImageView getHeaderImage() {
+        return this.x;
+    }
+
     public void a() {
+        this.h.setVisibility(0);
         this.i.setVisibility(0);
-        this.j.setVisibility(0);
     }
 
     public void b() {
+        this.h.setVisibility(8);
         this.i.setVisibility(8);
-        this.j.setVisibility(8);
     }
 
     public void setRecordTime(CharSequence charSequence) {
         int measureText;
         if (charSequence != null) {
-            TextPaint paint = this.j.getPaint();
-            if (charSequence.length() != this.k) {
+            TextPaint paint = this.i.getPaint();
+            if (charSequence.length() != this.j) {
                 if (charSequence.length() <= 5) {
                     measureText = (int) paint.measureText("00:00");
                 } else {
                     measureText = (int) paint.measureText("00:00:00");
                 }
-                this.j.setWidth(measureText);
+                this.i.setWidth(measureText);
             }
-            this.j.setText(charSequence);
+            this.i.setText(charSequence);
         }
     }
 
     public void c() {
         int measureText;
         String string = this.f.getString(com.baidu.tieba.x.live_chat_room_default_time);
-        TextPaint paint = this.j.getPaint();
-        if (string.length() != this.k) {
+        TextPaint paint = this.i.getPaint();
+        if (string.length() != this.j) {
             if (string.length() <= 5) {
                 measureText = (int) paint.measureText("00:00");
             } else {
                 measureText = (int) paint.measureText("00:00:00");
             }
-            this.j.setWidth(measureText);
+            this.i.setWidth(measureText);
         }
-        this.j.setText(string);
+        this.i.setText(string);
     }
 
     public ImageView getSettingButton() {
-        return this.s;
+        return this.r;
     }
 
     public int getIsLike() {
-        return this.A;
+        return this.z;
     }
 
     public void setData(int i) {
-        this.A = i;
-        if (this.A == 1) {
-            this.x = false;
+        this.z = i;
+        if (this.z == 1) {
+            this.w = false;
             f();
             return;
         }
-        this.x = true;
+        this.w = true;
         e();
     }
 
     public boolean d() {
-        return this.x;
+        return this.w;
     }
 
     public void e() {
-        this.t.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.btn_live_no_praise_selector));
+        this.s.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.btn_live_no_praise_selector));
     }
 
     public void f() {
-        this.t.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.btn_live_praise_selector));
+        this.s.setBackgroundDrawable(this.f.getResources().getDrawable(com.baidu.tieba.t.btn_live_praise_selector));
     }
 
     public void a(View view, boolean z) {
@@ -547,14 +544,14 @@ public class aj extends RelativeLayout {
 
     public void setNoteText(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.B) {
-                this.r.setText(this.f.getString(com.baidu.tieba.x.live_group_note));
+            if (this.A) {
+                this.q.setText(this.f.getString(com.baidu.tieba.x.live_group_note));
                 return;
             } else {
-                this.r.setText("");
+                this.q.setText("");
                 return;
             }
         }
-        this.r.setText(String.format(this.f.getString(com.baidu.tieba.x.live_chat_room_note), str));
+        this.q.setText(String.format(this.f.getString(com.baidu.tieba.x.live_chat_room_note), str));
     }
 }

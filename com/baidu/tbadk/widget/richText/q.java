@@ -12,7 +12,7 @@ public class q implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.a.performLongClick()) {
-            this.a.B = true;
+            this.a.A = true;
         }
     }
 }

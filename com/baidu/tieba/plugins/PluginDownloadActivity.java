@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bl;
+import com.baidu.tbadk.core.atomData.bm;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tieba.u;
 import com.baidu.tieba.x;
@@ -17,7 +17,7 @@ public class PluginDownloadActivity extends BaseActivity {
     private boolean d;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bl.class, PluginDownloadActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bm.class, PluginDownloadActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,7 +56,7 @@ public class PluginDownloadActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        com.baidu.tbadk.pluginArch.d.a().e();
+        com.baidu.tbadk.pluginArch.d.a().f();
         super.onDestroy();
     }
 

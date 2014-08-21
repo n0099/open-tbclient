@@ -18,5 +18,6 @@ class k implements com.baidu.tbadk.core.dialog.d {
         requestUpgradeMemberGroupMessage.setGroupId(lVar.a());
         requestUpgradeMemberGroupMessage.setUpOrDown(true);
         this.a.sendMessage(requestUpgradeMemberGroupMessage);
+        aVar.d();
     }
 }

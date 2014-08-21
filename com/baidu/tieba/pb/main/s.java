@@ -17,9 +17,9 @@ class s extends com.baidu.adp.base.h {
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bsVar = this.a.D;
+                bsVar = this.a.E;
                 bsVar.a(bitmap);
-                arVar = this.a.z;
+                arVar = this.a.A;
                 arVar.a(true);
             }
         }

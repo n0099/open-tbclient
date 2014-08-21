@@ -7,7 +7,7 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.pluginArch.i {
+public class d implements com.baidu.tbadk.pluginArch.j {
     final /* synthetic */ PluginDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class d implements com.baidu.tbadk.pluginArch.i {
         this.a = pluginDetailActivity;
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void a(DownloadData downloadData) {
         ConfigInfos.PluginConfig pluginConfig;
         boolean z;
@@ -39,7 +39,7 @@ public class d implements com.baidu.tbadk.pluginArch.i {
         }
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void b(DownloadData downloadData) {
         ConfigInfos.PluginConfig pluginConfig;
         TextView textView;
@@ -57,7 +57,7 @@ public class d implements com.baidu.tbadk.pluginArch.i {
         }
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void c(DownloadData downloadData) {
         ConfigInfos.PluginConfig pluginConfig;
         if (downloadData != null) {
@@ -71,8 +71,8 @@ public class d implements com.baidu.tbadk.pluginArch.i {
         }
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
-    public void a(int i, String str) {
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void a(DownloadData downloadData, int i, String str) {
         if (i == 0) {
             this.a.showToast(this.a.getString(x.plugin_installation_finished));
             this.a.a();

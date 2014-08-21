@@ -6,7 +6,6 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -40,7 +39,7 @@ public class SubPbLayout extends ViewGroup {
         this.f = null;
         this.g = new LinkedList();
         this.i = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.h = LayoutInflater.from(getContext()).inflate(v.new_sub_pb_list_more, (ViewGroup) null);
+        this.h = com.baidu.adp.lib.e.b.a().a(context, v.new_sub_pb_list_more, null);
         addView(this.h, -1, -2);
     }
 

@@ -6,8 +6,8 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bv;
-import com.baidu.tbadk.core.atomData.bx;
+import com.baidu.tbadk.core.atomData.bw;
+import com.baidu.tbadk.core.atomData.by;
 /* loaded from: classes.dex */
 public class DiscoverSquareActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     private u a;
@@ -31,13 +31,13 @@ public class DiscoverSquareActivity extends BaseActivity implements AdapterView.
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         switch (i) {
             case 0:
-                sendMessage(new CustomMessage(2010010, new bx(this)));
+                sendMessage(new CustomMessage(2010010, new by(this)));
                 return;
             case 1:
                 sendMessage(new CustomMessage(2010020, new com.baidu.tbadk.core.atomData.j(this, "faxian")));
                 return;
             case 2:
-                sendMessage(new CustomMessage(2010011, new bv(this)));
+                sendMessage(new CustomMessage(2010011, new bw(this)));
                 return;
             default:
                 return;

@@ -39,7 +39,7 @@ public class ax implements com.baidu.tbadk.core.dialog.d {
             requestApplyLocalMessage.setPortrait(this.c.getPortrait());
             requestApplyLocalMessage.setId(this.c.getUserIdLong());
             MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
-            aVar.c();
+            aVar.d();
         }
     }
 }

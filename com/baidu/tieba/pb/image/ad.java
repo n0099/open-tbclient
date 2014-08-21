@@ -18,9 +18,9 @@ public class ad implements View.OnClickListener {
         int i;
         Context context;
         ac acVar = this.a;
-        i = this.a.o;
+        i = this.a.n;
         acVar.a(i);
-        context = this.a.b;
+        context = this.a.a;
         TiebaStatic.eventStat(context, "pic_pb", "");
     }
 }

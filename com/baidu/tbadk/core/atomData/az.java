@@ -1,15 +1,17 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class az extends com.baidu.tbadk.core.frameworkData.a {
-    public static String a = "from_page";
-    public static String b = "from_account";
-    public static String c = "form_logo";
-    public static String d = "from_hao123";
-
-    public az(Context context, String str) {
+    public az(Context context, int i, WriteData writeData, boolean z) {
         super(context);
-        getIntent().putExtra(a, str);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+        if (writeData != null) {
+            getIntent().putExtra("model", writeData);
+            getIntent().putExtra("is_ad", z);
+        }
     }
 }

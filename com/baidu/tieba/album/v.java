@@ -3,9 +3,7 @@ package com.baidu.tieba.album;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
@@ -65,12 +63,11 @@ public class v extends com.baidu.adp.base.f {
 
     public void a(int i) {
         this.o = new FrameLayout[i];
-        LayoutInflater from = LayoutInflater.from(this.k);
         int i2 = 0;
         while (true) {
             int i3 = i2;
             if (i3 < this.o.length) {
-                this.o[i3] = (FrameLayout) from.inflate(com.baidu.tieba.v.album_bottom_item_view, (ViewGroup) null);
+                this.o[i3] = (FrameLayout) com.baidu.adp.lib.e.b.a().a(this.k, com.baidu.tieba.v.album_bottom_item_view, null);
                 i2 = i3 + 1;
             } else {
                 return;

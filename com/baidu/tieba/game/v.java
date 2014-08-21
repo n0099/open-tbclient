@@ -1,11 +1,10 @@
 package com.baidu.tieba.game;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.message.RequestGameDetailMessage;
-import com.baidu.tieba.message.ResponseGameDetailMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* loaded from: classes.dex */
-class v extends com.baidu.adp.framework.listener.d {
+class v extends CustomMessageListener {
     final /* synthetic */ GameDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,30 +17,11 @@ class v extends com.baidu.adp.framework.listener.d {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        z zVar;
-        ab abVar;
-        ab abVar2;
-        CustomMessageListener customMessageListener;
-        this.a.closeLoadingDialog();
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseGameDetailMessage)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
-            return;
-        }
-        ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
-        if (!(responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
-            return;
-        }
-        this.a.b = ab.a(responseGameDetailMessage.getGameInfo());
-        zVar = this.a.a;
-        abVar = this.a.b;
-        zVar.b(abVar);
-        abVar2 = this.a.b;
-        if (abVar2.c() == 1) {
-            GameDetailActivity gameDetailActivity = this.a;
-            customMessageListener = this.a.d;
-            gameDetailActivity.registerListener(customMessageListener);
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aa aaVar;
+        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage) && ((NetWorkChangeMessage) customResponsedMessage).mState == 2) {
+            aaVar = this.a.a;
+            aaVar.a();
         }
     }
 }

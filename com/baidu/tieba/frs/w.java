@@ -17,7 +17,7 @@ class w implements SlidingMenu.OnOpenedListener {
     public void onOpened() {
         g gVar;
         TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
-        gVar = this.a.L;
+        gVar = this.a.N;
         ArrayList<com.baidu.tbadk.core.data.m> recommendForumData = gVar.i().getRecommendForumData();
         if (recommendForumData != null) {
             Iterator<com.baidu.tbadk.core.data.m> it = recommendForumData.iterator();

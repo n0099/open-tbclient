@@ -66,7 +66,7 @@ public class s extends com.baidu.adp.base.f {
         this.f = (RelativeLayout) groupActivityActivity.findViewById(com.baidu.tieba.u.group_info_container);
         this.b = (HeadImageView) groupActivityActivity.findViewById(com.baidu.tieba.u.group_head_pic);
         this.b.setAutoChangeStyle(true);
-        this.b.setIsRound(true);
+        this.b.setIsRound(false);
         this.g = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.u.tv_group_activity_name);
         this.h = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.u.txt_group_author);
         this.i = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.u.txt_group_activity_content);

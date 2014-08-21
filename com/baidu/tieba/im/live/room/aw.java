@@ -1,4 +1,6 @@
 package com.baidu.tieba.im.live.room;
+
+import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements Runnable {
@@ -11,8 +13,10 @@ public class aw implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.view.m mVar;
-        mVar = this.a.q;
-        mVar.dismiss();
+        com.baidu.tbadk.core.view.n nVar;
+        Activity activity;
+        nVar = this.a.q;
+        activity = this.a.v;
+        com.baidu.adp.lib.e.e.a(nVar, activity);
     }
 }

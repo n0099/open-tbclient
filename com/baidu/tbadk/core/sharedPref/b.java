@@ -6,7 +6,7 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
-import com.baidu.adp.lib.e.e;
+import com.baidu.adp.lib.e.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
@@ -272,7 +272,7 @@ public class b {
 
     protected void a(Uri uri, ContentValues contentValues) {
         if (j.b()) {
-            e.a().a(new c(this, uri, contentValues));
+            f.a().a(new c(this, uri, contentValues));
         } else {
             b(uri, contentValues);
         }
@@ -298,7 +298,7 @@ public class b {
 
     protected void b(Uri uri) {
         if (j.b()) {
-            e.a().a(new d(this, uri));
+            f.a().a(new d(this, uri));
         } else {
             c(uri);
         }

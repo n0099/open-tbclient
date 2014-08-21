@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
-import com.baidu.tbadk.pluginArch.o;
+import com.baidu.tbadk.pluginArch.p;
 import com.baidu.tieba.im.live.service.ILiveGroupManagerService;
 import java.util.Timer;
 /* loaded from: classes.dex */
@@ -88,7 +88,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
         } else {
             boolean z = true;
             try {
-                if (o.b()) {
+                if (p.b()) {
                     System.loadLibrary(LiveNativeSender.FFMPEGLIB);
                     System.loadLibrary(LiveNativeSender.AUDIOENGINE);
                     System.loadLibrary(LiveNativeSender.LIVESENDER);

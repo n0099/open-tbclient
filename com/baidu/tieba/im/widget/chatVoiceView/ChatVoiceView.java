@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -46,23 +44,28 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.c = null;
         this.d = null;
         this.e = null;
-        LayoutInflater.from(context).inflate(v.widget_left_voice_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.widget_left_voice_view, this, true);
         c();
     }
 
     public ChatVoiceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        boolean z;
         this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, z.ChatVoiceView, 0, 0);
-        boolean z = obtainStyledAttributes != null ? obtainStyledAttributes.getBoolean(0, true) : true;
-        obtainStyledAttributes.recycle();
-        if (z) {
-            LayoutInflater.from(context).inflate(v.widget_left_voice_view, (ViewGroup) this, true);
+        if (obtainStyledAttributes != null) {
+            z = obtainStyledAttributes.getBoolean(0, true);
+            obtainStyledAttributes.recycle();
         } else {
-            LayoutInflater.from(context).inflate(v.widget_right_voice_view, (ViewGroup) this, true);
+            z = true;
+        }
+        if (z) {
+            com.baidu.adp.lib.e.b.a().a(context, v.widget_left_voice_view, this, true);
+        } else {
+            com.baidu.adp.lib.e.b.a().a(context, v.widget_right_voice_view, this, true);
         }
         c();
     }

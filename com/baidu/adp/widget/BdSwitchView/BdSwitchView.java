@@ -2,9 +2,7 @@ package com.baidu.adp.widget.BdSwitchView;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -85,7 +83,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void a(Context context) {
-        LayoutInflater.from(context).inflate(e.bd_switch_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, e.bd_switch_view, this, true);
         this.a = (FrameLayout) findViewById(d.layout);
         this.b = (ImageView) findViewById(d.switch_image);
         f();

@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -37,7 +38,7 @@ public class BaseActivity extends BdBaseActivity {
     private DialogInterface.OnCancelListener mDialogListener = null;
     private AlertDialog mListMenu = null;
     protected int mSkinType = -1;
-    private final com.baidu.tbadk.core.view.f mGuidPage = null;
+    private final com.baidu.tbadk.core.view.g mGuidPage = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -203,7 +204,7 @@ public class BaseActivity extends BdBaseActivity {
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (com.baidu.adp.lib.e.d.a((Activity) this)) {
+        if (com.baidu.adp.lib.e.e.a((Activity) this)) {
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(this, "", str, true, true, onCancelListener);
             } else {
@@ -216,7 +217,7 @@ public class BaseActivity extends BdBaseActivity {
         if (this.mWaitingDialog != null) {
             try {
                 if (this.mWaitingDialog.isShowing()) {
-                    this.mWaitingDialog.dismiss();
+                    com.baidu.adp.lib.e.e.b(this.mWaitingDialog, this);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -335,13 +336,13 @@ public class BaseActivity extends BdBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     public void showListMenu() {
         if (this.mListMenu != null && !this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.e.d.a(this.mListMenu, this);
+            com.baidu.adp.lib.e.e.a(this.mListMenu, this);
         }
     }
 
     protected void hideListMenu() {
         if (this.mListMenu != null && this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.e.d.b(this.mListMenu, this);
+            com.baidu.adp.lib.e.e.b(this.mListMenu, this);
         }
     }
 
@@ -449,5 +450,9 @@ public class BaseActivity extends BdBaseActivity {
     public void onPreLoad(BdListView bdListView) {
         super.onPreLoad(bdListView);
         at.a(bdListView, getUniqueId());
+    }
+
+    public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
+        return (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true;
     }
 }

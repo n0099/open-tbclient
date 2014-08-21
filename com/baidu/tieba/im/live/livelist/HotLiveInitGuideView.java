@@ -2,8 +2,6 @@ package com.baidu.tieba.im.live.livelist;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,7 +32,7 @@ public class HotLiveInitGuideView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.im_frsgroup_guide, (ViewGroup) null));
+        addView(com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.im_frsgroup_guide, null));
         this.a = (ImageView) findViewById(com.baidu.tieba.u.guide_img);
         this.b = (TextView) findViewById(com.baidu.tieba.u.guide_tip1);
         this.c = (TextView) findViewById(com.baidu.tieba.u.guide_tip2);

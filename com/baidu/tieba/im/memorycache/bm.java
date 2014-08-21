@@ -4,7 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseJoinLiveGroupMessage;
 import protobuf.LiveGroupInfo;
@@ -29,7 +28,7 @@ public class bm extends com.baidu.adp.framework.listener.d {
             String valueOf = String.valueOf(liveGroupInfo.groupId);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(valueOf);
-            imMessageCenterPojo.setPulled_msgId(bu.b(liveGroupInfo.lastMsgId.longValue()));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(liveGroupInfo.lastMsgId.longValue()));
             imMessageCenterPojo.setCustomGroupType(9);
             imMessageCenterPojo.setIs_hidden(1);
             c.b().c(imMessageCenterPojo);

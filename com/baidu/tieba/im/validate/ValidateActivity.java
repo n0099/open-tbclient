@@ -11,7 +11,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
@@ -140,7 +140,7 @@ public class ValidateActivity extends BaseActivity implements x {
             if (this.e == null) {
                 c();
             }
-            this.e.show();
+            com.baidu.adp.lib.e.e.a(this.e, this);
         }
     }
 
@@ -156,7 +156,7 @@ public class ValidateActivity extends BaseActivity implements x {
 
     private void a(ValidateItemData validateItemData) {
         if (validateItemData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, validateItemData.getUserId(), validateItemData.getUserName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this, validateItemData.getUserId(), validateItemData.getUserName())));
         }
     }
 
@@ -171,13 +171,13 @@ public class ValidateActivity extends BaseActivity implements x {
                 requestAddGroupUserMessage.setInviterUserId(validateItemData.getInviterUserId());
                 requestAddGroupUserMessage.setJoinType(validateItemData.getJoinType());
                 requestAddGroupUserMessage.setUserIds(validateItemData.getUserId());
-                requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.e.b.a(validateItemData.getGroupId(), 0));
+                requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.e.c.a(validateItemData.getGroupId(), 0));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
                 String c = com.baidu.tieba.im.pushNotify.f.a().c();
                 if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(c) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(c)) {
-                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.e.b.a(c, 0));
-                    requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.e.b.a(notice_id, 0L) / 100));
+                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.e.c.a(c, 0));
+                    requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.e.c.a(notice_id, 0L) / 100));
                     requestAddGroupUserMessage.setDecision(1);
                     this.g = true;
                     MessageManager.getInstance().sendMessage(requestAddGroupUserMessage);

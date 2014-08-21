@@ -1,9 +1,7 @@
 package com.baidu.adp.base;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class d<T> extends f {
     protected View a;
@@ -11,7 +9,7 @@ public class d<T> extends f {
     public d(Context context, int i) {
         super(context);
         this.a = null;
-        this.a = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(context, i, null);
         this.a.setTag(this);
     }
 

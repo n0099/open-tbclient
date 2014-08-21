@@ -22,23 +22,23 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MyGroupFragment extends com.baidu.tbadk.core.d implements View.OnClickListener, AdapterView.OnItemClickListener {
     public boolean c;
-    private j d = null;
+    private k d = null;
     public BdListView b = null;
-    private com.baidu.tbadk.core.view.u e = null;
-    private b f = null;
+    private com.baidu.tbadk.core.view.v e = null;
+    private c f = null;
     private EnterGuideCenterView g = null;
     private View h = null;
-    private final com.baidu.adp.framework.listener.d i = new d(this, 0);
-    private final com.baidu.adp.framework.listener.d j = new e(this, 0);
-    private final com.baidu.adp.framework.listener.d k = new f(this, 0);
-    private final CustomMessageListener l = new g(this, 0);
-    private final CustomMessageListener m = new h(this, 0);
+    private final com.baidu.adp.framework.listener.d i = new e(this, 0);
+    private final com.baidu.adp.framework.listener.d j = new f(this, 0);
+    private final com.baidu.adp.framework.listener.d k = new g(this, 0);
+    private final CustomMessageListener l = new h(this, 0);
+    private final CustomMessageListener m = new i(this, 0);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (this.d == null) {
-            this.d = new j(getActivity());
+            this.d = new k(getActivity());
             if (getActivity() instanceof BdBaseFragmentActivity) {
                 this.d.setUniqueId(((BdBaseFragmentActivity) getActivity()).getUniqueId());
             }
@@ -98,9 +98,9 @@ public class MyGroupFragment extends com.baidu.tbadk.core.d implements View.OnCl
         View inflate = layoutInflater.inflate(com.baidu.tieba.v.my_group_fragment, viewGroup, false);
         this.g = (EnterGuideCenterView) inflate.findViewById(com.baidu.tieba.u.lv_guid_center_root);
         this.b = (BdListView) inflate.findViewById(com.baidu.tieba.u.my_group_list);
-        this.e = new com.baidu.tbadk.core.view.u(getActivity());
-        this.f = new b(this);
-        this.e.a(new i(this));
+        this.e = new com.baidu.tbadk.core.view.v(getActivity());
+        this.f = new c(this);
+        this.e.a(new j(this));
         this.b.setPullRefresh(this.e);
         this.b.setAdapter((ListAdapter) this.f);
         this.b.setOnItemClickListener(this);
@@ -113,7 +113,7 @@ public class MyGroupFragment extends com.baidu.tbadk.core.d implements View.OnCl
         GroupInfoData item = this.f.getItem(i);
         if (item != null) {
             TiebaStatic.eventStat(getActivity(), "my_group_item", "click", 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.x(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.y(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
         }
     }
 
@@ -126,7 +126,7 @@ public class MyGroupFragment extends com.baidu.tbadk.core.d implements View.OnCl
                 groupInfoData = (GroupInfoData) view.getTag();
             }
             if (groupInfoData != null) {
-                a(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.y(getActivity(), groupInfoData.getGroupId(), 1)));
+                a(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.z(getActivity(), groupInfoData.getGroupId(), 1)));
             }
         }
     }

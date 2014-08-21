@@ -2,7 +2,6 @@ package com.baidu.tieba.person;
 
 import android.content.Context;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -34,45 +33,44 @@ public class as {
     public void b() {
         TiebaStatic.eventStat(this.a, "enter_chat", "personclick", 1, new Object[0]);
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bj(this.a, Long.parseLong(this.d.getmModel().k().getUserId()), this.d.getmModel().k().getUserName(), this.d.getmModel().k().getPortrait(), this.d.getmModel().k().getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bk(this.a, Long.parseLong(this.d.getmModel().k().getUserId()), this.d.getmModel().k().getUserName(), this.d.getmModel().k().getPortrait(), this.d.getmModel().k().getSex())));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public View a() {
-        LayoutInflater layoutInflater = (LayoutInflater) this.a.getSystemService("layout_inflater");
         if (this.d.getmDataType() == 3) {
             ay ayVar = new ay();
-            View inflate = layoutInflater.inflate(com.baidu.tieba.v.person_center_accpet_card_view, (ViewGroup) null);
-            ayVar.a = inflate;
-            ayVar.c = (TextView) inflate.findViewById(com.baidu.tieba.u.not_friend);
-            ayVar.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.viewcontent);
-            ayVar.b = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.add_content);
+            View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.person_center_accpet_card_view, null);
+            ayVar.a = a;
+            ayVar.c = (TextView) a.findViewById(com.baidu.tieba.u.not_friend);
+            ayVar.d = (LinearLayout) a.findViewById(com.baidu.tieba.u.viewcontent);
+            ayVar.b = (LinearLayout) a.findViewById(com.baidu.tieba.u.add_content);
             ayVar.e = (LinearLayout) ayVar.d.findViewById(com.baidu.tieba.u.topbuttonview_content);
-            ayVar.f = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.topattention_content);
+            ayVar.f = (LinearLayout) a.findViewById(com.baidu.tieba.u.topattention_content);
             ayVar.g = (ImageView) ayVar.f.findViewById(com.baidu.tieba.u.tagiconimageview);
             ayVar.h = (TextView) ayVar.f.findViewById(com.baidu.tieba.u.tagtextview);
             ayVar.e.setOnClickListener(this.c);
             ayVar.f.setOnClickListener(this.c);
-            inflate.setTag(ayVar);
-            return inflate;
+            a.setTag(ayVar);
+            return a;
         }
         az azVar = new az();
-        View inflate2 = layoutInflater.inflate(com.baidu.tieba.v.person_center_topbutton_view, (ViewGroup) null);
-        azVar.a = inflate2.findViewById(com.baidu.tieba.u.content);
-        azVar.b = (LinearLayout) inflate2.findViewById(com.baidu.tieba.u.add_content);
-        azVar.c = (TextView) inflate2.findViewById(com.baidu.tieba.u.not_friend);
-        azVar.d = (LinearLayout) inflate2.findViewById(com.baidu.tieba.u.topbuttonview_content);
+        View a2 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.person_center_topbutton_view, null);
+        azVar.a = a2.findViewById(com.baidu.tieba.u.content);
+        azVar.b = (LinearLayout) a2.findViewById(com.baidu.tieba.u.add_content);
+        azVar.c = (TextView) a2.findViewById(com.baidu.tieba.u.not_friend);
+        azVar.d = (LinearLayout) a2.findViewById(com.baidu.tieba.u.topbuttonview_content);
         azVar.e = (ImageView) azVar.d.findViewById(com.baidu.tieba.u.tagiconimageview);
         azVar.f = (TextView) azVar.d.findViewById(com.baidu.tieba.u.tagtextview);
-        azVar.g = (LinearLayout) inflate2.findViewById(com.baidu.tieba.u.topattention_content);
+        azVar.g = (LinearLayout) a2.findViewById(com.baidu.tieba.u.topattention_content);
         azVar.h = (ImageView) azVar.g.findViewById(com.baidu.tieba.u.tagiconimageview);
         azVar.i = (TextView) azVar.g.findViewById(com.baidu.tieba.u.tagtextview);
         azVar.d.setOnClickListener(this.c);
         azVar.g.setOnClickListener(this.c);
-        inflate2.setTag(azVar);
-        return inflate2;
+        a2.setTag(azVar);
+        return a2;
     }
 
     public void a(ViewGroup viewGroup) {
@@ -81,27 +79,40 @@ public class as {
             ArrayList<cb> h = this.d.getmModel().a().h();
             UserData k = this.d.getmModel().k();
             if (h != null && k != null && (size = h.size()) != 0) {
-                LayoutInflater from = LayoutInflater.from(this.a);
-                for (int i = 0; i < size; i++) {
-                    View inflate = from.inflate(com.baidu.tieba.v.apply_message, (ViewGroup) null);
-                    View findViewById = inflate.findViewById(com.baidu.tieba.u.line);
-                    TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.u.apply_name);
-                    TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.u.apply_info);
-                    TextView textView3 = (TextView) inflate.findViewById(com.baidu.tieba.u.reply_btn);
-                    if (i == size - 1) {
+                ArrayList arrayList = new ArrayList();
+                if (size > 6) {
+                    int i = size - 1;
+                    while (true) {
+                        int i2 = i;
+                        if (i2 <= size - 7) {
+                            break;
+                        }
+                        arrayList.add(0, h.get(i2));
+                        i = i2 - 1;
+                    }
+                } else {
+                    arrayList.addAll(h);
+                }
+                for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                    View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.apply_message, null);
+                    View findViewById = a.findViewById(com.baidu.tieba.u.line);
+                    TextView textView = (TextView) a.findViewById(com.baidu.tieba.u.apply_name);
+                    TextView textView2 = (TextView) a.findViewById(com.baidu.tieba.u.apply_info);
+                    TextView textView3 = (TextView) a.findViewById(com.baidu.tieba.u.reply_btn);
+                    if (i3 == arrayList.size() - 1) {
                         textView3.setVisibility(0);
                         com.baidu.tbadk.core.util.ay.a(textView3, com.baidu.tieba.r.cp_cont_b, 1);
                         com.baidu.tbadk.core.util.ay.f((View) textView3, com.baidu.tieba.t.btn_pass_n);
                     }
                     com.baidu.tbadk.core.util.ay.f(findViewById, com.baidu.tieba.r.cp_bg_line_b);
-                    if (h.get(i).a == k.getUserIdLong()) {
+                    if (((cb) arrayList.get(i3)).a == k.getUserIdLong()) {
                         textView.setText(String.valueOf(k.getName_show()) + ":");
-                        textView2.setText(h.get(i).c);
+                        textView2.setText(((cb) arrayList.get(i3)).c);
                         com.baidu.tbadk.core.util.ay.a(textView, com.baidu.tieba.r.cp_cont_d, 1);
                         com.baidu.tbadk.core.util.ay.a(textView2, com.baidu.tieba.r.cp_cont_d, 1);
                     } else {
                         textView.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.me)) + ":");
-                        textView2.setText(h.get(i).c);
+                        textView2.setText(((cb) arrayList.get(i3)).c);
                         com.baidu.tbadk.core.util.ay.a(textView, com.baidu.tieba.r.cp_cont_b, 1);
                         com.baidu.tbadk.core.util.ay.a(textView2, com.baidu.tieba.r.cp_cont_b, 1);
                     }
@@ -109,7 +120,7 @@ public class as {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
                     layoutParams.leftMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds24);
                     layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds24);
-                    viewGroup.addView(inflate, layoutParams);
+                    viewGroup.addView(a, layoutParams);
                 }
             }
         }
@@ -117,8 +128,8 @@ public class as {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(UserData userData) {
-        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.reply_dialog, (ViewGroup) null);
-        EditText editText = (EditText) inflate.findViewById(com.baidu.tieba.u.reply_message);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.reply_dialog, null);
+        EditText editText = (EditText) a.findViewById(com.baidu.tieba.u.reply_message);
         com.baidu.tbadk.core.util.ay.f((View) editText, com.baidu.tieba.t.bg_live_compile);
         com.baidu.tbadk.core.util.ay.a(editText, com.baidu.tieba.r.cp_cont_b, 2);
         editText.setPadding(this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds16), 0, 0, 0);
@@ -129,8 +140,8 @@ public class as {
         aVar.a(this.a.getResources().getString(com.baidu.tieba.x.add_reply));
         aVar.b(this.a.getResources().getString(com.baidu.tieba.x.delete_account_cancle), new aw(this));
         aVar.a(this.a.getResources().getString(com.baidu.tieba.x.reply_message), new ax(this, editText, userData));
-        aVar.a(inflate);
-        aVar.a().b();
+        aVar.a(a);
+        aVar.a().c();
     }
 
     public void a(View view) {

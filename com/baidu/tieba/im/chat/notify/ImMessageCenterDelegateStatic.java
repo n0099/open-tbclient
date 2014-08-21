@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.chat.notify;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbadkApplication;
@@ -26,8 +24,8 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.fragmenttabindicator, (ViewGroup) null);
-        c = (TextView) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.message_tip_item, (ViewGroup) null);
+        this.b = (FragmentTabIndicator) com.baidu.adp.lib.e.b.a().a(context, v.fragmenttabindicator, null);
+        c = (TextView) com.baidu.adp.lib.e.b.a().a(context, v.message_tip_item, null);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.h = this.b;
         cVar.a = c;

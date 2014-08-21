@@ -14,12 +14,12 @@ class aa implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cu cuVar;
+        cv cvVar;
         if (i >= 0) {
-            cuVar = this.a.z;
-            cuVar.j(i);
-            this.a.H = true;
-            this.a.G = ((com.baidu.tbadk.core.data.h) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            cvVar = this.a.B;
+            cvVar.j(i);
+            this.a.J = true;
+            this.a.I = ((com.baidu.tbadk.core.data.h) ((GridView) adapterView).getAdapter().getItem(i)).b();
             this.a.t = 1;
             this.a.c(3);
         }

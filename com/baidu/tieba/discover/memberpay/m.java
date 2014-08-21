@@ -1,9 +1,9 @@
 package com.baidu.tieba.discover.memberpay;
 
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements q {
+public class m implements r {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class m implements q {
         this.a = lVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.q
+    @Override // com.baidu.tbadk.core.view.r
     public void a(boolean z) {
         MemberPayActivity memberPayActivity;
         if (z) {

@@ -11,7 +11,7 @@ public class r implements com.baidu.tbadk.core.dialog.d {
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.c();
+        aVar.d();
         if (this.a != null) {
             this.a.a();
         }

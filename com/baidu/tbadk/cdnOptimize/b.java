@@ -84,7 +84,7 @@ class b extends CustomMessageListener {
                                     String[] split = ((String) arrayList6.get(i5)).split("_");
                                     if (split.length < 2) {
                                         i = i6;
-                                    } else if (com.baidu.adp.lib.e.b.a(split[1], 0L) > j) {
+                                    } else if (com.baidu.adp.lib.e.c.a(split[1], 0L) > j) {
                                         i6 = i5;
                                         break;
                                     } else {

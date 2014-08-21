@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bp;
+import com.baidu.tbadk.core.atomData.bq;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
@@ -28,7 +28,7 @@ class d extends CustomMessageListener {
             } else {
                 a.a().d();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bp(TbadkApplication.m252getInst().getContext())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bq(TbadkApplication.m252getInst().getContext())));
         }
     }
 }

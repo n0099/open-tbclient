@@ -20,7 +20,7 @@ public class ak extends Handler {
             case 1:
                 this.a.b.setVisibility(8);
                 this.a.a.setVisibility(8);
-                view = this.a.D;
+                view = this.a.C;
                 view.setVisibility(0);
                 return;
             default:

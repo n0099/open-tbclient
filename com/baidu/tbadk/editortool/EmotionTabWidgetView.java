@@ -3,8 +3,6 @@ package com.baidu.tbadk.editortool;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     private void a(Context context) {
         removeAllViews();
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.emotion_tab_widget, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.emotion_tab_widget, this, true);
         this.a = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.u.face_tab_scroll_view);
         this.b = (ImageView) findViewById(com.baidu.tieba.u.face_tab_delete);
         this.b.setOnClickListener(new s(this));

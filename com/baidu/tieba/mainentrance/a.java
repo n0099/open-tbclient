@@ -1,6 +1,5 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -66,7 +65,7 @@ public class a extends BaseAdapter {
         Object item;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.home_dialog_search_item, (ViewGroup) null);
+                view3 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.home_dialog_search_item, null);
                 try {
                     bVar = new b(this, null);
                     bVar.a = (TextView) view3.findViewById(com.baidu.tieba.u.home_lv_search_forum);

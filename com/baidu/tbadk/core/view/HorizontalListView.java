@@ -41,8 +41,8 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         this.i = 0;
         this.k = new LinkedList();
         this.o = false;
-        this.p = new h(this);
-        this.q = new i(this);
+        this.p = new i(this);
+        this.q = new j(this);
         a();
     }
 
@@ -142,7 +142,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             c(i6);
             this.c = this.d;
             if (!this.e.isFinished()) {
-                post(new j(this));
+                post(new k(this));
             }
         }
     }

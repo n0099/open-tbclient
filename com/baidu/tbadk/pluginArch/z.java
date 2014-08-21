@@ -1,14 +1,12 @@
 package com.baidu.tbadk.pluginArch;
 
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* loaded from: classes.dex */
 public class z {
-    public String a;
-    public String b;
-    public List<String> c;
-    public String d;
-    public int e;
-    public int f;
-    public String g;
-    public String h;
+    public static boolean a(String str) {
+        ConfigInfos.PluginConfig b;
+        c a;
+        return (TextUtils.isEmpty(str) || (b = d.a().b(str)) == null || b.newest == null || (a = d.a().a(str)) == null || b.newest.version <= a.d()) ? false : true;
+    }
 }

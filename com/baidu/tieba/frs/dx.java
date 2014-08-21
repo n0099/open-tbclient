@@ -1,30 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dx implements View.OnClickListener {
-    final /* synthetic */ WorldCupView a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.t b;
+public class dx implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ dw a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dx(WorldCupView worldCupView, com.baidu.tbadk.core.data.t tVar) {
-        this.a = worldCupView;
-        this.b = tVar;
+    public dx(dw dwVar) {
+        this.a = dwVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        context = this.a.a;
-        com.baidu.tbadk.core.f.a(context, "wcup_qq");
-        if (!TextUtils.isEmpty(this.b.a())) {
-            com.baidu.tbadk.core.util.bg a = com.baidu.tbadk.core.util.bg.a();
-            context2 = this.a.a;
-            a.a(context2, new String[]{this.b.a()});
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            com.baidu.tbadk.core.h.a().c(0);
+            com.baidu.tbadk.core.h.a().a(true);
+        } else {
+            com.baidu.tbadk.core.h.a().a(false);
         }
+        this.a.p = true;
     }
 }

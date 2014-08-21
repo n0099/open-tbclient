@@ -1,40 +1,24 @@
 package com.baidu.tieba.im.newFriend;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends CustomMessageListener {
+public class ab extends CustomMessageListener {
+    int a;
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(int i) {
         super(i);
+        this.a = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                String content = p.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    if (cmd.equals("apply_new_friend")) {
-                        NewFriendDbManagerStatic.a().a(content);
-                    } else if (cmd.equals("passed_new_friend")) {
-                        NewFriendDbManagerStatic.a().b(content);
-                    } else if (cmd.equals("delete_new_friend")) {
-                        NewFriendDbManagerStatic.a().c(content);
-                    } else if (cmd.equals("apply_reply_message")) {
-                        NewFriendDbManagerStatic.a().d(content);
-                    } else if (!cmd.equals("apply_add_friend")) {
-                        cmd.equals("apply_pass_friend");
-                    }
-                }
-            }
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001179) {
+            com.baidu.tieba.im.e.a(new ac(this), new ad(this));
         }
     }
 }

@@ -12,14 +12,14 @@ public class n implements com.baidu.tieba.voice.e {
     @Override // com.baidu.tieba.voice.e
     public void a() {
         com.baidu.tbadk.editortool.w wVar;
-        wVar = this.a.y;
+        wVar = this.a.x;
         wVar.a(14, null);
     }
 
     @Override // com.baidu.tieba.voice.e
     public void b() {
         com.baidu.tbadk.editortool.w wVar;
-        wVar = this.a.y;
+        wVar = this.a.x;
         wVar.a(15, null);
     }
 }

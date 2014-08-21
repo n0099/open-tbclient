@@ -63,35 +63,35 @@ public class a extends Thread {
                         if (this.a != null) {
                             try {
                                 this.a.close();
-                            } catch (IOException e2) {
-                                BdLog.detailException(e2);
+                            } catch (Throwable th2) {
+                                BdLog.detailException(th2);
                             }
                         }
                         if (!this.d && this.b != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
-                            } catch (InterruptedException e3) {
-                                e3.printStackTrace();
+                            } catch (InterruptedException e2) {
+                                e2.printStackTrace();
                             }
                             this.b.reStartListener();
                         }
                         throw th;
                     }
-                } catch (Exception e4) {
-                    BdLog.detailException(e4);
+                } catch (Exception e3) {
+                    BdLog.detailException(e3);
                     this.c = false;
                     if (this.a != null) {
                         try {
                             this.a.close();
-                        } catch (IOException e5) {
-                            BdLog.detailException(e5);
+                        } catch (Throwable th3) {
+                            BdLog.detailException(th3);
                         }
                     }
                     if (!this.d && this.b != null) {
                         try {
                             Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
-                        } catch (InterruptedException e6) {
-                            e6.printStackTrace();
+                        } catch (InterruptedException e4) {
+                            e4.printStackTrace();
                         }
                         this.b.reStartListener();
                         return;
@@ -99,17 +99,17 @@ public class a extends Thread {
                     return;
                 }
             }
-        } catch (IOException e7) {
-            BdLog.detailException(e7);
-            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, e7.getMessage(), new StringBuilder(String.valueOf(this.e)).toString());
+        } catch (IOException e5) {
+            BdLog.detailException(e5);
+            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, e5.getMessage(), new StringBuilder(String.valueOf(this.e)).toString());
             if (this.b != null) {
                 this.b.stopSelf();
             }
             if (this.a != null) {
                 try {
                     this.a.close();
-                } catch (IOException e8) {
-                    BdLog.detailException(e8);
+                } catch (Throwable th4) {
+                    BdLog.detailException(th4);
                 }
             }
         }

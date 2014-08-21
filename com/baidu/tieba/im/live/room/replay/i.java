@@ -18,9 +18,9 @@ class i implements SeekBar.OnSeekBarChangeListener {
         boolean z;
         int progress = seekBar.getProgress();
         if (progress != this.b) {
-            z = this.a.k;
+            z = this.a.j;
             if (z) {
-                this.a.l = progress;
+                this.a.k = progress;
             }
             com.baidu.tieba.im.live.d.b().a(progress);
         }
@@ -35,7 +35,7 @@ class i implements SeekBar.OnSeekBarChangeListener {
     public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
         TextView textView;
         String translateSecondsToString = StringUtils.translateSecondsToString(seekBar.getProgress());
-        textView = this.a.g;
+        textView = this.a.f;
         textView.setText(translateSecondsToString);
     }
 }

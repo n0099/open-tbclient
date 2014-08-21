@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -69,10 +68,9 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void a(List<ChatRoomTopicData> list) {
-        LayoutInflater layoutInflater = (LayoutInflater) this.c.getSystemService("layout_inflater");
         this.a.removeAllViews();
         this.d.clear();
-        c cVar = new c(this, layoutInflater);
+        c cVar = new c(this, this.c);
         cVar.b(this.c.getResources().getString(x.chat_default_tip));
         cVar.a(this);
         this.d.add(cVar);
@@ -84,7 +82,7 @@ public class a extends Dialog implements View.OnClickListener {
                 int i2 = i;
                 if (it.hasNext()) {
                     ChatRoomTopicData next = it.next();
-                    c cVar2 = new c(this, layoutInflater);
+                    c cVar2 = new c(this, this.c);
                     cVar2.b(next.getTitle());
                     cVar2.a(next.getContent());
                     cVar2.a(this);
@@ -103,7 +101,7 @@ public class a extends Dialog implements View.OnClickListener {
 
     @Override // android.app.Dialog
     public void show() {
-        if (!(this.c instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.c)) {
+        if (!(this.c instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.c)) {
             super.show();
             if (TextUtils.isEmpty(this.g)) {
                 if (this.d != null && this.d.size() > 0) {

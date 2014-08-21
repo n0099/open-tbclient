@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.newFriend;
-
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 /* loaded from: classes.dex */
-class p extends com.baidu.adp.framework.listener.d {
+class p extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ o a;
+    private final /* synthetic */ long b;
+    private final /* synthetic */ com.baidu.tieba.im.data.k c;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(int i) {
-        super(i);
+    public p(o oVar, long j, com.baidu.tieba.im.data.k kVar) {
+        this.a = oVar;
+        this.b = j;
+        this.c = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
-            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
-            int error = responseDeleteFriendMessage.getError();
-            long friendId = responseDeleteFriendMessage.getFriendId();
-            if (error == 0) {
-                com.baidu.tieba.im.e.a(new q(this, friendId), new r(this, friendId));
-            }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.data.k c = com.baidu.tieba.im.db.m.a().c(this.b);
+        if (c != null) {
+            this.c.a(c.b());
+            this.c.b(c.c());
+            com.baidu.tieba.im.db.m.a().a(this.c);
         }
+        return null;
     }
 }

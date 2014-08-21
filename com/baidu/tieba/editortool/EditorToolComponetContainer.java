@@ -6,10 +6,8 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -49,11 +47,10 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     private boolean s;
     private int t;
     private int u;
-    private LayoutInflater v;
+    private WriteImagesInfo v;
     private WriteImagesInfo w;
-    private WriteImagesInfo x;
-    private com.baidu.tbadk.editortool.w y;
-    private com.baidu.tbadk.img.e z;
+    private com.baidu.tbadk.editortool.w x;
+    private com.baidu.tbadk.img.e y;
 
     public EditorToolComponetContainer(Context context) {
         super(context);
@@ -76,8 +73,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     protected void a() {
-        this.v = LayoutInflater.from(this.a);
-        this.v.inflate(com.baidu.tieba.v.editor_tool_container, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.editor_tool_container, this, true);
         this.b = (ToolMoreView) findViewById(com.baidu.tieba.u.tool_view);
         this.c = (EmotionTabHost) findViewById(com.baidu.tieba.u.face_view);
         this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.u.record_voice_view);
@@ -107,7 +103,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.i.setAddView(b(7));
         this.i.setOnSwapDataListener(this);
         this.i.setMaxItemNum(10);
-        this.z = new com.baidu.tbadk.img.e(this.a);
+        this.y = new com.baidu.tbadk.img.e(this.a);
     }
 
     private void I() {
@@ -306,7 +302,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.y = new j(this, wVar);
+        this.x = new j(this, wVar);
         this.p.setPositiveButton(com.baidu.tieba.x.editor_dialog_yes, new k(this));
         this.b.setOnClickListener(new l(this));
         this.c.setOnDataSelected(new m(this));
@@ -338,7 +334,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.w = writeImagesInfo;
+        this.v = writeImagesInfo;
         this.i.a(new q(this, writeImagesInfo), z);
         int maxItemNum = this.i.getMaxItemNum();
         int size = writeImagesInfo.size();
@@ -353,19 +349,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         } else {
             this.b.a();
         }
-        this.y.a(13, null);
+        this.x.a(13, null);
     }
 
     public void setBaobaoUris(WriteImagesInfo writeImagesInfo) {
-        this.x = writeImagesInfo;
-        this.l.a((BaseAdapter) new q(this, this.x), false);
-        this.y.a(51, null);
-        if (this.x.size() > 0) {
+        this.w = writeImagesInfo;
+        this.l.a((BaseAdapter) new q(this, this.w), false);
+        this.x.a(51, null);
+        if (this.w.size() > 0) {
             this.b.c(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         } else {
             this.b.e();
         }
-        this.y.a(51, null);
+        this.x.a(51, null);
     }
 
     private View b(int i) {
@@ -387,8 +383,8 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
 
     @Override // com.baidu.tieba.img.view.d
     public void a(int i, int i2) {
-        if (i != i2 && this.w != null && this.w.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.w.getChosedFiles();
+        if (i != i2 && this.v != null && this.v.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.v.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }

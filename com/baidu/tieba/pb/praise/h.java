@@ -1,8 +1,6 @@
 package com.baidu.tieba.pb.praise;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -61,13 +59,12 @@ public class h extends com.baidu.adp.base.f {
             this.i.setOnScrollListener(this.a);
             this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.a("");
-            LayoutInflater from = LayoutInflater.from(praiseListActivity);
-            this.g = from.inflate(v.zan_list_head, (ViewGroup) null);
+            this.g = com.baidu.adp.lib.e.b.a().a(praiseListActivity, v.zan_list_head, null);
             this.g.setOnClickListener(praiseListActivity);
             this.h = (TextView) this.g.findViewById(u.zan_list_head_text);
             this.h.setText(str);
             this.i.addHeaderView(this.g);
-            this.j = from.inflate(v.zan_list_foot, (ViewGroup) null);
+            this.j = com.baidu.adp.lib.e.b.a().a(praiseListActivity, v.zan_list_foot, null);
             this.k = (TextView) this.j.findViewById(u.zan_list_foot_text_continue);
             this.l = (TextView) this.j.findViewById(u.zan_list_foot_text_more);
             this.n = (ProgressBar) this.j.findViewById(u.zan_list_foot_progress);

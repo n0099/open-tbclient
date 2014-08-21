@@ -22,13 +22,13 @@ class aj extends BdAsyncTask<Void, Void, Void> {
         int i;
         int i2;
         if (this.b == BdSwitchView.SwitchState.OFF) {
-            ay a = ay.a();
+            az a = az.a();
             String currentAccount = TbadkApplication.getCurrentAccount();
             i2 = this.a.c;
             a.a(currentAccount, String.valueOf(i2), false);
             return null;
         }
-        ay a2 = ay.a();
+        az a2 = az.a();
         String currentAccount2 = TbadkApplication.getCurrentAccount();
         i = this.a.c;
         a2.a(currentAccount2, String.valueOf(i), true);

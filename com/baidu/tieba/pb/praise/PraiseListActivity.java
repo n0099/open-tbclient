@@ -12,8 +12,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bb;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.bh;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, g {
@@ -67,7 +67,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
                 finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bb(this).a(this.b.a(), null, "praise_list")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this).a(this.b.a(), null, "praise_list")));
             finish();
         } else if (view == this.a.f() && !this.a.c()) {
             this.a.a(true);
@@ -79,7 +79,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a b = this.b.b(i);
         if (b != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, b.a(), b.d(), null, "favor_list")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this, b.a(), b.d(), null, "favor_list")));
         }
     }
 

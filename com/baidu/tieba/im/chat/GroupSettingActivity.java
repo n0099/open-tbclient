@@ -10,9 +10,9 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
@@ -133,7 +133,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     this.b.a(true);
                     if (!this.f) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                        MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                         this.f = true;
                         return;
                     }
@@ -141,7 +141,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
                 }
                 this.b.a(false);
                 if (this.f) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                    MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                     this.f = false;
                 }
             } else if (view.equals(this.a.q())) {

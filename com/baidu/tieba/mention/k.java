@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.data.FeedData;
@@ -141,7 +141,7 @@ public class k extends BaseAdapter implements View.OnClickListener {
         return i;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x019e: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:48:0x019d */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x01aa: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:48:0x01a9 */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
@@ -160,12 +160,11 @@ public class k extends BaseAdapter implements View.OnClickListener {
             FeedData feedData = getItemViewType(i) == 0 ? (FeedData) getItem(i) : null;
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.a);
                     if (getItemViewType(i) == 0) {
                         if (this.h == 1) {
-                            view4 = from.inflate(com.baidu.tieba.v.mention_replyme_item, (ViewGroup) null);
+                            view4 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.mention_replyme_item, null);
                         } else {
-                            view4 = from.inflate(com.baidu.tieba.v.mention_atme_item, (ViewGroup) null);
+                            view4 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.mention_atme_item, null);
                         }
                         o oVar2 = new o(this, null);
                         oVar2.q = (LinearLayout) view4.findViewById(com.baidu.tieba.u.reply_container);
@@ -190,7 +189,7 @@ public class k extends BaseAdapter implements View.OnClickListener {
                         oVar2.e.setOnClickListener(oVar2.d);
                         obj = oVar2;
                     } else {
-                        view4 = from.inflate(com.baidu.tieba.v.new_pb_list_more, (ViewGroup) null);
+                        view4 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.new_pb_list_more, null);
                         o oVar3 = new o(this, null);
                         oVar3.a = (TextView) view4.findViewById(com.baidu.tieba.u.pb_more_text);
                         oVar3.b = (ProgressBar) view4.findViewById(com.baidu.tieba.u.progress);
@@ -252,7 +251,12 @@ public class k extends BaseAdapter implements View.OnClickListener {
                 if (praiseList != null && praiseList.size() > 0) {
                     com.baidu.tieba.data.y yVar = praiseList.get(0);
                     oVar.f.setText(yVar.c());
-                    oVar.g.setVisibility(8);
+                    if (yVar.e() == 1) {
+                        oVar.g.setVisibility(8);
+                    } else {
+                        oVar.g.setVisibility(0);
+                        oVar.c.a(feedData);
+                    }
                     oVar.h.setText(ba.a(feedData.getTime()));
                     if (praiseList.size() > 3) {
                         oVar.i.setText(String.format(this.a.getString(com.baidu.tieba.x.message_praise_like_list_more), praiseList.get(0).c(), praiseList.get(1).c(), praiseList.get(2).c(), String.valueOf(feedData.getPraiseNum())));
@@ -267,7 +271,7 @@ public class k extends BaseAdapter implements View.OnClickListener {
                     oVar.k.setText(feedData.getTitle());
                     if (feedData.getFname() != null && feedData.getFname().length() > 0) {
                         oVar.l.setVisibility(0);
-                        oVar.l.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.reply_from)) + ba.a(feedData.getFname(), 12).concat(this.c));
+                        oVar.l.setText(ba.a(feedData.getFname(), 12).concat(this.c));
                     } else {
                         oVar.l.setVisibility(8);
                     }
@@ -302,7 +306,7 @@ public class k extends BaseAdapter implements View.OnClickListener {
                     }
                     if (feedData.getFname() != null && feedData.getFname().length() > 0) {
                         oVar.l.setVisibility(0);
-                        oVar.l.setText(String.valueOf(this.a.getString(com.baidu.tieba.x.reply_from)) + ba.a(feedData.getFname(), 12).concat(this.c));
+                        oVar.l.setText(ba.a(feedData.getFname(), 12).concat(this.c));
                     } else {
                         oVar.l.setVisibility(8);
                     }
@@ -329,11 +333,11 @@ public class k extends BaseAdapter implements View.OnClickListener {
     private void a(o oVar, View view) {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (skinType == 1) {
-            com.baidu.tbadk.core.util.ay.e(view, com.baidu.tieba.t.list_selector_1);
+            ay.e(view, com.baidu.tieba.t.list_selector_1);
         } else {
-            com.baidu.tbadk.core.util.ay.e(view, com.baidu.tieba.t.list_selector);
+            ay.e(view, com.baidu.tieba.t.list_selector);
         }
-        com.baidu.tbadk.core.util.ay.f(oVar.j, com.baidu.tieba.r.cp_bg_line_b);
+        ay.f(oVar.j, com.baidu.tieba.r.cp_bg_line_b);
         if (skinType == 1) {
             if (oVar.q != null) {
                 oVar.q.setBackgroundResource(com.baidu.tieba.t.nearby_reply_bg_pressed_1);
@@ -395,8 +399,8 @@ public class k extends BaseAdapter implements View.OnClickListener {
                 oVar.g.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(this.a.getResources(), BitmapFactory.decodeResource(this.a.getResources(), com.baidu.tieba.t.icon_friend_add)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
-        com.baidu.tbadk.core.util.ay.a(oVar.p, com.baidu.tieba.r.cp_cont_c, 1);
-        com.baidu.tbadk.core.util.ay.c(oVar.o, com.baidu.tieba.t.icon_reply_n);
+        ay.a(oVar.p, com.baidu.tieba.r.cp_cont_c, 1);
+        ay.c(oVar.o, com.baidu.tieba.t.icon_reply_n);
     }
 
     public void a(m mVar) {

@@ -4,6 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
     private static ImDbShrinkStatic a;
+    private static long d = -1;
+    private static int e = 0;
     private i b = new i(null);
     private j c = null;
 
@@ -26,7 +28,7 @@ public class ImDbShrinkStatic {
         MessageManager.getInstance().registerListener(new h(this, 2001011));
     }
 
-    public void b() {
+    public void d() {
         if (this.c != null) {
             this.c.cancel();
             this.c = null;
@@ -37,7 +39,7 @@ public class ImDbShrinkStatic {
         this.c.execute(new String[0]);
     }
 
-    public void c() {
+    public void e() {
         if (this.c != null) {
             this.c.cancel();
             this.c = null;

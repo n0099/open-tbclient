@@ -98,7 +98,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             case 2:
                 ChatMessage b3 = this.e.b(i2);
                 if (b3 != null && b3.getUserInfo() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(this, b3.getUserInfo().getUserId(), b3.getUserInfo().getUserName(), null, "imgroup")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(this, b3.getUserInfo().getUserId(), b3.getUserInfo().getUserName(), null, "imgroup")));
                     return;
                 }
                 return;

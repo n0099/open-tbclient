@@ -1,9 +1,7 @@
 package com.baidu.tieba.pb.history;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
@@ -12,7 +10,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.bd;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.ak;
 import com.baidu.tieba.u;
@@ -32,14 +30,14 @@ public class PbHistoryActivity extends BaseActivity {
     private CustomMessageListener i = new b(this, 2001191);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bc.class, PbHistoryActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bd.class, PbHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = (RelativeLayout) LayoutInflater.from(this).inflate(v.pb_history_activity, (ViewGroup) null);
+        this.a = (RelativeLayout) com.baidu.adp.lib.e.b.a().a(this, v.pb_history_activity, null);
         setContentView(this.a);
         this.f = (FrameLayout) this.a.findViewById(u.container);
         this.b = (NavigationBar) findViewById(u.view_navigation_bar);
@@ -79,7 +77,7 @@ public class PbHistoryActivity extends BaseActivity {
     private void b() {
         this.c.setVisibility(8);
         if (this.g == null) {
-            LayoutInflater.from(this).inflate(v.pb_history_no_data_view, this.f);
+            com.baidu.adp.lib.e.b.a().a(this, v.pb_history_no_data_view, this.f);
             this.g = this.f.findViewById(u.no_data_container);
             getLayoutMode().a(this.g);
         }

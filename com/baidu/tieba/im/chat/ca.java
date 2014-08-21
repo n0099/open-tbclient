@@ -1,58 +1,30 @@
 package com.baidu.tieba.im.chat;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca extends com.baidu.adp.base.d<ChatMessage> {
-    private TextView b;
-    private TextView c;
-    private LinearLayout d;
-    private Context e;
+public class ca implements View.OnClickListener {
+    final /* synthetic */ bz a;
+    private final /* synthetic */ long b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ String d;
 
-    public ca(Context context) {
-        super(context, com.baidu.tieba.v.msg_msgtopic_view);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.e = context;
-        b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ca(bz bzVar, long j, String str, String str2) {
+        this.a = bzVar;
+        this.b = j;
+        this.c = str;
+        this.d = str2;
     }
 
-    private void b() {
-        this.c = (TextView) a(com.baidu.tieba.u.tex_content);
-        this.b = (TextView) a(com.baidu.tieba.u.tex_title);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-        this.b.setMovementMethod(LinkMovementMethod.getInstance());
-        this.d = (LinearLayout) a(com.baidu.tieba.u.topic_title_layout);
-    }
-
-    public void a(ChatMessage chatMessage) {
-        if (chatMessage != null && (chatMessage instanceof TopicSystemGroupChatMessage)) {
-            TopicSystemGroupChatMessage topicSystemGroupChatMessage = (TopicSystemGroupChatMessage) chatMessage;
-            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemMsg)) {
-                this.b.setText(topicSystemGroupChatMessage.mSystemMsg);
-            } else {
-                this.b.setText("");
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
-            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
-                this.c.setVisibility(0);
-                this.c.setText(topicSystemGroupChatMessage.mSystemContent);
-                layoutParams.topMargin = this.e.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds24);
-                this.d.setLayoutParams(layoutParams);
-                return;
-            }
-            this.c.setText("");
-            this.c.setVisibility(8);
-            layoutParams.topMargin = 0;
-            this.d.setLayoutParams(layoutParams);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.a.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.a(context, String.valueOf(this.b), this.c, this.d, "", false, "new_frd")));
     }
 }

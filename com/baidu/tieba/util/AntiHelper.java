@@ -110,7 +110,7 @@ public class AntiHelper {
         builder.setNegativeButton(context.getString(x.anti_account_exception_pos), new a(context, pageType));
         builder.setPositiveButton(context.getString(x.anti_account_exception_neg), new b());
         if (context instanceof Activity) {
-            com.baidu.adp.lib.e.d.a(builder.create(), (Activity) context);
+            com.baidu.adp.lib.e.e.a(builder.create(), (Activity) context);
         }
     }
 
@@ -138,7 +138,7 @@ public class AntiHelper {
         builder.setNegativeButton(context.getString(x.anti_appeal_btn_pos), new c(context, antiData));
         builder.setPositiveButton(context.getString(x.anti_appeal_btn_neg), new d());
         if (context instanceof Activity) {
-            com.baidu.adp.lib.e.d.a(builder.create(), (Activity) context);
+            com.baidu.adp.lib.e.e.a(builder.create(), (Activity) context);
         }
     }
 
@@ -165,7 +165,7 @@ public class AntiHelper {
         builder.setMessage(string);
         builder.setPositiveButton(context.getString(x.anti_no_chance_pos), new e());
         if (context instanceof Activity) {
-            com.baidu.adp.lib.e.d.a(builder.create(), (Activity) context);
+            com.baidu.adp.lib.e.e.a(builder.create(), (Activity) context);
         }
     }
 
@@ -182,7 +182,7 @@ public class AntiHelper {
             }
             builder.setPositiveButton(context.getString(x.anti_vcode_neg), new h());
             if (context instanceof Activity) {
-                com.baidu.adp.lib.e.d.a(builder.create(), (Activity) context);
+                com.baidu.adp.lib.e.e.a(builder.create(), (Activity) context);
             }
         }
     }

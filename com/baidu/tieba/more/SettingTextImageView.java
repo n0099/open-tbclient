@@ -3,8 +3,6 @@ package com.baidu.tieba.more;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -73,7 +71,7 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.setting_text_image_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.setting_text_image_view, this, true);
         this.b = (LinearLayout) findViewById(com.baidu.tieba.u.container);
         this.c = (TextView) findViewById(com.baidu.tieba.u.text);
         this.d = (HeadImageView) findViewById(com.baidu.tieba.u.icon);

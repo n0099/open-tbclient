@@ -26,7 +26,7 @@ public class x implements AdapterView.OnItemClickListener {
                 this.a.a(feedData);
             }
         } else {
-            this.a.i();
+            this.a.j();
         }
     }
 }

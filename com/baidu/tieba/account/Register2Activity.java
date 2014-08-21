@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bo;
+import com.baidu.tbadk.core.atomData.bp;
 import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -77,7 +77,7 @@ public class Register2Activity extends BaseActivity {
     private final RadioGroup.OnCheckedChangeListener T = new w(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bo.class, Register2Activity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bp.class, Register2Activity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

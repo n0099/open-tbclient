@@ -1,39 +1,81 @@
 package com.baidu.tbadk.pluginArch;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.tbadk.download.DownloadData;
-import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
+@SuppressLint({"HandlerLeak"})
 /* loaded from: classes.dex */
-class l implements b {
-    final /* synthetic */ k a;
-    private final /* synthetic */ DownloadData b;
+public class l extends Handler {
+    final /* synthetic */ i a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, DownloadData downloadData) {
-        this.a = kVar;
-        this.b = downloadData;
+    private l(i iVar) {
+        this.a = iVar;
     }
 
-    @Override // com.baidu.tbadk.pluginArch.b
-    public void a(int i, String str) {
-        h hVar;
-        i iVar;
-        h hVar2;
-        i iVar2;
-        BdLog.i("startDownload_install_" + this.b.getId() + "_" + i + "_" + str);
-        hVar = this.a.a;
-        iVar = hVar.e;
-        if (iVar != null) {
-            hVar2 = this.a.a;
-            iVar2 = hVar2.e;
-            iVar2.a(i, str);
-        }
-        if (i == 0) {
-            if ("lightapp.tbplugin".equals(this.b.getName())) {
-                TbadkApplication.m252getInst().getSharedPreferences("zeus", 2).edit().putString("T5SoPath", String.valueOf(m.c("lightapp").getAbsolutePath()) + File.separator).commit();
-            }
-            ab.a().d();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(i iVar, l lVar) {
+        this(iVar);
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        DownloadData downloadData;
+        j jVar;
+        j jVar2;
+        j jVar3;
+        j jVar4;
+        j jVar5;
+        j jVar6;
+        switch (message.what) {
+            case 4:
+                Bundle data = message.getData();
+                if (data != null) {
+                    DownloadData downloadData2 = (DownloadData) data.getSerializable("download_data");
+                    jVar5 = this.a.e;
+                    if (jVar5 != null) {
+                        jVar6 = this.a.e;
+                        jVar6.a(downloadData2);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            case 5:
+            default:
+                return;
+            case 6:
+                Bundle data2 = message.getData();
+                if (data2 != null && (downloadData = (DownloadData) data2.getSerializable("download_data")) != null) {
+                    u.a("plugin_download", String.valueOf(data2.getInt("errorCode")) + "_" + data2.getString("errorMsg"), downloadData.getId());
+                    jVar = this.a.e;
+                    if (jVar != null) {
+                        jVar2 = this.a.e;
+                        jVar2.c(downloadData);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            case 7:
+                Bundle data3 = message.getData();
+                if (data3 != null) {
+                    DownloadData downloadData3 = (DownloadData) data3.getSerializable("download_data");
+                    u.a("plugin_download");
+                    jVar3 = this.a.e;
+                    if (jVar3 != null) {
+                        jVar4 = this.a.e;
+                        jVar4.b(downloadData3);
+                    }
+                    if (downloadData3 != null) {
+                        d.a().a(downloadData3.getPath(), downloadData3.getId(), new m(this, downloadData3));
+                        return;
+                    }
+                    return;
+                }
+                return;
         }
     }
 }

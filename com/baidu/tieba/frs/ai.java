@@ -14,7 +14,7 @@ class ai extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            if (com.baidu.adp.lib.e.b.a(customResponsedMessage.getData().toString(), FrsActivity.d) == FrsActivity.d) {
+            if (com.baidu.adp.lib.e.c.a(customResponsedMessage.getData().toString(), FrsActivity.d) == FrsActivity.d) {
                 FrsActivity.m = false;
                 FrsActivity.l = false;
                 return;

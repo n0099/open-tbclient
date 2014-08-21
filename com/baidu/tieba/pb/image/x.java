@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.image;
 
 import android.content.Context;
 import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -147,35 +146,34 @@ public class x extends BaseAdapter {
         View view3;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            LayoutInflater from = LayoutInflater.from(this.c);
             if (itemViewType == 0) {
-                View inflate = from.inflate(com.baidu.tieba.v.image_pb_list_item, (ViewGroup) null);
+                View a = com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.image_pb_list_item, null);
                 aa aaVar2 = new aa(this, null);
-                aaVar2.a = (TextView) inflate.findViewById(com.baidu.tieba.u.image_pb_item_comment);
-                aaVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.u.image_pb_item_auther);
-                aaVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.u.image_pb_item_time);
-                aaVar2.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.seg);
+                aaVar2.a = (TextView) a.findViewById(com.baidu.tieba.u.image_pb_item_comment);
+                aaVar2.b = (TextView) a.findViewById(com.baidu.tieba.u.image_pb_item_auther);
+                aaVar2.c = (TextView) a.findViewById(com.baidu.tieba.u.image_pb_item_time);
+                aaVar2.d = (LinearLayout) a.findViewById(com.baidu.tieba.u.seg);
                 obj = aaVar2;
-                view3 = inflate;
+                view3 = a;
             } else if (itemViewType == 2) {
-                View inflate2 = from.inflate(com.baidu.tieba.v.image_pb_list_header, (ViewGroup) null);
+                View a2 = com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.image_pb_list_header, null);
                 aa aaVar3 = new aa(this, null);
-                aaVar3.g = (LinearLayout) inflate2.findViewById(com.baidu.tieba.u.header);
-                aaVar3.i = (TextView) inflate2.findViewById(com.baidu.tieba.u.image_pb_comment);
-                aaVar3.j = (TextView) inflate2.findViewById(com.baidu.tieba.u.image_pb_author);
-                aaVar3.k = (TextView) inflate2.findViewById(com.baidu.tieba.u.image_pb_reply_number);
-                aaVar3.l = (LinearLayout) inflate2.findViewById(com.baidu.tieba.u.seg);
-                aaVar3.h = (ImagePbImageView) inflate2.findViewById(com.baidu.tieba.u.image_pb_image);
+                aaVar3.g = (LinearLayout) a2.findViewById(com.baidu.tieba.u.header);
+                aaVar3.i = (TextView) a2.findViewById(com.baidu.tieba.u.image_pb_comment);
+                aaVar3.j = (TextView) a2.findViewById(com.baidu.tieba.u.image_pb_author);
+                aaVar3.k = (TextView) a2.findViewById(com.baidu.tieba.u.image_pb_reply_number);
+                aaVar3.l = (LinearLayout) a2.findViewById(com.baidu.tieba.u.seg);
+                aaVar3.h = (ImagePbImageView) a2.findViewById(com.baidu.tieba.u.image_pb_image);
                 obj = aaVar3;
-                view3 = inflate2;
+                view3 = a2;
             } else {
-                View inflate3 = from.inflate(com.baidu.tieba.v.page_item, (ViewGroup) null);
+                View a3 = com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.page_item, null);
                 aa aaVar4 = new aa(this, null);
-                aaVar4.e = (TextView) inflate3.findViewById(com.baidu.tieba.u.page_text);
-                aaVar4.f = (ProgressBar) inflate3.findViewById(com.baidu.tieba.u.progress);
+                aaVar4.e = (TextView) a3.findViewById(com.baidu.tieba.u.page_text);
+                aaVar4.f = (ProgressBar) a3.findViewById(com.baidu.tieba.u.progress);
                 this.g.add(aaVar4.f);
                 obj = aaVar4;
-                view3 = inflate3;
+                view3 = a3;
             }
             view3.setTag(obj);
             aaVar = obj;

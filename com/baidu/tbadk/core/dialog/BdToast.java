@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +47,7 @@ public class BdToast {
 
     private BdToast(Context context) {
         this.a = context;
-        this.c = (ViewGroup) ((LayoutInflater) this.a.getSystemService("layout_inflater")).inflate(v.dialog_bdtoast, (ViewGroup) null);
+        this.c = (ViewGroup) com.baidu.adp.lib.e.b.a().a(context, v.dialog_bdtoast, null);
         this.d = (ImageView) this.c.findViewById(u.toast_icon);
         this.e = (TextView) this.c.findViewById(u.toast_message);
     }

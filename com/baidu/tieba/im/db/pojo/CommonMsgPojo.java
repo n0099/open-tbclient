@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.e.b;
+import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.i;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
@@ -334,7 +334,7 @@ public class CommonMsgPojo implements Serializable {
         if (this.user_info_data == null || this.to_user_info_data == null) {
             return null;
         }
-        if (b.a(TbadkApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+        if (c.a(TbadkApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
             return this.to_user_info_data;
         }
         return this.user_info_data;

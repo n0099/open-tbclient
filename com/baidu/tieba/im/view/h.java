@@ -2,9 +2,7 @@ package com.baidu.tieba.im.view;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -40,7 +38,7 @@ public class h extends FrameLayout {
 
     private void a(Context context) {
         this.c = context;
-        LayoutInflater.from(context).inflate(com.baidu.tieba.v.chatterbox_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.chatterbox_view, this, true);
         this.b = (Button) findViewById(com.baidu.tieba.u.chat_select_btn);
         this.d = (HaloView) findViewById(com.baidu.tieba.u.haloView);
         this.e = (LinearLayout) findViewById(com.baidu.tieba.u.chat_view);

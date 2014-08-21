@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
-    private s mData;
+    private t mData;
 
     public ResponsePersonBarByUidLocalMessage() {
         super(2001187);
@@ -13,18 +13,18 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         super(i);
     }
 
-    public void setPersonBarData(s sVar) {
-        this.mData = sVar;
+    public void setPersonBarData(t tVar) {
+        this.mData = tVar;
     }
 
-    public s getPersonBarData() {
+    public t getPersonBarData() {
         return this.mData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, String str) {
-        this.mData = new s();
+        this.mData = new t();
         this.mData.a(str);
     }
 }

@@ -14,7 +14,7 @@ public class ca implements CompoundButton.OnCheckedChangeListener {
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
-            this.a.az = (String) compoundButton.getTag();
+            this.a.aA = (String) compoundButton.getTag();
         }
     }
 }

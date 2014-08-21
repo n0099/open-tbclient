@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.app.Dialog;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -58,7 +57,7 @@ public class s {
 
     public void a() {
         if (this.b == null) {
-            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.v.main_input_username, (ViewGroup) null);
+            this.a = com.baidu.adp.lib.e.b.a().a(this.j, com.baidu.tieba.v.main_input_username, null);
             this.c = (EditText) this.a.findViewById(com.baidu.tieba.u.account);
             this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.x.input_name)) + ":");
             this.i = (Button) this.a.findViewById(com.baidu.tieba.u.back);
@@ -96,7 +95,7 @@ public class s {
                 this.r.setText("Hi," + this.s);
             }
             if (!this.j.isFinishing()) {
-                com.baidu.adp.lib.e.d.a(this.b, this.j);
+                com.baidu.adp.lib.e.e.a(this.b, this.j);
                 this.b.setContentView(this.a);
                 WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
                 attributes.gravity = 51;
@@ -166,7 +165,7 @@ public class s {
 
     public void e() {
         if (this.b != null && this.b.isShowing()) {
-            this.b.dismiss();
+            com.baidu.adp.lib.e.e.b(this.b, this.j);
         }
     }
 

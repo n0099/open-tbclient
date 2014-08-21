@@ -2,7 +2,7 @@ package com.baidu.tbadk.pluginArch.Activity;
 
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.pluginArch.x;
+import com.baidu.tbadk.pluginArch.y;
 /* loaded from: classes.dex */
 public class PluginResourceBaseActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -13,6 +13,6 @@ public class PluginResourceBaseActivity extends BaseActivity {
     }
 
     protected void a() {
-        x.a().a(this);
+        y.a().a(this);
     }
 }

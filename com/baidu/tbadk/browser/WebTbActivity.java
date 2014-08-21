@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebChromeClient;
@@ -42,9 +43,9 @@ public class WebTbActivity extends BaseActivity {
     protected String e = null;
     protected boolean f = false;
     protected boolean g = false;
-    protected ae h = null;
+    protected aa h = null;
     private final Handler q = new Handler();
-    private final Runnable r = new w(this);
+    private final Runnable r = new s(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
@@ -135,7 +136,7 @@ public class WebTbActivity extends BaseActivity {
         this.m = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
         this.a = (WebView) findViewById(com.baidu.tieba.u.webview);
         CompatibleUtile.getInstance().removeJavascriptInterface(this.a);
-        this.a.setWebViewClient(new x(this));
+        this.a.setWebViewClient(new t(this));
         this.n = CompatibleUtile.getInstance().getWebChromeClient(this);
         this.a.setWebChromeClient(this.n);
         WebSettings settings = this.a.getSettings();
@@ -149,19 +150,19 @@ public class WebTbActivity extends BaseActivity {
         }
         this.j = (ImageView) findViewById(com.baidu.tieba.u.webBack);
         this.j.setEnabled(false);
-        this.j.setOnClickListener(new y(this));
+        this.j.setOnClickListener(new u(this));
         this.k = (ImageView) findViewById(com.baidu.tieba.u.webForward);
         this.k.setEnabled(false);
-        this.k.setOnClickListener(new z(this));
+        this.k.setOnClickListener(new v(this));
         this.l = (ImageView) findViewById(com.baidu.tieba.u.refresh);
-        this.l.setOnClickListener(new aa(this));
+        this.l.setOnClickListener(new w(this));
         this.b = (ImageView) findViewById(com.baidu.tieba.u.back);
-        this.b.setOnClickListener(new ab(this));
+        this.b.setOnClickListener(new x(this));
         this.p = (ImageView) findViewById(com.baidu.tieba.u.tb_webview_bottom_install_button);
         this.p.setOnClickListener(this);
         this.i = (RelativeLayout) findViewById(com.baidu.tieba.u.float_tip);
-        this.i.findViewById(com.baidu.tieba.u.install).setOnClickListener(new ac(this));
-        this.i.setOnClickListener(new ad(this));
+        this.i.findViewById(com.baidu.tieba.u.install).setOnClickListener(new y(this));
+        this.i.setOnClickListener(new z(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -198,6 +199,21 @@ public class WebTbActivity extends BaseActivity {
         }
         if (this.n != null && (this.n instanceof CompatibleUtile.FullscreenableChromeClient)) {
             ((CompatibleUtile.FullscreenableChromeClient) this.n).hideCustomView();
+        }
+        if (this.a != null) {
+            if (this.a.getSettings() != null) {
+                try {
+                    this.a.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
+                    this.a.getSettings().setJavaScriptEnabled(false);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+            this.a.clearView();
+            if (this.a.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+            }
+            this.a.destroy();
         }
     }
 

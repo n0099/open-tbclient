@@ -17,14 +17,14 @@ public class bd extends LinearLayout {
     private final ct b;
     private View c;
     private BdExpandListView d;
-    private af e;
+    private ag e;
     private an f;
     private bg g;
     private NavigationBar h;
     private View i;
     private ImageView j;
     private com.baidu.tieba.model.av k;
-    private com.baidu.tbadk.core.view.m l;
+    private com.baidu.tbadk.core.view.n l;
     private dk m;
     private boolean n;
     private String o;
@@ -60,12 +60,12 @@ public class bd extends LinearLayout {
         this.d = (BdExpandListView) this.c.findViewById(com.baidu.tieba.u.user_info_center_lv);
         a();
         this.m = new dk(this.a, this.b);
-        this.l = new com.baidu.tbadk.core.view.m(this.a, this.m.a(), getNavigationBar(), this.a.getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new be(this));
+        this.l = new com.baidu.tbadk.core.view.n(this.a, this.m.a(), getNavigationBar(), this.a.getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new be(this));
     }
 
     private void i() {
         this.f = this.b.h();
-        this.e = new af(this.a);
+        this.e = new ag(this.a);
         if (this.f != null) {
             this.d.addHeaderView(this.f);
             this.d.setExpandView(this.f);
@@ -203,7 +203,7 @@ public class bd extends LinearLayout {
     }
 
     public void g() {
-        com.baidu.adp.lib.e.d.a(this.l, this.a);
+        com.baidu.adp.lib.e.e.a(this.l, this.a);
     }
 
     public View getBlackBtn() {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -115,10 +114,10 @@ public class GroupListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         o oVar;
         if (this.d == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
+            return com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.im_frsgroup_list_item, viewGroup, false);
             oVar = new o();
             oVar.b = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_item_content);
             oVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_more);

@@ -8,18 +8,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.message.RequestGameDetailMessage;
-import com.baidu.tieba.message.ResponseGameDetailMessage;
+import com.baidu.tbadk.game.RequestGameDetailMessage;
+import com.baidu.tbadk.game.ResponseGameDetailMessage;
 /* loaded from: classes.dex */
 public class GameDetailActivity extends BaseActivity {
-    private z a;
-    private ab b;
-    private final com.baidu.adp.framework.listener.d c = new v(this, 303009);
-    private final CustomMessageListener d = new w(this, 2001122);
+    private aa a;
+    private com.baidu.tbadk.game.b b;
+    private final CustomMessageListener c = new v(this, 2001121);
+    private final com.baidu.adp.framework.listener.d d = new w(this, 303009);
+    private final CustomMessageListener e = new x(this, 2001122);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.v.class, GameDetailActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.w.class, GameDetailActivity.class);
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(303009);
         bVar.a(ResponseGameDetailMessage.class);
         bVar.b(false);
@@ -31,7 +31,8 @@ public class GameDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new z(this);
+        this.a = new aa(this);
+        registerListener(this.d);
         registerListener(this.c);
         Intent intent = getIntent();
         String stringExtra = intent == null ? "" : intent.getStringExtra("game_id_key");
@@ -54,7 +55,7 @@ public class GameDetailActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         if (this.b != null) {
-            this.b.c(ac.a().j(this.b));
+            this.b.c(ae.a().j(this.b));
             this.a.a(this.b);
         }
     }
@@ -64,26 +65,26 @@ public class GameDetailActivity extends BaseActivity {
         if (view.getId() == com.baidu.tieba.u.game_detail_download_btn && this.b != null) {
             int c = this.b.c();
             if (c == 2) {
-                UtilHelper.launchWebGameActivity(getApplicationContext(), this.b.b(), this.b.h());
-                ac.a().i(this.b);
+                com.baidu.tbadk.game.a.a(getApplicationContext(), this.b.b(), this.b.h(), this.b.a());
+                ae.a().i(this.b);
             } else if (c == 1) {
-                switch (ac.a().j(this.b)) {
+                switch (ae.a().j(this.b)) {
                     case 1:
-                        ac.a().d(this.b);
+                        ae.a().d(this.b);
                         com.baidu.adp.lib.network.willdelete.h.a();
                         return;
                     case 2:
-                        ac.a().c(this.b);
+                        ae.a().c(this.b);
                         return;
                     case 3:
-                        ac.a().d(this.b);
+                        ae.a().d(this.b);
                         com.baidu.adp.lib.network.willdelete.h.a();
                         return;
                     case 4:
-                        ac.a().f(this.b);
+                        ae.a().f(this.b);
                         return;
                     case 5:
-                        ac.a().e(this.b);
+                        ae.a().e(this.b);
                         return;
                     default:
                         return;

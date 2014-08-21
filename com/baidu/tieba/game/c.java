@@ -7,7 +7,6 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ai;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -46,7 +45,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             return downloadData;
         }
         DownloadData downloadData2 = new DownloadData(a, c, b, new a());
-        downloadData2.setNotifyId((int) com.baidu.adp.lib.e.b.a(downloadData2.getId(), 0L));
+        downloadData2.setNotifyId((int) com.baidu.adp.lib.e.c.a(downloadData2.getId(), 0L));
         downloadData2.setStatusMsg(TbadkApplication.getCurrentAccount());
         downloadData2.setType(12);
         downloadData2.setPath(e);
@@ -65,12 +64,12 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         if (downloadData != null) {
             if (downloadData.getStatus() == 3) {
                 this.a.a(downloadData);
-                UtilHelper.install_apk(ai.c().d(), String.valueOf(downloadData.getId()) + ".apk");
+                UtilHelper.install_apk(com.baidu.tieba.ai.c().d(), String.valueOf(downloadData.getId()) + ".apk");
             } else {
                 downloadData.setStatus(1);
                 this.a.a(downloadData);
                 com.baidu.tbadk.download.b.a().a(downloadData, 10);
-                ap.a((Context) ai.c().d(), downloadData.getNotifyId(), (String) null, 0, ai.c().d().getString(com.baidu.tieba.x.download_will_begin), downloadData.getName(), true);
+                ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), (String) null, 0, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_will_begin), downloadData.getName(), true);
             }
             b.f = null;
             list = b.g;

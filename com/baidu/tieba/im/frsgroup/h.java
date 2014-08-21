@@ -24,9 +24,9 @@ class h implements AdapterView.OnItemClickListener {
         if (groupInfoData != null) {
             frsGroupActivity = this.a.b;
             h = this.a.h();
-            com.baidu.tbadk.core.atomData.y yVar = new com.baidu.tbadk.core.atomData.y(frsGroupActivity, groupInfoData.getGroupId(), h);
+            com.baidu.tbadk.core.atomData.z zVar = new com.baidu.tbadk.core.atomData.z(frsGroupActivity, groupInfoData.getGroupId(), h);
             frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.a(new CustomMessage(2008011, yVar));
+            frsGroupActivity2.a(new CustomMessage(2008011, zVar));
         }
     }
 }

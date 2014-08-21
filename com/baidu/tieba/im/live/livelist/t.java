@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.livelist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -73,19 +72,19 @@ public class t extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 1) {
             if (view == null) {
-                return LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_frs_list_item_recommend_top, viewGroup, false);
+                return com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_frs_list_item_recommend_top, viewGroup, false);
             }
             return view;
         } else if (itemViewType == 3) {
             if (view == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_frs_list_item_recommend_bottom, viewGroup, false);
-                ((TextView) inflate.findViewById(com.baidu.tieba.u.recommend_foot_text)).setOnClickListener(new u(this));
-                return inflate;
+                View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_frs_list_item_recommend_bottom, viewGroup, false);
+                ((TextView) a.findViewById(com.baidu.tieba.u.recommend_foot_text)).setOnClickListener(new u(this));
+                return a;
             }
             return view;
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_frs_list_item_recommend_item, viewGroup, false);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_frs_list_item_recommend_item, viewGroup, false);
                 v vVar = new v(this);
                 vVar.a = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.u.recommend_card);
                 view.setTag(vVar);

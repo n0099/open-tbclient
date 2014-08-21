@@ -260,7 +260,7 @@ public class ay {
         }
     }
 
-    private static final int a(Context context, int i) {
+    public static final int a(Context context, int i) {
         String resourceName;
         if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
             int identifier = context.getResources().getIdentifier(String.valueOf(resourceName) + "_1", null, null);

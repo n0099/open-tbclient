@@ -1,7 +1,6 @@
 package com.baidu.tieba.guide;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -56,7 +55,7 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         h hVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.new_user_img_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.new_user_img_item, viewGroup, false);
             hVar = new h(this, null);
             hVar.b = (TbImageView) view.findViewById(com.baidu.tieba.u.pic);
             hVar.c = (ImageView) view.findViewById(com.baidu.tieba.u.select_icon);

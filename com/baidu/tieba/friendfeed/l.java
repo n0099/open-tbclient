@@ -2,7 +2,6 @@ package com.baidu.tieba.friendfeed;
 
 import android.content.Context;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -151,7 +150,7 @@ public class l extends BaseAdapter implements View.OnClickListener {
 
     private View a(ViewGroup viewGroup, View view, int i) {
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(v.friend_feed_list_foot, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.friend_feed_list_foot, viewGroup, false);
             p pVar = new p();
             pVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.list_more);
             pVar.b = (TextView) view.findViewById(com.baidu.tieba.u.more_title);
@@ -182,7 +181,7 @@ public class l extends BaseAdapter implements View.OnClickListener {
         s sVar;
         int color;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(v.frs_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.frs_item, null);
             s sVar2 = new s(this, null);
             sVar2.a = (LinearLayout) view.findViewById(com.baidu.tieba.u.frs_list);
             sVar2.s = (LinearLayout) view.findViewById(com.baidu.tieba.u.frs_item_user_info_view);

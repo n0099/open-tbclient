@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.pushNotify;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.chat.officialBar.ay;
+import com.baidu.tieba.im.chat.officialBar.az;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.groupInfo.y;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
@@ -74,7 +76,7 @@ public class d {
             return y.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         if (imMessageCenterPojo.getCustomGroupType() == 4) {
-            return ay.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return az.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         return imMessageCenterPojo.getCustomGroupType() == -3 || imMessageCenterPojo.getCustomGroupType() == -4 || imMessageCenterPojo.getCustomGroupType() == -5;
     }
@@ -96,7 +98,7 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [215=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [218=5] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         com.baidu.tbadk.coreExtra.b.c cVar = new com.baidu.tbadk.coreExtra.b.c();
@@ -134,7 +136,7 @@ public class d {
     private void a(com.baidu.tbadk.coreExtra.b.c cVar) {
         if (cVar != null) {
             for (ImMessageCenterPojo imMessageCenterPojo : this.b) {
-                if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1) {
+                if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && b(imMessageCenterPojo)) {
                     a(imMessageCenterPojo, cVar);
                     b(imMessageCenterPojo, cVar);
                     c(imMessageCenterPojo, cVar);
@@ -161,7 +163,7 @@ public class d {
     }
 
     private void b(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.b.c cVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && ay.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && az.a().c(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
             cVar.a(imMessageCenterPojo.getGroup_name());
             if (imMessageCenterPojo.isSelf()) {
                 cVar.b(imMessageCenterPojo.getLast_content());
@@ -187,7 +189,7 @@ public class d {
     }
 
     private void d(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.b.c cVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && ay.a().b()) {
             cVar.n(imMessageCenterPojo.getUnread_count());
         }
     }
@@ -240,6 +242,25 @@ public class d {
         if (imMessageCenterPojo == null) {
             return false;
         }
-        return imMessageCenterPojo.getCustomGroupType() == 1 || imMessageCenterPojo.getCustomGroupType() == -3 || imMessageCenterPojo.getCustomGroupType() == -4 || imMessageCenterPojo.getCustomGroupType() == -5 || imMessageCenterPojo.getCustomGroupType() == 4 || imMessageCenterPojo.getCustomGroupType() == -8 || imMessageCenterPojo.getCustomGroupType() == 2;
+        if (imMessageCenterPojo.getCustomGroupType() == 1) {
+            return c(imMessageCenterPojo);
+        }
+        if (imMessageCenterPojo.getCustomGroupType() != -3 && imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -5) {
+            if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                return c(imMessageCenterPojo);
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == -8) {
+                return true;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                return c(imMessageCenterPojo);
+            }
+            return false;
+        }
+        return true;
+    }
+
+    private boolean c(ImMessageCenterPojo imMessageCenterPojo) {
+        return (imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGroup_head()) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
     }
 }

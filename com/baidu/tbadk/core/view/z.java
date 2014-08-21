@@ -1,22 +1,46 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.widget.AbsListView;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements AbsListView.RecyclerListener {
-    private int a;
+public class z implements com.baidu.adp.lib.d.c<TbImageView> {
+    private final /* synthetic */ Context a;
 
-    public z(int i) {
-        this.a = 0;
-        this.a = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(Context context) {
+        this.a = context;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.a);
-        if (findViewById != null && (findViewById instanceof UserIconBox)) {
-            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public TbImageView a() {
+        return new TbImageView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView b(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public TbImageView c(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

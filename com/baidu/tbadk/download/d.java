@@ -59,7 +59,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         this.a.e();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [349=4, 351=4, 352=4, 353=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [355=4, 357=4, 358=4, 359=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -96,6 +96,11 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                 com.baidu.adp.lib.util.commonsio.a.a(d, file);
                 com.baidu.adp.lib.util.commonsio.a.b(d);
             } catch (IOException e) {
+                try {
+                    com.baidu.adp.lib.util.commonsio.a.b(file);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
                 return 1;
             }
         }
@@ -103,20 +108,20 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             if (!ba.c(downloadDataArr[0].getCheck())) {
                 try {
                     fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                }
-                try {
                 } catch (FileNotFoundException e3) {
                     e = e3;
+                }
+                try {
+                } catch (FileNotFoundException e4) {
+                    e = e4;
                     fileInputStream2 = fileInputStream;
                     BdLog.d(e.getMessage());
                     i = 4;
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
-                        } catch (IOException e4) {
-                            BdLog.d(e4.getMessage());
+                        } catch (IOException e5) {
+                            BdLog.d(e5.getMessage());
                         }
                     }
                     return i;
@@ -126,8 +131,8 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
-                        } catch (IOException e5) {
-                            BdLog.d(e5.getMessage());
+                        } catch (IOException e6) {
+                            BdLog.d(e6.getMessage());
                         }
                     }
                     throw th;
@@ -137,16 +142,16 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException e6) {
-                            BdLog.d(e6.getMessage());
+                        } catch (IOException e7) {
+                            BdLog.d(e7.getMessage());
                         }
                     }
                     return i;
                 } else if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e7) {
-                        BdLog.d(e7.getMessage());
+                    } catch (IOException e8) {
+                        BdLog.d(e8.getMessage());
                     }
                 }
             }

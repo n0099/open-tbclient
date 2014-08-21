@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -52,7 +51,7 @@ public class ItemInfoView extends RelativeLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.forum_detail_info, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.forum_detail_info, this, true);
         this.b = (ViewGroup) findViewById(u.info_brief_box);
         this.c = (TextView) findViewById(u.info_brief_content);
         this.d = (ViewGroup) findViewById(u.info_dir_box);

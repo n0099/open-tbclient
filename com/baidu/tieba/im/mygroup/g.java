@@ -1,14 +1,13 @@
 package com.baidu.tieba.im.mygroup;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-class g extends CustomMessageListener {
+class g extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,31 +20,34 @@ class g extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        j jVar;
-        j jVar2;
-        j jVar3;
-        b bVar;
-        b bVar2;
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        k kVar;
+        k kVar2;
+        k kVar3;
+        c cVar;
+        c cVar2;
         EnterGuideCenterView enterGuideCenterView;
         EnterGuideCenterView enterGuideCenterView2;
         if (this.a.getActivity() != null && this.a.b != null) {
-            jVar = this.a.d;
-            if (jVar != null) {
-                ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
-                if (responseGroupsByUidLocalMessage.getError() != 0) {
-                    if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
-                        this.a.b(responseGroupsByUidLocalMessage.getErrorString());
+            kVar = this.a.d;
+            if (kVar != null) {
+                if (socketResponsedMessage.getCmd() == 103003) {
+                    this.a.b.d();
+                }
+                ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
+                if (responseGroupsByUidMessage.getError() != 0) {
+                    if (responseGroupsByUidMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidMessage.getErrorString())) {
+                        this.a.b(responseGroupsByUidMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
+                List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
                 if (groups != null) {
-                    bVar = this.a.f;
-                    bVar.a(groups);
-                    bVar2 = this.a.f;
-                    bVar2.notifyDataSetChanged();
+                    cVar = this.a.f;
+                    cVar.a(groups);
+                    cVar2 = this.a.f;
+                    cVar2.notifyDataSetChanged();
                     if (groups.size() > 0) {
                         enterGuideCenterView2 = this.a.g;
                         enterGuideCenterView2.b(8);
@@ -54,10 +56,14 @@ class g extends CustomMessageListener {
                         enterGuideCenterView.b(0);
                     }
                 }
-                jVar2 = this.a.d;
-                if (jVar2 != null) {
-                    jVar3 = this.a.d;
-                    jVar3.a();
+                if (socketResponsedMessage.getCmd() == 103003) {
+                    this.a.c = false;
+                } else if (socketResponsedMessage.getCmd() == 2001106) {
+                    kVar2 = this.a.d;
+                    if (kVar2 != null) {
+                        kVar3 = this.a.d;
+                        kVar3.a();
+                    }
                 }
             }
         }

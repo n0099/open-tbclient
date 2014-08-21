@@ -6,7 +6,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ca;
+import com.baidu.tbadk.core.atomData.cb;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class f {
     public void a(PushNotifyMessage pushNotifyMessage) {
         if (pushNotifyMessage != null) {
             if (pushNotifyMessage.getType() == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ca(TbadkApplication.m252getInst())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cb(TbadkApplication.m252getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
             } else {

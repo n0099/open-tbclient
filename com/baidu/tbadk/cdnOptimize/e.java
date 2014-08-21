@@ -11,6 +11,11 @@ public class e {
     private boolean h = false;
     private String i = null;
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.TbCDNTachometerService.startTachometer(com.baidu.tbadk.cdnOptimize.f):void] */
+    public static /* synthetic */ void a(e eVar, boolean z) {
+        eVar.h = z;
+    }
+
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.a.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.e>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
     public static /* synthetic */ boolean b(e eVar) {
         return eVar.h;
@@ -21,7 +26,7 @@ public class e {
         return eVar.i;
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.a.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.e>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.TbCDNTachometerService.startTachometer(com.baidu.tbadk.cdnOptimize.f):void, com.baidu.tbadk.cdnOptimize.a.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.e>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
     public static /* synthetic */ void a(e eVar, String str) {
         eVar.i = str;
     }

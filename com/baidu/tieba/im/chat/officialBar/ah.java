@@ -20,7 +20,7 @@ class ah implements DialogInterface.OnClickListener {
         int i3;
         String str;
         i2 = this.a.c;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(i2), 4, null, true)));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(i2), 4, null, 1)));
         OfficialBarInfoActivity officialBarInfoActivity = this.a;
         i3 = this.a.c;
         officialBarInfoActivity.sendMessage(new CustomMessage(2001155, String.valueOf(i3)));

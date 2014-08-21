@@ -1,37 +1,47 @@
 package com.baidu.adp.lib.e;
-
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class c {
-    public static boolean a(Context context, Intent intent) {
-        try {
-            context.startService(intent);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
+public abstract class c {
+    public static int a(String str, int i) {
+        if (str != null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception e) {
+                return i;
+            }
         }
+        return i;
     }
 
-    public static boolean b(Context context, Intent intent) {
-        try {
-            context.stopService(intent);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
+    public static long a(String str, long j) {
+        if (str != null) {
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                return j;
+            }
         }
+        return j;
     }
 
-    public static boolean c(Context context, Intent intent) {
-        try {
-            context.sendBroadcast(intent);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
+    public static float a(String str, float f) {
+        if (str != null) {
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception e) {
+                return f;
+            }
         }
+        return f;
+    }
+
+    public static double a(String str, double d) {
+        if (str != null) {
+            try {
+                return Double.parseDouble(str);
+            } catch (Exception e) {
+                return d;
+            }
+        }
+        return d;
     }
 }

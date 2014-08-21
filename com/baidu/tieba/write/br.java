@@ -16,6 +16,7 @@ class br implements com.baidu.tbadk.core.dialog.d {
         WriteImageActivity writeImageActivity;
         MessageManager messageManager = MessageManager.getInstance();
         writeImageActivity = this.a.a;
-        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bk(writeImageActivity, "motu")));
+        messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bl(writeImageActivity, "motu")));
+        aVar.d();
     }
 }

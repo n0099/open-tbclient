@@ -368,7 +368,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             this.x = null;
             return;
         }
-        boolean b = com.baidu.tbadk.c.c.b();
+        boolean b = com.baidu.tbadk.b.c.b();
         Context context = getContext();
         if (context == null || !(context instanceof com.baidu.adp.base.i)) {
             bdUniqueId = null;
@@ -428,7 +428,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.x != null) {
-            boolean b = com.baidu.tbadk.c.c.b();
+            boolean b = com.baidu.tbadk.b.c.b();
             String str = b ? this.x.d : this.x.c;
             com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.resourceLoader.d.a().a(this.x.b, 20, this.x.e, this.x.b, Boolean.valueOf(b), str);
             if (aVar != null) {

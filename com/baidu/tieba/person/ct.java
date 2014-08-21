@@ -13,7 +13,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -33,8 +32,8 @@ public class ct extends com.baidu.tbadk.core.d {
     private bd l;
     private List<View> n;
     private an o;
-    private aj p;
-    private aj q;
+    private ak p;
+    private ak q;
     private com.baidu.tieba.model.av e = null;
     private com.baidu.tieba.model.d f = null;
     private Boolean g = false;
@@ -80,21 +79,17 @@ public class ct extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        MessageManager.getInstance().registerListener(104102, this.u);
-        MessageManager.getInstance().registerListener(this.b);
-        MessageManager.getInstance().registerListener(this.c);
-        MessageManager.getInstance().registerListener(this.t);
-        MessageManager.getInstance().registerListener(this.s);
+        a(104102, this.u);
+        a(this.b);
+        a(this.c);
+        a(this.t);
+        a(this.s);
         this.o.a();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.u);
-        MessageManager.getInstance().unRegisterListener(this.b);
-        MessageManager.getInstance().unRegisterListener(this.c);
-        MessageManager.getInstance().registerListener(this.t);
         if (this.f != null) {
             this.f.cancelLoadData();
         }
@@ -133,7 +128,7 @@ public class ct extends com.baidu.tbadk.core.d {
     }
 
     private void k() {
-        MessageManager.getInstance().registerListener(this.v);
+        a(this.v);
     }
 
     private void l() {
@@ -177,11 +172,11 @@ public class ct extends com.baidu.tbadk.core.d {
         this.n = null;
         this.n = new ArrayList();
         if (this.g.booleanValue()) {
-            this.p = new aj(this.h, this, 1);
+            this.p = new ak(this.h, this, 1);
         } else {
-            this.p = new aj(this.h, this, 3);
+            this.p = new ak(this.h, this, 3);
         }
-        this.q = new aj(this.h, this, 2);
+        this.q = new ak(this.h, this, 2);
         this.n.add(this.p);
         this.n.add(this.q);
         this.o = new an(this.h, this, this.e);
@@ -302,7 +297,7 @@ public class ct extends com.baidu.tbadk.core.d {
                 format = String.format(getString(com.baidu.tieba.x.block_chat_message_alert), userName);
             }
             this.k.setMessage(format);
-            com.baidu.adp.lib.e.d.a(this.k, this.h);
+            com.baidu.adp.lib.e.e.a(this.k, this.h);
         }
     }
 
@@ -337,7 +332,7 @@ public class ct extends com.baidu.tbadk.core.d {
     private void u() {
         TiebaStatic.eventStat(this.h, "enter_chat", "personclick", 1, new Object[0]);
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bj(this.h, Long.parseLong(this.e.k().getUserId()), this.e.k().getUserName(), this.e.k().getPortrait(), this.e.k().getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bk(this.h, Long.parseLong(this.e.k().getUserId()), this.e.k().getUserName(), this.e.k().getPortrait(), this.e.k().getSex())));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -385,7 +380,7 @@ public class ct extends com.baidu.tbadk.core.d {
                 if (this.i != null) {
                     this.i.setPhotoChanged(true);
                 }
-                m.a(true);
+                n.a(true);
                 if (this.e.k() != null) {
                     com.baidu.tbadk.imageManager.e.a().a(this.e.k().getPortrait());
                 }
@@ -426,7 +421,7 @@ public class ct extends com.baidu.tbadk.core.d {
                 if (this.i != null) {
                     this.i.setPhotoChanged(true);
                 }
-                m.a(true);
+                n.a(true);
                 if (this.e.k() != null) {
                     com.baidu.tbadk.imageManager.e.a().a(this.e.k().getPortrait());
                 }
@@ -514,7 +509,7 @@ public class ct extends com.baidu.tbadk.core.d {
             if (this.e.k() != null) {
                 if (this.e.j()) {
                     if (this.j != null) {
-                        this.j.show();
+                        com.baidu.adp.lib.e.e.a(this.j, this.h);
                         return;
                     }
                     return;
@@ -535,7 +530,7 @@ public class ct extends com.baidu.tbadk.core.d {
                     return;
                 }
                 if (this.e != null && this.e.k() != null) {
-                    a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bf(this.h, this.e.i(), this.e.k().getSex())));
+                    a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bg(this.h, this.e.i(), this.e.k().getSex())));
                 }
             }
         } else if (view == this.o.getPostView()) {
@@ -560,7 +555,7 @@ public class ct extends com.baidu.tbadk.core.d {
                 }
                 this.o.d();
                 this.l.f();
-                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.be(this.h, this.e.i(), this.e.k().getSex())));
+                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bf(this.h, this.e.i(), this.e.k().getSex())));
             }
         } else if (view == this.o.getForumView()) {
             if (this.e != null && this.e.k() != null) {
@@ -571,7 +566,7 @@ public class ct extends com.baidu.tbadk.core.d {
                 } else {
                     return;
                 }
-                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bd(this.h, this.e.i(), this.e.k().getSex())));
+                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.be(this.h, this.e.i(), this.e.k().getSex())));
             }
         } else if (view == this.o.getAttentionView()) {
             if (this.e != null && this.e.k() != null) {
@@ -581,7 +576,7 @@ public class ct extends com.baidu.tbadk.core.d {
                     com.baidu.tbadk.core.f.a(this.h, "person_guid_attentionper_click");
                 }
                 UserData k = this.e.k();
-                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bh(this.h, true, k.getUserId(), k.getSex())));
+                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bi(this.h, true, k.getUserId(), k.getSex())));
             }
         } else if (view == this.o.getFansView()) {
             if (this.e != null && this.e.k() != null) {
@@ -594,11 +589,11 @@ public class ct extends com.baidu.tbadk.core.d {
                 this.o.d();
                 this.l.f();
                 UserData k2 = this.e.k();
-                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bh(this.h, false, k2.getUserId(), k2.getSex())));
+                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bi(this.h, false, k2.getUserId(), k2.getSex())));
             }
         } else if (view.getId() == this.p.getUserVipView()) {
             if (this.e.k() != null) {
-                TbWebViewActivity.startActivityWithCookie(this.h, getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+                a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.av(this.h)));
             }
         } else if (view.getId() == this.l.getBlackBtn().getId()) {
             this.l.g();

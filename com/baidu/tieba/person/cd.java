@@ -24,7 +24,7 @@ public class cd extends com.baidu.tbadk.core.d implements View.OnClickListener, 
     private cl d = null;
     private View e = null;
     private EnterGuideCenterView f = null;
-    private com.baidu.tbadk.core.view.u g = null;
+    private com.baidu.tbadk.core.view.v g = null;
     private cn h = null;
     private int i = 0;
     int c = 0;
@@ -106,7 +106,7 @@ public class cd extends com.baidu.tbadk.core.d implements View.OnClickListener, 
         this.b = (BdListView) inflate.findViewById(com.baidu.tieba.u.my_friend_list);
         this.b.setOnItemClickListener(new ci(this));
         this.b.setAdapter((ListAdapter) this.d);
-        this.g = new com.baidu.tbadk.core.view.u(f());
+        this.g = new com.baidu.tbadk.core.view.v(f());
         this.g.a(new cj(this));
         this.b.setPullRefresh(this.g);
         this.f = (EnterGuideCenterView) inflate.findViewById(com.baidu.tieba.u.friend_guid_center_root);
@@ -157,7 +157,7 @@ public class cd extends com.baidu.tbadk.core.d implements View.OnClickListener, 
         UserData userData;
         if (this.d != null && this.d.getItemViewType(this.c) == 0 && (userData = (UserData) this.d.getItem(this.c)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(f(), "enter_chat", "personlistclick", 1, new Object[0]);
-            a(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bj(f(), com.baidu.adp.lib.e.b.a(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+            a(new CustomMessage(2002005, new com.baidu.tbadk.core.atomData.bk(f(), com.baidu.adp.lib.e.c.a(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
         }
     }
 

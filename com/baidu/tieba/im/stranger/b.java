@@ -12,6 +12,6 @@ class b implements com.baidu.tbadk.core.dialog.d {
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
         aVar2 = this.a.e;
-        aVar2.c();
+        aVar2.d();
     }
 }

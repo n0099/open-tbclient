@@ -3,7 +3,6 @@ package com.baidu.adp.widget.ScrollView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -175,7 +174,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         }
         this.e = obtainStyledAttributes.getInteger(4, Constants.MEDIA_INFO);
         this.f = obtainStyledAttributes.getInteger(5, Constants.MEDIA_INFO);
-        LayoutInflater.from(context).inflate(com.baidu.adp.e.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.adp.e.adp_pull_refresh_scroll_view, this, true);
         this.i = (FrameLayout) findViewById(com.baidu.adp.d.head_ly);
         this.j = (FrameLayout) findViewById(com.baidu.adp.d.foot_ly);
         setCustomHeaderView(bVar);

@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.aq;
+import com.baidu.tbadk.core.atomData.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ class b implements Handler.Callback {
                 if (string == null) {
                     string = "";
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new aq((Context) this.a, string, false, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ar((Context) this.a, string, false, true)));
                 break;
             case 4:
                 long nanoTime = (((System.nanoTime() - this.a.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;

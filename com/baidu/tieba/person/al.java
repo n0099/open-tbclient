@@ -1,21 +1,26 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.ViewTreeObserver;
+import com.baidu.tbadk.core.view.UserIconBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al extends BdAsyncTask<String, Integer, Void> {
-    final /* synthetic */ aj a;
+public class al implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(aj ajVar) {
-        this.a = ajVar;
+    public al(ak akVar) {
+        this.a = akVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(String... strArr) {
-        com.baidu.tbadk.core.account.a.a(strArr[0], strArr[1]);
-        return null;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        UserIconBox userIconBox;
+        UserIconBox userIconBox2;
+        userIconBox = this.a.v;
+        userIconBox.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        ak akVar = this.a;
+        userIconBox2 = this.a.v;
+        akVar.z = userIconBox2.getMeasuredWidth();
+        this.a.g();
     }
 }

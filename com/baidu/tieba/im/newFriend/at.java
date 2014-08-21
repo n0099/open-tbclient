@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.newFriend;
 
+import com.baidu.tbadk.core.dialog.BdToast;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements com.baidu.tieba.im.a<List<com.baidu.tieba.im.data.k>> {
+class at implements be {
     final /* synthetic */ NewFriendsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +11,23 @@ public class at implements com.baidu.tieba.im.a<List<com.baidu.tieba.im.data.k>>
         this.a = newFriendsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(List<com.baidu.tieba.im.data.k> list) {
-        av avVar;
-        av avVar2;
-        avVar = this.a.d;
-        avVar.b();
-        avVar2 = this.a.d;
-        avVar2.a(list);
+    @Override // com.baidu.tieba.im.newFriend.be
+    public void a(String str) {
+        String str2;
+        this.a.b();
+        com.baidu.tbadk.h a = com.baidu.tbadk.h.a();
+        str2 = this.a.c;
+        a.b(str2, true);
+    }
+
+    @Override // com.baidu.tieba.im.newFriend.be
+    public void b(String str) {
+        az azVar;
+        az azVar2;
+        azVar = this.a.d;
+        azVar.b();
+        azVar2 = this.a.d;
+        azVar2.a((List<com.baidu.tieba.im.data.k>) null);
+        BdToast.a(this.a, str);
     }
 }

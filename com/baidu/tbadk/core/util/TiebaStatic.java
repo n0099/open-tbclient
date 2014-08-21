@@ -316,7 +316,7 @@ public class TiebaStatic {
 
     public static void save() {
         try {
-            com.baidu.tbadk.pluginArch.t.a();
+            com.baidu.tbadk.pluginArch.u.a();
             w.b();
             w.c();
             w.d();

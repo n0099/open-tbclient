@@ -90,12 +90,10 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         } catch (Throwable th) {
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
-        dVar.b(false);
-        dVar.a(false);
         dVar.a(hVar, true);
         dVar.a(3, c(), true);
         dVar.a(d());
-        dVar.a();
+        dVar.c();
     }
 
     private h c() {

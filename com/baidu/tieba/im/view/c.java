@@ -1,8 +1,7 @@
 package com.baidu.tieba.im.view;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,13 +14,13 @@ class c {
     private ImageView e = null;
     private String f = null;
 
-    public c(a aVar, LayoutInflater layoutInflater) {
+    public c(a aVar, Context context) {
         this.a = aVar;
-        a(layoutInflater);
+        a(context);
     }
 
-    private void a(LayoutInflater layoutInflater) {
-        this.b = layoutInflater.inflate(com.baidu.tieba.v.chatterbox_dialog_item, (ViewGroup) null);
+    private void a(Context context) {
+        this.b = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.chatterbox_dialog_item, null);
         this.d = (TextView) this.b.findViewById(com.baidu.tieba.u.chatterbox_text);
         this.c = (LinearLayout) this.b.findViewById(com.baidu.tieba.u.chatterbox_item_layout);
         this.e = (ImageView) this.b.findViewById(com.baidu.tieba.u.chatterbox_selected);

@@ -1,33 +1,25 @@
 package com.baidu.tieba.im.newFriend;
 
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-
-    private ag() {
-    }
+public class ag extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ NewFriendDbManagerStatic a;
+    private final /* synthetic */ com.baidu.tieba.im.data.k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(ag agVar) {
-        this();
+    public ag(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.k kVar) {
+        this.a = newFriendDbManagerStatic;
+        this.b = kVar;
     }
 
-    public void a(com.baidu.tieba.im.data.k kVar) {
-        this.a.a(kVar.c(), 12, false);
-        this.b.setText(kVar.b());
-        if (!TextUtils.isEmpty(kVar.d())) {
-            this.c.setText(kVar.d());
-        } else {
-            this.c.setText("");
-        }
-        int e = kVar.e();
-        this.d.setText(((Integer) ad.a().get(e)).intValue());
-        this.d.setEnabled(e == 0 || e == 1);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.db.m.a().a(this.b);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(com.baidu.tieba.im.db.m.a().b()));
+        return null;
     }
 }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.neighbors;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.location.Address;
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
+class e implements com.baidu.adp.lib.c.d {
     final /* synthetic */ NeighborsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +10,15 @@ public class e implements View.OnClickListener {
         this.a = neighborsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.j();
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        this.a.closeLoadingDialog();
+        if (i == 0 && address != null) {
+            this.a.b = String.valueOf(address.getLatitude());
+            this.a.c = String.valueOf(address.getLongitude());
+            this.a.b(true);
+            return;
+        }
+        this.a.g();
     }
 }

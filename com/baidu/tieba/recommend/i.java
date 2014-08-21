@@ -1,7 +1,6 @@
 package com.baidu.tieba.recommend;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,23 +19,21 @@ import java.util.Date;
 public class i extends com.baidu.adp.widget.q {
     int a;
     private Activity b;
-    private LayoutInflater c;
-    private l d;
-    private boolean g;
-    private ArrayList<m> h = new ArrayList<>();
-    private SimpleDateFormat e = new SimpleDateFormat("yyyyMMdd");
-    private SimpleDateFormat f = new SimpleDateFormat("MM-dd");
+    private l c;
+    private boolean f;
+    private ArrayList<m> g = new ArrayList<>();
+    private SimpleDateFormat d = new SimpleDateFormat("yyyyMMdd");
+    private SimpleDateFormat e = new SimpleDateFormat("MM-dd");
 
     public i(Activity activity, l lVar) {
         this.b = activity;
-        this.c = LayoutInflater.from(this.b);
-        this.g = TbadkApplication.m252getInst().getSkinType() == 1;
-        this.d = lVar;
+        this.f = TbadkApplication.m252getInst().getSkinType() == 1;
+        this.c = lVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.h.size();
+        return this.g.size();
     }
 
     @Override // android.widget.Adapter
@@ -51,7 +48,7 @@ public class i extends com.baidu.adp.widget.q {
         switch (getItemViewType(i)) {
             case 0:
                 if (view == null || view.getTag() == null) {
-                    view = this.c.inflate(v.daily_recommend_time, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.b, v.daily_recommend_time, null);
                     n nVar2 = new n();
                     nVar2.a = (TextView) view.findViewById(u.time);
                     nVar2.b = (TextView) view.findViewById(u.count);
@@ -66,7 +63,7 @@ public class i extends com.baidu.adp.widget.q {
                 break;
             case 1:
                 if (view == null || view.getTag() == null) {
-                    view = this.c.inflate(v.daily_recommend_concentratio, (ViewGroup) null);
+                    view = com.baidu.adp.lib.e.b.a().a(this.b, v.daily_recommend_concentratio, null);
                     k kVar2 = new k();
                     kVar2.a = view.findViewById(u.father);
                     kVar2.b = (LinearLayout) view.findViewById(u.head_bottom);
@@ -95,8 +92,8 @@ public class i extends com.baidu.adp.widget.q {
 
     @Override // android.widget.Adapter
     public int getItemViewType(int i) {
-        if (i < this.h.size()) {
-            return this.h.get(i).a;
+        if (i < this.g.size()) {
+            return this.g.get(i).a;
         }
         return -1;
     }
@@ -107,15 +104,15 @@ public class i extends com.baidu.adp.widget.q {
     }
 
     public void a(n nVar, int i) {
-        if (this.h.get(i).a == 0) {
-            com.baidu.tieba.data.n nVar2 = (com.baidu.tieba.data.n) this.h.get(i).b;
+        if (this.g.get(i).a == 0) {
+            com.baidu.tieba.data.n nVar2 = (com.baidu.tieba.data.n) this.g.get(i).b;
             Date date = new Date();
             try {
-                date = this.e.parse(nVar2.b());
+                date = this.d.parse(nVar2.b());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            nVar.a.setText(this.f.format(date));
+            nVar.a.setText(this.e.format(date));
             if (nVar2.d()) {
                 ay.f((View) nVar.a, com.baidu.tieba.t.icon_daily_sentence_bar_red);
             } else {
@@ -136,20 +133,20 @@ public class i extends com.baidu.adp.widget.q {
         int paddingLeft = kVar.f.getPaddingLeft();
         int paddingRight = kVar.f.getPaddingRight();
         ay.a(kVar.f, com.baidu.tieba.r.cp_cont_d, 1);
-        kVar.f.setCompoundDrawablesWithIntrinsicBounds(this.g ? com.baidu.tieba.t.icon_comment_s_1 : com.baidu.tieba.t.icon_comment_s, 0, 0, 0);
+        kVar.f.setCompoundDrawablesWithIntrinsicBounds(this.f ? com.baidu.tieba.t.icon_comment_s_1 : com.baidu.tieba.t.icon_comment_s, 0, 0, 0);
         kVar.f.setPadding(paddingLeft, 0, paddingRight, 0);
         int paddingLeft2 = kVar.h.getPaddingLeft();
         int paddingRight2 = kVar.h.getPaddingRight();
         ay.a(kVar.h, com.baidu.tieba.r.cp_cont_d, 1);
-        kVar.h.setCompoundDrawablesWithIntrinsicBounds(this.g ? com.baidu.tieba.t.icon_name_1 : com.baidu.tieba.t.icon_name, 0, 0, 0);
+        kVar.h.setCompoundDrawablesWithIntrinsicBounds(this.f ? com.baidu.tieba.t.icon_name_1 : com.baidu.tieba.t.icon_name, 0, 0, 0);
         kVar.h.setPadding(paddingLeft2, 0, paddingRight2, 0);
         ay.a(kVar.e, com.baidu.tieba.r.cp_cont_c, 1);
         ay.a(kVar.g, com.baidu.tieba.r.cp_cont_d, 1);
     }
 
     public void a(k kVar, int i) {
-        if (this.h.get(i).a == 1) {
-            com.baidu.tieba.data.m mVar = (com.baidu.tieba.data.m) this.h.get(i).b;
+        if (this.g.get(i).a == 1) {
+            com.baidu.tieba.data.m mVar = (com.baidu.tieba.data.m) this.g.get(i).b;
             kVar.d.setText(mVar.b());
             kVar.f.setText(mVar.g());
             kVar.h.setText(mVar.e());
@@ -161,21 +158,21 @@ public class i extends com.baidu.adp.widget.q {
 
     public void a(com.baidu.tieba.data.l lVar) {
         if (lVar != null) {
-            this.h.clear();
+            this.g.clear();
             if (lVar.a() != null && lVar.a().size() > 0) {
                 ArrayList<com.baidu.tieba.data.n> a = lVar.a();
                 for (int i = 0; i < a.size(); i++) {
                     com.baidu.tieba.data.n nVar = a.get(i);
                     String b = nVar.b();
-                    if (this.d != null) {
-                        this.d.a(b);
+                    if (this.c != null) {
+                        this.c.a(b);
                     }
-                    this.h.add(new m(this, 0, nVar, b));
+                    this.g.add(new m(this, 0, nVar, b));
                     if (nVar.c() != null && nVar.c().size() > 0) {
                         for (int i2 = 0; i2 < nVar.c().size(); i2++) {
                             com.baidu.tieba.data.m mVar = nVar.c().get(i2);
                             if (mVar.f().equals("0")) {
-                                this.h.add(new m(this, 1, mVar, b));
+                                this.g.add(new m(this, 1, mVar, b));
                             }
                         }
                     }
@@ -192,9 +189,9 @@ public class i extends com.baidu.adp.widget.q {
 
     @Override // com.baidu.adp.widget.q
     public View c() {
-        View inflate = this.c.inflate(v.daily_recommend_time, (ViewGroup) null);
-        inflate.findViewById(u.count).setVisibility(8);
-        return inflate;
+        View a = com.baidu.adp.lib.e.b.a().a(this.b, v.daily_recommend_time, null);
+        a.findViewById(u.count).setVisibility(8);
+        return a;
     }
 
     @Override // com.baidu.adp.widget.q
@@ -208,16 +205,16 @@ public class i extends com.baidu.adp.widget.q {
             }
             return;
         }
-        m mVar = this.h.get(i);
+        m mVar = this.g.get(i);
         TextView textView = (TextView) view.findViewById(u.time);
         Date date2 = new Date();
         try {
-            date = this.e.parse(mVar.c);
+            date = this.d.parse(mVar.c);
         } catch (ParseException e) {
             e.printStackTrace();
             date = date2;
         }
-        textView.setText(this.f.format(date));
+        textView.setText(this.e.format(date));
         ay.a(textView, com.baidu.tieba.r.cp_cont_i, 1);
         if (i <= 0) {
             ay.f((View) textView, com.baidu.tieba.t.icon_daily_sentence_bar_red_s);
@@ -235,7 +232,7 @@ public class i extends com.baidu.adp.widget.q {
     @Override // android.widget.Adapter
     /* renamed from: a */
     public m getItem(int i) {
-        return this.h.get(i);
+        return this.g.get(i);
     }
 
     private int b(int i) {

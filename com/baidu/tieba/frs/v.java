@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.text.TextUtils;
 /* loaded from: classes.dex */
-class v implements dt {
+class v implements dv {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ class v implements dt {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dt
+    @Override // com.baidu.tieba.frs.dv
     public void a(String str) {
         boolean z;
         com.baidu.tbadk.core.data.n nVar;
@@ -31,7 +31,7 @@ class v implements dt {
         com.baidu.tieba.pb.main.bp.a().f();
     }
 
-    @Override // com.baidu.tieba.frs.dt
+    @Override // com.baidu.tieba.frs.dv
     public void b(String str) {
         boolean z;
         z = this.a.k;

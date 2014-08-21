@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
@@ -25,7 +24,7 @@ public class bo extends com.baidu.adp.framework.listener.d {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseEnterChatRoomMessage) && !socketResponsedMessage.hasError() && (randChatRoomData = ((ResponseEnterChatRoomMessage) socketResponsedMessage).getRandChatRoomData()) != null && randChatRoomData.e() > 0) {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-            imMessageCenterPojo.setPulled_msgId(bu.b(randChatRoomData.k()));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(randChatRoomData.k()));
             imMessageCenterPojo.setCustomGroupType(3);
             imMessageCenterPojo.setIs_hidden(1);
             c.b().c(imMessageCenterPojo);

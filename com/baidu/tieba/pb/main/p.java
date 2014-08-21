@@ -16,15 +16,15 @@ class p implements com.baidu.adp.widget.ListView.x {
         bs bsVar;
         bl blVar2;
         bs bsVar2;
-        blVar = this.a.x;
+        blVar = this.a.y;
         if (blVar.a(false)) {
-            bsVar2 = this.a.D;
+            bsVar2 = this.a.E;
             bsVar2.w();
             TiebaStatic.eventStat(this.a, "pb_more", "pbclick", 1, new Object[0]);
             return;
         }
-        bsVar = this.a.D;
-        blVar2 = this.a.x;
+        bsVar = this.a.E;
+        blVar2 = this.a.y;
         bsVar.c(blVar2.r());
     }
 }

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -28,7 +27,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ar;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -58,7 +57,7 @@ public class SquareSearchActivity extends BaseActivity {
     private a k = null;
     private ListView l = null;
     private a m = null;
-    private ai n = null;
+    private aj n = null;
     private e o = null;
     private ProgressBar p = null;
     private Button q = null;
@@ -67,21 +66,21 @@ public class SquareSearchActivity extends BaseActivity {
     private Bitmap t = null;
     private BarSuggestModel u = null;
     private SearchPostModel v = null;
-    private ag w = null;
-    private ah x = null;
+    private ah w = null;
+    private ai x = null;
     private String y = null;
     private int z = 0;
     private String A = null;
     private String B = null;
-    final View.OnClickListener b = new u(this);
-    private CustomMessageListener C = new z(this, 2001195);
-    private CustomMessageListener D = new aa(this, 2001194);
-    private HttpMessageListener E = new ab(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
+    final View.OnClickListener b = new v(this);
+    private CustomMessageListener C = new aa(this, 2001195);
+    private CustomMessageListener D = new ab(this, 2001194);
+    private HttpMessageListener E = new ac(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
     private final Handler F = new Handler();
-    private final Runnable G = new ac(this);
+    private final Runnable G = new ad(this);
     private boolean H = true;
-    private CustomMessageListener J = new ad(this, 2009002);
-    private CustomMessageListener K = new ae(this, 2009001);
+    private CustomMessageListener J = new ae(this, 2009002);
+    private CustomMessageListener K = new af(this, 2009001);
 
     static {
         e();
@@ -92,7 +91,7 @@ public class SquareSearchActivity extends BaseActivity {
     }
 
     private static void e() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2009002, new af());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2009002, new ag());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -137,7 +136,7 @@ public class SquareSearchActivity extends BaseActivity {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.r.a((Activity) this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 18);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ar(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new as(this, intent)));
             finish();
             return true;
         }
@@ -180,7 +179,7 @@ public class SquareSearchActivity extends BaseActivity {
     public void b() {
         j();
         i();
-        this.r = getLayoutInflater().inflate(com.baidu.tieba.v.home_dialog_search_footer, (ViewGroup) null);
+        this.r = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.home_dialog_search_footer, null);
         this.s = (TextView) findViewById(com.baidu.tieba.u.text_no_data);
         this.c.setOnFocusChangeListener(new k(this));
         this.e.setText(getString(com.baidu.tieba.x.enter_forum));
@@ -197,18 +196,18 @@ public class SquareSearchActivity extends BaseActivity {
         this.q = (Button) this.r.findViewById(com.baidu.tieba.u.home_bt_search_footer);
         this.q.setOnClickListener(new q(this));
         this.j.addFooterView(this.r, null, true);
-        this.n = new ai(this, null);
+        this.n = new aj(this, null);
         this.k = new a(this, null);
         this.j.setAdapter((ListAdapter) this.k);
-        this.j.setOnItemClickListener(new t(this));
+        this.j.setOnItemClickListener(new u(this));
         this.l = (ListView) findViewById(com.baidu.tieba.u.home_lv_suggest);
         this.m = new a(this, null);
         this.o = new e(this);
         this.l.setAdapter((ListAdapter) this.m);
-        this.l.setOnItemClickListener(new v(this));
-        w wVar = new w(this);
-        this.l.setOnScrollListener(wVar);
-        this.j.setOnScrollListener(wVar);
+        this.l.setOnItemClickListener(new w(this));
+        x xVar = new x(this);
+        this.l.setOnScrollListener(xVar);
+        this.j.setOnScrollListener(xVar);
         this.p = (ProgressBar) findViewById(com.baidu.tieba.u.home_progress_search);
         this.p.setVisibility(8);
         this.c.setText("");
@@ -224,7 +223,7 @@ public class SquareSearchActivity extends BaseActivity {
 
     private void i() {
         this.h = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new x(this));
+        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new y(this));
         View a = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, com.baidu.tieba.v.square_search_navigation_view, (View.OnClickListener) null);
         this.a = (ImageView) a.findViewById(com.baidu.tieba.u.search_bar_icon);
         this.c = (EditText) a.findViewById(com.baidu.tieba.u.home_et_search);
@@ -263,7 +262,7 @@ public class SquareSearchActivity extends BaseActivity {
         this.I.addView(fragmentTabIndicator3);
         this.I.addView(fragmentTabIndicator4);
         this.I.a(0, true);
-        this.I.setTabSelectionListener(new y(this));
+        this.I.setTabSelectionListener(new z(this));
     }
 
     public void c() {
@@ -406,7 +405,7 @@ public class SquareSearchActivity extends BaseActivity {
                         arrayList.add(new BasicNameValuePair("rn", String.valueOf(50)));
                         arrayList.add(new BasicNameValuePair(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, "search_post"));
                         a();
-                        this.x = new ah(this, stringBuffer.toString(), arrayList);
+                        this.x = new ai(this, stringBuffer.toString(), arrayList);
                         this.x.setPriority(3);
                         this.x.execute(new Object[0]);
                     }

@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ay;
-import com.baidu.tbadk.core.atomData.cd;
+import com.baidu.tbadk.core.atomData.az;
+import com.baidu.tbadk.core.atomData.ce;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.ai;
@@ -86,12 +86,12 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
                 this.b.setVcodeUrl(eVar.b());
                 if (eVar.c().equals("4")) {
                     if (this.b != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ay(this.a, 12006, this.b, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new az(this.a, 12006, this.b, false)));
                         return;
                     }
                     return;
                 } else if (this.b != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cd(this.a, this.b, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this.a, this.b, 12006)));
                     return;
                 } else {
                     return;

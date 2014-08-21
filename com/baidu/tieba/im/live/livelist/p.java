@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.livelist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -95,7 +94,7 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_list_foot, viewGroup, false);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_list_foot, viewGroup, false);
                 r rVar = new r(this);
                 rVar.d = view.findViewById(com.baidu.tieba.u.bottom_line);
                 rVar.e = (ViewGroup) view.findViewById(com.baidu.tieba.u.bottom_more);
@@ -120,7 +119,7 @@ public class p extends BaseAdapter {
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_frs_list_item_native, viewGroup, false);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_frs_list_item_native, viewGroup, false);
                 r rVar3 = new r(this);
                 rVar3.a = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.u.item_card);
                 rVar3.c = view.findViewById(com.baidu.tieba.u.live_list_item_line);

@@ -2,7 +2,6 @@ package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,7 +33,7 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(v.invite_to_group_view, this);
+        com.baidu.adp.lib.e.b.a().a(getContext(), v.invite_to_group_view, this);
         setOrientation(1);
         this.a = (TextView) findViewById(u.chat_title);
         this.b = (HeadImageView) findViewById(u.chat_group_img);

@@ -23,17 +23,15 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.aladin.AladinServer;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.atomData.bw;
 import com.baidu.tbadk.core.atomData.bx;
 import com.baidu.tbadk.core.atomData.by;
-import com.baidu.tbadk.core.atomData.cb;
+import com.baidu.tbadk.core.atomData.bz;
+import com.baidu.tbadk.core.atomData.cc;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.plugins.DQSdkPlugin;
-import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.io.BufferedReader;
 import java.io.File;
@@ -55,6 +53,26 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class UtilHelper {
+    private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}([\\d]+)");
+    private static final Pattern pbPattern1 = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}([\\d]+)");
+    private static final Pattern frsPattern = Pattern.compile("(tieba.baidu.com/f\\?kw=){1}([^&]+)");
+
+    /* loaded from: classes.dex */
+    public enum NativePageType {
+        NONE,
+        FRS,
+        PB;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static NativePageType[] valuesCustom() {
+            NativePageType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            NativePageType[] nativePageTypeArr = new NativePageType[length];
+            System.arraycopy(valuesCustom, 0, nativePageTypeArr, 0, length);
+            return nativePageTypeArr;
+        }
+    }
 
     /* loaded from: classes.dex */
     public enum NetworkStateInfo {
@@ -202,7 +220,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(Activity activity) {
-        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.alert_quit_confirm).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new bl(activity)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new bm()).create(), activity);
+        com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.alert_quit_confirm).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new bl(activity)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new bm()).create(), activity);
     }
 
     public static String getIpFromDomain(String str) {
@@ -329,7 +347,7 @@ public class UtilHelper {
                 String substring = str.substring(4);
                 String str2 = strArr[0];
                 if (!TextUtils.isEmpty(substring)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cb(context, str2, substring, false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cc(context, str2, substring, false)));
                 }
             } else if (str.length() > 4 && str.startsWith("frs:")) {
                 String substring2 = str.substring(4);
@@ -339,25 +357,15 @@ public class UtilHelper {
             } else if (str.length() > 4 && str.startsWith("pb:")) {
                 String substring3 = str.substring(3);
                 if (!TextUtils.isEmpty(substring3)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(context).a(substring3, null, "official_bar")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bc(context).a(substring3, null, "official_bar")));
                 }
             }
         }
     }
 
-    public static void launchWebGameActivity(Context context, String str, String str2) {
-        com.baidu.tbadk.pluginArch.c a;
-        LightAppPlugin lightAppPlugin;
-        if (com.baidu.adp.lib.a.f.a().b("t5core") == 0 && (a = com.baidu.tbadk.pluginArch.d.a().a("lightapp")) != null && (lightAppPlugin = (LightAppPlugin) a.a(LightAppPlugin.class)) != null) {
-            lightAppPlugin.launchLightApp(context, TbConfig.api_key, str2);
-        } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.w(context, str, str2, true)));
-        }
-    }
-
     public static boolean commenDealIntent(Context context, Intent intent) {
         boolean z;
-        com.baidu.tbadk.core.atomData.al alVar;
+        com.baidu.tbadk.core.atomData.am amVar;
         com.baidu.tbadk.pluginArch.c a;
         DQSdkPlugin dQSdkPlugin;
         boolean z2 = false;
@@ -374,11 +382,11 @@ public class UtilHelper {
                 String stringExtra = intent.getStringExtra("id");
                 String stringExtra2 = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FROM);
                 if (intent.getBooleanExtra("is_message_pv", false)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(context).a(stringExtra, (String) null, stringExtra2, intent.getLongExtra("message_id", 0L))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bc(context).a(stringExtra, (String) null, stringExtra2, intent.getLongExtra("message_id", 0L))));
                     z = true;
                     break;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bb(context).a(stringExtra, null, stringExtra2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bc(context).a(stringExtra, null, stringExtra2)));
                     z = true;
                     break;
                 }
@@ -427,7 +435,7 @@ public class UtilHelper {
                     }
                 }
                 if (z4 && intExtra9 == 11) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bw(context, intExtra9, false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bx(context, intExtra9, false)));
                     z = true;
                     break;
                 }
@@ -451,14 +459,14 @@ public class UtilHelper {
                 String currentAccount = TbadkApplication.getCurrentAccount();
                 String currentAccountName = TbadkApplication.getCurrentAccountName();
                 if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bg(context, currentAccount, currentAccountName)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(context, currentAccount, currentAccountName)));
                     z = true;
                     break;
                 }
                 z = z2;
                 break;
             case 13:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.y(context, com.baidu.adp.lib.e.b.a(intent.getStringExtra("groupid"), 0L), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.z(context, com.baidu.adp.lib.e.c.a(intent.getStringExtra("groupid"), 0L), 0)));
                 z = true;
                 break;
             case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
@@ -479,44 +487,44 @@ public class UtilHelper {
                 z = z2;
                 break;
             case 16:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ak(context)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.al(context)));
                 z = true;
                 break;
             case 17:
                 if (context instanceof Activity) {
-                    alVar = new com.baidu.tbadk.core.atomData.al(context, com.baidu.adp.lib.e.b.a(intent.getStringExtra("groupid"), -1));
+                    amVar = new com.baidu.tbadk.core.atomData.am(context, com.baidu.adp.lib.e.c.a(intent.getStringExtra("groupid"), -1));
                 } else {
-                    alVar = new com.baidu.tbadk.core.atomData.al(context, com.baidu.adp.lib.e.b.a(intent.getStringExtra("groupid"), -1), "");
+                    amVar = new com.baidu.tbadk.core.atomData.am(context, com.baidu.adp.lib.e.c.a(intent.getStringExtra("groupid"), -1), "");
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alVar));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, amVar));
                 z = true;
                 break;
             case 18:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new by(context, "", false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new bz(context, "", false)));
                 z = true;
                 break;
             case 19:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2010010, new bx(context)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2010010, new by(context)));
                 z = true;
                 break;
             case 20:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.az(context, com.baidu.tbadk.core.atomData.az.d)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ba(context, com.baidu.tbadk.core.atomData.ba.d)));
                 z = true;
                 break;
             case 22:
                 String stringExtra8 = intent.getStringExtra("barid");
                 String stringExtra9 = intent.getStringExtra("barname");
                 String stringExtra10 = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
-                long a2 = com.baidu.adp.lib.e.b.a(stringExtra8, -1L);
+                long a2 = com.baidu.adp.lib.e.c.a(stringExtra8, -1L);
                 if (a2 > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.ba(context, a2, stringExtra9, stringExtra10, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(context, a2, stringExtra9, stringExtra10, 0)));
                     z = true;
                     break;
                 }
                 z = z2;
                 break;
             case DealIntentService.CLASS_TYPE_NATIVE_PAY /* 23 */:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.at(context, Integer.parseInt(intent.getStringExtra("wanted_type")))));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.au(context, Integer.parseInt(intent.getStringExtra("wanted_type")))));
                 z = true;
                 break;
         }
@@ -690,5 +698,46 @@ public class UtilHelper {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static bo isNativeAddress(String str) {
+        bo boVar = new bo();
+        Matcher matcher = pbPattern0.matcher(str);
+        if (matcher.find()) {
+            try {
+                String group = matcher.group(2);
+                if (!TextUtils.isEmpty(group)) {
+                    boVar.a = group;
+                    boVar.b = NativePageType.PB;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        Matcher matcher2 = pbPattern1.matcher(str);
+        if (matcher2.find()) {
+            try {
+                String group2 = matcher2.group(2);
+                if (!TextUtils.isEmpty(group2)) {
+                    boVar.a = group2;
+                    boVar.b = NativePageType.PB;
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        Matcher matcher3 = frsPattern.matcher(str);
+        if (matcher3.find()) {
+            try {
+                String group3 = matcher3.group(2);
+                if (!TextUtils.isEmpty(group3)) {
+                    boVar.a = group3;
+                    boVar.b = NativePageType.FRS;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+        return boVar;
     }
 }

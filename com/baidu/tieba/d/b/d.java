@@ -38,11 +38,11 @@ public class d implements View.OnClickListener {
                         aVar2.a(x.alert_yes_button, new e(this, view, h, g, aVar));
                         aVar2.b(x.alert_no_button, new f(this));
                         aVar2.a();
-                        aVar2.b();
+                        aVar2.c();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "btn_download", "pb", h.b, h.c);
-                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.b, h.c, "PB", "download");
+                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "btn_download", "pb", h.c, h.d);
+                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.c, h.d, "PB", "download");
                     com.baidu.tieba.d.b.a(view.getContext(), h, g);
                     aVar.a();
                 } else if (r == 2) {

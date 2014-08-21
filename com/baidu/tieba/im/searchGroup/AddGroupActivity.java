@@ -9,7 +9,7 @@ import android.view.View;
 import com.baidu.adp.framework.listener.d;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.atomData.z;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.f;
 import com.baidu.tieba.im.model.az;
@@ -97,7 +97,7 @@ public class AddGroupActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BaseGroupData baseGroupData) {
         if (baseGroupData != null) {
-            sendMessage(new CustomMessage(2008011, new y(this, baseGroupData.getGroupId(), 0)));
+            sendMessage(new CustomMessage(2008011, new z(this, baseGroupData.getGroupId(), 0)));
         }
     }
 

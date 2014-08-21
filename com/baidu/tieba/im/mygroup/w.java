@@ -1,21 +1,50 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class w extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ v a;
+public class w extends FragmentPagerAdapter {
+    public static int a = 1;
+    private int[] b;
+    private ArrayList<aa> c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(v vVar, int i) {
-        super(i);
-        this.a = vVar;
+    public w(PersonGroupActivity personGroupActivity, boolean z) {
+        super(personGroupActivity.getSupportFragmentManager());
+        this.c = new ArrayList<>();
+        Bundle bundle = new Bundle();
+        bundle.putInt("page_type", 0);
+        aa aaVar = new aa();
+        aaVar.setArguments(bundle);
+        this.c.add(aaVar);
+        if (z) {
+            this.b = new int[1];
+        } else {
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("page_type", 1);
+            aa aaVar2 = new aa();
+            aaVar2.setArguments(bundle2);
+            this.c.add(aaVar2);
+            this.b = new int[]{0, 1};
+        }
+        a = this.b.length;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.a.c = true;
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        if (i >= a || i < 0) {
+            return null;
+        }
+        return this.c.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return a;
+    }
+
+    public int a(int i) {
+        return this.b[i];
     }
 }

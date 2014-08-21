@@ -15,7 +15,6 @@ import com.baidu.tieba.s;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.x;
-import java.util.Date;
 /* loaded from: classes.dex */
 public class b extends a {
     protected TbImageView j;
@@ -64,11 +63,11 @@ public class b extends a {
                 marginLayoutParams2.leftMargin = (int) this.a.getResources().getDimension(s.ds80);
                 this.l.setLayoutParams(marginLayoutParams2);
             }
-            String e = ba.e(new Date(fVar.m_()));
-            if (e == null) {
-                e = "";
+            String a = ba.a(fVar.m_());
+            if (a == null) {
+                a = "";
             }
-            this.k.setText(e);
+            this.k.setText(a);
             if (StringUtils.isNull(fVar.f())) {
                 this.d.setVisibility(8);
             } else {

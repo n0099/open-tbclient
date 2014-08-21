@@ -3,9 +3,7 @@ package com.baidu.tieba.editortool;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
@@ -80,7 +78,7 @@ public class aq extends i {
     }
 
     protected void e() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.editor_tool_button_container, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.editor_tool_button_container, this, true);
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {

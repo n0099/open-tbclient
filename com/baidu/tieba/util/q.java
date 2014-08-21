@@ -355,8 +355,8 @@ public class q implements Thread.UncaughtExceptionHandler {
                 i = b2;
                 i2 = 0;
             } else {
-                int a3 = com.baidu.adp.lib.e.b.a(split[0], 0);
-                int a4 = com.baidu.adp.lib.e.b.a(split[1], b2);
+                int a3 = com.baidu.adp.lib.e.c.a(split[0], 0);
+                int a4 = com.baidu.adp.lib.e.c.a(split[1], b2);
                 i2 = a3;
                 i = a4;
             }

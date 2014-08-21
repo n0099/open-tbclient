@@ -13,7 +13,7 @@ import com.baidu.tieba.im.live.room.LiveRoomChatActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MsgleftView extends cb {
+public class MsgleftView extends cc {
     private static final String q = MsgleftView.class.getName();
     View.OnLongClickListener p;
     private HeadImageView r;
@@ -28,7 +28,7 @@ public class MsgleftView extends cb {
     public MsgleftView(Context context) {
         super(context, com.baidu.tieba.v.msg_msgleft_view);
         this.x = new TouchType();
-        this.p = new cn(this);
+        this.p = new co(this);
         this.y = context;
         b();
         this.w = (ImageView) a(com.baidu.tieba.u.iv_live_group_host);
@@ -40,13 +40,13 @@ public class MsgleftView extends cb {
         this.r.setDrawerType(1);
         this.r.setRadius(com.baidu.adp.lib.util.j.a(this.y, 4.0f));
         this.v = (UserIconBox) a(com.baidu.tieba.u.user_tshow_icon_box);
-        this.r.setOnClickListener(new co(this));
+        this.r.setOnClickListener(new cp(this));
         this.r.setLongClickable(true);
         this.r.setOnLongClickListener(this.p);
-        this.r.setOnTouchListener(new cp(this));
+        this.r.setOnTouchListener(new cq(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cb
+    @Override // com.baidu.tieba.im.chat.cc
     public void b(View view, ChatMessage chatMessage) {
         String str = null;
         super.b(view, chatMessage);

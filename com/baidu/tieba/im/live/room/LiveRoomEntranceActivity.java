@@ -17,7 +17,7 @@ public class LiveRoomEntranceActivity extends BaseActivity {
     private com.baidu.adp.framework.listener.d f = new az(this, 107101);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.am.class, LiveRoomEntranceActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.an.class, LiveRoomEntranceActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

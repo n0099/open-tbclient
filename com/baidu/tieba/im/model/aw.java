@@ -38,6 +38,6 @@ public class aw {
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        return UtilHelper.isSameDay(com.baidu.adp.lib.e.b.a(a2, 0L), System.currentTimeMillis());
+        return UtilHelper.isSameDay(com.baidu.adp.lib.e.c.a(a2, 0L), System.currentTimeMillis());
     }
 }

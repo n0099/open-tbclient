@@ -19,6 +19,6 @@ public class c implements View.OnClickListener {
         aVar.b(x.pb_history_clear_tip);
         aVar.a(x.confirm, new d(this));
         aVar.b(x.cancel, new e(this));
-        aVar.a().b();
+        aVar.a().c();
     }
 }

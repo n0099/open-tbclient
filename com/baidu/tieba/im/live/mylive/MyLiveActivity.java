@@ -9,8 +9,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.al;
-import com.baidu.tbadk.core.atomData.aw;
+import com.baidu.tbadk.core.atomData.am;
+import com.baidu.tbadk.core.atomData.ax;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
@@ -21,7 +21,7 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
     private LiveCardData g = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(aw.class, MyLiveActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ax.class, MyLiveActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -89,7 +89,7 @@ public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.On
 
     public void a(LiveCardData liveCardData) {
         this.g = liveCardData;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new al(this, liveCardData.getGroupId())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new am(this, liveCardData.getGroupId())));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

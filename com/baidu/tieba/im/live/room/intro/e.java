@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.live.room.intro;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -63,21 +61,20 @@ public class e extends com.baidu.adp.base.f {
         this.c = (BdListView) liveRoomIntroActivity.findViewById(u.live_room_intro_listview);
         this.d = new b(liveRoomIntroActivity);
         this.c.setAdapter((ListAdapter) this.d);
-        LayoutInflater from = LayoutInflater.from(liveRoomIntroActivity);
-        this.e = from.inflate(v.live_room_intro_head_host, (ViewGroup) null);
+        this.e = com.baidu.adp.lib.e.b.a().a(liveRoomIntroActivity, v.live_room_intro_head_host, null);
         this.f = (HeadImageView) this.e.findViewById(u.live_room_intro_head_host_head);
         this.g = (TextView) this.e.findViewById(u.live_room_intro_head_host_name);
         this.h = (TextView) this.e.findViewById(u.live_room_intro_head_host_count);
         this.f.setIsRound(true);
         this.f.setOnClickListener(this.r);
         this.c.addHeaderView(this.e);
-        this.i = from.inflate(v.live_room_intro_head_room, (ViewGroup) null);
+        this.i = com.baidu.adp.lib.e.b.a().a(liveRoomIntroActivity, v.live_room_intro_head_room, null);
         this.j = (TextView) this.i.findViewById(u.live_room_intro_root_roonum);
         this.k = (TextView) this.i.findViewById(u.live_room_intro_root_name);
         this.l = (TextView) this.i.findViewById(u.live_room_intro_root_notice);
         this.m = (TextView) this.i.findViewById(u.live_room_intro_root_from);
         this.c.addHeaderView(this.i);
-        this.n = from.inflate(v.live_room_intro_head_livetitle, (ViewGroup) null);
+        this.n = com.baidu.adp.lib.e.b.a().a(liveRoomIntroActivity, v.live_room_intro_head_livetitle, null);
         this.c.addHeaderView(this.n);
     }
 

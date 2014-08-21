@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.atomData.z;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,11 +27,11 @@ public class b implements View.OnClickListener {
         inviteMsgData2 = this.a.e;
         String text = inviteMsgData2.getText();
         inviteMsgData3 = this.a.e;
-        y yVar = new y(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
+        z zVar = new z(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
         if (this.a.getContext() instanceof BaseActivity) {
-            ((BaseActivity) this.a.getContext()).sendMessage(new CustomMessage(2008011, yVar));
+            ((BaseActivity) this.a.getContext()).sendMessage(new CustomMessage(2008011, zVar));
         } else if (this.a.getContext() instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.a.getContext()).a(new CustomMessage(2008011, yVar));
+            ((BaseFragmentActivity) this.a.getContext()).a(new CustomMessage(2008011, zVar));
         }
     }
 }

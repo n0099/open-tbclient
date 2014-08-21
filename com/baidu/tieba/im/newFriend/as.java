@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.newFriend;
-
-import java.util.List;
 /* loaded from: classes.dex */
-class as extends com.baidu.tieba.im.b<List<com.baidu.tieba.im.data.k>> {
+class as implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ NewFriendsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +8,10 @@ class as extends com.baidu.tieba.im.b<List<com.baidu.tieba.im.data.k>> {
         this.a = newFriendsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public List<com.baidu.tieba.im.data.k> a() {
-        com.baidu.tieba.im.db.m.a().c();
-        return com.baidu.tieba.im.db.m.a().d();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        if (!z) {
+            this.a.b();
+        }
     }
 }

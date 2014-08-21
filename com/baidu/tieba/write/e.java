@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.core.view.s {
+public class e implements com.baidu.tbadk.core.view.t {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class e implements com.baidu.tbadk.core.view.s {
         this.a = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.s
+    @Override // com.baidu.tbadk.core.view.t
     public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
         AtSelectFriendList atSelectFriendList;
         if (obj != null && (obj instanceof MetaData)) {

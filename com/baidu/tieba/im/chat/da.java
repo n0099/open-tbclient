@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class da extends com.baidu.tieba.im.b<Void> {
+class da implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ PersonalChatActivity a;
-    private final /* synthetic */ UserData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(PersonalChatActivity personalChatActivity, UserData userData) {
+    public da(PersonalChatActivity personalChatActivity) {
         this.a = personalChatActivity;
-        this.b = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.chat.personaltalk.a.a().a(TbadkApplication.getCurrentAccount(), PersonalChatActivity.b, this.b);
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                this.a.d.M();
+            } else {
+                this.a.d.N();
+            }
+        }
     }
 }

@@ -17,6 +17,6 @@ class y extends com.baidu.tieba.im.b<Boolean> {
     @Override // com.baidu.tieba.im.b
     /* renamed from: b */
     public Boolean a() {
-        return Boolean.valueOf(ay.a().c(TbadkApplication.getCurrentAccount(), String.valueOf(this.b.getUserId())));
+        return Boolean.valueOf(az.a().c(TbadkApplication.getCurrentAccount(), String.valueOf(this.b.getUserId())));
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-class k implements com.baidu.tbadk.pluginArch.i {
+class k implements com.baidu.tbadk.pluginArch.j {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class k implements com.baidu.tbadk.pluginArch.i {
         this.a = jVar;
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void a(DownloadData downloadData) {
         g gVar;
         PluginDownloadActivity pluginDownloadActivity;
@@ -54,8 +54,8 @@ class k implements com.baidu.tbadk.pluginArch.i {
         }
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
-    public void a(int i, String str) {
+    @Override // com.baidu.tbadk.pluginArch.j
+    public void a(DownloadData downloadData, int i, String str) {
         g gVar;
         PluginDownloadActivity pluginDownloadActivity;
         g gVar2;
@@ -109,7 +109,7 @@ class k implements com.baidu.tbadk.pluginArch.i {
         pluginDownloadActivity5.finish();
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void b(DownloadData downloadData) {
         g gVar;
         PluginDownloadActivity pluginDownloadActivity;
@@ -151,7 +151,7 @@ class k implements com.baidu.tbadk.pluginArch.i {
         }
     }
 
-    @Override // com.baidu.tbadk.pluginArch.i
+    @Override // com.baidu.tbadk.pluginArch.j
     public void c(DownloadData downloadData) {
         g gVar;
         PluginDownloadActivity pluginDownloadActivity;

@@ -3,7 +3,6 @@ package com.baidu.tieba.forumdetail;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,7 +44,7 @@ public class ItemFootNavView extends LinearLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.forum_detail_foot_nav, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.forum_detail_foot_nav, this, true);
         this.b = (ViewGroup) findViewById(u.fn_care_box);
         this.c = (TextView) findViewById(u.fn_care_btn);
         this.d = (ImageView) findViewById(u.icon_brief_care);

@@ -23,8 +23,8 @@ public class d extends b {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
-                this.a = com.baidu.adp.lib.e.b.a(split[0], 0);
-                this.b = com.baidu.adp.lib.e.b.a(split[1], 0);
+                this.a = com.baidu.adp.lib.e.c.a(split[0], 0);
+                this.b = com.baidu.adp.lib.e.c.a(split[1], 0);
             }
         }
     }

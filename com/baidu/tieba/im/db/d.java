@@ -38,7 +38,7 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [76=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
     public int a(String str, int i) {
         Cursor cursor = null;
@@ -58,7 +58,7 @@ public class d {
         return i2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
     public int b(String str) {
         Cursor cursor = null;
         int i = 0;
@@ -285,7 +285,7 @@ public class d {
         return bool.booleanValue();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [519=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [535=4] */
     private long a(GroupNewsPojo groupNewsPojo) {
         long j = -1;
         SQLiteStatement sQLiteStatement = null;
@@ -328,38 +328,40 @@ public class d {
         return j;
     }
 
-    public boolean d(String str) {
+    public boolean c(String str, int i) {
         Cursor cursor;
+        Cursor cursor2 = null;
         try {
-            cursor = g.a().a("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT 1000, 1", null);
+            if (i < 1000) {
+                i = 1000;
+            }
+        } catch (Throwable th) {
+            th = th;
+            cursor2 = 1000;
+        }
+        try {
+            cursor = g.a().a("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
             try {
-                try {
-                    String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("notice_id")) : null;
-                    com.baidu.adp.lib.util.m.a(cursor);
-                    if (string != null) {
-                        g.a().a("tb_group_news", "notice_id<?", new String[]{string});
-                    }
-                    com.baidu.adp.lib.util.m.a(cursor);
-                    return true;
-                } catch (Exception e) {
-                    e = e;
-                    e.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                    com.baidu.adp.lib.util.m.a(cursor);
-                    return false;
-                }
-            } catch (Throwable th) {
-                th = th;
+                String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("notice_id")) : null;
                 com.baidu.adp.lib.util.m.a(cursor);
-                throw th;
+                if (string != null) {
+                    g.a().a("tb_group_news", "notice_id<?", new String[]{string});
+                }
+                com.baidu.adp.lib.util.m.a(cursor);
+                return true;
+            } catch (Exception e) {
+                e = e;
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
+                com.baidu.adp.lib.util.m.a(cursor);
+                return false;
             }
         } catch (Exception e2) {
             e = e2;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            cursor = null;
-            com.baidu.adp.lib.util.m.a(cursor);
+            com.baidu.adp.lib.util.m.a(cursor2);
             throw th;
         }
     }

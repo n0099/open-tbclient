@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.af;
+import com.baidu.tbadk.core.atomData.ag;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.ArrayList;
@@ -68,13 +68,13 @@ public class o implements View.OnClickListener {
                 }
                 MessageManager messageManager = MessageManager.getInstance();
                 context = this.a.d;
-                af afVar = new af(context);
+                ag agVar = new ag(context);
                 int i = this.b;
                 str = this.a.n;
                 str2 = this.a.m;
                 str3 = this.a.o;
                 z = this.a.b;
-                messageManager.sendMessage(new CustomMessage(2010000, afVar.a(arrayList, i, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "", true)));
+                messageManager.sendMessage(new CustomMessage(2010000, agVar.a(arrayList, i, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "", true)));
                 context2 = this.a.d;
                 TiebaStatic.eventStat(context2, "pic_frs", "");
                 return;

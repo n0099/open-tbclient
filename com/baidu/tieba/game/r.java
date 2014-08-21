@@ -13,9 +13,9 @@ public class r implements Runnable {
     public void run() {
         com.baidu.adp.lib.guide.d dVar;
         com.baidu.adp.lib.guide.d dVar2;
-        dVar = this.a.v;
+        dVar = this.a.w;
         if (dVar != null) {
-            dVar2 = this.a.v;
+            dVar2 = this.a.w;
             dVar2.a();
         }
     }

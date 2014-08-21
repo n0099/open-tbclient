@@ -10,14 +10,14 @@ import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
-    private List<ba> msg;
+    private List<bb> msg;
     private int msgCount;
 
     public int getMsgCount() {
         return this.msgCount;
     }
 
-    public List<ba> getMsg() {
+    public List<bb> getMsg() {
         return this.msg;
     }
 
@@ -36,15 +36,15 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         this.msgCount = queryHistoryMsgResIdl.data.total.intValue();
         if (queryHistoryMsgResIdl.data.res != null) {
             for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                ba baVar = new ba();
+                bb bbVar = new bb();
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    baVar.a = com.baidu.tbadk.core.util.ba.c(date);
-                    baVar.b = msgInfo.type.intValue();
-                    baVar.c = msgInfo.content;
-                    baVar.d = msgInfo.id.intValue();
-                    this.msg.add(baVar);
+                    bbVar.a = com.baidu.tbadk.core.util.ba.c(date);
+                    bbVar.b = msgInfo.type.intValue();
+                    bbVar.c = msgInfo.content;
+                    bbVar.d = msgInfo.id.intValue();
+                    this.msg.add(bbVar);
                 }
             }
         }

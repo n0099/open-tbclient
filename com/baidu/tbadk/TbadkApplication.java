@@ -34,8 +34,8 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.RegistMode;
-import com.baidu.tbadk.core.atomData.ah;
-import com.baidu.tbadk.core.atomData.bp;
+import com.baidu.tbadk.core.atomData.ai;
+import com.baidu.tbadk.core.atomData.bq;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
@@ -218,8 +218,8 @@ public class TbadkApplication extends BdBaseApplication {
         CustomMessageTask customMessageTask = new CustomMessageTask(2002001, new c(this));
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2005003, new ah(m252getInst())));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2005005, new ah(m252getInst())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005003, new ai(m252getInst())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005005, new ai(m252getInst())));
         setActivityStackMaxSize(20);
         MessageManager.getInstance().registerListener(this.mMemListener);
         com.baidu.tbadk.distribute.a.a().b();
@@ -438,7 +438,7 @@ public class TbadkApplication extends BdBaseApplication {
         ApplicationInfo applicationInfo = null;
         try {
             applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), 128);
-            TbConfig.setVersionType(com.baidu.adp.lib.e.b.a(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+            TbConfig.setVersionType(com.baidu.adp.lib.e.c.a(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
         } catch (Exception e) {
             TbConfig.setVersionType(3);
             BdLog.e(e.getMessage());
@@ -1017,7 +1017,7 @@ public class TbadkApplication extends BdBaseApplication {
         aa.a().b();
         LivePlayingStatusMgr.a().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
         if (isChangeAccount) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bp(context)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bq(context)));
         }
     }
 
@@ -1149,7 +1149,7 @@ public class TbadkApplication extends BdBaseApplication {
         if (this.imagePvThread == null) {
             this.imagePvThread = Executors.newSingleThreadExecutor();
         }
-        com.baidu.tbadk.c.e eVar = new com.baidu.tbadk.c.e(i, i2);
+        com.baidu.tbadk.b.e eVar = new com.baidu.tbadk.b.e(i, i2);
         eVar.a(str);
         this.imagePvThread.execute(eVar);
         TiebaStatic.eventStat(m252getInst().getApp(), "img_browse", null, 1, "img_num", Integer.valueOf(i), "img_total", Integer.valueOf(i2), "img_type", str);

@@ -2,7 +2,6 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,8 +15,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
     private Context f;
     private int g;
     private int h;
-    private LayoutInflater j;
-    private View k;
+    private View j;
     private ArrayList<ap> c = null;
     private int d = 0;
     private ArrayList<View> e = new ArrayList<>();
@@ -29,9 +27,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
         this.f = null;
         this.g = 0;
         this.h = 0;
-        this.j = null;
         this.f = context;
-        this.j = LayoutInflater.from(context);
         this.g = com.baidu.adp.lib.util.j.b(context);
         this.h = (int) (0.5f + (this.g * this.i));
     }
@@ -51,7 +47,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
             this.c = arrayList;
             int i = 0;
             while (i < this.d) {
-                TbImageView tbImageView = (TbImageView) this.j.inflate(com.baidu.tieba.v.carousel_topics_recommend_item, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) com.baidu.adp.lib.e.b.a().a(this.f, com.baidu.tieba.v.carousel_topics_recommend_item, null);
                 z = this.b.m;
                 if (!z) {
                     tbImageView.setDrawerType(1);
@@ -120,7 +116,7 @@ public class t extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
     @Override // com.baidu.tbadk.imageManager.d
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         HeadImageView headImageView;
-        if (this.k != null && (headImageView = (HeadImageView) this.k.findViewWithTag(str)) != null) {
+        if (this.j != null && (headImageView = (HeadImageView) this.j.findViewWithTag(str)) != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER);
             headImageView.invalidate();
         }

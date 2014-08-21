@@ -2,7 +2,6 @@ package com.baidu.tieba.im.chat.notify;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -82,7 +81,7 @@ public class n extends BaseAdapter {
             oVar = (o) view.getTag();
         }
         if (oVar == null) {
-            view = LayoutInflater.from(this.a).inflate(v.chat_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.chat_list_item, viewGroup, false);
             oVar = a(view);
             view.setTag(oVar);
         }
@@ -224,9 +223,14 @@ public class n extends BaseAdapter {
                         i2 = 0;
                     }
                 }
-            } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName()) && !TbadkApplication.m252getInst().isMsgChatOn()) {
-                str = "";
-                i2 = 0;
+            } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
+                if (!TbadkApplication.m252getInst().isMsgChatOn()) {
+                    str = "";
+                    i2 = 0;
+                } else if (!com.baidu.tieba.im.chat.officialBar.ay.a().b()) {
+                    str = "";
+                    i2 = 0;
+                }
             }
             oVar.f.setText(str);
         } else {

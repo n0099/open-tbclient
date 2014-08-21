@@ -1,25 +1,41 @@
 package com.baidu.tieba.neighbors;
 
-import android.location.Address;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import tbclient.Person.DataRes;
 /* loaded from: classes.dex */
-class d implements com.baidu.adp.lib.c.d {
+class d extends com.baidu.adp.framework.listener.d {
     final /* synthetic */ NeighborsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(NeighborsActivity neighborsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(NeighborsActivity neighborsActivity, int i) {
+        super(i);
         this.a = neighborsActivity;
     }
 
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        this.a.closeLoadingDialog();
-        if (i == 0 && address != null) {
-            this.a.a = String.valueOf(address.getLatitude());
-            this.a.b = String.valueOf(address.getLongitude());
-            this.a.b(true);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ResponseGetNeighborsMessage responseGetNeighborsMessage;
+        Message<?> orginalMessage;
+        BdListView bdListView;
+        BdListView bdListView2;
+        if ((socketResponsedMessage instanceof ResponseGetNeighborsMessage) && (orginalMessage = (responseGetNeighborsMessage = (ResponseGetNeighborsMessage) socketResponsedMessage).getOrginalMessage()) != null && orginalMessage.getTag() == this.a.getUniqueId()) {
+            this.a.i = false;
+            this.a.closeLoadingDialog();
+            if (!com.baidu.adp.lib.util.j.c()) {
+                bdListView = this.a.o;
+                bdListView.d();
+                this.a.h();
+                return;
+            }
+            DataRes neighborsData = responseGetNeighborsMessage.getNeighborsData();
+            bdListView2 = this.a.o;
+            bdListView2.d();
+            this.a.a(neighborsData);
         }
-        this.a.showToast(str);
-        this.a.f();
     }
 }

@@ -3,8 +3,6 @@ package com.baidu.tieba.editortool;
 import android.content.Context;
 import android.text.InputFilter;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,7 +36,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     protected void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.pb_editor_tool_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.pb_editor_tool_view, this, true);
         this.b = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.u.tool_button_container);
         this.c = (EditText) findViewById(com.baidu.tieba.u.reply_content);
         this.d = (Button) findViewById(com.baidu.tieba.u.pb_reply_post);

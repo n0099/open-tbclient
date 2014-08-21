@@ -152,7 +152,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
             builder.setNegativeButton(com.baidu.tieba.x.alert_no_button, new ad(this));
             this.g = builder.create();
         }
-        com.baidu.adp.lib.e.d.a(this.g, this);
+        com.baidu.adp.lib.e.e.a(this.g, this);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.g

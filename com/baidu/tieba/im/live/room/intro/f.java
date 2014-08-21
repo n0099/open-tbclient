@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
@@ -31,7 +31,7 @@ public class f implements View.OnClickListener {
                 context = this.a.mContext;
                 str3 = this.a.q;
                 str4 = this.a.p;
-                messageManager.sendMessage(new CustomMessage(2002003, new bg(context, str3, str4)));
+                messageManager.sendMessage(new CustomMessage(2002003, new bh(context, str3, str4)));
             }
         }
     }

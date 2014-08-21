@@ -23,11 +23,11 @@ public class c implements Runnable {
         if (popupWindow != null) {
             popupWindow2 = this.a.A;
             if (popupWindow2.isShowing()) {
-                z = this.a.aq;
+                z = this.a.ap;
                 if (!z) {
                     popupWindow3 = this.a.A;
                     activity = this.a.E;
-                    com.baidu.adp.lib.e.d.a(popupWindow3, activity);
+                    com.baidu.adp.lib.e.e.a(popupWindow3, activity);
                 }
             }
         }

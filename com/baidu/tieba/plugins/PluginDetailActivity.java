@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.bl;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -32,7 +32,7 @@ public class PluginDetailActivity extends BaseActivity {
     private int k;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bk.class, PluginDetailActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bl.class, PluginDetailActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

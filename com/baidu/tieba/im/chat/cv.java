@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class cv implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ ct a;
-    private final /* synthetic */ CustomMessage b;
+class cv extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ cu a;
+    private final /* synthetic */ LinkedList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(ct ctVar, CustomMessage customMessage) {
-        this.a = ctVar;
-        this.b = customMessage;
+    public cv(cu cuVar, LinkedList linkedList) {
+        this.a = cuVar;
+        this.b = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r5) {
-        ((com.baidu.tbadk.core.atomData.bj) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.bj) this.b.getData()).getContext(), PersonalChatActivity.class);
-        if (((com.baidu.tbadk.core.atomData.bj) this.b.getData()).a().getUserIdLong() != 0) {
-            ((com.baidu.tbadk.core.atomData.bj) this.b.getData()).startActivity();
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        return com.baidu.tieba.im.db.o.c().a(this.b);
     }
 }

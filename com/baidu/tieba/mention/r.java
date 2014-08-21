@@ -23,13 +23,13 @@ public class r implements View.OnClickListener {
         ImageView imageView;
         BaseFragmentActivity baseFragmentActivity;
         BaseFragmentActivity baseFragmentActivity2;
-        imageView = this.a.i;
+        imageView = this.a.h;
         if (view == imageView && TbadkApplication.isLogin()) {
-            baseFragmentActivity = this.a.m;
+            baseFragmentActivity = this.a.l;
             TiebaStatic.eventStat(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
             TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             MessageManager messageManager = MessageManager.getInstance();
-            baseFragmentActivity2 = this.a.m;
+            baseFragmentActivity2 = this.a.l;
             messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.d(baseFragmentActivity2, 12011, false)));
         }
     }

@@ -67,12 +67,12 @@ public class a extends BaseAdapter {
     }
 
     private View b() {
-        View inflate = this.b.getLayoutInflater().inflate(com.baidu.tieba.v.forum_list_dir_menu_item, (ViewGroup) null);
+        View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.forum_list_dir_menu_item, null);
         this.a = new b(this);
-        this.a.a = (ImageView) inflate.findViewById(com.baidu.tieba.u.menu_choose);
-        this.a.b = (TextView) inflate.findViewById(com.baidu.tieba.u.menu_name);
-        inflate.setTag(this.a);
-        return inflate;
+        this.a.a = (ImageView) a.findViewById(com.baidu.tieba.u.menu_choose);
+        this.a.b = (TextView) a.findViewById(com.baidu.tieba.u.menu_name);
+        a.setTag(this.a);
+        return a;
     }
 
     private void a(b bVar, com.baidu.tieba.square.w wVar, View view, int i) {

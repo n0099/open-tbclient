@@ -21,7 +21,6 @@ public class AboutActivity extends BaseActivity {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -30,7 +29,6 @@ public class AboutActivity extends BaseActivity {
         b();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
@@ -39,7 +37,6 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
@@ -52,7 +49,6 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
@@ -61,7 +57,6 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.b == null) {
             this.b = new com.baidu.tieba.model.a(this, new b(this));
@@ -74,7 +69,6 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         if (this.a != null) {
             this.a.b();

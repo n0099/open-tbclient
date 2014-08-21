@@ -2,7 +2,6 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class BaobaoTailView extends LinearLayout {
 
     private void a() {
         setOrientation(0);
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.baobao_tail_layout, this);
+        com.baidu.adp.lib.e.b.a().a(getContext(), com.baidu.tieba.v.baobao_tail_layout, this);
         this.a = (TbImageView) findViewById(com.baidu.tieba.u.baobao_icon);
         this.b = (TextView) findViewById(com.baidu.tieba.u.baobao_tail_text);
         setOnClickListener(this.d);

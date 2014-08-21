@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.bu;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
@@ -45,7 +44,7 @@ public class ar extends CustomMessageListener {
                     imMessageCenterPojo.setCustomGroupType(-3);
                     imMessageCenterPojo.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.o.a(cmd, p.getContent()));
                     imMessageCenterPojo.setLast_content_time(p.getTime());
-                    imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.e.b.a(p.getNotice_id(), 0L));
+                    imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.e.c.a(p.getNotice_id(), 0L));
                     c.b().a(imMessageCenterPojo, UpdatesActivity.a ? 0 : 1);
                 } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.o.b(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
@@ -53,7 +52,7 @@ public class ar extends CustomMessageListener {
                     imMessageCenterPojo2.setCustomGroupType(-4);
                     imMessageCenterPojo2.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.o.a(cmd, p.getContent()));
                     imMessageCenterPojo2.setLast_content_time(p.getTime());
-                    imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.e.b.a(p.getNotice_id(), 0L));
+                    imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.e.c.a(p.getNotice_id(), 0L));
                     c.b().a(imMessageCenterPojo2, ValidateActivity.a ? 0 : 1);
                 } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.o.c(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
@@ -61,7 +60,7 @@ public class ar extends CustomMessageListener {
                     imMessageCenterPojo3.setCustomGroupType(-5);
                     imMessageCenterPojo3.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.o.a(cmd, p.getContent()));
                     imMessageCenterPojo3.setLast_content_time(p.getTime());
-                    imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.e.b.a(p.getNotice_id(), 0L));
+                    imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.e.c.a(p.getNotice_id(), 0L));
                     c.b().a(imMessageCenterPojo3, LiveNotifyActivity.a ? 0 : 1);
                 }
                 if (cmd.equals("group_head_change")) {
@@ -118,10 +117,10 @@ public class ar extends CustomMessageListener {
                             imMessageCenterPojo4.setIs_hidden(0);
                             imMessageCenterPojo4.setUnread_count(0);
                             imMessageCenterPojo4.setLast_content(" ");
-                            imMessageCenterPojo4.setLast_rid(bu.b(optLong));
-                            imMessageCenterPojo4.setPulled_msgId(bu.b(optLong));
+                            imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.chat.bu.b(optLong));
+                            imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.chat.bu.b(optLong));
                             c.b().c(imMessageCenterPojo4);
-                            c.b().a(1, bu.b(optLong), optString);
+                            c.b().a(1, com.baidu.tieba.im.chat.bu.b(optLong), optString);
                             CustomMessageTask customMessageTask3 = new CustomMessageTask(2001000, new au(this, imMessageCenterPojo4));
                             customMessageTask3.setParallel(com.baidu.tbadk.k.b());
                             customMessageTask3.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

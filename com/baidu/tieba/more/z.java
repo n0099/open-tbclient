@@ -13,22 +13,22 @@ public class z extends com.baidu.adp.base.h {
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        com.baidu.tieba.person.o oVar;
-        com.baidu.tieba.person.o oVar2;
-        com.baidu.tieba.person.o oVar3;
-        com.baidu.tieba.person.o oVar4;
-        com.baidu.tieba.person.o oVar5;
+        com.baidu.tieba.person.p pVar;
+        com.baidu.tieba.person.p pVar2;
+        com.baidu.tieba.person.p pVar3;
+        com.baidu.tieba.person.p pVar4;
+        com.baidu.tieba.person.p pVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        oVar = this.a.c;
-        if (oVar.a() != null) {
-            oVar2 = this.a.c;
-            personChangeData.setName(oVar2.a().getName_show());
-            oVar3 = this.a.c;
-            personChangeData.setIntro(oVar3.a().getIntro());
-            oVar4 = this.a.c;
-            personChangeData.setPortrait(oVar4.a().getPortrait());
-            oVar5 = this.a.c;
-            personChangeData.setSex(oVar5.a().getSex());
+        pVar = this.a.c;
+        if (pVar.a() != null) {
+            pVar2 = this.a.c;
+            personChangeData.setName(pVar2.a().getName_show());
+            pVar3 = this.a.c;
+            personChangeData.setIntro(pVar3.a().getIntro());
+            pVar4 = this.a.c;
+            personChangeData.setPortrait(pVar4.a().getPortrait());
+            pVar5 = this.a.c;
+            personChangeData.setSex(pVar5.a().getSex());
             this.a.a(personChangeData);
         }
     }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -68,7 +67,7 @@ public class e extends BaseAdapter {
 
     private g a() {
         g gVar = new g(this, null);
-        gVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.im_black_list_item, (ViewGroup) null);
+        gVar.a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.im_black_list_item, null);
         gVar.b = (HeadImageView) gVar.a.findViewById(com.baidu.tieba.u.header_view);
         gVar.b.setIsRound(true);
         gVar.c = (TextView) gVar.a.findViewById(com.baidu.tieba.u.user_name);

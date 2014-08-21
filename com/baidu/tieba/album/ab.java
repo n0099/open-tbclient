@@ -1,6 +1,5 @@
 package com.baidu.tieba.album;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -83,7 +82,7 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.album_image_item_view, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.album_image_item_view, viewGroup, false);
             agVar = new ag(this, null);
             agVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.u.pic);
             agVar.b = (ImageView) view.findViewById(com.baidu.tieba.u.select_icon);

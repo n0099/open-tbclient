@@ -40,7 +40,7 @@ public class j {
         if (chatMessage == null) {
             return -1L;
         }
-        if (com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+        if (com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
             return chatMessage.getToUserId();
         }
         return chatMessage.getUserId();

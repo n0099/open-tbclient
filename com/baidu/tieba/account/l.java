@@ -1,6 +1,5 @@
 package com.baidu.tieba.account;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -54,10 +53,10 @@ public class l extends BaseAdapter {
         return -1L;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00fe  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0167  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0169  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [136=4] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0104  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x016d  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x016f  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -68,26 +67,23 @@ public class l extends BaseAdapter {
         try {
             try {
                 try {
-                    if (view == null) {
-                        LayoutInflater from = LayoutInflater.from(this.a);
-                        if (getItemViewType(i) == 0) {
-                            view2 = from.inflate(com.baidu.tieba.v.account_item, (ViewGroup) null);
-                            mVar = new m(this, null);
-                            mVar.a = (TextView) view2.findViewById(com.baidu.tieba.u.account);
-                            mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.u.active);
-                            mVar.d = (Button) view2.findViewById(com.baidu.tieba.u.delete);
-                            mVar.e = view2.findViewById(com.baidu.tieba.u.account_item_line_layout);
-                            mVar.d.setOnClickListener(this.d);
-                            view2.setTag(mVar);
-                        } else {
-                            view2 = from.inflate(com.baidu.tieba.v.account_add_item, (ViewGroup) null);
-                            mVar = new m(this, null);
-                            mVar.b = (TextView) view2.findViewById(com.baidu.tieba.u.add_text);
-                            view2.setTag(mVar);
-                        }
-                    } else {
+                    if (view != null) {
                         mVar = (m) view.getTag();
                         view2 = view;
+                    } else if (getItemViewType(i) == 0) {
+                        view2 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.account_item, null);
+                        mVar = new m(this, null);
+                        mVar.a = (TextView) view2.findViewById(com.baidu.tieba.u.account);
+                        mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.u.active);
+                        mVar.d = (Button) view2.findViewById(com.baidu.tieba.u.delete);
+                        mVar.e = view2.findViewById(com.baidu.tieba.u.account_item_line_layout);
+                        mVar.d.setOnClickListener(this.d);
+                        view2.setTag(mVar);
+                    } else {
+                        view2 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.account_add_item, null);
+                        mVar = new m(this, null);
+                        mVar.b = (TextView) view2.findViewById(com.baidu.tieba.u.add_text);
+                        view2.setTag(mVar);
                     }
                     if (getItemViewType(i) == 0) {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
@@ -121,18 +117,18 @@ public class l extends BaseAdapter {
                     this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                     this.a.getLayoutMode().a(view2);
                     return view2;
-                } catch (Throwable th) {
-                    th = th;
-                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
+                } catch (Exception e) {
+                    e = e;
+                    BdLog.detailException(e);
+                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
                     this.a.getLayoutMode().a(view);
-                    throw th;
+                    return view;
                 }
-            } catch (Exception e) {
-                e = e;
-                BdLog.detailException(e);
-                this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
+            } catch (Throwable th) {
+                th = th;
+                this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                 this.a.getLayoutMode().a(view);
-                return view;
+                throw th;
             }
         } catch (Exception e2) {
             e = e2;

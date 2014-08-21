@@ -1,6 +1,5 @@
 package com.baidu.tieba.editortool;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -42,17 +41,10 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        FrameLayout frameLayout;
         int i2;
         int i3;
         com.baidu.tbadk.img.e eVar;
-        LayoutInflater layoutInflater;
-        if (view == null) {
-            layoutInflater = this.a.v;
-            frameLayout = (FrameLayout) layoutInflater.inflate(com.baidu.tieba.v.editor_muti_image_item, (ViewGroup) null);
-        } else {
-            frameLayout = view;
-        }
+        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.e.b.a().a(this.a.a, com.baidu.tieba.v.editor_muti_image_item, null) : view;
         int skinType = TbadkApplication.m252getInst().getSkinType();
         ImageFileInfo imageFileInfo = this.b.getChosedFiles().get(i);
         int measuredWidth = viewGroup.getMeasuredWidth();
@@ -74,7 +66,7 @@ public class q extends BaseAdapter {
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.a(paddingRight, measuredHeight));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            eVar = this.a.z;
+            eVar = this.a.y;
             if (eVar.a(imageFileInfo, new r(this, viewGroup), true) != null) {
                 tbImageView.invalidate();
             }

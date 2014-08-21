@@ -9,8 +9,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bj;
-import com.baidu.tbadk.core.atomData.bz;
+import com.baidu.tbadk.core.atomData.bk;
+import com.baidu.tbadk.core.atomData.ca;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
@@ -33,7 +33,7 @@ public class StrangerListActivity extends BaseActivity {
     private com.baidu.tieba.im.chat.notify.a i = new d(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bz.class, StrangerListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ca.class, StrangerListActivity.class);
         a = false;
     }
 
@@ -99,7 +99,7 @@ public class StrangerListActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData item;
         if (this.b != null && this.b.a() != null && (item = this.b.a().getItem(i)) != null) {
-            sendMessage(new CustomMessage(2002005, new bj(this.d, com.baidu.adp.lib.e.b.a(item.getFriendId(), 0L), item.getFriendName(), item.getFriendPortrait(), 0, 0)));
+            sendMessage(new CustomMessage(2002005, new bk(this.d, com.baidu.adp.lib.e.c.a(item.getFriendId(), 0L), item.getFriendName(), item.getFriendPortrait(), 0, 0)));
         }
     }
 
@@ -117,7 +117,7 @@ public class StrangerListActivity extends BaseActivity {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.b.b() && this.e != null) {
-            this.e.b();
+            this.e.c();
         }
     }
 

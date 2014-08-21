@@ -22,7 +22,7 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private BdListView d;
     private h e;
     private ProgressBar f;
-    private com.baidu.tbadk.core.view.u h;
+    private com.baidu.tbadk.core.view.v h;
     private PbListView i;
     private View j;
     private int l;
@@ -54,7 +54,7 @@ public class l extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        this.h = new com.baidu.tbadk.core.view.u(getActivity());
+        this.h = new com.baidu.tbadk.core.view.v(getActivity());
         this.d.setPullRefresh(this.h);
         this.h.a(new p(this));
         this.d.setOnScrollListener(this);

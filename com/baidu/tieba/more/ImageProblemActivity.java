@@ -11,7 +11,7 @@ public class ImageProblemActivity extends BaseActivity {
     s c;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ae.class, ImageProblemActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.af.class, ImageProblemActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

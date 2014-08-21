@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.im.chat.df;
+import com.baidu.tieba.im.chat.dh;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad extends BaseAdapter {
     Context a;
     private View.OnClickListener b = new ae(this);
-    private List<ba> c;
+    private List<bb> c;
 
     public ad(Context context) {
         this.a = context;
@@ -69,46 +69,46 @@ public class ad extends BaseAdapter {
     }
 
     private View a(int i, View view, ViewGroup viewGroup) {
-        ba baVar = (ba) getItem(i);
-        if (baVar != null && baVar.c != null) {
+        bb bbVar = (bb) getItem(i);
+        if (bbVar != null && bbVar.c != null) {
             switch (getItemViewType(i)) {
                 case 0:
                     View aVar = view == null ? new a(this.a) : view;
                     a aVar2 = (a) aVar;
                     aVar2.setClickable(false);
-                    aVar2.setTime(baVar.a);
+                    aVar2.setTime(bbVar.a);
                     ChatMessage chatMessage = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$2
                         @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                         protected Object encode() {
                             return null;
                         }
                     };
-                    chatMessage.setContent(baVar.c);
-                    chatMessage.setMsgType(baVar.b);
-                    df.a(this.a, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
+                    chatMessage.setContent(bbVar.c);
+                    chatMessage.setMsgType(bbVar.b);
+                    dh.a(this.a, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
                     return aVar;
                 case 1:
                     View aVar3 = view == null ? new a(this.a) : view;
                     a aVar4 = (a) aVar3;
                     aVar4.setClickable(false);
-                    aVar4.setTime(baVar.a);
+                    aVar4.setTime(bbVar.a);
                     ChatMessage chatMessage2 = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$3
                         @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                         protected Object encode() {
                             return null;
                         }
                     };
-                    chatMessage2.setContent("[" + baVar.c + "]");
-                    chatMessage2.setMsgType(baVar.b);
-                    df.a(this.a, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    chatMessage2.setContent("[" + bbVar.c + "]");
+                    chatMessage2.setMsgType(bbVar.b);
+                    dh.a(this.a, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
                     aVar4.getImageView().setOnClickListener(this.b);
                     return aVar3;
                 case 2:
                     View aVar5 = view == null ? new a(this.a) : view;
                     MultiContentView multiContentView = new MultiContentView(this.a);
-                    multiContentView.setTime(baVar.a);
-                    multiContentView.a(o.a(baVar.c, ""), viewGroup);
+                    multiContentView.setTime(bbVar.a);
+                    multiContentView.a(o.a(bbVar.c, ""), viewGroup);
                     ((a) aVar5).a(multiContentView);
                     return aVar5;
                 default:
@@ -118,7 +118,7 @@ public class ad extends BaseAdapter {
         return view;
     }
 
-    public void a(List<ba> list) {
+    public void a(List<bb> list) {
         this.c = list;
         notifyDataSetChanged();
     }

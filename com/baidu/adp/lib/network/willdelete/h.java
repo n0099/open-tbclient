@@ -6,6 +6,8 @@ import android.net.Proxy;
 import android.telephony.TelephonyManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -114,44 +116,63 @@ public class h {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [245=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0018 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r1v9 */
     public static boolean a(String str, long j, byte[] bArr, int i, int i2) {
         RandomAccessFile randomAccessFile;
         if (str == null || bArr == null || bArr.length <= 0) {
             return false;
         }
-        RandomAccessFile randomAccessFile2 = null;
+        File file = new File(str);
+        ?? exists = file.exists();
+        if (exists == 0) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                return false;
+            }
+        }
+        Closeable closeable = null;
         try {
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         randomAccessFile.seek(j);
                         randomAccessFile.write(bArr, i, i2);
                         com.baidu.adp.lib.e.a.a(randomAccessFile);
-                    } catch (FileNotFoundException e) {
-                        e = e;
+                        exists = randomAccessFile;
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
                         e.printStackTrace();
                         com.baidu.adp.lib.e.a.a(randomAccessFile);
+                        exists = randomAccessFile;
                         return true;
-                    } catch (IOException e2) {
-                        e = e2;
-                        randomAccessFile2 = randomAccessFile;
+                    } catch (IOException e3) {
+                        e = e3;
+                        closeable = randomAccessFile;
                         e.printStackTrace();
-                        com.baidu.adp.lib.e.a.a(randomAccessFile2);
+                        com.baidu.adp.lib.e.a.a(closeable);
                         return true;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    randomAccessFile2 = randomAccessFile;
-                    com.baidu.adp.lib.e.a.a(randomAccessFile2);
+                    closeable = exists;
+                    com.baidu.adp.lib.e.a.a(closeable);
                     throw th;
                 }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                randomAccessFile = null;
-            } catch (IOException e4) {
+            } catch (FileNotFoundException e4) {
                 e = e4;
+                randomAccessFile = null;
+            } catch (IOException e5) {
+                e = e5;
             }
             return true;
         } catch (Throwable th2) {

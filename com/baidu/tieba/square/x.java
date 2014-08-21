@@ -1,7 +1,6 @@
 package com.baidu.tieba.square;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -119,17 +118,17 @@ public class x extends BaseAdapter {
 
     private View a(int i, int i2) {
         if (i2 == 0) {
-            View inflate = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.forum_list_recommend_item, (ViewGroup) null);
+            View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.forum_list_recommend_item, null);
             z zVar = new z(this, null);
-            zVar.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.container);
-            zVar.a = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_list_title_1);
-            zVar.b = (TextView) inflate.findViewById(com.baidu.tieba.u.forum_list_title_2);
+            zVar.c = (LinearLayout) a.findViewById(com.baidu.tieba.u.container);
+            zVar.a = (TextView) a.findViewById(com.baidu.tieba.u.forum_list_title_1);
+            zVar.b = (TextView) a.findViewById(com.baidu.tieba.u.forum_list_title_2);
             zVar.a.setClickable(true);
             zVar.b.setClickable(true);
             zVar.a.setOnClickListener(this.a);
             zVar.b.setOnClickListener(this.a);
-            inflate.setTag(zVar);
-            return inflate;
+            a.setTag(zVar);
+            return a;
         } else if (i2 == 1) {
             com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
             iVar.setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.square_forum_list_paddingBottom));

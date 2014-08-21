@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.newFriend;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
 /* loaded from: classes.dex */
-public class al implements com.baidu.tieba.im.a<Boolean> {
+class al implements aj {
     final /* synthetic */ NewFriendsActivity a;
-    private final /* synthetic */ com.baidu.tieba.im.data.k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.k kVar) {
+    public al(NewFriendsActivity newFriendsActivity) {
         this.a = newFriendsActivity;
-        this.b = kVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        av avVar;
-        if (bool.booleanValue()) {
-            avVar = this.a.d;
-            avVar.a(this.b);
+    @Override // com.baidu.tieba.im.newFriend.aj
+    public void a(int i, int i2, View view, com.baidu.tieba.im.data.k kVar) {
+        if (kVar.e() != 0) {
+            if (kVar.e() != 1) {
+                return;
+            }
+            this.a.b(kVar);
+            return;
         }
+        this.a.a(kVar);
     }
 }

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,8 +24,8 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.atomData.ax;
+import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.ay;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -60,12 +59,6 @@ public class GuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.v.guide_activity);
-        b();
-        this.a = com.baidu.tbadk.core.sharedPref.b.a().a("jump_to_new_user_guide", true);
-        if (this.a) {
-            c();
-        }
         if (bundle != null) {
             this.d = bundle.getString("from_page");
         } else {
@@ -75,31 +68,43 @@ public class GuideActivity extends BaseActivity {
             this.d = "";
         }
         try {
-            e();
-            this.g = new h(this, null);
-            this.h = (BaseViewPager) findViewById(com.baidu.tieba.u.guide_pager);
-            this.h.setAdapter(this.g);
-            this.h.setOnFlipOutListener(this.n);
-            this.h.setOnPageChangeListener(this.p);
-            com.baidu.tbadk.core.f.a(this, "new_user_guide_pv");
-            if (this.d != null && this.d.equals("from_logo_page")) {
-                this.c = new g(this, null);
-                this.c.setSelfExecute(true);
-                this.c.execute(new String[0]);
-                return;
+            setContentView(com.baidu.tieba.v.guide_activity);
+            b();
+            this.a = com.baidu.tbadk.core.sharedPref.b.a().a("jump_to_new_user_guide", true);
+            if (this.a) {
+                c();
             }
-            this.c = null;
-        } catch (OutOfMemoryError e) {
-            a();
-            TbadkApplication.m252getInst().onAppMemoryLow();
-            BdLog.detailException(e);
-            this.k = true;
-            this.a = false;
-            g();
-        } catch (RuntimeException e2) {
-            a();
-            TbadkApplication.m252getInst().onAppMemoryLow();
-            BdLog.detailException(e2);
+            try {
+                e();
+                this.g = new h(this, null);
+                this.h = (BaseViewPager) findViewById(com.baidu.tieba.u.guide_pager);
+                this.h.setAdapter(this.g);
+                this.h.setOnFlipOutListener(this.n);
+                this.h.setOnPageChangeListener(this.p);
+                com.baidu.tbadk.core.f.a(this, "new_user_guide_pv");
+                if (this.d != null && this.d.equals("from_logo_page")) {
+                    this.c = new g(this, null);
+                    this.c.setSelfExecute(true);
+                    this.c.execute(new String[0]);
+                    return;
+                }
+                this.c = null;
+            } catch (OutOfMemoryError e) {
+                a();
+                TbadkApplication.m252getInst().onAppMemoryLow();
+                BdLog.detailException(e);
+                this.k = true;
+                this.a = false;
+                g();
+            } catch (RuntimeException e2) {
+                a();
+                TbadkApplication.m252getInst().onAppMemoryLow();
+                BdLog.detailException(e2);
+                this.k = true;
+                this.a = false;
+                g();
+            }
+        } catch (RuntimeException e3) {
             this.k = true;
             this.a = false;
             g();
@@ -109,16 +114,15 @@ public class GuideActivity extends BaseActivity {
     private void e() {
         this.e = new ArrayList<>();
         this.f = new ArrayList<>();
-        LayoutInflater from = LayoutInflater.from(this);
-        View inflate = from.inflate(com.baidu.tieba.v.guide_page_first, (ViewGroup) null, false);
-        View inflate2 = from.inflate(com.baidu.tieba.v.guide_page_second, (ViewGroup) null, false);
-        View inflate3 = from.inflate(com.baidu.tieba.v.guide_page_third, (ViewGroup) null, false);
-        this.f.add((ImageView) inflate.findViewById(com.baidu.tieba.u.image_first));
-        this.f.add((ImageView) inflate2.findViewById(com.baidu.tieba.u.image_second));
-        this.f.add((ImageView) inflate3.findViewById(com.baidu.tieba.u.image_third));
-        this.m = (ViewGroup) inflate3.findViewById(com.baidu.tieba.u.guide_page_end_hao123_open_layout);
-        this.i = (ImageView) inflate3.findViewById(com.baidu.tieba.u.radio_hao123_open);
-        this.j = inflate3.findViewById(com.baidu.tieba.u.start_app);
+        View a = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.guide_page_first, null, false);
+        View a2 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.guide_page_second, null, false);
+        View a3 = com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.guide_page_third, null, false);
+        this.f.add((ImageView) a.findViewById(com.baidu.tieba.u.image_first));
+        this.f.add((ImageView) a2.findViewById(com.baidu.tieba.u.image_second));
+        this.f.add((ImageView) a3.findViewById(com.baidu.tieba.u.image_third));
+        this.m = (ViewGroup) a3.findViewById(com.baidu.tieba.u.guide_page_end_hao123_open_layout);
+        this.i = (ImageView) a3.findViewById(com.baidu.tieba.u.radio_hao123_open);
+        this.j = a3.findViewById(com.baidu.tieba.u.start_app);
         if (!TbadkApplication.m252getInst().isHao123HelperShouldOpen()) {
             this.m.setVisibility(8);
             this.j.setVisibility(0);
@@ -129,9 +133,9 @@ public class GuideActivity extends BaseActivity {
         this.i.setSelected(TbadkApplication.m252getInst().isTiebaHelperOpen());
         this.m.setOnClickListener(this.o);
         this.j.setOnClickListener(this.b);
-        this.e.add(inflate);
-        this.e.add(inflate2);
-        this.e.add(inflate3);
+        this.e.add(a);
+        this.e.add(a2);
+        this.e.add(a3);
     }
 
     public void f() {
@@ -201,10 +205,10 @@ public class GuideActivity extends BaseActivity {
         if (this.k) {
             if (!this.a) {
                 if (!isFirstUse) {
-                    sendMessage(new CustomMessage(2015001, new as(this).a(1)));
+                    sendMessage(new CustomMessage(2015001, new at(this).a(1)));
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007006, null));
-                    sendMessage(new CustomMessage(2015001, new as(this).a(4)));
+                    sendMessage(new CustomMessage(2015001, new at(this).a(4)));
                 }
             } else {
                 d();
@@ -236,7 +240,7 @@ public class GuideActivity extends BaseActivity {
     }
 
     public void d() {
-        sendMessage(new CustomMessage(2012116, new ax(this, false, true)));
+        sendMessage(new CustomMessage(2012116, new ay(this, false, true)));
     }
 
     public void i() {

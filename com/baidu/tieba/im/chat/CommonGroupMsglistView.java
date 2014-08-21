@@ -5,8 +5,9 @@ public class CommonGroupMsglistView extends g {
         super(msglistActivity, z);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.g
-    protected void a(TalkableActivity talkableActivity) {
+    public void a(TalkableActivity talkableActivity) {
         super.a(talkableActivity);
         this.e.setFrom(3);
     }

@@ -198,10 +198,10 @@ public class n implements av {
         return this.I;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r2v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.id java.lang.Long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x001a: IGET  (r2v1 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.tid java.lang.Long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x00c5: IGET  (r2v6 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.first_post_id java.lang.Long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x00d6: IGET  (r2v7 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.post_id java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000b: IGET  (r2v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.id java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x001c: IGET  (r2v1 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.tid java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x00c6: IGET  (r2v7 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.first_post_id java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x00d7: IGET  (r2v8 java.lang.Long A[REMOVE]) = (r7v0 tbclient.ThreadInfo) tbclient.ThreadInfo.post_id java.lang.Long)] */
     public void a(ThreadInfo threadInfo) {
         MetaData metaData;
         if (threadInfo != null) {

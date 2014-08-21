@@ -4,9 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -179,7 +177,7 @@ public class ToolMoreView extends FrameLayout {
     }
 
     private void g() {
-        LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.editor_tool_more, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.editor_tool_more, this, true);
         this.q = (LinearLayout) findViewById(com.baidu.tieba.u.lay_editor_more_line1);
         this.r = (LinearLayout) findViewById(com.baidu.tieba.u.lay_editor_more_line2);
         this.c = (Button) findViewById(com.baidu.tieba.u.btn_tool_expression);

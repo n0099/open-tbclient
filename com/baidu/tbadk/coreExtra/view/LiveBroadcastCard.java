@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -105,29 +104,29 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.c = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.v.livebroadcastcardview, this);
-        this.d = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_root);
-        this.e = (GroupImageView) inflate.findViewById(com.baidu.tieba.u.card_head);
+        View a = com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.livebroadcastcardview, this);
+        this.d = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_root);
+        this.e = (GroupImageView) a.findViewById(com.baidu.tieba.u.card_head);
         this.e.setDrawBorder(true);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_middle);
-        this.g = (TextView) inflate.findViewById(com.baidu.tieba.u.card_name);
-        this.h = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_texts_center);
-        this.i = (TextView) inflate.findViewById(com.baidu.tieba.u.card_listener_count);
-        this.j = (TextView) inflate.findViewById(com.baidu.tieba.u.card_liker_count);
-        this.k = (TextView) inflate.findViewById(com.baidu.tieba.u.card_author);
-        this.l = (TextView) inflate.findViewById(com.baidu.tieba.u.card_intro);
-        this.m = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_right);
-        this.n = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_state);
-        this.o = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_living);
-        this.p = (TextView) inflate.findViewById(com.baidu.tieba.u.card_time);
-        this.q = (ViewGroup) inflate.findViewById(com.baidu.tieba.u.card_state_willstart_layout);
-        this.r = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_willstart_text);
-        this.s = (TextView) inflate.findViewById(com.baidu.tieba.u.card_state_close);
-        this.t = (Button) inflate.findViewById(com.baidu.tieba.u.card_delete);
-        this.u = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_top_image);
-        this.v = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_listener_iamge);
-        this.w = (ImageView) inflate.findViewById(com.baidu.tieba.u.card_liker_image);
+        this.f = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_middle);
+        this.g = (TextView) a.findViewById(com.baidu.tieba.u.card_name);
+        this.h = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_texts_center);
+        this.i = (TextView) a.findViewById(com.baidu.tieba.u.card_listener_count);
+        this.j = (TextView) a.findViewById(com.baidu.tieba.u.card_liker_count);
+        this.k = (TextView) a.findViewById(com.baidu.tieba.u.card_author);
+        this.l = (TextView) a.findViewById(com.baidu.tieba.u.card_intro);
+        this.m = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_right);
+        this.n = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_state);
+        this.o = (TextView) a.findViewById(com.baidu.tieba.u.card_state_living);
+        this.p = (TextView) a.findViewById(com.baidu.tieba.u.card_time);
+        this.q = (ViewGroup) a.findViewById(com.baidu.tieba.u.card_state_willstart_layout);
+        this.r = (TextView) a.findViewById(com.baidu.tieba.u.card_state_willstart_text);
+        this.s = (TextView) a.findViewById(com.baidu.tieba.u.card_state_close);
+        this.t = (Button) a.findViewById(com.baidu.tieba.u.card_delete);
+        this.u = (ImageView) a.findViewById(com.baidu.tieba.u.card_top_image);
+        this.v = (ImageView) a.findViewById(com.baidu.tieba.u.card_listener_iamge);
+        this.w = (ImageView) a.findViewById(com.baidu.tieba.u.card_liker_image);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.LiveBroadcastCard);
             this.x = obtainStyledAttributes.getBoolean(0, false);
@@ -311,7 +310,7 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.al(this.c, this.C)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.am(this.c, this.C)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

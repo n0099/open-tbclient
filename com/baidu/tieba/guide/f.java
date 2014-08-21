@@ -1,9 +1,7 @@
 package com.baidu.tieba.guide;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,8 +25,9 @@ class f {
     public f(e eVar, InterestFrsData.Card card, View.OnClickListener onClickListener) {
         Context context;
         this.a = eVar;
+        com.baidu.adp.lib.e.b a = com.baidu.adp.lib.e.b.a();
         context = eVar.a;
-        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.v.new_user_rich_item, (ViewGroup) null);
+        this.b = a.a(context, com.baidu.tieba.v.new_user_rich_item, null);
         this.b.setTag(Integer.valueOf(card.getFid()));
         a(card, onClickListener);
     }

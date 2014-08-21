@@ -1,25 +1,17 @@
 package com.baidu.tieba.game;
-
-import java.util.Comparator;
 /* loaded from: classes.dex */
-class ad implements Comparator<ab> {
-    final /* synthetic */ ac a;
+class ad {
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar) {
-        this.a = acVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(ab abVar, ab abVar2) {
-        if (abVar.m() < abVar2.m()) {
-            return -1;
-        }
-        if (abVar.m() > abVar2.m()) {
-            return 1;
-        }
-        return 0;
+    public ad(int i, int i2, int i3, int i4, int i5) {
+        this.a = i;
+        this.b = i3;
+        this.d = i2;
+        this.e = i4;
+        this.c = i5;
     }
 }

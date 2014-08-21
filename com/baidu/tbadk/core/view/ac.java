@@ -1,25 +1,31 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
+import android.view.ViewGroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements View.OnClickListener {
+public class ac implements ViewGroup.OnHierarchyChangeListener {
     final /* synthetic */ UserPhotoLayout a;
-    private final int b;
-
-    private ac(UserPhotoLayout userPhotoLayout, int i) {
-        this.a = userPhotoLayout;
-        this.b = i;
-    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(UserPhotoLayout userPhotoLayout, int i, ac acVar) {
-        this(userPhotoLayout, i);
+    public ac(UserPhotoLayout userPhotoLayout) {
+        this.a = userPhotoLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (UserPhotoLayout.a(this.a) != null) {
-            UserPhotoLayout.a(this.a).a(this.b);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.d.b bVar;
+        com.baidu.adp.lib.d.b bVar2;
+        if (view2 instanceof HeadImageView) {
+            bVar = this.a.a;
+            if (bVar != null) {
+                bVar2 = this.a.a;
+                bVar2.a((com.baidu.adp.lib.d.b) ((HeadImageView) view2));
+            }
         }
+    }
+
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

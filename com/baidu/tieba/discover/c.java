@@ -6,9 +6,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.aa;
-import com.baidu.tbadk.core.atomData.au;
-import com.baidu.tbadk.core.atomData.bu;
+import com.baidu.tbadk.core.atomData.ab;
+import com.baidu.tbadk.core.atomData.av;
+import com.baidu.tbadk.core.atomData.bv;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.x;
@@ -95,13 +96,17 @@ public class c implements View.OnClickListener {
                         if (view != discoverItemView8) {
                             discoverItemView9 = this.a.i;
                             if (view == discoverItemView9) {
-                                if (TbadkApplication.m252getInst().getLocationShared()) {
-                                    a aVar = this.a;
-                                    baseFragmentActivity3 = this.a.b;
-                                    aVar.a(new CustomMessage(2002001, new com.baidu.tieba.neighbors.i(baseFragmentActivity3, false)));
+                                if (UtilHelper.isNetOk()) {
+                                    if (TbadkApplication.m252getInst().getLocationShared()) {
+                                        a aVar = this.a;
+                                        baseFragmentActivity3 = this.a.b;
+                                        aVar.a(new CustomMessage(2002001, new com.baidu.tieba.neighbors.k(baseFragmentActivity3, false)));
+                                        return;
+                                    }
+                                    this.a.f();
                                     return;
                                 }
-                                this.a.f();
+                                this.a.a(x.neterror);
                                 return;
                             } else if (view instanceof DiscoverItemView) {
                                 TextView textView = ((DiscoverItemView) view).b;
@@ -131,7 +136,7 @@ public class c implements View.OnClickListener {
                         }
                         a aVar2 = this.a;
                         baseFragmentActivity4 = this.a.b;
-                        aVar2.a(new CustomMessage(2002001, new au(baseFragmentActivity4)));
+                        aVar2.a(new CustomMessage(2002001, new av(baseFragmentActivity4)));
                         return;
                     }
                     TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
@@ -149,7 +154,7 @@ public class c implements View.OnClickListener {
                     if (qVar != null) {
                         MessageManager messageManager5 = MessageManager.getInstance();
                         baseFragmentActivity9 = this.a.b;
-                        messageManager5.sendMessage(new CustomMessage(2010030, new bu(baseFragmentActivity9)));
+                        messageManager5.sendMessage(new CustomMessage(2010030, new bv(baseFragmentActivity9)));
                         return;
                     }
                 }
@@ -160,7 +165,7 @@ public class c implements View.OnClickListener {
             }
             MessageManager messageManager6 = MessageManager.getInstance();
             baseFragmentActivity10 = this.a.b;
-            messageManager6.sendMessage(new CustomMessage(2002001, new aa(baseFragmentActivity10)));
+            messageManager6.sendMessage(new CustomMessage(2002001, new ab(baseFragmentActivity10)));
             return;
         }
         TbadkApplication.m252getInst().setFriendFeedNew(false);

@@ -12,7 +12,7 @@ public class o implements com.baidu.tbadk.editortool.w {
     @Override // com.baidu.tbadk.editortool.w
     public void a(int i, Object obj) {
         com.baidu.tbadk.editortool.w wVar;
-        wVar = this.a.y;
+        wVar = this.a.x;
         wVar.a(i, obj);
     }
 }

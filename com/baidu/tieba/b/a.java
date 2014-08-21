@@ -28,6 +28,18 @@ public class a {
         this.c.a();
     }
 
+    public void a(boolean z, boolean z2, int i, String str, long j) {
+        long b = this.c.b();
+        long j2 = 0;
+        long j3 = 0;
+        if (z) {
+            j2 = b;
+        } else {
+            j3 = b;
+        }
+        a(z, z2, i, str, j, j2, j3);
+    }
+
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
         e c;
         if (this.c != null && (c = c()) != null) {

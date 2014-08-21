@@ -6,14 +6,14 @@ import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ab;
-import com.baidu.tbadk.core.atomData.bs;
+import com.baidu.tbadk.core.atomData.ac;
+import com.baidu.tbadk.core.atomData.bt;
 /* loaded from: classes.dex */
 public class SecretSettingActivity extends BaseActivity implements View.OnClickListener {
     private a a;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bs.class, SecretSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(bt.class, SecretSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,6 +65,6 @@ public class SecretSettingActivity extends BaseActivity implements View.OnClickL
     }
 
     private void a() {
-        sendMessage(new CustomMessage(2008001, new ab(this)));
+        sendMessage(new CustomMessage(2008001, new ac(this)));
     }
 }

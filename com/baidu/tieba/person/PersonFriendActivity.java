@@ -8,7 +8,7 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
     private cn f = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.be.class, PersonFriendActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bf.class, PersonFriendActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

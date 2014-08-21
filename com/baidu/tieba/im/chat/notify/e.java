@@ -33,8 +33,8 @@ import java.util.List;
 public class e extends com.baidu.tbadk.core.d {
     private ShutDownValidateTipView i;
     private DialogInterface.OnClickListener j;
-    private com.baidu.tbadk.core.view.o k;
-    private com.baidu.tbadk.core.view.c l;
+    private com.baidu.tbadk.core.view.p k;
+    private com.baidu.tbadk.core.view.d l;
     private int m;
     private NoNetworkView n;
     private RelativeLayout p;
@@ -99,7 +99,7 @@ public class e extends com.baidu.tbadk.core.d {
 
     private void a(View view) {
         this.p = (RelativeLayout) view.findViewById(u.chat_list);
-        this.k = new com.baidu.tbadk.core.view.o(view, t.pic_emotion05, t.pic_emotion05_1, u.no_data_container, u.no_data_image, u.no_data_image_text);
+        this.k = new com.baidu.tbadk.core.view.p(view, t.pic_emotion05, t.pic_emotion05_1, u.no_data_container, u.no_data_image, u.no_data_image_text);
         this.i = (ShutDownValidateTipView) view.findViewById(u.view_no_validate);
         this.i.setVisibility(8);
         this.i.setShutDownClickListener(new l(this));

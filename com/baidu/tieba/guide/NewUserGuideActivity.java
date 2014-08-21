@@ -11,7 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tieba.model.ao;
 import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
@@ -125,7 +125,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     public void j() {
-        a(new CustomMessage(2015001, new as(this).a(1, this.f)));
+        a(new CustomMessage(2015001, new at(this).a(1, this.f)));
         finish();
     }
 }

@@ -20,7 +20,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private q c;
     private boolean d;
     private String e;
-    private com.baidu.tbadk.core.view.u f;
+    private com.baidu.tbadk.core.view.v f;
     private y g;
     private int h;
     private boolean i = false;
@@ -37,10 +37,10 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.v.person_thread_fragment, viewGroup, false);
-        this.b = new z(inflate);
+        View a = com.baidu.adp.lib.e.b.a().a(viewGroup.getContext(), com.baidu.tieba.v.person_thread_fragment, viewGroup, false);
+        this.b = new z(a);
         this.b.b.setTipTextByString(getArguments().getString("key_empty_view_text"));
-        return inflate;
+        return a;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -48,7 +48,7 @@ public class t extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.e = getArguments().getString("key_uid");
         this.c = new q(getActivity(), this.e, getArguments().getString("key_portrait_url"));
         this.b.a.setAdapter((ListAdapter) this.c);
-        this.f = new com.baidu.tbadk.core.view.u(getActivity());
+        this.f = new com.baidu.tbadk.core.view.v(getActivity());
         this.f.a(new w(this));
         this.b.a.setPullRefresh(this.f);
         this.c.a(this);

@@ -22,6 +22,9 @@ public class z {
     public String b() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.a > 120000) {
+            if (com.baidu.adp.lib.util.j.b()) {
+                return "";
+            }
             this.a = currentTimeMillis;
             this.c = UtilHelper.getIpFromDomain("tieba.baidu.com");
         }
@@ -31,12 +34,13 @@ public class z {
     public String a(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.b > 120000) {
-            this.b = currentTimeMillis;
             int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf > 0) {
-                return UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            if (indexOf <= 0 || com.baidu.adp.lib.util.j.b()) {
+                return "";
             }
-            return "";
+            this.b = currentTimeMillis;
+            this.d = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            return this.d;
         }
         return this.d;
     }

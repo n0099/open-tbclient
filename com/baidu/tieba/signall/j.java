@@ -18,10 +18,10 @@ class j extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Integer num;
-        aa aaVar;
+        ab abVar;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
-            aaVar = this.a.a;
-            aaVar.c().setHasPrivilege(true);
+            abVar = this.a.a;
+            abVar.c().setHasPrivilege(true);
         }
     }
 }

@@ -72,7 +72,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
         progressBar = this.a.f;
         progressBar.setVisibility(8);
         if (this.b != null && this.b.b() && str != null && str.length() > 0) {
-            com.baidu.adp.lib.e.e.a().a(new k(this, str));
+            com.baidu.adp.lib.e.f.a().a(new k(this, str));
             com.baidu.tbadk.core.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
             baseWebView3 = this.a.b;
             baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");

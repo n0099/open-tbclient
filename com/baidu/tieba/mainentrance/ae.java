@@ -22,6 +22,6 @@ class ae extends CustomMessageListener {
         if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
             return;
         }
-        this.a.a(5, (ArrayList) data);
+        this.a.a(4, (ArrayList) data);
     }
 }

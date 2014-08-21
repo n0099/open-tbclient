@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.searchfriend;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -156,7 +155,7 @@ public class l extends BaseAdapter {
     private View a(View view, String str, boolean z) {
         t tVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof t)) {
-            view = LayoutInflater.from(this.b).inflate(v.add_friend_recommend_title, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, v.add_friend_recommend_title, null);
             t tVar2 = new t(this, null);
             tVar2.a = (TextView) view.findViewById(u.add_friend_recommend_title);
             tVar2.b = view.findViewById(u.add_friend_recommend_line);
@@ -174,7 +173,7 @@ public class l extends BaseAdapter {
     private View a(View view, com.baidu.tieba.im.searchfriend.a.c cVar, boolean z) {
         r rVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof r)) {
-            view = LayoutInflater.from(this.b).inflate(v.add_friend_recommend_new, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, v.add_friend_recommend_new, null);
             r rVar2 = new r(this, null);
             rVar2.a = (HeadImageView) view.findViewById(u.recommend_new_head);
             rVar2.b = (UserIconBox) view.findViewById(u.recommend_new_crown);
@@ -249,7 +248,7 @@ public class l extends BaseAdapter {
     private View a(View view, com.baidu.tieba.im.searchfriend.a.b bVar, boolean z) {
         q qVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof r)) {
-            view = LayoutInflater.from(this.b).inflate(v.add_friend_recommend_similar, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.b, v.add_friend_recommend_similar, null);
             q qVar2 = new q(this, null);
             qVar2.a = new r(this, null);
             View findViewById = view.findViewById(u.recommend_similar_top);

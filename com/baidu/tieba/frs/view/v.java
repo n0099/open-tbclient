@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.view;
 import android.app.Activity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.core.dialog.d {
@@ -20,8 +20,8 @@ public class v implements com.baidu.tbadk.core.dialog.d {
         int i;
         MessageManager messageManager = MessageManager.getInstance();
         activity = this.a.B;
-        i = this.a.ap;
-        messageManager.sendMessage(new CustomMessage(2002001, new at(activity, i, "exp_acce")));
-        aVar.c();
+        i = this.a.ao;
+        messageManager.sendMessage(new CustomMessage(2002001, new au(activity, i, "exp_acce")));
+        aVar.d();
     }
 }

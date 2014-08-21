@@ -16,6 +16,6 @@ public class bs implements View.OnClickListener {
     public void onClick(View view) {
         AlertDialog alertDialog;
         alertDialog = this.a.c;
-        alertDialog.show();
+        com.baidu.adp.lib.e.e.a(alertDialog, this.a);
     }
 }

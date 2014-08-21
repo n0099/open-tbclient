@@ -237,7 +237,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i, ChatMessage chatMessage, String str, boolean z) {
+    public void a(int i, ChatMessage chatMessage, String str, int i2) {
         if (this.a.get()) {
             UserData userData = null;
             if ((i == 2 || i == 4) && chatMessage != null) {
@@ -266,23 +266,47 @@ public class c {
                         a.setGroup_name(userData.getUserName());
                     }
                 }
-                if (chatMessage != null) {
-                    if (z || a.getLast_rid() <= chatMessage.getRecordId()) {
-                        a.setLast_content_time(chatMessage.getTime() * 1000);
-                        a.setLast_content(com.baidu.tieba.im.d.j.a(chatMessage.getMsgType(), chatMessage.getContent()));
-                        a.setLast_user_name(chatMessage.getUserInfo().getUserName());
-                        a.setLast_rid(chatMessage.getRecordId());
-                        a.setSelf(new CommonMsgPojo(chatMessage).isSelf());
-                        a.setIsFriend(chatMessage.getIsFriend());
-                        if (chatMessage.getLocalData() != null) {
-                            a.setSend_status(chatMessage.getLocalData().getStatus().shortValue());
+                switch (i2) {
+                    case 1:
+                        a.setLast_content("");
+                        a.setLast_rid(0L);
+                        a.setSend_status(0);
+                        a.setUnread_count(0);
+                        break;
+                    case 2:
+                        if (chatMessage != null) {
+                            a.setLast_content_time(chatMessage.getTime() * 1000);
+                            a.setLast_content(com.baidu.tieba.im.d.j.a(chatMessage.getMsgType(), chatMessage.getContent()));
+                            a.setLast_user_name(chatMessage.getUserInfo().getUserName());
+                            a.setLast_rid(chatMessage.getRecordId());
+                            a.setSelf(new CommonMsgPojo(chatMessage).isSelf());
+                            a.setIsFriend(chatMessage.getIsFriend());
+                            if (chatMessage.getLocalData() != null) {
+                                a.setSend_status(chatMessage.getLocalData().getStatus().shortValue());
+                                break;
+                            }
+                        } else {
+                            a.setLast_content("");
+                            a.setLast_rid(0L);
+                            a.setSend_status(0);
+                            a.setUnread_count(0);
+                            break;
                         }
-                    }
-                } else {
-                    a.setLast_content("");
-                    a.setLast_rid(0L);
-                    a.setSend_status(0);
-                    a.setUnread_count(0);
+                        break;
+                    case 3:
+                        if (chatMessage != null && a.getLast_rid() <= chatMessage.getRecordId()) {
+                            a.setLast_content_time(chatMessage.getTime() * 1000);
+                            a.setLast_content(com.baidu.tieba.im.d.j.a(chatMessage.getMsgType(), chatMessage.getContent()));
+                            a.setLast_user_name(chatMessage.getUserInfo().getUserName());
+                            a.setLast_rid(chatMessage.getRecordId());
+                            a.setSelf(new CommonMsgPojo(chatMessage).isSelf());
+                            a.setIsFriend(chatMessage.getIsFriend());
+                            if (chatMessage.getLocalData() != null) {
+                                a.setSend_status(chatMessage.getLocalData().getStatus().shortValue());
+                            }
+                        }
+                        a.setIs_hidden(0);
+                        break;
                 }
                 BdLog.i("send message status " + a.getSend_status());
                 a(a, false);
@@ -392,7 +416,7 @@ public class c {
     public void b(String str, int i, boolean z) {
         ImMessageCenterPojo a = a(str, i, z);
         if (a != null) {
-            a(a, false, 1);
+            a(a, false);
         }
     }
 

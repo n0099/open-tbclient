@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class GameCenterManagerStatic {
     static {
-        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2001224, new af());
+        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2001224, new aj());
         aVar.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(303008);

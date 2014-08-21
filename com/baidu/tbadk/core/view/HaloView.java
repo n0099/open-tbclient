@@ -25,7 +25,7 @@ public class HaloView extends View {
         this.d = false;
         this.e = 0;
         this.f = false;
-        this.a = new g(this);
+        this.a = new h(this);
         this.c = context;
         this.b = new Paint();
         this.b.setAntiAlias(true);

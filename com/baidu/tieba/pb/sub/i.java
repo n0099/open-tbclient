@@ -1,9 +1,7 @@
 package com.baidu.tieba.pb.sub;
 
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
@@ -18,31 +16,31 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class i extends l {
-    private TextView O;
-    private SubPbLoadPreviousView P;
-    private View Q;
-    private NavigationBar R;
+    private TextView P;
+    private SubPbLoadPreviousView Q;
+    private View R;
+    private NavigationBar S;
     protected View a;
 
     public i(BaseActivity baseActivity, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
         super(baseActivity, z, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
-        this.O = null;
         this.P = null;
         this.Q = null;
         this.R = null;
+        this.S = null;
         this.a = null;
-        this.P = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
-        this.R = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
-        this.a = this.R.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.O = this.R.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(x.view_subject), onClickListener);
+        this.Q = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
+        this.S = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
+        this.a = this.S.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.P = this.S.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(x.view_subject), onClickListener);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
     public boolean a() {
-        if (this.L.p()) {
-            this.L.f();
-            this.L.o();
-            this.r.setEnabled(true);
+        if (this.M.p()) {
+            this.M.f();
+            this.M.o();
+            this.s.setEnabled(true);
         } else {
             this.f.finish();
         }
@@ -57,36 +55,36 @@ public class i extends l {
 
     @Override // com.baidu.tieba.pb.sub.l
     protected void b() {
-        this.L = (PbEditor) this.b.findViewById(u.sub_pb_editor);
-        this.L.a(true);
-        this.L.e();
-        this.r.setEnabled(false);
+        this.M = (PbEditor) this.b.findViewById(u.sub_pb_editor);
+        this.M.a(true);
+        this.M.e();
+        this.s.setEnabled(false);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
     public void a(w wVar) {
         if (wVar != null) {
-            this.L.setOnActionListener(new k(this, wVar));
+            this.M.setOnActionListener(new k(this, wVar));
         }
     }
 
     public TextView c() {
-        return this.O;
-    }
-
-    private NavigationBar E() {
-        this.R = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
-        return this.R;
-    }
-
-    private SubPbLoadPreviousView F() {
-        this.P = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
         return this.P;
     }
 
-    private View G() {
-        this.Q = this.c.findViewById(u.sub_pb_load_previous_top);
+    private NavigationBar E() {
+        this.S = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
+        return this.S;
+    }
+
+    private SubPbLoadPreviousView F() {
+        this.Q = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
         return this.Q;
+    }
+
+    private View G() {
+        this.R = this.c.findViewById(u.sub_pb_load_previous_top);
+        return this.R;
     }
 
     public void d() {
@@ -116,7 +114,7 @@ public class i extends l {
     @Override // com.baidu.tieba.pb.sub.l
     protected void a(View.OnClickListener onClickListener) {
         this.e = new h(this.f, onClickListener);
-        this.e.a(this.z);
+        this.e.a(this.A);
         this.d.setAdapter((ListAdapter) this.e);
     }
 
@@ -130,10 +128,9 @@ public class i extends l {
 
     @Override // com.baidu.tieba.pb.sub.l
     protected void h() {
-        LayoutInflater from = LayoutInflater.from(this.f);
-        this.b = from.inflate(v.new_sub_pb_reply_layout, (ViewGroup) null);
-        this.c = from.inflate(v.new_sub_pb_reply_head, (ViewGroup) null);
-        F().setOnClickListener(this.x);
+        this.b = com.baidu.adp.lib.e.b.a().a(this.f, v.new_sub_pb_reply_layout, null);
+        this.c = com.baidu.adp.lib.e.b.a().a(this.f, v.new_sub_pb_reply_head, null);
+        F().setOnClickListener(this.y);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
@@ -160,8 +157,8 @@ public class i extends l {
                 if (userName == null) {
                     userName = "";
                 }
-                this.L.getEditText().setText(this.f.getResources().getString(x.reply_sub_floor).replace("%s", userName));
-                this.L.getEditText().setSelection(this.L.getEditText().getText().length());
+                this.M.getEditText().setText(this.f.getResources().getString(x.reply_sub_floor).replace("%s", userName));
+                this.M.getEditText().setSelection(this.M.getEditText().getText().length());
             }
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 hVar.a(str, this.f.getResources().getColor(com.baidu.tieba.r.c_393d47));

@@ -1,8 +1,6 @@
 package com.baidu.tieba.forumfeed;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,7 +29,7 @@ public class m extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.f = LayoutInflater.from(this.b).inflate(v.new_pb_list_more, (ViewGroup) null);
+        this.f = com.baidu.adp.lib.e.b.a().a(this.b, v.new_pb_list_more, null);
         this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(s.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(s.listview_item_margin));
         this.c = (TextView) this.f.findViewById(u.pb_more_text);
         this.g = this.f.findViewById(u.pb_more_view);

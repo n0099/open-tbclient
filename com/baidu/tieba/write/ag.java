@@ -23,7 +23,7 @@ public class ag implements View.OnClickListener {
         textView = this.a.O;
         textView.setSelected(true);
         bzVar = this.a.P;
-        com.baidu.adp.lib.e.d.a(bzVar, view, 0, com.baidu.adp.lib.util.j.a((Context) this.a, 1.0f));
+        com.baidu.adp.lib.e.e.a(bzVar, view, 0, com.baidu.adp.lib.util.j.a((Context) this.a, 1.0f));
         writeEditorToolButtonContainer = this.a.B;
         writeEditorToolButtonContainer.c();
         editorToolComponetContainer = this.a.C;

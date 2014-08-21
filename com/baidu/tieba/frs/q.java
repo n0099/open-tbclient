@@ -13,6 +13,6 @@ class q implements com.baidu.adp.widget.ListView.d {
     @Override // com.baidu.adp.widget.ListView.d
     public void a(boolean z) {
         TiebaStatic.eventStat(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.D();
+        this.a.E();
     }
 }

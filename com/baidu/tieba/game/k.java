@@ -1,26 +1,38 @@
 package com.baidu.tieba.game;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public boolean a(Context context, String[] strArr) {
-        if (strArr == null || strArr.length == 0 || !strArr[0].equals("gamecenter:")) {
-            return false;
-        }
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).sendMessage(new CustomMessage(2002001, new l(context)));
-            return true;
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).a(new CustomMessage(2002001, new l(context)));
-            return true;
-        } else {
-            return false;
-        }
+public class k extends BdAsyncTask<String, Integer, List<com.baidu.tbadk.game.b>> {
+    final /* synthetic */ j a;
+    private final /* synthetic */ List b;
+    private final /* synthetic */ List c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar, List list, List list2) {
+        this.a = jVar;
+        this.b = list;
+        this.c = list2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public List<com.baidu.tbadk.game.b> doInBackground(String... strArr) {
+        return ae.a().a(this.b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(List<com.baidu.tbadk.game.b> list) {
+        GameCenterHomeActivity gameCenterHomeActivity;
+        n nVar;
+        gameCenterHomeActivity = this.a.a;
+        nVar = gameCenterHomeActivity.a;
+        nVar.b(this.c, this.b, list);
     }
 }

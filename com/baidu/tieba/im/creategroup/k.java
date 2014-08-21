@@ -15,10 +15,16 @@ public class k implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         CreateGroupStepActivity createGroupStepActivity;
+        int i2;
         CreateGroupStepActivity createGroupStepActivity2;
+        CreateGroupStepActivity createGroupStepActivity3;
         createGroupStepActivity = this.a.a;
-        createGroupStepActivity.finish();
+        i2 = createGroupStepActivity.c;
+        if (1012 != i2) {
+            createGroupStepActivity3 = this.a.a;
+            MyGroupActivity.a(createGroupStepActivity3);
+        }
         createGroupStepActivity2 = this.a.a;
-        MyGroupActivity.a(createGroupStepActivity2);
+        createGroupStepActivity2.finish();
     }
 }

@@ -2,9 +2,7 @@ package com.baidu.tieba.forumdetail;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -41,7 +39,7 @@ public class ItemHeaderView extends RelativeLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.forum_detail_header, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, v.forum_detail_header, this, true);
         this.b = (BarImageView) findViewById(u.h_forum_portrait);
         this.d = (TextView) findViewById(u.h_forum_name);
         this.c = (ImageView) findViewById(u.h_forum_rank);

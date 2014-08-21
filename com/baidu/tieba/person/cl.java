@@ -1,6 +1,5 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -115,28 +114,27 @@ public class cl extends BaseAdapter {
         View view2;
         if (this.a != null) {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.b);
                 cm cmVar2 = new cm(this, null);
                 if (getItemViewType(i) == 0) {
-                    View inflate = from.inflate(com.baidu.tieba.v.person_list_item_friend, (ViewGroup) null);
-                    cmVar2.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.u.photo);
+                    View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.person_list_item_friend, null);
+                    cmVar2.a = (HeadImageView) a.findViewById(com.baidu.tieba.u.photo);
                     cmVar2.a.setIsRound(false);
                     cmVar2.a.setAutoChangeStyle(true);
-                    cmVar2.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.info);
-                    cmVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.u.name);
-                    cmVar2.g = (TextView) inflate.findViewById(com.baidu.tieba.u.at_list_nodata);
-                    cmVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.u.intro);
-                    cmVar2.d = (ImageView) inflate.findViewById(com.baidu.tieba.u.chat);
-                    cmVar2.h = (ImageView) inflate.findViewById(com.baidu.tieba.u.diver_buttom_px);
+                    cmVar2.e = (LinearLayout) a.findViewById(com.baidu.tieba.u.info);
+                    cmVar2.b = (TextView) a.findViewById(com.baidu.tieba.u.name);
+                    cmVar2.g = (TextView) a.findViewById(com.baidu.tieba.u.at_list_nodata);
+                    cmVar2.c = (TextView) a.findViewById(com.baidu.tieba.u.intro);
+                    cmVar2.d = (ImageView) a.findViewById(com.baidu.tieba.u.chat);
+                    cmVar2.h = (ImageView) a.findViewById(com.baidu.tieba.u.diver_buttom_px);
                     cmVar2.d.setOnClickListener(this.i);
-                    view2 = inflate;
+                    view2 = a;
                 } else {
-                    View inflate2 = from.inflate(com.baidu.tieba.v.new_pb_list_more, (ViewGroup) null);
-                    cmVar2.b = (TextView) inflate2.findViewById(com.baidu.tieba.u.pb_more_text);
-                    inflate2.setOnClickListener(this.j);
-                    cmVar2.f = (ProgressBar) inflate2.findViewById(com.baidu.tieba.u.progress);
+                    View a2 = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.new_pb_list_more, null);
+                    cmVar2.b = (TextView) a2.findViewById(com.baidu.tieba.u.pb_more_text);
+                    a2.setOnClickListener(this.j);
+                    cmVar2.f = (ProgressBar) a2.findViewById(com.baidu.tieba.u.progress);
                     this.e.add(cmVar2.f);
-                    view2 = inflate2;
+                    view2 = a2;
                 }
                 view2.setTag(cmVar2);
                 cmVar = cmVar2;

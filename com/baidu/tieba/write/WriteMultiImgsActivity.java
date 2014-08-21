@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.cg;
+import com.baidu.tbadk.core.atomData.ch;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     private int r = 0;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(cg.class, WriteMultiImgsActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ch.class, WriteMultiImgsActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -25,10 +25,10 @@ public class ae implements View.OnClickListener {
             return;
         }
         list2 = this.a.c;
-        ba baVar = (ba) list2.get(intValue);
-        String a = com.baidu.tieba.im.d.j.a("[" + baVar.c + "]", true);
+        bb bbVar = (bb) list2.get(intValue);
+        String a = com.baidu.tieba.im.d.j.a("[" + bbVar.c + "]", true);
         if (a != null) {
-            OfficialHistoryImageActivity.a(this.a.a, a, String.valueOf(baVar.d));
+            OfficialHistoryImageActivity.a(this.a.a, a, String.valueOf(bbVar.d));
         }
     }
 }

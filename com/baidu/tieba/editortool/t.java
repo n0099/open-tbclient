@@ -44,7 +44,7 @@ class t implements View.OnClickListener {
         com.baidu.tbadk.editortool.w wVar2;
         writeImagesInfo = this.a.b;
         editorToolComponetContainer = this.a.a;
-        writeImagesInfo2 = editorToolComponetContainer.x;
+        writeImagesInfo2 = editorToolComponetContainer.w;
         if (writeImagesInfo == writeImagesInfo2) {
             editorToolComponetContainer13 = this.a.a;
             if (!editorToolComponetContainer13.l.e()) {
@@ -53,7 +53,7 @@ class t implements View.OnClickListener {
                 editorToolComponetContainer15 = this.a.a;
                 int a = editorToolComponetContainer15.l.a(this.b);
                 editorToolComponetContainer16 = this.a.a;
-                writeImagesInfo5 = editorToolComponetContainer16.x;
+                writeImagesInfo5 = editorToolComponetContainer16.w;
                 ImageFileInfo remove = writeImagesInfo5.getChosedFiles().remove(a);
                 if (remove.isTempFile()) {
                     this.a.a(remove.getFilePath());
@@ -61,7 +61,7 @@ class t implements View.OnClickListener {
                 editorToolComponetContainer17 = this.a.a;
                 editorToolComponetContainer17.b.e();
                 editorToolComponetContainer18 = this.a.a;
-                wVar2 = editorToolComponetContainer18.y;
+                wVar2 = editorToolComponetContainer18.x;
                 wVar2.a(51, null);
                 return;
             }
@@ -74,7 +74,7 @@ class t implements View.OnClickListener {
             editorToolComponetContainer4 = this.a.a;
             int a2 = editorToolComponetContainer4.i.a(this.b);
             editorToolComponetContainer5 = this.a.a;
-            writeImagesInfo3 = editorToolComponetContainer5.w;
+            writeImagesInfo3 = editorToolComponetContainer5.v;
             ImageFileInfo remove2 = writeImagesInfo3.getChosedFiles().remove(a2);
             if (remove2.isTempFile()) {
                 this.a.a(remove2.getFilePath());
@@ -82,7 +82,7 @@ class t implements View.OnClickListener {
             editorToolComponetContainer6 = this.a.a;
             int maxItemNum = editorToolComponetContainer6.i.getMaxItemNum();
             editorToolComponetContainer7 = this.a.a;
-            writeImagesInfo4 = editorToolComponetContainer7.w;
+            writeImagesInfo4 = editorToolComponetContainer7.v;
             int size = writeImagesInfo4.size();
             editorToolComponetContainer8 = this.a.a;
             String string = editorToolComponetContainer8.getResources().getString(com.baidu.tieba.x.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
@@ -95,7 +95,7 @@ class t implements View.OnClickListener {
                 editorToolComponetContainer12.b.a();
             }
             editorToolComponetContainer11 = this.a.a;
-            wVar = editorToolComponetContainer11.y;
+            wVar = editorToolComponetContainer11.x;
             wVar.a(13, null);
         }
     }

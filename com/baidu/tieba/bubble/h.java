@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -34,19 +33,19 @@ public class h {
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
                 aVar.a(false);
-                View inflate = activity.getLayoutInflater().inflate(v.bubble_free_dialog_content, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(u.tip1);
-                TextView textView2 = (TextView) inflate.findViewById(u.tip2);
+                View a2 = com.baidu.adp.lib.e.b.a().a(activity, v.bubble_free_dialog_content, null);
+                TextView textView = (TextView) a2.findViewById(u.tip1);
+                TextView textView2 = (TextView) a2.findViewById(u.tip2);
                 ay.a(textView, com.baidu.tieba.r.cp_cont_b, 1);
                 ay.a(textView2, com.baidu.tieba.r.cp_cont_b, 1);
                 textView.setText(activity.getString(x.bubble_ended_tip));
                 textView2.setText(activity.getString(x.bubble_ended_tip2));
                 textView2.setTextSize(0, activity.getResources().getDimensionPixelSize(com.baidu.tieba.s.fontsize32));
-                aVar.a(inflate);
+                aVar.a(a2);
                 aVar.a(x.open_now, new i(activity));
                 aVar.b(x.group_create_private_isee, new j(activity));
                 aVar.a();
-                aVar.b();
+                aVar.c();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
@@ -103,18 +102,18 @@ public class h {
             String d = ba.d(date);
             String d2 = ba.d(date2);
             String format = String.format(activity.getString(x.bubble_free_dialog_text), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
-            View inflate = activity.getLayoutInflater().inflate(v.bubble_free_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(u.tip1);
-            TextView textView2 = (TextView) inflate.findViewById(u.tip2);
+            View a2 = com.baidu.adp.lib.e.b.a().a(activity, v.bubble_free_dialog_content, null);
+            TextView textView = (TextView) a2.findViewById(u.tip1);
+            TextView textView2 = (TextView) a2.findViewById(u.tip2);
             ay.a(textView, com.baidu.tieba.r.cp_cont_b, 1);
             ay.a(textView2, com.baidu.tieba.r.cp_cont_c, 1);
             textView.setText(format);
             textView2.setText(String.valueOf(d) + activity.getString(x.to) + d2);
-            aVar.a(inflate);
+            aVar.a(a2);
             aVar.a(x.use_now, new o(sVar, bubbleData));
             aVar.b(x.cancel, new p(sVar));
             aVar.a();
-            aVar.b();
+            aVar.c();
         }
     }
 
@@ -126,7 +125,7 @@ public class h {
             aVar.a(x.open_now, new q(sVar, bubbleData));
             aVar.b(x.cancel, new r(sVar));
             aVar.a();
-            aVar.b();
+            aVar.c();
         }
     }
 }

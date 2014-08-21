@@ -16,25 +16,24 @@ class ad extends com.baidu.adp.framework.listener.d {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        dl dlVar;
+        dn dnVar;
         com.baidu.tieba.b.a aVar;
         com.baidu.tieba.b.a aVar2;
         if (socketResponsedMessage instanceof FRSPageSocketResponsedMessage) {
             FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) socketResponsedMessage;
             j jVar = new j();
             jVar.a = fRSPageSocketResponsedMessage.getError() < -13 || fRSPageSocketResponsedMessage.getError() > -10;
-            jVar.b = !fRSPageSocketResponsedMessage.hasNetworkError();
+            jVar.b = fRSPageSocketResponsedMessage.hasNetworkError() ? false : true;
             jVar.c = fRSPageSocketResponsedMessage.getError();
             jVar.d = fRSPageSocketResponsedMessage.getErrorString();
             jVar.e = fRSPageSocketResponsedMessage.getDownSize();
-            dlVar = this.a.aj;
-            dlVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, jVar);
-            aVar = this.a.K;
+            dnVar = this.a.al;
+            dnVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, jVar);
+            aVar = this.a.M;
             if (aVar != null) {
-                boolean z = fRSPageSocketResponsedMessage.getError() == 0;
-                aVar2 = this.a.K;
-                aVar2.a(false, z, jVar.c, jVar.d, jVar.e, 0L, fRSPageSocketResponsedMessage.getCostTime());
-                this.a.K = null;
+                aVar2 = this.a.M;
+                aVar2.a(false, jVar.b, jVar.c, jVar.d, jVar.e);
+                this.a.M = null;
             }
         }
     }

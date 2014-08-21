@@ -1,123 +1,24 @@
 package com.baidu.tbadk.core.atomData;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class bb extends com.baidu.tbadk.core.frameworkData.a {
-    private final Context a;
+    private UserData a;
 
-    public bb(Context context) {
+    public bb(Context context, long j, String str, String str2, int i) {
         super(context);
-        this.a = context;
-    }
-
-    public bb a(String str, String str2, String str3, int i) {
-        if (str != null) {
-            Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-            intent.putExtra("from_frs", true);
-            intent.putExtra("is_start_for_result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-        }
-        return this;
-    }
-
-    public bb a(String str, String str2, String str3) {
-        if (str != null) {
-            Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-        }
-        return this;
-    }
-
-    public bb a(String str, String str2, String str3, long j) {
-        if (str != null) {
-            Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-            intent.putExtra("is_pv", true);
-            intent.putExtra("msg_id", j);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-        }
-        return this;
-    }
-
-    public bb b(String str, String str2, String str3) {
-        if (str != null) {
-            Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-            intent.putExtra("is_sub_pb", true);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-        }
-        return this;
-    }
-
-    public bb a(String str, String str2, boolean z, boolean z2, String str3, int i) {
+        this.a = null;
+        UserData userData = new UserData(j, str, str2, i);
+        this.a = userData;
         Intent intent = getIntent();
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-        intent.putExtra("host_only", z);
-        intent.putExtra("squence", z2);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-        intent.putExtra("from_mark", true);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra("is_start_for_result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
-        return this;
     }
 
-    public bb a(String str, String str2, boolean z, boolean z2, String str3) {
-        Intent intent = getIntent();
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
-        intent.putExtra("host_only", z);
-        intent.putExtra("squence", z2);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        return this;
-    }
-
-    public bb a(com.baidu.tbadk.core.data.n nVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (nVar != null) {
-            Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, nVar.h());
-            intent.putExtra("is_good", nVar.n());
-            intent.putExtra("is_top", nVar.m());
-            intent.putExtra("thread_time", nVar.l());
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str2);
-            intent.putExtra("from_frs", nVar.m() != 2);
-            intent.putExtra("squence", z);
-            intent.putExtra("host_only", z2);
-            intent.putExtra("is_ad", z3);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, str);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            intent.putExtra("is_start_for_result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (nVar.g() == null ? 0L : nVar.g().getNum()));
-        }
-        return this;
+    public UserData a() {
+        return this.a;
     }
 }

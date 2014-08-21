@@ -35,8 +35,8 @@ public class g {
     private ArrayList<LiveCardData> t;
     private HashMap<String, MetaData> u;
     private int m = 0;
-    private dl n = null;
-    private dk o = null;
+    private dn n = null;
+    private dm o = null;
     private boolean p = false;
     private k q = null;
     private h r = null;
@@ -267,12 +267,12 @@ public class g {
         a(abVar);
     }
 
-    public void a(dl dlVar) {
-        this.n = dlVar;
+    public void a(dn dnVar) {
+        this.n = dnVar;
     }
 
-    public void a(dk dkVar) {
-        this.o = dkVar;
+    public void a(dm dmVar) {
+        this.o = dmVar;
     }
 
     public int q() {

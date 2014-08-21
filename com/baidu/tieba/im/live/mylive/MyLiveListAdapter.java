@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.mylive;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -146,7 +145,7 @@ public class MyLiveListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(v.mylive_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, v.mylive_list_item, viewGroup, false);
             jVar = new j();
             jVar.a = (LinearLayout) view.findViewById(u.item_more);
             jVar.d = (TextView) view.findViewById(u.list_more_title);

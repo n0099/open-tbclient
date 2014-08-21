@@ -20,24 +20,24 @@ public class l implements View.OnClickListener {
         com.baidu.tbadk.editortool.w wVar5;
         com.baidu.tbadk.editortool.w wVar6;
         if (view == this.a.b.getmFace()) {
-            wVar6 = this.a.y;
+            wVar6 = this.a.x;
             wVar6.a(2, null);
         } else if (view == this.a.b.getmImage() || view == this.a.b.getmIVImage()) {
             this.a.b.setmImagetype(2);
-            wVar = this.a.y;
+            wVar = this.a.x;
             wVar.a(23, null);
         } else if (view == this.a.b.getmCamera() || view == this.a.b.getmIVCamera()) {
             this.a.b.setmImagetype(1);
-            wVar2 = this.a.y;
+            wVar2 = this.a.x;
             wVar2.a(22, null);
         } else if (view == this.a.b.getmAt()) {
-            wVar5 = this.a.y;
+            wVar5 = this.a.x;
             wVar5.a(0, null);
         } else if (view == this.a.b.getmPrivilege()) {
-            wVar4 = this.a.y;
+            wVar4 = this.a.x;
             wVar4.a(44, null);
         } else if (view == this.a.b.getBaobao()) {
-            wVar3 = this.a.y;
+            wVar3 = this.a.x;
             wVar3.a(48, null);
         }
     }

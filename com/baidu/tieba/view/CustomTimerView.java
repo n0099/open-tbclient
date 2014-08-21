@@ -2,8 +2,6 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
@@ -22,7 +20,7 @@ public class CustomTimerView extends LinearLayout {
 
     public CustomTimerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(context).inflate(com.baidu.tieba.v.custom_timer_view, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.custom_timer_view, this, true);
         this.b = (TextView) findViewById(com.baidu.tieba.u.hour_num);
         this.c = (TextView) findViewById(com.baidu.tieba.u.hour_text);
         this.d = (TextView) findViewById(com.baidu.tieba.u.min_num);

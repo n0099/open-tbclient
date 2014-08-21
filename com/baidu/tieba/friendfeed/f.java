@@ -2,10 +2,10 @@ package com.baidu.tieba.friendfeed;
 
 import android.text.TextUtils;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.dt;
+import com.baidu.tieba.frs.dv;
 import com.baidu.tieba.pb.main.bp;
 /* loaded from: classes.dex */
-class f implements dt {
+class f implements dv {
     final /* synthetic */ FriendFeedActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class f implements dt {
         this.a = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dt
+    @Override // com.baidu.tieba.frs.dv
     public void a(String str) {
         boolean z;
         FriendFeedThreadData friendFeedThreadData;
@@ -26,7 +26,7 @@ class f implements dt {
         bp.a().f();
     }
 
-    @Override // com.baidu.tieba.frs.dt
+    @Override // com.baidu.tieba.frs.dv
     public void b(String str) {
         boolean z;
         z = this.a.g;

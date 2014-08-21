@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.c.h;
+import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.core.util.d;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tieba.x;

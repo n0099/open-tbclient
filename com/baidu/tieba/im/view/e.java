@@ -72,7 +72,7 @@ public class e extends Dialog implements View.OnClickListener {
 
     @Override // android.app.Dialog
     public void show() {
-        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.a)) {
+        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.a)) {
             super.show();
             this.j.sendEmptyMessage(0);
         }

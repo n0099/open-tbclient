@@ -1,26 +1,20 @@
 package com.baidu.tieba.im.newFriend;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ae {
-    private boolean a;
-    private int b;
-
-    public ae(boolean z, int i) {
-        this.a = z;
-        this.b = i;
+class ae extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(int i) {
+        super(i);
     }
 
-    public int hashCode() {
-        return (this.a ? 1 : 0) + this.b;
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            com.baidu.tbadk.core.sharedPref.b.a().a("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        ae aeVar = (ae) obj;
-        return this.a == aeVar.a && this.b == aeVar.b;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.flist;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -26,7 +25,7 @@ public class ForumRankActivity extends BaseActivity {
     private TbImageView e = null;
     private af f = null;
     private LinearLayout g = null;
-    private com.baidu.tbadk.core.view.u h = null;
+    private com.baidu.tbadk.core.view.v h = null;
     private FrameLayout i = null;
     private String j = null;
     private boolean k = false;
@@ -54,9 +53,9 @@ public class ForumRankActivity extends BaseActivity {
         this.a = (BdListView) findViewById(com.baidu.tieba.u.list);
         this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.j.b(this), (int) (com.baidu.adp.lib.util.j.b(this) * 0.5d)));
         this.e.setVisibility(8);
-        this.g = (LinearLayout) getLayoutInflater().inflate(com.baidu.tieba.v.forum_list_forum_footer, (ViewGroup) null);
+        this.g = (LinearLayout) com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.forum_list_forum_footer, null);
         this.g.setOnClickListener(new aa(this));
-        this.h = new com.baidu.tbadk.core.view.u(this);
+        this.h = new com.baidu.tbadk.core.view.v(this);
         this.a.setPullRefresh(this.h);
         this.h.a(new ab(this));
         this.i = (FrameLayout) findViewById(com.baidu.tieba.u.empty_textview_container);

@@ -2,7 +2,6 @@ package com.baidu.tbadk.editortool;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -54,14 +53,15 @@ public class j extends BaseAdapter {
         ad adVar4;
         ad adVar5;
         int i3;
-        LayoutInflater layoutInflater;
+        Context context;
         int i4;
         int i5;
         int i6;
         int i7 = this.c + i;
         if (view == null) {
-            layoutInflater = this.a.r;
-            LinearLayout linearLayout2 = (LinearLayout) layoutInflater.inflate(com.baidu.tieba.v.emotion_tab_content_item, (ViewGroup) null);
+            com.baidu.adp.lib.e.b a = com.baidu.adp.lib.e.b.a();
+            context = this.a.r;
+            LinearLayout linearLayout2 = (LinearLayout) a.a(context, com.baidu.tieba.v.emotion_tab_content_item, null);
             i4 = this.a.k;
             i5 = this.a.k;
             i6 = this.a.k;
@@ -83,13 +83,13 @@ public class j extends BaseAdapter {
         tbImageView.setBackgroundResource(i2 == 1 ? com.baidu.tieba.t.btn_choose_face_selector_1 : com.baidu.tieba.t.btn_choose_face_selector);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         adVar3 = this.a.b;
-        String a = adVar3.a(i7);
-        tbImageView.setTag(a);
-        Object a2 = com.baidu.adp.lib.resourceLoader.d.a().a(a, 20, new k(this), 0, 0, null, null, a, false, null);
-        if (a2 == null || !(a2 instanceof com.baidu.adp.widget.a.a)) {
+        String a2 = adVar3.a(i7);
+        tbImageView.setTag(a2);
+        Object a3 = com.baidu.adp.lib.resourceLoader.d.a().a(a2, 20, new k(this), 0, 0, null, null, a2, false, null);
+        if (a3 == null || !(a3 instanceof com.baidu.adp.widget.a.a)) {
             aVar = null;
         } else {
-            aVar = (com.baidu.adp.widget.a.a) a2;
+            aVar = (com.baidu.adp.widget.a.a) a3;
         }
         if (aVar != null) {
             aVar.a(tbImageView);
@@ -99,13 +99,13 @@ public class j extends BaseAdapter {
         adVar4 = this.a.b;
         if (adVar4.c() == EmotionGroupType.BIG_EMOTION) {
             adVar5 = this.a.b;
-            String a3 = adVar5.a(i7);
-            if (!TextUtils.isEmpty(a3)) {
+            String a4 = adVar5.a(i7);
+            if (!TextUtils.isEmpty(a4)) {
                 i3 = this.a.q;
                 int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tieba.r.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tieba.r.pb_emotion_content);
                 textView.setVisibility(0);
                 textView.setTextColor(color);
-                textView.setText(a3.substring(a3.lastIndexOf("_") + 1, a3.length() - 1));
+                textView.setText(a4.substring(a4.lastIndexOf("_") + 1, a4.length() - 1));
             }
         } else {
             textView.setVisibility(8);

@@ -2,9 +2,7 @@ package com.baidu.adp.widget.ListView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -60,7 +58,7 @@ public class c extends f {
             str3 = h.getString(com.baidu.adp.f.adp_loading);
         }
         this.k = str3;
-        this.e = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
+        this.e = com.baidu.adp.lib.e.b.a().a(h(), com.baidu.adp.e.pull_view, null);
         this.a = (ImageView) this.e.findViewById(com.baidu.adp.d.pull_arrow);
         this.b = (ProgressBar) this.e.findViewById(com.baidu.adp.d.pull_progress);
         this.c = (TextView) this.e.findViewById(com.baidu.adp.d.pull_text);

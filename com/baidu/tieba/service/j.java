@@ -52,7 +52,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream2);
+                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream2);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {

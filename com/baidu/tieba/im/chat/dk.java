@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk implements DialogInterface.OnClickListener {
+public class dk implements com.baidu.tbadk.img.b<ChatMessage> {
     final /* synthetic */ TalkableActivity a;
-    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(TalkableActivity talkableActivity, int i) {
+    public dk(TalkableActivity talkableActivity) {
         this.a = talkableActivity;
-        this.b = i;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.a.a(this.b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.b
+    public void a(int i, ChatMessage chatMessage) {
+        this.a.d.a(i, chatMessage);
     }
 }

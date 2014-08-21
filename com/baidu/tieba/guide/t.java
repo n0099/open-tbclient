@@ -60,7 +60,7 @@ public class t implements View.OnClickListener {
     }
 
     public void a() {
-        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.d.a((Activity) this.a)) {
+        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.a)) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
             this.c.a().setAnimation(scaleAnimation);

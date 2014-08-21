@@ -1,14 +1,13 @@
 package com.baidu.tieba.game;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import java.util.LinkedList;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import java.util.List;
-import tbclient.GameInfo;
-import tbclient.GetGameCenter.AdList;
-import tbclient.GetGameCenter.GameList;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.d {
+class g extends CustomMessageListener {
     final /* synthetic */ GameCenterHomeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,47 +20,53 @@ class g extends com.baidu.adp.framework.listener.d {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         n nVar;
-        m mVar;
-        m mVar2;
-        m mVar3;
-        this.a.closeLoadingDialog();
-        nVar = this.a.a;
-        nVar.a().setVisibility(8);
-        if (!(socketResponsedMessage instanceof ResponseGameCenterMessage)) {
-            this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.neterror));
-            return;
-        }
-        ResponseGameCenterMessage responseGameCenterMessage = (ResponseGameCenterMessage) socketResponsedMessage;
-        if (responseGameCenterMessage.getOrginalMessage() instanceof RequestGameCenterMessage) {
-            if (responseGameCenterMessage.hasError()) {
-                if (!TextUtils.isEmpty(responseGameCenterMessage.getErrorString())) {
-                    this.a.showToast(responseGameCenterMessage.getErrorString());
-                    return;
-                } else {
-                    this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.neterror));
-                    return;
+        n nVar2;
+        n nVar3;
+        n nVar4;
+        n nVar5;
+        n nVar6;
+        n nVar7;
+        if (customResponsedMessage instanceof DownloadMessage) {
+            nVar = this.a.a;
+            List<com.baidu.tbadk.game.b> c = nVar.c();
+            List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+            for (int i = 0; i < data.size(); i++) {
+                DownloadData downloadData = data.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= c.size()) {
+                        i2 = -1;
+                        break;
+                    }
+                    String a = c.get(i2).a();
+                    if (!TextUtils.isEmpty(a) && a.equals(downloadData.getId())) {
+                        break;
+                    }
+                    i2++;
                 }
-            }
-            GameList gameList = responseGameCenterMessage.getGameList();
-            List<AdList> adLists = responseGameCenterMessage.getAdLists();
-            mVar = this.a.b;
-            mVar.a(responseGameCenterMessage.getGameList().has_more.intValue() == 1);
-            mVar2 = this.a.b;
-            mVar3 = this.a.b;
-            mVar2.a(mVar3.a() + 1);
-            List<GameInfo> list = gameList.game_info;
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    GameInfo gameInfo = list.get(i);
-                    if (gameInfo.game_type.intValue() == 1 || gameInfo.game_type.intValue() == 2) {
-                        linkedList.add(ab.a(gameInfo));
+                if (i2 != -1) {
+                    if (data.get(i).getStatus() == 0) {
+                        nVar4 = this.a.a;
+                        List<com.baidu.tbadk.game.b> d = nVar4.d();
+                        nVar5 = this.a.a;
+                        d.add(nVar5.c().get(i2));
+                        ae a2 = ae.a();
+                        nVar6 = this.a.a;
+                        a2.i(nVar6.c().get(i2));
+                        nVar7 = this.a.a;
+                        nVar7.c().remove(i2);
+                    } else if (data.get(i).getStatus() == 2) {
+                        nVar3 = this.a.a;
+                        nVar3.c().get(i2).c(3);
                     }
                 }
             }
-            new h(this, linkedList, adLists).execute("");
+            nVar2 = this.a.a;
+            nVar2.e();
+            return;
         }
+        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.x.neterror));
     }
 }

@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bo;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends BaseActivity {
@@ -56,7 +56,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         this.a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
         this.b = (ViewGroup) findViewById(com.baidu.tieba.u.body_container);
-        bo.b(this.b);
+        bp.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -115,7 +115,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            bo.a(this.b, i);
+            bp.a(this.b, i);
         }
         ay.b(findViewById(com.baidu.tieba.u.root_view), i);
     }

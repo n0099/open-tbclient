@@ -132,7 +132,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
 
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!com.baidu.tbadk.c.f.a(this, str)) {
+        if (!com.baidu.tbadk.b.f.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
                     String a = a(str, "pn=");

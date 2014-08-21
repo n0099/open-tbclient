@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.SettingChangeMessage;
 /* loaded from: classes.dex */
 public class OfficialBarInfoActivity extends BaseActivity implements View.OnClickListener, com.baidu.adp.widget.BdSwitchView.c {
     ak a;
@@ -52,7 +52,7 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
         } else {
             this.e.b(this.d);
         }
-        ay.a().b(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ag(this));
+        az.a().b(TbadkApplication.getCurrentAccount(), String.valueOf(this.c), new ag(this));
         sendMessage(new RequestOfficialBarInfoMessage(this.c, this.d));
     }
 
@@ -74,7 +74,7 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.e.a()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new ai(this)).create().show();
+            com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this).setTitle(com.baidu.tieba.x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.x.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.x.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.x.alert_no_button, new ai(this)).create(), this);
         } else if (view == this.e.b()) {
             OfficialBarHistoryActivity.a(this, this.c);
         } else if (view == this.e.c()) {
@@ -89,11 +89,11 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
         new aj(this, switchState).execute(new Void[0]);
         if (switchState == BdSwitchView.SwitchState.OFF) {
             if (this.f) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+                MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
                 this.f = false;
             }
         } else if (!this.f) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+            MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
             this.f = true;
         }
     }

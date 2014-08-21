@@ -34,7 +34,7 @@ public class EnterChatRoomStatic {
         if (TextUtils.isEmpty(currentAccount) || !currentAccount.equals(str)) {
             return 0;
         }
-        long a3 = com.baidu.adp.lib.e.b.a(str2, 0L) - System.currentTimeMillis();
+        long a3 = com.baidu.adp.lib.e.c.a(str2, 0L) - System.currentTimeMillis();
         if (a3 > 0) {
             int i = (int) ((a3 / 1000) / 60);
             if (i > 0) {

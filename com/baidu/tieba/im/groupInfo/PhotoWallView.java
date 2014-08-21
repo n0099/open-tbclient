@@ -2,9 +2,7 @@ package com.baidu.tieba.im.groupInfo;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -75,7 +73,7 @@ public class PhotoWallView extends FrameLayout {
 
     private void a(Context context) {
         this.c = context;
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.photo_wall_view, (ViewGroup) null));
+        addView(com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.photo_wall_view, null));
         this.d = (LinearLayout) findViewById(com.baidu.tieba.u.photo_wall_container);
         this.e = (LinearLayout) findViewById(com.baidu.tieba.u.first_line);
         this.f = (LinearLayout) findViewById(com.baidu.tieba.u.second_line);

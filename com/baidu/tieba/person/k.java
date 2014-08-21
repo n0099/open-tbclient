@@ -1,19 +1,16 @@
 package com.baidu.tieba.person;
-
-import android.widget.ProgressBar;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k {
-    TextView a;
-    ProgressBar b;
-    final /* synthetic */ j c;
-
-    private k(j jVar) {
-        this.c = jVar;
-    }
+public class k implements Runnable {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(j jVar, k kVar) {
-        this(jVar);
+    public k(j jVar) {
+        this.a = jVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        super/*android.widget.BaseAdapter*/.notifyDataSetChanged();
     }
 }

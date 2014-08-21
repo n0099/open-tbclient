@@ -2,9 +2,7 @@ package com.baidu.tieba.im.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -41,7 +39,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.shut_down_validate_tip, (ViewGroup) null));
+        addView(com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.shut_down_validate_tip, null));
         this.c = (ImageView) findViewById(com.baidu.tieba.u.no_network_icon);
         this.d = (TextView) findViewById(com.baidu.tieba.u.no_network_guide1);
         this.e = (TextView) findViewById(com.baidu.tieba.u.no_network_guide2);

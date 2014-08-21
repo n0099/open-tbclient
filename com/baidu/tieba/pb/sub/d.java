@@ -2,9 +2,7 @@ package com.baidu.tieba.pb.sub;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
@@ -29,7 +27,7 @@ public class d extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.f = LayoutInflater.from(this.a).inflate(v.new_sub_pb_list_more, (ViewGroup) null);
+        this.f = com.baidu.adp.lib.e.b.a().a(this.a, v.new_sub_pb_list_more, null);
         this.b = (TextView) this.f.findViewById(u.sub_pb_more_text);
         this.c = (TextView) this.f.findViewById(u.sub_pb_more_text_marginright);
         this.d = (ProgressBar) this.f.findViewById(u.progress);

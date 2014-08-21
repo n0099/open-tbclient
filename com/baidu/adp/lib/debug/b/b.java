@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.debug.b;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,16 +84,16 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.adp.c.adp_debug_custom_config_items, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_title);
-        TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_edit_custom_config);
-        ListView listView = (ListView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_defaults_list);
-        Button button = (Button) inflate.findViewById(com.baidu.adp.d.switch_custom_config);
+        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.adp.c.adp_debug_custom_config_items, null);
+        TextView textView = (TextView) a.findViewById(com.baidu.adp.d.adp_debug_custom_config_title);
+        TextView textView2 = (TextView) a.findViewById(com.baidu.adp.d.adp_debug_edit_custom_config);
+        ListView listView = (ListView) a.findViewById(com.baidu.adp.d.adp_debug_custom_config_defaults_list);
+        Button button = (Button) a.findViewById(com.baidu.adp.d.switch_custom_config);
         button.setTag(getItem(i));
         textView2.setTag(Integer.valueOf(i));
         textView.setOnTouchListener(this);
         textView2.setOnFocusChangeListener(this);
-        ((Button) inflate.findViewById(com.baidu.adp.d.delete_custom_config)).setOnTouchListener(this);
+        ((Button) a.findViewById(com.baidu.adp.d.delete_custom_config)).setOnTouchListener(this);
         button.setOnTouchListener(this);
         textView2.setInputType(1);
         listView.setOnItemClickListener(this);
@@ -113,7 +112,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         } else {
             listView.setVisibility(0);
         }
-        return inflate;
+        return a;
     }
 
     public static void a(ListView listView) {

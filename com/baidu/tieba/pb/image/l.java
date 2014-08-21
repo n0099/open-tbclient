@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.ad> {
+public class l implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.ae> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.ad> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.ae> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
             customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImagePbActivity.class);
             if (!TextUtils.isEmpty(customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID))) {

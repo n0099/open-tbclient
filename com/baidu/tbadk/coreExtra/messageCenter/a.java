@@ -21,11 +21,10 @@ import java.util.Set;
 public class a {
     private static a g;
     private static Date j = null;
-    private static long k = System.currentTimeMillis();
-    private static Handler l = new b();
+    private static Handler k = new b();
+    private static boolean l;
     private static boolean m;
     private static boolean n;
-    private static boolean o;
     private com.baidu.tbadk.coreExtra.b.c i;
     private int b = 0;
     private int c = 0;
@@ -33,7 +32,7 @@ public class a {
     private int e = 0;
     private int f = 0;
     private com.baidu.tbadk.coreExtra.b.c h = new com.baidu.tbadk.coreExtra.b.c();
-    private final int[] p = new int[10];
+    private final int[] o = new int[10];
     private final Context a = TbadkApplication.m252getInst().getApp();
 
     static {
@@ -98,7 +97,6 @@ public class a {
         } else {
             Date date = new Date();
             if (date.getTime() - j.getTime() < 10000) {
-                j = date;
                 return false;
             }
             j = date;
@@ -168,7 +166,7 @@ public class a {
     private void a(int i, int i2, com.baidu.tbadk.coreExtra.b.c cVar) {
         boolean z;
         long j2;
-        String o2;
+        String o;
         String n2;
         boolean z2 = false;
         boolean z3 = true;
@@ -204,10 +202,10 @@ public class a {
                             cVar.z();
                             cVar.x();
                             if (j2 == 1) {
-                                o2 = cVar.z();
+                                o = cVar.z();
                                 n2 = cVar.x();
                             } else if (c == 1) {
-                                o2 = cVar.o();
+                                o = cVar.o();
                                 n2 = cVar.n();
                             } else {
                                 return;
@@ -215,7 +213,7 @@ public class a {
                             if (TextUtils.isEmpty(n2)) {
                                 n2 = stringBuffer.append(String.format(this.a.getString(x.notify_chat), Long.valueOf(j3))).toString();
                             }
-                            a(16, o2, n2, z4);
+                            a(16, o, n2, z4);
                         }
                     } else if (i2 == 19) {
                         long g2 = cVar.g();
@@ -395,17 +393,17 @@ public class a {
 
     private boolean x() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008004));
-        return m;
+        return l;
     }
 
     private boolean y() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008005));
-        return n;
+        return m;
     }
 
     private boolean z() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008018));
-        return o;
+        return n;
     }
 
     public void g() {
@@ -538,7 +536,7 @@ public class a {
     }
 
     public int f(int i) {
-        return this.p[i];
+        return this.o[i];
     }
 
     public void b(com.baidu.tbadk.coreExtra.b.c cVar) {
@@ -548,9 +546,8 @@ public class a {
             this.d = (cVar.c() - cVar.l()) + cVar.w() + cVar.C();
             a(cVar);
             if (cVar.m()) {
-                k = System.currentTimeMillis();
                 this.i = null;
-                l.removeMessages(0);
+                k.removeMessages(0);
             }
             if (cVar.m()) {
                 if (TbadkApplication.m252getInst().isGroupMsgOn() && TbadkApplication.m252getInst().getMsgFrequency() > 0) {

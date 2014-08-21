@@ -37,6 +37,8 @@ class c extends HttpMessageListener {
                 return;
             }
             this.a.a(httpResponsedMessage.getErrorString());
+            return;
         }
+        this.a.a(this.a.getString(com.baidu.tieba.x.neterror));
     }
 }

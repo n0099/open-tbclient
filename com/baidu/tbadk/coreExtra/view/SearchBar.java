@@ -3,8 +3,6 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import android.text.Editable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +47,7 @@ public class SearchBar extends LinearLayout {
     }
 
     private void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.search_bar, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.search_bar, this, true);
         this.b = (EditText) findViewById(com.baidu.tieba.u.home_et_search);
         this.c = (ImageView) findViewById(com.baidu.tieba.u.home_iv_search_del);
         this.d = (LinearLayout) findViewById(com.baidu.tieba.u.search_tap_text_layout);

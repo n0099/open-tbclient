@@ -323,7 +323,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         builder.setMessage(getString(x.msg_camera_framework_bug));
         builder.setPositiveButton(x.dialog_ok, new g(this));
         builder.setOnCancelListener(new h(this));
-        com.baidu.adp.lib.e.d.a(builder.create(), this);
+        com.baidu.adp.lib.e.e.a(builder.create(), this);
     }
 
     private void i() {

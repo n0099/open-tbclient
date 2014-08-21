@@ -1,8 +1,6 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,7 +23,7 @@ public class bq extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.v.new_pb_list_more, (ViewGroup) null);
+        this.e = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.new_pb_list_more, null);
         this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_margin));
         this.c = (TextView) this.e.findViewById(com.baidu.tieba.u.pb_more_text);
         this.f = this.e.findViewById(com.baidu.tieba.u.pb_more_view);

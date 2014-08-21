@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.az;
+import com.baidu.tbadk.core.atomData.ba;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class am implements SapiWebView.OnFinishCallback {
             currentAccountObj = com.baidu.tbadk.core.account.a.c();
         }
         if (currentAccountObj == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new az(this.a, az.b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ba(this.a, ba.b)));
         }
         this.a.finish();
     }

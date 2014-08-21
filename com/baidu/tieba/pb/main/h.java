@@ -15,9 +15,9 @@ class h implements AbsListView.OnScrollListener {
         bs bsVar;
         bs bsVar2;
         if (i == 2 || i == 1) {
-            bsVar = this.a.D;
+            bsVar = this.a.E;
             bsVar.ad();
-            bsVar2 = this.a.D;
+            bsVar2 = this.a.E;
             bsVar2.b();
         }
     }

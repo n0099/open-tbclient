@@ -20,12 +20,12 @@ public class p implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         String str2;
-        str = this.a.at;
+        str = this.a.as;
         if (!TextUtils.isEmpty(str)) {
             activity = this.a.B;
             activity2 = this.a.B;
             String string = activity2.getString(com.baidu.tieba.x.frs_badge_intro);
-            str2 = this.a.at;
+            str2 = this.a.as;
             TbWebViewActivity.startActivity(activity, string, str2);
         }
     }

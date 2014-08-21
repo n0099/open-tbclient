@@ -15,7 +15,13 @@ public class bz implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.ae;
-        dialog.dismiss();
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.a.af;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.a.af;
+            pbActivity = this.a.k;
+            com.baidu.adp.lib.e.e.b(dialog2, pbActivity);
+        }
     }
 }

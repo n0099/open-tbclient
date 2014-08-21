@@ -1,9 +1,7 @@
 package com.baidu.tbadk.core.account;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import com.baidu.sapi2.SapiWebView;
@@ -19,15 +17,15 @@ public class j {
     }
 
     public static void b(Context context, SapiWebView sapiWebView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.layout_sapi_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(u.btn_network_settings).setOnClickListener(new k(context));
-        sapiWebView.setNoNetworkView(inflate);
+        View a = com.baidu.adp.lib.e.b.a().a(context, v.layout_sapi_network_unavailable, null);
+        a.findViewById(u.btn_network_settings).setOnClickListener(new k(context));
+        sapiWebView.setNoNetworkView(a);
     }
 
     public static void c(Context context, SapiWebView sapiWebView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(v.layout_sapi_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(u.btn_retry).setOnClickListener(new l(sapiWebView, inflate));
-        sapiWebView.setTimeoutView(inflate);
+        View a = com.baidu.adp.lib.e.b.a().a(context, v.layout_sapi_loading_timeout, null);
+        a.findViewById(u.btn_retry).setOnClickListener(new l(sapiWebView, a));
+        sapiWebView.setTimeoutView(a);
     }
 
     public static void d(Context context, SapiWebView sapiWebView) {

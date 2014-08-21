@@ -76,7 +76,7 @@ public class ab extends Dialog {
             sb.append(newVersion);
         }
         if (!TextUtils.isEmpty(size)) {
-            sb.append(" / " + String.format("%.2f", Float.valueOf(com.baidu.adp.lib.e.b.a(size, 0.0f) / 1048576.0f)) + "MB");
+            sb.append(" / " + String.format("%.2f", Float.valueOf(com.baidu.adp.lib.e.c.a(size, 0.0f) / 1048576.0f)) + "MB");
         }
         this.i.setText(sb.toString());
         this.j.setText(newVersionDesc);

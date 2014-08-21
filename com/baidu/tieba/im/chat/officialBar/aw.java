@@ -10,7 +10,7 @@ public class aw extends com.baidu.adp.base.f {
     private BdListView a;
     private au b;
     private NavigationBar c;
-    private com.baidu.tbadk.core.view.o d;
+    private com.baidu.tbadk.core.view.p d;
     private OfficialBarTipActivity e;
     private ViewGroup f;
 
@@ -40,7 +40,7 @@ public class aw extends com.baidu.adp.base.f {
         this.a = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.u.msg_list);
         this.b = new au(officialBarTipActivity);
         this.a.setAdapter((ListAdapter) this.b);
-        this.d = new com.baidu.tbadk.core.view.o(officialBarTipActivity.findViewById(com.baidu.tieba.u.root_view), com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
+        this.d = new com.baidu.tbadk.core.view.p(officialBarTipActivity.findViewById(com.baidu.tieba.u.root_view), com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
     }
 
     public BdListView a() {

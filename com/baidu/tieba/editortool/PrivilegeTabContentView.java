@@ -5,10 +5,8 @@ import android.graphics.Point;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -25,7 +23,6 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     private final Point f;
     private com.baidu.tbadk.editortool.w g;
     private int h;
-    private LayoutInflater i;
 
     public PrivilegeTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -47,8 +44,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
 
     private void a(Context context) {
         setOrientation(1);
-        this.i = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.i.inflate(com.baidu.tieba.v.privilege_tab_content, (ViewGroup) this, true);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.privilege_tab_content, this, true);
         this.a = (ViewPager) findViewById(com.baidu.tieba.u.privilege_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);

@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.newFriend;
 
-import java.util.List;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ay extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ ax a;
-    private final /* synthetic */ List b;
+class ay implements DialogInterface.OnClickListener {
+    final /* synthetic */ NewFriendsActivity a;
+    private com.baidu.tieba.im.data.k b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(ax axVar, List list) {
-        this.a = axVar;
-        this.b = list;
+    public ay(NewFriendsActivity newFriendsActivity, com.baidu.tieba.im.data.k kVar) {
+        this.a = newFriendsActivity;
+        this.b = kVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        if (this.b != null && this.b.size() > 0) {
-            com.baidu.tieba.im.db.m.a().a(this.b);
-            return null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case -1:
+                if (this.b == null) {
+                    return;
+                }
+                this.a.c(this.b);
+                return;
+            default:
+                return;
         }
-        return null;
     }
 }

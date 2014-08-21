@@ -11,6 +11,6 @@ public class y implements com.baidu.adp.widget.ListView.x {
 
     @Override // com.baidu.adp.widget.ListView.x
     public void g_() {
-        this.a.i();
+        this.a.j();
     }
 }

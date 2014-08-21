@@ -2,7 +2,6 @@ package com.baidu.tbadk.motu_gallery;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -63,7 +62,7 @@ public class j extends BaseAdapter {
         Map map3;
         Map map4;
         if (view == null) {
-            view = LayoutInflater.from(this.c).inflate(com.baidu.tieba.v.motu_albums_activity_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.motu_albums_activity_item, null);
             k a3 = a(view);
             view.setTag(a3);
             kVar = a3;

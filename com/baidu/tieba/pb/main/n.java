@@ -17,20 +17,20 @@ class n implements be {
         bl blVar5;
         bl blVar6;
         if (z) {
-            blVar6 = this.a.x;
+            blVar6 = this.a.y;
             blVar6.b(true);
             return;
         }
-        blVar = this.a.x;
+        blVar = this.a.y;
         int d = blVar.s().d();
-        blVar2 = this.a.x;
+        blVar2 = this.a.y;
         if (d < blVar2.s().a()) {
-            blVar4 = this.a.x;
-            blVar5 = this.a.x;
+            blVar4 = this.a.y;
+            blVar5 = this.a.y;
             blVar4.c(blVar5.s().d() + 1);
             return;
         }
-        blVar3 = this.a.x;
+        blVar3 = this.a.y;
         blVar3.a(true);
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
@@ -53,7 +52,7 @@ public class br extends com.baidu.adp.base.f {
     }
 
     private void f() {
-        this.a = this.e.getLayoutInflater().inflate(com.baidu.tieba.v.pb_reply_view, (ViewGroup) null);
+        this.a = com.baidu.adp.lib.e.b.a().a(this.e, com.baidu.tieba.v.pb_reply_view, null);
         this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.pb_reply_view_item_mark);
         this.b.setOnClickListener(this.f);
         this.c = (TextView) this.a.findViewById(com.baidu.tieba.u.pb_reply_view_item_reply);

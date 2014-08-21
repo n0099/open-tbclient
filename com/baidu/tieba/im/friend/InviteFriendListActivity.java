@@ -10,8 +10,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ag;
-import com.baidu.tbadk.core.atomData.bj;
+import com.baidu.tbadk.core.atomData.ah;
+import com.baidu.tbadk.core.atomData.bk;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tieba.x;
@@ -31,7 +31,7 @@ public class InviteFriendListActivity extends BaseActivity implements View.OnCli
     private final com.baidu.adp.framework.listener.d i = new l(this, 205002);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ag.class, InviteFriendListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ah.class, InviteFriendListActivity.class);
     }
 
     public static void a(Context context, int i, int i2) {
@@ -156,7 +156,7 @@ public class InviteFriendListActivity extends BaseActivity implements View.OnCli
                 bVar = null;
             }
             if (bVar != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new bj(this, bVar.c(), bVar.b(), bVar.d(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new bk(this, bVar.c(), bVar.b(), bVar.d(), 0)));
             }
         } else if (view != null && (tag = view.getTag()) != null && (tag instanceof q)) {
             TbCheckBox tbCheckBox = ((q) tag).d;

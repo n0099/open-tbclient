@@ -1,27 +1,35 @@
 package com.baidu.tieba.im.newFriend;
-/* loaded from: classes.dex */
-class l extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ k a;
-    private final /* synthetic */ long b;
-    private final /* synthetic */ com.baidu.tieba.im.data.k c;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class l extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, long j, com.baidu.tieba.im.data.k kVar2) {
-        this.a = kVar;
-        this.b = j;
-        this.c = kVar2;
+    public l(int i) {
+        super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.data.k c = com.baidu.tieba.im.db.m.a().c(this.b);
-        if (c != null) {
-            this.c.a(c.b());
-            this.c.b(c.c());
-            com.baidu.tieba.im.db.m.a().a(this.c);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001173) {
+            RequestNewFriendActionLocalMessage requestNewFriendActionLocalMessage = (RequestNewFriendActionLocalMessage) customResponsedMessage;
+            long id = requestNewFriendActionLocalMessage.getId();
+            String name = requestNewFriendActionLocalMessage.getName();
+            String portrait = requestNewFriendActionLocalMessage.getPortrait();
+            String content = requestNewFriendActionLocalMessage.getContent();
+            com.baidu.tbadk.newFriends.a.a().a(id, content, requestNewFriendActionLocalMessage.getSt_type());
+            com.baidu.tieba.im.data.k kVar = new com.baidu.tieba.im.data.k();
+            kVar.a(id);
+            kVar.a(name);
+            kVar.a(0);
+            kVar.b(portrait);
+            kVar.c(content);
+            kVar.b(0);
+            com.baidu.tieba.im.e.a(new m(this, id, kVar), null);
         }
-        return null;
     }
 }

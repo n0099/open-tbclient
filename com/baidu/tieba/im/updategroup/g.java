@@ -209,6 +209,6 @@ public abstract class g extends com.baidu.adp.base.f implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a() {
-        com.baidu.adp.lib.e.d.a(new AlertDialog.Builder(this.g).setTitle(x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(x.group_update_alert_save).setPositiveButton(x.group_update_canel, new i(this)).setNegativeButton(x.group_update_done, new j(this)).create(), this.g);
+        com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this.g).setTitle(x.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(x.group_update_alert_save).setPositiveButton(x.group_update_canel, new i(this)).setNegativeButton(x.group_update_done, new j(this)).create(), this.g);
     }
 }

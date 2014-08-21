@@ -1,6 +1,5 @@
 package com.baidu.tieba.account.forbid;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,7 +40,7 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
-            view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(v.forbid_list_item, (ViewGroup) null);
+            view = com.baidu.adp.lib.e.b.a().a(viewGroup.getContext(), v.forbid_list_item, null);
             g gVar2 = new g(null);
             gVar2.a = (TextView) view.findViewById(u.reason_text);
             gVar2.b = (ImageView) view.findViewById(u.check_img);

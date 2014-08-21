@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements v {
+public class e implements w {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,11 @@ public class e implements v {
         this.a = dVar;
     }
 
-    @Override // com.baidu.tbadk.pluginArch.v
+    @Override // com.baidu.tbadk.pluginArch.w
     public void a(ConfigInfos configInfos) {
-        h hVar;
         if (configInfos != null && TbadkApplication.m252getInst().isMainProcess(false)) {
-            ab.a().a(configInfos);
-            hVar = this.a.f;
-            hVar.b();
+            ac.a().a(configInfos);
+            this.a.e();
         }
     }
 }

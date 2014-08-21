@@ -7,39 +7,17 @@ import com.baidu.tieba.data.MarkData;
 public class ap implements com.baidu.tbadk.core.dialog.d {
     final /* synthetic */ PbActivity a;
     private final /* synthetic */ MarkData b;
-    private final /* synthetic */ MarkData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PbActivity pbActivity, MarkData markData, MarkData markData2) {
+    public ap(PbActivity pbActivity, MarkData markData) {
         this.a = pbActivity;
         this.b = markData;
-        this.c = markData2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.model.ai aiVar;
-        com.baidu.tieba.model.ai aiVar2;
-        com.baidu.tieba.model.ai aiVar3;
-        com.baidu.tieba.model.ai aiVar4;
-        com.baidu.tieba.model.ai aiVar5;
-        com.baidu.tieba.model.ai aiVar6;
-        aiVar = this.a.y;
-        if (aiVar.a()) {
-            aiVar5 = this.a.y;
-            aiVar5.e();
-            aiVar6 = this.a.y;
-            aiVar6.a(false);
-        }
-        aiVar2 = this.a.y;
-        aiVar2.a(this.b);
-        aiVar3 = this.a.y;
-        aiVar3.a(true);
-        aiVar4 = this.a.y;
-        aiVar4.d();
-        this.c.setPostId(this.b.getPostId());
         Intent intent = new Intent();
-        intent.putExtra("mark", this.c);
+        intent.putExtra("mark", this.b);
         this.a.setResult(-1, intent);
         this.a.y();
     }

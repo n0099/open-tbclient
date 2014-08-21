@@ -98,7 +98,7 @@ public class at implements View.OnClickListener {
             if (personCenterListTopData4.getmDataType() == 3) {
                 com.baidu.tbadk.newFriends.a a = com.baidu.tbadk.newFriends.a.a();
                 personCenterListTopData5 = this.a.d;
-                a.a(com.baidu.adp.lib.e.b.a(personCenterListTopData5.getmModel().i(), 0), "pers_pg");
+                a.a(com.baidu.adp.lib.e.c.a(personCenterListTopData5.getmModel().i(), 0), "pers_pg");
             }
         } else if (view.getId() == com.baidu.tieba.u.topattention_content) {
             personCenterListTopData = this.a.d;

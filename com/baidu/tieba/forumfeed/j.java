@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.q;
-import com.baidu.tbadk.core.view.u;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.f {
     private g a;
     private BdListView b;
     private final BaseFragmentActivity c;
-    private u d;
+    private v d;
     private final RelativeLayout e;
     private final View f;
     private Handler g;
@@ -36,12 +36,12 @@ public class j extends com.baidu.adp.base.f {
         this.m = false;
         this.c = baseFragmentActivity;
         this.f = dVar.getView();
-        this.e = (RelativeLayout) this.f.findViewById(com.baidu.tieba.u.content);
-        this.i = (NoNetworkView) this.f.findViewById(com.baidu.tieba.u.view_no_network);
-        this.l = (NavigationBar) this.f.findViewById(com.baidu.tieba.u.view_navigation_bar);
+        this.e = (RelativeLayout) this.f.findViewById(u.content);
+        this.i = (NoNetworkView) this.f.findViewById(u.view_no_network);
+        this.l = (NavigationBar) this.f.findViewById(u.view_navigation_bar);
         this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.l.a(this.c.getString(x.ba_dongtai));
-        this.k = (LinearLayout) this.f.findViewById(com.baidu.tieba.u.content_with_data);
+        this.k = (LinearLayout) this.f.findViewById(u.content_with_data);
         this.j = new n(this, baseFragmentActivity, this.e);
         l();
         a(TbadkApplication.m252getInst().getSkinType());
@@ -55,8 +55,8 @@ public class j extends com.baidu.adp.base.f {
         this.b.e();
     }
 
-    public void a(q qVar) {
-        this.i.a(qVar);
+    public void a(r rVar) {
+        this.i.a(rVar);
     }
 
     public void b() {
@@ -133,12 +133,12 @@ public class j extends com.baidu.adp.base.f {
     }
 
     public void a(int i) {
-        ay.e(this.e, r.forumfeed_frs_bg);
+        ay.e(this.e, com.baidu.tieba.r.forumfeed_frs_bg);
         this.c.c().a(i == 1);
         this.c.c().a((View) this.e);
         this.b.setBackgroundColor(0);
         if (!this.j.a) {
-            this.k.setBackgroundResource(i == 1 ? r.forumfeed_frs_bg_1 : r.forumfeed_frs_bg);
+            this.k.setBackgroundResource(i == 1 ? com.baidu.tieba.r.forumfeed_frs_bg_1 : com.baidu.tieba.r.forumfeed_frs_bg);
         }
         if (this.a != null) {
             this.a.notifyDataSetChanged();
@@ -176,8 +176,8 @@ public class j extends com.baidu.adp.base.f {
     }
 
     private void l() {
-        this.d = new u(this.c);
-        this.b = (BdListView) this.f.findViewById(com.baidu.tieba.u.forum_feed_list);
+        this.d = new v(this.c);
+        this.b = (BdListView) this.f.findViewById(u.forum_feed_list);
         this.b.setPullRefresh(this.d);
         this.h = new m(this, this.c);
         this.b.setNextPage(this.h);
@@ -189,6 +189,6 @@ public class j extends com.baidu.adp.base.f {
     }
 
     public int h() {
-        return com.baidu.tieba.u.user_icon_box;
+        return u.user_icon_box;
     }
 }

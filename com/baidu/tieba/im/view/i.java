@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.view;
 
 import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Animation.AnimationListener {
+class i implements Animation.AnimationListener {
     final /* synthetic */ HorizontalPanelView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -43,7 +43,7 @@ public class ba extends com.baidu.adp.base.e {
         this.b.name = this.e;
         this.b.groupType = this.f;
         this.b.publisherName = TbadkApplication.getCurrentAccountName();
-        this.b.publisherId = com.baidu.adp.lib.e.b.a(TbadkApplication.getCurrentAccount(), 0);
+        this.b.publisherId = com.baidu.adp.lib.e.c.a(TbadkApplication.getCurrentAccount(), 0);
         this.a.sendMessage(this.b);
     }
 

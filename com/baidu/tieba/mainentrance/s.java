@@ -1,17 +1,15 @@
 package com.baidu.tieba.mainentrance;
-
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class s implements DialogInterface.OnClickListener {
-    final /* synthetic */ q a;
+class s implements Runnable {
+    final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.a = qVar;
+    public s(r rVar) {
+        this.a = rVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.util.k.h();
     }
 }

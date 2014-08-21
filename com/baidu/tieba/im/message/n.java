@@ -3,9 +3,8 @@ package com.baidu.tieba.im.message;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.tieba.im.chat.receiveChatMsgHandler.b {
+class n implements com.baidu.tieba.im.chat.receiveChatMsgHandler.b {
     final /* synthetic */ ResponsePullMessage a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,24 +1,16 @@
 package com.baidu.tieba.frs;
-
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bi {
-    LinearLayout a;
-    TextView b;
-    HeadImageView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    final /* synthetic */ bc g;
-
-    private bi(bc bcVar) {
-        this.g = bcVar;
-    }
+public class bi implements Runnable {
+    final /* synthetic */ bd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bi(bc bcVar, bi biVar) {
-        this(bcVar);
+    public bi(bd bdVar) {
+        this.a = bdVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.n = System.currentTimeMillis();
     }
 }

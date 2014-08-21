@@ -20,9 +20,9 @@ class e implements com.baidu.tbadk.core.dialog.d {
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.c();
-        com.baidu.tbadk.distribute.a.a().a(this.b.getContext(), this.c.y(), "btn_download", "pb", this.c.b, this.c.c);
-        com.baidu.tbadk.distribute.a.a().a(this.c.y(), this.c.b, this.c.c, "PB", "download");
+        aVar.d();
+        com.baidu.tbadk.distribute.a.a().a(this.b.getContext(), this.c.y(), "btn_download", "pb", this.c.c, this.c.d);
+        com.baidu.tbadk.distribute.a.a().a(this.c.y(), this.c.c, this.c.d, "PB", "download");
         com.baidu.tieba.d.b.a(this.b.getContext(), this.c, this.d);
         this.e.a();
     }

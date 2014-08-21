@@ -68,7 +68,7 @@ public class az {
         intent.putExtra("func", "11");
         Bundle bundle = new Bundle();
         bundle.putInt("versioncode", versionData.getNewVersionCode());
-        bundle.putLong("patch_size", com.baidu.adp.lib.e.b.a(versionData.getPatchSize(), 0L));
+        bundle.putLong("patch_size", com.baidu.adp.lib.e.c.a(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
         bundle.putString("sname", context.getString(x.app_name));
         bundle.putString("packagename", TbadkApplication.m252getInst().getPackageName());

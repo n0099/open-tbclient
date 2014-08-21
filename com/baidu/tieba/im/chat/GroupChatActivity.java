@@ -19,7 +19,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
     public static String b;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.x.class, GroupChatActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.y.class, GroupChatActivity.class);
         b = "";
     }
 
@@ -80,7 +80,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.d.G()) {
-            sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.y(this, ((GroupMsglistModel) this.e).c().getGroupId(), 3)));
+            sendMessage(new CustomMessage(2008011, new com.baidu.tbadk.core.atomData.z(this, ((GroupMsglistModel) this.e).c().getGroupId(), 3)));
             if (TbadkApplication.getCurrentAccount().equals(getIntent().getStringExtra("group_author_id")) && (this.d instanceof GroupChatView)) {
                 ((GroupChatView) this.d).T();
             }

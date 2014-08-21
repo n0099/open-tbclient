@@ -19,7 +19,7 @@ public class ct implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         RelativeLayout relativeLayout;
-        relativeLayout = this.a.F;
+        relativeLayout = this.a.G;
         relativeLayout.setVisibility(4);
     }
 

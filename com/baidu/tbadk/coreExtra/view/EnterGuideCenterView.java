@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -51,7 +50,7 @@ public class EnterGuideCenterView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.v.enter_forum_guide_center, this);
+        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.enter_forum_guide_center, this);
         this.a = (ImageView) findViewById(com.baidu.tieba.u.img_bg_center);
         this.c = (TextView) findViewById(com.baidu.tieba.u.tip_center);
     }

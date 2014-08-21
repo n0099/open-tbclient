@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.u;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
@@ -77,14 +77,14 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
         int id = view.getId();
         if (id == u.user_info_lin) {
             if (this.b != null && this.b.b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this, String.valueOf(this.c), this.b.b().name)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this, String.valueOf(this.c), this.b.b().name)));
             }
         } else if (id == u.remove_from_black_man) {
-            new AlertDialog.Builder(this).setMessage(getString(x.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new c(this)).setNegativeButton(x.alert_no_button, new d(this)).create().show();
+            com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this).setMessage(getString(x.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new c(this)).setNegativeButton(x.alert_no_button, new d(this)).create(), this);
         } else if (id == u.st_delete_talk_history) {
-            new AlertDialog.Builder(this).setMessage(getString(x.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new e(this)).setNegativeButton(x.alert_no_button, new h(this)).create().show();
+            com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this).setMessage(getString(x.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new e(this)).setNegativeButton(x.alert_no_button, new h(this)).create(), this);
         } else if (id == u.add_to_black) {
-            new AlertDialog.Builder(this).setMessage(getString(x.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new i(this)).setNegativeButton(x.alert_no_button, new j(this)).create().show();
+            com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this).setMessage(getString(x.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(x.alert_yes_button, new i(this)).setNegativeButton(x.alert_no_button, new j(this)).create(), this);
         }
     }
 
@@ -102,7 +102,7 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
         this.b.a(switchState == BdSwitchView.SwitchState.ON);
         new k(this, switchState).execute(new Void[0]);
         if (a != this.b.a()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016011));
+            MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
         }
     }
 }

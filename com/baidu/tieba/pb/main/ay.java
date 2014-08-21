@@ -24,11 +24,11 @@ class ay extends com.baidu.adp.framework.listener.a {
                 }
             }
             if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                blVar2 = this.a.x;
+                blVar2 = this.a.y;
                 blVar2.a((pbPageSocketResponseMessage) responsedMessage);
             }
             if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                blVar = this.a.x;
+                blVar = this.a.y;
                 blVar.a((pbPageHttpResponseMessage) responsedMessage);
             }
         }

@@ -65,7 +65,7 @@ public class ReplyMeRequestMessage extends NetMessage {
             builder.ids = get_ids();
             builder.common = get_common();
             if (z) {
-                com.baidu.tbadk.c.d.a(builder, true);
+                com.baidu.tbadk.b.d.a(builder, true);
             }
             ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
             builder2.data = builder.build(false);

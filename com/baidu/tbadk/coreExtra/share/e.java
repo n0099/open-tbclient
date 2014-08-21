@@ -16,7 +16,7 @@ public class e implements a {
     @Override // com.baidu.tbadk.coreExtra.share.a
     public void a() {
         Context context;
-        context = this.a.b;
+        context = this.a.a;
         j.a(context, x.auth_account_success);
     }
 
@@ -27,7 +27,7 @@ public class e implements a {
     @Override // com.baidu.tbadk.coreExtra.share.a
     public void c() {
         Context context;
-        context = this.a.b;
+        context = this.a.a;
         j.a(context, x.share_success);
     }
 

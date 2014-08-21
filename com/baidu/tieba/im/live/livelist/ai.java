@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.livelist;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -69,7 +68,7 @@ public class ai extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_list_foot, viewGroup, false);
+            view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_list_foot, viewGroup, false);
             View findViewById = view.findViewById(com.baidu.tieba.u.bottom_line);
             ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.u.bottom_more);
             TextView textView = (TextView) view.findViewById(com.baidu.tieba.u.more_title);
@@ -90,7 +89,7 @@ public class ai extends BaseAdapter {
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.v.live_group_history_list_item, viewGroup, false);
+                view = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.live_group_history_list_item, viewGroup, false);
                 aj ajVar = new aj(this);
                 ajVar.a = (TextView) view.findViewById(com.baidu.tieba.u.item_day);
                 ajVar.b = (TextView) view.findViewById(com.baidu.tieba.u.item_timelast);

@@ -1,217 +1,116 @@
 package com.baidu.tieba.person;
 
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
+import java.util.ArrayList;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t extends com.baidu.tbadk.core.d implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private ae f;
-    public BdListView b = null;
-    private ac c = null;
-    private int d = -1;
-    private String e = null;
-    private View g = null;
-    private EnterGuideCenterView h = null;
-    private com.baidu.tbadk.core.view.u i = null;
-    private TextView j = null;
-    private ForumData k = null;
-    private boolean l = false;
-    private int m = 0;
-    private boolean n = true;
-    private final CustomMessageListener o = new u(this, 2001187);
-    private HttpMessageListener p = new v(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-    private HttpMessageListener q = new w(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
+public class t {
+    private int f = 0;
+    private int g = 0;
+    private ArrayList<ForumData> a = new ArrayList<>();
+    private ArrayList<ForumData> b = new ArrayList<>();
+    private com.baidu.tbadk.core.data.l c = new com.baidu.tbadk.core.data.l();
+    private Date d = null;
+    private boolean e = true;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity g() {
-        FragmentActivity activity = getActivity();
-        if (activity instanceof PersonBarActivity) {
-            return (PersonBarActivity) activity;
-        }
-        return null;
+    public int a() {
+        return this.f;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-        c(TbadkApplication.m252getInst().getSkinType());
+    public void a(int i) {
+        this.f = i;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
-        a(this.q);
-        a(this.p);
-        a(this.o);
+    public int b() {
+        return this.g;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onStart() {
-        super.onStart();
-        if (this.h != null) {
-            this.h.b();
-        }
+    public void b(int i) {
+        this.g = i;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onStop() {
-        super.onStop();
-        if (this.h != null) {
-            this.h.c();
+    public ArrayList<ForumData> c() {
+        return this.a;
+    }
+
+    public void a(ArrayList<ForumData> arrayList) {
+        this.a = arrayList;
+    }
+
+    public ArrayList<ForumData> d() {
+        return this.b;
+    }
+
+    public void b(ArrayList<ForumData> arrayList) {
+        this.b = arrayList;
+    }
+
+    public void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str));
+            } catch (Exception e) {
+                this.e = false;
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onDestroyView() {
-        if (this.c != null) {
-            this.c = null;
-        }
-        MessageManager.getInstance().unRegisterListener(this.p);
-        MessageManager.getInstance().unRegisterListener(this.q);
-        MessageManager.getInstance().unRegisterListener(this.o);
-        super.onDestroyView();
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.m = getArguments().getInt("page_type", 0);
-        View inflate = layoutInflater.inflate(com.baidu.tieba.v.friend_fragment, viewGroup, false);
-        if (g() == null) {
-            return inflate;
-        }
-        this.f = g().w();
-        this.n = g().p();
-        this.g = inflate.findViewById(com.baidu.tieba.u.friend_fragment_parent);
-        if (this.n) {
-            this.j = g().h().a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.x.edit));
-            this.j.setOnClickListener(new x(this));
-            this.j.setVisibility(0);
-        }
-        this.c = new ac(g(), this.f.b(), this.n);
-        this.c.a(new y(this));
-        this.c.b(new z(this));
-        this.b = (BdListView) inflate.findViewById(com.baidu.tieba.u.my_friend_list);
-        this.b.setAdapter((ListAdapter) this.c);
-        this.b.setOnItemClickListener(new aa(this));
-        this.i = new com.baidu.tbadk.core.view.u(g());
-        this.i.a(new ab(this));
-        this.b.setPullRefresh(this.i);
-        this.h = (EnterGuideCenterView) inflate.findViewById(com.baidu.tieba.u.friend_guid_center_root);
-        this.h.a(com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1);
-        if (this.n) {
-            this.h.setTipTextByString(String.format(getString(com.baidu.tieba.x.person_bar_no_personal_info), getString(com.baidu.tieba.x.you)));
-        } else if (this.m == 0) {
-            this.h.setTipTextByString(String.format(getString(com.baidu.tieba.x.person_bar_no_personal_info), g().o()));
-        } else {
-            this.h.setTipText(com.baidu.tieba.x.person_bar_no_common_info);
-        }
-        if (this.n) {
-            f();
-        }
-        if (this.m == g().q()) {
-            this.b.e();
-        }
-        return inflate;
-    }
-
-    public void a(boolean z) {
-        if (this.c != null) {
-            this.c.b();
-            if (this.c.c()) {
-                if (z) {
-                    this.c.a(false);
-                    this.h.b(0);
-                    this.b.setVisibility(0);
-                    return;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
+                if (optJSONArray != null) {
+                    this.f = optJSONArray.length();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ForumData forumData = new ForumData();
+                        forumData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(forumData);
+                    }
                 }
-                return;
-            }
-            this.h.b(8);
-            this.b.setVisibility(0);
-        }
-    }
-
-    public ac a() {
-        return this.c;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        if (this.f != null) {
-            this.f.a(this.n, this.f.a());
-        }
-    }
-
-    public void f() {
-        if (this.f != null) {
-            this.f.c();
-        }
-    }
-
-    public void a(s sVar, boolean z) {
-        if (sVar != null) {
-            if (!z) {
-                this.b.d();
-            }
-            int size = sVar.c() != null ? sVar.c().size() : 0;
-            int size2 = sVar.d() != null ? sVar.d().size() : 0;
-            if (g() != null) {
-                g().b(size, size2);
-            }
-            if (this.f != null && this.c != null) {
-                this.f.b().a(sVar.c());
-                this.f.b().b(sVar.d());
-                this.f.b().a(sVar.a());
-                this.f.b().b(sVar.b());
-                if (this.m == 0) {
-                    this.c.a(this.f.b().c());
-                } else {
-                    this.c.a(this.f.b().d());
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ForumData forumData2 = new ForumData();
+                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.a.add(forumData2);
+                    }
                 }
-                a(true);
-                this.c.notifyDataSetChanged();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.d
-    public void c(int i) {
-        super.c(i);
-        if (isAdded()) {
-            if (this.g != null && getActivity() != null) {
-                ((BaseFragmentActivity) getActivity()).c().a(this.g);
-            }
-            if (this.h != null) {
-                if (i == 1) {
-                    this.h.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d_1);
-                } else {
-                    this.h.setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
+                if (optJSONObject2 != null) {
+                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
+                    if (optJSONArray3 != null) {
+                        this.g = optJSONArray3.length();
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            ForumData forumData3 = new ForumData();
+                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
+                            this.b.add(forumData3);
+                        }
+                    }
+                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
+                    if (optJSONArray4 != null) {
+                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                            ForumData forumData4 = new ForumData();
+                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
+                            this.b.add(forumData4);
+                        }
+                    }
+                    this.c.a(jSONObject.optJSONObject("page"));
+                    long optLong = jSONObject.optLong("ctime", 0L);
+                    if (optLong > 0) {
+                        this.d = new Date(optLong);
+                    } else {
+                        this.d = new Date();
+                    }
                 }
             }
-            if (g() != null) {
-                g().h().c(i);
-            }
-            if (this.i != null) {
-                this.i.a(i);
-            }
-            if (this.c != null) {
-                this.c.notifyDataSetChanged();
-            }
+        } catch (Exception e) {
+            this.e = false;
+            BdLog.e(e.getMessage());
         }
     }
 }

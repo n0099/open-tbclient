@@ -12,8 +12,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
 import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.core.voice.aa;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.account.SapiFastRegActivity;
@@ -22,7 +23,7 @@ import com.baidu.tieba.model.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.d implements aa {
+public class a extends com.baidu.tbadk.core.d implements ab {
     private VoiceManager b;
     private r c;
     private j d;
@@ -61,8 +62,8 @@ public class a extends com.baidu.tbadk.core.d implements aa {
         this.f = m();
         g();
         this.l = null;
-        if (this.g instanceof com.baidu.tbadk.core.voice.aa) {
-            this.b = ((com.baidu.tbadk.core.voice.aa) this.g).d();
+        if (this.g instanceof aa) {
+            this.b = ((aa) this.g).d();
         }
     }
 
@@ -272,12 +273,12 @@ public class a extends com.baidu.tbadk.core.d implements aa {
         frameLayout.addView(this.e);
     }
 
-    @Override // com.baidu.tbadk.core.view.aa
+    @Override // com.baidu.tbadk.core.view.ab
     public ListView a() {
         return this.d.g();
     }
 
-    @Override // com.baidu.tbadk.core.view.aa
+    @Override // com.baidu.tbadk.core.view.ab
     public int c_() {
         if (this.d == null) {
             return 0;
@@ -285,7 +286,7 @@ public class a extends com.baidu.tbadk.core.d implements aa {
         return this.d.h();
     }
 
-    @Override // com.baidu.tbadk.core.view.aa
+    @Override // com.baidu.tbadk.core.view.ab
     public com.baidu.adp.lib.d.b<TbImageView> c() {
         return this.j;
     }

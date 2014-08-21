@@ -1,8 +1,6 @@
 package com.baidu.tieba.write;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -26,8 +24,9 @@ public class t {
         this.d = null;
         this.f = -1;
         this.f = i;
+        com.baidu.adp.lib.e.b a = com.baidu.adp.lib.e.b.a();
         baseActivity = rVar.a;
-        this.b = (FrameLayout) LayoutInflater.from(baseActivity).inflate(com.baidu.tieba.v.progress_tb_imageview, (ViewGroup) null);
+        this.b = (FrameLayout) a.a(baseActivity, com.baidu.tieba.v.progress_tb_imageview, null);
         this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.u.progress_tb_imageview);
         this.c.setClickable(true);
         this.c.setDefaultResource(0);

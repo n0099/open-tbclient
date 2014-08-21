@@ -1,12 +1,10 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bg;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
+public class ag extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,21 +12,22 @@ public class ag implements View.OnClickListener {
         this.a = postActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.model.am amVar;
-        com.baidu.tieba.model.am amVar2;
-        com.baidu.tieba.model.am amVar3;
-        amVar = this.a.l;
-        if (amVar != null) {
-            amVar2 = this.a.l;
-            if (amVar2.a() != null) {
-                amVar3 = this.a.l;
-                com.baidu.tieba.data.an anVar = amVar3.a().e().get(0);
-                if (anVar != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bg(this.a, anVar.g().getUserId(), anVar.g().getUserName())));
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        super.a((ag) aVar, str, i);
+        linearLayout = this.a.a;
+        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && aVar != null) {
+                aVar.a(imageView);
             }
+            linearLayout2 = this.a.a;
+            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.im.widget;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
@@ -43,7 +43,7 @@ public class ShareFromGameCenter extends LinearLayout {
     }
 
     public void a() {
-        LayoutInflater.from(getContext()).inflate(v.share_from_game_center_pic_and_word, this);
+        b.a().a(getContext(), v.share_from_game_center_pic_and_word, this);
         setOrientation(1);
         this.f = (LinearLayout) findViewById(u.share_info_layout);
         this.h = (LinearLayout) findViewById(u.game_share_content);
@@ -83,7 +83,7 @@ public class ShareFromGameCenter extends LinearLayout {
         this.c.a(this.j.getImageUrl(), 10, false);
         this.b.setText(this.j.getContent());
         if (!TextUtils.isEmpty(this.j.getButton())) {
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 60);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, j.c(getContext(), s.ds60));
             int c = j.c(getContext(), s.ds30);
             layoutParams2.setMargins(c, j.c(getContext(), s.ds18), c, c);
             this.d.setLayoutParams(layoutParams2);

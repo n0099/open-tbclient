@@ -14,10 +14,10 @@ class z implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        cu cuVar;
+        cv cvVar;
         int intValue = ((Integer) view.getTag()).intValue();
-        cuVar = this.a.z;
-        Object item = cuVar.v().getItem(intValue);
+        cvVar = this.a.B;
+        Object item = cvVar.v().getItem(intValue);
         if (item instanceof com.baidu.tbadk.core.data.a) {
             com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) item;
             int i = aVar.a;

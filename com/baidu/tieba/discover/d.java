@@ -17,7 +17,7 @@ public class d implements com.baidu.tbadk.core.dialog.d {
         BaseFragmentActivity baseFragmentActivity;
         a aVar2 = this.a;
         baseFragmentActivity = this.a.b;
-        aVar2.a(new CustomMessage(2002001, new com.baidu.tieba.neighbors.i(baseFragmentActivity, true)));
-        aVar.c();
+        aVar2.a(new CustomMessage(2002001, new com.baidu.tieba.neighbors.k(baseFragmentActivity, true)));
+        aVar.d();
     }
 }
