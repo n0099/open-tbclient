@@ -1,45 +1,53 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.at;
 /* loaded from: classes.dex */
-public class ad extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity this$0;
+public class ad implements com.baidu.tbadk.core.b.a {
+    private h a;
 
-    private ad(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
+    @Override // com.baidu.tbadk.core.b.a
+    public void a(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new at(context).a(i)));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(MainTabActivity mainTabActivity, ad adVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
-        }
-    }
-
-    private void refreshNewVersion() {
-        boolean z;
-        boolean checkNeedShowNewVersion = TbadkApplication.checkNeedShowNewVersion();
-        if (checkNeedShowNewVersion) {
-            z = this.this$0.P;
-            if (!z) {
-                this.this$0.Q = true;
-            }
-        }
-        if (checkNeedShowNewVersion) {
-            this.this$0.P = true;
+    @Override // com.baidu.tbadk.core.b.a
+    public void a(Context context) {
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            a(context, 1);
         } else {
-            this.this$0.P = false;
+            a(context, 0);
         }
-        this.this$0.a(false);
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public void a(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new at(context).b(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public Class<?> a() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public String b() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public int c() {
+        if (this.a != null) {
+            return this.a.a();
+        }
+        return -1;
+    }
+
+    public void a(h hVar) {
+        this.a = hVar;
     }
 }

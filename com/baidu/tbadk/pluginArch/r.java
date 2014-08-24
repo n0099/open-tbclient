@@ -80,7 +80,7 @@ public class r {
                         }
                         break;
                     case 3:
-                        if ("Plugin".equals(newPullParser.getName()) && qVar != null && qVar.a != null) {
+                        if ("Plugin".equals(newPullParser.getName()) && qVar != null && qVar.a != null && !"hao123".equalsIgnoreCase(qVar.a)) {
                             this.b.put(qVar.a, qVar);
                             break;
                         }

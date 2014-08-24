@@ -9,7 +9,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.az;
@@ -129,7 +128,6 @@ public class r extends BdAsyncTask<String, Integer, be> {
         Handler handler2;
         Runnable runnable2;
         be beVar2;
-        Hao123Plugin hao123Plugin;
         int x;
         be beVar3;
         be beVar4;
@@ -181,13 +179,6 @@ public class r extends BdAsyncTask<String, Integer, be> {
             if (a > 0 && nextInt % a == 0 && (x = ai.c().x()) < 10) {
                 ai.c().d(x + 1);
                 com.baidu.tieba.util.r.a(this.b);
-            }
-            if (!TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
-                TbadkApplication.m252getInst().setTiebaHelperOpen(false);
-                com.baidu.tbadk.pluginArch.c a2 = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-                if (a2 != null && (hao123Plugin = (Hao123Plugin) a2.a(Hao123Plugin.class)) != null) {
-                    hao123Plugin.closeFloating(this.b);
-                }
             }
             this.b.stopSelf();
             return;

@@ -1188,7 +1188,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public boolean isTiebaHelperOpen() {
-        return h.a().a("tieba_helper_open", false);
+        return false;
     }
 
     public void setTiebaHelperOpen(boolean z) {
@@ -1619,10 +1619,6 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public boolean isHao123HelperShouldOpen() {
-        String str = Build.MANUFACTURER;
-        if ((TextUtils.isEmpty(str) || !(str.equalsIgnoreCase("Xiaomi") || str.equalsIgnoreCase("alps"))) && Build.VERSION.SDK_INT >= 9) {
-            return h.a().a(new StringBuilder("hao123_helper_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.a.f.a().b("switch_hao123_helper") != 1;
-        }
         return false;
     }
 

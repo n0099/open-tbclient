@@ -17,14 +17,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.ResponseLocationJsonHttpMessage;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.plugins.PluginCenterActivity;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
     private ay a = null;
     private av b = null;
-    private boolean c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -119,8 +117,6 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        Hao123Plugin hao123Plugin;
-        Hao123Plugin hao123Plugin2;
         if (view != null) {
             if (view.equals(this.a.d())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
@@ -138,25 +134,8 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                 }
                 sendMessage(httpMessage);
                 showProgressBar();
-            } else if (view.equals(this.a.b())) {
-                if (BdSwitchView.SwitchState.ON == switchState) {
-                    TbadkApplication.m252getInst().setTiebaHelperOpen(true);
-                    com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-                    if (a != null && (hao123Plugin2 = (Hao123Plugin) a.a(Hao123Plugin.class)) != null) {
-                        hao123Plugin2.openFloating(this);
-                    }
-                    if (TbadkApplication.isLogin() && !this.c) {
-                        this.c = true;
-                        new com.baidu.tieba.model.n().a(true);
-                    }
-                    com.baidu.tbadk.core.f.a(this, "tb_zs_setting");
-                    return;
-                }
-                TbadkApplication.m252getInst().setTiebaHelperOpen(false);
-                com.baidu.tbadk.pluginArch.c a2 = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-                if (a2 != null && (hao123Plugin = (Hao123Plugin) a2.a(Hao123Plugin.class)) != null) {
-                    hao123Plugin.closeFloating(this);
-                }
+            } else {
+                view.equals(this.a.b());
             }
         }
     }

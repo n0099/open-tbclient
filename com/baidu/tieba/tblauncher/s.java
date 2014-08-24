@@ -1,7 +1,8 @@
 package com.baidu.tieba.tblauncher;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.core.view.m {
+class s implements DialogInterface.OnClickListener {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +10,8 @@ public class s implements com.baidu.tbadk.core.view.m {
         this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public void a() {
-        this.a.o();
-    }
-
-    @Override // com.baidu.tbadk.core.view.m
-    public void b() {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.core.b.b.a(this.a, 12, false);
     }
 }

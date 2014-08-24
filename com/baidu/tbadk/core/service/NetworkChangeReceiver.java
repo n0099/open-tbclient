@@ -7,9 +7,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetUtil;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.pluginArch.d;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class NetworkChangeReceiver extends BroadcastReceiver {
@@ -45,6 +48,9 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             } else if (this.NETWORK_STATUS != 0) {
                 this.NETWORK_STATUS = 0;
                 MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(0));
+            }
+            if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && BdNetUtil.getNetType() != BdNetUtil.NetTpyeEnum.UNAVAIL && TbadkApplication.m252getInst().isMainProcess(false) && d.a().d() == null) {
+                d.a().c();
             }
             CompatibleUtile.dealWebView();
         } catch (Throwable th) {

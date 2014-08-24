@@ -15,7 +15,6 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.ae;
 import com.baidu.tieba.data.z;
@@ -38,7 +37,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface == this.b.t() || dialogInterface == this.b.u()) {
+        if (dialogInterface == this.b.r() || dialogInterface == this.b.s()) {
             switch (i) {
                 case 0:
                     if (this.e != null) {
@@ -67,7 +66,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     private void f() {
         if (this.e != null) {
             if (this.e.e() == 1) {
-                this.b.s();
+                this.b.q();
             } else if (this.c == null) {
                 this.c = new k(this, this.e);
                 this.c.execute(new z[0]);
@@ -102,7 +101,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.b = new p(this.h, this, this.k);
         this.b.a(this.l);
         this.b.a(new j(this));
-        this.b.f().setOnClickListener(this);
+        this.b.d().setOnClickListener(this);
     }
 
     private void a(Bundle bundle) {
@@ -120,7 +119,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.b.k();
+        this.b.i();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -137,7 +136,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.ba(getActivity(), com.baidu.tbadk.core.atomData.ba.c)));
             getActivity().finish();
         }
-        this.b.j();
+        this.b.h();
         a(false);
     }
 
@@ -149,10 +148,9 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
-        Hao123Plugin hao123Plugin;
         if (view.getId() == com.baidu.tieba.u.search_bg_layout) {
             a(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.h)));
-        } else if (view.getId() == this.b.m() || view.getId() == this.b.n()) {
+        } else if (view.getId() == this.b.k() || view.getId() == this.b.l()) {
             z zVar = view.getTag() instanceof z ? (z) view.getTag() : null;
             if (zVar != null) {
                 String b = zVar.b();
@@ -161,7 +159,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                     a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(this.h).a(b, "tb_forumlist")));
                 }
             }
-        } else if (view.getId() == this.b.o() || view.getId() == this.b.p()) {
+        } else if (view.getId() == this.b.m() || view.getId() == this.b.n()) {
             ae aeVar = view.getTag() instanceof ae ? (ae) view.getTag() : null;
             if (aeVar != null) {
                 String a = aeVar.a();
@@ -172,24 +170,14 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         } else if (view.getId() == com.baidu.tieba.u.square_all_cat) {
             TiebaStatic.eventStat(this.h, "enter_icon_category", "click", 1, new Object[0]);
             BarFolderFirstDirActivity.a(this.h, "enter_icon_category");
-        } else if (view == this.b.f()) {
+        } else if (view == this.b.d()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.h)));
-        } else if (view == this.b.c()) {
-            this.b.w();
-        } else if (view == this.b.b()) {
-            TbadkApplication.m252getInst().setTiebaHelperOpen(true);
-            com.baidu.tbadk.pluginArch.c a2 = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-            if (a2 != null && (hao123Plugin = (Hao123Plugin) a2.a(Hao123Plugin.class)) != null) {
-                hao123Plugin.openFloating(this.h);
-            }
-            this.b.w();
-            com.baidu.tbadk.core.f.a(this.h, "tb_zs_entering");
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.b.m() || view.getId() == this.b.n()) {
+        if (view.getId() == this.b.k() || view.getId() == this.b.l()) {
             this.e = null;
             z zVar = view.getTag() instanceof z ? (z) view.getTag() : null;
             if (zVar != null) {
@@ -198,9 +186,9 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                 int e = zVar.e();
                 if (ba.b(b)) {
                     if (e == 1) {
-                        this.b.q();
+                        this.b.o();
                     } else {
-                        this.b.r();
+                        this.b.p();
                     }
                 }
             }
@@ -268,7 +256,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                 if (currentAccount != null && currentAccount.length() > 0) {
                     com.baidu.tieba.util.k.b(currentAccount);
                 }
-                this.b.i();
+                this.b.g();
             }
             if (z2 || z4) {
                 a();

@@ -24,7 +24,6 @@ import com.baidu.tbadk.core.util.NetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.data.BannerData;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.PersonChangeData;
@@ -109,7 +108,6 @@ public class ai {
 
     private void R() {
         com.baidu.tbadk.pluginArch.d.a(TbadkApplication.m252getInst());
-        com.baidu.tbadk.pluginArch.d.a().a("hao123", (com.baidu.tbadk.pluginArch.b) null);
         com.baidu.tbadk.pluginArch.d.a().a("baobao", (com.baidu.tbadk.pluginArch.b) null);
         com.baidu.tbadk.pluginArch.d.a().a("BdSocialShareSdk", (com.baidu.tbadk.pluginArch.b) null);
         com.baidu.tbadk.pluginArch.d.a().a("dqsdk", (com.baidu.tbadk.pluginArch.b) null);
@@ -124,7 +122,6 @@ public class ai {
     }
 
     public void a(Application application) {
-        Hao123Plugin hao123Plugin;
         if (application != null) {
             ah.a();
             S();
@@ -183,17 +180,6 @@ public class ai {
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 TbadkApplication.m252getInst().sendMessageForEnterBackground();
                 g();
-            }
-            if (TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
-                try {
-                    com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("hao123");
-                    if (a != null && (hao123Plugin = (Hao123Plugin) a.a(Hao123Plugin.class)) != null) {
-                        hao123Plugin.init();
-                        hao123Plugin.openFloating(application);
-                    }
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
             }
         }
     }

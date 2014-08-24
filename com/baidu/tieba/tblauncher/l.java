@@ -3,16 +3,15 @@ package com.baidu.tieba.tblauncher;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.at;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class l implements CustomMessageTask.CustomRunnable<at> {
+class l implements CustomMessageTask.CustomRunnable<Void> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<at> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MainTabActivity.class);
-            customMessage.getData().startActivity();
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return null;
+        TbadkApplication.m252getInst().setFriendFeedNew(true);
+        return new CustomResponsedMessage<>(2012118);
     }
 }
