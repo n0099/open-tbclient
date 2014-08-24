@@ -1,24 +1,45 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity a;
+public class ac extends BroadcastReceiver {
+    final /* synthetic */ MainTabActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.a = mainTabActivity;
+    private ac(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.N = 0;
-        this.a.R = false;
-        this.a.a(false);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(MainTabActivity mainTabActivity, ac acVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
+            refreshNewVersion();
+        }
+    }
+
+    private void refreshNewVersion() {
+        boolean z;
+        boolean checkNeedShowNewVersion = TbadkApplication.checkNeedShowNewVersion();
+        if (checkNeedShowNewVersion) {
+            z = this.this$0.P;
+            if (!z) {
+                this.this$0.Q = true;
+            }
+        }
+        if (checkNeedShowNewVersion) {
+            this.this$0.P = true;
+        } else {
+            this.this$0.P = false;
+        }
+        this.this$0.a(false);
     }
 }

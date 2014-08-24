@@ -3,8 +3,9 @@ package com.baidu.tieba.im.live.room;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bl implements View.OnTouchListener {
+public class bl implements View.OnTouchListener {
     final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

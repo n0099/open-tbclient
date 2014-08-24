@@ -96,20 +96,12 @@ public class p extends com.baidu.adp.base.f {
         this.d.e();
     }
 
-    public Button b() {
-        return this.p;
-    }
-
-    public Button c() {
-        return this.q;
-    }
-
-    public void d() {
+    public void b() {
         this.d.d();
     }
 
     public void a(com.baidu.tieba.data.o oVar) {
-        d();
+        b();
         if (oVar != null) {
             try {
                 this.e.a(oVar);
@@ -133,25 +125,25 @@ public class p extends com.baidu.adp.base.f {
         }
     }
 
-    public boolean e() {
+    public boolean c() {
         return com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_enter_forum_guide_cover", false);
     }
 
-    public ViewGroup f() {
+    public ViewGroup d() {
         return this.j;
     }
 
-    public void g() {
+    public void e() {
         com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_enter_forum_guide_cover", true);
     }
 
-    public void h() {
-        if (e()) {
+    public void f() {
+        if (c()) {
             this.n = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.enter_forum_interest_guide, null);
             FrameLayout frameLayout = (FrameLayout) this.b.findViewById(16908290);
             this.n.setOnClickListener(new q(this, frameLayout));
             frameLayout.addView(this.n);
-            g();
+            e();
         }
     }
 
@@ -161,21 +153,21 @@ public class p extends com.baidu.adp.base.f {
         }
     }
 
-    public void i() {
+    public void g() {
         this.e.notifyDataSetChanged();
     }
 
-    public void j() {
+    public void h() {
         NetworkInfo activeNetworkInfo;
         if (this.m != null && this.m.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.b.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
             this.m.a(false);
         }
     }
 
-    public void k() {
+    public void i() {
     }
 
-    public void l() {
+    public void j() {
         if (this.m != null) {
             this.m.a(true);
         }
@@ -201,31 +193,31 @@ public class p extends com.baidu.adp.base.f {
         this.l.a(i);
     }
 
-    public int m() {
+    public int k() {
         return com.baidu.tieba.u.item_left;
     }
 
-    public int n() {
+    public int l() {
         return com.baidu.tieba.u.item_right;
     }
 
-    public int o() {
+    public int m() {
         return com.baidu.tieba.u.recommend_item_left;
     }
 
-    public int p() {
+    public int n() {
         return com.baidu.tieba.u.recommend_item_right;
     }
 
-    public void q() {
+    public void o() {
         com.baidu.adp.lib.e.e.a(this.g, this.b);
     }
 
-    public void r() {
+    public void p() {
         com.baidu.adp.lib.e.e.a(this.h, this.b);
     }
 
-    public void s() {
+    public void q() {
         if (this.f == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.b.getParent());
             builder.setTitle(x.alert_title);
@@ -238,27 +230,15 @@ public class p extends com.baidu.adp.base.f {
         com.baidu.adp.lib.e.e.a(this.f, this.b);
     }
 
-    public AlertDialog t() {
+    public AlertDialog r() {
         return this.g;
     }
 
-    public AlertDialog u() {
+    public AlertDialog s() {
         return this.h;
     }
 
     public void a(com.baidu.adp.widget.ListView.d dVar) {
         this.l.a(dVar);
-    }
-
-    public void v() {
-        if (this.o != null) {
-            this.o.setVisibility(0);
-        }
-    }
-
-    public void w() {
-        if (this.o != null) {
-            this.o.setVisibility(8);
-        }
     }
 }

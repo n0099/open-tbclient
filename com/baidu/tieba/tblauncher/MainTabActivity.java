@@ -37,7 +37,7 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class MainTabActivity extends BaseFragmentActivity implements i {
+public class MainTabActivity extends BaseFragmentActivity implements h {
     public static boolean d = true;
     private static boolean h = false;
     private static int i = -1;
@@ -70,7 +70,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
     private TextView A = null;
     private TextView B = null;
     private TextView C = null;
-    private ad J = null;
+    private ac J = null;
     private int N = 0;
     private int O = 0;
     private boolean P = false;
@@ -78,37 +78,37 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
     private boolean R = false;
     private boolean S = false;
     private Handler T = null;
-    final Runnable e = new j(this);
-    final CustomMessageListener f = new w(this, 2001124);
-    final CustomMessageListener g = new x(this, 2007002);
-    private final CustomMessageListener U = new y(this, 2007006);
-    private final CustomMessageListener V = new z(this, 2012112);
-    private final CustomMessageListener W = new aa(this, 2007005);
-    private final Runnable X = new ab(this);
-    private final CustomMessageListener Y = new ac(this, 2001158);
-    private final CustomMessageListener Z = new k(this, 2001124);
+    final Runnable e = new i(this);
+    final CustomMessageListener f = new v(this, 2001124);
+    final CustomMessageListener g = new w(this, 2007002);
+    private final CustomMessageListener U = new x(this, 2007006);
+    private final CustomMessageListener V = new y(this, 2012112);
+    private final CustomMessageListener W = new z(this, 2007005);
+    private final Runnable X = new aa(this);
+    private final CustomMessageListener Y = new ab(this, 2001158);
+    private final CustomMessageListener Z = new j(this, 2001124);
 
     static {
         l();
         n();
         m();
-        MessageManager.getInstance().registerListener(new u(2002004));
+        MessageManager.getInstance().registerListener(new t(2002004));
     }
 
     private static void l() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2015001, new l());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015001, new k());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     private static void m() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new m());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new l());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     private static void n() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new n());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new m());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -167,9 +167,9 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         this.M = TbadkApplication.m252getInst().isFirstGoMaintab();
         this.I = this;
         this.T = new Handler();
-        ae aeVar = new ae();
-        com.baidu.tbadk.core.b.b.a(aeVar);
-        aeVar.a((i) this.I);
+        ad adVar = new ad();
+        com.baidu.tbadk.core.b.b.a(adVar);
+        adVar.a((h) this.I);
         if (j()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
@@ -206,7 +206,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
     public void h() {
         com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
         gVar.a(this.o).a(0).b(false);
-        gVar.a(new o(this));
+        gVar.a(new n(this));
         gVar.a().a(this.I);
     }
 
@@ -217,10 +217,10 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             this.o.a(this.I.getResources().getString(com.baidu.tieba.x.app_name));
             View a = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.nb_item_maintab_message, (View.OnClickListener) null);
             this.D = a.findViewById(com.baidu.tieba.u.maintab_message_button);
-            this.D.setOnClickListener(new p(this));
+            this.D.setOnClickListener(new o(this));
             this.E = (TextView) a.findViewById(com.baidu.tieba.u.maintab_message_text);
             this.F = (ImageView) this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_search, (View.OnClickListener) null);
-            this.F.setOnClickListener(new q(this));
+            this.F.setOnClickListener(new p(this));
             this.G = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.more_with_red_tag, this);
             this.H = (ImageView) this.G.findViewById(com.baidu.tieba.u.more_with_red_tag_msg);
             View a2 = com.baidu.adp.lib.e.b.a().a(this.I, com.baidu.tieba.v.main_tab_more_pop_window, null);
@@ -234,7 +234,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             this.w = a2.findViewById(com.baidu.tieba.u.more_pop_item_history);
             this.w.setOnClickListener(this);
             this.x = a2.findViewById(com.baidu.tieba.u.more_pop_item_mylive);
-            this.x.setOnClickListener(new r(this));
+            this.x.setOnClickListener(new q(this));
             this.y = a2.findViewById(com.baidu.tieba.u.more_pop_item_setting);
             this.y.setOnClickListener(this);
             this.z = (ImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_setting_msg);
@@ -244,7 +244,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
             this.B.setOnClickListener(this);
             this.C = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_exitapp);
             this.C.setOnClickListener(this);
-            this.p = new com.baidu.tbadk.core.view.n(this.I, a2, this.o, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new s(this));
+            this.p = new com.baidu.tbadk.core.view.n(this.I, a2, this.o, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new r(this));
         }
     }
 
@@ -310,8 +310,8 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(com.baidu.tieba.x.del_post_tip);
         builder.setMessage(com.baidu.tieba.x.exit_tip);
-        builder.setPositiveButton(com.baidu.tieba.x.alert_yes_button, new t(this));
-        builder.setNegativeButton(com.baidu.tieba.x.alert_no_button, new v(this));
+        builder.setPositiveButton(com.baidu.tieba.x.alert_yes_button, new s(this));
+        builder.setNegativeButton(com.baidu.tieba.x.alert_no_button, new u(this));
         return builder.create();
     }
 
@@ -412,7 +412,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         a(this.W);
         a(this.U);
         a(this.V);
-        this.J = new ad(this, null);
+        this.J = new ac(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
         registerReceiver(this.J, intentFilter);
@@ -615,7 +615,7 @@ public class MainTabActivity extends BaseFragmentActivity implements i {
         }
     }
 
-    @Override // com.baidu.tieba.tblauncher.i
+    @Override // com.baidu.tieba.tblauncher.h
     public int a() {
         if (this.n != null) {
             return this.n.getCurrentTabType();
