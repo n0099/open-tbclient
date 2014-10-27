@@ -4,31 +4,32 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
 import com.baidu.tbadk.data.SearchFriendResult;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class e extends HttpMessageListener {
-    final /* synthetic */ SearchFriendActivity a;
+    final /* synthetic */ SearchFriendActivity bhL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.a = searchFriendActivity;
+        this.bhL = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
+    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         h hVar;
         h hVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
-            hVar = this.a.a;
-            hVar.a(true);
+            hVar = this.bhL.bhD;
+            hVar.ds(true);
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (httpResponsedMessage instanceof ResponseSearchFriendMessage) {
@@ -36,17 +37,17 @@ class e extends HttpMessageListener {
                 if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                     List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                     if (userInfo.size() > 0) {
-                        hVar2 = this.a.a;
-                        hVar2.a((String) null);
+                        hVar2 = this.bhL.bhD;
+                        hVar2.gC(null);
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
-                        this.a.sendMessage(new CustomMessage(2002003, new bh(this.a, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, "search")));
+                        this.bhL.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bhL, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
                         return;
                     }
-                    this.a.showToast(this.a.getString(x.neterror));
+                    this.bhL.showToast(this.bhL.getString(y.neterror));
                 } else if (TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
-                    this.a.showToast(this.a.getString(x.neterror));
+                    this.bhL.showToast(this.bhL.getString(y.neterror));
                 } else {
-                    this.a.showToast(httpResponsedMessage.getErrorString());
+                    this.bhL.showToast(httpResponsedMessage.getErrorString());
                 }
             }
         }

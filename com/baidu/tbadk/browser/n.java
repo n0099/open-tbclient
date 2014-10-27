@@ -1,46 +1,31 @@
 package com.baidu.tbadk.browser;
 
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 /* loaded from: classes.dex */
-public class n implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ TbWebViewActivity a;
+class n implements View.OnClickListener {
+    final /* synthetic */ m xB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
+    public n(m mVar) {
+        this.xB = mVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.v.tb_webview_pop_install_plugin, (ViewGroup) null);
-        if (inflate != null) {
-            inflate.findViewById(com.baidu.tieba.u.install).setOnClickListener(new o(this));
-            inflate.findViewById(com.baidu.tieba.u.btn_close);
-            inflate.setOnClickListener(new p(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbWebViewActivity tbWebViewActivity;
+        TbWebViewActivity tbWebViewActivity2;
+        try {
+            tbWebViewActivity = this.xB.xA;
+            Intent intent = new Intent(tbWebViewActivity, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
+            intent.putExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG, PluginCenter.getInstance().getNetConfigInfo(PluginNameList.NAME_BROWSER));
+            tbWebViewActivity2 = this.xB.xA;
+            tbWebViewActivity2.startActivityForResult(intent, 1);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return inflate;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
     }
 }

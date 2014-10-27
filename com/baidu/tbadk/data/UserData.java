@@ -1,8 +1,18 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tieba.im.model.GroupLevelModel;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.GiftInfo;
+import tbclient.LikeForumInfo;
+import tbclient.MyGroupInfo;
+import tbclient.PrivSets;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
@@ -11,6 +21,7 @@ public class UserData extends MetaData {
     private int bimg_end_time;
     private String bimg_url;
     private int concern_num;
+    private String grade;
     private int have_attention;
     private long inTime;
     private String intro;
@@ -25,22 +36,58 @@ public class UserData extends MetaData {
     private String lng;
     private long loginTime;
     private int mFansNum;
+    private List<MyGift> mGift;
+    private int mGiftNum;
+    private List<MyGroup> mGroup;
+    private List<MyLikeForum> mLikeForum;
     private int managerLevel;
     private String password;
     private Permission permission;
-    private b personPrivate;
+    private c personPrivate;
     private String position;
     private int posts_num;
     private int sex;
     private String tb_age;
     private int userType;
 
-    public b getPersonPrivate() {
+    public c getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(b bVar) {
-        this.personPrivate = bVar;
+    public void setPersonPrivate(c cVar) {
+        this.personPrivate = cVar;
+    }
+
+    public List<MyLikeForum> getLikeForum() {
+        return this.mLikeForum;
+    }
+
+    public void setLikeForum(List<MyLikeForum> list) {
+        this.mLikeForum = list;
+    }
+
+    public List<MyGroup> getGroup() {
+        return this.mGroup;
+    }
+
+    public void setGroup(List<MyGroup> list) {
+        this.mGroup = list;
+    }
+
+    public List<MyGift> getGift() {
+        return this.mGift;
+    }
+
+    public void setGift(List<MyGift> list) {
+        this.mGift = list;
+    }
+
+    public void setGiftNum(int i) {
+        this.mGiftNum = i;
+    }
+
+    public int getGiftNum() {
+        return this.mGiftNum;
     }
 
     public String getTb_age() {
@@ -67,10 +114,21 @@ public class UserData extends MetaData {
         this.isFriend = i;
     }
 
+    public String getGrade() {
+        return this.grade;
+    }
+
+    public void setGrade(String str) {
+        this.grade = str;
+    }
+
     public UserData() {
         this.password = null;
         this.isManager = false;
         this.isMask = false;
+        this.mLikeForum = new ArrayList();
+        this.mGroup = new ArrayList();
+        this.mGift = new ArrayList();
         this.ip = null;
         this.BDUSS = null;
         this.concern_num = 0;
@@ -86,6 +144,9 @@ public class UserData extends MetaData {
         this.password = null;
         this.isManager = false;
         this.isMask = false;
+        this.mLikeForum = new ArrayList();
+        this.mGroup = new ArrayList();
+        this.mGift = new ArrayList();
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -134,6 +195,45 @@ public class UserData extends MetaData {
             }
             this.bimg_url = user.bimg_url;
             this.bimg_end_time = user.bimg_end_time.intValue();
+            this.isFriend = user.is_friend.intValue();
+            PrivSets privSets = user.priv_sets;
+            if (privSets != null) {
+                this.personPrivate = new c();
+                this.personPrivate.a(privSets);
+            }
+            if (user.is_mask.intValue() == 1) {
+                this.isMask = true;
+            } else {
+                this.isMask = false;
+            }
+            this.mGiftNum = user.gift_num.intValue();
+            this.mLikeForum.clear();
+            List<LikeForumInfo> list = user.likeForum;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    MyLikeForum myLikeForum = new MyLikeForum();
+                    myLikeForum.parserProtobuf(list.get(i));
+                    this.mLikeForum.add(myLikeForum);
+                }
+            }
+            this.mGroup.clear();
+            List<MyGroupInfo> list2 = user.groupList;
+            if (list2 != null) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    MyGroup myGroup = new MyGroup();
+                    myGroup.parserProtobuf(list2.get(i2));
+                    this.mGroup.add(myGroup);
+                }
+            }
+            this.mGift.clear();
+            List<GiftInfo> list3 = user.gift_list;
+            if (list3 != null) {
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    MyGift myGift = new MyGift();
+                    myGift.parserProtobuf(list3.get(i3));
+                    this.mGift.add(myGift);
+                }
+            }
         }
     }
 
@@ -160,7 +260,10 @@ public class UserData extends MetaData {
                 this.BDUSS = jSONObject.optString("BDUSS");
                 this.concern_num = jSONObject.optInt("concern_num");
                 this.mFansNum = jSONObject.optInt("fans_num");
-                this.sex = jSONObject.optInt("sex", 1);
+                this.sex = jSONObject.optInt(MyGiftListActivityConfig.USER_SEX, 1);
+                if (this.sex != 1 && this.sex != 2) {
+                    this.sex = 1;
+                }
                 this.like_bars = jSONObject.optInt("my_like_num");
                 this.intro = jSONObject.optString("intro");
                 this.isFriend = jSONObject.optInt("is_friend");
@@ -175,16 +278,50 @@ public class UserData extends MetaData {
                 }
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
-                this.is_mem = jSONObject.optInt("is_mem");
+                this.is_mem = jSONObject.optInt(GroupLevelModel.IS_MEM);
+                this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject != null) {
-                    this.personPrivate = new b();
-                    this.personPrivate.a(optJSONObject);
+                    this.personPrivate = new c();
+                    this.personPrivate.parserJson(optJSONObject);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
                     this.isMask = true;
                 } else {
                     this.isMask = false;
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("likeForum");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                        if (optJSONObject2 != null) {
+                            MyLikeForum myLikeForum = new MyLikeForum();
+                            myLikeForum.parseJson(optJSONObject2);
+                            this.mLikeForum.add(myLikeForum);
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("groupList");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject3 != null) {
+                            MyGroup myGroup = new MyGroup();
+                            myGroup.parseJson(optJSONObject3);
+                            this.mGroup.add(myGroup);
+                        }
+                    }
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("gift_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i3);
+                        if (optJSONObject4 != null) {
+                            MyGift myGift = new MyGift();
+                            myGift.parseJson(optJSONObject4);
+                            this.mGift.add(myGift);
+                        }
+                    }
                 }
             }
         } catch (Exception e) {
@@ -342,7 +479,7 @@ public class UserData extends MetaData {
     }
 
     /* loaded from: classes.dex */
-    public class Permission implements Serializable {
+    public class Permission extends i implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

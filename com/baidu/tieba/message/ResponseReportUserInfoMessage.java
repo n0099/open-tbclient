@@ -6,6 +6,7 @@ import org.json.JSONObject;
 public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     private int errorCode;
     private String errorMsg;
+    private int timeInterval;
 
     public ResponseReportUserInfoMessage(int i) {
         super(i);
@@ -32,6 +33,15 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
         if (getStatusCode() == 200 && jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
             this.errorMsg = jSONObject.optString("error_msg");
+            this.timeInterval = jSONObject.optInt("time_interval", 0);
         }
+    }
+
+    public int getTimeInterval() {
+        return this.timeInterval;
+    }
+
+    public void setTimeInterval(int i) {
+        this.timeInterval = i;
     }
 }

@@ -5,59 +5,63 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.core.util.d;
 import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.x;
+import com.baidu.tbadk.util.k;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, Boolean> {
-    int a;
-    Uri b;
-    String c = null;
-    final /* synthetic */ TiebaPrepareImageService d;
+    final /* synthetic */ TiebaPrepareImageService BZ;
+    String Ca = null;
+    String mFileName;
+    int mRequestCode;
+    Uri mUri;
 
-    public b(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
-        this.d = tiebaPrepareImageService;
-        this.a = 0;
-        this.b = null;
-        this.a = i;
-        this.b = uri;
+    public b(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri, String str) {
+        this.BZ = tiebaPrepareImageService;
+        this.mRequestCode = 0;
+        this.mUri = null;
+        this.mFileName = null;
+        this.mRequestCode = i;
+        this.mUri = uri;
+        this.mFileName = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: e */
     public Boolean doInBackground(Object... objArr) {
         int i;
         int i2;
         boolean z = true;
         TiebaPrepareImageService.IS_DECODING = true;
         try {
-            int i3 = this.a;
-            TiebaPrepareImageService tiebaPrepareImageService = this.d;
-            Uri uri = this.b;
-            i = this.d.mMaxSize;
-            Bitmap a = h.a(i3, tiebaPrepareImageService, uri, i);
+            int i3 = this.mRequestCode;
+            TiebaPrepareImageService tiebaPrepareImageService = this.BZ;
+            Uri uri = this.mUri;
+            String str = this.mFileName;
+            i = this.BZ.mMaxSize;
+            Bitmap a = k.a(i3, tiebaPrepareImageService, uri, str, i);
             if (a != null) {
                 if (s.a((String) null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                     int i4 = 100;
-                    i2 = this.d.mDisplaySize;
+                    i2 = this.BZ.mDisplaySize;
                     if (i2 > 0) {
-                        i4 = this.d.mDisplaySize;
+                        i4 = this.BZ.mDisplaySize;
                     }
                     Bitmap a2 = d.a(a, i4);
                     if (a2 == null || s.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) == null) {
-                        this.c = this.d.getString(x.error_sd_error);
+                        this.Ca = this.BZ.getString(y.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.c = this.d.getString(x.error_sd_error);
+                    this.Ca = this.BZ.getString(y.error_sd_error);
                     z = false;
                 }
             } else {
-                this.c = this.d.getString(x.pic_parser_error);
+                this.Ca = this.BZ.getString(y.pic_parser_error);
                 z = false;
             }
             TiebaPrepareImageService.IS_DECODING = false;
@@ -73,21 +77,21 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.d.mTask = null;
+        this.BZ.mTask = null;
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
         intent.putExtra("result", bool);
-        if (this.c != null) {
-            intent.putExtra("error", this.c);
+        if (this.Ca != null) {
+            intent.putExtra("error", this.Ca);
         }
-        this.d.sendBroadcast(intent);
+        this.BZ.sendBroadcast(intent);
     }
 }

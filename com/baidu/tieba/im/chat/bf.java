@@ -1,32 +1,33 @@
 package com.baidu.tieba.im.chat;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.im.model.ReportGroupModel;
 /* loaded from: classes.dex */
 class bf implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+    final /* synthetic */ GroupSettingActivity aOo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+        this.aOo = groupSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.ax axVar;
-        com.baidu.tieba.im.model.ax axVar2;
+        ReportGroupModel reportGroupModel;
+        ReportGroupModel reportGroupModel2;
         bm bmVar;
-        com.baidu.tieba.im.model.ax axVar3;
-        com.baidu.tieba.im.model.ax axVar4;
-        axVar = this.a.d;
-        if (axVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.ax(this.a);
+        ReportGroupModel reportGroupModel3;
+        ReportGroupModel reportGroupModel4;
+        reportGroupModel = this.aOo.aOk;
+        if (reportGroupModel == null) {
+            this.aOo.aOk = new ReportGroupModel(this.aOo);
         }
-        axVar2 = this.a.d;
-        bmVar = this.a.b;
-        axVar2.a(Integer.parseInt(bmVar.b()));
-        axVar3 = this.a.d;
-        axVar3.b(i);
-        axVar4 = this.a.d;
-        axVar4.a();
+        reportGroupModel2 = this.aOo.aOk;
+        bmVar = this.aOo.aOi;
+        reportGroupModel2.setGroupId(Integer.parseInt(bmVar.getGroupId()));
+        reportGroupModel3 = this.aOo.aOk;
+        reportGroupModel3.setReportType(i);
+        reportGroupModel4 = this.aOo.aOk;
+        reportGroupModel4.sendMessage();
     }
 }

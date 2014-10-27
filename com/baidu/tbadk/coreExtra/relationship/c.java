@@ -14,29 +14,29 @@ public class c implements Comparator<b> {
         if (bVar2 == null) {
             return 1;
         }
-        String f = bVar.f();
-        String f2 = bVar2.f();
-        if (!TextUtils.isEmpty(f) && !TextUtils.isEmpty(f2) && !f.equals(f2)) {
-            if ("#".equals(f)) {
+        String pA = bVar.pA();
+        String pA2 = bVar2.pA();
+        if (!TextUtils.isEmpty(pA) && !TextUtils.isEmpty(pA2) && !pA.equals(pA2)) {
+            if ("#".equals(pA)) {
                 return 1;
             }
-            if ("#".equals(f2)) {
+            if ("#".equals(pA2)) {
                 return -1;
             }
-            return f.compareToIgnoreCase(f2);
+            return pA.compareToIgnoreCase(pA2);
         }
-        String b = bVar.b();
-        String b2 = bVar2.b();
-        if (TextUtils.isEmpty(b)) {
+        String userName = bVar.getUserName();
+        String userName2 = bVar2.getUserName();
+        if (TextUtils.isEmpty(userName)) {
             return -1;
         }
-        if (TextUtils.isEmpty(b2)) {
+        if (TextUtils.isEmpty(userName2)) {
             return 1;
         }
-        String e = bVar.e();
-        String e2 = bVar2.e();
-        if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(e2)) {
-            return e.compareToIgnoreCase(e2);
+        String quanpin = bVar.getQuanpin();
+        String quanpin2 = bVar2.getQuanpin();
+        if (!TextUtils.isEmpty(quanpin) && !TextUtils.isEmpty(quanpin2)) {
+            return quanpin.compareToIgnoreCase(quanpin2);
         }
         return 0;
     }

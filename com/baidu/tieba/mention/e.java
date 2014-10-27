@@ -1,14 +1,13 @@
 package com.baidu.tieba.mention;
 
 import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AbsListView.OnScrollListener {
-    final /* synthetic */ c a;
+class e implements AbsListView.OnScrollListener {
+    final /* synthetic */ c bnj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.a = cVar;
+        this.bnj = cVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

@@ -3,19 +3,19 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* loaded from: classes.dex */
 class al extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ak a;
-    private final /* synthetic */ CommonGroupChatMessage b;
+    private final /* synthetic */ CommonGroupChatMessage aNO;
+    final /* synthetic */ ak aNV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar, CommonGroupChatMessage commonGroupChatMessage) {
-        this.a = akVar;
-        this.b = commonGroupChatMessage;
+        this.aNV = akVar;
+        this.aNO = commonGroupChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.b.getGroupId(), String.valueOf(this.b.getRecordId()), String.valueOf(this.b.getMsgId()), 2));
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.Mw().c(this.aNO.getGroupId(), String.valueOf(this.aNO.getRecordId()), String.valueOf(this.aNO.getMsgId()), 2));
     }
 }

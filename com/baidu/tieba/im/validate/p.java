@@ -5,19 +5,19 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
-    private final /* synthetic */ int a;
-    private final /* synthetic */ int b;
+    private final /* synthetic */ int biZ;
+    private final /* synthetic */ int bja;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(int i, int i2) {
-        this.a = i;
-        this.b = i2;
+        this.biZ = i;
+        this.bja = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public LinkedList<GroupNewsPojo> a() {
-        return com.baidu.tieba.im.db.d.a().a(0L, this.a, this.b, "apply_join_group");
+    /* renamed from: Pi */
+    public LinkedList<GroupNewsPojo> doInBackground() {
+        return com.baidu.tieba.im.db.d.Mx().a(0L, this.biZ, this.bja, "apply_join_group");
     }
 }

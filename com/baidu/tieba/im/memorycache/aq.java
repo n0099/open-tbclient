@@ -10,29 +10,29 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements CustomMessageTask.CustomRunnable<Integer> {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.a = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        List<ImMessageCenterPojo> j;
+        List<ImMessageCenterPojo> PT;
         if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
             return null;
         }
         int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
         if (intValue == 3) {
-            j = c.b().i();
+            PT = c.PK().PS();
         } else if (intValue == 2) {
-            j = c.b().h();
+            PT = c.PK().PR();
         } else if (intValue == 1) {
-            j = c.b().f();
+            PT = c.PK().PP();
         } else {
-            j = intValue == 4 ? c.b().j() : null;
+            PT = intValue == 4 ? c.PK().PT() : null;
         }
-        return new ResponsedMemoryListMessage(j, intValue);
+        return new ResponsedMemoryListMessage(PT, intValue);
     }
 }

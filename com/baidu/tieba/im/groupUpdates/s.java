@@ -7,8 +7,8 @@ import java.util.LinkedList;
 public class s extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public LinkedList<GroupNewsPojo> a() {
-        return com.baidu.tieba.im.db.d.a().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+    /* renamed from: Pi */
+    public LinkedList<GroupNewsPojo> doInBackground() {
+        return com.baidu.tieba.im.db.d.Mx().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
     }
 }

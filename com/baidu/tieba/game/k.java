@@ -1,38 +1,46 @@
 package com.baidu.tieba.game;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.List;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<String, Integer, List<com.baidu.tbadk.game.b>> {
-    final /* synthetic */ j a;
-    private final /* synthetic */ List b;
-    private final /* synthetic */ List c;
+public class k extends FragmentPagerAdapter {
+    final /* synthetic */ GameCenterActivity aGO;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar, List list, List list2) {
-        this.a = jVar;
-        this.b = list;
-        this.c = list2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(GameCenterActivity gameCenterActivity, FragmentManager fragmentManager) {
+        super(fragmentManager);
+        this.aGO = gameCenterActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public List<com.baidu.tbadk.game.b> doInBackground(String... strArr) {
-        return ae.a().a(this.b);
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        ao aoVar;
+        ao aoVar2;
+        bi biVar;
+        bi biVar2;
+        if (i < 0 || i >= getCount()) {
+            return null;
+        }
+        if (i == 0) {
+            biVar = this.aGO.aGM;
+            if (biVar == null) {
+                this.aGO.aGM = new bi();
+            }
+            biVar2 = this.aGO.aGM;
+            return biVar2;
+        }
+        aoVar = this.aGO.aGN;
+        if (aoVar == null) {
+            this.aGO.aGN = new ao();
+        }
+        aoVar2 = this.aGO.aGN;
+        return aoVar2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(List<com.baidu.tbadk.game.b> list) {
-        GameCenterHomeActivity gameCenterHomeActivity;
-        n nVar;
-        gameCenterHomeActivity = this.a.a;
-        nVar = gameCenterHomeActivity.a;
-        nVar.b(this.c, this.b, list);
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return 2;
     }
 }

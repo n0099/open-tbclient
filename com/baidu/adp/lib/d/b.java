@@ -1,86 +1,44 @@
 package com.baidu.adp.lib.d;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.security.InvalidParameterException;
-import java.util.LinkedList;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b<T> {
-    private int a;
-    private int b;
-    private LinkedList<T> c;
-    private c<T> d;
+public class b implements LocationListener {
+    final /* synthetic */ a jY;
 
-    public b(c<T> cVar, int i, int i2) {
-        this.a = 10;
-        this.b = 0;
-        this.c = null;
-        this.d = null;
-        if (cVar == null || i <= 0 || i2 > i) {
-            throw new InvalidParameterException("invalid params");
-        }
-        this.d = cVar;
-        this.a = i;
-        this.b = i2;
-        this.c = new LinkedList<>();
-        a(this.b);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.jY = aVar;
     }
 
-    private void a(int i) {
-        T t;
-        synchronized (this) {
-            for (int i2 = 0; i2 < i; i2++) {
-                try {
-                    t = this.d.b(this.d.a());
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    t = null;
-                }
-                if (t != null) {
-                    this.c.offer(t);
-                }
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        f fVar;
+        f fVar2;
+        f fVar3;
+        if (location != null) {
+            fVar = this.jY.jU;
+            if (fVar == null) {
+                this.jY.jU = new f(this.jY, null);
+                fVar2 = this.jY.jU;
+                fVar2.setSelfExecute(true);
+                fVar3 = this.jY.jU;
+                fVar3.execute(location);
             }
         }
     }
 
-    public T a() {
-        T t = null;
-        synchronized (this) {
-            try {
-                if (this.c.size() > 0) {
-                    t = this.d.b(this.c.poll());
-                } else {
-                    t = this.d.b(this.d.a());
-                }
-                a(this.b - this.c.size());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        return t;
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
     }
 
-    public void a(T t) {
-        T t2;
-        synchronized (this) {
-            if (this.c.size() < this.a) {
-                try {
-                    t2 = this.d.c(t);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    t2 = null;
-                }
-                if (t2 != null) {
-                    this.c.offer(t2);
-                }
-            } else {
-                this.d.a(t);
-            }
-        }
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
     }
 
-    public void b() {
-        synchronized (this) {
-            this.c.clear();
-        }
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

@@ -1,25 +1,34 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ca extends CustomMessageListener {
-    final /* synthetic */ FrsImageActivity a;
+public class ca implements View.OnTouchListener {
+    final /* synthetic */ bu aDt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ca(FrsImageActivity frsImageActivity, int i) {
-        super(i);
-        this.a = frsImageActivity;
+    public ca(bu buVar) {
+        this.aDt = buVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view.getId() == com.baidu.tieba.v.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                imageView = this.aDt.aCz;
+                com.baidu.tbadk.core.util.aw.c(imageView, com.baidu.tieba.u.pic_fresh_n);
+            }
+            if (motionEvent.getAction() == 0) {
+                imageView2 = this.aDt.aCz;
+                com.baidu.tbadk.core.util.aw.c(imageView2, com.baidu.tieba.u.pic_fresh_s);
+                return false;
+            }
+            return false;
         }
-        this.a.a(customResponsedMessage);
+        return false;
     }
 }

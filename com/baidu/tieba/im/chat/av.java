@@ -7,18 +7,19 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
-    final /* synthetic */ w a;
-    private final /* synthetic */ bs b;
+    final /* synthetic */ w aNM;
+    private final /* synthetic */ bs aNY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(w wVar, bs bsVar) {
-        this.a = wVar;
-        this.b = bsVar;
+        this.aNM = wVar;
+        this.aNY = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedHashMap<String, String> linkedHashMap) {
+    /* renamed from: b */
+    public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
         LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
         if (linkedHashMap != null && linkedHashMap.size() > 0) {
             ArrayList arrayList = new ArrayList(linkedHashMap.size());
@@ -29,12 +30,12 @@ public class av implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 String str2 = (String) it.next();
-                String a = com.baidu.tieba.im.d.j.a(linkedHashMap.get(str2), true);
-                if (a != null) {
-                    linkedHashMap2.put(str2, a);
+                String v = com.baidu.tieba.im.util.i.v(linkedHashMap.get(str2), true);
+                if (v != null) {
+                    linkedHashMap2.put(str2, v);
                 }
             }
         }
-        this.b.a(linkedHashMap2);
+        this.aNY.a(linkedHashMap2);
     }
 }

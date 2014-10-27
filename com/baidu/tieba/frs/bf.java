@@ -1,29 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class bf implements com.baidu.tieba.view.d {
-    final /* synthetic */ bd a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.i b;
+public class bf {
+    private Activity aBF;
+    private Animation aBG;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(bd bdVar, com.baidu.tbadk.core.data.i iVar) {
-        this.a = bdVar;
-        this.b = iVar;
+    public bf(Activity activity) {
+        this.aBF = activity;
+        this.aBG = AnimationUtils.loadAnimation(this.aBF, com.baidu.tieba.p.frs_like);
     }
 
-    @Override // com.baidu.tieba.view.d
-    public void a(int i) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size()) {
-            frsActivity = this.a.b;
-            com.baidu.tbadk.core.f.a(frsActivity, "forum_live_ck");
-            MessageManager messageManager = MessageManager.getInstance();
-            frsActivity2 = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.am(frsActivity2, this.b.a().get(i).getGroupId())));
+    public void A(View view) {
+        if (!this.aBF.isFinishing()) {
+            View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.aBF, com.baidu.tieba.w.frs_like_cover, null);
+            Button button = (Button) inflate.findViewById(com.baidu.tieba.v.btn_love);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.tv_love);
+            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.frs_like_shadow));
+            com.baidu.tbadk.core.util.aw.h((View) button, com.baidu.tieba.u.frs_btn_like);
+            com.baidu.tbadk.core.util.aw.b(textView, com.baidu.tieba.s.frs_like_txt, 1);
+            button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
+            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+            gVar.q(false);
+            gVar.B(com.baidu.tieba.v.love).A(0).r(true);
+            gVar.a(new bg(this, inflate));
+            com.baidu.adp.lib.guide.d dA = gVar.dA();
+            dA.c(this.aBF);
+            com.baidu.tbadk.core.a.a(this.aBF, inflate, this.aBG, new bh(this, dA));
         }
     }
 }

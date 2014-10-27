@@ -1,8 +1,11 @@
 package com.baidu.sapi2.utils;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
@@ -11,16 +14,25 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.sapi2.SapiAccount;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 /* loaded from: classes.dex */
 public class SapiUtils {
-    public static final int a = 0;
-    public static final int b = 1;
-    public static final int c = 2;
-    public static final int d = 3;
+    public static final String KEY_QR_LOGIN_LP = "lp";
+    public static final String KEY_QR_LOGIN_SIGN = "sign";
+    public static final int NETWORK_OPERATOR_MOBILE = 1;
+    public static final int NETWORK_OPERATOR_TELECOM = 3;
+    public static final int NETWORK_OPERATOR_UNICOM = 2;
+    public static final int NETWORK_OPERATOR_UNKOWN = 0;
+    public static final String QR_LOGIN_LP_APP = "app";
+    public static final String QR_LOGIN_LP_PC = "pc";
+    static final String a = "cmd";
+    static final String b = "error";
 
     public static boolean isValidAccount(SapiAccount sapiAccount) {
         return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
@@ -108,7 +120,11 @@ public class SapiUtils {
         if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
             return false;
         }
-        return connectivityManager.getActiveNetworkInfo() != null;
+        try {
+            return connectivityManager.getActiveNetworkInfo() != null;
+        } catch (Throwable th) {
+            return false;
+        }
     }
 
     public static int readNetworkOperatorType(Context context) {
@@ -175,18 +191,22 @@ public class SapiUtils {
         }
     }
 
+    public static List<String> getAuthorizedDomains(Context context) {
+        return context == null ? Collections.emptyList() : com.baidu.sapi2.c.a(context).j().g();
+    }
+
     public static String getAppName(Context context) {
-        PackageManager packageManager = context.getPackageManager();
         try {
+            PackageManager packageManager = context.getPackageManager();
             return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-        } catch (Exception e) {
+        } catch (Throwable th) {
             return null;
         }
     }
 
     public static String getAppName(Context context, String str) {
-        PackageManager packageManager = context.getPackageManager();
         try {
+            PackageManager packageManager = context.getPackageManager();
             return packageManager.getPackageInfo(str, 0).applicationInfo.loadLabel(packageManager).toString();
         } catch (Exception e) {
             return null;
@@ -214,5 +234,48 @@ public class SapiUtils {
             throw new IllegalArgumentException("Context can't be null");
         }
         return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+    }
+
+    public static boolean isQrLoginSchema(String str) {
+        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains(KEY_QR_LOGIN_SIGN) && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
+                if (split.length > 1) {
+                    hashMap.put(split[0], split[1]);
+                } else if (split.length == 1) {
+                    hashMap.put(split[0], "");
+                }
+            }
+            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_SIGN)) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+        }
+        return false;
+    }
+
+    public static Map<String, String> parseQrLoginSchema(String str) {
+        HashMap hashMap = new HashMap();
+        if (isQrLoginSchema(str)) {
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
+                if (split.length > 1) {
+                    hashMap.put(split[0], split[1]);
+                } else if (split.length == 1) {
+                    hashMap.put(split[0], "");
+                }
+            }
+        }
+        return hashMap;
+    }
+
+    public static boolean sendSms(Context context, String str, String str2) {
+        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        try {
+            SmsManager.getDefault().sendTextMessage(str2, null, str, PendingIntent.getBroadcast(context, 0, new Intent(), 0), null);
+            return true;
+        } catch (Throwable th) {
+            return false;
+        }
     }
 }

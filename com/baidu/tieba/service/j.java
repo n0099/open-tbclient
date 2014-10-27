@@ -1,289 +1,96 @@
 package com.baidu.tieba.service;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ PerformMonitorService a;
-    private ae b;
-
-    private j(PerformMonitorService performMonitorService) {
-        this.a = performMonitorService;
-        this.b = null;
-    }
+class j implements Runnable {
+    final /* synthetic */ PerformMonitorService bIN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(PerformMonitorService performMonitorService, j jVar) {
-        this(performMonitorService);
+    public j(PerformMonitorService performMonitorService) {
+        this.bIN = performMonitorService;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [294=4, 295=4, 298=4, 299=4, 303=4, 304=4, 307=4, 308=4, 312=4, 313=4, 316=4, 317=4] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x004b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:132:0x006a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:151:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
+    /* JADX WARN: Incorrect condition in loop: B:13:0x0037 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v18, types: [android.os.Handler] */
+    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.service.k, java.lang.Runnable] */
+    @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(String str, String str2, boolean z) {
-        FileInputStream fileInputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        FileInputStream fileInputStream2;
-        ByteArrayOutputStream byteArrayOutputStream3;
+    public void run() {
+        boolean z;
+        ?? r0;
+        int i = 0;
         FileWriter fileWriter = null;
-        FileWriter fileWriter2 = null;
+        fileWriter = null;
         try {
-            try {
-                File d = com.baidu.tbadk.core.util.s.d(str);
-                if (d != null) {
-                    fileInputStream = new FileInputStream(d);
-                    try {
-                        byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                        try {
-                            if (z) {
-                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream2);
-                            } else {
-                                byte[] bArr = new byte[1024];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr, 0, 1024);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    byteArrayOutputStream2.write(bArr, 0, read);
-                                }
-                                byteArrayOutputStream2.flush();
+            File bu = com.baidu.tbadk.core.util.s.bu("performance_sample.log");
+            if (bu == null || bu.length() > 51200) {
+                this.bIN.monitorOff();
+            } else {
+                FileWriter fileWriter2 = new FileWriter(bu, true);
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    int i2 = 0;
+                    int i3 = Integer.MIN_VALUE;
+                    int i4 = Integer.MAX_VALUE;
+                    while (z && i < 10) {
+                        Thread.sleep(1000L);
+                        int i5 = i + 1;
+                        int cA = com.baidu.adp.lib.debug.d.cA();
+                        if (cA > 0) {
+                            i2 += cA;
+                            if (i4 >= cA) {
+                                i4 = cA;
                             }
-                            byte[] byteArray = byteArrayOutputStream2.toByteArray();
-                            if (byteArray == null) {
-                                if (byteArrayOutputStream2 != null) {
-                                    try {
-                                        byteArrayOutputStream2.close();
-                                    } catch (Exception e) {
-                                        BdLog.e(e.getMessage());
-                                    }
-                                }
-                                if (fileInputStream != null) {
-                                    try {
-                                        fileInputStream.close();
-                                    } catch (Exception e2) {
-                                        BdLog.e(e2.getMessage());
-                                    }
-                                }
-                                if (0 != 0) {
-                                    try {
-                                        fileWriter2.close();
-                                        return;
-                                    } catch (Exception e3) {
-                                        BdLog.e(e3.getMessage());
-                                        return;
-                                    }
-                                }
-                                return;
+                            if (i3 > cA) {
+                                cA = i4;
                             }
-                            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
-                            this.b.a("logfile", byteArray);
-                            this.b.a("errortype", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-                            this.b.i();
-                            if (byteArrayOutputStream2 != null) {
-                                byteArrayOutputStream2.close();
-                                byteArrayOutputStream3 = null;
-                            } else {
-                                byteArrayOutputStream3 = byteArrayOutputStream2;
-                            }
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                    fileInputStream2 = null;
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    byteArrayOutputStream2 = byteArrayOutputStream3;
-                                    BdLog.e(e.getMessage());
-                                    if (byteArrayOutputStream2 != null) {
-                                        try {
-                                            byteArrayOutputStream2.close();
-                                        } catch (Exception e5) {
-                                            BdLog.e(e5.getMessage());
-                                        }
-                                    }
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (Exception e6) {
-                                            BdLog.e(e6.getMessage());
-                                        }
-                                    }
-                                    if (fileWriter == null) {
-                                        try {
-                                            fileWriter.close();
-                                            return;
-                                        } catch (Exception e7) {
-                                            BdLog.e(e7.getMessage());
-                                            return;
-                                        }
-                                    }
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    byteArrayOutputStream = byteArrayOutputStream3;
-                                    if (byteArrayOutputStream != null) {
-                                        try {
-                                            byteArrayOutputStream.close();
-                                        } catch (Exception e8) {
-                                            BdLog.e(e8.getMessage());
-                                        }
-                                    }
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (Exception e9) {
-                                            BdLog.e(e9.getMessage());
-                                        }
-                                    }
-                                    if (fileWriter != null) {
-                                        try {
-                                            fileWriter.close();
-                                        } catch (Exception e10) {
-                                            BdLog.e(e10.getMessage());
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            } else {
-                                fileInputStream2 = fileInputStream;
-                            }
-                            try {
-                                if (this.b.a().b().b()) {
-                                    FileWriter fileWriter3 = new FileWriter(d, false);
-                                    try {
-                                        fileWriter3.append((CharSequence) "");
-                                        fileWriter3.flush();
-                                        if (fileWriter3 != null) {
-                                            fileWriter3.close();
-                                        } else {
-                                            fileWriter = fileWriter3;
-                                        }
-                                        d.delete();
-                                    } catch (Exception e11) {
-                                        e = e11;
-                                        fileWriter = fileWriter3;
-                                        fileInputStream = fileInputStream2;
-                                        byteArrayOutputStream2 = byteArrayOutputStream3;
-                                        BdLog.e(e.getMessage());
-                                        if (byteArrayOutputStream2 != null) {
-                                        }
-                                        if (fileInputStream != null) {
-                                        }
-                                        if (fileWriter == null) {
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        fileWriter = fileWriter3;
-                                        fileInputStream = fileInputStream2;
-                                        byteArrayOutputStream = byteArrayOutputStream3;
-                                        if (byteArrayOutputStream != null) {
-                                        }
-                                        if (fileInputStream != null) {
-                                        }
-                                        if (fileWriter != null) {
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            } catch (Exception e12) {
-                                e = e12;
-                                fileInputStream = fileInputStream2;
-                                byteArrayOutputStream2 = byteArrayOutputStream3;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                fileInputStream = fileInputStream2;
-                                byteArrayOutputStream = byteArrayOutputStream3;
-                            }
-                        } catch (Exception e13) {
-                            e = e13;
+                            i3 = cA;
+                            i = i5;
+                        } else {
+                            i = i5;
                         }
-                    } catch (Exception e14) {
-                        e = e14;
-                        byteArrayOutputStream2 = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        byteArrayOutputStream = null;
                     }
-                } else {
-                    fileInputStream2 = null;
-                    byteArrayOutputStream3 = null;
-                }
-                if (byteArrayOutputStream3 != null) {
-                    try {
-                        byteArrayOutputStream3.close();
-                    } catch (Exception e15) {
-                        BdLog.e(e15.getMessage());
+                    String cC = com.baidu.adp.lib.debug.d.cC();
+                    String cB = com.baidu.adp.lib.debug.d.cB();
+                    int cD = com.baidu.adp.lib.debug.d.cD();
+                    if (i > 0) {
+                        fileWriter2.append((CharSequence) ("fps_min=" + i4 + "\nfps_max=" + i3 + "\nfps_aver=" + (i2 / i) + "\n"));
                     }
-                }
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e16) {
-                        BdLog.e(e16.getMessage());
+                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                    if (cC != null) {
+                        fileWriter2.append((CharSequence) ("cpu=" + cC.replace("%", "") + "\n"));
                     }
-                }
-                if (fileWriter != null) {
-                    try {
-                        fileWriter.close();
-                    } catch (Exception e17) {
-                        BdLog.e(e17.getMessage());
+                    if (cB != null) {
+                        fileWriter2.append((CharSequence) ("mem=" + cB.replace("kb", "") + "\n"));
                     }
+                    fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + cD + "\n"));
+                    fileWriter2.flush();
+                    fileWriter2.close();
+                    r0 = this.bIN.mHandler;
+                    ?? kVar = new k(this);
+                    r0.post(kVar);
+                    fileWriter = kVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileWriter = fileWriter2;
+                    if (fileWriter != null) {
+                        try {
+                            fileWriter.close();
+                        } catch (Exception e) {
+                            BdLog.e(th.toString());
+                        }
+                    }
+                    this.bIN.stopSelf();
                 }
-            } catch (Throwable th5) {
-                th = th5;
             }
-        } catch (Exception e18) {
-            e = e18;
-            fileInputStream = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th6) {
-            th = th6;
-            fileInputStream = null;
-            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        a("performance_sample.log", TbConfig.ERROR_UPLOAD_SERVER, false);
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.b != null) {
-            this.b.f();
-        }
-        this.a.mTask = null;
-        super.cancel(true);
-        this.a.stopSelf();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        super.onPostExecute(str);
-        this.a.mTask = null;
-        this.a.stopSelf();
     }
 }

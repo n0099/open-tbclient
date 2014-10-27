@@ -1,25 +1,15 @@
 package com.baidu.tbadk.core.view;
-
-import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class q implements Animation.AnimationListener {
-    final /* synthetic */ NoNetworkView a;
+public class q {
+    p If;
+    p Ig;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(NoNetworkView noNetworkView) {
-        this.a = noNetworkView;
+    private q() {
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.setVisibility(8);
+    public static q a(p pVar) {
+        q qVar = new q();
+        qVar.If = pVar;
+        return qVar;
     }
 }

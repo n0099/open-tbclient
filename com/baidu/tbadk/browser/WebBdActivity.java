@@ -9,27 +9,31 @@ import android.view.WindowManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.plugins.BdBrowserDelegate;
 import java.util.Observable;
 import java.util.Observer;
 /* loaded from: classes.dex */
 public class WebBdActivity extends BaseActivity implements Observer {
-    protected boolean a = false;
-    protected boolean b = false;
-    private BdBrowserDelegate c;
+    protected boolean xC = false;
+    protected boolean xD = false;
+    private BdBrowserDelegate xE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.x.web_view_corrupted));
+            com.baidu.adp.lib.util.m.showToast(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
         }
-        intent.putExtra("url", str);
+        intent.putExtra(ImageViewerConfig.URL, str);
         intent.putExtra(SapiAccountManager.SESSION_BDUSS, str2);
         intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
         intent.putExtra("autoOrientaion", z);
@@ -39,13 +43,13 @@ public class WebBdActivity extends BaseActivity implements Observer {
 
     protected void a(Intent intent, Bundle bundle) {
         if (bundle != null) {
-            this.a = bundle.getBoolean("autoOrientaion", false);
-            this.b = bundle.getBoolean("fullScreen", false);
+            this.xC = bundle.getBoolean("autoOrientaion", false);
+            this.xD = bundle.getBoolean("fullScreen", false);
         } else if (intent != null) {
-            this.a = intent.getBooleanExtra("autoOrientaion", false);
-            this.b = intent.getBooleanExtra("fullScreen", false);
+            this.xC = intent.getBooleanExtra("autoOrientaion", false);
+            this.xD = intent.getBooleanExtra("fullScreen", false);
         }
-        if (this.b) {
+        if (this.xD) {
             getWindow().setFlags(1024, 1024);
         } else {
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -53,7 +57,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
             getWindow().setAttributes(attributes);
             getWindow().clearFlags(512);
         }
-        if (this.a) {
+        if (this.xC) {
             if (getRequestedOrientation() != 4) {
                 setRequestedOrientation(4);
             }
@@ -67,27 +71,27 @@ public class WebBdActivity extends BaseActivity implements Observer {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        if (com.baidu.tbadk.pluginArch.d.a() == null) {
-            a.a(this, getIntent().getStringExtra("url"), true);
+        if (PluginCenter.getInstance() == null) {
+            a.a((Context) this, getIntent().getStringExtra(ImageViewerConfig.URL), true);
             finish();
             return;
         }
-        com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("browser");
-        if (a != null) {
-            this.c = (BdBrowserDelegate) a.a(BdBrowserDelegate.class);
+        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BROWSER);
+        if (pluginByName != null) {
+            this.xE = (BdBrowserDelegate) pluginByName.getClassInstance(BdBrowserDelegate.class);
         }
-        if (this.c == null) {
-            a.a(this, getIntent().getStringExtra("url"), true);
+        if (this.xE == null) {
+            a.a((Context) this, getIntent().getStringExtra(ImageViewerConfig.URL), true);
             finish();
             return;
         }
         try {
-            this.c.setActivity(this);
-            this.c.setCallback(new r(this));
-            this.c.onCreate(bundle);
+            this.xE.setActivity(this);
+            this.xE.setCallback(new r(this));
+            this.xE.onCreate(bundle);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            a.a(this, getIntent().getStringExtra("url"), true);
+            a.a((Context) this, getIntent().getStringExtra(ImageViewerConfig.URL), true);
             finish();
         }
     }
@@ -95,23 +99,23 @@ public class WebBdActivity extends BaseActivity implements Observer {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("autoOrientaion", this.a);
-        bundle.putBoolean("fullScreen", this.b);
+        bundle.putBoolean("autoOrientaion", this.xC);
+        bundle.putBoolean("fullScreen", this.xD);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.a = bundle.getBoolean("autoOrientaion", false);
-        this.b = bundle.getBoolean("fullScreen", false);
+        this.xC = bundle.getBoolean("autoOrientaion", false);
+        this.xD = bundle.getBoolean("fullScreen", false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.c != null) {
-            this.c.onPause();
+        if (this.xE != null) {
+            this.xE.onPause();
         }
     }
 
@@ -119,8 +123,8 @@ public class WebBdActivity extends BaseActivity implements Observer {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a(getIntent(), null);
-        if (this.c != null) {
-            this.c.onNewIntent(intent);
+        if (this.xE != null) {
+            this.xE.onNewIntent(intent);
         }
     }
 
@@ -128,9 +132,9 @@ public class WebBdActivity extends BaseActivity implements Observer {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.c != null) {
+        if (this.xE != null) {
             try {
-                this.c.onResume();
+                this.xE.onResume();
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
@@ -141,8 +145,8 @@ public class WebBdActivity extends BaseActivity implements Observer {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.c != null) {
-            this.c.onStop();
+        if (this.xE != null) {
+            this.xE.onStop();
         }
     }
 
@@ -150,32 +154,32 @@ public class WebBdActivity extends BaseActivity implements Observer {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.c != null) {
-            this.c.onDestroy();
+        if (this.xE != null) {
+            this.xE.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.c != null && (this.c.onKeyUp(i, keyEvent) || super.onKeyUp(i, keyEvent));
+        return this.xE != null && (this.xE.onKeyUp(i, keyEvent) || super.onKeyUp(i, keyEvent));
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        if (this.c != null) {
-            this.c.onActivityResult(i, i2, intent);
+        if (this.xE != null) {
+            this.xE.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.c != null) {
-            this.c.update(observable, obj);
+        if (this.xE != null) {
+            this.xE.update(observable, obj);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.c != null && (this.c.onKeyDown(i, keyEvent) || super.onKeyDown(i, keyEvent));
+        return this.xE != null && (this.xE.onKeyDown(i, keyEvent) || super.onKeyDown(i, keyEvent));
     }
 }

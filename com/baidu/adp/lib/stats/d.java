@@ -7,25 +7,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class d extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
-    final /* synthetic */ BdNormalStatBase g;
-    private ArrayList<String> h;
+    final /* synthetic */ BdNormalStatBase lF;
+    private ArrayList<String> lI;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BdNormalStatBase bdNormalStatBase, String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
         super(str, str2, action);
-        this.g = bdNormalStatBase;
-        this.h = arrayList;
+        this.lF = bdNormalStatBase;
+        this.lI = arrayList;
     }
 
     @Override // com.baidu.adp.lib.Disk.a
-    public boolean a(File file) {
-        if (this.h == null) {
+    public boolean b(File file) {
+        if (this.lI == null) {
             return false;
         }
         if (file != null) {
             String name = file.getName();
             if (!TextUtils.isEmpty(name)) {
-                Iterator<String> it = this.h.iterator();
+                Iterator<String> it = this.lI.iterator();
                 while (it.hasNext()) {
                     if (name.equals(it.next())) {
                         return true;

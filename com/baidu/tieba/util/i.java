@@ -4,7 +4,7 @@ import android.content.Intent;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i {
-    public static ArrayList<String> a(Intent intent) {
+    public static ArrayList<String> p(Intent intent) {
         if (intent == null) {
             return null;
         }

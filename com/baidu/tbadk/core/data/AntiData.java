@@ -155,8 +155,8 @@ public class AntiData implements Serializable {
             this.ifposta = anti.ifposta.intValue();
             this.forbid_flag = anti.forbid_flag.intValue();
             this.tbs = anti.tbs;
-            if (TbadkApplication.m252getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                TbadkApplication.m252getInst().setTbs(this.tbs);
+            if (TbadkApplication.m251getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkApplication.m251getInst().setTbs(this.tbs);
             }
             this.need_vcode = anti.need_vcode.intValue();
             this.vcode_md5 = anti.vcode_md5;
@@ -188,8 +188,8 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TbadkApplication.m252getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TbadkApplication.m252getInst().setTbs(this.tbs);
+                if (TbadkApplication.m251getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TbadkApplication.m251getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString("vcode_md5");

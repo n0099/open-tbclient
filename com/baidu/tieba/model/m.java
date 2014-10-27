@@ -7,14 +7,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<j, Integer, Boolean> {
-    final /* synthetic */ j a;
-    private com.baidu.tbadk.core.util.ae b;
-    private com.baidu.tieba.data.ax c;
+    private com.baidu.tieba.data.at boo;
+    final /* synthetic */ j bop;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private m(j jVar) {
-        this.a = jVar;
-        this.b = null;
-        this.c = null;
+        this.bop = jVar;
+        this.mNetWork = null;
+        this.boo = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.c = new com.baidu.tieba.data.ax();
+        this.boo = new com.baidu.tieba.data.at();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,25 +35,25 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
     public Boolean doInBackground(j... jVarArr) {
         j jVar = new j();
         try {
-            jVar.i();
-            this.b = new com.baidu.tbadk.core.util.ae();
-            this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
-            int k = this.a.k();
-            if (jVar.g() - 1 <= k) {
-                k = jVar.g() - 1;
+            jVar.Tk();
+            this.mNetWork = new com.baidu.tbadk.core.util.ac();
+            this.mNetWork.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
+            int Tl = this.bop.Tl();
+            if (jVar.getCount() - 1 <= Tl) {
+                Tl = jVar.getCount() - 1;
             }
-            while (k >= 0) {
-                String a = jVar.a(k, 20);
-                this.b.a(new ArrayList<>());
-                this.b.a("data", a);
-                this.c.a(this.b.h());
-                if (!this.b.a().b().b() || this.c.a() != 0) {
+            while (Tl >= 0) {
+                String T = jVar.T(Tl, 20);
+                this.mNetWork.h(new ArrayList<>());
+                this.mNetWork.k("data", T);
+                this.boo.parserJson(this.mNetWork.lA());
+                if (!this.mNetWork.mc().nb().jq() || this.boo.getErrorCode() != 0) {
                     break;
                 }
-                k -= 20;
+                Tl -= 20;
             }
-            this.a.c(k);
-            if (k >= 0) {
+            this.bop.gC(Tl);
+            if (Tl >= 0) {
                 return false;
             }
             return true;
@@ -66,38 +66,38 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
-        this.a.c = null;
-        if (this.a.a != null) {
-            this.a.a.callback(1, false, null, false);
+        this.bop.boj = null;
+        if (this.bop.atj != null) {
+            this.bop.atj.callback(1, false, null, false);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.a.c = null;
+        this.bop.boj = null;
         if (bool.booleanValue()) {
-            arrayList = this.a.e;
+            arrayList = this.bop.bol;
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.b.a().b().b()) {
-            str = this.c.b();
+        } else if (this.mNetWork.mc().nb().jq()) {
+            str = this.boo.getErrorString();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.a.a != null) {
-            this.a.a.callback(1, bool, str, Boolean.valueOf(z));
+        if (this.bop.atj != null) {
+            this.bop.atj.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

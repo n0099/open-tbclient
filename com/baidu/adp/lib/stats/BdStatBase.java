@@ -4,7 +4,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -43,11 +45,16 @@ public abstract class BdStatBase implements Serializable {
 
     public abstract boolean checkToSendUploadMessage(boolean z);
 
+    public abstract void clearLogResource();
+
     public abstract void clearLogs();
 
     public abstract String getCurrentLogFile();
 
     public abstract BdUploadingLogInfo getLogFiles();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract int getLogFilesMaxSize();
 
     public abstract String getPostFileName();
 
@@ -67,12 +74,12 @@ public abstract class BdStatBase implements Serializable {
         this.mContext = context;
         this.mLogDir = str;
         this.mLastLogTime = System.currentTimeMillis();
-        com.baidu.adp.lib.util.c.f(this.mLogDir);
+        com.baidu.adp.lib.util.d.av(this.mLogDir);
         if (TextUtils.isEmpty(mProcessNameMd5)) {
             if (z) {
                 mProcessNameMd5 = "44f94582";
             } else {
-                mProcessNameMd5 = a();
+                mProcessNameMd5 = eo();
             }
         }
         this.mMemCache = new StringBuffer();
@@ -150,12 +157,14 @@ public abstract class BdStatBase implements Serializable {
                 this.mMemCacheCount++;
             } catch (Exception e) {
                 BdLog.e(e);
+            } catch (OutOfMemoryError e2) {
+                BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
         if (System.currentTimeMillis() - this.mLastLogTime > TbConfig.USE_TIME_INTERVAL) {
-            f.c().a(this, true, false);
+            f.er().a(this, true, false);
         } else {
-            f.c().a(this, false, false);
+            f.er().a(this, false, false);
         }
         this.mLastLogTime = System.currentTimeMillis();
     }
@@ -217,7 +226,7 @@ public abstract class BdStatBase implements Serializable {
     public void handleException() {
     }
 
-    private String a() {
+    private String eo() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;
@@ -235,11 +244,11 @@ public abstract class BdStatBase implements Serializable {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String a = p.a(str.getBytes("UTF-8"));
-                            if (!TextUtils.isEmpty(a) && a.length() > 8) {
-                                return a.substring(a.length() - 8);
+                            String n = u.n(str.getBytes("UTF-8"));
+                            if (!TextUtils.isEmpty(n) && n.length() > 8) {
+                                return n.substring(n.length() - 8);
                             }
-                            return a;
+                            return n;
                         } catch (UnsupportedEncodingException e) {
                             BdLog.e(e.getMessage());
                             return str;

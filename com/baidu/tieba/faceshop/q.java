@@ -6,10 +6,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
-    final /* synthetic */ EmotionManageActivity a;
+    final /* synthetic */ EmotionManageActivity asH;
 
     private q(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+        this.asH = emotionManageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +20,7 @@ public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public Boolean doInBackground(List<String>... listArr) {
         List<String> list = listArr[0];
         if (list == null || list.isEmpty()) {
@@ -31,7 +31,7 @@ public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-            if (d.a().a(myEmotionGroupData)) {
+            if (d.CG().a(myEmotionGroupData)) {
                 i++;
             }
         }
@@ -44,13 +44,13 @@ public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         if (bool.booleanValue()) {
-            com.baidu.tbadk.editortool.aa.a().b();
-            this.a.p = true;
-            this.a.a(true);
+            com.baidu.tbadk.editortool.aa.rz().rA();
+            this.asH.asG = true;
+            this.asH.bC(true);
         }
     }
 }

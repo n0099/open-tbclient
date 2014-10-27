@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(UpdateDialog updateDialog) {
-        this.a = updateDialog;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ab abVar;
-        abVar = this.a.h;
-        abVar.dismiss();
-        this.a.finish();
+public class at implements com.baidu.adp.base.a.b {
+    @Override // com.baidu.adp.base.a.b
+    public void a(SQLiteDatabase sQLiteDatabase) {
+        aj.ww();
     }
 }

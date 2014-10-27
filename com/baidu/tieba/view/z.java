@@ -1,26 +1,15 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.widget.TextView;
+import android.view.View;
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.widget.ScrollView.p {
+public class z extends com.baidu.tbadk.core.view.y {
     public z(Context context) {
         super(context);
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(com.baidu.tieba.r.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(com.baidu.tieba.r.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
-        }
+    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
+    public View hA() {
+        return c(getContext().getString(com.baidu.tieba.y.pull_view_pull_more), getContext().getString(com.baidu.tieba.y.pull_view_release_more), null);
     }
 }

@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ g a;
+    final /* synthetic */ g ask;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.a = gVar;
+        this.ask = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,9 +25,9 @@ public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<Downlo
             return linkedList;
         }
         for (int i = 0; i < listArr[0].size(); i++) {
-            MyEmotionGroupData a = d.a().a(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
-            if (a != null && e.a(a.getGroupId())) {
-                DownloadData downloadData = new DownloadData(a.getGroupId());
+            MyEmotionGroupData ac = d.CG().ac(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
+            if (ac != null && e.eK(ac.getGroupId())) {
+                DownloadData downloadData = new DownloadData(ac.getGroupId());
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
             }
@@ -38,21 +38,21 @@ public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<Downlo
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: i */
     public void onPostExecute(List<DownloadData> list) {
         List<String> list2;
         super.onPostExecute(list);
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : com.baidu.tbadk.download.b.a().b()) {
-            list2 = this.a.c;
+        for (DownloadData downloadData : com.baidu.tbadk.download.g.rk().rm()) {
+            list2 = this.ask.asi;
             for (String str : list2) {
                 if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                     list.add(downloadData);
                 }
             }
         }
-        this.a.a(list);
+        this.ask.h(list);
     }
 }

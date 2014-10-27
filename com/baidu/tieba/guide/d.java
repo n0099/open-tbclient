@@ -7,18 +7,18 @@ import com.baidu.tieba.view.RightSlideViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ NewUserGuideActivity a;
+    final /* synthetic */ NewUserGuideActivity aKR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NewUserGuideActivity newUserGuideActivity) {
-        this.a = newUserGuideActivity;
+        this.aKR = newUserGuideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         RightSlideViewPager rightSlideViewPager;
         if (i == 1) {
-            rightSlideViewPager = this.a.h;
+            rightSlideViewPager = this.aKR.aKP;
             rightSlideViewPager.setTag(null);
         }
     }
@@ -26,21 +26,21 @@ public class d implements ViewPager.OnPageChangeListener {
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         ao aoVar;
-        aoVar = this.a.d;
-        if (aoVar.a() && i == 0 && f > 0.0f) {
-            this.a.j();
+        aoVar = this.aKR.aKL;
+        if (aoVar.TO() && i == 0 && f > 0.0f) {
+            this.aKR.Ix();
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         RightSlideViewPager rightSlideViewPager;
-        rightSlideViewPager = this.a.h;
+        rightSlideViewPager = this.aKR.aKP;
         j jVar = (j) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
         if (i == 0) {
-            jVar.a();
+            jVar.Iz();
         } else {
-            jVar.f();
+            jVar.IA();
         }
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements g {
-    final /* synthetic */ ReloginManager a;
+    final /* synthetic */ ReloginManager BX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ReloginManager reloginManager) {
-        this.a = reloginManager;
+        this.BX = reloginManager;
     }
 
     @Override // com.baidu.tbadk.core.account.g
@@ -22,17 +22,17 @@ public class b implements g {
         if (accountData != null) {
             com.baidu.tbadk.core.account.a.a(accountData);
             TbadkApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-            TbadkApplication.setCurrentAccount(accountData, TbadkApplication.m252getInst().getApp().getApplicationContext());
-            this.a.e();
+            TbadkApplication.setCurrentAccount(accountData, TbadkApplication.m251getInst().getApp().getApplicationContext());
+            this.BX.lg();
             return;
         }
-        this.a.a(TbadkApplication.getCurrentAccountObj());
+        this.BX.d(TbadkApplication.getCurrentAccountObj());
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onFailure(String str, int i, String str2) {
         if (i == 1) {
-            this.a.a(TbadkApplication.getCurrentAccountObj());
+            this.BX.d(TbadkApplication.getCurrentAccountObj());
         }
     }
 }

@@ -1,24 +1,20 @@
 package com.baidu.tieba.flist;
 
 import android.widget.PopupWindow;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements PopupWindow.OnDismissListener {
-    final /* synthetic */ u a;
+    final /* synthetic */ u awH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(u uVar) {
-        this.a = uVar;
+        this.awH = uVar;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.a.C = false;
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.a.A.setImageResource(com.baidu.tieba.t.btn_allsproutpop_down_1);
-        } else {
-            this.a.A.setImageResource(com.baidu.tieba.t.btn_allsproutpop_down);
-        }
+        this.awH.iC = false;
+        aw.c(this.awH.awF, com.baidu.tieba.u.btn_allsproutpop_down);
     }
 }

@@ -1,24 +1,21 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements DialogInterface.OnClickListener {
-    final /* synthetic */ r a;
-    private final /* synthetic */ Object b;
-    private final /* synthetic */ int c;
+public class v implements View.OnClickListener {
+    final /* synthetic */ s bbt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(r rVar, Object obj, int i) {
-        this.a = rVar;
-        this.b = obj;
-        this.c = i;
+    public v(s sVar) {
+        this.bbt = sVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        ac acVar;
-        acVar = this.a.P;
-        acVar.a(dialogInterface, i, this.b, this.c);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.bbt.baA;
+        ellipsizingTextView.setMaxLines(1000);
     }
 }

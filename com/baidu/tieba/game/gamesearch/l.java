@@ -1,0 +1,36 @@
+package com.baidu.tieba.game.gamesearch;
+
+import com.baidu.tbadk.game.GameInfoData;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GameInfo;
+import tbclient.SearchGame.DataRes;
+/* loaded from: classes.dex */
+public class l {
+    private List<GameInfoData> aIf;
+    private boolean mHasMore;
+
+    public List<GameInfoData> getGameList() {
+        return this.aIf;
+    }
+
+    public boolean isHasMore() {
+        return this.mHasMore;
+    }
+
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            if (dataRes.has_more != null && dataRes.has_more.intValue() == 1) {
+                this.mHasMore = true;
+            }
+            if (dataRes.game_list != null) {
+                this.aIf = new ArrayList();
+                for (GameInfo gameInfo : dataRes.game_list) {
+                    if (gameInfo != null) {
+                        this.aIf.add(GameInfoData.fromGameInfo(gameInfo));
+                    }
+                }
+            }
+        }
+    }
+}

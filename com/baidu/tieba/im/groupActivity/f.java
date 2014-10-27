@@ -6,13 +6,13 @@ import java.util.Calendar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e a;
-    private final /* synthetic */ Calendar b;
+    final /* synthetic */ e aYU;
+    private final /* synthetic */ Calendar aYV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, Calendar calendar) {
-        this.a = eVar;
-        this.b = calendar;
+        this.aYU = eVar;
+        this.aYV = calendar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,22 +27,22 @@ public class f implements View.OnClickListener {
         int i4;
         int i5;
         int i6;
-        datePickerDialog = this.a.l;
+        datePickerDialog = this.aYU.aYL;
         if (datePickerDialog == null) {
-            g gVar = new g(this, this.b);
-            e eVar = this.a;
-            createGroupActivityActivity = this.a.a;
-            i4 = this.a.o;
-            i5 = this.a.p;
-            i6 = this.a.q;
-            eVar.l = new DatePickerDialog(createGroupActivityActivity, gVar, i4, i5, i6);
+            g gVar = new g(this, this.aYV);
+            e eVar = this.aYU;
+            createGroupActivityActivity = this.aYU.aYD;
+            i4 = this.aYU.aYO;
+            i5 = this.aYU.aYP;
+            i6 = this.aYU.aYQ;
+            eVar.aYL = new DatePickerDialog(createGroupActivityActivity, gVar, i4, i5, i6);
         }
-        datePickerDialog2 = this.a.l;
-        i = this.a.o;
-        i2 = this.a.p;
-        i3 = this.a.q;
+        datePickerDialog2 = this.aYU.aYL;
+        i = this.aYU.aYO;
+        i2 = this.aYU.aYP;
+        i3 = this.aYU.aYQ;
         datePickerDialog2.updateDate(i, i2, i3);
-        datePickerDialog3 = this.a.l;
+        datePickerDialog3 = this.aYU.aYL;
         datePickerDialog3.show();
     }
 }

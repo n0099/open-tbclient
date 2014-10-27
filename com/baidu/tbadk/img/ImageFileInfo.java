@@ -2,6 +2,7 @@ package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -223,7 +224,7 @@ public class ImageFileInfo implements Serializable {
     }
 
     public boolean isAlreadyUploadedToServer() {
-        return !com.baidu.adp.lib.util.i.c(this.serverImageCode);
+        return !l.aA(this.serverImageCode);
     }
 
     public Bitmap getOrginalBitmap() {

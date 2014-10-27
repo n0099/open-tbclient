@@ -7,111 +7,118 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.be;
+import com.baidu.tieba.model.bb;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity {
-    private d a;
-    private com.baidu.tieba.model.a b;
-    private c c = null;
-    private String d = String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/topic_page/110_1";
+    private d bpQ;
+    private com.baidu.tieba.model.a bpR;
+    private c bpS = null;
+    private String bpT = String.valueOf(com.baidu.tieba.data.e.ajt) + "mo/q/topic_page/110_1";
 
-    public static void a(Context context) {
+    public static void ae(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new d(this, new a(this));
-        this.a.c();
-        b();
+        this.bpQ = new d(this, new a(this));
+        this.bpQ.Ud();
+        nY();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.a != null) {
-            this.a.c();
+        if (this.bpQ != null) {
+            this.bpQ.Ud();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        c();
-        if (this.b != null) {
-            this.b.cancelLoadData();
+        Jt();
+        if (this.bpR != null) {
+            this.bpR.cancelLoadData();
         }
-        if (this.a != null) {
-            this.a.b();
+        if (this.bpQ != null) {
+            this.bpQ.hideProgress();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.a != null) {
-            this.a.a(i);
+        if (this.bpQ != null) {
+            this.bpQ.cu(i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (this.b == null) {
-            this.b = new com.baidu.tieba.model.a(this, new b(this));
+    public void checkUpdata() {
+        if (this.bpR == null) {
+            this.bpR = new com.baidu.tieba.model.a(this, new b(this));
         } else {
-            this.b.cancelLoadData();
+            this.bpR.cancelLoadData();
         }
-        this.b.a();
-        if (this.a != null) {
-            this.a.a();
+        this.bpR.Ta();
+        if (this.bpQ != null) {
+            this.bpQ.Uc();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Object obj) {
-        if (this.a != null) {
-            this.a.b();
+    public void x(Object obj) {
+        Hao123Plugin hao123Plugin;
+        if (this.bpQ != null) {
+            this.bpQ.hideProgress();
         }
-        be beVar = obj != null ? (be) obj : null;
-        if (beVar != null) {
-            com.baidu.tieba.ai.c().a(beVar.c());
-            TbadkApplication.m252getInst().refreshNewVersion(false);
-            if (beVar.c().hasNewVer()) {
-                if (beVar.c().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), beVar.c(), beVar.b());
+        bb bbVar = obj != null ? (bb) obj : null;
+        if (bbVar != null) {
+            com.baidu.tieba.aj.wk().a(bbVar.Ua());
+            TbadkApplication.m251getInst().refreshNewVersion(false);
+            if (bbVar.Ua().hasNewVer()) {
+                if (bbVar.Ua().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.aj.wk().getApp(), bbVar.Ua(), bbVar.TZ());
                 } else {
-                    TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), beVar.c(), beVar.b());
+                    TbadkApplication.m251getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
+                    UpdateDialog.a(com.baidu.tieba.aj.wk().getApp(), bbVar.Ua(), bbVar.TZ());
                 }
             } else {
-                showToast(getResources().getString(com.baidu.tieba.x.neednot_update));
+                showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
             }
-            if (this.a != null) {
-                this.a.c();
+            if (this.bpQ != null) {
+                this.bpQ.Ud();
+            }
+            if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen() && TbadkApplication.m251getInst().isTiebaHelperOpen()) {
+                TbadkApplication.m251getInst().setTiebaHelperOpen(false);
+                Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
+                if (pluginByName != null && pluginByName.checkEnable() && (hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
+                    hao123Plugin.closeFloating(this);
+                    return;
+                }
                 return;
             }
             return;
         }
-        showToast(getResources().getString(com.baidu.tieba.x.neterror));
+        showToast(getResources().getString(com.baidu.tieba.y.neterror));
     }
 
-    private void b() {
-        this.c = new c(this, null);
+    private void nY() {
+        this.bpS = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.c, intentFilter);
+        registerReceiver(this.bpS, intentFilter);
     }
 
-    private void c() {
-        if (this.c != null) {
-            unregisterReceiver(this.c);
+    private void Jt() {
+        if (this.bpS != null) {
+            unregisterReceiver(this.bpS);
         }
     }
 }

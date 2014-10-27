@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class ForumDetailActivity extends BaseActivity {
-    private e a = null;
-    private String b = "0";
-    private String c = "0";
-    private d d = new a(this);
+    private e awS = null;
+    private String afQ = "0";
+    private String awT = "0";
+    private d awU = new a(this);
 
     /* loaded from: classes.dex */
     public enum FromType {
@@ -19,7 +18,7 @@ public class ForumDetailActivity extends BaseActivity {
         BAR_DIR,
         BAR_RANK;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (awW) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();
@@ -32,7 +31,7 @@ public class ForumDetailActivity extends BaseActivity {
 
     public static void a(Context context, String str, FromType fromType) {
         Intent intent = new Intent(context, ForumDetailActivity.class);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, str);
+        intent.putExtra("forum_id", str);
         intent.putExtra("from_type", fromType.toString());
         context.startActivity(intent);
     }
@@ -41,8 +40,8 @@ public class ForumDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
-        b();
+        initUI();
+        initData();
         TiebaStatic.eventStat(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
     }
 
@@ -50,23 +49,23 @@ public class ForumDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a.a();
+        this.awS.onResume();
     }
 
-    private void a() {
-        this.a = new e(this);
+    private void initUI() {
+        this.awS = new e(this);
     }
 
-    private void b() {
-        this.b = getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
-        b.a(this.b, this.c, this.d);
+    private void initData() {
+        this.afQ = getIntent().getStringExtra("forum_id");
+        this.awT = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : "1";
+        b.a(this.afQ, this.awT, this.awU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.a.a(i);
+        this.awS.onChangeSkinType(i);
     }
 }

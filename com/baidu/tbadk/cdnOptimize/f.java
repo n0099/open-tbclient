@@ -5,33 +5,33 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public ArrayList<ArrayList<String>> e;
-    public int a = 0;
-    public String b = null;
-    public String c = null;
-    public String d = null;
-    boolean f = false;
-    public String g = null;
+    public ArrayList<ArrayList<String>> xW;
+    public int xU = 0;
+    public String errorString = null;
+    public String imageUrl = null;
+    public String xV = null;
+    boolean xX = false;
+    public String xY = null;
 
-    public void a(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.a = optJSONObject.optInt("errorno");
-                    this.b = optJSONObject.optString("errmsg");
+                    this.xU = optJSONObject.optInt("errorno");
+                    this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.f = true;
+                    this.xX = true;
                 } else {
-                    this.f = false;
+                    this.xX = false;
                 }
-                this.g = jSONObject.optString("cdn_domain");
+                this.xY = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
-                    this.c = optJSONObject2.optString("img_url");
-                    this.d = optJSONObject2.optString("img_md5");
+                    this.imageUrl = optJSONObject2.optString("img_url");
+                    this.xV = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class f {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.e = arrayList;
+                        this.xW = arrayList;
                     }
                 }
             } catch (Exception e) {

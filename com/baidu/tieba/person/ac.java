@@ -1,20 +1,23 @@
 package com.baidu.tieba.person;
+
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ u a;
+public class ac implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity bCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(u uVar) {
-        this.a = uVar;
+    public ac(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        PersonBarActivity g;
-        g = this.a.g();
-        if (g == null) {
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.bCm.bCc = true;
+            return false;
         }
-        this.a.h();
+        return false;
     }
 }

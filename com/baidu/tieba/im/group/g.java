@@ -1,57 +1,78 @@
 package com.baidu.tieba.im.group;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.message.RequestEnterChatRoomMessage;
-import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
-import com.baidu.tieba.im.randchat.WaittingActivity;
-import com.baidu.tieba.x;
+import android.view.View;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.y;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.d {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(int i) {
-        super(i);
+public class g extends com.baidu.adp.base.f {
+    private y Yc;
+    private DiscoverMoreActivity aYt;
+    private NoNetworkView aYu;
+    private b aYv;
+    private NavigationBar aog;
+    private View mRoot;
+    private BdListView vl;
+
+    public g(DiscoverMoreActivity discoverMoreActivity) {
+        super(discoverMoreActivity);
+        this.Yc = null;
+        this.aYt = discoverMoreActivity;
+        nu();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ProgressDialog progressDialog;
-        Context context;
-        Context context2;
-        Context context3;
-        progressDialog = EnterChatRoomStatic.c;
-        j.a(progressDialog);
-        if (socketResponsedMessage.getCmd() == 106101) {
-            if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
-                context3 = EnterChatRoomStatic.b;
-                j.a(context3, x.neterror);
-                return;
-            }
-            ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage;
-            if (responseEnterChatRoomMessage.getError() != 0) {
-                if (responseEnterChatRoomMessage.getError() <= 0) {
-                    context = EnterChatRoomStatic.b;
-                    j.a(context, x.neterror);
-                    return;
-                } else if (!TextUtils.isEmpty(responseEnterChatRoomMessage.getErrorString())) {
-                    context2 = EnterChatRoomStatic.b;
-                    j.a(context2, responseEnterChatRoomMessage.getErrorString());
-                    return;
-                } else {
-                    return;
-                }
-            }
-            RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
-            if ((((RequestEnterChatRoomMessage) responseEnterChatRoomMessage.getOrginalMessage()) instanceof RequestEnterChatRoomMessage) && ((RequestEnterChatRoomMessage) responseEnterChatRoomMessage.getOrginalMessage()).isFromLYF() && randChatRoomData != null && randChatRoomData.e() > 0) {
-                WaittingActivity.a(TbadkApplication.m252getInst().getApplicationContext(), randChatRoomData, 0);
-            }
+    private void nu() {
+        this.mRoot = View.inflate(this.aYt, w.discover_group_activity, null);
+        this.aYt.setContentView(this.mRoot);
+        this.aog = (NavigationBar) this.mRoot.findViewById(v.discovergroup_navigation_bar);
+        this.aog.setTitleText(com.baidu.tieba.y.msglist_personInfo);
+        this.aog.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aYu = (NoNetworkView) this.mRoot.findViewById(v.discovergroup_no_network);
+        this.aYu.a(new h(this));
+        this.vl = (BdListView) this.mRoot.findViewById(v.list_view);
+        this.Yc = new y(this.aYt);
+        this.Yc.a(new i(this));
+        this.vl.setPullRefresh(this.Yc);
+        this.aYv = new b(this.aYt);
+        this.vl.setAdapter((ListAdapter) this.aYv);
+    }
+
+    public void w(ArrayList<com.baidu.tbadk.b.a.a> arrayList) {
+        if (arrayList != null) {
+            this.aYv.v(arrayList);
+        }
+    }
+
+    public BdListView ud() {
+        return this.vl;
+    }
+
+    public b NW() {
+        return this.aYv;
+    }
+
+    public void onChangeSkinType(int i) {
+        this.aYt.getLayoutMode().L(i == 1);
+        this.aYt.getLayoutMode().h(this.mRoot);
+        this.aog.onChangeSkinType(i);
+        this.aYu.onChangeSkinType(i);
+        this.Yc.bM(i);
+    }
+
+    public void fL(int i) {
+        if (this.aYv != null) {
+            this.aYv.fL(i);
+        }
+    }
+
+    public void gf(String str) {
+        if (this.aYv != null) {
+            this.aYv.gf(str);
         }
     }
 }

@@ -32,6 +32,8 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
             pushNotifyMessage.setPushTime(pusherMsg.data.pushTime.longValue());
             pushNotifyMessage.setType(pusherMsg.data.type.intValue());
             pushNotifyMessage.setContent(pusherMsg.data.content);
+            pushNotifyMessage.setEmitTime(pusherMsg.data.et);
+            pushNotifyMessage.setGroupType(pusherMsg.data.groupType.intValue());
             this.mMsgList.add(pushNotifyMessage);
         }
     }

@@ -1,11 +1,13 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-class k implements c {
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public boolean a(String str) {
-        return !TextUtils.isEmpty(str) && OfficialBarChatActivity.a && str.equals(OfficialBarChatActivity.b);
+public class k {
+    public static boolean LU = true;
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, c cVar) {
+        a.a(groupMsgData, imMessageCenterPojo, cVar, new l(), OfficialBarTipActivity.isOpen);
     }
 }

@@ -4,48 +4,41 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity {
-    private TextView a = null;
-    private RelativeLayout b = null;
-    private NavigationBar c;
+    private NavigationBar mNavigationBar;
+    private TextView aey = null;
+    private RelativeLayout KO = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.v.account_protocol_activity);
-        a();
+        setContentView(com.baidu.tieba.w.account_protocol_activity);
+        initUI();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x007f */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a() {
+    private void initUI() {
         BufferedReader bufferedReader;
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.u.container);
-        this.c = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        NavigationBar navigationBar = this.c;
-        String string = getString(com.baidu.tieba.x.account_protocol);
-        navigationBar.a(string);
-        this.a = (TextView) findViewById(com.baidu.tieba.u.text);
+        this.KO = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.account_protocol));
+        this.aey = (TextView) findViewById(com.baidu.tieba.v.text);
         StringBuilder sb = new StringBuilder(1024);
-        ?? r2 = 0;
+        BufferedReader bufferedReader2 = null;
         try {
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.w.baidu_protocol), "unicode"));
-                while (true) {
+            bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.x.baidu_protocol), "unicode"));
+            while (true) {
+                try {
                     try {
                         String readLine = bufferedReader.readLine();
                         if (readLine == null) {
@@ -63,46 +56,46 @@ public class ProtocolActivity extends BaseActivity {
                                 e2.printStackTrace();
                             }
                         }
-                        this.a.setText(sb.toString());
+                        this.aey.setText(sb.toString());
                     }
-                }
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
                     }
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                r2 = string;
-                if (r2 != 0) {
-                    try {
-                        r2.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
+            }
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
-                throw th;
             }
         } catch (Exception e5) {
             e = e5;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            if (r2 != 0) {
+            if (bufferedReader2 != null) {
             }
             throw th;
         }
-        this.a.setText(sb.toString());
+        this.aey.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.c.c(i);
-        ay.c(this.b, i);
-        ay.b(this.a, i);
+        this.mNavigationBar.onChangeSkinType(i);
+        aw.f(this.KO, i);
+        aw.b(this.aey, i);
     }
 }

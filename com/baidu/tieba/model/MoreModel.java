@@ -3,15 +3,15 @@ package com.baidu.tieba.model;
 import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class MoreModel extends com.baidu.adp.base.e {
-    private PersonChangeData a;
-    private boolean b = false;
+    private PersonChangeData adR;
+    private boolean bpn;
 
     /* loaded from: classes.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (bpo) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TaskType[] valuesCustom() {
             TaskType[] valuesCustom = values();
@@ -23,23 +23,25 @@ public class MoreModel extends com.baidu.adp.base.e {
     }
 
     public MoreModel(PersonChangeData personChangeData) {
-        this.a = null;
-        this.a = personChangeData;
-        if (this.a == null) {
-            this.a = new PersonChangeData();
+        super(null);
+        this.adR = null;
+        this.bpn = false;
+        this.adR = personChangeData;
+        if (this.adR == null) {
+            this.adR = new PersonChangeData();
         }
     }
 
     public void a(PersonChangeData personChangeData) {
-        this.a = personChangeData;
+        this.adR = personChangeData;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public void dG(boolean z) {
+        this.bpn = z;
     }
 
-    public boolean a() {
-        return this.b;
+    public boolean TM() {
+        return this.bpn;
     }
 
     @Override // com.baidu.adp.base.e
@@ -52,7 +54,7 @@ public class MoreModel extends com.baidu.adp.base.e {
         return false;
     }
 
-    public PersonChangeData b() {
-        return this.a;
+    public PersonChangeData TN() {
+        return this.adR;
     }
 }

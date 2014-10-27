@@ -1,20 +1,18 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class by implements com.baidu.adp.widget.ScrollView.m {
-    final /* synthetic */ FrsImageActivity a;
+public class by implements com.baidu.tbadk.editortool.w {
+    final /* synthetic */ bu aDt;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w arn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public by(bu buVar, com.baidu.tbadk.editortool.w wVar) {
+        this.aDt = buVar;
+        this.arn = wVar;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.m
-    public void a() {
-        TiebaStatic.eventStat(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.t = null;
-        this.a.s = true;
-        this.a.c(1);
+    @Override // com.baidu.tbadk.editortool.w
+    public void handleAction(int i, Object obj) {
+        this.arn.handleAction(i, obj);
     }
 }

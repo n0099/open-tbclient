@@ -4,6 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
+import protobuf.ConfigVersion;
 import protobuf.GroupInfo;
 import protobuf.MaskInfo;
 import protobuf.UserInfo;
@@ -11,6 +12,8 @@ import protobuf.UserInfo;
 public final class DataRes extends Message {
     public static final List<GroupInfo> DEFAULT_GROUPINFO = Collections.emptyList();
     public static final List<Integer> DEFAULT_HEARTBEATINTERVAL = Collections.emptyList();
+    @ProtoField(tag = 5)
+    public final ConfigVersion configVersion;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<GroupInfo> groupInfo;
     @ProtoField(label = Message.Label.REPEATED, tag = 4, type = Message.Datatype.INT32)
@@ -36,20 +39,22 @@ public final class DataRes extends Message {
             this.maskInfo = builder.maskInfo;
             if (builder.heartbeatInterval == null) {
                 this.heartbeatInterval = DEFAULT_HEARTBEATINTERVAL;
-                return;
             } else {
                 this.heartbeatInterval = immutableCopyOf(builder.heartbeatInterval);
-                return;
             }
+            this.configVersion = builder.configVersion;
+            return;
         }
         this.groupInfo = immutableCopyOf(builder.groupInfo);
         this.userInfo = builder.userInfo;
         this.maskInfo = builder.maskInfo;
         this.heartbeatInterval = immutableCopyOf(builder.heartbeatInterval);
+        this.configVersion = builder.configVersion;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataRes> {
+        public ConfigVersion configVersion;
         public List<GroupInfo> groupInfo;
         public List<Integer> heartbeatInterval;
         public MaskInfo maskInfo;
@@ -62,6 +67,7 @@ public final class DataRes extends Message {
                 this.userInfo = dataRes.userInfo;
                 this.maskInfo = dataRes.maskInfo;
                 this.heartbeatInterval = DataRes.copyOf(dataRes.heartbeatInterval);
+                this.configVersion = dataRes.configVersion;
             }
         }
 

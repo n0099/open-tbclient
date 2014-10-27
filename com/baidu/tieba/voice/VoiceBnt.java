@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tbadk.core.voice.aa;
-import com.baidu.tbadk.core.voice.z;
+import com.baidu.tbadk.core.voice.n;
+import com.baidu.tbadk.core.voice.o;
 /* loaded from: classes.dex */
 public class VoiceBnt extends ImageView {
-    z a;
-    private boolean b;
+    n bSp;
+    private boolean bSq;
 
     public VoiceBnt(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = false;
+        this.bSq = false;
     }
 
-    public void setRecorderView(z zVar) {
-        this.a = zVar;
+    public void setRecorderView(n nVar) {
+        this.bSp = nVar;
     }
 
     @Override // android.view.View
@@ -28,10 +28,10 @@ public class VoiceBnt extends ImageView {
             if (voiceManager == null || !voiceManager.isAllowRecord()) {
                 return false;
             }
-            this.b = voiceManager.startRecord(this.a, -1);
+            this.bSq = voiceManager.startRecord(this.bSp, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.b && voiceManager != null) {
+            if (this.bSq && voiceManager != null) {
                 voiceManager.stopRecord();
             }
             setPressed(false);
@@ -41,8 +41,8 @@ public class VoiceBnt extends ImageView {
 
     public VoiceManager getVoiceManager() {
         Context context = getContext();
-        if (context instanceof aa) {
-            return ((aa) context).d();
+        if (context instanceof o) {
+            return ((o) context).getVoiceManager();
         }
         return null;
     }

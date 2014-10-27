@@ -20,18 +20,21 @@ class d extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
+        boolean z = false;
         if (intent != null && intent.getAction().equals(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION)) {
             ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_KEY);
-            boolean booleanExtra = intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_NEED_USEIP_STRING, false);
-            a.a(this.this$0).ipList = stringArrayListExtra;
-            a.a(this.this$0).isUsedIp = booleanExtra;
-            if (stringArrayListExtra == null || stringArrayListExtra.size() == 0) {
+            boolean booleanExtra = intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_NEED_USEIP, false);
+            int intExtra = intent.getIntExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_NUM, -1);
+            int size = stringArrayListExtra == null ? 0 : stringArrayListExtra.size();
+            if ((1 == intExtra || 2 == intExtra) && size > 0) {
+                z = true;
+            } else if ((1 == intExtra || 2 == intExtra) && size == 0) {
                 a.a(this.this$0, true);
-                a.a(this.this$0).isUsedIp = false;
             }
-            a.a(this.this$0, a.a(this.this$0));
-            a.a(this.this$0, 0);
-            a.a(this.this$0).currentUseIpPos = 0;
+            a.a(this.this$0).setIpList(stringArrayListExtra, booleanExtra, z);
+            if (size > 0) {
+                a.a(this.this$0, a.a(this.this$0));
+            }
         }
     }
 }

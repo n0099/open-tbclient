@@ -1,6 +1,6 @@
 package com.baidu.tbadk.pay;
 
-import com.baidu.gson.Gson;
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class ResponseGetPayinfoMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.mPayInfoResultData = (PayInfoResultData) new Gson().fromJson(jSONObject.toString(), (Class<Object>) PayInfoResultData.class);
+            this.mPayInfoResultData = (PayInfoResultData) i.objectWithJsonStr(jSONObject.toString(), PayInfoResultData.class);
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class InviteMsgData implements Serializable {
+public class InviteMsgData extends i implements Serializable {
     private static final long serialVersionUID = 5185744948511601466L;
     private long fromUid;
     private int groupId;

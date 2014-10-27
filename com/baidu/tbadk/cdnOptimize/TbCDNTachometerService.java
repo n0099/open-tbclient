@@ -1,6 +1,5 @@
 package com.baidu.tbadk.cdnOptimize;
 
-import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +14,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,13 +26,13 @@ public class TbCDNTachometerService extends Service {
     private static final long TACHOMETER_INTERVAL = 300000;
     public static final String TB_CDNIP_BROADCASE_ACTION = "com.baidu.tbadk.opTimize.tbCdnIpBroadCastAction";
     public static final String TB_CDNIP_BROADCASE_KEY = "com.baidu.tbadk.opTimize.cdnIpBroadCast";
-    public static final String TB_CDNIP_BROADCASE_NEED_USEIP_STRING = "com.baidu.tbadk.opTimize.cdnipBroadCastNeedUseIp";
+    public static final String TB_CDNIP_BROADCASE_NEED_USEIP = "com.baidu.tbadk.opTimize.cdnipBroadCastNeedUseIp";
+    public static final String TB_CDNIP_BROADCASE_NUM = "com.baidu.tbadk.opTimize.tbCdnIpBroadCastNum";
     private static Object lock = new Object();
     private static long lastTachometerTime = 0;
-    private static CustomMessageTask customNormalTask = new CustomMessageTask(2016000, new a());
-    private final long TACHOMETER_MAXTIME = 10000;
+    private static CustomMessageTask customNormalTask = new CustomMessageTask(2017000, new a());
+    private final long TACHOMETER_MAXTIME = TbConfig.USE_TIME_INTERVAL;
     private final int TIMER_MSG_KEY = 1002;
-    private final int TIMER_MSG_CDNDOMIN_KEY = 1003;
     private g cdnTachometerModel = null;
     private ArrayList<String> optimalIpList = new ArrayList<>();
     private ArrayList<String> belowOnePointFiveIpList = new ArrayList<>();
@@ -43,8 +44,12 @@ public class TbCDNTachometerService extends Service {
     private final String cdnHiPhotosDomain = "c.hiphotos.baidu.com";
     private int hiPhotosMaxTime = 3000;
     private boolean canBroadCast = false;
-    private CustomMessageListener customNormalListener = new b(this, 2016000);
-    @SuppressLint({"HandlerLeak"})
+    private boolean isBroadFirstIp = false;
+    private final int TB_CDN_MIN_IP_INTERVAL = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
+    private long lastNotifyIpTime = 0;
+    private int lastNotifyIpCount = 0;
+    private int numOfThrowIp = 0;
+    private CustomMessageListener customNormalListener = new b(this, 2017000);
     private final Handler handler = new c(this, Looper.getMainLooper());
     private final i tachometerModelCallBack = new d(this);
 
@@ -55,16 +60,16 @@ public class TbCDNTachometerService extends Service {
     }
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && com.baidu.adp.lib.network.willdelete.h.a() && TbadkApplication.m252getInst().isMainProcess(true)) {
+        if (context != null && j.fi() && TbadkApplication.m251getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.a().a(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.lk().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= TACHOMETER_INTERVAL) {
                         lastTachometerTime = currentTimeMillis;
-                        com.baidu.tbadk.core.sharedPref.b.a().b(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.lk().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }
@@ -72,7 +77,7 @@ public class TbCDNTachometerService extends Service {
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);
             intent.putExtra("isNormal", z);
-            com.baidu.adp.lib.e.d.a(context, intent);
+            com.baidu.adp.lib.g.i.b(context, intent);
         }
     }
 
@@ -94,7 +99,7 @@ public class TbCDNTachometerService extends Service {
     public void onCreate() {
         super.onCreate();
         registerListener();
-        this.cdnTachometerModel = new g();
+        this.cdnTachometerModel = new g(null);
         this.cdnTachometerModel.a(this.tachometerModelCallBack);
     }
 
@@ -106,7 +111,7 @@ public class TbCDNTachometerService extends Service {
         }
         Message message = new Message();
         message.what = 1002;
-        this.handler.sendMessageDelayed(message, 10000L);
+        this.handler.sendMessageDelayed(message, TbConfig.USE_TIME_INTERVAL);
         this.startID = i;
         getIPList();
     }
@@ -121,38 +126,36 @@ public class TbCDNTachometerService extends Service {
     public void getIPList() {
         this.cdnTachometerModel.a((i) null);
         this.cdnTachometerModel.a(this.tachometerModelCallBack);
-        this.cdnTachometerModel.a();
+        this.cdnTachometerModel.iU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(f fVar) {
-        if (fVar == null || fVar.a != 0) {
+        this.numOfThrowIp = 0;
+        if (fVar == null || fVar.xU != 0) {
             broadCastAndStopSelf(null);
-        } else if (!fVar.f) {
+        } else if (!fVar.xX) {
             broadCastAndStopSelf(null);
-        } else if (fVar.e.size() == 0) {
+        } else if (fVar.xW.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(fVar.e);
-            String str = fVar.c;
-            String str2 = fVar.g;
-            String str3 = fVar.d;
+            breakUpIpList(fVar.xW);
+            String str = fVar.imageUrl;
+            String str2 = fVar.xY;
+            String str3 = fVar.xV;
             if (str != null || str2 != null || str3 != null) {
-                int size = fVar.e.size();
+                int size = fVar.xW.size();
                 if (size > 0) {
                     e eVar = new e(this, fVar, 0);
-                    eVar.f = this.cdnTachometerModel;
+                    eVar.cdnTachometerModel = this.cdnTachometerModel;
                     e.a(eVar, this.isNormal);
                     e.a(eVar, "c.hiphotos.baidu.com");
-                    CustomMessage customMessage = new CustomMessage(2016000, eVar);
+                    CustomMessage customMessage = new CustomMessage(2017000, eVar);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
-                    Message message = new Message();
-                    message.what = 1003;
-                    this.handler.sendMessageDelayed(message, 10000L);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = fVar.e.get(i);
+                    ArrayList<String> arrayList = fVar.xW.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -161,9 +164,9 @@ public class TbCDNTachometerService extends Service {
                         this.cdnIpMap.put(str4, arrayList);
                     }
                     e eVar2 = new e(this, fVar, i);
-                    eVar2.f = this.cdnTachometerModel;
+                    eVar2.cdnTachometerModel = this.cdnTachometerModel;
                     e.a(eVar2, this.isNormal);
-                    CustomMessage customMessage2 = new CustomMessage(2016000, eVar2);
+                    CustomMessage customMessage2 = new CustomMessage(2017000, eVar2);
                     customMessage2.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage2);
                 }
@@ -188,10 +191,29 @@ public class TbCDNTachometerService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void judgeIsBroadcastCdnIp() {
+        if (!this.isBroadFirstIp && this.belowOnePointFiveIpList.size() > 0) {
+            this.isBroadFirstIp = true;
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(this.belowOnePointFiveIpList.get(0).split("_")[0]);
+            broadCast(arrayList);
+        }
         if (this.optimalIpList.size() >= 5) {
             BroadcastCdnIp();
         } else if (this.returnRequestNum >= this.cdnIpMap.size()) {
             BroadcastCdnIp();
+        } else if (this.lastNotifyIpCount < this.optimalIpList.size() && System.currentTimeMillis() - this.lastNotifyIpTime >= 2000) {
+            int i = this.lastNotifyIpCount;
+            this.lastNotifyIpCount = this.optimalIpList.size();
+            this.lastNotifyIpTime = System.currentTimeMillis();
+            if (i != 0) {
+                ArrayList<String> arrayList2 = new ArrayList<>();
+                int size = this.optimalIpList.size();
+                int i2 = size <= 5 ? size : 5;
+                for (int i3 = 0; i3 < i2; i3++) {
+                    arrayList2.add(this.optimalIpList.get(i3));
+                }
+                broadCast(arrayList2);
+            }
         }
     }
 
@@ -228,15 +250,22 @@ public class TbCDNTachometerService extends Service {
     }
 
     private void broadCastAndStopSelf(ArrayList<String> arrayList) {
+        MessageManager.getInstance().removeMessage(this.mId);
+        this.handler.removeMessages(1002);
+        broadCast(arrayList);
+        stopSelfResult(this.startID);
+    }
+
+    private void broadCast(ArrayList<String> arrayList) {
         Intent intent = new Intent();
         if (arrayList == null) {
             arrayList = new ArrayList<>();
         }
+        this.numOfThrowIp++;
         intent.setAction(TB_CDNIP_BROADCASE_ACTION);
         intent.putExtra(TB_CDNIP_BROADCASE_KEY, arrayList);
-        intent.putExtra(TB_CDNIP_BROADCASE_NEED_USEIP_STRING, !this.isNormal);
-        MessageManager.getInstance().removeMessage(this.mId);
+        intent.putExtra(TB_CDNIP_BROADCASE_NEED_USEIP, !this.isNormal);
+        intent.putExtra(TB_CDNIP_BROADCASE_NUM, this.numOfThrowIp);
         sendBroadcast(intent);
-        stopSelfResult(this.startID);
     }
 }

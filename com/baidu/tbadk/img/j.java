@@ -6,7 +6,7 @@ import android.os.Parcelable;
 class j implements Parcelable.Creator<WriteImagesInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
+    /* renamed from: e */
     public WriteImagesInfo createFromParcel(Parcel parcel) {
         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
         writeImagesInfo.parseJson(parcel.readString());
@@ -15,7 +15,7 @@ class j implements Parcelable.Creator<WriteImagesInfo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
+    /* renamed from: cS */
     public WriteImagesInfo[] newArray(int i) {
         return new WriteImagesInfo[i];
     }

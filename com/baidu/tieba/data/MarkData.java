@@ -2,6 +2,7 @@ package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -103,9 +104,6 @@ public class MarkData implements Serializable {
         return this.mPostId;
     }
 
-    public void logPrint() {
-    }
-
     public void setAccount(String str) {
         this.mAccount = str;
     }
@@ -152,7 +150,7 @@ public class MarkData implements Serializable {
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put("pid", this.mPostId);
             if (this.mHostMode) {
-                jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                jSONObject.put("status", "1");
             } else if (!this.mSequence) {
                 jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
             } else {
@@ -167,14 +165,14 @@ public class MarkData implements Serializable {
 
     public void paserJson(JSONObject jSONObject) {
         try {
-            this.mThreadId = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
+            this.mThreadId = jSONObject.optString("thread_id");
             this.mPostId = jSONObject.optString("mark_pid");
-            this.mForumName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+            this.mForumName = jSONObject.optString("forum_name");
             this.mTitle = jSONObject.optString("title");
             this.mAuthorName = jSONObject.optJSONObject("author").optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt("count");
+            this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
             int optInt = jSONObject.optInt("mark_status");
             if (optInt == 1) {
                 this.mHostMode = true;

@@ -7,39 +7,40 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity a;
-    private ArrayList<String> b;
-    private final String c;
-    private boolean d = true;
+    private final BaseActivity On;
+    private final String aAn;
+    private ArrayList<String> aew;
+    private boolean blW = true;
 
     public a(BaseActivity baseActivity, ArrayList<String> arrayList) {
-        this.a = baseActivity;
-        this.b = arrayList;
-        this.c = this.a.getText(com.baidu.tieba.x.forum).toString();
+        this.On = baseActivity;
+        this.aew = arrayList;
+        this.aAn = this.On.getText(com.baidu.tieba.y.forum).toString();
     }
 
-    public void a(ArrayList<String> arrayList) {
-        this.b = arrayList;
+    public void setData(ArrayList<String> arrayList) {
+        this.aew = arrayList;
     }
 
-    public void a(boolean z) {
-        this.d = z;
+    public void dy(boolean z) {
+        this.blW = z;
     }
 
-    public void a(int i) {
-        this.b.remove(i);
-        this.b.add(0, this.b.get(i));
+    public void gs(int i) {
+        this.aew.remove(i);
+        this.aew.add(0, this.aew.get(i));
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.b == null) {
+        if (this.aew == null) {
             return 0;
         }
-        return this.b.size();
+        return this.aew.size();
     }
 
     @Override // android.widget.Adapter
@@ -48,7 +49,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.b.get(i);
+        return this.aew.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -65,17 +66,17 @@ public class a extends BaseAdapter {
         Object item;
         try {
             if (view == null) {
-                view3 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.home_dialog_search_item, null);
+                view3 = com.baidu.adp.lib.g.b.ek().inflate(this.On, com.baidu.tieba.w.home_dialog_search_item, null);
                 try {
                     bVar = new b(this, null);
-                    bVar.a = (TextView) view3.findViewById(com.baidu.tieba.u.home_lv_search_forum);
-                    bVar.b = view3.findViewById(com.baidu.tieba.u.home_dialog_lv_search_forum_divider);
+                    bVar.axq = (TextView) view3.findViewById(com.baidu.tieba.v.home_lv_search_forum);
+                    bVar.blX = view3.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
                     view3.setTag(bVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
                     BdLog.e(exc.getMessage());
-                    a(view2);
+                    F(view2);
                     return view2;
                 }
             } else {
@@ -90,36 +91,30 @@ public class a extends BaseAdapter {
         if (item == null) {
             return view3;
         }
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            bVar.a.setTextColor(-6574132);
-            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.r.square_dividing_line_1));
+        if (TbadkApplication.m251getInst().getSkinType() == 1) {
+            bVar.axq.setTextColor(-6574132);
         } else {
-            bVar.a.setTextColor(-13553101);
-            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.r.square_dividing_line));
+            bVar.axq.setTextColor(-13553101);
         }
+        aw.i(bVar.blX, com.baidu.tieba.s.square_dividing_line);
         String str = (String) item;
-        if (this.d) {
-            bVar.a.setText(str.concat(this.c));
+        if (this.blW) {
+            bVar.axq.setText(str.concat(this.aAn));
             view2 = view3;
         } else {
-            bVar.a.setText(str);
+            bVar.axq.setText(str);
             view2 = view3;
         }
-        a(view2);
+        F(view2);
         return view2;
     }
 
-    private void a(View view) {
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.a.getLayoutMode().a(skinType == 1);
-        this.a.getLayoutMode().a(view);
-        View findViewById = view.findViewById(com.baidu.tieba.u.parent);
-        if (skinType == 1) {
-            if (findViewById != null) {
-                findViewById.setBackgroundResource(com.baidu.tieba.t.common_list_item_bg_selector_1);
-            }
-        } else if (findViewById != null) {
-            findViewById.setBackgroundResource(com.baidu.tieba.t.common_list_item_bg_selector);
+    private void F(View view) {
+        this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.On.getLayoutMode().h(view);
+        View findViewById = view.findViewById(com.baidu.tieba.v.parent);
+        if (findViewById != null) {
+            aw.h(findViewById, com.baidu.tieba.u.common_list_item_bg_selector);
         }
     }
 }

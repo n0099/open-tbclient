@@ -1,37 +1,28 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class g {
-    private String a;
-    private List<b> b;
-
-    public String a() {
-        return this.a;
-    }
-
-    public List<b> b() {
-        if (this.b == null) {
-            this.b = new ArrayList();
-        }
-        return this.b;
-    }
-
-    public void a(listData listdata) {
-        if (listdata != null) {
-            this.a = listdata.key;
-            if (listdata.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : listdata.friend_list) {
-                    b bVar = new b();
-                    bVar.a(friendlist);
-                    bVar.d(this.a);
-                    this.b.add(bVar);
+public class g implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        boolean m;
+        if (customMessage != null) {
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001183 || cmd == 2001184)) {
+                b bVar = (b) customMessage.getData();
+                if (cmd == 2001183) {
+                    m = i.pC().b(bVar);
+                } else {
+                    m = i.pC().m(bVar.getUserId());
+                }
+                if (!m) {
+                    com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
                 }
             }
         }
+        return null;
     }
 }

@@ -8,14 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.x {
-    private com.baidu.tieba.model.j a = null;
-    private h b = null;
-    private int c = -1;
-    private ArrayList<MarkData> d = null;
+public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.aa, com.baidu.adp.widget.ListView.f {
+    private com.baidu.tieba.model.j bAS = null;
+    private h bAT = null;
+    private int bAU = -1;
+    private ArrayList<MarkData> bAV = null;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015005, new e());
@@ -27,46 +28,46 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.j();
-        this.a.a(new f(this, this));
-        this.b = new h(this);
-        this.b.a(new g(this));
-        b();
+        this.bAS = new com.baidu.tieba.model.j();
+        this.bAS.a(new f(this, this));
+        this.bAT = new h(this);
+        this.bAT.f(new g(this));
+        refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.b(i);
+        this.bAT.onChangeSkinType(i);
     }
 
-    private void b() {
-        if (this.a.g() == 0 || this.a.k() < 0) {
-            this.a.a((Boolean) true);
+    private void refresh() {
+        if (this.bAS.getCount() == 0 || this.bAS.Tl() < 0) {
+            this.bAS.g(true);
             return;
         }
-        this.b.f();
-        this.a.j();
+        this.bAT.startSync();
+        this.bAS.startSync();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.i();
-        this.a.l();
+        this.bAT.onDestroy();
+        this.bAS.onDestroy();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b.a()) {
-            this.b.b();
-        } else if (view.getId() == this.b.c()) {
+        if (view == this.bAT.Zz()) {
+            this.bAT.ZA();
+        } else if (view.getId() == this.bAT.ZB()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.b.g();
-            if (!this.a.b(intValue)) {
-                this.b.e();
+            this.bAT.CN();
+            if (!this.bAS.gB(intValue)) {
+                this.bAT.ZD();
             }
         }
         super.onClick(view);
@@ -74,27 +75,27 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.a.f().size()) {
-            this.c = i;
-            MarkData markData = this.a.f().get(i);
-            MarkData markData2 = this.d.get(i);
-            int b = this.a.b();
-            int r = com.baidu.tbadk.coreExtra.messageCenter.a.a().r();
+        if (i >= 0 && i < this.bAS.Ti().size()) {
+            this.bAU = i;
+            MarkData markData = this.bAS.Ti().get(i);
+            MarkData markData2 = this.bAV.get(i);
+            int Th = this.bAS.Th();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgBookmark();
             if (markData2.getNewCounts() > 0) {
-                if (r > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(r - 1);
+                if (msgBookmark > 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().setMsgBookmark(0);
                 }
-                if (b > 0) {
-                    this.a.a(b - 1);
+                if (Th > 0) {
+                    this.bAS.gA(Th - 1);
                 } else {
-                    this.a.a(0);
+                    this.bAS.gA(0);
                 }
             }
             markData2.setNewCounts(0);
             if (markData != null) {
-                sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.bc(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
+                sendMessage(new CustomMessage(2004001, new PbActivityConfig(this).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
         super.onItemClick(adapterView, view, i, j);
@@ -104,7 +105,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.b.a(this.d);
+        this.bAT.D(this.bAV);
     }
 
     @Override // android.app.Activity
@@ -113,12 +114,12 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
         if (i2 == -1) {
             switch (i) {
                 case 17001:
-                    MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                    if (markData != null && this.a.f().size() > this.c && this.c >= 0) {
-                        this.a.f().get(this.c).setPostId(markData.getPostId());
-                        this.a.f().get(this.c).setHostMode(markData.getHostMode());
-                        this.a.f().get(this.c).setSequence(markData.getSequence());
-                        this.b.h();
+                    MarkData markData = (MarkData) intent.getSerializableExtra(PbActivityConfig.KEY_MARK);
+                    if (markData != null && this.bAS.Ti().size() > this.bAU && this.bAU >= 0) {
+                        this.bAS.Ti().get(this.bAU).setPostId(markData.getPostId());
+                        this.bAS.Ti().get(this.bAU).setHostMode(markData.getHostMode());
+                        this.bAS.Ti().get(this.bAU).setSequence(markData.getSequence());
+                        this.bAT.ZF();
                         return;
                     }
                     return;
@@ -128,9 +129,9 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.a.f().size() > this.c && this.c >= 0) {
-                        this.a.f().remove(this.c);
-                        this.b.h();
+                    if (this.bAS.Ti().size() > this.bAU && this.bAU >= 0) {
+                        this.bAS.Ti().remove(this.bAU);
+                        this.bAT.ZF();
                         return;
                     }
                     return;
@@ -140,20 +141,20 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        if (this.a != null && this.b != null) {
-            this.a.d();
-            this.b.a(true);
-            this.a.a((Boolean) true);
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
+        if (this.bAS != null && this.bAT != null) {
+            this.bAS.reset();
+            this.bAT.aC(true);
+            this.bAS.g(true);
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        if (this.b != null && this.a != null && this.a.c()) {
-            this.b.a(this.a.a());
-            this.a.a((Boolean) false);
+    @Override // com.baidu.adp.widget.ListView.aa
+    public void hQ() {
+        if (this.bAT != null && this.bAS != null && this.bAS.hasMore()) {
+            this.bAT.gU(this.bAS.getOffset());
+            this.bAS.g(false);
         }
     }
 }

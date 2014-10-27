@@ -1,27 +1,35 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.message.AppUploadMessage;
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-class aa implements Runnable {
-    final /* synthetic */ MainTabActivity a;
+class aa extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Runnable runnable;
-        if (TbadkApplication.m252getInst().isAppUploadOpen()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
-            handler = this.a.T;
-            runnable = this.a.X;
-            handler.postDelayed(runnable, 18000000L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        TextView textView;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.bOo) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                MainTabActivity mainTabActivity = this.this$0;
+                textView = this.this$0.aEv;
+                mainTabActivity.p(textView, msgReplyme);
+            }
         }
     }
 }

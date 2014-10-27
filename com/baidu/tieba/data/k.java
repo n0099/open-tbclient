@@ -3,11 +3,11 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private String a;
-    private String b;
+    private String imageUrl;
+    private String link;
 
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("img");
-        this.b = jSONObject.optString("link");
+    public void parserJson(JSONObject jSONObject) {
+        this.imageUrl = jSONObject.optString("img");
+        this.link = jSONObject.optString("link");
     }
 }

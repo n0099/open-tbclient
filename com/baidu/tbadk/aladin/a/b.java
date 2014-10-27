@@ -7,47 +7,47 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String a;
-    private Intent b;
-    private String c;
-    private String d;
-    private int e = 0;
+    private int errorCode = 0;
+    private Intent intent;
+    private String response;
+    private String url;
+    private String xl;
 
     public b(a aVar) {
         if (aVar != null) {
-            this.a = aVar.b();
+            this.url = aVar.getUrl();
         }
     }
 
-    public boolean a() {
-        HashMap<String, String> a;
-        if (this.a == null || (a = a(this.a.split("&"))) == null) {
+    public boolean iK() {
+        HashMap<String, String> f;
+        if (this.url == null || (f = f(this.url.split("&"))) == null) {
             return false;
         }
-        for (Map.Entry<String, String> entry : a.entrySet()) {
+        for (Map.Entry<String, String> entry : f.entrySet()) {
             if (entry != null) {
                 String key = entry.getKey();
                 String value = entry.getValue();
                 if (key != null && value != null) {
                     if ("intent".equals(key)) {
-                        a(value);
+                        aO(value);
                     } else if (!"t".equals(key) && "callback".equals(key)) {
-                        this.d = value;
-                        d();
+                        this.xl = value;
+                        iL();
                     }
                 }
             }
         }
-        return (this.b == null || this.c == null) ? false : true;
+        return (this.intent == null || this.response == null) ? false : true;
     }
 
-    private void a(String str) {
+    private void aO(String str) {
         String[] split;
         boolean z;
         boolean z2;
         int i;
         if (str != null && (split = str.split(";")) != null) {
-            this.b = new Intent();
+            this.intent = new Intent();
             int length = split.length;
             int i2 = 0;
             boolean z3 = false;
@@ -59,7 +59,7 @@ public class b {
                     String str3 = split2[1];
                     if ("action".equals(str2)) {
                         if ("com.baidu.tieba.VIEW".equals(str3)) {
-                            this.b.setAction(str3);
+                            this.intent.setAction(str3);
                             z = z3;
                             z2 = true;
                             i2++;
@@ -74,7 +74,7 @@ public class b {
                                 e.printStackTrace();
                                 i = 0;
                             }
-                            this.b.setFlags(i);
+                            this.intent.setFlags(i);
                             z = z3;
                             z2 = z4;
                         } else if ("component".equals(str2)) {
@@ -91,7 +91,7 @@ public class b {
                             if (str2.indexOf(".") >= 0) {
                                 str2 = str2.substring(str2.indexOf(".") + 1);
                             }
-                            this.b.putExtra(str2, str3);
+                            this.intent.putExtra(str2, str3);
                         }
                         i2++;
                         z4 = z2;
@@ -105,18 +105,18 @@ public class b {
                 z3 = z;
             }
             if (!z3 || !z4) {
-                this.b = null;
+                this.intent = null;
             }
         }
     }
 
-    private void d() {
-        if (this.d != null) {
-            this.c = String.valueOf(this.d) + "({\"error\":" + this.e + "})";
+    private void iL() {
+        if (this.xl != null) {
+            this.response = String.valueOf(this.xl) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
-    private HashMap<String, String> a(String[] strArr) {
+    private HashMap<String, String> f(String[] strArr) {
         if (strArr != null && strArr.length > 0) {
             HashMap<String, String> hashMap = new HashMap<>(strArr.length);
             for (String str : strArr) {
@@ -137,19 +137,19 @@ public class b {
         return null;
     }
 
-    public Intent b() {
-        return this.b;
+    public Intent getIntent() {
+        return this.intent;
     }
 
-    public String c() {
-        if (this.c == null) {
-            d();
+    public String getResponse() {
+        if (this.response == null) {
+            iL();
         }
-        return this.c;
+        return this.response;
     }
 
-    public void a(int i) {
-        this.e = i;
-        d();
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+        iL();
     }
 }

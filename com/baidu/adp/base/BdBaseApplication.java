@@ -2,7 +2,7 @@ package com.baidu.adp.base;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.m;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
@@ -19,14 +19,18 @@ public class BdBaseApplication extends Application {
     public void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        j.a(application);
+        m.m(application);
         initWorkMode();
         initBitmapHelper();
         initHttpManager();
+        initPlugin();
+    }
+
+    private void initPlugin() {
     }
 
     private void initHttpManager() {
-        com.baidu.adp.lib.network.willdelete.e.a().a(this.mContext, false);
+        com.baidu.adp.lib.network.willdelete.e.dY().init(this.mContext, false);
     }
 
     public static BdBaseApplication getInst() {
@@ -58,19 +62,19 @@ public class BdBaseApplication extends Application {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.b.a().a(this.mContext);
+        com.baidu.adp.lib.util.c.eS().l(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.a().c();
+        a.M().N();
         System.gc();
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.a().b(i);
+        a.M().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.a().d();
+        return a.M().getActivityStackMaxSize();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class NearbyGroupsData extends ArrayList<i> {
+public class NearbyGroupsData extends ArrayList<c> {
     private static final long serialVersionUID = 1;
     private int geo;
     private boolean hasMore;
@@ -33,47 +33,47 @@ public class NearbyGroupsData extends ArrayList<i> {
         this.hasMore = z;
     }
 
-    public j findItemByGroupId(String str) {
-        j jVar;
+    public d findItemByGroupId(String str) {
+        d dVar;
         if (str == null) {
             return null;
         }
-        Iterator<i> it = iterator();
+        Iterator<c> it = iterator();
         while (true) {
             if (!it.hasNext()) {
-                jVar = null;
+                dVar = null;
                 break;
             }
-            i next = it.next();
-            if ((next instanceof j) && ((j) next).c() != null && ((j) next).c().equals(str)) {
-                jVar = (j) next;
+            c next = it.next();
+            if ((next instanceof d) && ((d) next).getGroupId() != null && ((d) next).getGroupId().equals(str)) {
+                dVar = (d) next;
                 break;
             }
         }
-        return jVar;
+        return dVar;
     }
 
-    public h getFirstGroup() {
+    public b getFirstGroup() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 >= size()) {
                 return null;
             }
-            i iVar = get(i2);
-            if (!(iVar instanceof h)) {
+            c cVar = get(i2);
+            if (!(cVar instanceof b)) {
                 i = i2 + 1;
             } else {
-                return (h) iVar;
+                return (b) cVar;
             }
         }
     }
 
-    public h getLastGroup() {
+    public b getLastGroup() {
         for (int size = size() - 1; size >= 0 && size >= 0; size--) {
-            i iVar = get(size);
-            if (iVar instanceof h) {
-                return (h) iVar;
+            c cVar = get(size);
+            if (cVar instanceof b) {
+                return (b) cVar;
             }
         }
         return null;

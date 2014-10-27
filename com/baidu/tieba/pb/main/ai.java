@@ -1,37 +1,35 @@
 package com.baidu.tieba.pb.main;
-
-import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class ai implements com.baidu.adp.lib.d.c<GifView> {
-    final /* synthetic */ PbActivity a;
+class ai implements com.baidu.tieba.location.j {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public GifView a() {
-        return new GifView(this.a);
+    @Override // com.baidu.tieba.location.j
+    public void EH() {
+        bv bvVar;
+        bv bvVar2;
+        bvVar = this.bvg.buL;
+        if (bvVar.EO() != null) {
+            bvVar2 = this.bvg.buL;
+            bvVar2.EO().setLocationViewVisibility(8);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(GifView gifView) {
-        gifView.e();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView b(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView c(GifView gifView) {
-        return gifView;
+    @Override // com.baidu.tieba.location.j
+    public void eZ(String str) {
+        bv bvVar;
+        bv bvVar2;
+        bv bvVar3;
+        bvVar = this.bvg.buL;
+        if (bvVar.EO() != null) {
+            bvVar2 = this.bvg.buL;
+            bvVar2.EO().setLocationViewVisibility(0);
+            bvVar3 = this.bvg.buL;
+            bvVar3.EO().j(2, str);
+        }
     }
 }

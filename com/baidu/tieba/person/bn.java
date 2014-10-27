@@ -1,44 +1,27 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class bn implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bn(PersonListActivity personListActivity) {
+        this.bCT = personListActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        com.baidu.tieba.model.au auVar;
-        Boolean bool;
-        com.baidu.tieba.model.au auVar2;
-        com.baidu.tieba.model.au auVar3;
-        Dialog dialog2;
-        dialog = this.a.A;
-        if (dialog != null) {
-            dialog2 = this.a.A;
-            com.baidu.adp.lib.e.e.b(dialog2, this.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bCT.bCs = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            LoginActivity.a((Activity) this.bCT, this.bCT.getString(com.baidu.tieba.y.login_to_chat), true, 11028);
+        } else {
+            this.bCT.aab();
         }
-        auVar = this.a.u;
-        if (auVar.a().getPhotoChanged()) {
-            Intent intent = new Intent();
-            bool = this.a.b;
-            if (bool.booleanValue()) {
-                auVar3 = this.a.u;
-                intent.putExtra("person_change_data", auVar3.a());
-            } else {
-                auVar2 = this.a.u;
-                intent.putExtra("data", auVar2.a());
-            }
-            this.a.setResult(-1, intent);
-        }
-        this.a.finish();
     }
 }

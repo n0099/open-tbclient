@@ -12,10 +12,9 @@ class c extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            b.a(1);
+            b.el(1);
         }
     }
 }

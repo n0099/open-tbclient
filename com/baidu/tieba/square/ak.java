@@ -1,25 +1,45 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
-    final /* synthetic */ af a;
+public class ak implements y {
+    protected String img_url = null;
+    protected String link = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(af afVar) {
-        this.a = afVar;
+    @Override // com.baidu.tieba.square.y
+    public String kJ() {
+        return this.img_url;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        baseFragmentActivity = this.a.h;
-        if (baseFragmentActivity instanceof SingleSquareActivity) {
-            baseFragmentActivity2 = this.a.h;
-            ((SingleSquareActivity) baseFragmentActivity2).g();
+    public void hu(String str) {
+        this.img_url = str;
+    }
+
+    @Override // com.baidu.tieba.square.y
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
+        }
+    }
+
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
+            try {
+                hu(banner.pic_url);
+                setLink(banner.link);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

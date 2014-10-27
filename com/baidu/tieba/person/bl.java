@@ -1,59 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.widget.ProgressBar;
 /* loaded from: classes.dex */
-public class bl implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity a;
+class bl implements bw {
+    final /* synthetic */ PersonListActivity bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bl(PersonListActivity personListActivity) {
+        this.bCT = personListActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        EditText editText;
-        TextView textView;
-        LinearLayout linearLayout;
-        EditText editText2;
-        EditText editText3;
-        editText = this.a.n;
-        Editable text = editText.getText();
-        String replaceAll = text.toString().replaceAll("\\s*", "");
-        int length = replaceAll.length();
-        textView = this.a.p;
-        textView.setText(String.valueOf(length));
-        linearLayout = this.a.o;
-        linearLayout.setVisibility(0);
-        this.a.a(0);
-        this.a.e();
-        if (length > 50) {
-            this.a.showToast(com.baidu.tieba.x.over_limit_tip);
-            int selectionEnd = Selection.getSelectionEnd(text);
-            String substring = replaceAll.substring(0, 50);
-            editText2 = this.a.n;
-            editText2.setText(substring);
-            editText3 = this.a.n;
-            Editable text2 = editText3.getText();
-            int length2 = text2.length();
-            if (selectionEnd <= length2) {
-                length2 = selectionEnd;
+    @Override // com.baidu.tieba.person.bw
+    public void D(String str, boolean z) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (!z) {
+            progressBar = this.bCT.mProgress;
+            if (progressBar.isShown()) {
+                progressBar2 = this.bCT.mProgress;
+                progressBar2.setVisibility(8);
             }
-            Selection.setSelection(text2, length2);
+            if (!TextUtils.isEmpty(str)) {
+                this.bCT.showToast(str);
+            }
         }
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // com.baidu.tieba.person.bw
+    public com.baidu.tieba.data.aj d(com.baidu.tieba.data.aj ajVar, boolean z) {
+        this.bCT.a(ajVar, z);
+        return null;
     }
 }

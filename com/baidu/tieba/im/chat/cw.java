@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class cw implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ cu a;
-    private final /* synthetic */ CustomMessage b;
+class cw extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ PersonalChatActivity aPI;
+    private final /* synthetic */ UserData aPJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cu cuVar, CustomMessage customMessage) {
-        this.a = cuVar;
-        this.b = customMessage;
+    public cw(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.aPI = personalChatActivity;
+        this.aPJ = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r5) {
-        ((com.baidu.tbadk.core.atomData.bk) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.bk) this.b.getData()).getContext(), PersonalChatActivity.class);
-        if (((com.baidu.tbadk.core.atomData.bk) this.b.getData()).a().getUserIdLong() != 0) {
-            ((com.baidu.tbadk.core.atomData.bk) this.b.getData()).startActivity();
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: Kb */
+    public Void doInBackground() {
+        com.baidu.tieba.im.chat.personaltalk.c.KF().a(TbadkApplication.getCurrentAccount(), PersonalChatActivity.ZG, this.aPJ);
+        return null;
     }
 }

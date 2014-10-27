@@ -12,46 +12,46 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    private static aa a = new aa();
-    private static BdAsyncTaskParallel d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ad> b = new ArrayList<>();
-    private final List<e> c = new ArrayList();
+    private static aa So = new aa();
+    private static BdAsyncTaskParallel parallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private ArrayList<ad> Sp = new ArrayList<>();
+    private final List<e> Sq = new ArrayList();
 
-    public static aa a() {
-        return a;
+    public static aa rz() {
+        return So;
     }
 
     private aa() {
     }
 
-    public void a(e eVar) {
-        synchronized (this.c) {
-            if (!this.c.contains(eVar)) {
-                this.c.add(eVar);
-                Collections.sort(this.c);
+    public void b(e eVar) {
+        synchronized (this.Sq) {
+            if (!this.Sq.contains(eVar)) {
+                this.Sq.add(eVar);
+                Collections.sort(this.Sq);
             }
         }
     }
 
-    public void b() {
+    public void rA() {
         new ab(this).execute(new Void[0]);
     }
 
-    public boolean a(String str) {
-        Iterator<ad> it = this.b.iterator();
+    public boolean cY(String str) {
+        Iterator<ad> it = this.Sp.iterator();
         while (it.hasNext()) {
-            if (it.next().a(str)) {
+            if (it.next().cY(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public com.baidu.adp.widget.a.a b(String str) {
-        return com.baidu.tbadk.imageManager.e.a().c(str);
+    public com.baidu.adp.widget.a.a dg(String str) {
+        return com.baidu.tbadk.imageManager.e.sg().dt(str);
     }
 
-    public String a(String str, boolean z) {
+    public String m(String str, boolean z) {
         long hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
@@ -59,38 +59,38 @@ public class aa {
         return String.valueOf(z ? "d_" : "s_") + hashCode;
     }
 
-    public com.baidu.adp.widget.a.a a(String str, String str2) {
+    public com.baidu.adp.widget.a.a T(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
-        Bitmap b;
-        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(str2);
-        if (c != null) {
-            return c;
+        Bitmap U;
+        com.baidu.adp.widget.a.a dt = com.baidu.tbadk.imageManager.e.sg().dt(str2);
+        if (dt != null) {
+            return dt;
         }
-        Iterator<ad> it = this.b.iterator();
+        Iterator<ad> it = this.Sp.iterator();
         while (true) {
             if (!it.hasNext()) {
-                aVar = c;
+                aVar = dt;
                 break;
             }
             ad next = it.next();
-            if (next.a(str2)) {
-                aVar = next.b(str2);
+            if (next.cY(str2)) {
+                aVar = next.cZ(str2);
                 break;
             }
         }
-        if (aVar == null && str != null && (b = b(str, a(str2, false))) != null) {
-            aVar = new com.baidu.adp.widget.a.a(b, false, str2);
+        if (aVar == null && str != null && (U = U(str, m(str2, false))) != null) {
+            aVar = new com.baidu.adp.widget.a.a(U, false, str2);
         }
         a(str2, aVar, false);
         return aVar;
     }
 
-    public String b(String str, boolean z) {
-        if (!z.c().e()) {
-            List<ad> d2 = z.c().d();
+    public String n(String str, boolean z) {
+        if (!z.ry().isEmpty()) {
+            List<ad> groups = z.ry().getGroups();
             if (z) {
-                for (ad adVar : d2) {
-                    if (adVar.a(str)) {
+                for (ad adVar : groups) {
+                    if (adVar.cY(str)) {
                         return str;
                     }
                 }
@@ -104,43 +104,43 @@ public class aa {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.a().b(b(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.sg().c(n(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.a().b(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.sg().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ad> c() {
-        return this.b;
+    public ArrayList<ad> rB() {
+        return this.Sp;
     }
 
-    public ad c(String str) {
-        Iterator<ad> it = this.b.iterator();
+    public ad dh(String str) {
+        Iterator<ad> it = this.Sp.iterator();
         while (it.hasNext()) {
             ad next = it.next();
-            if (next.e().equals(str)) {
+            if (next.getGroupId().equals(str)) {
                 return next;
             }
         }
         return null;
     }
 
-    public Bitmap b(String str, String str2) {
-        return com.baidu.tbadk.core.util.s.c(".emotions/" + str, str2);
+    public Bitmap U(String str, String str2) {
+        return com.baidu.tbadk.core.util.s.K(".emotions/" + str, str2);
     }
 
-    public com.baidu.adp.widget.a.a c(String str, String str2) {
-        File file = new File(com.baidu.tbadk.core.util.s.a + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
+    public com.baidu.adp.widget.a.a V(String str, String str2) {
+        File file = new File(com.baidu.tbadk.core.util.s.mI + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
         if (file.exists()) {
             if (!UtilHelper.hasAvaiableSDCardSpace(1024)) {
-                Bitmap b = b(str, str2);
-                if (b != null) {
-                    return new com.baidu.adp.widget.a.a(b, false, str2);
+                Bitmap U = U(str, str2);
+                if (U != null) {
+                    return new com.baidu.adp.widget.a.a(U, false, str2);
                 }
                 return null;
             }
-            return com.baidu.adp.gif.b.a().a(file.getAbsolutePath());
+            return com.baidu.adp.gif.b.bi().m(file.getAbsolutePath());
         }
         return null;
     }

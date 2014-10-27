@@ -1,47 +1,52 @@
 package com.baidu.tieba.game;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.game.RequestGameDetailMessage;
-import com.baidu.tbadk.game.ResponseGameDetailMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.widget.TbImageView;
+import java.util.List;
 /* loaded from: classes.dex */
-class w extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ GameDetailActivity a;
+public class w extends BaseAdapter {
+    private List<String> aHs;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(GameDetailActivity gameDetailActivity, int i) {
-        super(i);
-        this.a = gameDetailActivity;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.aHs == null) {
+            return 0;
+        }
+        return this.aHs.size();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        aa aaVar;
-        com.baidu.tbadk.game.b bVar;
-        com.baidu.tbadk.game.b bVar2;
-        CustomMessageListener customMessageListener;
-        this.a.closeLoadingDialog();
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseGameDetailMessage)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
-            return;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.aHs.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        x xVar;
+        if (view == null || !(view.getTag() instanceof x)) {
+            view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), com.baidu.tieba.w.game_detail_thumb_item, null);
+            x xVar2 = new x(null);
+            xVar2.aHt = (TbImageView) view.findViewById(com.baidu.tieba.v.game_detail_thumb_item_thumb_iv);
+            xVar2.aHu = view.findViewById(com.baidu.tieba.v.game_detail_thumb_item_left_empty_view);
+            xVar2.aHv = view.findViewById(com.baidu.tieba.v.game_detail_thumb_item_right_empty_view);
+            xVar = xVar2;
+        } else {
+            xVar = (x) view.getTag();
         }
-        ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
-        if (!(responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.neterror));
-            return;
-        }
-        this.a.b = com.baidu.tbadk.game.b.a(responseGameDetailMessage.getGameInfo());
-        aaVar = this.a.a;
-        bVar = this.a.b;
-        aaVar.b(bVar);
-        bVar2 = this.a.b;
-        if (bVar2.c() == 1) {
-            GameDetailActivity gameDetailActivity = this.a;
-            customMessageListener = this.a.e;
-            gameDetailActivity.registerListener(customMessageListener);
-        }
+        xVar.aHu.setVisibility(i == 0 ? 0 : 8);
+        xVar.aHv.setVisibility(i == getCount() + (-1) ? 0 : 8);
+        xVar.aHt.c(this.aHs.get(i), 10, false);
+        return view;
+    }
+
+    public void setData(List<String> list) {
+        this.aHs = list;
     }
 }

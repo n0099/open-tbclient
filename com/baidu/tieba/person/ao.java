@@ -1,15 +1,18 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements Runnable {
-    final /* synthetic */ an a;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.a = anVar;
+    public ao(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.e();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bCm.ZS();
     }
 }

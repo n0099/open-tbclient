@@ -5,64 +5,60 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k implements a {
-    private NearbyGroupsActivity d;
-    private LinearLayout a = null;
-    private TextView b = null;
-    private TextView c = null;
-    private View e = null;
+    private NearbyGroupsActivity bgd;
+    private LinearLayout mParent = null;
+    private TextView bgj = null;
+    private TextView Hl = null;
+    private View ay = null;
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.d = null;
-        this.d = nearbyGroupsActivity;
-        b();
+        this.bgd = null;
+        this.bgd = nearbyGroupsActivity;
+        init();
     }
 
     @Override // com.baidu.tieba.im.nearbygroups.a
-    public View a() {
-        return this.e;
+    public View getView() {
+        return this.ay;
     }
 
     @Override // com.baidu.tieba.im.nearbygroups.a
-    public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.h) {
-            this.c.setText(((com.baidu.tieba.im.data.h) obj).a());
-            this.b.setVisibility(8);
+    public void b(int i, Object obj) {
+        if (obj instanceof com.baidu.tieba.im.data.b) {
+            this.Hl.setText(((com.baidu.tieba.im.data.b) obj).getName());
+            this.bgj.setVisibility(8);
         }
     }
 
-    public void b() {
-        this.e = com.baidu.adp.lib.e.b.a().a(this.d, v.im_group_list_group, null);
-        this.b = (TextView) this.e.findViewById(u.tv_group_line_top);
-        this.a = (LinearLayout) this.e.findViewById(u.list_group);
-        this.c = (TextView) this.e.findViewById(u.tv_group_name);
-        c();
+    public void init() {
+        this.ay = com.baidu.adp.lib.g.b.ek().inflate(this.bgd, w.im_group_list_group, null);
+        this.bgj = (TextView) this.ay.findViewById(v.tv_group_line_top);
+        this.mParent = (LinearLayout) this.ay.findViewById(v.list_group);
+        this.Hl = (TextView) this.ay.findViewById(v.tv_group_name);
+        QZ();
     }
 
-    public void a(int i) {
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a((View) this.a);
-        if (i == 1) {
-            this.c.setTextColor(this.d.getResources().getColor(r.common_list_text_1));
-            b(t.icon_list_small_lbs_1);
-            return;
-        }
-        this.c.setTextColor(this.d.getResources().getColor(r.common_list_text));
-        b(t.icon_list_small_lbs);
+    public void onChangeSkinType(int i) {
+        this.bgd.getLayoutMode().L(i == 1);
+        this.bgd.getLayoutMode().h(this.mParent);
+        aw.b(this.Hl, s.common_list_text, 1);
+        gh(u.icon_list_small_lbs);
     }
 
-    private void b(int i) {
-        Drawable drawable = this.d.getResources().getDrawable(i);
+    private void gh(int i) {
+        Drawable drawable = aw.getDrawable(i);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        this.c.setCompoundDrawables(drawable, null, null, null);
+        this.Hl.setCompoundDrawables(drawable, null, null, null);
     }
 
-    public void c() {
-        a(TbadkApplication.m252getInst().getSkinType());
+    public void QZ() {
+        onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
     }
 }

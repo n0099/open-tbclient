@@ -8,27 +8,27 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MsgMultiImageTextView extends cc {
-    private MultiContentView p;
+    private MultiContentView aOW;
 
     public MsgMultiImageTextView(Context context) {
-        super(context, com.baidu.tieba.v.msg_multi_pictext_view);
-        c();
+        super(context, com.baidu.tieba.w.msg_multi_pictext_view);
+        init();
     }
 
-    private void c() {
-        this.g = (TextView) a(com.baidu.tieba.u.tex_msgitem_time);
-        this.p = (MultiContentView) a(com.baidu.tieba.u.msg_content);
+    private void init() {
+        this.auh = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
+        this.aOW = (MultiContentView) findViewById(com.baidu.tieba.v.msg_content);
     }
 
     public void a(ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            b(chatMessage);
-            List<com.baidu.tieba.im.chat.officialBar.p> a = com.baidu.tieba.im.chat.officialBar.o.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId());
-            this.p.setPosition(this.d);
-            this.p.setOnItemViewLongClickListener(this.c);
-            this.p.setNeedNightMode(false);
-            this.p.setType(1);
-            this.p.a(a, view);
+            h(chatMessage);
+            List<com.baidu.tieba.im.chat.officialBar.p> ak = com.baidu.tieba.im.chat.officialBar.o.ak(chatMessage.getContent(), chatMessage.getUserInfo().getUserId());
+            this.aOW.setPosition(this.Uy);
+            this.aOW.setOnItemViewLongClickListener(this.aOL);
+            this.aOW.setNeedNightMode(false);
+            this.aOW.setType(1);
+            this.aOW.a(ak, view);
         }
     }
 }

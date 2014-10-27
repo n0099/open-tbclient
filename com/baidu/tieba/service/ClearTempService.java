@@ -22,11 +22,6 @@ public class ClearTempService extends Service {
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         this.interrupted = true;
@@ -69,7 +64,7 @@ public class ClearTempService extends Service {
     }
 
     private void deleteImageCacheByName() {
-        String str = com.baidu.tbadk.core.util.s.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = com.baidu.tbadk.core.util.s.mI + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {

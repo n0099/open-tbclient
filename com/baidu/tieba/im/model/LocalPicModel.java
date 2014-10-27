@@ -1,13 +1,17 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
+import com.baidu.adp.base.e;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.util.s;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class LocalPicModel extends com.baidu.adp.base.e implements Serializable {
+public class LocalPicModel extends e implements Serializable {
     private static final long serialVersionUID = -339604626740227228L;
     private String mDName;
     private String mDPath;
-    private t mImageTask;
+    private GetImageTask mImageTask;
     private String mSName;
     private String mSPath;
 
@@ -33,7 +37,7 @@ public class LocalPicModel extends com.baidu.adp.base.e implements Serializable 
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new t(this, null);
+        this.mImageTask = new GetImageTask(this, null);
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;
@@ -46,6 +50,49 @@ public class LocalPicModel extends com.baidu.adp.base.e implements Serializable 
             return true;
         }
         return true;
+    }
+
+    /* loaded from: classes.dex */
+    class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
+        private GetImageTask() {
+        }
+
+        /* synthetic */ GetImageTask(LocalPicModel localPicModel, GetImageTask getImageTask) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public ResponseData doInBackground(Object... objArr) {
+            String str = "im_" + String.valueOf(System.currentTimeMillis());
+            String a = s.a(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, String.valueOf(str) + "_send");
+            String str2 = String.valueOf(str) + "_display";
+            String a2 = s.a(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
+            Bitmap K = s.K(TiebaIMConfig.POST_IMAGE_PATH, str2);
+            if (a == null || a2 == null || K == null) {
+                return null;
+            }
+            return new ResponseData(K, a, a2);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            LocalPicModel.this.mImageTask = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(ResponseData responseData) {
+            super.onPostExecute((GetImageTask) responseData);
+            LocalPicModel.this.mImageTask = null;
+            if (LocalPicModel.this.mLoadDataCallBack != null) {
+                LocalPicModel.this.mLoadDataCallBack.a(responseData);
+            }
+        }
     }
 
     /* loaded from: classes.dex */

@@ -1,31 +1,28 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck extends CustomMessageListener {
-    final /* synthetic */ FrsImageActivity a;
+public class ck implements View.OnClickListener {
+    final /* synthetic */ cj aDA;
+    private final /* synthetic */ com.baidu.tbadk.core.data.q aDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ck(FrsImageActivity frsImageActivity, int i) {
-        super(i);
-        this.a = frsImageActivity;
+    public ck(cj cjVar, com.baidu.tbadk.core.data.q qVar) {
+        this.aDA = cjVar;
+        this.aDB = qVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsImageActivity.b = true;
-            } else if (intValue == 2) {
-                FrsImageActivity.c = true;
-            }
-            FrsImageActivity.a = true;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aDA.mContext;
+        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, this.aDB.getAuthor().getUserId(), this.aDB.getAuthor().getName_show(), this.aDA.aBV.zJ().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

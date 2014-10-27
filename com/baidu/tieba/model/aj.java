@@ -1,102 +1,79 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
 import com.baidu.tieba.data.MarkData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
-    final /* synthetic */ ai a;
-    private com.baidu.tbadk.core.util.ae b = null;
-    private boolean c;
-    private com.baidu.tieba.data.ax d;
+public class aj extends com.baidu.adp.base.e {
+    private boolean bpe;
+    private MarkData bpf;
+    private ak bpg;
+    private al bph;
 
-    public aj(ai aiVar, boolean z) {
-        this.a = aiVar;
-        this.c = true;
-        this.d = null;
-        this.c = z;
-        this.d = new com.baidu.tieba.data.ax();
+    public aj(Context context) {
+        super(context);
+        this.bpe = false;
+        this.bpf = null;
+        this.bpg = null;
+        this.bph = null;
+        this.bpf = new MarkData();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
+    public boolean zN() {
+        return this.bpe;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Boolean... boolArr) {
-        MarkData markData;
-        MarkData markData2;
-        MarkData markData3;
-        if (this.c) {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
-            j jVar = new j();
-            markData3 = this.a.b;
-            jVar.a(markData3);
-            this.b.a("data", jVar.a(0, 1));
-        } else {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
-            com.baidu.tbadk.core.util.ae aeVar = this.b;
-            markData = this.a.b;
-            aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, markData.getAccount());
-            com.baidu.tbadk.core.util.ae aeVar2 = this.b;
-            markData2 = this.a.b;
-            aeVar2.a("tid", markData2.getId());
+    public MarkData TH() {
+        return this.bpf;
+    }
+
+    public void a(al alVar) {
+        this.bph = alVar;
+    }
+
+    public void b(MarkData markData) {
+        this.bpf = markData;
+    }
+
+    public void bs(boolean z) {
+        this.bpe = z;
+    }
+
+    public String zO() {
+        if (this.bpf != null) {
+            return this.bpf.getPostId();
         }
-        this.d.a(this.b.h());
-        boolean z = this.d.a() == 0;
-        if (this.b.a().b().b() && z) {
-            return true;
+        return null;
+    }
+
+    public void TI() {
+        if (this.bpg != null) {
+            this.bpg.cancel();
         }
+        this.bpg = new ak(this, true);
+        this.bpg.setPriority(3);
+        this.bpg.execute(new Boolean[0]);
+    }
+
+    public void TJ() {
+        if (this.bpg != null) {
+            this.bpg.cancel();
+        }
+        this.bpg = new ak(this, false);
+        this.bpg.setPriority(3);
+        this.bpg.execute(new Boolean[0]);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.bpg != null) {
+            this.bpg.cancel();
+            return false;
         }
-        this.a.c = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        ak akVar;
-        ak akVar2;
-        ak akVar3;
-        ak akVar4;
-        ak akVar5;
-        try {
-            if (bool.booleanValue()) {
-                akVar4 = this.a.d;
-                if (akVar4 != null) {
-                    akVar5 = this.a.d;
-                    akVar5.a(true, this.c, null);
-                }
-            } else {
-                akVar = this.a.d;
-                if (akVar != null) {
-                    if (this.b == null || this.b.a().b().b()) {
-                        akVar2 = this.a.d;
-                        akVar2.a(false, this.c, this.d.b());
-                    } else {
-                        akVar3 = this.a.d;
-                        akVar3.a(false, this.c, this.b.e());
-                    }
-                }
-            }
-            this.a.c = null;
-        } catch (Throwable th) {
-            BdLog.e(th.toString());
-        }
+        return false;
     }
 }

@@ -10,39 +10,39 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private BaseActivity a;
-    private View.OnClickListener d;
-    private ArrayList<AccountData> c = null;
-    private boolean b = false;
+    private View.OnClickListener Ie;
+    private BaseActivity On;
+    private ArrayList<AccountData> aew = null;
+    private boolean aev = false;
 
     public l(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.a = baseActivity;
-        this.d = onClickListener;
+        this.On = baseActivity;
+        this.Ie = onClickListener;
     }
 
-    public void a(ArrayList<AccountData> arrayList) {
-        this.c = arrayList;
+    public void setData(ArrayList<AccountData> arrayList) {
+        this.aew = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.c != null) {
-            i = this.c.size();
+        if (this.aew != null) {
+            i = this.aew.size();
         }
         return i + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.c == null || i < 0 || i >= this.c.size()) {
+        if (this.aew == null || i < 0 || i >= this.aew.size()) {
             return null;
         }
-        return this.c.get(i);
+        return this.aew.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -71,85 +71,85 @@ public class l extends BaseAdapter {
                         mVar = (m) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.account_item, null);
+                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.On, com.baidu.tieba.w.account_item, null);
                         mVar = new m(this, null);
-                        mVar.a = (TextView) view2.findViewById(com.baidu.tieba.u.account);
-                        mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.u.active);
-                        mVar.d = (Button) view2.findViewById(com.baidu.tieba.u.delete);
-                        mVar.e = view2.findViewById(com.baidu.tieba.u.account_item_line_layout);
-                        mVar.d.setOnClickListener(this.d);
+                        mVar.aex = (TextView) view2.findViewById(com.baidu.tieba.v.account);
+                        mVar.aez = (ImageView) view2.findViewById(com.baidu.tieba.v.active);
+                        mVar.aeA = (Button) view2.findViewById(com.baidu.tieba.v.delete);
+                        mVar.MI = view2.findViewById(com.baidu.tieba.v.account_item_line_layout);
+                        mVar.aeA.setOnClickListener(this.Ie);
                         view2.setTag(mVar);
                     } else {
-                        view2 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.account_add_item, null);
+                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.On, com.baidu.tieba.w.account_add_item, null);
                         mVar = new m(this, null);
-                        mVar.b = (TextView) view2.findViewById(com.baidu.tieba.u.add_text);
+                        mVar.aey = (TextView) view2.findViewById(com.baidu.tieba.v.add_text);
                         view2.setTag(mVar);
                     }
                     if (getItemViewType(i) == 0) {
-                        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            mVar.a.setTextColor(ay.a(1));
+                        if (TbadkApplication.m251getInst().getSkinType() == 1) {
+                            mVar.aex.setTextColor(aw.bx(1));
                         } else {
-                            mVar.a.setTextColor(-12895429);
+                            mVar.aex.setTextColor(-12895429);
                         }
                         AccountData accountData = (AccountData) getItem(i);
-                        mVar.c.setVisibility(8);
-                        mVar.d.setVisibility(8);
-                        mVar.d.setTag(accountData);
+                        mVar.aez.setVisibility(8);
+                        mVar.aeA.setVisibility(8);
+                        mVar.aeA.setTag(accountData);
                         if (accountData != null) {
-                            mVar.a.setText(accountData.getAccount());
+                            mVar.aex.setText(accountData.getAccount());
                             if (accountData.getIsActive() == 1) {
-                                mVar.c.setVisibility(0);
+                                mVar.aez.setVisibility(0);
                             }
-                            if (this.b) {
-                                mVar.d.setVisibility(0);
+                            if (this.aev) {
+                                mVar.aeA.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
-                            mVar.e.setVisibility(8);
+                            mVar.MI.setVisibility(8);
                         } else {
-                            mVar.e.setVisibility(0);
+                            mVar.MI.setVisibility(0);
                         }
-                    } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                        mVar.b.setTextColor(ay.a(1));
+                    } else if (TbadkApplication.m251getInst().getSkinType() == 1) {
+                        mVar.aey.setTextColor(aw.bx(1));
                     } else {
-                        mVar.b.setTextColor(-12895429);
+                        mVar.aey.setTextColor(-12895429);
                     }
-                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-                    this.a.getLayoutMode().a(view2);
+                    this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+                    this.On.getLayoutMode().h(view2);
                     return view2;
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
-                    this.a.getLayoutMode().a(view);
+                    this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() != 1);
+                    this.On.getLayoutMode().h(view);
                     return view;
                 }
             } catch (Throwable th) {
                 th = th;
-                this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-                this.a.getLayoutMode().a(view);
+                this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+                this.On.getLayoutMode().h(view);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
-            this.a.getLayoutMode().a(view);
+            this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() != 1);
+            this.On.getLayoutMode().h(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-            this.a.getLayoutMode().a(view);
+            this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+            this.On.getLayoutMode().h(view);
             throw th;
         }
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public void setEditState(boolean z) {
+        this.aev = z;
     }
 
-    public boolean a() {
-        return this.b;
+    public boolean xd() {
+        return this.aev;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

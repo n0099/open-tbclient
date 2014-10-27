@@ -3,30 +3,30 @@ package com.baidu.tieba.faceshop;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.base.e {
-    private z a;
-    private y b;
-    private int c;
+    private z asR;
+    private y asS;
+    private int asT;
 
     public x(Context context) {
         super(context);
-        this.c = 3;
-        this.a = null;
-        this.b = null;
+        this.asT = 3;
+        this.asR = null;
+        this.asS = null;
     }
 
-    public void a(String str) {
-        if (this.a == null) {
-            this.a = new z(this, null);
-            this.a.setPriority(3);
-            this.a.execute(str);
+    public void eO(String str) {
+        if (this.asR == null) {
+            this.asR = new z(this, null);
+            this.asR.setPriority(3);
+            this.asR.execute(str);
         }
     }
 
-    public void b(String str) {
-        if (this.b == null) {
-            this.b = new y(this, null);
-            this.b.setPriority(3);
-            this.b.execute(str);
+    public void eP(String str) {
+        if (this.asS == null) {
+            this.asS = new y(this, null);
+            this.asS.setPriority(3);
+            this.asS.execute(str);
         }
     }
 
@@ -37,8 +37,8 @@ public class x extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.asR != null) {
+            this.asR.cancel();
             return true;
         }
         return true;

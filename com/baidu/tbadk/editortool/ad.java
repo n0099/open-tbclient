@@ -3,70 +3,70 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class ad {
-    private com.baidu.adp.widget.a.a a;
-    private com.baidu.adp.widget.a.a b;
-    private int c;
-    private int d;
+    private com.baidu.adp.widget.a.a SV;
+    private com.baidu.adp.widget.a.a SW;
+    private int SX;
+    private int SY;
 
-    public abstract String a(int i);
+    public abstract String cG(int i);
 
-    public abstract boolean a(String str);
+    public abstract boolean cY(String str);
 
-    public abstract com.baidu.adp.widget.a.a b(String str);
+    public abstract com.baidu.adp.widget.a.a cZ(String str);
 
-    public abstract com.baidu.adp.widget.a.a c(String str);
+    public abstract com.baidu.adp.widget.a.a da(String str);
 
-    public abstract EmotionGroupType c();
+    public abstract int getEmotionsCount();
 
-    public abstract int d();
+    public abstract String getGroupId();
 
-    public abstract String e();
+    public abstract String getGroupName();
 
-    public abstract String f();
+    public abstract int getHeight();
 
-    public abstract int g();
+    public abstract int getWidth();
 
-    public abstract int h();
+    public abstract EmotionGroupType rr();
 
-    public abstract boolean i();
+    public abstract boolean rs();
 
-    public com.baidu.adp.widget.a.a j() {
-        return this.a;
-    }
-
-    public void a(com.baidu.adp.widget.a.a aVar) {
-        if (aVar != null) {
-            aVar.h();
-        }
-        this.a = aVar;
-    }
-
-    public com.baidu.adp.widget.a.a a() {
-        return this.b;
+    public com.baidu.adp.widget.a.a rP() {
+        return this.SV;
     }
 
     public void b(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.h();
+            aVar.hl();
         }
-        this.b = aVar;
+        this.SV = aVar;
     }
 
-    public int k() {
-        return this.d;
+    public com.baidu.adp.widget.a.a rp() {
+        return this.SW;
+    }
+
+    public void c(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.hl();
+        }
+        this.SW = aVar;
+    }
+
+    public int rQ() {
+        return this.SY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(int i) {
-        this.d = i;
+    public void cJ(int i) {
+        this.SY = i;
     }
 
-    public int l() {
-        return this.c;
+    public int rR() {
+        return this.SX;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
-        this.c = i;
+    public void cK(int i) {
+        this.SX = i;
     }
 }

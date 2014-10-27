@@ -5,150 +5,142 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
-    private com.baidu.tbadk.core.view.v d;
-    private LinearLayout e;
-    private com.baidu.tbadk.core.view.d f;
-    private com.baidu.tbadk.core.view.p g;
-    private NoNetworkView h;
-    private c b = null;
-    private BdListView c = null;
-    private boolean i = false;
+public class a extends BaseFragment implements com.baidu.adp.widget.ListView.f {
+    private com.baidu.tbadk.core.view.y Yc;
+    private com.baidu.tbadk.core.view.o ahO;
+    private NoNetworkView aoJ;
+    private com.baidu.tbadk.core.view.d ayf;
+    private LinearLayout bmX;
+    private c bmV = null;
+    private BdListView bmW = null;
+    private boolean bmY = false;
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.v.at_me_activity, viewGroup, false);
-        this.d = new com.baidu.tbadk.core.view.v(getActivity());
-        this.d.a(this);
-        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.u.atme_lv);
-        this.c.setDividerHeight(0);
-        this.c.setPullRefresh(this.d);
-        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.u.bodyNotLogin);
-        this.g = new com.baidu.tbadk.core.view.p(inflate, com.baidu.tieba.t.pic_emotion05, com.baidu.tieba.t.pic_emotion05_1, com.baidu.tieba.u.no_data_container, com.baidu.tieba.u.no_data_image, com.baidu.tieba.u.no_data_image_text);
-        this.b = new c(this, 2, new b(this));
-        this.b.a(this.c);
-        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.u.mention_layout_atme));
-        this.b.a(this.g);
-        this.b.a("c/u/feed/atme");
-        this.b.c();
-        this.h = (NoNetworkView) inflate.findViewById(com.baidu.tieba.u.view_no_network_at);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.w.at_me_activity, viewGroup, false);
+        this.Yc = new com.baidu.tbadk.core.view.y(getActivity());
+        this.Yc.a(this);
+        this.bmW = (BdListView) inflate.findViewById(com.baidu.tieba.v.atme_lv);
+        this.bmW.setDividerHeight(0);
+        this.bmW.setPullRefresh(this.Yc);
+        this.bmX = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
+        this.bmV = new c(this, 2, new b(this));
+        this.bmV.t(this.bmW);
+        RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.mention_layout_atme);
+        this.bmV.d(relativeLayout);
+        this.ahO = NoDataViewFactory.a(getActivity(), relativeLayout, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.mention_atme_nodata), null);
+        this.bmV.a(this.ahO);
+        this.bmV.gO("c/u/feed/atme");
+        this.bmV.init();
+        this.aoJ = (NoNetworkView) inflate.findViewById(com.baidu.tieba.v.view_no_network_at);
         return inflate;
     }
 
-    @Override // com.baidu.tbadk.core.d
-    public void c(int i) {
-        super.c(i);
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         if (isAdded()) {
-            this.g.a(i);
-            if (this.d != null) {
-                this.d.a(i);
+            if (this.ahO != null) {
+                this.ahO.onChangeSkinType(i);
             }
-            if (this.f != null) {
-                this.f.b(i);
+            if (this.Yc != null) {
+                this.Yc.bM(i);
             }
-            if (this.b != null) {
-                this.b.f();
+            if (this.ayf != null) {
+                this.ayf.bG(i);
             }
-            if (this.h != null) {
-                this.h.a(i);
+            if (this.bmV != null) {
+                this.bmV.SN();
+            }
+            if (this.aoJ != null) {
+                this.aoJ.onChangeSkinType(i);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.g.b();
-        if (this.f != null) {
-            this.f.c();
+        this.ahO.onActivityStop();
+        if (this.ayf != null) {
+            this.ayf.onStop();
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.g.a();
+        this.ahO.nv();
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (TbadkApplication.isLogin()) {
-            this.c.setVisibility(0);
-            this.e.setVisibility(8);
-            if (this.i) {
-                this.i = false;
-                a();
+            this.bmW.setVisibility(0);
+            this.bmX.setVisibility(8);
+            if (this.bmY) {
+                this.bmY = false;
+                SH();
             }
-            this.b.e();
+            this.bmV.SL();
         } else {
-            this.g.b(8);
-            g();
+            this.ahO.setVisibility(8);
+            SI();
         }
-        c(TbadkApplication.m252getInst().getSkinType());
+        onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void a() {
-        if (this.b == null) {
-            this.i = true;
+    public void SH() {
+        if (this.bmV == null) {
+            this.bmY = true;
             return;
         }
-        this.i = false;
+        this.bmY = false;
         if (TbadkApplication.isLogin()) {
-            this.c.setVisibility(0);
-            this.e.setVisibility(8);
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().n() > 0) {
-                this.b.a(2);
+            this.bmW.setVisibility(0);
+            this.bmX.setVisibility(8);
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgAtme() > 0) {
+                this.bmV.setUpdateType(2);
             } else {
-                this.b.a(1);
+                this.bmV.setUpdateType(1);
             }
-            this.b.d();
-            this.b.e();
+            this.bmV.show();
+            this.bmV.SL();
             return;
         }
-        g();
+        SI();
     }
 
-    private void g() {
-        if (this.f == null) {
-            this.f = new com.baidu.tbadk.core.view.d(getActivity(), getString(com.baidu.tieba.x.login_msg_tab), getString(com.baidu.tieba.x.login_msg_form), 3);
-            this.e.addView(this.f.b());
-            this.f.b(TbadkApplication.m252getInst().getSkinType());
+    private void SI() {
+        if (this.ayf == null) {
+            this.ayf = new com.baidu.tbadk.core.view.d(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
+            this.bmX.addView(this.ayf.getView());
+            this.ayf.bG(TbadkApplication.m251getInst().getSkinType());
         } else {
-            ((ViewGroup) this.f.b().getParent()).removeAllViews();
-            this.e.addView(this.f.b());
-            this.f.b(TbadkApplication.m252getInst().getSkinType());
+            ((ViewGroup) this.ayf.getView().getParent()).removeAllViews();
+            this.bmX.addView(this.ayf.getView());
+            this.ayf.bG(TbadkApplication.m251getInst().getSkinType());
         }
-        this.c.setVisibility(8);
-        this.e.setVisibility(0);
+        this.bmW.setVisibility(8);
+        this.bmX.setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        try {
-            if (this.b != null) {
-                this.b.a();
-            }
-            System.gc();
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+    public void refresh() {
+        this.bmV.refresh();
     }
 
-    public void f() {
-        this.b.b();
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
         if (!z) {
-            f();
+            refresh();
         }
     }
 }

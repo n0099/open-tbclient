@@ -1,66 +1,65 @@
 package com.baidu.tieba.im.chat.notify;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static TextView c;
+    private static TextView Pe;
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d a() {
+    public com.baidu.tbadk.mainTab.d sC() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.a = new e();
-        dVar.c = 3;
-        dVar.b = x.enter_message;
+        dVar.VU = new g();
+        dVar.type = 3;
+        dVar.VV = y.enter_message;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) com.baidu.adp.lib.e.b.a().a(context, v.fragmenttabindicator, null);
-        c = (TextView) com.baidu.adp.lib.e.b.a().a(context, v.message_tip_item, null);
+    public FragmentTabIndicator z(Context context) {
+        this.VM = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, w.fragmenttabindicator, null);
+        Pe = (TextView) com.baidu.adp.lib.g.b.ek().inflate(context, w.message_tip_item, null);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.h = this.b;
-        cVar.a = c;
-        cVar.d = t.icon_dot_orange;
-        cVar.e = t.icon_dot_orange_1;
-        cVar.f = r.frs_slidebar_message_text;
-        cVar.g = r.frs_slidebar_message_text_1;
-        c.setVisibility(8);
-        this.b.a("msg", cVar);
-        return this.b;
+        cVar.VT = this.VM;
+        cVar.view = Pe;
+        cVar.VR = u.icon_dot_orange;
+        cVar.VS = s.frs_slidebar_message_text;
+        Pe.setVisibility(8);
+        this.VM.a(AddFriendActivityConfig.MSG, cVar);
+        return this.VM;
     }
 
     static {
-        c cVar = new c(2007002);
-        cVar.setPriority(3);
-        MessageManager.getInstance().registerListener(cVar);
-        MessageManager.getInstance().registerListener(new d(2001124));
+        e eVar = new e(2007002);
+        eVar.setPriority(3);
+        MessageManager.getInstance().registerListener(eVar);
+        MessageManager.getInstance().registerListener(new f(2001124));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(TextView textView, int i) {
+    public static void p(TextView textView, int i) {
         textView.setVisibility(0);
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        textView.setTextColor(TbadkApplication.m252getInst().getResources().getColor(z ? r.top_msg_num_night : r.top_msg_num_day));
+        aw.b(textView, s.top_msg_num_day, 1);
         if (i <= 0) {
             textView.setVisibility(8);
         } else if (i < 10) {
             textView.setText(String.valueOf(i));
-            textView.setBackgroundResource(z ? t.icon_news_head_prompt_one_1 : t.icon_news_head_prompt_one);
+            aw.h((View) textView, u.icon_news_head_prompt_one);
         } else if (i < 100) {
             textView.setText(String.valueOf(i));
-            textView.setBackgroundResource(z ? t.icon_news_head_prompt_two_1 : t.icon_news_head_prompt_two);
+            aw.h((View) textView, u.icon_news_head_prompt_two);
         } else {
             textView.setText("   ");
-            textView.setBackgroundResource(z ? t.icon_news_head_prompt_more_1 : t.icon_news_head_prompt_more);
+            aw.h((View) textView, u.icon_news_head_prompt_more);
         }
     }
 }

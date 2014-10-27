@@ -1,60 +1,63 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import com.baidu.tieba.model.Hao123Model;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class z {
-    private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int f = 0;
-    private String e = null;
+    private boolean alp;
+    private int level;
+    private ArrayList<y> likeForums = new ArrayList<>();
 
-    public String a() {
-        return this.a;
+    public ArrayList<y> zx() {
+        return this.likeForums;
     }
 
-    public String b() {
-        return this.b;
+    public void setLevel(int i) {
+        this.level = i;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public boolean yT() {
+        return this.alp;
     }
 
-    public int c() {
-        return this.d;
+    public void zy() {
+        Iterator<y> it = this.likeForums.iterator();
+        while (it.hasNext()) {
+            it.next().ec(0);
+        }
     }
 
-    public void b(int i) {
-        this.c = i;
+    public void A(List<?> list) {
+        if (list != null) {
+            a(list, null);
+        }
     }
 
-    public int d() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(List<?> list, Context context) {
+        if (list != null) {
             try {
-                this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-                c(jSONObject.optInt("is_like", 0));
-                this.d = jSONObject.optInt("is_sign", 0);
-                this.c = jSONObject.optInt("level_id", 0);
-                this.e = jSONObject.optString("avatar", "");
+                Hao123Model.setHao123Cache(Hao123Model.getHao123JosnStr(Hao123Model.parserLikeForumsProtoBuf(list)));
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) instanceof LikeForum) {
+                        y yVar = new y();
+                        yVar.a((LikeForum) list.get(i));
+                        if (yVar.getLevel() >= this.level) {
+                            this.alp = true;
+                        }
+                        this.likeForums.add(yVar);
+                    } else {
+                        return;
+                    }
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int e() {
-        return this.f;
     }
 }

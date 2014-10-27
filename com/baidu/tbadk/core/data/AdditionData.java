@@ -79,7 +79,7 @@ public class AdditionData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.createTime = jSONObject.optLong("create_time", 0L);
-                this.postId = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
+                this.postId = jSONObject.optString("post_id");
                 this.totalCount = jSONObject.optInt("total_count", 0);
                 this.lastAdditionContent = jSONObject.optString("last_addition_content");
                 this.lastAdditionTime = jSONObject.optLong("last_addition_time", 0L);

@@ -15,83 +15,78 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.ba;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.guide.NewUserGuideActivity;
 /* loaded from: classes.dex */
 public class NotLoginGuideActivity extends BaseActivity {
-    private ImageView a = null;
-    private Bitmap b = null;
-    private Button c = null;
-    private Button d = null;
-    private String e = null;
+    private ImageView acF = null;
+    private Bitmap mBitmap = null;
+    private Button aeZ = null;
+    private Button afa = null;
+    private String Go = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ba.class, NotLoginGuideActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!b()) {
-            com.baidu.tbadk.core.f.a(this, "not_login_guide_page_pv");
-            a(bundle);
-            a();
+        if (!xf()) {
+            com.baidu.tbadk.core.i.l(this, "not_login_guide_page_pv");
+            d(bundle);
+            nu();
         }
     }
 
-    private void a(Bundle bundle) {
+    private void d(Bundle bundle) {
         if (bundle != null) {
-            this.e = bundle.getString(ba.a);
+            this.Go = bundle.getString(NotLoginGuideActivityConfig.FROM_PAGE);
         } else {
-            this.e = getIntent().getStringExtra(ba.a);
+            this.Go = getIntent().getStringExtra(NotLoginGuideActivityConfig.FROM_PAGE);
         }
     }
 
-    private void a() {
-        setContentView(com.baidu.tieba.v.not_login_guide_activity);
-        this.a = (ImageView) findViewById(com.baidu.tieba.u.guide_bg);
-        this.c = (Button) findViewById(com.baidu.tieba.u.guide_regist);
-        this.d = (Button) findViewById(com.baidu.tieba.u.guide_login);
-        this.b = com.baidu.tbadk.core.util.d.a(this, com.baidu.tieba.t.not_login_guide_bg);
-        if (this.b != null) {
-            this.a.setImageBitmap(this.b);
+    private void nu() {
+        setContentView(com.baidu.tieba.w.not_login_guide_activity);
+        this.acF = (ImageView) findViewById(com.baidu.tieba.v.guide_bg);
+        this.aeZ = (Button) findViewById(com.baidu.tieba.v.guide_regist);
+        this.afa = (Button) findViewById(com.baidu.tieba.v.guide_login);
+        this.mBitmap = com.baidu.tbadk.core.util.d.e(this, com.baidu.tieba.u.not_login_guide_bg);
+        if (this.mBitmap != null) {
+            this.acF.setImageBitmap(this.mBitmap);
         }
-        this.c.setOnClickListener(this);
-        this.d.setOnClickListener(this);
+        this.aeZ.setOnClickListener(this);
+        this.afa.setOnClickListener(this);
     }
 
-    private boolean b() {
-        if (ba.d.equals(getIntent().getStringExtra(ba.a)) && com.baidu.tieba.util.r.a((Activity) this)) {
+    private boolean xf() {
+        if (NotLoginGuideActivityConfig.FROM_HAO123.equals(getIntent().getStringExtra(NotLoginGuideActivityConfig.FROM_PAGE)) && com.baidu.tieba.util.q.l(this)) {
             new Intent().putExtra("class", 20);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new as((Context) this, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) this, false)));
             finish();
             return true;
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-    }
-
-    private void c() {
+    private void oq() {
         int i = 1;
-        if (TbadkApplication.m252getInst().getIsFirstUse()) {
-            sendMessage(new CustomMessage(2015000, new com.baidu.tbadk.core.atomData.aa(this).a("from_logo_page")));
+        if (TbadkApplication.m251getInst().getIsFirstUse()) {
+            sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE)));
         } else {
-            if (com.baidu.tbadk.core.sharedPref.b.a().a("account_first_login_" + TbadkApplication.getCurrentAccount(), true)) {
+            if (com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("account_first_login_" + TbadkApplication.getCurrentAccount(), true)) {
                 i = 4;
-                com.baidu.tbadk.core.sharedPref.b.a().b("account_first_login_" + TbadkApplication.getCurrentAccount(), false);
+                com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("account_first_login_" + TbadkApplication.getCurrentAccount(), false);
             }
-            sendMessage(new CustomMessage(2015001, new at(this).a(i)));
+            sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNormalCfg(i)));
         }
         finish();
     }
@@ -99,12 +94,12 @@ public class NotLoginGuideActivity extends BaseActivity {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c) {
-            com.baidu.tbadk.core.f.a(this, "sapi_fast_regist_click");
-            SapiFastRegActivity.a(this, 22002);
+        if (view == this.aeZ) {
+            com.baidu.tbadk.core.i.l(this, "sapi_fast_regist_click");
+            SapiFastRegActivity.b(this, 22002);
             return;
         }
-        com.baidu.tbadk.core.f.a(this, "sapi_go_to_login_click");
+        com.baidu.tbadk.core.i.l(this, "sapi_go_to_login_click");
         LoginActivity.a((Activity) this, (String) null, true, 11003);
     }
 
@@ -113,8 +108,8 @@ public class NotLoginGuideActivity extends BaseActivity {
         switch (i) {
             case 4:
                 closeActivity();
-                if (ba.b.equals(this.e)) {
-                    com.baidu.tbadk.core.b.b.a(this, Constants.MEDIA_INFO);
+                if (NotLoginGuideActivityConfig.FROM_ACCOUNT.equals(this.Go)) {
+                    com.baidu.tbadk.core.b.b.d(this, Constants.MEDIA_INFO);
                 }
                 return true;
             default:
@@ -126,16 +121,16 @@ public class NotLoginGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d();
+        wb();
     }
 
-    private void d() {
-        if (this.a != null) {
-            this.a.setImageDrawable(null);
+    private void wb() {
+        if (this.acF != null) {
+            this.acF.setImageDrawable(null);
         }
-        if (this.b != null && !this.b.isRecycled()) {
-            this.b.recycle();
-            this.b = null;
+        if (this.mBitmap != null && !this.mBitmap.isRecycled()) {
+            this.mBitmap.recycle();
+            this.mBitmap = null;
         }
     }
 
@@ -144,21 +139,21 @@ public class NotLoginGuideActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 11003) {
-                c();
+                oq();
             } else if (i == 22002 && intent != null) {
                 String stringExtra = intent.getStringExtra("fast_reg_user_type");
                 if (!TextUtils.isEmpty(stringExtra)) {
                     if (stringExtra.equals("login_user")) {
-                        c();
+                        oq();
                     } else if (stringExtra.equals("regist_user")) {
                         if (UtilHelper.isNetOk()) {
-                            ai.c().a(true);
+                            aj.wk().aN(true);
                             NewUserGuideActivity.a(this, true, false);
                         } else {
-                            c();
+                            oq();
                         }
-                        if (TbadkApplication.m252getInst().getIsFirstUse()) {
-                            TbadkApplication.m252getInst().setUsed();
+                        if (TbadkApplication.m251getInst().getIsFirstUse()) {
+                            TbadkApplication.m251getInst().setUsed();
                         }
                         finish();
                     }

@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.Zan;
 /* loaded from: classes.dex */
-public class PraiseData implements Serializable {
+public class PraiseData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 2658065756886586666L;
     private HashMap<String, MetaData> userMap;
     private String title = "";

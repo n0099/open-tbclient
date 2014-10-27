@@ -1,43 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class v implements dv {
-    final /* synthetic */ FrsActivity a;
+class v extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aBk = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dv
-    public void a(String str) {
-        boolean z;
-        com.baidu.tbadk.core.data.n nVar;
-        com.baidu.tbadk.core.data.n nVar2;
-        int i = 1;
-        z = this.a.k;
-        if (z) {
-            nVar = this.a.j;
-            if (nVar != null) {
-                nVar2 = this.a.j;
-                if (nVar2.g().getIsLike() == 1) {
-                    i = 0;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
                 }
+                this.aBk.e(customResponsedMessage);
+                return;
             }
-            this.a.d(i);
+            this.aBk.d(customResponsedMessage);
         }
-        this.a.i = false;
-        com.baidu.tieba.pb.main.bp.a().f();
-    }
-
-    @Override // com.baidu.tieba.frs.dv
-    public void b(String str) {
-        boolean z;
-        z = this.a.k;
-        if (z && !TextUtils.isEmpty(str)) {
-            this.a.showToast(str);
-        }
-        this.a.i = false;
     }
 }

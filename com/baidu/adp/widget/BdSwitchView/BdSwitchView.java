@@ -8,27 +8,26 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.adp.d;
-import com.baidu.adp.e;
+import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
-    FrameLayout a;
-    ImageView b;
-    private c c;
-    private SwitchState d;
-    private boolean e;
-    private boolean f;
-    private boolean g;
-    private TranslateAnimation h;
-    private TranslateAnimation i;
-    private Animation.AnimationListener j;
+    private c rM;
+    private SwitchState rN;
+    private boolean rO;
+    private boolean rP;
+    private boolean rQ;
+    private TranslateAnimation rR;
+    private TranslateAnimation rS;
+    private Animation.AnimationListener rT;
+    FrameLayout rU;
+    ImageView rV;
 
     /* loaded from: classes.dex */
     public enum SwitchState {
         ON,
         OFF;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (rX) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchState[] valuesCustom() {
             SwitchState[] valuesCustom = values();
@@ -45,7 +44,7 @@ public class BdSwitchView extends FrameLayout {
         NIGHT,
         SIDE_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (rY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchStyle[] valuesCustom() {
             SwitchStyle[] valuesCustom = values();
@@ -58,221 +57,223 @@ public class BdSwitchView extends FrameLayout {
 
     public BdSwitchView(Context context) {
         super(context);
-        this.c = null;
-        this.d = SwitchState.ON;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.j = null;
-        this.a = null;
-        this.b = null;
-        a(context);
+        this.rM = null;
+        this.rN = SwitchState.ON;
+        this.rO = false;
+        this.rP = false;
+        this.rQ = false;
+        this.rT = null;
+        this.rU = null;
+        this.rV = null;
+        init(context);
     }
 
     public BdSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = null;
-        this.d = SwitchState.ON;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.j = null;
-        this.a = null;
-        this.b = null;
-        a(context);
+        this.rM = null;
+        this.rN = SwitchState.ON;
+        this.rO = false;
+        this.rP = false;
+        this.rQ = false;
+        this.rT = null;
+        this.rU = null;
+        this.rV = null;
+        init(context);
     }
 
-    private void a(Context context) {
-        com.baidu.adp.lib.e.b.a().a(context, e.bd_switch_view, this, true);
-        this.a = (FrameLayout) findViewById(d.layout);
-        this.b = (ImageView) findViewById(d.switch_image);
-        f();
-        g();
-        this.j = new a(this);
+    private void init(Context context) {
+        com.baidu.adp.lib.g.b.ek().a(context, R.layout.bd_switch_view, this, true);
+        this.rU = (FrameLayout) findViewById(R.id.layout);
+        this.rV = (ImageView) findViewById(R.id.switch_image);
+        gI();
+        gJ();
+        this.rT = new a(this);
         setOnClickListener(new b(this));
-        h();
+        gK();
     }
 
-    private void f() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = this.a.getForeground().getIntrinsicWidth();
-        this.a.setLayoutParams(layoutParams);
+    private void gI() {
+        if (this.rU != null && this.rU.getForeground() != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.rU.getLayoutParams();
+            layoutParams.width = this.rU.getForeground().getIntrinsicWidth();
+            this.rU.setLayoutParams(layoutParams);
+        }
     }
 
-    private void g() {
-        if (this.b != null && this.b.getBackground() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = this.b.getBackground().getIntrinsicWidth();
-            this.b.setLayoutParams(layoutParams);
+    private void gJ() {
+        if (this.rV != null && this.rV.getBackground() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.rV.getLayoutParams();
+            layoutParams.width = this.rV.getBackground().getIntrinsicWidth();
+            this.rV.setLayoutParams(layoutParams);
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (!this.e) {
+        if (!this.rO) {
             super.setOnClickListener(onClickListener);
-            this.e = true;
+            this.rO = true;
         }
     }
 
-    private void h() {
+    private void gK() {
         float translateDis = getTranslateDis();
-        if (!this.g) {
-            this.h = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
-            this.i = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
+        if (!this.rQ) {
+            this.rR = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
+            this.rS = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
         } else {
-            this.h = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
-            this.i = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
+            this.rR = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
+            this.rS = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
         }
-        this.h.setDuration(200L);
-        this.h.setFillAfter(true);
-        this.h.setAnimationListener(this.j);
-        this.i.setDuration(200L);
-        this.i.setFillAfter(true);
-        this.i.setAnimationListener(this.j);
+        this.rR.setDuration(200L);
+        this.rR.setFillAfter(true);
+        this.rR.setAnimationListener(this.rT);
+        this.rS.setDuration(200L);
+        this.rS.setFillAfter(true);
+        this.rS.setAnimationListener(this.rT);
     }
 
     private float getTranslateDis() {
-        return this.a.getForeground().getIntrinsicWidth() * 0.6666667f;
+        return this.rU.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
     private void a(boolean z, boolean z2) {
-        if (!this.f) {
-            if (this.d == SwitchState.ON) {
-                this.d = SwitchState.OFF;
-                if (this.i != null) {
+        if (!this.rP) {
+            if (this.rN == SwitchState.ON) {
+                this.rN = SwitchState.OFF;
+                if (this.rS != null) {
                     if (z) {
-                        this.i.setDuration(200L);
-                        this.b.startAnimation(this.i);
-                    } else if (!d(false)) {
-                        this.i.setDuration(200L);
-                        this.b.startAnimation(this.i);
+                        this.rS.setDuration(200L);
+                        this.rV.startAnimation(this.rS);
+                    } else if (!C(false)) {
+                        this.rS.setDuration(200L);
+                        this.rV.startAnimation(this.rS);
                     }
                 }
             } else {
-                this.d = SwitchState.ON;
-                if (this.h != null) {
+                this.rN = SwitchState.ON;
+                if (this.rR != null) {
                     if (z) {
-                        this.h.setDuration(200L);
-                        this.b.startAnimation(this.h);
-                    } else if (!d(true)) {
-                        this.h.setDuration(200L);
-                        this.b.startAnimation(this.h);
+                        this.rR.setDuration(200L);
+                        this.rV.startAnimation(this.rR);
+                    } else if (!C(true)) {
+                        this.rR.setDuration(200L);
+                        this.rV.startAnimation(this.rR);
                     }
                 }
             }
-            if (this.c != null && z2) {
-                this.c.a(this, this.d);
+            if (this.rM != null && z2) {
+                this.rM.a(this, this.rN);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(boolean z) {
+    public void z(boolean z) {
         a(z, true);
     }
 
     public void setSwitchFrame(int i) {
-        this.a.setForeground(getResources().getDrawable(i));
-        f();
+        this.rU.setForeground(getResources().getDrawable(i));
+        gI();
     }
 
     public void setSwitchImage(int i) {
-        this.b.setBackgroundResource(i);
-        g();
+        this.rV.setBackgroundResource(i);
+        gJ();
     }
 
     public void setSwitchStyle(SwitchStyle switchStyle) {
         if (switchStyle == SwitchStyle.DAY) {
-            setSwitchFrame(com.baidu.adp.c.btn_switch_masking);
-            setSwitchImage(com.baidu.adp.c.btn_switch);
+            setSwitchFrame(R.drawable.btn_switch_masking);
+            setSwitchImage(R.drawable.btn_switch);
         } else if (switchStyle == SwitchStyle.NIGHT) {
-            setSwitchFrame(com.baidu.adp.c.btn_switch_masking_1);
-            setSwitchImage(com.baidu.adp.c.btn_switch_1);
+            setSwitchFrame(R.drawable.btn_switch_masking_1);
+            setSwitchImage(R.drawable.btn_switch_1);
         } else if (switchStyle == SwitchStyle.SIDE_BAR) {
-            setSwitchFrame(com.baidu.adp.c.btn_switch_masking_sidebar);
-            setSwitchImage(com.baidu.adp.c.btn_switch_1);
+            setSwitchFrame(R.drawable.btn_switch_masking_sidebar);
+            setSwitchImage(R.drawable.btn_switch_1);
         }
     }
 
-    public void a() {
-        if (this.d != SwitchState.ON) {
+    public void gL() {
+        if (this.rN != SwitchState.ON) {
             a(false, false);
         }
     }
 
-    public void b() {
-        if (this.d != SwitchState.OFF) {
+    public void gM() {
+        if (this.rN != SwitchState.OFF) {
             a(false, false);
         }
     }
 
-    public void c() {
-        a(false);
+    public void gN() {
+        A(false);
     }
 
-    public void a(boolean z) {
-        if (this.d != SwitchState.ON) {
-            c(z);
+    public void A(boolean z) {
+        if (this.rN != SwitchState.ON) {
+            z(z);
         }
     }
 
-    public void d() {
-        b(false);
+    public void gO() {
+        B(false);
     }
 
-    public void b(boolean z) {
-        if (this.d != SwitchState.OFF) {
-            c(z);
+    public void B(boolean z) {
+        if (this.rN != SwitchState.OFF) {
+            z(z);
         }
     }
 
-    public boolean e() {
-        return this.d == SwitchState.ON;
+    public boolean gP() {
+        return this.rN == SwitchState.ON;
     }
 
-    private boolean d(boolean z) {
+    private boolean C(boolean z) {
         boolean z2;
-        if (this.f) {
+        if (this.rP) {
             return false;
         }
-        this.f = true;
+        this.rP = true;
         float translateDis = getTranslateDis();
         if (!z) {
-            this.d = SwitchState.OFF;
-            z2 = !this.g;
-            this.g = true;
-            if (a((int) (-translateDis))) {
-                h();
+            this.rN = SwitchState.OFF;
+            z2 = !this.rQ;
+            this.rQ = true;
+            if (ac((int) (-translateDis))) {
+                gK();
             } else {
                 z2 = false;
             }
         } else {
-            this.d = SwitchState.ON;
-            boolean z3 = this.g;
-            this.g = false;
-            if (a(0)) {
-                h();
+            this.rN = SwitchState.ON;
+            boolean z3 = this.rQ;
+            this.rQ = false;
+            if (ac(0)) {
+                gK();
                 z2 = z3;
             } else {
                 z2 = false;
             }
         }
         if (z2) {
-            this.f = false;
+            this.rP = false;
         }
         return z2;
     }
 
-    private boolean a(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+    private boolean ac(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.rV.getLayoutParams();
         layoutParams.setMargins(i, 0, 0, 0);
-        this.b.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+        this.rV.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.rV.getLayoutParams();
         return layoutParams2 == null || layoutParams2.leftMargin == i;
     }
 
     public void setOnSwitchStateChangeListener(c cVar) {
-        this.c = cVar;
+        this.rM = cVar;
     }
 }

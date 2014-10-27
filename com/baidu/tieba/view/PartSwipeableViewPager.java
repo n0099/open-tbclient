@@ -10,29 +10,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PartSwipeableViewPager extends ViewPager {
-    private ArrayList<View> a;
-    private boolean b;
-    private boolean c;
+    private ArrayList<View> bRs;
+    private boolean bRt;
+    private boolean bRu;
 
     public PartSwipeableViewPager(Context context) {
         super(context);
-        this.a = new ArrayList<>();
+        this.bRs = new ArrayList<>();
     }
 
     public PartSwipeableViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new ArrayList<>();
+        this.bRs = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.a.clear();
-        a(this);
+        this.bRs.clear();
+        e(this);
     }
 
-    private void a(ViewGroup viewGroup) {
+    private void e(ViewGroup viewGroup) {
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
@@ -41,24 +41,24 @@ public class PartSwipeableViewPager extends ViewPager {
                 Object tag = childAt.getTag();
                 if (tag instanceof String) {
                     if ("scroll".equals((String) tag)) {
-                        this.a.add(childAt);
+                        this.bRs.add(childAt);
                     } else {
-                        a(viewGroup2);
+                        e(viewGroup2);
                     }
                 } else {
-                    a(viewGroup2);
+                    e(viewGroup2);
                 }
             } else {
                 Object tag2 = childAt.getTag();
                 if ((tag2 instanceof String) && "scroll".equals((String) tag2)) {
-                    this.a.add(childAt);
+                    this.bRs.add(childAt);
                 }
             }
         }
     }
 
-    private boolean a(MotionEvent motionEvent) {
-        Iterator<View> it = this.a.iterator();
+    private boolean c(MotionEvent motionEvent) {
+        Iterator<View> it = this.bRs.iterator();
         while (it.hasNext()) {
             View next = it.next();
             int[] iArr = new int[2];
@@ -78,14 +78,14 @@ public class PartSwipeableViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.b = a(motionEvent);
+                this.bRt = c(motionEvent);
                 break;
         }
-        if (this.b) {
+        if (this.bRt) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.b = false;
+                    this.bRt = false;
                     return false;
                 case 2:
                 default:
@@ -99,14 +99,14 @@ public class PartSwipeableViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.c = a(motionEvent);
+                this.bRu = c(motionEvent);
                 break;
         }
-        if (this.c) {
+        if (this.bRu) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.c = false;
+                    this.bRu = false;
                     return false;
                 case 2:
                 default:

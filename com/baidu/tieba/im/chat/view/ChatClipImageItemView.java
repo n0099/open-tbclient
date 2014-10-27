@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import com.baidu.adp.lib.util.m;
 import com.baidu.adp.newwidget.a.h;
 import com.baidu.adp.newwidget.a.j;
 import com.baidu.adp.newwidget.a.k;
@@ -18,11 +19,11 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k {
-    public int d;
-    public j e;
-    private boolean f;
-    private final Path g;
-    private boolean h;
+    private boolean aSG;
+    public j aSH;
+    private boolean aSI;
+    public int position;
+    private final Path rD;
 
     public ChatClipImageItemView(Context context) {
         this(context, null, 0);
@@ -34,10 +35,10 @@ public class ChatClipImageItemView extends TbImageView implements k {
 
     public ChatClipImageItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f = true;
-        this.d = 0;
-        this.g = new Path();
-        this.h = true;
+        this.aSG = true;
+        this.position = 0;
+        this.rD = new Path();
+        this.aSI = true;
         a(context, attributeSet, i);
     }
 
@@ -63,19 +64,19 @@ public class ChatClipImageItemView extends TbImageView implements k {
             }
         }
         if (z) {
-            this.e = new h();
+            this.aSH = new h();
         } else {
-            this.e = new n();
+            this.aSH = new n();
         }
-        this.e.a(this);
-        this.b = this.e;
-        this.b.a(this.a);
+        this.aSH.a(this);
+        this.qX = this.aSH;
+        this.qX.a(this.qN);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.e.d();
+        this.aSH.gH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,12 +84,12 @@ public class ChatClipImageItemView extends TbImageView implements k {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.e.d();
-        } else if (!this.h) {
-            this.e.c();
+            this.aSH.gH();
+        } else if (!this.aSI) {
+            this.aSH.gG();
             invalidate();
         } else {
-            this.h = false;
+            this.aSI = false;
         }
     }
 
@@ -97,33 +98,32 @@ public class ChatClipImageItemView extends TbImageView implements k {
     }
 
     public void setLeft(boolean z) {
-        this.f = z;
+        this.aSG = z;
     }
 
-    public void g() {
-        this.e.c();
-        this.e.a(true);
+    public void KN() {
+        this.aSH.gG();
+        this.aSH.y(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.a.b
     public a getBdImage() {
         boolean z = false;
         a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.i();
-        j jVar = this.e;
+        boolean z3 = bdImage != null && bdImage.hm();
+        j jVar = this.aSH;
         if (z3 || z2) {
             z = true;
         }
-        jVar.a(z);
+        jVar.y(z);
         return bdImage;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.a.b
     public a getDefaultBdImage() {
-        this.e.a(false);
+        this.aSH.y(false);
         return super.getDefaultBdImage();
     }
 
@@ -134,52 +134,52 @@ public class ChatClipImageItemView extends TbImageView implements k {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.g.reset();
-        this.g.set(a(width, height, 1.0f));
-        return this.g;
+        this.rD.reset();
+        this.rD.set(a(width, height, 1.0f));
+        return this.rD;
     }
 
     private Path a(float f, float f2, float f3) {
-        int a = com.baidu.adp.lib.util.j.a(getContext(), 4.0f);
-        int a2 = com.baidu.adp.lib.util.j.a(getContext(), 6.0f);
-        int a3 = com.baidu.adp.lib.util.j.a(getContext(), 6.0f);
-        int a4 = com.baidu.adp.lib.util.j.a(getContext(), 6.0f);
-        float f4 = (f - a3) - (f3 * 2.0f);
+        int dip2px = m.dip2px(getContext(), 4.0f);
+        int dip2px2 = m.dip2px(getContext(), 6.0f);
+        int dip2px3 = m.dip2px(getContext(), 6.0f);
+        int dip2px4 = m.dip2px(getContext(), 6.0f);
+        float f4 = (f - dip2px3) - (f3 * 2.0f);
         float f5 = f2 - (f3 * 2.0f);
         Path path = new Path();
         path.offset(0.0f, 0.0f);
-        if (this.f) {
-            path.moveTo(a3 + f3, a + f3);
-            path.quadTo(a3 + f3, f3, a3 + f3 + a, f3);
-            path.lineTo(((a3 + f3) + f4) - a, f3);
-            path.quadTo(a3 + f3 + f4, f3, a3 + f3 + f4, a + f3);
-            path.lineTo(a3 + f3 + f4, (f3 + f5) - a);
-            path.quadTo(a3 + f3 + f4, f3 + f5, (f4 + (a3 + f3)) - a, f3 + f5);
-            path.lineTo(a3 + f3 + a, f3 + f5);
-            path.quadTo(a3 + f3, f3 + f5, a3 + f3, (f5 + f3) - a);
-            path.lineTo(a3 + f3, a2 + f3 + a4);
-            path.quadTo(((a3 * 1) / 4) + f3, ((a2 * 3) / 4) + f3 + a4, f3, a4 + f3);
-            path.quadTo((a3 / 2) + f3, (a2 / 4) + a4 + f3, a3 + f3, a4 + f3);
-            path.lineTo(a3 + f3, a + f3);
+        if (this.aSG) {
+            path.moveTo(dip2px3 + f3, dip2px + f3);
+            path.quadTo(dip2px3 + f3, f3, dip2px3 + f3 + dip2px, f3);
+            path.lineTo(((dip2px3 + f3) + f4) - dip2px, f3);
+            path.quadTo(dip2px3 + f3 + f4, f3, dip2px3 + f3 + f4, dip2px + f3);
+            path.lineTo(dip2px3 + f3 + f4, (f3 + f5) - dip2px);
+            path.quadTo(dip2px3 + f3 + f4, f3 + f5, (f4 + (dip2px3 + f3)) - dip2px, f3 + f5);
+            path.lineTo(dip2px3 + f3 + dip2px, f3 + f5);
+            path.quadTo(dip2px3 + f3, f3 + f5, dip2px3 + f3, (f5 + f3) - dip2px);
+            path.lineTo(dip2px3 + f3, dip2px2 + f3 + dip2px4);
+            path.quadTo(((dip2px3 * 1) / 4) + f3, ((dip2px2 * 3) / 4) + f3 + dip2px4, f3, dip2px4 + f3);
+            path.quadTo((dip2px3 / 2) + f3, (dip2px2 / 4) + dip2px4 + f3, dip2px3 + f3, dip2px4 + f3);
+            path.lineTo(dip2px3 + f3, dip2px + f3);
         } else {
-            path.moveTo(f3, a + f3);
-            path.quadTo(f3, f3, a + f3, f3);
-            path.lineTo((f3 + f4) - a, f3);
-            path.quadTo(f3 + f4, f3, f3 + f4, a + f3);
-            path.lineTo(f3 + f4, a4 + f3);
-            path.quadTo(f3 + f4 + (a3 / 2), a4 + f3 + (a2 / 4), f3 + f4 + a3, a4 + f3);
-            path.quadTo(((a3 * 3) / 4) + f3 + f4, a4 + f3 + ((a2 * 3) / 4), f3 + f4, a2 + a4 + f3);
-            path.lineTo(f3 + f4, (f3 + f5) - a);
-            path.quadTo(f3 + f4, f3 + f5, (f3 + f4) - a, f3 + f5);
-            path.lineTo(a + f3, f3 + f5);
-            path.quadTo(f3, f3 + f5, f3, (f3 + f5) - a);
-            path.lineTo(f3, a);
+            path.moveTo(f3, dip2px + f3);
+            path.quadTo(f3, f3, dip2px + f3, f3);
+            path.lineTo((f3 + f4) - dip2px, f3);
+            path.quadTo(f3 + f4, f3, f3 + f4, dip2px + f3);
+            path.lineTo(f3 + f4, dip2px4 + f3);
+            path.quadTo(f3 + f4 + (dip2px3 / 2), dip2px4 + f3 + (dip2px2 / 4), f3 + f4 + dip2px3, dip2px4 + f3);
+            path.quadTo(((dip2px3 * 3) / 4) + f3 + f4, dip2px4 + f3 + ((dip2px2 * 3) / 4), f3 + f4, dip2px2 + dip2px4 + f3);
+            path.lineTo(f3 + f4, (f3 + f5) - dip2px);
+            path.quadTo(f3 + f4, f3 + f5, (f3 + f4) - dip2px, f3 + f5);
+            path.lineTo(dip2px + f3, f3 + f5);
+            path.quadTo(f3, f3 + f5, f3, (f3 + f5) - dip2px);
+            path.lineTo(f3, dip2px);
         }
         path.close();
         return path;
     }
 
     @Override // com.baidu.adp.newwidget.a.k
-    public void a(Canvas canvas) {
+    public void b(Canvas canvas) {
     }
 }

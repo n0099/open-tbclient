@@ -1,95 +1,94 @@
 package com.baidu.tieba.pb.sub;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.pb.main.bf;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.pb.main.bh;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.e {
-    private Context a;
-    private TextView b = null;
-    private TextView c = null;
-    private ProgressBar d = null;
-    private View.OnClickListener e = null;
-    private View f = null;
-    private int g = 0;
+public class d extends com.baidu.adp.widget.ListView.h {
+    private Context mContext;
+    private TextView mTextView = null;
+    private TextView bzY = null;
+    private ProgressBar mProgressBar = null;
+    private View.OnClickListener mOnClickListener = null;
+    private View mRoot = null;
+    private int mNum = 0;
 
     public d(Context context) {
-        this.a = null;
-        this.a = context;
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    @Override // com.baidu.adp.widget.ListView.e
-    public View a() {
-        this.f = com.baidu.adp.lib.e.b.a().a(this.a, v.new_sub_pb_list_more, null);
-        this.b = (TextView) this.f.findViewById(u.sub_pb_more_text);
-        this.c = (TextView) this.f.findViewById(u.sub_pb_more_text_marginright);
-        this.d = (ProgressBar) this.f.findViewById(u.progress);
-        return this.f;
+    @Override // com.baidu.adp.widget.ListView.h
+    public View hA() {
+        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, w.new_sub_pb_list_more, null);
+        this.mTextView = (TextView) this.mRoot.findViewById(v.sub_pb_more_text);
+        this.bzY = (TextView) this.mRoot.findViewById(v.sub_pb_more_text_marginright);
+        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(v.progress);
+        return this.mRoot;
     }
 
-    public void c() {
-        this.d.setVisibility(0);
-        this.b.setText(this.a.getText(x.loading));
-        e();
+    public void YH() {
+        this.mProgressBar.setVisibility(0);
+        this.mTextView.setText(this.mContext.getText(y.loading));
+        YI();
     }
 
-    public void a(int i) {
-        this.g = i;
-        this.d.setVisibility(8);
+    public void gS(int i) {
+        this.mNum = i;
+        this.mProgressBar.setVisibility(8);
         if (i > 0) {
-            bf.a(this.a, this.b, i);
-            this.c.setVisibility(0);
+            bh.a(this.mContext, this.mTextView, i);
+            this.bzY.setVisibility(0);
         } else {
-            this.b.setText(this.a.getText(x.load_more));
-            this.c.setVisibility(8);
+            this.mTextView.setText(this.mContext.getText(y.load_more));
+            this.bzY.setVisibility(8);
         }
-        e();
+        YI();
     }
 
-    public void d() {
-        this.d.setVisibility(8);
-        if (this.g > 0) {
-            bf.a(this.a, this.b, this.g);
-            this.c.setVisibility(0);
+    public void XT() {
+        this.mProgressBar.setVisibility(8);
+        if (this.mNum > 0) {
+            bh.a(this.mContext, this.mTextView, this.mNum);
+            this.bzY.setVisibility(0);
         } else {
-            this.b.setText(this.a.getText(x.load_more));
-            this.c.setVisibility(8);
+            this.mTextView.setText(this.mContext.getText(y.load_more));
+            this.bzY.setVisibility(8);
         }
-        e();
+        YI();
     }
 
-    public void a(View.OnClickListener onClickListener) {
-        this.e = onClickListener;
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 
-    protected void b(int i) {
-        this.b.setTextColor(this.a.getResources().getColor(i));
+    protected void setTextColor(int i) {
+        this.mTextView.setTextColor(i);
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void e() {
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        String charSequence = this.b.getText().toString();
+    public void YI() {
+        int color;
+        String charSequence = this.mTextView.getText().toString();
         if (charSequence != null && !charSequence.equals("")) {
-            if (charSequence.equals(this.a.getString(x.loading))) {
-                b(z ? com.baidu.tieba.r.sub_pb_more_text_1 : com.baidu.tieba.r.sub_pb_more_text);
+            if (charSequence.equals(this.mContext.getString(y.loading))) {
+                color = aw.getColor(com.baidu.tieba.s.sub_pb_more_text);
             } else {
-                b(z ? com.baidu.tieba.r.cp_link_tip_c_1 : com.baidu.tieba.r.cp_link_tip_c);
+                color = aw.getColor(com.baidu.tieba.s.cp_link_tip_c);
             }
+            setTextColor(color);
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.e
+    @Override // com.baidu.adp.widget.ListView.h
     public void onClick() {
-        if (this.e != null) {
-            this.e.onClick(this.f);
+        if (this.mOnClickListener != null) {
+            this.mOnClickListener.onClick(this.mRoot);
         }
     }
 }

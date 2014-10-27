@@ -17,16 +17,17 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a
-    public void a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+    /* renamed from: a */
+    public void sendMessage(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         if (customMessage != null && customMessageTask != null) {
-            if (customMessageTask.b() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.bb() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    CustomResponsedMessage<?> run = customMessageTask.a().run(customMessage);
+                    CustomResponsedMessage<?> run = customMessageTask.ba().run(customMessage);
                     if (run != null) {
                         run.setOrginalMessage(customMessage);
                     }
                     if (run != null) {
-                        this.a.dispatchResponsedMessage(run);
+                        this.aH.dispatchResponsedMessage(run);
                         return;
                     }
                     return;
@@ -39,12 +40,12 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         }
     }
 
-    public void a(BdUniqueId bdUniqueId) {
-        a(0, bdUniqueId);
+    public void removeMessage(BdUniqueId bdUniqueId) {
+        removeMessage(0, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public void a(int i, BdUniqueId bdUniqueId) {
+    public void removeMessage(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
             str = String.valueOf(i);
@@ -52,12 +53,12 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         c.removeAllTask(bdUniqueId, str);
     }
 
-    public LinkedList<CustomMessage<?>> b(BdUniqueId bdUniqueId) {
-        return b(0, bdUniqueId);
+    public LinkedList<CustomMessage<?>> a(BdUniqueId bdUniqueId) {
+        return findMessage(0, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> b(int i, BdUniqueId bdUniqueId) {
+    public LinkedList<CustomMessage<?>> findMessage(int i, BdUniqueId bdUniqueId) {
         String str = null;
         if (i != 0) {
             str = String.valueOf(i);
@@ -68,7 +69,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof c) {
-                linkedList.add(((c) next).a());
+                linkedList.add(((c) next).S());
             }
         }
         return linkedList;

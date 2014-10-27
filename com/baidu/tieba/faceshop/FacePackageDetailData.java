@@ -1,24 +1,15 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class FacePackageDetailData implements Serializable {
+public class FacePackageDetailData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 0;
-    @SerializedName("ctime")
     public int ctime;
-    @SerializedName("errmsg")
     public String errmsg;
-    @SerializedName("errno")
     public int errno;
-    @SerializedName("error_code")
-    public int errorCode;
-    @SerializedName("faces_list")
-    public FacePackageData facePackage;
-    @SerializedName("logid")
+    public int error_code;
+    public FacePackageData faces_list;
     public long logid;
-    @SerializedName("time")
     public int time;
-    @SerializedName("usermsg")
     public String usermsg;
 }

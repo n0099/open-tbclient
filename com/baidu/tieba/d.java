@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public interface d {
-    void a(Object obj);
+    void t(Object obj);
 }

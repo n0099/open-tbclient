@@ -9,72 +9,63 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class SearchBar extends LinearLayout {
-    private final Context a;
-    private EditText b;
-    private ImageView c;
-    private LinearLayout d;
-    private ImageView e;
-    private au f;
+    private ImageView OX;
+    private LinearLayout OY;
+    private ImageView OZ;
+    private at Pa;
+    private final Context mContext;
+    private EditText mEditText;
 
     public SearchBar(Context context) {
         super(context);
-        this.a = context;
-        a();
+        this.mContext = context;
+        ny();
     }
 
     public SearchBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = context;
-        a();
+        this.mContext = context;
+        ny();
     }
 
-    public void a(int i) {
-        if (i == 1) {
-            setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d_1);
-            this.d.setBackgroundResource(com.baidu.tieba.t.inputbox_top_1);
-            this.e.setImageResource(com.baidu.tieba.t.icon_head_bar_search_1);
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text_1));
-            this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text_1));
-            this.c.setImageResource(com.baidu.tieba.t.search_delete_button_1);
-            return;
-        }
-        setBackgroundResource(com.baidu.tieba.r.cp_bg_line_d);
-        this.d.setBackgroundResource(com.baidu.tieba.t.inputbox_top);
-        this.e.setImageResource(com.baidu.tieba.t.icon_head_bar_search);
-        this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text));
-        this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.r.widget_searchbox_text));
-        this.c.setImageResource(com.baidu.tieba.t.search_delete_button);
+    public void onChangeSkinType(int i) {
+        com.baidu.tbadk.core.util.aw.i(this, com.baidu.tieba.s.cp_bg_line_d);
+        com.baidu.tbadk.core.util.aw.h(this.OY, com.baidu.tieba.u.inputbox_top);
+        com.baidu.tbadk.core.util.aw.c(this.OZ, com.baidu.tieba.u.icon_head_bar_search);
+        com.baidu.tbadk.core.util.aw.b(this.mEditText, com.baidu.tieba.s.widget_searchbox_text, 2);
+        this.mEditText.setHintTextColor(com.baidu.tbadk.core.util.aw.bz(com.baidu.tieba.s.widget_searchbox_text));
+        com.baidu.tbadk.core.util.aw.c(this.OX, com.baidu.tieba.u.search_delete_button);
     }
 
-    private void a() {
-        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.search_bar, this, true);
-        this.b = (EditText) findViewById(com.baidu.tieba.u.home_et_search);
-        this.c = (ImageView) findViewById(com.baidu.tieba.u.home_iv_search_del);
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.u.search_tap_text_layout);
-        this.e = (ImageView) findViewById(com.baidu.tieba.u.search_bar_icon);
-        this.b.addTextChangedListener(new as(this));
-        this.c.setOnClickListener(new at(this));
-        a(TbadkApplication.m252getInst().getSkinType());
+    private void ny() {
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.search_bar, this, true);
+        this.mEditText = (EditText) findViewById(com.baidu.tieba.v.home_et_search);
+        this.OX = (ImageView) findViewById(com.baidu.tieba.v.home_iv_search_del);
+        this.OY = (LinearLayout) findViewById(com.baidu.tieba.v.search_tap_text_layout);
+        this.OZ = (ImageView) findViewById(com.baidu.tieba.v.search_bar_icon);
+        this.mEditText.addTextChangedListener(new ar(this));
+        this.OX.setOnClickListener(new as(this));
+        onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
     }
 
     public void setHint(String str) {
-        this.b.setHint(str);
+        this.mEditText.setHint(str);
     }
 
-    public void setHandler(au auVar) {
-        this.f = auVar;
+    public void setHandler(at atVar) {
+        this.Pa = atVar;
     }
 
     public EditText getEditText() {
-        return this.b;
+        return this.mEditText;
     }
 
     public void setSearchText(String str) {
-        this.b.setText(str);
+        this.mEditText.setText(str);
     }
 
     public String getSearchText() {
-        Editable text = this.b.getText();
+        Editable text = this.mEditText.getText();
         return text != null ? text.toString() : "";
     }
 }

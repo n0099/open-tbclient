@@ -3,11 +3,11 @@ package com.baidu.tieba.faceshop;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class as {
-    TbImageView a;
-    final /* synthetic */ ar b;
+    TbImageView atZ;
+    final /* synthetic */ ar aua;
 
     private as(ar arVar) {
-        this.b = arVar;
+        this.aua = arVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

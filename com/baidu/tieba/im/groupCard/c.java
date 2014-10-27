@@ -2,32 +2,32 @@ package com.baidu.tieba.im.groupCard;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
-    String a;
-    final /* synthetic */ b b;
+    final /* synthetic */ b aZI;
+    String mUrl;
 
     public c(b bVar) {
         String str;
-        this.b = bVar;
-        this.a = null;
-        str = bVar.d;
-        this.a = str;
+        this.aZI = bVar;
+        this.mUrl = null;
+        str = bVar.imageUrl;
+        this.mUrl = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: h */
     public String doInBackground(String... strArr) {
         GroupCardActivity groupCardActivity;
         GroupCardActivity groupCardActivity2;
-        String f;
+        String bQ;
         Long l;
         GroupCardActivity groupCardActivity3;
         GroupCardActivity groupCardActivity4;
@@ -35,56 +35,55 @@ public class c extends BdAsyncTask<String, Integer, String> {
         GroupCardActivity groupCardActivity6;
         GroupCardActivity groupCardActivity7;
         try {
-            if (this.a == null || this.a.length() <= 0) {
-                groupCardActivity2 = this.b.b;
-                return groupCardActivity2.getString(x.save_error);
+            if (this.mUrl == null || this.mUrl.length() <= 0) {
+                groupCardActivity2 = this.aZI.aZE;
+                return groupCardActivity2.getString(y.save_error);
             }
-            if (ba.f(this.a) == null) {
-                groupCardActivity7 = this.b.b;
-                return groupCardActivity7.getString(x.save_error);
+            if (ba.bQ(this.mUrl) == null) {
+                groupCardActivity7 = this.aZI.aZE;
+                return groupCardActivity7.getString(y.save_error);
             }
-            String str = String.valueOf(f) + ".jpg";
-            for (int i = 0; s.b(str) && i < 10000; i++) {
-                str = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
+            String str = String.valueOf(bQ) + ".jpg";
+            for (int i = 0; s.bp(str) && i < 10000; i++) {
+                str = String.valueOf(bQ) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
             }
-            StringBuilder sb = new StringBuilder(this.a);
+            StringBuilder sb = new StringBuilder(this.mUrl);
             sb.append("&t=");
-            l = b.e;
+            l = b.aZG;
             sb.append(l);
-            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.resourceLoader.d.a().a(sb.toString(), 10, new Object[0]);
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.ef().a(sb.toString(), 10, new Object[0]);
             if (aVar == null) {
-                groupCardActivity6 = this.b.b;
-                return groupCardActivity6.getString(x.save_error);
+                groupCardActivity6 = this.aZI.aZE;
+                return groupCardActivity6.getString(y.save_error);
             }
-            Bitmap h = aVar.h();
-            if (h == null) {
-                groupCardActivity5 = this.b.b;
-                return groupCardActivity5.getString(x.save_error);
+            Bitmap hl = aVar.hl();
+            if (hl == null) {
+                groupCardActivity5 = this.aZI.aZE;
+                return groupCardActivity5.getString(y.save_error);
             }
-            String a = s.a((String) null, str, h, 80);
+            String a = s.a((String) null, str, hl, 80);
             if (a != null) {
-                groupCardActivity3 = this.b.b;
-                new ac(groupCardActivity3).a(a);
-                groupCardActivity4 = this.b.b;
-                return groupCardActivity4.getString(x.save_image_to_album);
+                groupCardActivity3 = this.aZI.aZE;
+                new aa(groupCardActivity3).bF(a);
+                groupCardActivity4 = this.aZI.aZE;
+                return groupCardActivity4.getString(y.save_image_to_album);
             }
-            return s.b();
+            return s.lu();
         } catch (Exception e) {
-            groupCardActivity = this.b.b;
-            return groupCardActivity.getString(x.save_error);
+            groupCardActivity = this.aZI.aZE;
+            return groupCardActivity.getString(y.save_error);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(String str) {
         GroupCardActivity groupCardActivity;
-        super.onPostExecute(str);
-        groupCardActivity = this.b.b;
+        super.onPostExecute((c) str);
+        groupCardActivity = this.aZI.aZE;
         groupCardActivity.showToast(str);
-        this.b.c = null;
+        this.aZI.aZF = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +94,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.c = null;
+        this.aZI.aZF = null;
         super.cancel(true);
     }
 }

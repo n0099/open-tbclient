@@ -5,39 +5,39 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class h {
-    private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
-    private com.baidu.tbadk.core.util.ae a = null;
+    private static final String bKF = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
+    private com.baidu.tbadk.core.util.ac mNetWork = null;
 
-    public String a(String str) {
+    public String hp(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.a = new com.baidu.tbadk.core.util.ae(b);
-        this.a.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, str2);
-        this.a.a("forum_ids", str);
-        this.a.a().a().b = true;
-        this.a.a().a().a = true;
-        return this.a.h();
+        this.mNetWork = new com.baidu.tbadk.core.util.ac(bKF);
+        this.mNetWork.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, str2);
+        this.mNetWork.k("forum_ids", str);
+        this.mNetWork.mc().na().FT = true;
+        this.mNetWork.mc().na().mIsNeedTbs = true;
+        return this.mNetWork.lA();
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.f();
+    public void cancel() {
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
     }
 
-    public boolean b() {
-        if (this.a != null) {
-            return this.a.a().b().b();
+    public boolean jq() {
+        if (this.mNetWork != null) {
+            return this.mNetWork.mc().nb().jq();
         }
         return false;
     }
 
-    public String c() {
-        if (this.a != null) {
-            return this.a.e();
+    public String jr() {
+        if (this.mNetWork != null) {
+            return this.mNetWork.getErrorString();
         }
         return null;
     }

@@ -7,15 +7,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements al {
-    final /* synthetic */ ah a;
+    final /* synthetic */ ah aiK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ah ahVar) {
-        this.a = ahVar;
+        this.aiK = ahVar;
     }
 
     @Override // com.baidu.tieba.album.al
-    public void a() {
+    public void hL() {
     }
 
     @Override // com.baidu.tieba.album.al
@@ -23,16 +23,16 @@ public class ak implements al {
         AlbumActivity albumActivity;
         TextView textView;
         if (list == null || list.size() == 0) {
-            albumActivity = this.a.b;
-            albumActivity.d(0);
-            this.a.o = false;
+            albumActivity = this.aiK.ahq;
+            albumActivity.dK(0);
+            this.aiK.aiG = false;
             return;
         }
-        this.a.o = true;
-        this.a.n = list;
-        this.a.a(list);
+        this.aiK.aiG = true;
+        this.aiK.Wx = list;
+        this.aiK.setData(list);
         if (!TextUtils.isEmpty(str)) {
-            textView = this.a.h;
+            textView = this.aiK.JM;
             textView.setText(str);
         }
     }

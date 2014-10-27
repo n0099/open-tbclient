@@ -5,20 +5,18 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class bj {
-    LinearLayout a;
-    TextView b;
-    HeadImageView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    final /* synthetic */ bd g;
+    TextView JM;
+    LinearLayout aBK;
+    TextView aBL;
+    HeadImageView aBM;
+    TextView aBN;
+    TextView apR;
 
-    private bj(bd bdVar) {
-        this.g = bdVar;
+    private bj() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bj(bd bdVar, bj bjVar) {
-        this(bdVar);
+    public /* synthetic */ bj(bj bjVar) {
+        this();
     }
 }

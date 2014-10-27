@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbadkApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String a = TbadkApplication.m252getInst().getApp().getFileStreamPath("").getAbsolutePath();
+    public static final String Dq = TbadkApplication.m251getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-    public static boolean a(String str) {
+    public static boolean bz(String str) {
         try {
-            return new File(new StringBuilder(String.valueOf(a)).append("/").append(str).toString()).exists();
+            return new File(new StringBuilder(String.valueOf(Dq)).append("/").append(str).toString()).exists();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -17,9 +17,9 @@ public class t {
         }
     }
 
-    public static boolean b(String str) {
+    public static boolean bA(String str) {
         try {
-            File file = new File(String.valueOf(a) + "/" + str);
+            File file = new File(String.valueOf(Dq) + "/" + str);
             if (file.exists()) {
                 return false;
             }
@@ -31,7 +31,7 @@ public class t {
         }
     }
 
-    public static void a(File file) {
+    public static void n(File file) {
         try {
             if (file.exists()) {
                 if (file.isDirectory()) {
@@ -41,7 +41,7 @@ public class t {
                         if (listFiles[i].isFile()) {
                             listFiles[i].delete();
                         } else {
-                            a(listFiles[i]);
+                            n(listFiles[i]);
                         }
                     }
                 }
@@ -53,14 +53,14 @@ public class t {
         }
     }
 
-    public static boolean c(String str) {
+    public static boolean bB(String str) {
         try {
-            File file = new File(String.valueOf(a) + "/" + str);
+            File file = new File(String.valueOf(Dq) + "/" + str);
             if (file.exists()) {
                 if (!file.isDirectory()) {
                     return false;
                 }
-                a(file);
+                n(file);
             }
             return file.mkdirs();
         } catch (Exception e) {
@@ -70,10 +70,10 @@ public class t {
         }
     }
 
-    public static String d(String str) {
+    public static String bC(String str) {
         String str2 = null;
         try {
-            File file = new File(String.valueOf(a) + "/" + str);
+            File file = new File(String.valueOf(Dq) + "/" + str);
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 int length = listFiles.length;

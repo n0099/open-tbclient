@@ -1,16 +1,19 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class bh implements Runnable {
-    final /* synthetic */ bd a;
+class bh extends com.baidu.adp.lib.g.e {
+    final /* synthetic */ bf aBH;
+    private final /* synthetic */ com.baidu.adp.lib.guide.d aBJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bd bdVar) {
-        this.a = bdVar;
+    public bh(bf bfVar, com.baidu.adp.lib.guide.d dVar) {
+        this.aBH = bfVar;
+        this.aBJ = dVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.n = System.currentTimeMillis();
+    @Override // com.baidu.adp.lib.g.e
+    public void b(Animation animation) {
+        this.aBJ.dismiss();
     }
 }

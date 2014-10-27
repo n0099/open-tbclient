@@ -1,27 +1,41 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
+class x extends HttpMessageListener {
+    final /* synthetic */ FrsActivity aBk;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(FrsActivity frsActivity, int i) {
         super(i);
+        this.aBk = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.m = true;
-            } else if (intValue == 2) {
-                FrsActivity.n = true;
+    /* renamed from: b */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        dd ddVar;
+        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.b.a aVar2;
+        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
+            FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
+            e eVar = new e();
+            eVar.aAc = frsPageHttpResponseMessage.getError() < -13 || frsPageHttpResponseMessage.getError() > -10;
+            eVar.isSuccess = !frsPageHttpResponseMessage.hasNetworkError();
+            eVar.errorCode = frsPageHttpResponseMessage.getError();
+            eVar.errorMsg = frsPageHttpResponseMessage.getErrorString();
+            eVar.aAd = frsPageHttpResponseMessage.getDownSize();
+            ddVar = this.aBk.aAT;
+            ddVar.a(frsPageHttpResponseMessage.getUpdateType(), false, eVar);
+            aVar = this.aBk.aAE;
+            if (aVar != null) {
+                aVar2 = this.aBk.aAE;
+                aVar2.a(true, eVar.isSuccess, eVar.errorCode, eVar.errorMsg, eVar.aAd);
+                this.aBk.aAE = null;
             }
-            FrsActivity.l = true;
         }
     }
 }

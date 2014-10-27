@@ -4,19 +4,19 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ a a;
+    final /* synthetic */ a cF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.a = aVar;
+        this.cF = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
+    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.a.a(httpResponsedMessage);
+        this.cF.onMessage(httpResponsedMessage);
     }
 }

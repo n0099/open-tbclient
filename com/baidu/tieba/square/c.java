@@ -1,54 +1,53 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.BarImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    View.OnClickListener a = new d(this);
-    private Activity b;
-    private ArrayList<w> c;
+    private Activity aBF;
+    private ArrayList<q> bLW;
+    View.OnClickListener bLX = new d(this);
 
     public c(Activity activity, f fVar, boolean z) {
-        this.b = activity;
-        this.c = fVar.d();
+        this.aBF = activity;
+        this.bLW = fVar.adl();
     }
 
-    public ArrayList<w> a() {
-        return this.c;
+    public ArrayList<q> adl() {
+        return this.bLW;
     }
 
-    public void a(ArrayList<w> arrayList) {
-        this.c = arrayList;
+    public void I(ArrayList<q> arrayList) {
+        this.bLW = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.c == null) {
+        if (this.bLW == null) {
             return 0;
         }
-        return (this.c.size() * 2) + 1;
+        return (this.bLW.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = a(viewGroup, itemViewType);
-            bp.b(view);
+            view = d(viewGroup, itemViewType);
+            bn.n(view);
         }
-        bp.a(view);
+        bn.m(view);
         if (itemViewType != 3) {
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.u.container);
-            bp.a(findViewById, 1, skinType);
+            int skinType = TbadkApplication.m251getInst().getSkinType();
+            View findViewById = view.findViewById(com.baidu.tieba.v.container);
+            bn.e(findViewById, 1, skinType);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -60,41 +59,41 @@ public class c extends BaseAdapter {
         return view;
     }
 
-    private View a(ViewGroup viewGroup, int i) {
+    private View d(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
+            return com.baidu.adp.lib.g.b.ek().a(this.aBF, com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return com.baidu.adp.lib.g.b.ek().a(this.aBF, com.baidu.tieba.w.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_first_dir_item, viewGroup, false);
-        a.setOnClickListener(this.a);
+        View a = com.baidu.adp.lib.g.b.ek().a(this.aBF, com.baidu.tieba.w.bar_folder_first_dir_item, viewGroup, false);
+        a.setOnClickListener(this.bLX);
         e eVar = new e();
-        eVar.a = (BarImageView) a.findViewById(com.baidu.tieba.u.portrait);
-        eVar.b = (TextView) a.findViewById(com.baidu.tieba.u.name);
-        eVar.c = (BestStringsFitTextView) a.findViewById(com.baidu.tieba.u.description);
+        eVar.bLZ = (BarImageView) a.findViewById(com.baidu.tieba.v.portrait);
+        eVar.UD = (TextView) a.findViewById(com.baidu.tieba.v.name);
+        eVar.bMa = (BestStringsFitTextView) a.findViewById(com.baidu.tieba.v.description);
         a.setTag(eVar);
         return a;
     }
 
     private void a(ViewGroup viewGroup, e eVar, int i) {
-        w wVar = this.c.get(i / 2);
-        eVar.d = wVar;
-        eVar.b.setText(wVar.b);
-        if (wVar.e != null) {
-            eVar.c.setVisibility(0);
-            String[] strArr = new String[wVar.e.size()];
-            for (int i2 = 0; i2 < wVar.e.size(); i2++) {
-                strArr[i2] = wVar.e.get(i2).b;
+        q qVar = this.bLW.get(i / 2);
+        eVar.bMb = qVar;
+        eVar.UD.setText(qVar.auZ);
+        if (qVar.bMu != null) {
+            eVar.bMa.setVisibility(0);
+            String[] strArr = new String[qVar.bMu.size()];
+            for (int i2 = 0; i2 < qVar.bMu.size(); i2++) {
+                strArr[i2] = qVar.bMu.get(i2).auZ;
             }
-            eVar.c.setTextArray(strArr);
+            eVar.bMa.setTextArray(strArr);
         } else {
-            eVar.c.setVisibility(8);
+            eVar.bMa.setVisibility(8);
         }
-        if (wVar.d != null) {
-            int a = com.baidu.adp.lib.util.j.a((Context) this.b, 45.0f);
-            eVar.a.setTag(wVar.d);
-            eVar.a.a(wVar.d, 10, a, a, false);
+        if (qVar.bMt != null) {
+            int dip2px = com.baidu.adp.lib.util.m.dip2px(this.aBF, 45.0f);
+            eVar.bLZ.setTag(qVar.bMt);
+            eVar.bLZ.a(qVar.bMt, 10, dip2px, dip2px, false);
         }
     }
 
@@ -125,7 +124,7 @@ public class c extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Activity b() {
-        return this.b;
+    public Activity adm() {
+        return this.aBF;
     }
 }

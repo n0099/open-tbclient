@@ -11,7 +11,7 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ShareModel implements Parcelable {
-    public static final Parcelable.Creator<ShareModel> CREATOR = new f();
+    public static final Parcelable.Creator<ShareModel> CREATOR = new g();
     private SapiAccount a;
     private List<SapiAccount> b;
     private ShareEvent c;

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class ImMessageCenterActivity extends BaseFragmentActivity {
     static {
-        g();
+        Kj();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,17 +17,17 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, Fragment.instantiate(this, e.class.getName()));
+        beginTransaction.add(16908290, Fragment.instantiate(this, g.class.getName()));
         beginTransaction.commit();
     }
 
-    private static void g() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new b());
+    private static void Kj() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void b(int i) {
+    protected void onChangeSkinType(int i) {
     }
 }

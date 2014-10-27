@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.model.i {
-    final /* synthetic */ a a;
+    final /* synthetic */ a aqc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.a = aVar;
+        this.aqc = aVar;
     }
 
     @Override // com.baidu.tieba.model.i
@@ -35,18 +35,18 @@ public class c implements com.baidu.tieba.model.i {
         BubbleListData bubbleListData10;
         BubbleListData bubbleListData11;
         if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
-            this.a.i().b();
+            this.aqc.Cu().Cy();
             return;
         }
-        this.a.f = setBubbleResultData.getB_info().getB_url();
-        TbadkApplication m252getInst = TbadkApplication.m252getInst();
-        str = this.a.f;
-        m252getInst.setDefaultBubble(str);
-        eVar = this.a.b;
-        int a = eVar.a();
-        if (a == 0) {
-            TbadkApplication.m252getInst().setDefaultBubble("");
-            bubbleListData11 = this.a.c;
+        this.aqc.apZ = setBubbleResultData.getB_info().getB_url();
+        TbadkApplication m251getInst = TbadkApplication.m251getInst();
+        str = this.aqc.apZ;
+        m251getInst.setDefaultBubble(str);
+        eVar = this.aqc.apW;
+        int Td = eVar.Td();
+        if (Td == 0) {
+            TbadkApplication.m251getInst().setDefaultBubble("");
+            bubbleListData11 = this.aqc.apX;
             for (BubbleListData.BubbleData bubbleData : bubbleListData11.getB_info()) {
                 if (bubbleData.getBcode() != 0) {
                     if (bubbleData.isDef()) {
@@ -57,60 +57,60 @@ public class c implements com.baidu.tieba.model.i {
                 }
             }
         } else if (setBubbleResultData.getB_info().canUser()) {
-            bubbleListData10 = this.a.c;
+            bubbleListData10 = this.aqc.apX;
             for (BubbleListData.BubbleData bubbleData2 : bubbleListData10.getB_info()) {
-                if (bubbleData2.getBcode() == a) {
+                if (bubbleData2.getBcode() == Td) {
                     bubbleData2.setIs_def(1);
                 } else if (bubbleData2.isDef()) {
                     bubbleData2.setIs_def(0);
                 }
-                if (bubbleData2.getBcode() == a) {
+                if (bubbleData2.getBcode() == Td) {
                     bubbleData2.setCan_use(1);
                 }
             }
         } else {
-            context = this.a.d;
-            UtilHelper.showToast(context, com.baidu.tieba.x.bubble_setdefualt_error);
-            bubbleListData = this.a.c;
+            context = this.aqc.mContext;
+            UtilHelper.showToast(context, com.baidu.tieba.y.bubble_setdefualt_error);
+            bubbleListData = this.aqc.apX;
             if (bubbleListData != null) {
-                bubbleListData2 = this.a.c;
+                bubbleListData2 = this.aqc.apX;
                 if (bubbleListData2.getB_info() != null) {
-                    bubbleListData3 = this.a.c;
+                    bubbleListData3 = this.aqc.apX;
                     if (bubbleListData3.getB_info().size() > 0) {
-                        bubbleListData4 = this.a.c;
+                        bubbleListData4 = this.aqc.apX;
                         if (bubbleListData4.getB_info().get(0).getBcode() == 0) {
-                            this.a.e = 0;
+                            this.aqc.apY = 0;
                             int i2 = 0;
                             while (true) {
-                                bubbleListData5 = this.a.c;
+                                bubbleListData5 = this.aqc.apX;
                                 if (i2 >= bubbleListData5.getB_info().size()) {
                                     break;
                                 }
-                                bubbleListData8 = this.a.c;
+                                bubbleListData8 = this.aqc.apX;
                                 if (bubbleListData8.getB_info().get(i2).isDef()) {
-                                    this.a.e = i2;
+                                    this.aqc.apY = i2;
                                     break;
                                 }
                                 i2++;
                             }
-                            bubbleListData6 = this.a.c;
+                            bubbleListData6 = this.aqc.apX;
                             List<BubbleListData.BubbleData> b_info = bubbleListData6.getB_info();
-                            i = this.a.e;
+                            i = this.aqc.apY;
                             b_info.get(i).setIs_def(0);
-                            bubbleListData7 = this.a.c;
+                            bubbleListData7 = this.aqc.apX;
                             bubbleListData7.getB_info().get(0).setIs_def(1);
                         } else {
                             BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
                             bubbleData3.setBcode(0);
-                            bubbleListData9 = this.a.c;
+                            bubbleListData9 = this.aqc.apX;
                             bubbleListData9.getB_info().add(0, bubbleData3);
                         }
                     }
                 }
             }
         }
-        this.a.k();
-        this.a.i().a(this.a);
+        this.aqc.AZ();
+        this.aqc.Cu().b(this.aqc);
     }
 
     @Override // com.baidu.tieba.model.i
@@ -120,20 +120,20 @@ public class c implements com.baidu.tieba.model.i {
         Context context3;
         Context context4;
         if (setBubbleResultData == null) {
-            context = this.a.d;
-            UtilHelper.showToast(context, com.baidu.tieba.x.neterror);
+            context = this.aqc.mContext;
+            UtilHelper.showToast(context, com.baidu.tieba.y.neterror);
         } else if (setBubbleResultData.getError_code().equals("0")) {
-            context2 = this.a.d;
-            UtilHelper.showToast(context2, com.baidu.tieba.x.neterror);
+            context2 = this.aqc.mContext;
+            UtilHelper.showToast(context2, com.baidu.tieba.y.neterror);
         } else if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-            context4 = this.a.d;
+            context4 = this.aqc.mContext;
             UtilHelper.showToast(context4, setBubbleResultData.getError_msg());
         } else {
-            context3 = this.a.d;
-            UtilHelper.showToast(context3, com.baidu.tieba.x.neterror);
+            context3 = this.aqc.mContext;
+            UtilHelper.showToast(context3, com.baidu.tieba.y.neterror);
         }
-        if (this.a.i() != null) {
-            this.a.i().b();
+        if (this.aqc.Cu() != null) {
+            this.aqc.Cu().Cy();
         }
     }
 }

@@ -1,30 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ PbActivity a;
+class p implements DialogInterface.OnClickListener {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        bl blVar;
-        bs bsVar;
-        bl blVar2;
-        bs bsVar2;
-        blVar = this.a.y;
-        if (blVar.a(false)) {
-            bsVar2 = this.a.E;
-            bsVar2.w();
-            TiebaStatic.eventStat(this.a, "pb_more", "pbclick", 1, new Object[0]);
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (this.bvg.bve != null) {
+            if (i == 0) {
+                this.bvg.bve.Q(this.bvg);
+                this.bvg.bve = null;
+            } else if (i == 1) {
+                this.bvg.b(this.bvg.bve);
+            }
         }
-        bsVar = this.a.E;
-        blVar2 = this.a.y;
-        bsVar.c(blVar2.r());
     }
 }

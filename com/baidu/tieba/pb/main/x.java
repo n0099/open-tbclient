@@ -1,45 +1,64 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-class x implements com.baidu.adp.lib.d.c<LinearLayout> {
-    final /* synthetic */ PbActivity a;
+class x implements com.baidu.tieba.location.i {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.a);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
+    @Override // com.baidu.tieba.location.i
+    public void EG() {
+        bv bvVar;
+        bv bvVar2;
+        bv bvVar3;
+        bvVar = this.bvg.buL;
+        if (bvVar.EO() != null) {
+            bvVar2 = this.bvg.buL;
+            if (bvVar2.EO().getLocationViewVisibility() == 0) {
+                this.bvg.showToast(com.baidu.tieba.y.no_network_guide);
+            }
+            bvVar3 = this.bvg.buL;
+            bvVar3.EO().setLocationInfoViewState(0);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
+    @Override // com.baidu.tieba.location.i
+    public void eY(String str) {
+        bv bvVar;
+        bv bvVar2;
+        bv bvVar3;
+        bvVar = this.bvg.buL;
+        if (bvVar.EO() != null) {
+            bvVar2 = this.bvg.buL;
+            if (bvVar2.EO().getLocationViewVisibility() == 0) {
+                PbActivity pbActivity = this.bvg;
+                if (StringUtils.isNull(str)) {
+                    str = this.bvg.getString(com.baidu.tieba.y.location_fail);
+                }
+                pbActivity.showToast(str);
+            }
+            bvVar3 = this.bvg.buL;
+            bvVar3.EO().setLocationInfoViewState(0);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public LinearLayout b(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public LinearLayout c(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // com.baidu.tieba.location.i
+    public void a(com.baidu.tieba.location.a aVar) {
+        bv bvVar;
+        bv bvVar2;
+        if (aVar != null && !StringUtils.isNull(aVar.Sl())) {
+            bvVar = this.bvg.buL;
+            if (bvVar.EO() != null) {
+                bvVar2 = this.bvg.buL;
+                bvVar2.EO().j(2, aVar.Sl());
+                return;
+            }
+            return;
+        }
+        eY(null);
     }
 }

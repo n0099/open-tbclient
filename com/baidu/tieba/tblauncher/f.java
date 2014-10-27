@@ -1,34 +1,33 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-class f extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ GuideActivity a;
-
-    private f(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+class f extends HttpMessageListener {
+    final /* synthetic */ GuideActivity bOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(GuideActivity guideActivity, f fVar) {
-        this(guideActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(GuideActivity guideActivity, int i) {
+        super(i);
+        this.bOn = guideActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(GuideActivity.f(this.a));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        if (!bool.booleanValue()) {
-            GuideActivity.g(this.a);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: b */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001520) {
+            this.bOn.bOh = false;
+        } else if (httpResponsedMessage.getError() == 0) {
+            if (((ShowNewUserGuideResponseMessage) httpResponsedMessage).isJump == 1) {
+                this.bOn.bOh = true;
+                return;
+            }
+            this.bOn.bOh = false;
+            com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("jump_to_new_user_guide", false);
+        } else {
+            this.bOn.bOh = false;
         }
     }
 }

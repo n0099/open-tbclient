@@ -2,11 +2,11 @@ package com.baidu.tieba.person.post;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements g {
-    final /* synthetic */ h a;
+    final /* synthetic */ h bDE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.a = hVar;
+        this.bDE = hVar;
     }
 
     @Override // com.baidu.tieba.person.post.g
@@ -16,19 +16,19 @@ public class i implements g {
         g gVar;
         g gVar2;
         if (z) {
-            this.a.b = personPostModel;
+            this.bDE.bDB = personPostModel;
         } else {
-            personPostModel2 = this.a.b;
+            personPostModel2 = this.bDE.bDB;
             if (personPostModel2 != null) {
-                personPostModel3 = this.a.b;
+                personPostModel3 = this.bDE.bDB;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        gVar = this.a.a;
+        gVar = this.bDE.bDA;
         if (gVar != null) {
-            gVar2 = this.a.a;
+            gVar2 = this.bDE.bDA;
             gVar2.a(personPostModel, z);
         }
-        this.a.notifyDataSetChanged();
+        this.bDE.notifyDataSetChanged();
     }
 }

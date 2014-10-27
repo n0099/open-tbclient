@@ -1,19 +1,19 @@
 package com.baidu.tieba.flist;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.JsonParseException;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tieba.flist.ForumListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<Void, Void, ForumListModel> {
-    boolean a;
-    final /* synthetic */ ForumListActivity b;
+    final /* synthetic */ ForumListActivity avP;
+    boolean avR;
 
     private n(ForumListActivity forumListActivity) {
-        this.b = forumListActivity;
-        this.a = false;
+        this.avP = forumListActivity;
+        this.avR = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,21 +21,21 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
         this(forumListActivity);
     }
 
-    public void a(boolean z) {
-        this.a = z;
+    public void bF(boolean z) {
+        this.avR = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.b.c.p.setEnabled(false);
-        this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_loading));
+        this.avP.avy.awu.setEnabled(false);
+        this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public ForumListModel doInBackground(Void... voidArr) {
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
@@ -43,17 +43,17 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
         int i;
         ForumListModel.RequestParams requestParams4;
         try {
-            requestParams = this.b.x;
+            requestParams = this.avP.avz;
             requestParams.recommend_type = 2;
-            requestParams2 = this.b.x;
+            requestParams2 = this.avP.avz;
             requestParams2.offset = 0;
-            requestParams3 = this.b.x;
-            i = this.b.n;
+            requestParams3 = this.avP.avz;
+            i = this.avP.avp;
             requestParams3.rn = i;
-            ForumListActivity forumListActivity = this.b;
-            requestParams4 = this.b.x;
+            ForumListActivity forumListActivity = this.avP;
+            requestParams4 = this.avP.avz;
             return ForumListModel.new_fetch(forumListActivity, requestParams4);
-        } catch (JsonParseException e) {
+        } catch (Exception e) {
             return null;
         }
     }
@@ -64,61 +64,61 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
     /* renamed from: a */
     public void onPostExecute(ForumListModel forumListModel) {
         int i;
-        int i2;
-        int i3;
-        int i4;
+        Drawable drawable;
+        Drawable drawable2;
+        Drawable drawable3;
         ForumListModel.RequestParams requestParams;
         p pVar;
         p pVar2;
-        int i5;
-        int i6;
-        int i7;
+        int i2;
+        Drawable drawable4;
+        Drawable drawable5;
         if (forumListModel != null && forumListModel.recommend_list_right != null) {
-            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.b.b.forum_list.length);
-            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.b.b.forum_list, 0, min);
-            pVar = this.b.B;
-            pVar.a(min);
-            pVar2 = this.b.B;
-            pVar2.a(this.b.b.forum_list);
-            i5 = this.b.n;
-            if (i5 == 200) {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_expand_list));
-                ImageView imageView = this.b.c.r;
-                i7 = this.b.k;
-                imageView.setImageResource(i7);
+            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.avP.recommend_list_right.forum_list.length);
+            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.avP.recommend_list_right.forum_list, 0, min);
+            pVar = this.avP.avD;
+            pVar.eA(min);
+            pVar2 = this.avP.avD;
+            pVar2.a(this.avP.recommend_list_right.forum_list);
+            i2 = this.avP.avp;
+            if (i2 == 200) {
+                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
+                ImageView imageView = this.avP.avy.aww;
+                drawable5 = this.avP.avm;
+                imageView.setImageDrawable(drawable5);
             } else {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_collapse_list));
-                ImageView imageView2 = this.b.c.r;
-                i6 = this.b.l;
-                imageView2.setImageResource(i6);
-                this.b.z = true;
+                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_collapse_list));
+                ImageView imageView2 = this.avP.avy.aww;
+                drawable4 = this.avP.avn;
+                imageView2.setImageDrawable(drawable4);
+                this.avP.avB = true;
             }
         } else {
-            this.b.showToast(this.b.getString(com.baidu.tieba.x.neterror));
-            if (!this.a) {
-                i = this.b.n;
+            this.avP.showToast(this.avP.getString(com.baidu.tieba.y.neterror));
+            if (!this.avR) {
+                i = this.avP.avp;
                 if (i == 200) {
-                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_expand_list));
-                    ImageView imageView3 = this.b.c.r;
-                    i3 = this.b.k;
-                    imageView3.setImageResource(i3);
+                    this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
+                    ImageView imageView3 = this.avP.avy.aww;
+                    drawable2 = this.avP.avm;
+                    imageView3.setImageDrawable(drawable2);
                 } else {
-                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_collapse_list));
-                    ImageView imageView4 = this.b.c.r;
-                    i2 = this.b.l;
-                    imageView4.setImageResource(i2);
+                    this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_collapse_list));
+                    ImageView imageView4 = this.avP.avy.aww;
+                    drawable = this.avP.avn;
+                    imageView4.setImageDrawable(drawable);
                 }
             } else {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.x.flist_expand_list));
-                ImageView imageView5 = this.b.c.r;
-                i4 = this.b.k;
-                imageView5.setImageResource(i4);
-                requestParams = this.b.x;
+                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
+                ImageView imageView5 = this.avP.avy.aww;
+                drawable3 = this.avP.avm;
+                imageView5.setImageDrawable(drawable3);
+                requestParams = this.avP.avz;
                 requestParams.rn = Constants.MEDIA_INFO;
-                this.b.n = Constants.MEDIA_INFO;
+                this.avP.avp = Constants.MEDIA_INFO;
             }
         }
-        this.b.c.p.setEnabled(true);
-        this.b.c.c();
+        this.avP.avy.awu.setEnabled(true);
+        this.avP.avy.DU();
     }
 }

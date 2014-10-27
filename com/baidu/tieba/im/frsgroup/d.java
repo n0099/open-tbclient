@@ -1,63 +1,147 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.frsgroup.GroupListAdapter;
-import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseFrsGroupsLocalMessage;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.im.data.GroupPermData;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends CustomMessageListener {
-    final /* synthetic */ b a;
+public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.mvc.model.d<k> {
+    private FrsGroupActivity aWC;
+    private i aWD;
+    private b aWE;
+    private j aWF;
+    private m aWG;
+    private com.baidu.tbadk.mvc.e.a aWH;
+    private int index;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(b bVar, int i) {
-        super(i);
-        this.a = bVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public d(FrsGroupActivity frsGroupActivity, int i, BdUniqueId bdUniqueId) {
+        super(frsGroupActivity);
+        this.aWC = frsGroupActivity;
+        this.index = i;
+        this.unique_id = bdUniqueId;
+    }
+
+    @Override // com.baidu.tbadk.mvc.core.a
+    public void b(Bundle bundle) {
+        super.b(bundle);
+        this.aWF = new j();
+        this.aWF.initWithBundle(bundle);
+        this.aWF.setType(this.index + 1);
+        this.aWD = new i(this.aWC, this.aWF);
+        this.aWD.a((com.baidu.tbadk.mvc.model.k) this);
+        this.aWD.setUniqueId(this.unique_id);
+        this.aWE = new b(this.aWC);
+        this.aWE.a(this);
+        this.aWE.setUniqueId(this.unique_id);
+        this.aWG = new m(this.index);
+        this.aWH = new com.baidu.tbadk.mvc.e.a(this.index);
+        this.aWG.groupPerm = (GroupPermData) bundle.getSerializable("group_perm");
+        sY().addEventDelegate(this);
+    }
+
+    @Override // com.baidu.tbadk.mvc.d.c
+    protected boolean aB(boolean z) {
+        if (this.aWF.getRn() == 50 && z) {
+            if (this.aWE.tA()) {
+                return false;
+            }
+            this.aWE.a((com.baidu.tbadk.mvc.b.d) this.aWF);
+            this.aWH.aC(true);
+            a(this.aWH);
+            return true;
+        } else if (this.aWD.tQ()) {
+            return false;
+        } else {
+            if (this.aWG != null) {
+                this.aWG.clear();
+            }
+            this.aWG.groupPerm = null;
+            this.aWD.setNeedCache(true);
+            this.aWF.setOffset(0);
+            this.aWF.setRn(50);
+            this.aWH.aC(true);
+            a(this.aWH);
+            this.aWD.tL();
+            return true;
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.d.b
+    public boolean ty() {
+        if (!this.aWD.tQ() && this.aWH.tX()) {
+            this.aWH.aF(true);
+            this.aWH.aD(true);
+            a(this.aWH);
+            this.aWD.setNeedCache(false);
+            this.aWD.tL();
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.mvc.d.a
+    public boolean tx() {
+        a(this.aWG);
+        a(this.aWH);
+        if (this.aWG.groups == null) {
+            aB(true);
+            return true;
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.i iVar;
-        List<GroupInfoData> groups;
-        com.baidu.tieba.im.model.i iVar2;
-        GroupListAdapter groupListAdapter;
-        GroupListAdapter groupListAdapter2;
-        GroupListAdapter groupListAdapter3;
-        GroupListAdapter groupListAdapter4;
-        com.baidu.tieba.im.model.i iVar3;
-        this.a.a(true);
-        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseFrsGroupsLocalMessage)) {
-            this.a.a(com.baidu.tieba.x.neterror);
-            return;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.d.a
+    public boolean a(j jVar, k kVar) {
+        if (jVar == null || kVar == null) {
+            return false;
         }
-        ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = (ResponseFrsGroupsLocalMessage) customResponsedMessage;
-        Message<?> orginalMessage = responseFrsGroupsLocalMessage.getOrginalMessage();
-        if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsLocalMessage)) {
-            String type = ((RequestFrsGroupsLocalMessage) orginalMessage).getType();
-            iVar3 = this.a.c;
-            if (!type.equals(String.valueOf(iVar3.g()))) {
+        return a(jVar, kVar, false);
+    }
+
+    public void setGroupPerm(GroupPermData groupPermData) {
+        this.aWG.groupPerm = groupPermData;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.d
+    public void a(ReadCacheRespMsg<List<k>> readCacheRespMsg, ReadCacheMessage<k> readCacheMessage) {
+        k kVar;
+        if (readCacheMessage != null && (readCacheMessage.getRequestData() instanceof j)) {
+            j jVar = (j) readCacheMessage.getRequestData();
+            this.aWD.setNeedCache(true);
+            if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0 && (kVar = readCacheRespMsg.getData().get(0)) != null) {
+                aB(false);
+                a(jVar, kVar, true);
                 return;
             }
         }
-        iVar = this.a.c;
-        if (!iVar.e() && (groups = responseFrsGroupsLocalMessage.getGroups()) != null && !groups.isEmpty()) {
-            iVar2 = this.a.c;
-            iVar2.a(true);
-            groupListAdapter = this.a.i;
-            groupListAdapter.b(true);
-            groupListAdapter2 = this.a.i;
-            groupListAdapter2.a(GroupListAdapter.BOTTOM_TYPE.LINE);
-            groupListAdapter3 = this.a.i;
-            groupListAdapter3.a(groups);
-            groupListAdapter4 = this.a.i;
-            groupListAdapter4.notifyDataSetChanged();
+        aB(false);
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.d
+    public void a(WriteCacheRespMsg<List<k>> writeCacheRespMsg, WriteCacheMessage<k> writeCacheMessage) {
+    }
+
+    private boolean a(j jVar, k kVar, boolean z) {
+        this.aWH.aC(false);
+        this.aWH.aD(false);
+        if (kVar.groups.size() != jVar.getRn()) {
+            this.aWH.aE(false);
+        } else {
+            this.aWH.aE(true);
         }
+        this.aWG.a(kVar);
+        if (!z) {
+            jVar.Nr();
+        }
+        a(this.aWG);
+        a(this.aWH);
+        return true;
     }
 }

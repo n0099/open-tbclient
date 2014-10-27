@@ -1,171 +1,189 @@
 package com.baidu.tieba.pb.praise;
 
+import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.f {
-    private d a;
-    private PraiseListActivity b;
-    private View c;
-    private NavigationBar d;
-    private View e;
-    private View f;
-    private View g;
-    private TextView h;
-    private BdListView i;
-    private View j;
-    private TextView k;
-    private TextView l;
-    private ProgressBar m;
-    private ProgressBar n;
+public class h extends com.baidu.tbadk.mvc.h.a {
+    private View bzA;
+    private NavigationBar bzB;
+    private View bzC;
+    private TextView bzD;
+    private BdListView bzE;
+    private View bzF;
+    private TextView bzG;
+    private TextView bzH;
+    private ProgressBar bzI;
+    private ProgressBar bzJ;
+    private com.baidu.tbadk.mvc.i.c<a, com.baidu.tbadk.mvc.e.c, b> bzy;
+    private PraiseListActivity bzz;
 
-    public h(PraiseListActivity praiseListActivity, String str) {
+    public h(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        if (praiseListActivity != null) {
-            this.b = praiseListActivity;
-            praiseListActivity.setContentView(v.zan_list_activity);
-            this.c = praiseListActivity.findViewById(u.zan_list_page_parent);
-            this.d = (NavigationBar) praiseListActivity.findViewById(u.zan_list_page_navigationbar);
-            this.e = praiseListActivity.findViewById(u.zan_list_page_has_data_parent);
-            this.f = praiseListActivity.findViewById(u.zan_list_page_no_data_parent);
-            this.i = (BdListView) praiseListActivity.findViewById(u.zan_list_page_list);
-            this.m = (ProgressBar) praiseListActivity.findViewById(u.zan_list_page_progress);
-            this.a = new d(praiseListActivity);
-            this.i.setAdapter((ListAdapter) this.a);
-            this.i.setOnScrollListener(this.a);
-            this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d.a("");
-            this.g = com.baidu.adp.lib.e.b.a().a(praiseListActivity, v.zan_list_head, null);
-            this.g.setOnClickListener(praiseListActivity);
-            this.h = (TextView) this.g.findViewById(u.zan_list_head_text);
-            this.h.setText(str);
-            this.i.addHeaderView(this.g);
-            this.j = com.baidu.adp.lib.e.b.a().a(praiseListActivity, v.zan_list_foot, null);
-            this.k = (TextView) this.j.findViewById(u.zan_list_foot_text_continue);
-            this.l = (TextView) this.j.findViewById(u.zan_list_foot_text_more);
-            this.n = (ProgressBar) this.j.findViewById(u.zan_list_foot_progress);
-            this.k.setOnClickListener(praiseListActivity);
-            this.i.addFooterView(this.j);
-            this.i.setOnItemClickListener(praiseListActivity);
-        }
+        this.bzy = null;
+        this.bzz = null;
+        this.bzA = null;
+        this.bzB = null;
+        this.bzC = null;
+        this.bzD = null;
+        this.bzE = null;
+        this.bzF = null;
+        this.bzG = null;
+        this.bzH = null;
+        this.bzI = null;
+        this.bzJ = null;
+        this.bzz = praiseListActivity;
+        sY().addEventDelegate(this);
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.notifyDataSetChanged();
-        }
+    @Override // com.baidu.tbadk.mvc.core.c
+    protected int th() {
+        return w.zan_list_activity;
     }
 
-    public void a(boolean z) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void tg() {
+        this.bzA = getView().findViewById(v.zan_list_page_parent);
+        this.bzB = (NavigationBar) getView().findViewById(v.zan_list_page_navigationbar);
+        this.bzE = (BdListView) getView().findViewById(v.zan_list_page_list);
+        this.bzI = (ProgressBar) getView().findViewById(v.zan_list_page_progress);
+        this.bzy = new com.baidu.tbadk.mvc.i.c<>(this.Xf, b.class, w.zan_list_item, null);
+        this.bzy.a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.praise_list_no_data), (q) null, (FrameLayout.LayoutParams) null);
+        this.bzE.setAdapter((ListAdapter) this.bzy);
+        this.bzB.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bzB.setTitleText("");
+        this.bzC = getLayoutInflater().inflate(w.zan_list_head, (ViewGroup) null);
+        this.bzC.setOnClickListener(this.bzz);
+        this.bzD = (TextView) this.bzC.findViewById(v.zan_list_head_text);
+        this.bzE.addHeaderView(this.bzC);
+        this.bzF = getLayoutInflater().inflate(w.zan_list_foot, (ViewGroup) null);
+        this.bzG = (TextView) this.bzF.findViewById(v.zan_list_foot_text_continue);
+        this.bzH = (TextView) this.bzF.findViewById(v.zan_list_foot_text_more);
+        this.bzJ = (ProgressBar) this.bzF.findViewById(v.zan_list_foot_progress);
+        sY().setViewClickListener(this.bzG, ua());
+        this.bzF.setVisibility(8);
+        this.bzE.addFooterView(this.bzF);
+        this.bzE.setOnItemClickListener(this.bzz);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void c(Bundle bundle) {
+        super.c(bundle);
+        this.bzD.setText(bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC));
+        tZ();
+        em(false);
+    }
+
+    public void em(boolean z) {
         if (z) {
-            this.n.setVisibility(0);
+            this.bzJ.setVisibility(0);
         } else {
-            this.m.setVisibility(0);
+            this.bzI.setVisibility(0);
         }
     }
 
-    public void b() {
-        this.m.setVisibility(8);
-        this.n.setVisibility(8);
+    public void YD() {
+        this.bzI.setVisibility(8);
+        this.bzJ.setVisibility(8);
     }
 
-    public boolean c() {
-        return this.m.getVisibility() == 0 || this.n.getVisibility() == 0;
-    }
-
-    public void a(int i, List<a> list, int i2, int i3) {
-        this.m.setVisibility(8);
-        this.n.setVisibility(8);
-        if (i > 0) {
-            this.d.a(String.format(this.b.getString(x.praise_list_title_count), Integer.valueOf(i)));
-        } else {
-            this.d.a("");
-        }
-        if (list == null || list.size() < 1) {
-            d();
-            return;
-        }
-        this.e.setVisibility(0);
-        this.f.setVisibility(8);
-        this.a.a(list);
-        this.a.notifyDataSetChanged();
-        switch (i2) {
-            case 1001:
-                this.j.setVisibility(0);
-                this.k.setVisibility(0);
-                this.l.setVisibility(8);
-                return;
-            case 1002:
-                this.j.setVisibility(8);
-                return;
-            case 1003:
-                this.j.setVisibility(0);
-                if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    this.j.setBackgroundResource(t.bg_pack_1);
-                } else {
-                    this.j.setBackgroundResource(t.bg_pack);
-                }
-                this.k.setVisibility(8);
-                this.l.setVisibility(0);
-                this.l.setText(String.format(this.b.getString(x.praise_item_more), Integer.valueOf(i3)));
-                return;
-            default:
-                this.j.setVisibility(8);
-                return;
-        }
-    }
-
-    public void d() {
-        this.m.setVisibility(8);
-        this.n.setVisibility(8);
-        this.e.setVisibility(8);
-        this.f.setVisibility(0);
-    }
-
-    public void a(com.baidu.tbadk.core.c cVar, int i) {
-        if (cVar != null) {
-            cVar.a(i == 1);
-            cVar.a(this.c);
-            cVar.a(this.g);
-            cVar.a(this.j);
-            this.d.c(i);
-            if (i == 1) {
-                this.j.setBackgroundResource(t.bg_pack_1);
+    @Override // com.baidu.tbadk.mvc.h.a
+    protected void b(com.baidu.tbadk.mvc.b.a aVar) {
+        if (aVar instanceof c) {
+            c cVar = (c) aVar;
+            int Yw = cVar.Yw();
+            List<a> Yy = cVar.Yy();
+            int Yw2 = cVar.Yw() - cVar.Yx();
+            YD();
+            if (Yw > 0) {
+                this.bzB.setTitleText(String.format(this.bzz.getString(y.praise_list_title_count), Integer.valueOf(Yw)));
             } else {
-                this.j.setBackgroundResource(t.bg_pack);
+                this.bzB.setTitleText("");
+            }
+            if (Yy == null || Yy.size() < 1) {
+                this.bzy.r(new ArrayList());
+                YE();
+                return;
+            }
+            this.bzy.r(Yy);
+            switch (cVar.getStatus()) {
+                case 1001:
+                    this.bzF.setVisibility(0);
+                    this.bzG.setVisibility(0);
+                    this.bzH.setVisibility(8);
+                    return;
+                case 1002:
+                    this.bzF.setVisibility(8);
+                    return;
+                case 1003:
+                    this.bzF.setVisibility(0);
+                    aw.h(this.bzF, u.bg_pack);
+                    this.bzG.setVisibility(8);
+                    this.bzH.setVisibility(0);
+                    this.bzH.setText(String.format(this.bzz.getString(y.praise_item_more), Integer.valueOf(Yw2)));
+                    return;
+                default:
+                    this.bzF.setVisibility(8);
+                    return;
             }
         }
     }
 
-    public View e() {
-        return this.g;
+    public void YE() {
+        this.bzI.setVisibility(8);
+        this.bzJ.setVisibility(8);
+        this.bzF.setVisibility(8);
     }
 
-    public View f() {
-        return this.k;
+    @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.e.a
+    public boolean dg(int i) {
+        super.dg(i);
+        com.baidu.tbadk.e.b.u(this.bzA);
+        com.baidu.tbadk.e.b.u(this.bzC);
+        com.baidu.tbadk.e.b.u(this.bzF);
+        this.bzB.onChangeSkinType(i);
+        this.bzy.dg(i);
+        aw.h(this.bzF, u.bg_pack);
+        return true;
+    }
+
+    public View YF() {
+        return this.bzC;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void a(ErrorData errorData) {
+        YD();
+    }
+
+    @Override // com.baidu.tbadk.mvc.h.a
+    protected void uc() {
+        YD();
+    }
+
+    @Override // com.baidu.tbadk.mvc.h.a
+    protected void ub() {
+        em(true);
     }
 }

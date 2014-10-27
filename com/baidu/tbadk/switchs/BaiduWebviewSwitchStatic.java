@@ -1,24 +1,43 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.a.a;
-import com.baidu.adp.lib.a.f;
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class BaiduWebviewSwitchStatic extends a {
-    public static final String[] a;
+    public static final String[] ZB;
 
     static {
-        f.a().a(BaiduWebviewSwitchStatic.class);
-        a = new String[]{"com.baidu.browser"};
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    protected void initData() {
-        this.mName = "baidu_webview";
-        this.mKey = a;
+        f.db().d(BaiduWebviewSwitchStatic.class);
+        ZB = new String[]{"com.baidu.browser"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "baidu_webview";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] getCrashKeys() {
+        return ZB;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getDefaultType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getOffType() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getMaxCrashTimes() {
+        return 10;
     }
 }

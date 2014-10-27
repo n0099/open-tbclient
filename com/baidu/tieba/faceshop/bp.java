@@ -1,162 +1,104 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.download.QueryDownloadMessage;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp {
-    private final BaseActivity a;
-    private final LinearLayout b;
-    private final NavigationBar c;
-    private final TextView d;
-    private final BdListView e;
-    private final bh f;
-    private final NoNetworkView g;
-    private final com.baidu.tbadk.core.view.v h;
-    private final bq i;
-    private final v j;
+public class bp extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
+    private volatile boolean atv;
+    private int auI;
+    final /* synthetic */ bo auJ;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
-    public bp(BaseActivity baseActivity) {
-        this.a = baseActivity;
-        baseActivity.setContentView(com.baidu.tieba.v.face_shop_activity);
-        this.b = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.u.face_shop);
-        this.c = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.c.a(baseActivity.getResources().getString(com.baidu.tieba.x.face_store));
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(com.baidu.tieba.x.manage));
-        this.g = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.u.view_no_network);
-        this.e = (BdListView) baseActivity.findViewById(com.baidu.tieba.u.face_shop_list);
-        this.h = new com.baidu.tbadk.core.view.v(baseActivity);
-        this.f = new bh(baseActivity);
-        this.i = new bq(this, baseActivity);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.e.setPullRefresh(this.h);
-        this.e.setNextPage(this.i);
-        this.d.setOnClickListener(baseActivity);
-        this.j = new v(baseActivity, com.baidu.tieba.y.common_alert_dialog);
+    private bp(bo boVar) {
+        this.auJ = boVar;
+        this.atv = false;
     }
 
-    public void a(FaceShopData faceShopData) {
-        b();
-        if (faceShopData != null && faceShopData.packList != null && faceShopData.packList.size() > 0) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            Iterator<FacePackageData> it = faceShopData.packList.iterator();
-            while (it.hasNext()) {
-                arrayList.add(String.valueOf(it.next().pid));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bp(bo boVar, bp bpVar) {
+        this(boVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: p */
+    public FaceShopData doInBackground(Object... objArr) {
+        int i;
+        int i2;
+        int i3;
+        float f;
+        int i4;
+        String str;
+        this.auI = ((Integer) objArr[0]).intValue();
+        try {
+            if (!this.atv) {
+                this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_PACKAGE_LIST);
+                if (this.auI == 1) {
+                    this.auJ.mPage = 0;
+                } else if (this.auI == 2) {
+                    bo boVar = this.auJ;
+                    i = boVar.mPage;
+                    boVar.mPage = i + 1;
+                }
+                com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
+                i2 = this.auJ.ats;
+                acVar.k("scr_w", String.valueOf(i2));
+                com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
+                i3 = this.auJ.att;
+                acVar2.k("scr_h", String.valueOf(i3));
+                com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
+                f = this.auJ.atu;
+                acVar3.k("scr_dip", String.valueOf(f));
+                com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
+                i4 = this.auJ.mPage;
+                acVar4.k("offset", String.valueOf(i4));
+                this.mNetWork.k("limit", String.valueOf(10));
+                com.baidu.tbadk.core.util.ac acVar5 = this.mNetWork;
+                str = this.auJ.aok;
+                acVar5.k("st_type", str);
+                return (FaceShopData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.mNetWork.lA(), FaceShopData.class);
             }
-            a(arrayList);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
+        return null;
     }
 
-    public void a(ArrayList<String> arrayList) {
-        if (arrayList != null && arrayList.size() > 0) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new QueryDownloadMessage(arrayList));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(FaceShopData faceShopData) {
+        com.baidu.adp.base.h hVar;
+        FaceShopData faceShopData2;
+        FaceShopData faceShopData3;
+        super.onPostExecute(faceShopData);
+        this.auJ.auH = null;
+        if (faceShopData != null) {
+            this.auJ.mHasMore = faceShopData.has_more == 1;
+            if (this.auI == 1) {
+                this.auJ.aup = faceShopData;
+            } else if (this.auI == 2) {
+                faceShopData3 = this.auJ.aup;
+                faceShopData3.add(faceShopData);
+            }
         }
+        hVar = this.auJ.mLoadDataCallBack;
+        faceShopData2 = this.auJ.aup;
+        hVar.a(faceShopData2);
     }
 
-    public bh a() {
-        return this.f;
-    }
-
-    public void b() {
-        this.i.f();
-        this.e.d();
-    }
-
-    public void c() {
-        this.e.e();
-    }
-
-    public void d() {
-        this.i.e();
-    }
-
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.e.setOnItemClickListener(onItemClickListener);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.h.a(dVar);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.x xVar) {
-        this.e.setOnSrollToBottomListener(xVar);
-    }
-
-    public void a(com.baidu.tbadk.core.view.r rVar) {
-        this.g.a(rVar);
-    }
-
-    public void b(com.baidu.tbadk.core.view.r rVar) {
-        this.g.b(rVar);
-    }
-
-    public void e() {
-        if (this.i != null) {
-            this.i.c();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.atv = true;
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
+            this.mNetWork = null;
         }
-    }
-
-    public void f() {
-        if (this.i != null) {
-            this.i.d();
-        }
-    }
-
-    public void g() {
-        if (this.g != null && this.g.getVisibility() == 0 && UtilHelper.isNetOk()) {
-            this.g.a(false);
-        }
-    }
-
-    public void h() {
-        if (this.j != null) {
-            this.j.a();
-            com.baidu.adp.lib.e.e.a(this.j, this.a);
-        }
-    }
-
-    public void i() {
-        if (this.j != null) {
-            this.j.b();
-        }
-    }
-
-    public void j() {
-        if (this.j != null) {
-            com.baidu.adp.lib.e.e.b(this.j, this.a);
-        }
-    }
-
-    public void a(int i) {
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.b);
-        if (this.c != null) {
-            this.c.c(i);
-        }
-        if (this.h != null) {
-            this.h.a(i);
-        }
-        if (this.i != null) {
-            this.i.a(i);
-        }
-        if (this.g != null) {
-            this.g.a(i);
-        }
-    }
-
-    public TextView k() {
-        return this.d;
+        this.auJ.auH = null;
     }
 }

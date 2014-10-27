@@ -1,29 +1,20 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ce implements Animation.AnimationListener {
-    final /* synthetic */ bs a;
-    private final /* synthetic */ ImageView b;
+public class ce implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(bs bsVar, ImageView imageView) {
-        this.a = bsVar;
-        this.b = imageView;
+    public ce(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cf(this, this.b));
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.byI.boQ = (String) compoundButton.getTag();
+        }
     }
 }

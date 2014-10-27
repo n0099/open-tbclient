@@ -6,11 +6,11 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.this$0 = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,18 +18,18 @@ public class g implements View.OnClickListener {
         ProgressBar progressBar;
         Bitmap bitmap;
         Bitmap bitmap2;
-        progressBar = this.a.n;
+        progressBar = this.this$0.mProgress;
         if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.h;
+            bitmap = this.this$0.mBitmap;
             if (bitmap == null) {
-                bitmap2 = this.a.w;
+                bitmap2 = this.this$0.JN;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.a.D = false;
-                this.a.a(view.getTag().toString());
+                this.this$0.JU = false;
+                this.this$0.ck(view.getTag().toString());
             }
         }
     }

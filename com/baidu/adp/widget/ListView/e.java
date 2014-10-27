@@ -1,18 +1,15 @@
 package com.baidu.adp.widget.ListView;
-
-import android.view.View;
 /* loaded from: classes.dex */
-public abstract class e {
-    private View a = null;
+class e implements Runnable {
+    final /* synthetic */ d uv;
 
-    public abstract View a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(d dVar) {
+        this.uv = dVar;
+    }
 
-    public abstract void onClick();
-
-    public final View b() {
-        if (this.a == null) {
-            this.a = a();
-        }
-        return this.a;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.uv.ut.start();
     }
 }

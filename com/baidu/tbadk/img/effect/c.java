@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c a = new c();
-    private final HashMap<String, Class<? extends b>> b = new HashMap<>();
+    private static c Vm = new c();
+    private final HashMap<String, Class<? extends b>> Vn = new HashMap<>();
 
-    public static c a() {
-        return a;
+    public static c sq() {
+        return Vm;
     }
 
     private c() {
-        a(d.class);
-        a(f.class);
-        a(a.class);
-        a(e.class);
+        e(d.class);
+        e(f.class);
+        e(a.class);
+        e(e.class);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
@@ -32,7 +32,7 @@ public class c {
                     ImageOperation imageOperation = list.get(i3);
                     if ("resize".equals(imageOperation.actionName)) {
                         d dVar2 = (d) a(imageOperation);
-                        if (dVar != null && dVar2.b() > dVar.b() && dVar2.c() > dVar.c()) {
+                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.sr() > dVar.sr()) {
                             dVar2 = dVar;
                         }
                         list.remove(i3);
@@ -46,25 +46,25 @@ public class c {
             } else {
                 dVar = null;
             }
-            Bitmap a2 = dVar != null ? dVar.a(bitmap, z) : null;
+            Bitmap b = dVar != null ? dVar.b(bitmap, z) : null;
             if (list != null) {
                 while (true) {
-                    bitmap2 = a2;
+                    bitmap2 = b;
                     if (i2 >= list.size()) {
                         break;
                     }
-                    b a3 = a(list.get(i2));
-                    if (a3 == null) {
-                        a2 = bitmap2;
+                    b a = a(list.get(i2));
+                    if (a == null) {
+                        b = bitmap2;
                     } else if (bitmap2 == null) {
                         return null;
                     } else {
-                        a2 = a3.a(bitmap, z);
+                        b = a.b(bitmap, z);
                     }
                     i2++;
                 }
             } else {
-                bitmap2 = a2;
+                bitmap2 = b;
             }
             return bitmap2;
         }
@@ -85,7 +85,7 @@ public class c {
                 ImageOperation imageOperation = list.get(i3);
                 if ("resize".equals(imageOperation.actionName)) {
                     d dVar2 = (d) a(imageOperation);
-                    if (dVar != null && dVar2.b() > dVar.b() && dVar2.c() > dVar.c()) {
+                    if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.sr() > dVar.sr()) {
                         dVar2 = dVar;
                     }
                     list.remove(i3);
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap c = dVar != null ? dVar.c(str) : null;
+        Bitmap dx = dVar != null ? dVar.dx(str) : null;
         if (list == null) {
-            return c;
+            return dx;
         }
         while (true) {
-            Bitmap bitmap = c;
+            Bitmap bitmap = dx;
             if (i2 < list.size()) {
-                b a2 = a(list.get(i2));
-                if (a2 == null) {
-                    c = bitmap;
+                b a = a(list.get(i2));
+                if (a == null) {
+                    dx = bitmap;
                 } else if (bitmap == null) {
-                    c = a2.c(str);
+                    dx = a.dx(str);
                 } else {
-                    c = a2.a(bitmap, true);
+                    dx = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -122,23 +122,23 @@ public class c {
     }
 
     protected b a(ImageOperation imageOperation) {
-        b b;
-        Class<? extends b> cls = this.b.get(imageOperation.actionName);
-        if (cls != null && (b = b(cls)) != null) {
-            b.b(imageOperation.actionParam);
-            return b;
+        b f;
+        Class<? extends b> cls = this.Vn.get(imageOperation.actionName);
+        if (cls != null && (f = f(cls)) != null) {
+            f.dw(imageOperation.actionParam);
+            return f;
         }
         return null;
     }
 
-    private void a(Class<? extends b> cls) {
-        b b = b(cls);
-        if (b != null) {
-            this.b.put(b.a(), cls);
+    private void e(Class<? extends b> cls) {
+        b f = f(cls);
+        if (f != null) {
+            this.Vn.put(f.sp(), cls);
         }
     }
 
-    private b b(Class<? extends b> cls) {
+    private b f(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

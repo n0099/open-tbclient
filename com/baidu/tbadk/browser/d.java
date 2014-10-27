@@ -4,19 +4,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class d implements DialogInterface.OnClickListener {
-    final /* synthetic */ c a;
-    private final /* synthetic */ Context b;
-    private final /* synthetic */ String c;
+    private final /* synthetic */ Context val$context;
+    final /* synthetic */ c xw;
+    private final /* synthetic */ String xx;
+    private final /* synthetic */ String xy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, Context context, String str) {
-        this.a = cVar;
-        this.b = context;
-        this.c = str;
+    public d(c cVar, Context context, String str, String str2) {
+        this.xw = cVar;
+        this.val$context = context;
+        this.xx = str;
+        this.xy = str2;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        a.a(this.b, this.c);
+        a.a(this.val$context, this.xx, this.xy);
     }
 }

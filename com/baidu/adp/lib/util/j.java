@@ -1,390 +1,283 @@
 package com.baidu.adp.lib.util;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdNetUtil;
-import com.baidu.tbadk.TbConfig;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Field;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    static int b;
-    static int c;
-    private static float d;
-    private static String f;
-    static boolean a = false;
-    private static Toast e = null;
-    private static Handler g = new Handler();
-    private static Runnable h = new k();
+    private static Pattern ke = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+    private static j mZ;
+    private NetworkInfo mQ = null;
+    private boolean mR = true;
+    private boolean mS = false;
+    private boolean mT = true;
+    private int mU = 0;
+    private int mV = 0;
+    private int mW = -1;
+    private String mX = null;
+    private int mY = -1;
 
-    public static void a(Context context) {
-        DisplayMetrics displayMetrics;
-        if (context.getResources() != null && (displayMetrics = context.getResources().getDisplayMetrics()) != null) {
-            d = displayMetrics.density;
-            b = displayMetrics.widthPixels;
-            c = displayMetrics.heightPixels;
-        }
-        a = true;
-    }
-
-    public static int b(Context context) {
-        if (!a) {
-            a(context);
-        }
-        return b;
-    }
-
-    public static int c(Context context) {
-        if (!a) {
-            a(context);
-        }
-        return c;
-    }
-
-    public static int a(Context context, float f2) {
-        if (!a) {
-            a(context);
-        }
-        return (int) ((d * f2) + 0.5f);
-    }
-
-    public static float d(Context context) {
-        if (!a) {
-            a(context);
-        }
-        return d;
-    }
-
-    public static void a(Context context, String str, int i) {
-        if (!TextUtils.isEmpty(str)) {
-            g.removeCallbacks(h);
-            if (e == null) {
-                e = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                e.setGravity(17, 0, a(context, 100.0f));
-            } else if (!str.equals(f)) {
-                e.setText(str);
-            }
-            f = str;
-            g.postDelayed(h, i);
-            e.show();
-        }
-    }
-
-    public static void a(Context context, String str) {
-        a(context, str, (int) TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
-    }
-
-    public static void a(Context context, int i) {
-        a(context, context.getResources().getString(i));
-    }
-
-    public static void b(Context context, String str) {
-        a(context, str, 3500);
-    }
-
-    public static void b(Context context, int i) {
-        b(context, context.getResources().getString(i));
-    }
-
-    public static ProgressDialog a(Context context, String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (str != null) {
-            return ProgressDialog.show(context, "", str, true, true, onCancelListener);
-        }
-        return ProgressDialog.show(context, "", context.getResources().getString(com.baidu.adp.f.Waiting), true, true, onCancelListener);
-    }
-
-    public static void a(ProgressDialog progressDialog) {
-        if (progressDialog != null) {
-            try {
-                if (progressDialog.isShowing()) {
-                    progressDialog.dismiss();
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-            }
-        }
-    }
-
-    public static void a(Context context, View view) {
-        if (view != null) {
-            try {
-                if (view.getWindowToken() != null) {
-                    ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 2);
-                }
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-        }
-    }
-
-    public static void b(Context context, View view) {
+    static {
         try {
-            ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+            k kVar = new k(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            BdBaseApplication.getInst().getApp().registerReceiver(kVar, intentFilter);
+            fg().eX();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
+        mZ = null;
     }
 
-    public static int a(Activity activity) {
-        Rect rect = new Rect();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int i = rect.top;
-        if (i == 0) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
-            } catch (ClassNotFoundException e2) {
-                e2.printStackTrace();
-                return i;
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-                return i;
-            } catch (IllegalArgumentException e4) {
-                e4.printStackTrace();
-                return i;
-            } catch (InstantiationException e5) {
-                e5.printStackTrace();
-                return i;
-            } catch (NoSuchFieldException e6) {
-                e6.printStackTrace();
-                return i;
-            } catch (NumberFormatException e7) {
-                e7.printStackTrace();
-                return i;
-            } catch (SecurityException e8) {
-                e8.printStackTrace();
-                return i;
+    public void eX() {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        if (activeNetworkInfo != null) {
+            this.mQ = activeNetworkInfo;
+            if (activeNetworkInfo.getType() == 1) {
+                this.mR = true;
+                this.mS = false;
+            } else if (activeNetworkInfo.getType() == 0) {
+                this.mR = false;
+                this.mS = true;
+            } else {
+                this.mR = false;
+                this.mS = false;
             }
-        }
-        return i;
-    }
-
-    public static int[] e(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-        return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
-    }
-
-    public static Field a(Object obj, String str) {
-        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                declaredField.setAccessible(true);
-                return declaredField;
-            } catch (Exception e2) {
+            this.mT = true;
+            this.mU = activeNetworkInfo.getSubtype();
+            if (this.mS) {
+                this.mV = F(this.mU);
+            } else {
+                this.mV = 0;
             }
+        } else {
+            this.mR = false;
+            this.mS = false;
+            this.mT = false;
+            this.mU = 0;
+            this.mU = 0;
         }
-        return null;
+        this.mW = ff();
+        this.mX = Proxy.getDefaultHost();
+        this.mY = Proxy.getDefaultPort();
     }
 
-    public static boolean a(byte[] bArr) {
+    private NetworkInfo getActiveNetworkInfo() {
         try {
-            if (bArr[0] == 71 && bArr[1] == 73) {
-                if (bArr[2] == 70) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    public static boolean b(byte[] bArr) {
-        if (bArr == null) {
-            return false;
-        }
-        try {
-            String str = new String(bArr, 0, 16, "UTF-8");
-            if (str == null || str.indexOf("RIFF") != 0) {
-                return false;
-            }
-            return 8 == str.indexOf("WEBPVP8 ");
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    public static float a(Paint paint, String str) {
-        if (paint == null || str == null) {
-            return 0.0f;
-        }
-        return paint.measureText(str);
-    }
-
-    public static String a(TextPaint textPaint, String str, int i) {
-        CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i, TextUtils.TruncateAt.END);
-        if (ellipsize == null) {
+            return ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.dY().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
-        return ellipsize.toString();
     }
 
-    public static TextPaint a(Context context, TextPaint textPaint, float f2) {
-        Resources resources;
-        if (context == null) {
-            resources = Resources.getSystem();
-        } else {
-            resources = context.getResources();
+    public boolean eY() {
+        if (this.mQ == null) {
+            eX();
         }
-        if (resources != null) {
-            textPaint.setTextSize(TypedValue.applyDimension(2, f2, resources.getDisplayMetrics()));
+        return this.mT;
+    }
+
+    public boolean eZ() {
+        if (this.mQ == null) {
+            eX();
         }
-        return textPaint;
+        return this.mR;
     }
 
-    public static int b(Context context, float f2) {
-        TextPaint textPaint = new TextPaint();
-        a(context, textPaint, f2);
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-    }
-
-    public static int[] a(int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
-            return null;
+    public boolean dZ() {
+        if (this.mQ == null) {
+            eX();
         }
-        int[] iArr = new int[2];
-        if (i2 > i4) {
-            i6 = (i * i4) / i2;
-            i5 = i4;
-        } else {
-            i5 = i2;
-            i6 = i;
+        return this.mS;
+    }
+
+    public int fa() {
+        if (this.mQ == null) {
+            eX();
         }
-        if (i6 > i3) {
-            i5 = (i5 * i3) / i6;
-        } else {
-            i3 = i6;
-        }
-        iArr[0] = i3;
-        iArr[1] = i5;
-        return iArr;
+        return this.mV;
     }
 
-    public static int c(Context context, int i) {
-        return context.getResources().getDimensionPixelSize(i);
-    }
-
-    public static void a() {
-        if (BdBaseApplication.getInst().isDebugMode()) {
-            boolean z = false;
-            if ((Looper.myLooper() == null || Looper.getMainLooper() != Looper.myLooper()) ? true : true) {
-                StringBuilder sb = new StringBuilder(100);
-                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-                for (int i = 1; i < stackTrace.length; i++) {
-                    sb.append(stackTrace[i].getClassName());
-                    sb.append(".");
-                    sb.append(stackTrace[i].getMethodName());
-                    sb.append("  lines = ");
-                    sb.append(stackTrace[i].getLineNumber());
-                    sb.append("\n");
-                }
-                BdLog.e("can not be call not thread! trace = \n" + sb.toString());
-            }
-        }
-    }
-
-    public static boolean b() {
-        return Looper.getMainLooper() == Looper.myLooper();
-    }
-
-    public static boolean c() {
-        return BdNetUtil.getStatusInfo() != BdNetUtil.NetworkStateInfo.UNAVAIL;
-    }
-
-    public static void a(Context context, View view, int i, int i2, int i3, int i4) {
-        int a2 = a(context, i);
-        int a3 = a(context, i2);
-        int a4 = a(context, i3);
-        int a5 = a(context, i4);
-        View view2 = (View) view.getParent();
-        view2.post(new l(view, a4, a2, a5, a3, view2));
-    }
-
-    public static String d() {
-        BufferedReader bufferedReader;
-        Throwable th;
-        String str = null;
-        try {
+    public int fb() {
+        if (this.mW == -1) {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
-                try {
-                    str = bufferedReader.readLine();
-                    m.a((Reader) bufferedReader);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    m.a((Reader) bufferedReader);
-                    return str;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                m.a((Reader) bufferedReader);
-                throw th;
+                this.mW = ff();
+            } catch (Exception e) {
+                this.mW = 0;
             }
-        } catch (Exception e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
-            m.a((Reader) bufferedReader);
-            throw th;
         }
-        return str;
+        return this.mW;
     }
 
-    public static String e() {
-        BufferedReader bufferedReader;
-        Throwable th;
-        String str = null;
-        try {
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
-                try {
-                    str = bufferedReader.readLine();
-                    m.a((Reader) bufferedReader);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    m.a((Reader) bufferedReader);
-                    return str;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                m.a((Reader) bufferedReader);
-                throw th;
-            }
-        } catch (Exception e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
-            m.a((Reader) bufferedReader);
-            throw th;
+    public static boolean ay(String str) {
+        if (ke.matcher(str).find()) {
+            return true;
         }
-        return str;
+        return false;
+    }
+
+    public String fc() {
+        if (this.mX == null) {
+            this.mX = Proxy.getDefaultHost();
+        }
+        return this.mX;
+    }
+
+    public int fd() {
+        if (-1 == this.mY) {
+            this.mY = Proxy.getDefaultPort();
+        }
+        return this.mY;
+    }
+
+    public static boolean fe() {
+        return (fg().mR || ff() == 1 || l.aB(Proxy.getDefaultHost())) ? false : true;
+    }
+
+    private static int ff() {
+        int i;
+        String networkOperator = ((TelephonyManager) com.baidu.adp.lib.network.willdelete.e.dY().getContext().getSystemService("phone")).getNetworkOperator();
+        if (networkOperator == null || networkOperator.length() < 4 || l.aB(networkOperator)) {
+            return 0;
+        }
+        String substring = networkOperator.substring(0, 3);
+        if (substring == null || !substring.equals("460")) {
+            return 0;
+        }
+        try {
+            i = Integer.parseInt(networkOperator.substring(3));
+        } catch (NumberFormatException e) {
+            i = 0;
+        }
+        switch (i) {
+            case 0:
+            case 2:
+            case 7:
+                return 1;
+            case 1:
+            case 6:
+                return 2;
+            case 3:
+            case 5:
+                return 3;
+            case 4:
+            default:
+                return 0;
+        }
+    }
+
+    public static int F(int i) {
+        switch (i) {
+            case 1:
+            case 2:
+            case 4:
+            case 7:
+            case 11:
+                return 1;
+            case 3:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:
+            case 12:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 15:
+                return 2;
+            case 13:
+                return 3;
+            default:
+                return 4;
+        }
+    }
+
+    public static synchronized j fg() {
+        j jVar;
+        synchronized (j.class) {
+            if (mZ == null) {
+                mZ = new j();
+            }
+            jVar = mZ;
+        }
+        return jVar;
+    }
+
+    public static boolean fh() {
+        return fg().eY();
+    }
+
+    public static boolean fi() {
+        return fg().eZ();
+    }
+
+    public static boolean fj() {
+        return fg().dZ();
+    }
+
+    public static boolean fk() {
+        return 3 == fg().fa();
+    }
+
+    public static boolean fl() {
+        return 2 == fg().fa();
+    }
+
+    public static boolean eb() {
+        return 1 == fg().fa();
+    }
+
+    public static int fm() {
+        if (fi()) {
+            return 1;
+        }
+        if (eb()) {
+            return 2;
+        }
+        if (fl()) {
+            return 3;
+        }
+        return (fk() || fh()) ? 4 : 0;
+    }
+
+    public static String fn() {
+        switch (fm()) {
+            case 1:
+                return "wifi";
+            case 2:
+                return "2g";
+            case 3:
+                return "3g";
+            case 4:
+                return "4g";
+            default:
+                return "unreachable";
+        }
+    }
+
+    public static String fo() {
+        String fn = fn();
+        if (fn != null) {
+            return fn.toUpperCase();
+        }
+        return fn;
+    }
+
+    public static int fp() {
+        return fg().fb();
+    }
+
+    public static String fq() {
+        return fg().fc();
+    }
+
+    public static int fr() {
+        return fg().fd();
     }
 }

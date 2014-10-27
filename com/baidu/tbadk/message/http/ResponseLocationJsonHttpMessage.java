@@ -1,6 +1,6 @@
 package com.baidu.tbadk.message.http;
 
-import com.baidu.adp.lib.e.c;
+import com.baidu.adp.lib.g.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseLocationJsonHttpMessage extends JsonHttpResponsedMessage {
@@ -15,7 +15,7 @@ public class ResponseLocationJsonHttpMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.has("location")) {
-            switch (c.a(jSONObject.getString("location"), 1)) {
+            switch (c.f(jSONObject.getString("location"), 1)) {
                 case 1:
                     this.isLocationShared = true;
                     return;

@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.base.f {
-    ImageProblemActivity a;
-    private NavigationBar b;
-    private ScrollView c;
-    private View d;
-    private Button e;
-    private LinearLayout f;
+    private View agA;
+    ImageProblemActivity bqQ;
+    private ScrollView bqR;
+    private Button bqS;
+    private LinearLayout mLayout;
+    private NavigationBar mNavigationBar;
 
     public w(ImageProblemActivity imageProblemActivity, t tVar) {
         super(imageProblemActivity);
-        this.a = imageProblemActivity;
-        this.a.setContentView(com.baidu.tieba.v.image_problem_activity);
-        this.d = this.a.findViewById(com.baidu.tieba.u.parent);
-        this.b = (NavigationBar) this.a.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(this.a.getString(com.baidu.tieba.x.image_problem));
-        this.c = (ScrollView) this.a.findViewById(com.baidu.tieba.u.scrollView);
-        this.e = (Button) this.a.findViewById(com.baidu.tieba.u.check_btn);
-        this.e.setOnClickListener(imageProblemActivity);
-        this.f = new LinearLayout(this.a);
-        this.f.setOrientation(1);
-        this.c.addView(this.f);
-        Iterator<u> it = tVar.a.iterator();
+        this.bqQ = imageProblemActivity;
+        this.bqQ.setContentView(com.baidu.tieba.w.image_problem_activity);
+        this.agA = this.bqQ.findViewById(com.baidu.tieba.v.parent);
+        this.mNavigationBar = (NavigationBar) this.bqQ.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.bqQ.getString(com.baidu.tieba.y.image_problem));
+        this.bqR = (ScrollView) this.bqQ.findViewById(com.baidu.tieba.v.scrollView);
+        this.bqS = (Button) this.bqQ.findViewById(com.baidu.tieba.v.check_btn);
+        this.bqS.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.bqQ);
+        this.mLayout.setOrientation(1);
+        this.bqR.addView(this.mLayout);
+        Iterator<u> it = tVar.bqJ.iterator();
         while (it.hasNext()) {
-            v vVar = new v(this.a);
-            vVar.a();
-            vVar.setText(it.next().a);
-            this.f.addView(vVar);
+            v vVar = new v(this.bqQ);
+            vVar.ql();
+            vVar.setText(it.next().title);
+            this.mLayout.addView(vVar);
         }
     }
 
-    public Button a() {
-        return this.e;
+    public Button UK() {
+        return this.bqS;
     }
 
-    public void b() {
+    public void start() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.f.getChildCount()) {
-                View childAt = this.f.getChildAt(i2);
+            if (i2 < this.mLayout.getChildCount()) {
+                View childAt = this.mLayout.getChildAt(i2);
                 if (childAt instanceof v) {
                     v vVar = (v) childAt;
                     vVar.setStatus(3);
-                    vVar.a();
+                    vVar.ql();
                     vVar.setHelpText("");
                 }
                 i = i2 + 1;
@@ -62,12 +62,12 @@ public class w extends com.baidu.adp.base.f {
         }
     }
 
-    public void c() {
+    public void complete() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.f.getChildCount()) {
-                View childAt = this.f.getChildAt(i2);
+            if (i2 < this.mLayout.getChildCount()) {
+                View childAt = this.mLayout.getChildAt(i2);
                 if (childAt instanceof v) {
                     ((v) childAt).setStatus(1);
                 }
@@ -78,34 +78,34 @@ public class w extends com.baidu.adp.base.f {
         }
     }
 
-    public void a(int i, ArrayList<u> arrayList) {
+    public void b(int i, ArrayList<u> arrayList) {
         int i2 = i - 1;
         if (i2 >= 0) {
-            View childAt = this.f.getChildAt(i2);
+            View childAt = this.mLayout.getChildAt(i2);
             if (childAt instanceof v) {
                 v vVar = (v) childAt;
                 vVar.setStatus(1);
-                vVar.b();
-                if (arrayList.get(i2).b == 0) {
+                vVar.UJ();
+                if (arrayList.get(i2).bqL == 0) {
                     vVar.setHelpText("");
-                    vVar.setArrowImg(com.baidu.tieba.t.icon_diagnose_ok);
+                    vVar.setArrowImg(com.baidu.tieba.u.icon_diagnose_ok);
                 } else {
-                    vVar.setHelpText(arrayList.get(i2).c);
-                    vVar.setArrowImg(com.baidu.tieba.t.icon_error);
+                    vVar.setHelpText(arrayList.get(i2).bqM);
+                    vVar.setArrowImg(com.baidu.tieba.u.icon_error);
                 }
             }
         }
-        if (i < this.f.getChildCount()) {
-            View childAt2 = this.f.getChildAt(i);
+        if (i < this.mLayout.getChildCount()) {
+            View childAt2 = this.mLayout.getChildAt(i);
             if (childAt2 instanceof v) {
                 ((v) childAt2).setStatus(2);
             }
         }
     }
 
-    public void a(int i) {
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.d);
-        this.b.c(i);
+    public void onChangeSkinType(int i) {
+        this.bqQ.getLayoutMode().L(i == 1);
+        this.bqQ.getLayoutMode().h(this.agA);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 }

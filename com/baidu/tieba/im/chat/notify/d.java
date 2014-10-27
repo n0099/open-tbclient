@@ -1,29 +1,17 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.ImMessageCenterActivityConfig;
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TextView textView;
-        TextView textView2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
-            int msgChat = ((NewsNotifyMessage) customResponsedMessage).getMsgChat();
-            textView = ImMessageCenterDelegateStatic.c;
-            if (textView != null) {
-                textView2 = ImMessageCenterDelegateStatic.c;
-                ImMessageCenterDelegateStatic.b(textView2, msgChat);
-            }
+class d implements CustomMessageTask.CustomRunnable<ImMessageCenterActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ImMessageCenterActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImMessageCenterActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

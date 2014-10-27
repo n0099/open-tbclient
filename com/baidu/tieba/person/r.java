@@ -1,192 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ColumnLayout;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.more.SettingTextFunctionIntroView;
-import java.util.LinkedList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r {
-    protected UserIconBox a;
-    private final BaseFragmentActivity b;
-    private UserData c;
-    private final NavigationBar d;
-    private final View e;
-    private final View f;
-    private final ColumnLayout g;
-    private final LinearLayout h;
-    private final TextView i;
-    private final HeadImageView j;
-    private final TextView k;
-    private final TextView l;
-    private final ProgressBar m;
-    private final MoreDiscoveryWidget n;
-    private final MoreDiscoveryWidget o;
-    private final MoreDiscoveryWidget p;
-    private final MoreDiscoveryWidget q;
-    private LinkedList<IconData> r;
+public class r extends HttpMessageListener {
+    final /* synthetic */ o bBB;
 
-    public r(BaseFragmentActivity baseFragmentActivity, n nVar) {
-        this.a = null;
-        this.b = baseFragmentActivity;
-        this.e = nVar.getView();
-        this.f = this.e.findViewById(com.baidu.tieba.u.parent);
-        this.d = (NavigationBar) this.f.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.d.a(this.b.getString(com.baidu.tieba.x.more));
-        this.a = (UserIconBox) this.e.findViewById(com.baidu.tieba.u.user_tshow_icon_box);
-        this.g = (ColumnLayout) this.f.findViewById(com.baidu.tieba.u.user_info);
-        this.g.setOnClickListener(nVar);
-        this.h = (LinearLayout) this.f.findViewById(com.baidu.tieba.u.user_layout);
-        this.i = (TextView) this.f.findViewById(com.baidu.tieba.u.user_login);
-        this.j = (HeadImageView) this.f.findViewById(com.baidu.tieba.u.user_photo);
-        this.j.setAutoChangeStyle(true);
-        this.j.setIsRound(true);
-        this.k = (TextView) this.f.findViewById(com.baidu.tieba.u.user_name);
-        this.l = (TextView) this.f.findViewById(com.baidu.tieba.u.user_signature);
-        this.m = (ProgressBar) this.f.findViewById(com.baidu.tieba.u.progress);
-        this.n = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.my_collection);
-        this.n.setOnClickListener(nVar);
-        this.o = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.member_benefits);
-        this.o.setOnClickListener(nVar);
-        this.p = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.face_store);
-        this.p.setOnClickListener(nVar);
-        this.q = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.u.settings);
-        this.q.setOnClickListener(nVar);
-        a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(o oVar, int i) {
+        super(i);
+        this.bBB = oVar;
     }
 
-    public void a() {
-        this.j.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.j.setDefaultResource(com.baidu.tieba.t.icon_default_avatar100);
-        this.j.setNightDefaultResource(com.baidu.tieba.t.icon_default_avatar100_1);
-    }
-
-    public void a(p pVar) {
-        if (pVar != null) {
-            this.m.setVisibility(0);
-        }
-    }
-
-    public void a(p pVar, boolean z) {
-        this.m.setVisibility(8);
-        if (z) {
-            if (pVar.b() != null && pVar.b().length() > 0) {
-                f();
-            } else {
-                e();
-            }
-            b(pVar);
-            d(pVar);
-        }
-        if (pVar.getErrorString() != null && !pVar.e()) {
-            this.b.a(pVar.getErrorString());
-        }
-    }
-
-    public void b(p pVar) {
-        if (pVar != null) {
-            this.c = pVar.a();
-            if (this.c != null) {
-                this.k.setText(this.c.getName_show());
-                this.r = this.c.getTShowInfo();
-                if (this.a != null) {
-                    this.a.removeAllViews();
-                    this.a.a(this.r, 4, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_width), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_height), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.s.big_icon_margin), true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: b */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonBarActivity ZM;
+        PersonBarActivity ZM2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
+            ZM = this.bBB.ZM();
+            if (ZM != null) {
+                this.bBB.vl.hN();
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                ZM2 = this.bBB.ZM();
+                if (tag == ZM2.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
+                        PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
+                        if (personBarResponseMessage.getErrCode() == 0) {
+                            this.bBB.a(personBarResponseMessage.getPersonBarData(), false);
+                            return;
+                        }
+                        this.bBB.showToast(httpResponsedMessage.getErrorString());
+                        return;
+                    }
+                    this.bBB.showToast(httpResponsedMessage.getErrorString());
                 }
-                String intro = this.c.getIntro();
-                if (intro != null && intro.length() > 0) {
-                    this.l.setVisibility(0);
-                    this.l.setText(this.c.getIntro());
-                    return;
-                }
-                this.l.setVisibility(8);
             }
-        }
-    }
-
-    public void c(p pVar) {
-        if (pVar != null) {
-            if (pVar.c() > 0 && !pVar.d()) {
-                this.n.c();
-            } else {
-                this.n.d();
-            }
-        }
-    }
-
-    public void b() {
-        c();
-        d();
-    }
-
-    public void c() {
-        VersionData A = com.baidu.tieba.ai.c().A();
-        boolean z = A != null && A.hasNewVer();
-        boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(SettingTextFunctionIntroView.f, false);
-        if (z || !a) {
-            this.q.c();
-        } else {
-            this.q.d();
-        }
-    }
-
-    public void d() {
-        if (!com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_member_benifit", false)) {
-            this.o.a();
-        } else {
-            this.o.b();
-        }
-    }
-
-    public void e() {
-        this.i.setVisibility(0);
-        this.h.setVisibility(8);
-    }
-
-    public void f() {
-        this.i.setVisibility(8);
-        this.h.setVisibility(0);
-    }
-
-    public void d(p pVar) {
-        String portrait;
-        if (pVar != null && pVar.a() != null && (portrait = pVar.a().getPortrait()) != null && portrait.length() > 0) {
-            this.j.a(portrait, 12, false);
-        }
-    }
-
-    public void a(int i) {
-        this.b.c().a(i == 1);
-        this.b.c().a(this.f);
-        this.j.b();
-        this.d.c(i);
-        this.n.a(i);
-        this.o.a(i);
-        this.p.a(i);
-        this.q.a(i);
-    }
-
-    public void g() {
-        if (this.m != null) {
-            this.m.setVisibility(8);
-        }
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.p.a();
-        } else {
-            this.p.b();
         }
     }
 }

@@ -1,71 +1,107 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    private static f a;
-    private g b;
-    private com.baidu.adp.lib.cache.t<byte[]> c;
+public class f extends BdAsyncTask<Object, b, Void> {
+    FRSPageRequestMessage aAe;
+    private int aAf;
+    private final WeakReference<FrsActivity> aAg;
+    final /* synthetic */ b azX;
+    private String mName;
 
-    private f() {
-        this.b = null;
-        this.c = null;
-        this.b = new g();
-        this.c = BdCacheService.c().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+    public f(b bVar, FrsActivity frsActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, String str) {
+        this.azX = bVar;
+        this.mName = null;
+        this.aAf = 3;
+        this.aAg = new WeakReference<>(frsActivity);
+        this.aAe = fRSPageRequestMessage;
+        this.mName = str;
+        this.aAf = i;
+        setSelfExecute(true);
     }
 
-    public static synchronized f a() {
-        f fVar;
-        synchronized (f.class) {
-            if (a == null) {
-                a = new f();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        dd ddVar;
+        dd ddVar2;
+        ddVar = this.azX.azK;
+        if (ddVar != null) {
+            ddVar2 = this.azX.azK;
+            ddVar2.eH(this.aAf);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Void doInBackground(Object... objArr) {
+        boolean z;
+        try {
+            z = this.azX.azP;
+            if (z && a.EV().fd(this.mName)) {
+                if (!a.EV().isSameDay(String.valueOf(TbadkApplication.getCurrentAccount()) + this.mName)) {
+                    a.EV().getForumModel().zJ().getSignData().setIsSigned(0);
+                }
+                publishProgress(a.EV().getForumModel());
             }
-            fVar = a;
-        }
-        return fVar;
-    }
-
-    public boolean a(String str) {
-        if (this.c != null && str != null) {
-            byte[] a2 = this.c.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
-            if (a2 != null && a2.length > 0) {
-                return this.b.a(a2) != null;
-            }
-        }
-        return false;
-    }
-
-    public void a(String str, byte[] bArr, boolean z) {
-        if (str != null && str.length() > 0) {
-            if (z) {
-                this.c.a(String.valueOf(TbadkApplication.getCurrentAccount()) + str, bArr, 604800000L);
-                return;
-            }
-            this.c.b(String.valueOf(TbadkApplication.getCurrentAccount()) + str, bArr, 604800000L);
+            this.azX.azR = System.currentTimeMillis();
+            return null;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
         }
     }
 
-    public void a(String str, boolean z) {
-        if (str != null && str.length() > 0) {
-            if (z) {
-                this.c.c(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
-                return;
-            }
-            this.c.d(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(b... bVarArr) {
+        dd ddVar;
+        dd ddVar2;
+        ddVar = this.azX.azK;
+        if (ddVar != null) {
+            ddVar2 = this.azX.azK;
+            ddVar2.g(bVarArr.length > 0 ? bVarArr[0] : null);
         }
     }
 
-    public g b() {
-        return this.b;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Void r3) {
+        boolean z;
+        this.aAe.setUpdateType(this.aAf);
+        FRSPageRequestMessage fRSPageRequestMessage = this.aAe;
+        z = this.azX.azP;
+        fRSPageRequestMessage.setNeedCache(z);
+        if (this.aAg != null && this.aAg.get() != null) {
+            this.aAg.get().sendMessage(this.aAe);
+        }
+        this.azX.azN = null;
     }
 
-    public boolean b(String str) {
-        com.baidu.adp.lib.cache.v<byte[]> b;
-        if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
-            return false;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        dd ddVar;
+        dd ddVar2;
+        super.cancel(true);
+        ddVar = this.azX.azK;
+        if (ddVar != null) {
+            ddVar2 = this.azX.azK;
+            ddVar2.a(this.aAf, true, null);
         }
-        return UtilHelper.isSameDay(b.c, System.currentTimeMillis());
     }
 }

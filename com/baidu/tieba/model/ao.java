@@ -1,38 +1,43 @@
 package com.baidu.tieba.model;
 
+import android.content.Context;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public class ao extends com.baidu.adp.base.e {
-    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
-    private boolean b;
-    private InterestFrsData c;
-    private ap d;
+    private static final String bpp = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private boolean bpq;
+    private InterestFrsData bpr;
+    private ap bps;
 
-    public boolean a() {
-        return this.b;
+    public ao(Context context) {
+        super(context);
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public boolean TO() {
+        return this.bpq;
     }
 
-    public InterestFrsData b() {
-        return this.c;
+    public void dH(boolean z) {
+        this.bpq = z;
     }
 
-    public void a(InterestFrsData interestFrsData) {
-        this.c = interestFrsData;
+    public InterestFrsData TP() {
+        return this.bpr;
+    }
+
+    public void e(InterestFrsData interestFrsData) {
+        this.bpr = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, aq aqVar) {
-        this.d = new ap(i, i2, i3, aqVar);
-        this.d.execute(new Void[0]);
+        this.bps = new ap(i, i2, i3, aqVar);
+        this.bps.execute(new Void[0]);
     }
 
-    public void c() {
-        if (this.d != null) {
-            this.d.cancel();
+    public void TQ() {
+        if (this.bps != null) {
+            this.bps.cancel();
         }
     }
 

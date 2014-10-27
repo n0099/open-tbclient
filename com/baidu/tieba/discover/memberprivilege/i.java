@@ -1,19 +1,23 @@
 package com.baidu.tieba.discover.memberprivilege;
 
-import org.json.JSONObject;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class i {
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+class i extends CustomMessageListener {
+    final /* synthetic */ MemberPrivilegeActivity apy;
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("img_url");
-            this.b = jSONObject.optString("title");
-            this.c = jSONObject.optString("desc");
-            this.d = jSONObject.optString("link");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
+        super(i);
+        this.apy = memberPrivilegeActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.apy.AX();
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk;
 
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.m;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -17,20 +17,22 @@ public class TbConfig {
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final String APP_UPLOAD = "c/s/ualist";
+    private static int BIG_IMAGE_MAX_USED_MEMORY = 0;
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
+    private static int BIG_IMAGE_SIZE = 0;
     public static final int BIG_PHOTO_MAX_SIZE = 110;
     private static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
-    private static final String BROADCAST_CHANGE_SHARED_PREF_SDK = "com.baidu.tiebasdk.broadcast.changeSharedPref";
     private static final String BROADCAST_IMAGE_RESIZED = "com.baidu.tieba.broadcast.image.resized";
-    private static final String BROADCAST_IMAGE_RESIZED_SDK = "com.baidu.tiebasdk.broadcast.image.resized";
     private static final String BROADCAST_NEWVERSION = "com.baidu.tieba.broadcast.newversion";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
-    private static final String BROADCAST_PAGE_CHANGED_SDK = "com.baidu.tiebasdk.broadcast.imagepb.pagechanged";
+    public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
+    public static final Bitmap.Config BitmapConfig;
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
     public static final String CLEAR_LOCATION_INFO = "c/u/recent/hide_position";
     public static final boolean COULD_UPDATE = true;
+    private static String CURRENT_FROM = null;
     public static final int DATABASE_SD_VERSION = 9;
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DIALOG_FROM = "dianzishichang";
@@ -46,11 +48,24 @@ public class TbConfig {
     public static final int FONT_SIZE_BIG = 1;
     public static final int FONT_SIZE_MID = 2;
     public static final int FONT_SIZE_SMALL = 3;
+    private static String FRIEND_PHOTO_ADDRESS = null;
+    private static int FRIEND_PHOTO_MAX_SIZE = 0;
+    private static String FROM = null;
     public static final String FROM_FILE = "from.dat";
+    public static final String GAME_SEARCH_RESULT = "c/u/game/searchGame";
+    public static final String GET_GAME_CATEGORY = "c/u/game/getgamecategory";
+    public static final String GET_GAME_GATEGORY_DETAIL = "c/u/game/getgamecategorydetail";
+    public static final String GET_HOT_GAME = "c/u/game/getHotGameList";
     public static final String GET_IP_LIST = "c/s/getipinfo";
+    public static final String GET_PACKAGE_DETAIL = "c/e/faces/getfacelist";
+    public static final String GET_PACKAGE_DOWNLOAD_URL = "c/e/faces/dpack";
+    public static final String GET_PACKAGE_LIST = "c/e/faces/getpacklist";
+    public static final String GET_PACKAGE_PURCHASE_RECORDS = "c/e/faces/getpackhis";
     public static final String GET_USER_LOCATION = "c/u/user/getuserlocation";
+    public static final String GIFT_COMMONLIST = "c/e/gift/commonlist";
     public static final String GROUP_HEAD_FILE = "tieba_group_image";
     public static final int HEAD_IMG_SIZE = 960;
+    public static final String IMAGE_ADDRESS;
     public static final String IMAGE_CACHE_DIR_NAME = "images";
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
@@ -62,9 +77,10 @@ public class TbConfig {
     public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
     public static final String LOCAL_CAMERA_DIR = "cameras";
     public static final String LOCAL_PIC_DIR = "photos";
-    public static final String LOGIN_FULL_ADDRESS = "http://c.tieba.baidu.com/c/s/login";
+    public static String LOGIN_FULL_ADDRESS = null;
     public static final String LOG_ERROR_FILE = "log_error.log";
     public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync2.js";
+    public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
     public static final int MAX_ACTIVITY_STACK_SIZE = 20;
     public static final int MAX_ASYNC_IMAGE_LOADER_NUM = 5;
@@ -89,6 +105,7 @@ public class TbConfig {
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
     public static final int NOTIFY_CHAT_ID = 16;
+    public static final int NOTIFY_GIFT_ID = 23;
     public static final int NOTIFY_GROUP_EVENT = 18;
     public static final int NOTIFY_GROUP_ID = 17;
     public static final int NOTIFY_LIVE_GROUP_END_EVENT = 22;
@@ -106,13 +123,18 @@ public class TbConfig {
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 427;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
+    public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
     public static final float PB_IMAGE_NEW_SCALE = 1.6f;
     public static final int PB_PHOTO_MAX_SIZE = 80;
     public static final int PB_PHOTO_QUALITY = 80;
     public static final String PERSON_HEAD_FILE = "tieba_head_image";
     public static final String PHONE_DATEBASE_NAME = "baidu_tieba.db";
+    public static String PHOTO_BIG_ADDRESS = null;
     public static final int PHOTO_DELAY_TIME = 90;
+    private static String PHOTO_SMALL_ADDRESS = null;
     public static final String PLUGIN_NET_CONFIGS = "c/s/pluginsconfig";
+    private static String POSITION_PAGER_ID = null;
+    private static String POSITION_PAGER_NAME = null;
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
     public static final int POST_IMAGE_MIDDLE = 750;
@@ -120,11 +142,13 @@ public class TbConfig {
     public static final int POST_IMAGE_SMALL = 600;
     public static final String PROFILE_HEAD_MODIFY = "c/c/img/portrait";
     public static final boolean PROMOTED_DEFAULT = true;
+    public static final String QUERY_BUY_RESULT_URL = "c/e/faces/querybuyresult";
     public static final int READ_GIF_CACHE_TIMEOUT_WIFI = 500;
     public static final int READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI = 2000;
     public static final int READ_IMAGE_CACHE_TIMEOUT_WIFI = 300;
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
+    public static final String SEND_GIFT = "c/c/gift/send";
     public static final String SETTINGFILE = "settings";
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
@@ -139,10 +163,11 @@ public class TbConfig {
     public static final String ST_TYPE_PCHAT = "pchat";
     public static final String ST_TYPE_REG = "reg";
     public static final String ST_TYPE_USE = "use";
+    private static String SUB_VERSION = null;
     public static final String SW_APID = "sw";
     public static final int THREAD_GIF_MIN_USE_MEMORY = 6291456;
+    private static int THREAD_IMAGE_MAX_WIDTH = 0;
     private static final String TMPDIRNAME = "tieba";
-    private static final String TMPDIRNAME_SDK = "tieba_sdk";
     public static final String TMP_DATABASE_NAME = "tieba_database.db";
     public static final String TMP_LOGBAK_DIR_NAME = "logbak";
     public static final String TMP_LOG_DIR_NAME = "log";
@@ -154,17 +179,21 @@ public class TbConfig {
     public static final int TYPE_RELEASE_BUILD = 3;
     public static final String UNFOLLOW_ADDRESS = "c/c/user/unfollow";
     public static final long UPDATE_NOTIFY_INTERVAL = 86400000;
+    public static final String UPDATE_PLAYER_NUM = "c/c/game/updatetimes";
     public static final String UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/chunkupload";
     public static final int UPLOAD_IMAGE_QUALITY_AUTO = 0;
     public static final int UPLOAD_IMAGE_QUALITY_HIGH = 1;
     public static final int UPLOAD_IMAGE_QUALITY_LOW = 3;
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
+    public static String UPLOAD_IMG_URL = null;
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final int USER_PHOTO_AUTO = 0;
     public static final int USER_PHOTO_CLOSE = 2;
     public static final int USER_PHOTO_OPEN = 1;
     public static final long USE_TIME_INTERVAL = 60000;
+    private static String VERSION = null;
+    private static int VERSION_TYPE = 0;
     public static final int VIEW_IMAGE_QUALITY_AUTO = 0;
     public static final int VIEW_IMAGE_QUALITY_HIGH = 1;
     public static final int VIEW_IMAGE_QUALITY_HIGH_VALUE = 80;
@@ -177,44 +206,48 @@ public class TbConfig {
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
+    private static boolean sThreadImageMaxInited;
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static Domain PASS_LOGIN_ADDRESS = Domain.DOMAIN_ONLINE;
     public static boolean USE_OLD_LOGIN = false;
-    private static boolean DebugSwitch = false;
-    private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
-    private static String POSITION_PAGER_ID = "2631903";
-    private static String VERSION = "";
-    private static String SUB_VERSION = "";
-    private static String FROM = null;
-    public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
-    private static int THREAD_IMAGE_MAX_WIDTH = PB_IMAGE_NEW_MAX_WIDTH;
-    private static boolean sThreadImageMaxInited = false;
-    private static int FRIEND_PHOTO_MAX_SIZE = 80;
-    private static int VERSION_TYPE = 3;
-    public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
-    private static String CURRENT_FROM = null;
-    private static int BIG_IMAGE_SIZE = 10240;
-    private static int BIG_IMAGE_MAX_USED_MEMORY = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
-    private static String PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
-    private static String FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
-    public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
-    public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
+
+    /* loaded from: classes.dex */
+    public final class PassConfig {
+        public static final String APP_ID = "1";
+        public static final String CRIPT_TYPE = "1";
+        public static final String ENC_KEY = "6e93e7659ae637845c7f83abee68a740";
+        public static final String GET_CERT_URL = "http://passport.baidu.com/sslcrypt/get_last_cert";
+        public static final String LOGIN_BDUSS_URL = "http://passport.baidu.com/v2/sapi/bdusslogin";
+        public static final String TPL = "tb";
+    }
+
+    static {
+        LOGIN_FULL_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/s/login";
+        if (PASS_LOGIN_ADDRESS == Domain.DOMAIN_ONLINE) {
+            LOGIN_FULL_ADDRESS = "http://c.tieba.baidu.com/c/s/login";
+        }
+        POSITION_PAGER_NAME = "贴吧客户端反馈";
+        POSITION_PAGER_ID = "2631903";
+        VERSION = "";
+        SUB_VERSION = "";
+        FROM = null;
+        THREAD_IMAGE_MAX_WIDTH = PB_IMAGE_NEW_MAX_WIDTH;
+        sThreadImageMaxInited = false;
+        FRIEND_PHOTO_MAX_SIZE = 80;
+        VERSION_TYPE = 3;
+        BitmapConfig = Bitmap.Config.RGB_565;
+        CURRENT_FROM = null;
+        BIG_IMAGE_SIZE = 10240;
+        BIG_IMAGE_MAX_USED_MEMORY = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
+        PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
+        FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
+        PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
+        IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
+        UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
+    }
 
     public static boolean getDebugSwitch() {
         return BdBaseApplication.getInst().isDebugMode();
-    }
-
-    public static void degbugInit(Application application) {
-        if ((application.getApplicationInfo().flags & 2) == 0) {
-            DebugSwitch = false;
-        } else {
-            DebugSwitch = true;
-        }
-    }
-
-    public static void setDebugSwitch(boolean z) {
-        DebugSwitch = z;
     }
 
     public static void setAppServer(String str) {
@@ -259,9 +292,9 @@ public class TbConfig {
 
     public static int initPbImageSize(Context context) {
         int i = PB_IMAGE_NEW_MAX_WIDTH;
-        int a = com.baidu.adp.lib.util.j.a(context, 427.0f);
-        if (a <= 640) {
-            i = a;
+        int dip2px = m.dip2px(context, 427.0f);
+        if (dip2px <= 640) {
+            i = dip2px;
         }
         BIG_IMAGE_SIZE = (int) (i * i * 1.6f * 2.0f);
         return BIG_IMAGE_SIZE;
@@ -287,7 +320,7 @@ public class TbConfig {
     }
 
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        return (int) (UtilHelper.getBitmapMaxMemory(TbadkApplication.m252getInst().getContext()) * 0.28d);
+        return (int) (UtilHelper.getBitmapMaxMemory(TbadkApplication.m251getInst().getContext()) * 0.28d);
     }
 
     public static String getFrom() {
@@ -347,7 +380,7 @@ public class TbConfig {
     }
 
     public static int getNameSize() {
-        switch (TbadkApplication.m252getInst().getFontSize()) {
+        switch (TbadkApplication.m251getInst().getFontSize()) {
             case 1:
                 return 13;
             case 2:
@@ -358,7 +391,7 @@ public class TbConfig {
     }
 
     public static int getContentSize() {
-        switch (TbadkApplication.m252getInst().getFontSize()) {
+        switch (TbadkApplication.m251getInst().getFontSize()) {
             case 1:
                 return 18;
             case 2:
@@ -391,7 +424,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(com.baidu.adp.lib.util.j.b(context) * com.baidu.adp.lib.util.j.c(context));
+            int sqrt = (int) Math.sqrt(m.n(context) * m.o(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

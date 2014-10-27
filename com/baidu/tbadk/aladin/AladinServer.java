@@ -4,12 +4,13 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.lib.g.i;
 /* loaded from: classes.dex */
 public class AladinServer extends Service {
     private a mTcpListener = null;
 
     public static void start(Context context) {
-        context.startService(new Intent(context, AladinServer.class));
+        i.b(context, new Intent(context, AladinServer.class));
     }
 
     @Override // android.app.Service
@@ -19,9 +20,9 @@ public class AladinServer extends Service {
     }
 
     public void reStartListener() {
-        if (this.mTcpListener == null || !this.mTcpListener.b()) {
+        if (this.mTcpListener == null || !this.mTcpListener.iI()) {
             if (this.mTcpListener != null) {
-                this.mTcpListener.a();
+                this.mTcpListener.quit();
             }
             this.mTcpListener = new a(this);
             this.mTcpListener.start();
@@ -31,7 +32,7 @@ public class AladinServer extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         if (this.mTcpListener != null) {
-            this.mTcpListener.a();
+            this.mTcpListener.quit();
         }
     }
 

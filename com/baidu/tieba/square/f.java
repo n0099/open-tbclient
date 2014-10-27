@@ -5,28 +5,28 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.data.a {
-    private ArrayList<w> a = new ArrayList<>();
+    private ArrayList<q> bMc = new ArrayList<>();
 
-    public ArrayList<w> d() {
-        return this.a;
+    public ArrayList<q> adl() {
+        return this.bMc;
     }
 
-    public void a(ArrayList<w> arrayList) {
-        this.a = arrayList;
-        a((String) null);
+    public void I(ArrayList<q> arrayList) {
+        this.bMc = arrayList;
+        setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
-        ArrayList<w> arrayList = new ArrayList<>();
+    protected void e(JSONObject jSONObject) {
+        ArrayList<q> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                w wVar = new w();
-                wVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(wVar);
+                q qVar = new q();
+                qVar.parserJson(optJSONArray.getJSONObject(i));
+                arrayList.add(qVar);
             }
         }
-        a(arrayList);
+        I(arrayList);
     }
 }

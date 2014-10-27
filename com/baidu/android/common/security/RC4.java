@@ -1,6 +1,7 @@
 package com.baidu.android.common.security;
 
 import android.support.v4.view.MotionEventCompat;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class RC4 {
     private static final int STATE_LENGTH = 256;
@@ -47,7 +48,7 @@ public class RC4 {
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < 256; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.engineState[i4]) & MotionEventCompat.ACTION_MASK;
+            i2 = (i2 + (bArr[i3] & BaseActivity.KEYBOARD_STATE_INIT) + this.engineState[i4]) & MotionEventCompat.ACTION_MASK;
             byte b = this.engineState[i4];
             this.engineState[i4] = this.engineState[i2];
             this.engineState[i2] = b;

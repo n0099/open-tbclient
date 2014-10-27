@@ -2,27 +2,27 @@ package com.baidu.tbadk.coreExtra.act;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements TextWatcher {
-    final /* synthetic */ Login2Activity a;
+    final /* synthetic */ Login2Activity KT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(Login2Activity login2Activity) {
-        this.a = login2Activity;
+        this.KT = login2Activity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         boolean z;
-        z = this.a.m;
+        z = this.KT.Kq;
         if (z) {
-            this.a.k();
+            this.KT.ok();
         }
-        this.a.n = true;
-        this.a.n();
-        this.a.o();
+        this.KT.Kr = true;
+        this.KT.on();
+        this.KT.oo();
     }
 
     @Override // android.text.TextWatcher
@@ -33,15 +33,15 @@ public class ac implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         String str;
         String str2;
-        this.a.d();
-        str = this.a.f;
-        if (!ba.c(str)) {
+        this.KT.oe();
+        str = this.KT.mAccount;
+        if (!ay.aA(str)) {
             String editable2 = editable.toString();
-            str2 = this.a.f;
+            str2 = this.KT.mAccount;
             if (!editable2.equals(str2)) {
                 return;
             }
-            this.a.j();
+            this.KT.oj();
         }
     }
 }

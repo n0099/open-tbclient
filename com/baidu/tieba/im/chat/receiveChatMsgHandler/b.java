@@ -1,11 +1,8 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public interface b {
-    void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
-
-    void a(String str, List<CommonMsgPojo> list);
+    boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
 }

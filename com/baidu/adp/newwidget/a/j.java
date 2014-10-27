@@ -6,51 +6,51 @@ import android.graphics.Path;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends c {
-    protected Path i = new Path();
-    protected Paint j = null;
-    protected boolean k = false;
-    private k l;
+    private k rF;
+    protected Path rD = new Path();
+    protected Paint rE = null;
+    protected boolean rG = false;
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a;
         super.a(dVar, imageView, scaleType);
-        if (this.l != null && (a = this.l.a(b())) != null) {
-            this.i.set(a);
-            if (this.j == null) {
-                this.j = new Paint();
-                this.j.setStyle(Paint.Style.STROKE);
-                this.j.setAntiAlias(true);
-                this.j.setColor(637534208);
-                this.j.setDither(true);
-                this.j.setStrokeWidth(2.0f);
+        if (this.rF != null && (a = this.rF.a(gy())) != null) {
+            this.rD.set(a);
+            if (this.rE == null) {
+                this.rE = new Paint();
+                this.rE.setStyle(Paint.Style.STROKE);
+                this.rE.setAntiAlias(true);
+                this.rE.setColor(637534208);
+                this.rE.setDither(true);
+                this.rE.setStrokeWidth(2.0f);
             }
-            c();
+            gG();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.k) {
-            canvas.drawPath(this.i, this.j);
-            if (this.l != null) {
-                this.l.a(canvas);
+        if (this.rG) {
+            canvas.drawPath(this.rD, this.rE);
+            if (this.rF != null) {
+                this.rF.b(canvas);
             }
         }
     }
 
-    public void c() {
+    public void gG() {
     }
 
-    public void d() {
+    public void gH() {
     }
 
     public void a(k kVar) {
-        this.l = kVar;
+        this.rF = kVar;
     }
 
-    public void a(boolean z) {
-        this.k = z;
+    public void y(boolean z) {
+        this.rG = z;
     }
 }

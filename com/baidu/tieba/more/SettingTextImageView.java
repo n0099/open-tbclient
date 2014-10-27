@@ -11,85 +11,80 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-    private Context a;
-    private LinearLayout b;
-    private TextView c;
-    private HeadImageView d;
-    private ImageView e;
+    private LinearLayout Pc;
+    private TextView Pd;
+    private ImageView Ph;
+    private HeadImageView bsC;
+    private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = context;
-        d();
-        a(attributeSet);
-        a(TbadkApplication.m252getInst().getSkinType());
+        this.mContext = context;
+        qi();
+        c(attributeSet);
+        cu(TbadkApplication.m251getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
-        this.a = context;
-        d();
-        a(TbadkApplication.m252getInst().getSkinType());
+        this.mContext = context;
+        qi();
+        cu(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void a(int i) {
-        if (i == 1) {
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.about_tip_color_1));
-            this.e.setImageResource(com.baidu.tieba.t.icon_arrow_right_1);
-        } else {
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.about_tip_color));
-            this.e.setImageResource(com.baidu.tieba.t.icon_arrow_right);
-        }
-        this.d.invalidate();
+    public void cu(int i) {
+        com.baidu.tbadk.core.util.aw.b(this.Pd, com.baidu.tieba.s.about_tip_color, 1);
+        com.baidu.tbadk.core.util.aw.c(this.Ph, com.baidu.tieba.u.icon_arrow_right);
+        this.bsC.invalidate();
     }
 
-    public void a() {
-        if (this.d != null) {
-            this.d.setVisibility(8);
+    public void Vt() {
+        if (this.bsC != null) {
+            this.bsC.setVisibility(8);
         }
     }
 
-    public void b() {
-        if (this.d != null) {
-            this.d.setVisibility(0);
+    public void Vu() {
+        if (this.bsC != null) {
+            this.bsC.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.c.setText(str);
+        this.Pd.setText(str);
     }
 
-    public void a(String str, boolean z) {
+    public void x(String str, boolean z) {
         if (z) {
-            this.d.a(str, 26, false);
+            this.bsC.c(str, 26, false);
         } else {
-            this.d.a(str, 12, false);
+            this.bsC.c(str, 12, false);
         }
     }
 
-    public void c() {
+    public void recycle() {
     }
 
-    private void d() {
-        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.setting_text_image_view, this, true);
-        this.b = (LinearLayout) findViewById(com.baidu.tieba.u.container);
-        this.c = (TextView) findViewById(com.baidu.tieba.u.text);
-        this.d = (HeadImageView) findViewById(com.baidu.tieba.u.icon);
-        this.e = (ImageView) findViewById(com.baidu.tieba.u.arrow);
+    private void qi() {
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.setting_text_image_view, this, true);
+        this.Pc = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.Pd = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.bsC = (HeadImageView) findViewById(com.baidu.tieba.v.icon);
+        this.Ph = (ImageView) findViewById(com.baidu.tieba.v.arrow);
     }
 
-    private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.TbSettingView);
+    private void c(AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.c.setText(string);
+            this.Pd.setText(string);
         }
         if (color > -1) {
-            this.c.setTextColor(color);
+            this.Pd.setTextColor(color);
         }
-        this.b.setClickable(false);
-        this.b.setFocusable(false);
+        this.Pc.setClickable(false);
+        this.Pc.setFocusable(false);
     }
 }

@@ -9,11 +9,11 @@ import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.this$0 = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,28 +28,28 @@ public class b implements View.OnClickListener {
         HorizontalScrollView horizontalScrollView;
         RadioButton radioButton6;
         boolean z;
-        linearLayout = this.a.t;
+        linearLayout = this.this$0.JK;
         linearLayout.setVisibility(0);
-        button = this.a.l;
+        button = this.this$0.JD;
         button.setVisibility(8);
         if (Build.VERSION.SDK_INT >= 7) {
-            z = this.a.A;
+            z = this.this$0.JR;
             if (z) {
                 return;
             }
         }
-        radioButton = this.a.r;
-        radioButton2 = this.a.r;
+        radioButton = this.this$0.JI;
+        radioButton2 = this.this$0.JI;
         int paddingTop = radioButton2.getPaddingTop();
-        radioButton3 = this.a.r;
+        radioButton3 = this.this$0.JI;
         int paddingRight = radioButton3.getPaddingRight();
-        radioButton4 = this.a.r;
+        radioButton4 = this.this$0.JI;
         radioButton.setPadding(0, paddingTop, paddingRight, radioButton4.getPaddingBottom());
-        radioButton5 = this.a.r;
+        radioButton5 = this.this$0.JI;
         radioButton5.setChecked(true);
-        horizontalScrollView = this.a.m;
+        horizontalScrollView = this.this$0.JE;
         horizontalScrollView.setVisibility(8);
-        radioButton6 = this.a.q;
+        radioButton6 = this.this$0.JH;
         radioButton6.setVisibility(8);
     }
 }

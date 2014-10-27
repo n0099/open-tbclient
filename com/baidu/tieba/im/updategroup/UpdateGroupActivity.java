@@ -8,29 +8,29 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.im.model.bb;
-import com.baidu.tieba.x;
+import com.baidu.tieba.im.model.UpdateGroupModel;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends BaseActivity {
-    private bb d;
-    private a c = null;
-    private int e = 1;
-    DialogInterface.OnClickListener a = new b(this);
-    DialogInterface.OnClickListener b = new c(this);
-    private com.baidu.adp.framework.listener.d f = new d(this, 103102);
+    private UpdateGroupModel biy;
+    private a bix = null;
+    private int JA = 1;
+    DialogInterface.OnClickListener aUv = new b(this);
+    DialogInterface.OnClickListener aUw = new c(this);
+    private com.baidu.adp.framework.listener.e ayJ = new d(this, 103102);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
         Intent intent = new Intent(activity, UpdateGroupActivity.class);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, i2);
+        intent.putExtra("group_id", i2);
         intent.putExtra("edit_type", i3);
         intent.putExtra("group_text", str);
         activity.startActivityForResult(intent, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, int i) {
+    public void t(String str, int i) {
         if (i < 0) {
-            showToast(x.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }
@@ -42,82 +42,82 @@ public class UpdateGroupActivity extends BaseActivity {
         super.onCreate(bundle);
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra("edit_type", 1);
-        int intExtra2 = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0);
+        int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
-        a(intExtra, intExtra2);
-        this.d = new bb(this);
-        this.d.setUniqueId(getUniqueId());
-        this.c.a(stringExtra);
-        this.c.a(this.b);
-        this.c.b(this.a);
-        a();
+        Q(intExtra, intExtra2);
+        this.biy = new UpdateGroupModel(this);
+        this.biy.setUniqueId(getUniqueId());
+        this.bix.gE(stringExtra);
+        this.bix.c(this.aUw);
+        this.bix.d(this.aUv);
+        HJ();
     }
 
-    private void a() {
-        registerListener(this.f);
+    private void HJ() {
+        registerListener(this.ayJ);
     }
 
-    private void a(int i, int i2) {
+    private void Q(int i, int i2) {
         if (i == 1) {
-            this.c = new f(this);
+            this.bix = new f(this);
         } else if (i == 2) {
-            this.c = new e(this);
+            this.bix = new e(this);
         }
-        this.e = i;
-        this.c.a(i2);
+        this.JA = i;
+        this.bix.setGroupId(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.c.b(i);
+        this.bix.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c.c()) {
-            if (((g) this.c).m()) {
+        if (view == this.bix.LV()) {
+            if (((g) this.bix).RP()) {
                 finish();
-            } else if (this.c.l() && this.c.i()) {
-                c();
+            } else if (this.bix.RM() && this.bix.LL()) {
+                RO();
             } else {
-                showToast(this.c.j());
+                showToast(this.bix.RL());
             }
-        } else if (view == this.c.d()) {
-            this.c.f();
-        } else if (view == this.c.e() && !b()) {
+        } else if (view == this.bix.Li()) {
+            this.bix.clearText();
+        } else if (view == this.bix.RJ() && !RN()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && b()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && RN()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean b() {
-        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.b())) {
+    private boolean RN() {
+        if (TextUtils.isEmpty(this.bix.getText()) || !this.bix.LL() || this.bix.getText().equals(this.bix.RI())) {
             return false;
         }
-        this.c.a();
+        this.bix.Mh();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        this.c.a(true);
-        this.d.a(this.c.h());
-        if (this.e == 1) {
-            this.d.a(this.c.k());
-            this.d.c(2);
-        } else if (this.e == 2) {
-            this.d.b(this.c.k());
-            this.d.c(1);
+    public void RO() {
+        this.bix.setIsLoading(true);
+        this.biy.setGroupId(this.bix.getGroupId());
+        if (this.JA == 1) {
+            this.biy.setName(this.bix.getText());
+            this.biy.sendMessage(2);
+        } else if (this.JA == 2) {
+            this.biy.setIntro(this.bix.getText());
+            this.biy.sendMessage(1);
         }
     }
 
@@ -126,6 +126,6 @@ public class UpdateGroupActivity extends BaseActivity {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.d.cancelMessage();
+        this.biy.cancelMessage();
     }
 }

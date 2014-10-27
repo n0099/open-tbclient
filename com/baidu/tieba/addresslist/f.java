@@ -6,22 +6,21 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d a;
+    final /* synthetic */ d agH;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar) {
         super(2001182);
-        this.a = dVar;
+        this.agH = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.addresslist.c.a aVar;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            aVar = this.a.b;
-            aVar.a((List) customResponsedMessage.getData());
+            aVar = this.agH.agu;
+            aVar.w((List) customResponsedMessage.getData());
         }
     }
 }

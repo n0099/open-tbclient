@@ -3,7 +3,7 @@ package com.baidu.tieba.signall;
 import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 public interface ae {
-    void a(SignData signData);
+    void aC(String str, String str2);
 
-    void a(String str, String str2);
+    void d(SignData signData);
 }

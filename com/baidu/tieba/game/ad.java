@@ -1,17 +1,29 @@
 package com.baidu.tieba.game;
-/* loaded from: classes.dex */
-class ad {
-    int a;
-    int b;
-    int c;
-    int d;
-    int e;
 
-    public ad(int i, int i2, int i3, int i4, int i5) {
-        this.a = i;
-        this.b = i3;
-        this.d = i2;
-        this.e = i4;
-        this.c = i5;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.game.GameInfoData;
+import java.io.File;
+/* loaded from: classes.dex */
+class ad extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ GameInstallReceiver aHL;
+    private String packageName;
+
+    public ad(GameInstallReceiver gameInstallReceiver, String str) {
+        this.aHL = gameInstallReceiver;
+        this.packageName = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        File fo;
+        GameInfoData fr = ab.Hs().fr(this.packageName);
+        if (fr != null && !TextUtils.isEmpty(fr.getGameId()) && (fo = ab.Hs().fo(fr.getGameId())) != null && fo.exists()) {
+            fo.delete();
+            return null;
+        }
+        return null;
     }
 }

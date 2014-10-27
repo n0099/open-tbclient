@@ -8,32 +8,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Void, Void, Void> {
-    final ArrayList<ad> a = new ArrayList<>();
-    final f b = new ac(this);
-    final /* synthetic */ aa c;
+    final ArrayList<ad> Sr = new ArrayList<>();
+    final f Ss = new ac(this);
+    final /* synthetic */ aa St;
 
     public ab(aa aaVar) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
-        this.c = aaVar;
+        this.St = aaVar;
         setPriority(4);
-        bdAsyncTaskParallel = aa.d;
+        bdAsyncTaskParallel = aa.parallel;
         setParallel(bdAsyncTaskParallel);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public Void doInBackground(Void... voidArr) {
         List list;
         List list2;
         int i = 0;
         while (true) {
             int i2 = i;
-            list = this.c.c;
+            list = this.St.Sq;
             if (i2 < list.size()) {
-                list2 = this.c.c;
-                ((e) list2.get(i2)).a(this.b);
+                list2 = this.St.Sq;
+                ((e) list2.get(i2)).a(this.Ss);
                 i = i2 + 1;
             } else {
                 return null;
@@ -44,10 +43,9 @@ public class ab extends BdAsyncTask<Void, Void, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(Void r4) {
-        super.onPostExecute(r4);
-        this.c.b = this.a;
+        super.onPostExecute((ab) r4);
+        this.St.Sp = this.Sr;
         MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(2001120));
     }
 }

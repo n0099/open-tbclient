@@ -4,39 +4,39 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView a;
+    private SettingTextSwitchView aSD;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a();
+        initUI();
     }
 
     public PersonalTalkSettingViewSettingView(Context context) {
         super(context);
-        a();
+        initUI();
     }
 
     public void setSwitchStateChangeListener(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        if (this.a != null) {
-            this.a.setSwitchStateChangeListener(cVar);
+        if (this.aSD != null) {
+            this.aSD.setSwitchStateChangeListener(cVar);
         }
     }
 
-    private void a() {
+    private void initUI() {
         setOrientation(1);
-        inflate(getContext(), v.p2ptalk_setting_detail_view, this);
-        this.a = (SettingTextSwitchView) findViewById(u.sv_person_msg_notify);
+        inflate(getContext(), w.p2ptalk_setting_detail_view, this);
+        this.aSD = (SettingTextSwitchView) findViewById(v.sv_person_msg_notify);
     }
 
-    public void a(boolean z) {
+    public void cN(boolean z) {
         if (z) {
-            this.a.b(false);
+            this.aSD.A(false);
         } else {
-            this.a.a(false);
+            this.aSD.B(false);
         }
     }
 }

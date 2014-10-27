@@ -1,48 +1,36 @@
 package com.baidu.tieba.game;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.download.DownloadData;
+import tbclient.GetMutilGameList.AdvInfo;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tbadk.download.a {
-    @Override // com.baidu.tbadk.download.a
-    public void a(DownloadData downloadData) {
-        if (downloadData != null) {
-            if (downloadData.getStatus() == 1) {
-                b.a().b(downloadData);
-            }
-            b.a().a(downloadData);
-        }
+public class a implements com.baidu.tieba.square.y {
+    private String ad_link_android;
+    private String ad_link_ios;
+    private String ad_link_webview;
+    private String ad_pic;
+    private String game_id;
+    private String game_name;
+
+    public a a(AdvInfo advInfo) {
+        this.game_name = advInfo.game_name;
+        this.game_id = advInfo.game_id;
+        this.ad_link_android = advInfo.ad_link_android;
+        this.ad_link_webview = advInfo.ad_link_webview;
+        this.ad_link_ios = advInfo.ad_link_ios;
+        this.ad_pic = advInfo.ad_pic;
+        return this;
     }
 
-    @Override // com.baidu.tbadk.download.a
-    public boolean b(DownloadData downloadData) {
-        if (downloadData == null) {
-            return false;
-        }
-        downloadData.setStatusMsg(null);
-        return true;
+    public String Hc() {
+        return this.ad_link_android;
     }
 
-    @Override // com.baidu.tbadk.download.a
-    public boolean c(DownloadData downloadData) {
-        if (downloadData == null) {
-            return false;
-        }
-        TiebaStatic.eventStat(com.baidu.tieba.ai.c().d(), "dl_game_success", downloadData.getId());
-        ap.a(com.baidu.tieba.ai.c().d(), downloadData.getNotifyId());
-        b.a().a(downloadData);
-        ae.a().b(downloadData.getId());
-        return true;
+    @Override // com.baidu.tieba.square.y
+    public String kJ() {
+        return this.ad_pic;
     }
 
-    @Override // com.baidu.tbadk.download.a
-    public void d(DownloadData downloadData) {
-    }
-
-    @Override // com.baidu.tbadk.download.a
-    public void a(DownloadData downloadData, int i, String str) {
-        b.a().c(downloadData);
-        b.a().a(downloadData);
+    @Override // com.baidu.tieba.square.y
+    public String getLink() {
+        return this.ad_link_android;
     }
 }

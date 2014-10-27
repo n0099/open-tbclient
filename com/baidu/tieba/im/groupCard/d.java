@@ -1,127 +1,126 @@
 package com.baidu.tieba.im.groupCard;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.f;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.i;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class d extends f {
-    private View a;
-    private GroupCardActivity b;
-    private LinearLayout c;
-    private LinearLayout d;
-    private LinearLayout e;
-    private View f;
-    private ProgressBar g;
-    private NavigationBar h;
-    private ImageView i;
-    private ImageView j;
-    private ImageView k;
-    private ImageView l;
-    private ImageView m;
+    private ProgressBar aTH;
+    private GroupCardActivity aZE;
+    private LinearLayout aZJ;
+    private LinearLayout aZK;
+    private LinearLayout aZL;
+    private View aZM;
+    private ImageView aZN;
+    private ImageView aZO;
+    private ImageView aZP;
+    private ImageView aZQ;
+    private View agA;
+    private NavigationBar mNavigationBar;
+    private ImageView rK;
 
     public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
-        this.a = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.b = groupCardActivity;
-        i();
+        this.agA = null;
+        this.aZJ = null;
+        this.aZK = null;
+        this.aZL = null;
+        this.aZM = null;
+        this.aTH = null;
+        this.mNavigationBar = null;
+        this.rK = null;
+        this.aZN = null;
+        this.aZO = null;
+        this.aZP = null;
+        this.aZQ = null;
+        this.aZE = groupCardActivity;
+        initUI();
     }
 
-    private void i() {
-        this.b.setContentView(v.group_card_activity);
-        this.a = this.b.findViewById(u.parent);
-        this.c = (LinearLayout) this.b.findViewById(u.groud_card_save);
-        this.c.setOnClickListener(this.b);
-        this.d = (LinearLayout) this.b.findViewById(u.group_card_share);
-        if (i.a(this.b)) {
-            this.d.setOnClickListener(this.b);
+    private void initUI() {
+        this.aZE.setContentView(w.group_card_activity);
+        this.agA = this.aZE.findViewById(v.parent);
+        this.aZJ = (LinearLayout) this.aZE.findViewById(v.groud_card_save);
+        this.aZJ.setOnClickListener(this.aZE);
+        this.aZK = (LinearLayout) this.aZE.findViewById(v.group_card_share);
+        if (i.y(this.aZE)) {
+            this.aZK.setOnClickListener(this.aZE);
         } else {
-            this.d.setVisibility(8);
+            this.aZK.setVisibility(8);
         }
-        this.e = (LinearLayout) this.b.findViewById(u.group_card_setting);
-        this.g = (ProgressBar) this.b.findViewById(u.progress);
-        this.i = (ImageView) this.b.findViewById(u.group_card_inner_image);
-        this.h = (NavigationBar) this.b.findViewById(u.group_card_topbar);
-        this.h.setSystemClickable(false);
-        this.h.a(this.b.getResources().getString(x.group_card_name));
-        this.f = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.setOnClickListener(this.b);
+        this.aZL = (LinearLayout) this.aZE.findViewById(v.group_card_setting);
+        this.aTH = (ProgressBar) this.aZE.findViewById(v.progress);
+        this.rK = (ImageView) this.aZE.findViewById(v.group_card_inner_image);
+        this.mNavigationBar = (NavigationBar) this.aZE.findViewById(v.group_card_topbar);
+        this.mNavigationBar.setSystemClickable(false);
+        this.mNavigationBar.setTitleText(this.aZE.getResources().getString(y.group_card_name));
+        this.aZM = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aZM.setOnClickListener(this.aZE);
     }
 
-    public void a(com.baidu.adp.widget.a.a aVar) {
+    public void f(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.a(this.i);
+            aVar.a(this.rK);
         }
     }
 
-    public void a(int i, String str) {
+    public void showErr(int i, String str) {
         if (str != null) {
-            j.a((Context) this.b, str);
+            m.showToast(this.aZE, str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            j.a((Context) this.b, errMsg);
+            m.showToast(this.aZE, errMsg);
         }
     }
 
-    public void a() {
-        this.g.setVisibility(0);
+    public void showProgress() {
+        this.aTH.setVisibility(0);
     }
 
-    public void b() {
-        this.g.setVisibility(8);
+    public void hideProgress() {
+        this.aTH.setVisibility(8);
     }
 
-    public void c() {
-        this.i.setVisibility(0);
+    public void Os() {
+        this.rK.setVisibility(0);
     }
 
-    public View d() {
-        return this.c;
+    public View Ot() {
+        return this.aZJ;
     }
 
-    public View e() {
-        return this.d;
+    public View Ou() {
+        return this.aZK;
     }
 
-    public View f() {
-        return this.f;
+    public View Ov() {
+        return this.aZM;
     }
 
-    public View g() {
-        return this.h;
+    public View Ow() {
+        return this.mNavigationBar;
     }
 
-    public LinearLayout h() {
-        return this.e;
+    public LinearLayout Ox() {
+        return this.aZL;
     }
 
-    public void a(int i) {
-        this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.a);
-        ay.a(this.a, i);
-        this.h.c(i);
+    public void onChangeSkinType(int i) {
+        this.aZE.getLayoutMode().L(i == 1);
+        this.aZE.getLayoutMode().h(this.agA);
+        aw.d(this.agA, i);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 }

@@ -8,30 +8,30 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity a;
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bf bfVar;
-        g gVar;
-        g gVar2;
+        com.baidu.tieba.model.bc bcVar;
+        b bVar;
+        b bVar2;
         if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
+            com.baidu.adp.lib.g.j.b((Dialog) dialogInterface, this.aBk);
         }
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            bfVar = this.a.P;
-            gVar = this.a.N;
-            String name = gVar.i().getName();
-            gVar2 = this.a.N;
-            bfVar.a(name, Long.valueOf(gVar2.i().getId()).longValue());
+            bcVar = this.aBk.aAF;
+            bVar = this.aBk.azE;
+            String name = bVar.zJ().getName();
+            bVar2 = this.aBk.azE;
+            bcVar.g(name, Long.valueOf(bVar2.zJ().getId()).longValue());
             return;
         }
-        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.x.login_to_use), true, 11036);
+        LoginActivity.a((Activity) this.aBk, this.aBk.getString(com.baidu.tieba.y.login_to_use), true, 11036);
     }
 }

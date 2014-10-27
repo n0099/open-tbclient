@@ -3,16 +3,17 @@ package com.baidu.tieba.signall;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends BdAsyncTask<Object, Integer, SignData> {
-    final /* synthetic */ ad a;
-    private volatile com.baidu.tbadk.core.util.ae b;
+    final /* synthetic */ ad bLQ;
+    private volatile com.baidu.tbadk.core.util.ac yV;
 
     private af(ad adVar) {
-        this.a = adVar;
-        this.b = null;
+        this.bLQ = adVar;
+        this.yV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +29,7 @@ public class af extends BdAsyncTask<Object, Integer, SignData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: w */
     public SignData doInBackground(Object... objArr) {
         SignData signData;
         Exception e;
@@ -37,24 +38,24 @@ public class af extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
-            com.baidu.tbadk.core.util.ae aeVar = this.b;
-            str = this.a.a;
-            aeVar.a("kw", str);
-            com.baidu.tbadk.core.util.ae aeVar2 = this.b;
-            str2 = this.a.b;
-            aeVar2.a("fid", str2);
-            this.b.a().a().a = true;
-            String h = this.b.h();
-            if (!this.b.b() || !this.b.a().b().b()) {
+            this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
+            com.baidu.tbadk.core.util.ac acVar = this.yV;
+            str = this.bLQ.mForumName;
+            acVar.k("kw", str);
+            com.baidu.tbadk.core.util.ac acVar2 = this.yV;
+            str2 = this.bLQ.mForumId;
+            acVar2.k(ImageViewerConfig.FORUM_ID, str2);
+            this.yV.mc().na().mIsNeedTbs = true;
+            String lA = this.yV.lA();
+            if (!this.yV.mf() || !this.yV.mc().nb().jq()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(h);
-                str3 = this.a.b;
+                signData.parserJson(lA);
+                str3 = this.bLQ.mForumId;
                 signData.setForumId(str3);
-                str4 = this.a.a;
+                str4 = this.bLQ.mForumName;
                 signData.setForumName(str4);
                 return signData;
             } catch (Exception e2) {
@@ -72,36 +73,36 @@ public class af extends BdAsyncTask<Object, Integer, SignData> {
     public void cancel() {
         ae aeVar;
         String str;
-        if (this.b != null) {
-            this.b.f();
+        if (this.yV != null) {
+            this.yV.dM();
         }
-        this.a.c = null;
+        this.bLQ.bLO = null;
         super.cancel(true);
-        aeVar = this.a.d;
-        str = this.a.b;
-        aeVar.a(str, null);
+        aeVar = this.bLQ.bLP;
+        str = this.bLQ.mForumId;
+        aeVar.aC(str, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(SignData signData) {
         ae aeVar;
         ae aeVar2;
         String str;
         String str2;
-        this.a.c = null;
-        if (signData != null || this.b == null) {
-            aeVar = this.a.d;
-            aeVar.a(signData);
+        this.bLQ.bLO = null;
+        if (signData != null || this.yV == null) {
+            aeVar = this.bLQ.bLP;
+            aeVar.d(signData);
             return;
         }
-        this.a.mErrorCode = this.b.c();
-        this.a.mErrorString = this.b.e();
-        aeVar2 = this.a.d;
-        str = this.a.b;
-        str2 = this.a.mErrorString;
-        aeVar2.a(str, str2);
+        this.bLQ.mErrorCode = this.yV.mg();
+        this.bLQ.mErrorString = this.yV.getErrorString();
+        aeVar2 = this.bLQ.bLP;
+        str = this.bLQ.mForumId;
+        str2 = this.bLQ.mErrorString;
+        aeVar2.aC(str, str2);
     }
 }

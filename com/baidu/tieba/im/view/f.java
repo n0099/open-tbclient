@@ -1,29 +1,24 @@
 package com.baidu.tieba.im.view;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.view.inputmethod.InputMethodManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class f extends Handler {
-    final /* synthetic */ e a;
+class f implements Animation.AnimationListener {
+    final /* synthetic */ HorizontalPanelView bjj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.a = eVar;
+    public f(HorizontalPanelView horizontalPanelView) {
+        this.bjj = horizontalPanelView;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Context context;
-        switch (message.what) {
-            case 0:
-                context = this.a.a;
-                ((InputMethodManager) context.getSystemService("input_method")).toggleSoftInput(0, 2);
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
     }
 }

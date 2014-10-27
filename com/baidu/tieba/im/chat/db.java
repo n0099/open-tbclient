@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.UserData;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 class db extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ PersonalChatActivity a;
-    private final /* synthetic */ UserData b;
+    final /* synthetic */ da aPK;
+    private final /* synthetic */ LinkedList aPL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(PersonalChatActivity personalChatActivity, UserData userData) {
-        this.a = personalChatActivity;
-        this.b = userData;
+    public db(da daVar, LinkedList linkedList) {
+        this.aPK = daVar;
+        this.aPL = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        com.baidu.tieba.im.chat.personaltalk.a.a().a(TbadkApplication.getCurrentAccount(), PersonalChatActivity.b, this.b);
-        return null;
+    /* renamed from: Kb */
+    public Void doInBackground() {
+        return com.baidu.tieba.im.db.o.MQ().j(this.aPL);
     }
 }

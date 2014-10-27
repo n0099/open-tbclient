@@ -13,7 +13,6 @@ class b extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Handler handler;
         boolean z;

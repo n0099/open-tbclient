@@ -12,11 +12,10 @@ class c extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImageView imageView;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
-            imageView = AddressListDelegateStatic.c;
+            imageView = AddressListDelegateStatic.agt;
             imageView.setVisibility(8);
         }
     }

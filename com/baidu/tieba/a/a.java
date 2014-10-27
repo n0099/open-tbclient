@@ -1,29 +1,66 @@
 package com.baidu.tieba.a;
 
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.h;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.e {
-    private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrecommend";
+public class a extends h {
+    private static final String amF = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
+    private int errorCode = 0;
+    private String errorMsg;
 
-    public String g() {
-        a("like_forum", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        a("topic", "0");
-        a("recommend", "0");
-        a(c);
-        return this.a.h();
+    public String ez(String str) {
+        k("pn", str);
+        k("rn", String.valueOf(20));
+        this.mNetWork.mc().na().mIsNeedTbs = true;
+        setUrl(amF);
+        int n = m.n(aj.wk().getApp());
+        int o = m.o(aj.wk().getApp());
+        float f = n / 320.0f;
+        int i = az.mD().mF() ? 2 : 1;
+        this.mNetWork.k("scr_w", String.valueOf(n));
+        this.mNetWork.k("scr_h", String.valueOf(o));
+        this.mNetWork.k("scr_dip", String.valueOf(f));
+        this.mNetWork.k("q_type", String.valueOf(i));
+        String lA = this.mNetWork.lA();
+        if (this.mNetWork.mc().nb().jq()) {
+            this.yH = new NewErrorData();
+            this.yH.parserJson(lA);
+            return lA;
+        } else if (this.mNetWork.mf()) {
+            this.errorCode = this.mNetWork.mg();
+            this.errorMsg = this.mNetWork.getErrorString();
+            return null;
+        } else {
+            this.errorCode = -1;
+            this.errorMsg = aj.wk().getApp().getResources().getString(y.neterror);
+            return null;
+        }
     }
 
-    public long h() {
-        if (this.a != null) {
-            return this.a.a().c().a.d;
+    @Override // com.baidu.tbadk.core.h
+    public int getErrorCode() {
+        if (this.yH != null) {
+            return this.yH.getErrorNumber();
         }
-        return 0L;
+        if (this.errorCode == 0) {
+            return this.errorCode;
+        }
+        return -1;
     }
 
-    public long i() {
-        if (this.a != null) {
-            return this.a.a().c().a.c;
+    @Override // com.baidu.tbadk.core.h
+    public String getErrorMsg() {
+        if (this.yH != null) {
+            return this.yH.getErrorMsg();
         }
-        return 0L;
+        if (this.errorMsg != null) {
+            return this.errorMsg;
+        }
+        return "";
     }
 }

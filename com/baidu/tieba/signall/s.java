@@ -1,68 +1,69 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private int a;
-    private String b;
-    private int c;
-    private String d;
-    private com.baidu.tieba.home.r e = new com.baidu.tieba.home.r();
-    private ArrayList<t> f = new ArrayList<>();
+    private int bJP;
+    private String bJQ;
+    private int bLh;
+    private String bLi;
+    private com.baidu.tieba.home.t bKl = new com.baidu.tieba.home.t();
+    private ArrayList<t> bLj = new ArrayList<>();
 
-    public int a() {
-        return this.a;
+    public int acV() {
+        return this.bJP;
     }
 
-    public String b() {
-        return this.b;
+    public String acw() {
+        return this.bJQ;
     }
 
-    public com.baidu.tieba.home.r c() {
-        return this.e;
+    public com.baidu.tieba.home.t acy() {
+        return this.bKl;
     }
 
-    public ArrayList<t> d() {
-        return this.f;
+    public ArrayList<t> acW() {
+        return this.bLj;
     }
 
-    public int e() {
-        return this.c;
+    public int acX() {
+        return this.bLh;
     }
 
-    public String f() {
-        return this.d;
+    public String acY() {
+        return this.bLi;
     }
 
-    public void a(String str) {
+    public void parserJson(String str) {
         if (str != null) {
             try {
-                a(new JSONObject(str));
+                parserJson(new JSONObject(str));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.e.a(jSONObject.optJSONObject("error"));
-                this.a = jSONObject.optInt("show_dialog");
-                this.b = jSONObject.optString("sign_notice");
-                this.c = jSONObject.optInt("is_timeout");
-                this.d = jSONObject.optString("timeout_notice");
-                JSONArray optJSONArray = jSONObject.optJSONArray("info");
+                this.bKl.parserJson(jSONObject.optJSONObject("error"));
+                this.bJP = jSONObject.optInt("show_dialog");
+                this.bJQ = jSONObject.optString("sign_notice");
+                this.bLh = jSONObject.optInt("is_timeout");
+                this.bLi = jSONObject.optString("timeout_notice");
+                JSONArray optJSONArray = jSONObject.optJSONArray(LoginActivityConfig.INFO);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         t tVar = new t();
-                        tVar.a(jSONObject2);
-                        this.f.add(tVar);
+                        tVar.parserJson(jSONObject2);
+                        this.bLj.add(tVar);
                     }
                 }
             } catch (Exception e) {

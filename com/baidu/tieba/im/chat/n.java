@@ -7,22 +7,22 @@ import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AbsListView.RecyclerListener {
-    final /* synthetic */ g a;
+    final /* synthetic */ AbsMsglistView aNB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(g gVar) {
-        this.a = gVar;
+    public n(AbsMsglistView absMsglistView) {
+        this.aNB = absMsglistView;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(com.baidu.tieba.u.lay_msgitem_voice);
+        View findViewById = view.findViewById(com.baidu.tieba.v.lay_msgitem_voice);
         if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
-            ((ChatVoiceView) findViewById).b();
+            ((ChatVoiceView) findViewById).reset();
         }
-        View findViewById2 = view.findViewById(com.baidu.tieba.u.emotion_msgitem_image);
+        View findViewById2 = view.findViewById(com.baidu.tieba.v.emotion_msgitem_image);
         if (findViewById2 != null && (findViewById2 instanceof GifView)) {
-            ((GifView) findViewById2).c();
+            ((GifView) findViewById2).stop();
         }
     }
 }

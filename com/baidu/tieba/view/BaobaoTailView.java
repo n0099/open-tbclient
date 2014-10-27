@@ -5,49 +5,46 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private TbImageView a;
-    private TextView b;
-    private com.baidu.tieba.data.b c;
-    private View.OnClickListener d;
+    private View.OnClickListener Ie;
+    private TextView aey;
+    private TbImageView anF;
+    private com.baidu.tieba.data.b bQi;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.d = new a(this);
-        a();
+        this.Ie = new a(this);
+        init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = new a(this);
-        a();
+        this.Ie = new a(this);
+        init();
     }
 
-    private void a() {
+    private void init() {
         setOrientation(0);
-        com.baidu.adp.lib.e.b.a().a(getContext(), com.baidu.tieba.v.baobao_tail_layout, this);
-        this.a = (TbImageView) findViewById(com.baidu.tieba.u.baobao_icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.u.baobao_tail_text);
-        setOnClickListener(this.d);
+        com.baidu.adp.lib.g.b.ek().inflate(getContext(), com.baidu.tieba.w.baobao_tail_layout, this);
+        this.anF = (TbImageView) findViewById(com.baidu.tieba.v.baobao_icon);
+        this.aey = (TextView) findViewById(com.baidu.tieba.v.baobao_tail_text);
+        setOnClickListener(this.Ie);
     }
 
     public void setData(com.baidu.tieba.data.b bVar) {
-        if (bVar == null || bVar.c() == null || bVar.c().length() == 0) {
+        if (bVar == null || bVar.getContent() == null || bVar.getContent().length() == 0) {
             setVisibility(8);
             return;
         }
-        this.c = bVar;
-        this.b.setText(bVar.c());
-        this.a.a(bVar.a(), 10, false);
+        this.bQi = bVar;
+        this.aey.setText(bVar.getContent());
+        this.anF.c(bVar.getIconUrl(), 10, false);
     }
 
-    public void a(int i) {
-        if (i == 1) {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.cp_link_tip_c_1));
-        } else {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.r.cp_link_tip_c));
-        }
+    public void changeSkinType(int i) {
+        aw.b(this.aey, com.baidu.tieba.s.cp_link_tip_c, 1);
     }
 }

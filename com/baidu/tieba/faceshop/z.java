@@ -2,16 +2,15 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-    final /* synthetic */ x a;
-    private com.baidu.tbadk.core.util.ae b;
+    final /* synthetic */ x asU;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private z(x xVar) {
-        this.a = xVar;
+        this.asU = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,13 +21,13 @@ public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: l */
     public FaceBuyData doInBackground(Object... objArr) {
         String obj = objArr[0].toString();
         try {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/buyfacepack");
-            this.b.a("pid", obj);
-            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.h(), (Class<Object>) FaceBuyData.class);
+            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.BUY_FACE_PACKAGE_URL);
+            this.mNetWork.k("pid", obj);
+            return (FaceBuyData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.mNetWork.lA(), FaceBuyData.class);
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
@@ -39,11 +38,11 @@ public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     public void cancel() {
         com.baidu.adp.base.h hVar;
         super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
+        this.asU.asR = null;
+        hVar = this.asU.mLoadDataCallBack;
         hVar.a(null);
     }
 
@@ -54,8 +53,8 @@ public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     public void onPostExecute(FaceBuyData faceBuyData) {
         com.baidu.adp.base.h hVar;
         super.onPostExecute(faceBuyData);
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
+        this.asU.asR = null;
+        hVar = this.asU.mLoadDataCallBack;
         hVar.a(faceBuyData);
     }
 }

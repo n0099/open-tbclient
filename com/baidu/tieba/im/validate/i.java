@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h a;
+    final /* synthetic */ h biX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.a = hVar;
+        this.biX = hVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,9 +17,9 @@ public class i implements View.OnClickListener {
         ValidateActivity validateActivity;
         TextView textView;
         ValidateItemData validateItemData;
-        validateActivity = this.a.h;
-        textView = this.a.g;
-        validateItemData = this.a.i;
+        validateActivity = this.biX.biS;
+        textView = this.biX.biV;
+        validateItemData = this.biX.biW;
         validateActivity.a(textView, 100, 0, 0L, validateItemData);
     }
 }

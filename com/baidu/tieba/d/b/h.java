@@ -1,22 +1,22 @@
 package com.baidu.tieba.d.b;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    private static h a;
+    private static h bHy;
 
-    public static final h a() {
-        if (a != null) {
-            return a;
+    public static final h abA() {
+        if (bHy != null) {
+            return bHy;
         }
         synchronized (h.class) {
-            if (a == null) {
-                a = new h();
+            if (bHy == null) {
+                bHy = new h();
             }
         }
-        return a;
+        return bHy;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,11 +24,11 @@ public class h implements View.OnClickListener {
         if (view != null) {
             Object tag = view.getTag();
             if (tag instanceof com.baidu.tieba.d.c.a) {
-                com.baidu.tieba.d.a.f h = ((com.baidu.tieba.d.c.a) tag).h();
-                if (!ba.c(h.p().d)) {
-                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "area_click", "pb", h.c, h.d);
-                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.c, h.d, "PB", "click");
-                    bg.a().a(view.getContext(), new String[]{h.p().d});
+                com.baidu.tieba.d.a.f abF = ((com.baidu.tieba.d.c.a) tag).abF();
+                if (!ay.aA(abF.abq().url)) {
+                    com.baidu.tbadk.distribute.a.ra().a(view.getContext(), abF.abw(), "area_click", "pb", abF.bHq, abF.threadId);
+                    com.baidu.tbadk.distribute.a.ra().a(abF.abw(), abF.bHq, abF.threadId, "PB", "click");
+                    bf.mR().b(view.getContext(), new String[]{abF.abq().url});
                 }
             }
         }

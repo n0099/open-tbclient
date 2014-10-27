@@ -1,25 +1,15 @@
 package com.baidu.tieba.im.frsgroup;
-
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.GroupImageView;
 /* loaded from: classes.dex */
-class o {
-    LinearLayout a;
-    LinearLayout b;
-    GroupImageView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    ImageView h;
-    ImageView i;
-    ImageView j;
-    ImageView[] k;
-    LinearLayout l;
-    TextView m;
-    ProgressBar n;
-    ImageView o;
+class o implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ GroupLevelActivity aXn;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(GroupLevelActivity groupLevelActivity) {
+        this.aXn = groupLevelActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

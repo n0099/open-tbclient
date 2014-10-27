@@ -4,42 +4,43 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
+import com.baidu.tbadk.core.BaseFragment;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends FragmentPagerAdapter {
-    private int a;
-    private List<b> b;
+    private int Cv;
+    private List<b> Cw;
 
     public a(FragmentManager fragmentManager, List<b> list) {
         super(fragmentManager);
-        this.a = -1;
-        this.b = list;
+        this.Cv = -1;
+        this.Cw = list;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.b.get(i).c;
+        return this.Cw.get(i).Cy;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public long getItemId(int i) {
-        return this.b.get(i).c.hashCode();
+        return this.Cw.get(i).Cy.hashCode();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.b.size();
+        return this.Cw.size();
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.a != i) {
-            if (this.a != -1) {
-                ((com.baidu.tbadk.core.d) getItem(this.a)).b(false);
+        if (this.Cv != i) {
+            if (this.Cv != -1) {
+                ((BaseFragment) getItem(this.Cv)).setPrimary(false);
             }
-            this.a = i;
-            ((com.baidu.tbadk.core.d) obj).b(true);
+            this.Cv = i;
+            ((BaseFragment) obj).setPrimary(true);
         }
     }
 }

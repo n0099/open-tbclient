@@ -2,8 +2,8 @@ package com.baidu.tieba.im.searchfriend;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import protobuf.RecommendFriend.RecommendFriendReqIdl;
-import protobuf.RecommendFriend.ReqData;
+import tbclient.RecommendFriend.RecommendFriendReqIdl;
+import tbclient.RecommendFriend.ReqData;
 /* loaded from: classes.dex */
 public class RequestRecommendMessage extends TbSocketMessage {
     public static final int PIC_QUALITY_HIGH = 100;

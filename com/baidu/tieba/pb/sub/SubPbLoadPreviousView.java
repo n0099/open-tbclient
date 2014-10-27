@@ -6,58 +6,58 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SubPbLoadPreviousView extends LinearLayout {
-    private Context a;
-    private TextView b;
-    private ProgressBar c;
+    private TextView bzZ;
+    private Context mContext;
+    private ProgressBar mProgress;
 
     public SubPbLoadPreviousView(Context context) {
         super(context);
-        this.a = context;
-        e();
+        this.mContext = context;
+        ny();
     }
 
     public SubPbLoadPreviousView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = context;
-        e();
+        this.mContext = context;
+        ny();
     }
 
-    private void e() {
+    private void ny() {
         setOrientation(0);
         setClickable(true);
-        com.baidu.adp.lib.e.b.a().a(this.a, v.sub_pb_load_previous, this, true);
-        this.b = (TextView) findViewById(u.btn_loadprevious);
-        this.c = (ProgressBar) findViewById(u.progress);
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, w.sub_pb_load_previous, this, true);
+        this.bzZ = (TextView) findViewById(v.btn_loadprevious);
+        this.mProgress = (ProgressBar) findViewById(v.progress);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.b.setOnClickListener(onClickListener);
+        this.bzZ.setOnClickListener(onClickListener);
     }
 
-    public void a() {
-        this.b.setText(x.loading);
-        this.c.setVisibility(0);
+    public void XA() {
+        this.bzZ.setText(y.loading);
+        this.mProgress.setVisibility(0);
     }
 
-    public void b() {
-        this.b.setText(x.view_previous_floor);
-        this.c.setVisibility(8);
+    public void YJ() {
+        this.bzZ.setText(y.view_previous_floor);
+        this.mProgress.setVisibility(8);
     }
 
-    public void a(int i) {
+    public void changeSkinType(int i) {
     }
 
-    public void c() {
+    public void hide() {
         setVisibility(8);
     }
 
-    public void d() {
+    public void Ba() {
         setVisibility(0);
     }
 }

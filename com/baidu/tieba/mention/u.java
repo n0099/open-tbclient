@@ -1,41 +1,29 @@
 package com.baidu.tieba.mention;
 
-import android.support.v4.app.Fragment;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends CustomMessageListener {
-    final /* synthetic */ t a;
+public class u implements View.OnClickListener {
+    final /* synthetic */ r bnF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(t tVar, int i) {
-        super(i);
-        this.a = tVar;
+    public u(r rVar) {
+        this.bnF = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Fragment fragment;
-        com.baidu.tbadk.core.d[] dVarArr;
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Fragment)) {
-            fragment = null;
-        } else {
-            fragment = (Fragment) data;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        BaseFragmentActivity baseFragmentActivity3;
+        baseFragmentActivity = this.bnF.axV;
+        View currentFocus = baseFragmentActivity.getCurrentFocus();
+        if (currentFocus != null) {
+            baseFragmentActivity3 = this.bnF.axV;
+            com.baidu.adp.lib.util.m.b(baseFragmentActivity3, currentFocus);
         }
-        if (fragment != null) {
-            this.a.a = new com.baidu.tbadk.core.d[]{(com.baidu.tbadk.core.d) fragment, new al(), new a()};
-            this.a.b = new int[]{0, 1, 2};
-        } else {
-            this.a.a = new com.baidu.tbadk.core.d[]{new al(), new a()};
-            this.a.b = new int[]{1, 2};
-        }
-        t tVar = this.a;
-        dVarArr = this.a.a;
-        tVar.c = dVarArr.length;
+        baseFragmentActivity2 = this.bnF.axV;
+        baseFragmentActivity2.onBackPressed();
     }
 }

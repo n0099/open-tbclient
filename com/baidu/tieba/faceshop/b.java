@@ -9,18 +9,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ a a;
+    final /* synthetic */ a ase;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.a = aVar;
+        this.ase = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Object data;
         JSONArray optJSONArray;
@@ -35,7 +34,7 @@ class b extends CustomMessageListener {
                 } catch (JSONException e) {
                 }
             }
-            this.a.a(linkedList);
+            this.ase.B(linkedList);
         }
     }
 }

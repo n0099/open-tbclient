@@ -1,14 +1,24 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public abstract class Message<T> {
+public abstract class Message<T> extends i {
     private final int mCmd;
     private Object mExtra = null;
+    private long mStartTime = 0;
     private BdUniqueId mTag;
 
     public abstract boolean checkCmd(int i);
+
+    public long getStartTime() {
+        return this.mStartTime;
+    }
+
+    public void setStartTime(long j) {
+        this.mStartTime = j;
+    }
 
     public Message(int i) {
         this.mCmd = i;

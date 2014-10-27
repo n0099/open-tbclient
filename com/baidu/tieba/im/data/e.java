@@ -1,35 +1,58 @@
 package com.baidu.tieba.im.data;
-
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private int a;
-    private int b;
-    private List<UserData> c = new ArrayList();
+    private int aUS;
+    private String content;
+    private long id;
+    private String name;
+    private String portrait;
+    private int status;
 
-    public void a(int i) {
-        this.a = i;
+    public long getId() {
+        return this.id;
     }
 
-    public int a() {
-        return this.b;
+    public void setId(long j) {
+        this.id = j;
     }
 
-    public void b(int i) {
-        this.b = i;
+    public String getName() {
+        return this.name;
     }
 
-    public List<UserData> b() {
-        return this.c;
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public void a(List<UserData> list) {
-        this.c = list;
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public boolean c() {
-        return this.a == 1;
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public int Mn() {
+        return this.aUS;
+    }
+
+    public void fw(int i) {
+        this.aUS = i;
     }
 }

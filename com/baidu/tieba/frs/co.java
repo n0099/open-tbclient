@@ -1,23 +1,50 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+import com.baidu.tieba.frs.view.FrsPraiseView;
+import com.baidu.tieba.view.FrsCommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class co implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsImageActivity a;
+public class co {
+    TextView JM;
+    final /* synthetic */ cj aDA;
+    LinearLayout aDC;
+    ImageView aDD;
+    TextView aDE;
+    LinearLayout azc;
+    LinearLayout azd;
+    TextView aze;
+    PlayVoiceBnt azf;
+    FrsCommonImageLayout azg;
+    TextView azh;
+    TextView azi;
+    UserIconBox azj;
+    HeadImageView azk;
+    LinearLayout azl;
+    ImageView azm;
+    TextView azn;
+    LinearLayout azo;
+    TextView azp;
+    FrsPraiseView azq;
+    TextView azr;
+    View azs;
+    LinearLayout azt;
+    LinearLayout azu;
+    LiveBroadcastCard azv;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public co(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    private co(cj cjVar) {
+        this.aDA = cjVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        boolean z;
-        z = this.a.r;
-        if (z) {
-            this.a.r = false;
-            this.a.t = null;
-            this.a.c(1);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ co(cj cjVar, co coVar) {
+        this(cjVar);
     }
 }

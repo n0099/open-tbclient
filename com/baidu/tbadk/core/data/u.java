@@ -1,35 +1,36 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.WorldCupPk;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class u {
-    String a;
-    String b;
-    String c;
-    String d;
+    private String AQ;
+    private String summary;
 
-    public String a() {
-        return this.a;
+    public String kR() {
+        return this.AQ;
     }
 
-    public String b() {
-        return this.b;
+    public String kK() {
+        return this.summary;
     }
 
-    public String c() {
-        return this.c;
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.AQ = topNews.news_link;
+            this.summary = topNews.summary;
+        }
     }
 
-    public String d() {
-        return this.d;
-    }
-
-    public void a(WorldCupPk worldCupPk) {
-        if (worldCupPk != null) {
-            this.d = worldCupPk.url;
-            this.b = worldCupPk.sum_bonus;
-            this.a = worldCupPk.sum_game;
-            this.c = worldCupPk.prize_url;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.AQ = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

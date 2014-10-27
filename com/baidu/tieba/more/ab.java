@@ -18,6 +18,6 @@ class ab extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        MoreActivity.a(this.this$0).b();
+        MoreActivity.a(this.this$0).refreshNewVersion();
     }
 }

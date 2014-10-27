@@ -1,40 +1,28 @@
 package com.baidu.adp.lib.debug.a;
-
-import android.content.Context;
-import java.io.IOException;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends a implements Runnable {
-    private d a;
-    private l b;
+public class o implements com.baidu.adp.lib.debug.b {
+    final /* synthetic */ n gH;
 
-    public o(Context context) {
-        this.a = new d(context);
-        this.b = new l(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(n nVar) {
+        this.gH = nVar;
     }
 
-    @Override // com.baidu.adp.lib.debug.a.a
-    public void c() {
-        super.c();
-        this.a.c();
-        this.b.c();
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        super.b();
-        while (true) {
-            try {
-                com.baidu.adp.lib.debug.d.b(this.a.d());
-                com.baidu.adp.lib.debug.d.a(this.b.d());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+    @Override // com.baidu.adp.lib.debug.b
+    public void K(String str) {
+        String[] strArr;
+        String[] strArr2;
+        String[] strArr3;
+        strArr = this.gH.gG;
+        if (str.contains(strArr[0])) {
+            strArr2 = this.gH.gG;
+            if (str.contains(strArr2[1])) {
+                strArr3 = this.gH.gG;
+                if (str.contains(strArr3[2])) {
+                    com.baidu.adp.lib.debug.d.q(com.baidu.adp.lib.debug.d.cE() + 1);
+                }
             }
-            if (!a()) {
-                return;
-            }
-            Thread.sleep(300L);
         }
     }
 }

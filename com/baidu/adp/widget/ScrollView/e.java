@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ d a;
-    private final /* synthetic */ View b;
-    private final /* synthetic */ Timer c;
+    private final /* synthetic */ View nt;
+    private final /* synthetic */ Timer vY;
+    final /* synthetic */ d vZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, View view, Timer timer) {
-        this.a = dVar;
-        this.b = view;
-        this.c = timer;
+        this.vZ = dVar;
+        this.nt = view;
+        this.vY = timer;
     }
 
     @Override // java.lang.Runnable
@@ -25,38 +25,38 @@ class e implements Runnable {
         c cVar3;
         boolean z;
         c cVar4;
-        i iVar;
+        h hVar;
         c cVar5;
-        i iVar2;
+        h hVar2;
         c cVar6;
         int i3;
         c cVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nt.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        cVar = this.a.a;
-        i = cVar.a;
+        cVar = this.vZ.vX;
+        i = cVar.vp;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        cVar2 = this.a.a;
-        i2 = cVar2.c;
+        cVar2 = this.vZ.vX;
+        i2 = cVar2.vV;
         if (i5 <= i2) {
-            cVar6 = this.a.a;
-            i3 = cVar6.c;
+            cVar6 = this.vZ.vX;
+            i3 = cVar6.vV;
             layoutParams.bottomMargin = i3;
-            this.c.cancel();
-            cVar7 = this.a.a;
-            cVar7.d = true;
+            this.vY.cancel();
+            cVar7 = this.vZ.vX;
+            cVar7.vW = true;
         }
-        this.b.setLayoutParams(layoutParams);
-        cVar3 = this.a.a;
-        z = cVar3.d;
+        this.nt.setLayoutParams(layoutParams);
+        cVar3 = this.vZ.vX;
+        z = cVar3.vW;
         if (z) {
-            cVar4 = this.a.a;
-            iVar = cVar4.e;
-            if (iVar != null) {
-                cVar5 = this.a.a;
-                iVar2 = cVar5.e;
-                iVar2.a();
+            cVar4 = this.vZ.vX;
+            hVar = cVar4.vr;
+            if (hVar != null) {
+                cVar5 = this.vZ.vX;
+                hVar2 = cVar5.vr;
+                hVar2.hU();
             }
         }
     }

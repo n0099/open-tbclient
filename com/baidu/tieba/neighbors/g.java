@@ -1,23 +1,25 @@
 package com.baidu.tieba.neighbors;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements r {
-    final /* synthetic */ NeighborsActivity a;
+public class g implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ NeighborsActivity btV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NeighborsActivity neighborsActivity) {
-        this.a = neighborsActivity;
+        this.btV = neighborsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r
-    public void a(boolean z) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
         BdListView bdListView;
-        if (z) {
-            bdListView = this.a.o;
-            bdListView.e();
+        if (!com.baidu.adp.lib.util.m.isNetOk()) {
+            bdListView = this.btV.btK;
+            bdListView.hN();
+            return;
         }
+        this.btV.VT();
+        this.btV.dT(false);
     }
 }

@@ -21,7 +21,7 @@ class j extends BroadcastReceiver {
         int intExtra = intent.getIntExtra("intent_data_multiprocess_type", 0);
         if (intExtra == 1) {
             if (!f.b(this.this$0)) {
-                this.this$0.f();
+                this.this$0.save();
             }
         } else if (intExtra == 2 && !f.b(this.this$0)) {
             f.c(this.this$0);

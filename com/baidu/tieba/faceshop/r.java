@@ -10,10 +10,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    final /* synthetic */ EmotionManageActivity a;
+    final /* synthetic */ EmotionManageActivity asH;
 
     private r(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+        this.asH = emotionManageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,9 +25,9 @@ public class r extends BaseAdapter {
     public int getCount() {
         List list;
         List list2;
-        list = this.a.a;
+        list = this.asH.asu;
         if (list != null) {
-            list2 = this.a.a;
+            list2 = this.asH.asu;
             return list2.size();
         }
         return 0;
@@ -38,11 +38,11 @@ public class r extends BaseAdapter {
         List list;
         List list2;
         List list3;
-        list = this.a.a;
+        list = this.asH.asu;
         if (list != null) {
-            list2 = this.a.a;
+            list2 = this.asH.asu;
             if (i <= list2.size()) {
-                list3 = this.a.a;
+                list3 = this.asH.asu;
                 return list3.get(i);
             }
         }
@@ -53,9 +53,9 @@ public class r extends BaseAdapter {
     public long getItemId(int i) {
         List list;
         List list2;
-        list = this.a.a;
+        list = this.asH.asu;
         if (list != null) {
-            list2 = this.a.a;
+            list2 = this.asH.asu;
             if (i <= list2.size()) {
                 return i;
             }
@@ -72,45 +72,45 @@ public class r extends BaseAdapter {
         List list4;
         List list5;
         if (view == null) {
-            view = a();
+            view = hA();
         }
         u uVar = (u) view.getTag();
-        list = this.a.a;
-        Bitmap bitmap = ((s) list.get(i)).d;
+        list = this.asH.asu;
+        Bitmap bitmap = ((s) list.get(i)).asJ;
         if (bitmap != null) {
-            uVar.b.setImageBitmap(bitmap);
+            uVar.asL.setImageBitmap(bitmap);
         } else {
-            com.baidu.tbadk.core.util.ay.c(uVar.b, com.baidu.tieba.t.pic_image_h_not);
+            com.baidu.tbadk.core.util.aw.c(uVar.asL, by.pic_image_h_not);
         }
-        z = this.a.p;
+        z = this.asH.asG;
         if (z) {
-            list3 = this.a.b;
-            list4 = this.a.a;
-            if (list3.contains(((s) list4.get(i)).a)) {
-                com.baidu.tbadk.core.util.ay.c(uVar.a, com.baidu.tieba.t.btn_expression_choose_s);
+            list3 = this.asH.asv;
+            list4 = this.asH.asu;
+            if (list3.contains(((s) list4.get(i)).id)) {
+                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_s);
             } else {
-                com.baidu.tbadk.core.util.ay.c(uVar.a, com.baidu.tieba.t.btn_expression_choose_n);
+                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_n);
             }
-            uVar.a.setVisibility(0);
-            ImageView imageView = uVar.a;
-            list5 = this.a.a;
-            imageView.setTag(((s) list5.get(i)).a);
+            uVar.asK.setVisibility(0);
+            ImageView imageView = uVar.asK;
+            list5 = this.asH.asu;
+            imageView.setTag(((s) list5.get(i)).id);
         } else {
-            uVar.a.setVisibility(8);
+            uVar.asK.setVisibility(8);
         }
-        TextView textView = uVar.c;
-        list2 = this.a.a;
-        textView.setText(((s) list2.get(i)).b);
-        this.a.getLayoutMode().a(view);
+        TextView textView = uVar.UD;
+        list2 = this.asH.asu;
+        textView.setText(((s) list2.get(i)).name);
+        this.asH.getLayoutMode().h(view);
         return view;
     }
 
-    private View a() {
-        View inflate = View.inflate(this.a, com.baidu.tieba.v.emotion_manage_list_item, null);
+    private View hA() {
+        View inflate = View.inflate(this.asH, ca.emotion_manage_list_item, null);
         u uVar = new u(null);
-        uVar.a = (ImageView) inflate.findViewById(com.baidu.tieba.u.emotion_group_select);
-        uVar.b = (ImageView) inflate.findViewById(com.baidu.tieba.u.emotion_group_photo);
-        uVar.c = (TextView) inflate.findViewById(com.baidu.tieba.u.emotion_group_name);
+        uVar.asK = (ImageView) inflate.findViewById(bz.emotion_group_select);
+        uVar.asL = (ImageView) inflate.findViewById(bz.emotion_group_photo);
+        uVar.UD = (TextView) inflate.findViewById(bz.emotion_group_name);
         inflate.setTag(uVar);
         return inflate;
     }

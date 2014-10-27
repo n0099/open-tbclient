@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.pluginArch.InstallCallback;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.plugins.LivePlugin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as extends BdAsyncTask<String, Integer, String> {
-    private as() {
-    }
+public class as implements InstallCallback {
+    final /* synthetic */ aj adY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ as(as asVar) {
-        this();
+    public as(aj ajVar) {
+        this.adY = ajVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = ai.K;
-        synchronized (bArr) {
-            ai.L = Boolean.valueOf(com.baidu.tieba.util.r.a());
-            bArr2 = ai.K;
-            bArr2.notifyAll();
+    @Override // com.baidu.tbadk.pluginArch.InstallCallback
+    public void onFinish(int i, String str) {
+        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_LIVE);
+        if (pluginByName != null) {
+            pluginByName.getClassInstance(LivePlugin.class);
         }
-        return null;
     }
 }

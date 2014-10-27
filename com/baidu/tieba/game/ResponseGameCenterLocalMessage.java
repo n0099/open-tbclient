@@ -6,10 +6,12 @@ import java.util.List;
 import tbclient.GetGameCenter.AdList;
 import tbclient.GetGameCenter.GameList;
 import tbclient.GetGameCenter.GetGameCenterResIdl;
+import tbclient.GetGameCenter.RecommendGame;
 /* loaded from: classes.dex */
 public class ResponseGameCenterLocalMessage extends CustomResponsedMessage<Object> {
     private List<AdList> mAdList;
     private GameList mGameList;
+    private List<RecommendGame> mRecommendGames;
 
     public ResponseGameCenterLocalMessage() {
         super(2001224);
@@ -31,7 +33,12 @@ public class ResponseGameCenterLocalMessage extends CustomResponsedMessage<Objec
             if (getError() == 0) {
                 this.mGameList = getGameCenterResIdl.data.game_list;
                 this.mAdList = getGameCenterResIdl.data.ad_list;
+                this.mRecommendGames = getGameCenterResIdl.data.recommend_game;
             }
         }
+    }
+
+    public List<RecommendGame> getRecommendGames() {
+        return this.mRecommendGames;
     }
 }

@@ -4,20 +4,40 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.cb;
-import com.baidu.tieba.model.be;
+import com.baidu.tbadk.core.atomData.SyncServiceConfig;
+import com.baidu.tieba.model.bb;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
     private static String mStatistics = null;
-    private r mSyncTask = null;
+    private static long MIN_SYNC_INTERVAL = 300000;
+    private t mSyncTask = null;
     private int mHaveRetry = 0;
-    private be mModel = null;
+    private bb mModel = null;
+    private long mLastSyncTime = -1;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new q(this);
+    private Runnable mRunnable = new r(this);
+    private com.baidu.adp.framework.listener.e mOnlineListener = new s(this, 1001);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(cb.class, TiebaSyncService.class);
+        TbadkApplication.m251getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
+    }
+
+    public void checkVersion(String str) {
+        String TY;
+        if (str != null && this.mModel != null && (TY = this.mModel.TY()) != null && !TY.equalsIgnoreCase(str) && checkAutoSyncInterval()) {
+            this.mLastSyncTime = System.currentTimeMillis();
+            checkUpdata();
+        }
+    }
+
+    private boolean checkAutoSyncInterval() {
+        if (-1 == this.mLastSyncTime) {
+            return true;
+        }
+        long currentTimeMillis = System.currentTimeMillis() - this.mLastSyncTime;
+        return currentTimeMillis <= 0 || currentTimeMillis >= MIN_SYNC_INTERVAL;
     }
 
     public static void setMsgType(String str) {
@@ -32,6 +52,7 @@ public class TiebaSyncService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
+        MessageManager.getInstance().registerListener(this.mOnlineListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -39,7 +60,7 @@ public class TiebaSyncService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new r(this, null);
+        this.mSyncTask = new t(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 
@@ -48,6 +69,7 @@ public class TiebaSyncService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
+        MessageManager.getInstance().unRegisterListener(this.mOnlineListener);
         this.mHaveRetry = 11;
         this.mHandler.removeCallbacks(this.mRunnable);
         super.onDestroy();
@@ -63,7 +85,7 @@ public class TiebaSyncService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.e.d()));
+            sendBroadcast(new Intent(com.baidu.tieba.data.e.yw()));
         }
     }
 }

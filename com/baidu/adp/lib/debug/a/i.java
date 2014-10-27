@@ -1,28 +1,16 @@
 package com.baidu.adp.lib.debug.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.lib.debug.b {
-    final /* synthetic */ h a;
+public class i extends a {
+    private String gt = "dalvikvm";
+    private String[] gu = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
-    }
-
-    /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
-    @Override // com.baidu.adp.lib.debug.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(String str) {
-        String[] strArr;
-        String[] strArr2;
-        for (int i = 0; i < strArr.length; i++) {
-            strArr2 = this.a.b;
-            if (str.contains(strArr2[i])) {
-                com.baidu.adp.lib.debug.d.b(com.baidu.adp.lib.debug.d.d() + 1);
-                return;
-            }
+    @Override // com.baidu.adp.lib.debug.a.a
+    public void start() {
+        super.start();
+        try {
+            k.a(this.gt, new j(this));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

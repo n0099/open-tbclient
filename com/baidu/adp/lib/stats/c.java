@@ -9,38 +9,38 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.lib.Disk.g {
-    final /* synthetic */ BdNormalStatBase a;
+public class c implements com.baidu.adp.lib.Disk.f {
+    final /* synthetic */ BdNormalStatBase lF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdNormalStatBase bdNormalStatBase) {
-        this.a = bdNormalStatBase;
+        this.lF = bdNormalStatBase;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [491=4, 492=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [535=4, 536=4] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x004a  */
     /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.adp.lib.Disk.g
+    @Override // com.baidu.adp.lib.Disk.f
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean a(com.baidu.adp.lib.Disk.f fVar, DiskFileOperate diskFileOperate, com.baidu.adp.lib.Disk.b bVar) {
+    public boolean a(com.baidu.adp.lib.Disk.e eVar, DiskFileOperate diskFileOperate, com.baidu.adp.lib.Disk.b bVar) {
         FileInputStream fileInputStream;
         boolean z;
         File a;
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream = null;
         try {
-            a = bVar.a(diskFileOperate.d(), diskFileOperate.c(), false, diskFileOperate.o());
+            a = bVar.a(diskFileOperate.getPath(), diskFileOperate.getName(), false, diskFileOperate.bE());
         } catch (Exception e) {
             e = e;
         } catch (Throwable th) {
             th = th;
             fileInputStream = null;
         }
-        if (a == null || !a.exists() || fVar.b()) {
-            com.baidu.adp.lib.e.a.a((InputStream) null);
-            com.baidu.adp.lib.e.a.a((OutputStream) null);
+        if (a == null || !a.exists() || eVar.bo()) {
+            com.baidu.adp.lib.g.a.a((InputStream) null);
+            com.baidu.adp.lib.g.a.a((OutputStream) null);
             return false;
         }
         fileInputStream = new FileInputStream(a);
@@ -56,7 +56,7 @@ public class c implements com.baidu.adp.lib.Disk.g {
                 }
                 i++;
                 if (fileOutputStream == null || file == null) {
-                    file = bVar.a(diskFileOperate.d(), this.a.getUploadingLogFile(), false, diskFileOperate.o());
+                    file = bVar.a(diskFileOperate.getPath(), this.lF.getUploadingLogFile(), false, diskFileOperate.bE());
                     fileOutputStream = new FileOutputStream(file);
                 }
                 boolean z2 = i * 10240 >= 102400;
@@ -78,10 +78,10 @@ public class c implements com.baidu.adp.lib.Disk.g {
                 fileOutputStream.write(bArr, 0, i2);
                 fileOutputStream.flush();
                 if (z2) {
-                    com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.g.a.a((OutputStream) fileOutputStream);
                     if (i2 != read) {
                         try {
-                            File a2 = bVar.a(diskFileOperate.d(), this.a.getUploadingLogFile(), false, diskFileOperate.o());
+                            File a2 = bVar.a(diskFileOperate.getPath(), this.lF.getUploadingLogFile(), false, diskFileOperate.bE());
                             fileOutputStream = new FileOutputStream(a2);
                             fileOutputStream.write(bArr, i2, read - i2);
                             fileOutputStream.flush();
@@ -93,23 +93,23 @@ public class c implements com.baidu.adp.lib.Disk.g {
                             fileInputStream2 = fileInputStream;
                             try {
                                 BdLog.e(e);
-                                com.baidu.adp.lib.e.a.a((InputStream) fileInputStream2);
-                                com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                                com.baidu.adp.lib.g.a.a((InputStream) fileInputStream2);
+                                com.baidu.adp.lib.g.a.a((OutputStream) fileOutputStream);
                                 z = false;
                                 if (z) {
                                 }
                             } catch (Throwable th2) {
                                 th = th2;
                                 fileInputStream = fileInputStream2;
-                                com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
-                                com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                                com.baidu.adp.lib.g.a.a((InputStream) fileInputStream);
+                                com.baidu.adp.lib.g.a.a((OutputStream) fileOutputStream);
                                 throw th;
                             }
                         } catch (Throwable th3) {
                             th = th3;
                             fileOutputStream = null;
-                            com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
-                            com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+                            com.baidu.adp.lib.g.a.a((InputStream) fileInputStream);
+                            com.baidu.adp.lib.g.a.a((OutputStream) fileOutputStream);
                             throw th;
                         }
                     } else {
@@ -120,8 +120,8 @@ public class c implements com.baidu.adp.lib.Disk.g {
                 }
             }
             z = true;
-            com.baidu.adp.lib.e.a.a((InputStream) fileInputStream);
-            com.baidu.adp.lib.e.a.a((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.g.a.a((InputStream) fileInputStream);
+            com.baidu.adp.lib.g.a.a((OutputStream) fileOutputStream);
         } catch (Exception e3) {
             e = e3;
             fileInputStream2 = fileInputStream;
@@ -131,7 +131,7 @@ public class c implements com.baidu.adp.lib.Disk.g {
         if (z) {
             return z;
         }
-        this.a.a(diskFileOperate.c());
+        this.lF.ac(diskFileOperate.getName());
         return z;
     }
 }

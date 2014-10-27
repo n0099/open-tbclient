@@ -1,51 +1,34 @@
 package com.baidu.tieba.im.data;
+
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class g {
-    private int a;
-    private long b;
-    private long c;
-    private int d;
-    private int e;
-    private int f;
-    private String g;
+public class g {
+    private long aUV;
+    private int aUW;
+    private List<f> parent_menu = new ArrayList();
 
-    public void a(int i) {
-        this.a = i;
+    public boolean Mq() {
+        return this.aUW == 1;
     }
 
-    public long a() {
-        return this.b;
+    public void fz(int i) {
+        this.aUW = i;
     }
 
-    public void a(long j) {
-        this.b = j;
+    public long Mr() {
+        return this.aUV;
     }
 
-    public long b() {
-        return this.c;
+    public void M(long j) {
+        this.aUV = j;
     }
 
-    public void b(long j) {
-        this.c = j;
+    public List<f> Ms() {
+        return this.parent_menu;
     }
 
-    public void b(int i) {
-        this.d = i;
-    }
-
-    public void c(int i) {
-        this.e = i;
-    }
-
-    public void d(int i) {
-        this.f = i;
-    }
-
-    public String c() {
-        return this.g;
-    }
-
-    public void a(String str) {
-        this.g = str;
+    public void R(List<f> list) {
+        this.parent_menu = list;
     }
 }

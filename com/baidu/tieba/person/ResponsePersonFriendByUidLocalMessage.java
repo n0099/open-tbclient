@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
-    private com.baidu.tieba.data.am mData;
+    private com.baidu.tieba.data.aj mData;
 
     public ResponsePersonFriendByUidLocalMessage() {
         super(2001186);
@@ -13,11 +13,11 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         super(i);
     }
 
-    public void setPersonListData(com.baidu.tieba.data.am amVar) {
-        this.mData = amVar;
+    public void setPersonListData(com.baidu.tieba.data.aj ajVar) {
+        this.mData = ajVar;
     }
 
-    public com.baidu.tieba.data.am getPersonListData() {
+    public com.baidu.tieba.data.aj getPersonListData() {
         return this.mData;
     }
 
@@ -25,8 +25,8 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, String str) {
         if (str != null) {
-            this.mData = new com.baidu.tieba.data.am();
-            this.mData.a(str);
+            this.mData = new com.baidu.tieba.data.aj();
+            this.mData.parserJson(str);
         }
     }
 }

@@ -1,18 +1,22 @@
 package com.baidu.tieba.im.chat.personaltalk;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity a;
+class h extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ g aSr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.a = personalTalkSettingActivity;
+    public h(g gVar) {
+        this.aSr = gVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.b
+    public Boolean doInBackground() {
+        PersonalTalkSettingActivity personalTalkSettingActivity;
+        long j;
+        com.baidu.tieba.im.db.o MQ = com.baidu.tieba.im.db.o.MQ();
+        personalTalkSettingActivity = this.aSr.aSq;
+        j = personalTalkSettingActivity.userId;
+        return Boolean.valueOf(MQ.fW(String.valueOf(j)));
     }
 }

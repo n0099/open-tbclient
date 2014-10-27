@@ -5,37 +5,36 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<Object, Object, AccountData> {
-    private final String a;
-    private final String b;
-    private final d c;
+    private final String mAccount;
+    private final String mPassword;
+    private final d yU;
 
     public e(String str, String str2, d dVar) {
-        this.a = str;
-        this.b = str2;
-        this.c = dVar;
+        this.mAccount = str;
+        this.mPassword = str2;
+        this.yU = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: d */
     public AccountData doInBackground(Object... objArr) {
-        AccountData b;
-        b = c.b(this.a, this.b);
-        return b;
+        AccountData A;
+        A = c.A(this.mAccount, this.mPassword);
+        return A;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(AccountData accountData) {
-        super.onPostExecute(accountData);
-        if (this.c != null) {
+        super.onPostExecute((e) accountData);
+        if (this.yU != null) {
             if (accountData != null) {
-                this.c.onSuccess(accountData);
+                this.yU.onSuccess(accountData);
             } else {
-                this.c.onFailure(this.a);
+                this.yU.onFailure(this.mAccount);
             }
         }
     }

@@ -12,10 +12,9 @@ class a extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
-            f.c().b((String) customResponsedMessage.getData());
+            f.er().ai((String) customResponsedMessage.getData());
         }
     }
 }

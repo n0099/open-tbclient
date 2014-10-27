@@ -1,23 +1,22 @@
 package com.baidu.tieba.bubble;
 
 import com.baidu.tieba.data.BubbleListData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ s a;
-    private final /* synthetic */ BubbleListData.BubbleData b;
+class q implements com.baidu.tbadk.core.dialog.d {
+    private final /* synthetic */ s ajk;
+    private final /* synthetic */ BubbleListData.BubbleData ajl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(s sVar, BubbleListData.BubbleData bubbleData) {
-        this.a = sVar;
-        this.b = bubbleData;
+        this.ajk = sVar;
+        this.ajl = bubbleData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.d();
-        if (this.a != null) {
-            this.a.a(this.b.getBcode());
+        aVar.dismiss();
+        if (this.ajk != null) {
+            this.ajk.dV(this.ajl.getBcode());
         }
     }
 }

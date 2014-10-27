@@ -4,32 +4,32 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class an {
-    private static ArrayList<ao> b = new ArrayList<>();
-    public static AtomicInteger a = new AtomicInteger(0);
+    private static ArrayList<ao> EG = new ArrayList<>();
+    public static AtomicInteger EH = new AtomicInteger(0);
 
-    public static int a(int i) {
-        return a.getAndSet(i);
+    public static int bv(int i) {
+        return EH.getAndSet(i);
     }
 
-    public static int b(int i) {
-        return a.addAndGet(i);
+    public static int bw(int i) {
+        return EH.addAndGet(i);
     }
 
     public static synchronized void a(ao aoVar) {
         synchronized (an.class) {
             if (aoVar != null) {
-                if (b.size() <= 20) {
-                    b.add(aoVar);
+                if (EG.size() <= 20) {
+                    EG.add(aoVar);
                 }
             }
         }
     }
 
-    public static synchronized ao a() {
+    public static synchronized ao mv() {
         ao remove;
         synchronized (an.class) {
-            int size = b.size();
-            remove = size > 0 ? b.remove(size - 1) : null;
+            int size = EG.size();
+            remove = size > 0 ? EG.remove(size - 1) : null;
         }
         return remove;
     }

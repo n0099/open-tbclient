@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.gson.Gson;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = 3854743775726463617L;
@@ -42,7 +41,7 @@ public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Ser
     }
 
     public String toJsonString() {
-        return new Gson().toJson(this).toString();
+        return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this);
     }
 
     public String getUserName() {
@@ -134,16 +133,16 @@ public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Ser
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(getPortrait());
-        return linkedList;
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getPortrait());
+        return arrayList;
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(getPortrait());
-        return linkedList;
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getPortrait());
+        return arrayList;
     }
 }

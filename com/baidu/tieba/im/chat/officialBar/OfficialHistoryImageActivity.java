@@ -12,7 +12,7 @@ public class OfficialHistoryImageActivity extends AbsMsgImageActivity {
         bsVar.a(new LinkedHashMap<>());
     }
 
-    public static void a(Context context, String str, String str2) {
+    public static void startActivity(Context context, String str, String str2) {
         if (context != null) {
             Intent intent = new Intent(context, OfficialHistoryImageActivity.class);
             intent.putExtra("current_url", str);

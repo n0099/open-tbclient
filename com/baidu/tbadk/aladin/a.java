@@ -4,118 +4,127 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private AladinServer b;
-    private ServerSocket a = null;
-    private boolean c = false;
-    private boolean d = false;
-    private int e = 6257;
+    private AladinServer xe;
+    private ServerSocket xd = null;
+    private boolean xf = false;
+    private boolean xg = false;
+    private int xh = 6257;
 
     public a(AladinServer aladinServer) {
-        this.b = aladinServer;
+        this.xe = aladinServer;
     }
 
-    private void a(int i) {
-        this.a = new ServerSocket();
-        this.a.setReuseAddress(true);
-        this.a.setSoTimeout(0);
-        this.a.bind(new InetSocketAddress(i));
+    private void init(int i) {
+        this.xd = new ServerSocket();
+        this.xd.setReuseAddress(true);
+        this.xd.setSoTimeout(0);
+        this.xd.bind(new InetSocketAddress(i));
     }
 
-    public void a() {
-        this.d = true;
+    public void quit() {
+        this.xg = true;
         try {
-            this.a.close();
-        } catch (Exception e) {
+            if (!this.xd.isClosed()) {
+                this.xd.close();
+            }
+        } catch (Throwable th) {
         }
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.e = com.baidu.tbadk.core.sharedPref.b.a().a("aladin_port", -1);
-        if (this.e == -1) {
-            this.e = 6257;
+        this.xh = com.baidu.tbadk.core.sharedPref.b.lk().getInt("aladin_port", -1);
+        if (this.xh == -1) {
+            this.xh = 6257;
         }
         try {
-            a(this.e);
+            init(this.xh);
             while (true) {
                 try {
-                    try {
-                        this.c = true;
-                        Socket accept = this.a.accept();
-                        if (accept != null) {
-                            if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
-                                try {
-                                    accept.close();
-                                } catch (IOException e) {
-                                }
-                            } else {
-                                new b(accept, this.b, this).start();
-                            }
-                        }
-                    } catch (Throwable th) {
-                        this.c = false;
-                        if (this.a != null) {
+                    this.xf = true;
+                    Socket accept = this.xd.accept();
+                    if (accept != null) {
+                        if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
                             try {
-                                this.a.close();
-                            } catch (Throwable th2) {
-                                BdLog.detailException(th2);
+                                if (!accept.isClosed()) {
+                                    accept.close();
+                                }
+                            } catch (Throwable th) {
+                            }
+                        } else {
+                            new b(accept, this.xe, this).start();
+                        }
+                    }
+                } catch (Throwable th2) {
+                    try {
+                        BdLog.detailException(th2);
+                        this.xf = false;
+                        if (this.xd != null) {
+                            try {
+                                if (!this.xd.isClosed()) {
+                                    this.xd.close();
+                                }
+                            } catch (Throwable th3) {
+                                BdLog.detailException(th3);
                             }
                         }
-                        if (!this.d && this.b != null) {
+                        if (!this.xg && this.xe != null) {
+                            try {
+                                Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            this.xe.reStartListener();
+                            return;
+                        }
+                        return;
+                    } catch (Throwable th4) {
+                        this.xf = false;
+                        if (this.xd != null) {
+                            try {
+                                if (!this.xd.isClosed()) {
+                                    this.xd.close();
+                                }
+                            } catch (Throwable th5) {
+                                BdLog.detailException(th5);
+                            }
+                        }
+                        if (!this.xg && this.xe != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            this.b.reStartListener();
+                            this.xe.reStartListener();
                         }
-                        throw th;
+                        throw th4;
                     }
-                } catch (Exception e3) {
-                    BdLog.detailException(e3);
-                    this.c = false;
-                    if (this.a != null) {
-                        try {
-                            this.a.close();
-                        } catch (Throwable th3) {
-                            BdLog.detailException(th3);
-                        }
-                    }
-                    if (!this.d && this.b != null) {
-                        try {
-                            Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
-                        } catch (InterruptedException e4) {
-                            e4.printStackTrace();
-                        }
-                        this.b.reStartListener();
-                        return;
-                    }
-                    return;
                 }
             }
-        } catch (IOException e5) {
-            BdLog.detailException(e5);
-            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, e5.getMessage(), new StringBuilder(String.valueOf(this.e)).toString());
-            if (this.b != null) {
-                this.b.stopSelf();
+        } catch (Throwable th6) {
+            BdLog.detailException(th6);
+            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.xh)).toString());
+            if (this.xe != null) {
+                this.xe.stopSelf();
             }
-            if (this.a != null) {
+            if (this.xd != null) {
                 try {
-                    this.a.close();
-                } catch (Throwable th4) {
-                    BdLog.detailException(th4);
+                    if (!this.xd.isClosed()) {
+                        this.xd.close();
+                    }
+                } catch (Throwable th7) {
+                    BdLog.detailException(th7);
                 }
             }
         }
     }
 
-    public boolean b() {
-        return this.c;
+    public boolean iI() {
+        return this.xf;
     }
 }

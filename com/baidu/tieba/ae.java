@@ -3,17 +3,19 @@ package com.baidu.tieba;
 import android.view.View;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
-    final /* synthetic */ ab a;
+    final /* synthetic */ ac ado;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar) {
-        this.a = abVar;
+    public ae(ac acVar) {
+        this.ado = acVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ag agVar;
-        agVar = this.a.v;
-        agVar.a();
+        ah ahVar;
+        boolean z;
+        ahVar = this.ado.adl;
+        z = this.ado.acT;
+        ahVar.aM(z);
     }
 }

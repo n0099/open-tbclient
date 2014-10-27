@@ -1,51 +1,47 @@
 package com.baidu.tieba.pb.praise;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
-public class b {
-    private View a;
-    private HeadImageView b;
-    private TextView c;
-    private TextView d;
-    private ImageView e;
+public class b extends com.baidu.tbadk.mvc.i.a<a, com.baidu.tbadk.mvc.e.c> {
+    private HeadImageView bzh;
+    private TextView bzi;
+    private TextView bzj;
+    private ImageView bzk;
 
-    public static b a(Context context, View view) {
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            return new b(context);
-        }
-        return (b) view.getTag();
+    public b(View view, ViewEventCenter viewEventCenter) {
+        super(view, viewEventCenter);
+        this.bzh = null;
+        this.bzi = null;
+        this.bzj = null;
+        this.bzk = null;
+        this.bzh = (HeadImageView) view.findViewById(v.zan_list_item_head);
+        this.bzi = (TextView) view.findViewById(v.zan_list_item_name);
+        this.bzj = (TextView) view.findViewById(v.zan_list_item_time);
+        this.bzk = (ImageView) view.findViewById(v.zan_list_item_line_bottom);
+        this.bzk.setVisibility(0);
+        dg(TbadkApplication.m251getInst().getSkinType());
     }
 
-    private b(Context context) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.a = com.baidu.adp.lib.e.b.a().a(context, v.zan_list_item, null);
-        this.b = (HeadImageView) this.a.findViewById(u.zan_list_item_head);
-        this.c = (TextView) this.a.findViewById(u.zan_list_item_name);
-        this.d = (TextView) this.a.findViewById(u.zan_list_item_time);
-        this.e = (ImageView) this.a.findViewById(u.zan_list_item_line_bottom);
-        this.e.setVisibility(0);
-        this.a.setTag(this);
+    @Override // com.baidu.tbadk.e.a
+    public boolean dg(int i) {
+        com.baidu.tbadk.e.b.u(getRootView());
+        return true;
     }
 
-    public View a() {
-        return this.a;
-    }
-
-    public void a(String str, String str2, long j, boolean z) {
-        this.c.setText(str);
-        this.b.setImageDrawable(null);
-        this.d.setText(ba.a(j));
-        this.b.a(str2, 12, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.mvc.i.d
+    /* renamed from: a */
+    public void r(a aVar) {
+        this.bzi.setText(aVar.getUserName());
+        this.bzh.setImageDrawable(null);
+        this.bzj.setText(ay.j(aVar.Yt()));
+        this.bzh.c(aVar.getPortrait(), 28, false);
     }
 }

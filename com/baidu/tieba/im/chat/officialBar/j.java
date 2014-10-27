@@ -2,42 +2,45 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-class j implements com.baidu.adp.lib.d.c<f> {
-    final /* synthetic */ i a;
-    private final /* synthetic */ Context b;
+class j implements com.baidu.adp.lib.e.c<f> {
+    final /* synthetic */ i aQX;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, Context context) {
-        this.a = iVar;
-        this.b = context;
+        this.aQX = iVar;
+        this.val$context = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public f a() {
-        return new f(this.b);
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Kn */
+    public f ee() {
+        return new f(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(f fVar) {
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public void i(f fVar) {
         if (fVar instanceof f) {
-            fVar.a();
+            fVar.reset();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public f b(f fVar) {
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public f j(f fVar) {
         return fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public f c(f fVar) {
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: f */
+    public f k(f fVar) {
         if (fVar instanceof f) {
-            fVar.a();
+            fVar.reset();
         }
         return fVar;
     }

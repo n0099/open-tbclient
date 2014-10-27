@@ -1,118 +1,66 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bp;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.view.ViewPager;
+import com.baidu.tieba.square.CarouselRecommendView;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BaseAdapter {
-    View.OnClickListener a = new m(this);
-    private Activity b;
-    private final o c;
-    private final String d;
-    private final String e;
+public class l extends Handler {
+    final /* synthetic */ CarouselRecommendView bMm;
 
-    public l(Activity activity, o oVar, String str, String str2) {
-        this.b = activity;
-        this.d = str;
-        this.e = str2;
-        this.c = oVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(CarouselRecommendView carouselRecommendView) {
+        this.bMm = carouselRecommendView;
     }
 
-    public o a() {
-        return this.c;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        w d = this.c.d();
-        if (d == null || d.e == null) {
-            return 0;
-        }
-        return (d.e.size() * 2) - 1;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        if (view == null) {
-            view = a(viewGroup, itemViewType);
-            bp.b(view);
-        }
-        bp.a(view);
-        if (itemViewType != 3) {
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.u.container);
-            View findViewById2 = view.findViewById(com.baidu.tieba.u.item_up);
-            View findViewById3 = view.findViewById(com.baidu.tieba.u.item_down);
-            if (itemViewType == 0) {
-                findViewById2.setVisibility(0);
-                findViewById3.setVisibility(8);
-            } else if (itemViewType == 2) {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(0);
-            } else {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(8);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        ViewPager viewPager;
+        ViewPager viewPager2;
+        CarouselRecommendView.n nVar;
+        List list;
+        CarouselRecommendView.n nVar2;
+        ViewPager viewPager3;
+        ViewPager viewPager4;
+        ViewPager viewPager5;
+        ViewPager viewPager6;
+        ViewPager viewPager7;
+        CarouselRecommendView.n nVar3;
+        ViewPager viewPager8;
+        viewPager = this.bMm.mPager;
+        int currentItem = viewPager.getCurrentItem();
+        if (message.what == 0) {
+            viewPager2 = this.bMm.mPager;
+            if (viewPager2 != null) {
+                nVar = this.bMm.mPageAdapter;
+                if (nVar != null) {
+                    list = this.bMm.dataCache;
+                    if (list.size() > 1) {
+                        if (currentItem < 1) {
+                            viewPager7 = this.bMm.mPager;
+                            nVar3 = this.bMm.mPageAdapter;
+                            viewPager7.setCurrentItem(nVar3.getCount() - 2, false);
+                            viewPager8 = this.bMm.mPager;
+                            viewPager8.invalidate();
+                            return;
+                        }
+                        nVar2 = this.bMm.mPageAdapter;
+                        if (currentItem > nVar2.getCount() - 2) {
+                            viewPager5 = this.bMm.mPager;
+                            viewPager5.setCurrentItem(1, false);
+                            viewPager6 = this.bMm.mPager;
+                            viewPager6.invalidate();
+                            return;
+                        }
+                        viewPager3 = this.bMm.mPager;
+                        viewPager3.setCurrentItem(currentItem + 1);
+                        viewPager4 = this.bMm.mPager;
+                        viewPager4.invalidate();
+                    }
+                }
             }
-            bp.a(findViewById, itemViewType, skinType);
-            a(viewGroup, (n) view.getTag(), i);
         }
-        return view;
-    }
-
-    private View a(ViewGroup viewGroup, int i) {
-        if (i == 3) {
-            return com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_home_list_line, viewGroup, false);
-        }
-        View a = com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.bar_folder_second_dir_item, viewGroup, false);
-        a.setOnClickListener(this.a);
-        n nVar = new n();
-        nVar.a = (TextView) a.findViewById(com.baidu.tieba.u.name);
-        a.setTag(nVar);
-        return a;
-    }
-
-    private void a(ViewGroup viewGroup, n nVar, int i) {
-        w wVar = this.c.d().e.get(i / 2);
-        nVar.b = wVar;
-        nVar.a.setText(wVar.b);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 4;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        if (i == 0) {
-            return 0;
-        }
-        if (i == getCount() - 1) {
-            return 2;
-        }
-        if (i % 2 != 0) {
-            return 3;
-        }
-        return 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Activity b() {
-        return this.b;
     }
 }

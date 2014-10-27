@@ -1,25 +1,21 @@
 package com.baidu.tieba.person;
-
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class bq implements com.baidu.adp.widget.ListView.aa {
+    final /* synthetic */ PersonListActivity bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bq(PersonListActivity personListActivity) {
+        this.bCT = personListActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        by byVar;
-        by byVar2;
-        this.a.destroyWaitingDialog();
-        byVar = this.a.x;
-        if (byVar != null) {
-            byVar2 = this.a.x;
-            byVar2.cancel();
+    @Override // com.baidu.adp.widget.ListView.aa
+    public void hQ() {
+        br brVar;
+        brVar = this.bCT.bCO;
+        if (!brVar.isHasMore()) {
+            return;
         }
+        this.bCT.aaa();
     }
 }

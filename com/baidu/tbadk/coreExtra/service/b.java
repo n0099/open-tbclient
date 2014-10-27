@@ -1,33 +1,33 @@
 package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.i;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private ae a;
-    private c b;
-    private com.baidu.tbadk.coreExtra.data.c c;
-    private String d;
-    private String e;
+    private String MA;
+    private c Mx;
+    private com.baidu.tbadk.coreExtra.data.c My;
+    private String Mz;
+    private ac yV;
 
     public b(String str, String str2) {
-        this.d = str;
-        this.e = str2;
+        this.Mz = str;
+        this.MA = str2;
     }
 
-    public com.baidu.tbadk.coreExtra.data.c a(String str) {
+    public com.baidu.tbadk.coreExtra.data.c cH(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.a = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + this.d);
+            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.Mz);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -37,51 +37,51 @@ public class b {
 
     private com.baidu.tbadk.coreExtra.data.c a(String str, File file) {
         String a;
-        String a2 = ba.a(s.a(file));
-        if (a2 != null && a2.length() > 0) {
-            a2 = a2.toLowerCase();
+        String b = u.b(s.k(file));
+        if (b != null && b.length() > 0) {
+            b = b.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.b b = i.b(a2);
-        if (b == null) {
-            b = new com.baidu.tbadk.coreExtra.data.b();
-            b.a(a2);
-            b.a(0);
-            b.a(file.length());
+        com.baidu.tbadk.coreExtra.data.b bn = i.bn(b);
+        if (bn == null) {
+            bn = new com.baidu.tbadk.coreExtra.data.b();
+            bn.cn(b);
+            bn.bV(0);
+            bn.l(file.length());
         }
-        this.b = new c(this, str, b, String.valueOf(TbConfig.SERVER_ADDRESS) + this.d, a2);
-        this.c = this.b.a();
-        if (this.c.b() && (a = a(a2, b)) != null && !a.equals("")) {
+        this.Mx = new c(this, str, bn, String.valueOf(TbConfig.SERVER_ADDRESS) + this.Mz, b);
+        this.My = this.Mx.pF();
+        if (this.My.isSuccess() && (a = a(b, bn)) != null && !a.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                b.a(audioInfoData.getVoiceId());
-                this.c.a(b);
+                bn.cn(audioInfoData.getVoiceId());
+                this.My.b(bn);
             } else {
-                this.c.a(audioInfoData.getErrorCode());
-                this.c.a(audioInfoData.getErrorMsg());
-                this.c.a(false);
+                this.My.setErrorCode(audioInfoData.getErrorCode());
+                this.My.setErrorString(audioInfoData.getErrorMsg());
+                this.My.ab(false);
             }
         }
-        return this.c;
+        return this.My;
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.a = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + this.e);
-        this.a.a("voice_md5", bVar.a());
-        String h = this.a.h();
-        if (h == null || !this.a.a().b().b()) {
-            bVar.a((int) a(bVar.b()));
+        this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.MA);
+        this.yV.k("voice_md5", bVar.ou());
+        String lA = this.yV.lA();
+        if (lA == null || !this.yV.mc().nb().jq()) {
+            bVar.bV((int) n(bVar.ov()));
             i.a(bVar);
-            this.c.a(this.a.c());
-            this.c.a(this.a.e());
-            this.c.a(false);
+            this.My.setErrorCode(this.yV.mg());
+            this.My.setErrorString(this.yV.getErrorString());
+            this.My.ab(false);
             return null;
         }
-        i.a(str);
-        return h;
+        i.bm(str);
+        return lA;
     }
 
-    private long a(long j) {
+    private long n(long j) {
         return j % 30720 == 0 ? j / 30720 : (j / 30720) + 1;
     }
 }

@@ -1,38 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.editortool.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements Animation.AnimationListener {
-    final /* synthetic */ bs a;
+public class bw implements com.baidu.tieba.bubble.t {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bs bsVar) {
-        this.a = bsVar;
+    public bw(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        View view;
-        View view2;
-        z = this.a.aQ;
-        if (z) {
-            view = this.a.aK;
-            view.setVisibility(0);
-            view2 = this.a.aJ;
-            view2.setVisibility(0);
-            return;
+    @Override // com.baidu.tieba.bubble.t
+    public void hz() {
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        pbEditor = this.byI.byn;
+        if (pbEditor != null) {
+            pbEditor2 = this.byI.byn;
+            pbEditor2.refresh();
         }
-        this.a.h.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ AtListActivity a;
+    final /* synthetic */ AtListActivity bSE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.bSE = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,13 +20,13 @@ public class f implements View.OnClickListener {
         EditText editText;
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-        atSelectFriendList = this.a.e;
+        atSelectFriendList = this.bSE.bSt;
         bundle.putStringArrayList(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW, atSelectFriendList.getDataList());
         intent.putExtras(bundle);
-        AtListActivity atListActivity = this.a;
-        editText = this.a.b;
-        com.baidu.adp.lib.util.j.a(atListActivity, editText);
-        this.a.setResult(-1, intent);
-        this.a.finish();
+        AtListActivity atListActivity = this.bSE;
+        editText = this.bSE.mEditText;
+        com.baidu.adp.lib.util.m.b(atListActivity, editText);
+        this.bSE.setResult(-1, intent);
+        this.bSE.finish();
     }
 }

@@ -1,18 +1,21 @@
 package com.baidu.tieba.pb.main;
-
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class g implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+class g implements bg {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.av(this.a)));
+    @Override // com.baidu.tieba.pb.main.bg
+    public void dU(boolean z) {
+        bn bnVar;
+        bv bvVar;
+        bnVar = this.bvg.buG;
+        if (bnVar.ea(true)) {
+            bvVar = this.bvg.buL;
+            bvVar.XC();
+        }
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.more;
 /* loaded from: classes.dex */
 public class u {
-    public String a;
-    public int b;
-    public String c;
-    final /* synthetic */ t d;
+    public int bqL;
+    public String bqM;
+    final /* synthetic */ t bqN;
+    public String title;
 
     public u(t tVar) {
-        this.d = tVar;
+        this.bqN = tVar;
     }
 }

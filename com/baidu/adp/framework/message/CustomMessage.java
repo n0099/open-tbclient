@@ -36,6 +36,6 @@ public class CustomMessage<T> extends Message<T> {
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.d(i);
+        return FrameHelper.g(i);
     }
 }

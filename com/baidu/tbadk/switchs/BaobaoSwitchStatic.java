@@ -1,26 +1,43 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.a.a;
-import com.baidu.adp.lib.a.f;
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class BaobaoSwitchStatic extends a {
-    public static final String[] a;
+    public static final String[] ZC;
 
     static {
-        f.a().a(BaobaoSwitchStatic.class);
-        a = new String[]{"cn.myhug.baobao.sdk"};
-    }
-
-    @Override // com.baidu.adp.lib.a.a
-    protected void initData() {
-        this.mDefaultType = 0;
-        this.mOffType = 0;
-        this.mName = "switch_baobao";
-        this.mKey = a;
+        f.db().d(BaobaoSwitchStatic.class);
+        ZC = new String[]{"cn.myhug.baobao.sdk"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "switch_baobao";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] getCrashKeys() {
+        return ZC;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getDefaultType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getOffType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getMaxCrashTimes() {
+        return 10;
     }
 }

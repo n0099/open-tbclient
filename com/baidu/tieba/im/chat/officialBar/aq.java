@@ -1,35 +1,37 @@
 package com.baidu.tieba.im.chat.officialBar;
+
+import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class aq implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ OfficialBarTipActivity a;
+    final /* synthetic */ OfficialBarTipActivity aRU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = officialBarTipActivity;
+        this.aRU = officialBarTipActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
-    public void a() {
-        aw awVar;
-        aw awVar2;
-        com.baidu.tieba.im.model.ar arVar;
-        com.baidu.tieba.im.model.ar arVar2;
-        aw awVar3;
-        com.baidu.tieba.im.model.ar arVar3;
-        awVar = this.a.c;
-        if (awVar != null) {
-            awVar2 = this.a.c;
-            if (awVar2.b() != null) {
-                arVar = this.a.b;
-                if (arVar != null) {
-                    arVar2 = this.a.b;
-                    if (arVar2.a().size() == 0) {
-                        this.a.finish();
+    public void Ki() {
+        au auVar;
+        au auVar2;
+        OfficialBarTipModel officialBarTipModel;
+        OfficialBarTipModel officialBarTipModel2;
+        au auVar3;
+        OfficialBarTipModel officialBarTipModel3;
+        auVar = this.aRU.aRT;
+        if (auVar != null) {
+            auVar2 = this.aRU.aRT;
+            if (auVar2.Ky() != null) {
+                officialBarTipModel = this.aRU.aRS;
+                if (officialBarTipModel != null) {
+                    officialBarTipModel2 = this.aRU.aRS;
+                    if (officialBarTipModel2.getData().size() == 0) {
+                        this.aRU.finish();
                     }
-                    awVar3 = this.a.c;
-                    au b = awVar3.b();
-                    arVar3 = this.a.b;
-                    b.a(arVar3.a());
+                    auVar3 = this.aRU.aRT;
+                    OfficialBarTipListAdapter Ky = auVar3.Ky();
+                    officialBarTipModel3 = this.aRU.aRS;
+                    Ky.setData(officialBarTipModel3.getData());
                 }
             }
         }

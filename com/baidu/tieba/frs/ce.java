@@ -1,23 +1,32 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.view.FrsCommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce extends com.baidu.adp.base.h {
-    final /* synthetic */ FrsImageActivity a;
+public class ce implements AbsListView.RecyclerListener {
+    final /* synthetic */ bu aDt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public ce(bu buVar) {
+        this.aDt = buVar;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        Cdo cdo;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ab)) {
-            cdo = this.a.t;
-            cdo.b().setLike(1);
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.like_success));
-            return;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.v.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
         }
-        this.a.showToast(this.a.getString(com.baidu.tieba.x.had_liked_forum));
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.v.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).reset();
+        }
     }
 }

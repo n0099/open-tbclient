@@ -1,36 +1,33 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ae {
-    private int a;
-    private String b;
-    private int c;
-    private String d;
+public class ae implements com.baidu.tbadk.core.util.at {
+    public ad alx;
+    public ad aly;
 
-    public String a() {
-        return this.b;
-    }
-
-    public int b() {
-        return this.c;
-    }
-
-    public String c() {
-        return this.d;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-                this.c = jSONObject.optInt("member_count");
-                this.d = jSONObject.optString("avatar");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    @Override // com.baidu.tbadk.core.util.at
+    public ArrayList<com.baidu.tbadk.core.util.as> getImages() {
+        com.baidu.tbadk.core.util.as eu;
+        com.baidu.tbadk.core.util.as eu2;
+        ArrayList<com.baidu.tbadk.core.util.as> arrayList = new ArrayList<>();
+        if (this.alx != null && (eu2 = eu(this.alx.getAvatar())) != null) {
+            arrayList.add(eu2);
         }
+        if (this.aly != null && (eu = eu(this.aly.getAvatar())) != null) {
+            arrayList.add(eu);
+        }
+        return arrayList;
+    }
+
+    private com.baidu.tbadk.core.util.as eu(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as();
+        asVar.AI = str;
+        asVar.ER = 10;
+        return asVar;
     }
 }

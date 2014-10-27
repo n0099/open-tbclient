@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,12 +13,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ FatalErrorService a;
-    private ae b;
+    final /* synthetic */ FatalErrorService bIJ;
+    private ac yV;
 
     private f(FatalErrorService fatalErrorService) {
-        this.a = fatalErrorService;
-        this.b = null;
+        this.bIJ = fatalErrorService;
+        this.yV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,18 +26,18 @@ class f extends BdAsyncTask<String, Integer, String> {
         this(fatalErrorService);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=4, 150=4, 153=4, 154=4, 158=4, 159=4, 162=4, 163=4, 167=4, 168=4, 171=4, 172=4] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4, 145=4, 148=4, 149=4, 153=4, 154=4, 157=4, 158=4, 162=4, 163=4, 166=4, 167=4] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:127:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:156:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(String str, String str2, boolean z, boolean z2) {
+    private void c(String str, String str2, boolean z, boolean z2) {
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream2;
@@ -46,17 +46,17 @@ class f extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = com.baidu.tbadk.core.util.s.d(str);
-                if (d == null || d.length() <= 50) {
+                File br = com.baidu.tbadk.core.util.s.br(str);
+                if (br == null || br.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
                 } else {
-                    fileInputStream = new FileInputStream(d);
+                    fileInputStream = new FileInputStream(br);
                     try {
                         byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tbadk.util.d.b(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {
@@ -95,9 +95,9 @@ class f extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
-                            this.b.a("logfile", byteArray);
-                            this.b.i();
+                            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.yV.e("logfile", byteArray);
+                            this.yV.lD();
                             if (byteArrayOutputStream != null) {
                                 byteArrayOutputStream.close();
                                 byteArrayOutputStream2 = null;
@@ -166,11 +166,11 @@ class f extends BdAsyncTask<String, Integer, String> {
                                 fileInputStream2 = fileInputStream;
                             }
                             try {
-                                if (this.b.a().b().b()) {
+                                if (this.yV.mc().nb().jq()) {
                                     if (z2) {
-                                        a(d);
+                                        r(br);
                                     }
-                                    FileWriter fileWriter3 = new FileWriter(d, false);
+                                    FileWriter fileWriter3 = new FileWriter(br, false);
                                     try {
                                         fileWriter3.append((CharSequence) "");
                                         fileWriter3.flush();
@@ -179,7 +179,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                                         } else {
                                             fileWriter = fileWriter3;
                                         }
-                                        d.delete();
+                                        br.delete();
                                     } catch (Exception e11) {
                                         e = e11;
                                         fileWriter = fileWriter3;
@@ -261,15 +261,16 @@ class f extends BdAsyncTask<String, Integer, String> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0051 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(File file) {
+    private void r(File file) {
         BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader(file));
             try {
+                bufferedReader = new BufferedReader(new FileReader(file));
                 try {
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         if (readLine.startsWith("crash_type=")) {
@@ -296,9 +297,9 @@ class f extends BdAsyncTask<String, Integer, String> {
                 }
             } catch (Throwable th) {
                 th = th;
-                if (bufferedReader != null) {
+                if (0 != 0) {
                     try {
-                        bufferedReader.close();
+                        bufferedReader2.close();
                     } catch (Exception e4) {
                         BdLog.e(e4.toString());
                     }
@@ -310,8 +311,7 @@ class f extends BdAsyncTask<String, Integer, String> {
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            bufferedReader = null;
-            if (bufferedReader != null) {
+            if (0 != 0) {
             }
             throw th;
         }
@@ -320,30 +320,29 @@ class f extends BdAsyncTask<String, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: h */
     public String doInBackground(String... strArr) {
-        a(TbConfig.FATAL_ERROR_FILE, TbConfig.ERROR_UPLOAD_SERVER, true, true);
-        a(TbConfig.LOG_ERROR_FILE, "c/s/clientlog", false, false);
+        c(TbConfig.FATAL_ERROR_FILE, TbConfig.ERROR_UPLOAD_SERVER, true, true);
+        c(TbConfig.LOG_ERROR_FILE, "c/s/clientlog", false, false);
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.b != null) {
-            this.b.f();
+        if (this.yV != null) {
+            this.yV.dM();
         }
-        this.a.mTask = null;
+        this.bIJ.mTask = null;
         super.cancel(true);
-        this.a.stopSelf();
+        this.bIJ.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(String str) {
-        super.onPostExecute(str);
-        this.a.mTask = null;
-        this.a.stopSelf();
+        super.onPostExecute((f) str);
+        this.bIJ.mTask = null;
+        this.bIJ.stopSelf();
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.im.data.MembersData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryGroupUserList.QueryGroupUserListResIdl;
 import protobuf.TshowInfo;
@@ -49,12 +48,12 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
                     userData.setUserName(userInfo.userName);
                     List<TshowInfo> list = userInfo.tshowIcon;
                     if (list != null) {
-                        LinkedList<IconData> linkedList = new LinkedList<>();
+                        ArrayList<IconData> arrayList = new ArrayList<>();
                         for (int i2 = 0; i2 < list.size(); i2++) {
                             TshowInfo tshowInfo = list.get(i2);
-                            linkedList.add(new IconData(tshowInfo.icon, tshowInfo.name, tshowInfo.url));
+                            arrayList.add(new IconData(tshowInfo.icon, tshowInfo.name, tshowInfo.url));
                         }
-                        userData.setTShowInfo(linkedList);
+                        userData.setTShowInfo(arrayList);
                     }
                     UserPermission userPermission = userInfo.permission;
                     UserData.Permission permission = new UserData.Permission();

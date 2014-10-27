@@ -12,44 +12,45 @@ import android.widget.Scroller;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class x extends FrameLayout {
-    private int a;
-    private Context b;
-    private ProgressBar c;
-    private ImageView d;
-    private TextView e;
-    private TextView f;
-    private TextView g;
-    private Scroller h;
-    private int i;
-    private boolean j;
-    private Runnable k;
-    private Runnable l;
-    private Runnable m;
+    private TextView atC;
+    private boolean bJS;
+    private Runnable bLA;
+    private Runnable bLB;
+    private int bLv;
+    private ImageView bLw;
+    private TextView bLx;
+    private TextView bLy;
+    private Runnable bLz;
+    private int duration;
+    private Context mContext;
+    private ProgressBar mProgress;
+    private Scroller mScroller;
 
     public x(Context context) {
         super(context);
-        this.a = 0;
-        this.i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-        this.k = new y(this);
-        this.l = new z(this);
-        this.m = new aa(this);
-        c();
+        this.bLv = 0;
+        this.duration = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
+        this.bLz = new y(this);
+        this.bLA = new z(this);
+        this.bLB = new aa(this);
+        init();
     }
 
-    private void c() {
-        this.b = getContext();
-        com.baidu.adp.lib.e.b.a().a(this.b, com.baidu.tieba.v.signallforum_progress_view, this);
-        this.c = (ProgressBar) findViewById(com.baidu.tieba.u.signallforum_progress);
-        this.d = (ImageView) findViewById(com.baidu.tieba.u.signallforum_icon);
-        this.e = (TextView) findViewById(com.baidu.tieba.u.signallforun_status);
-        this.f = (TextView) findViewById(com.baidu.tieba.u.signallforun_message1);
-        this.g = (TextView) findViewById(com.baidu.tieba.u.signallforun_message2);
-        a();
-        this.h = new Scroller(this.b, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.t.bg_all_sign));
+    private void init() {
+        this.mContext = getContext();
+        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.signallforum_progress_view, this);
+        this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.v.signallforum_progress);
+        this.bLw = (ImageView) findViewById(com.baidu.tieba.v.signallforum_icon);
+        this.atC = (TextView) findViewById(com.baidu.tieba.v.signallforun_status);
+        this.bLx = (TextView) findViewById(com.baidu.tieba.v.signallforun_message1);
+        this.bLy = (TextView) findViewById(com.baidu.tieba.v.signallforun_message2);
+        nx();
+        this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         setBackgroundDrawable(bitmapDrawable);
     }
@@ -58,68 +59,68 @@ public class x extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void a() {
-        removeCallbacks(this.k);
-        removeCallbacks(this.l);
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        if (this.j) {
-            this.c.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.t.vip_singnallforum_progress));
+    public void nx() {
+        removeCallbacks(this.bLz);
+        removeCallbacks(this.bLA);
+        TbadkApplication.m251getInst().getSkinType();
+        if (this.bJS) {
+            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.u.vip_singnallforum_progress));
         } else {
-            this.c.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.t.singnallforum_progress));
+            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.u.singnallforum_progress));
         }
-        switch (this.a) {
+        switch (this.bLv) {
             case 0:
-                this.c.setClickable(true);
-                this.c.setProgress(0);
-                this.c.setSecondaryProgress(0);
-                if (this.j) {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.btn_vip_all_sign_1 : com.baidu.tieba.t.btn_vip_all_sign);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
+                this.mProgress.setClickable(true);
+                this.mProgress.setProgress(0);
+                this.mProgress.setSecondaryProgress(0);
+                if (this.bJS) {
+                    aw.h(this.mProgress, com.baidu.tieba.u.btn_vip_all_sign);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_vip_sign);
                 } else {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.btn_all_sign_1 : com.baidu.tieba.t.btn_all_sign);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
+                    aw.h(this.mProgress, com.baidu.tieba.u.btn_all_sign);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_all_sign);
                 }
-                this.e.setText(com.baidu.tieba.x.signallforum_begin);
+                this.atC.setText(com.baidu.tieba.y.signallforum_begin);
                 return;
             case 1:
-                post(this.m);
-                this.c.setClickable(false);
-                this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_conduct_1 : com.baidu.tieba.t.bg_all_sign_conduct);
-                if (this.j) {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
+                post(this.bLB);
+                this.mProgress.setClickable(false);
+                aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_conduct);
+                if (this.bJS) {
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_vip_sign);
                 } else {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_all_sign);
                 }
-                this.e.setText(com.baidu.tieba.x.signallforum_ing);
-                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.c.getMax()) / 100;
-                if (nextInt - this.c.getProgress() < 0) {
-                    this.h.startScroll(nextInt, 0, this.c.getProgress() - nextInt, 0, this.i);
+                this.atC.setText(com.baidu.tieba.y.signallforum_ing);
+                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
+                if (nextInt - this.mProgress.getProgress() < 0) {
+                    this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
                 } else {
-                    this.h.startScroll(this.c.getProgress(), 0, nextInt - this.c.getProgress(), 0, this.i);
+                    this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
                 }
-                post(this.k);
+                post(this.bLz);
                 return;
             case 2:
-                this.c.setClickable(true);
-                if (this.j) {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_vip_sign_ok_d_1 : com.baidu.tieba.t.bg_vip_sign_ok_d);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_ok_1 : com.baidu.tieba.t.icon_vip_sign_ok);
+                this.mProgress.setClickable(true);
+                if (this.bJS) {
+                    aw.h(this.mProgress, com.baidu.tieba.u.bg_vip_sign_ok_d);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_vip_sign_ok);
                 } else {
-                    this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_ok_d_1 : com.baidu.tieba.t.bg_all_sign_ok_d);
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_ok_1 : com.baidu.tieba.t.icon_all_sign_ok);
+                    aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_ok_d);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_all_sign_ok);
                 }
-                this.c.setProgress(0);
-                this.e.setText(com.baidu.tieba.x.signallforum_success);
+                this.mProgress.setProgress(0);
+                this.atC.setText(com.baidu.tieba.y.signallforum_success);
                 return;
             case 3:
-                this.c.setClickable(false);
-                if (this.j) {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_vip_sign_1 : com.baidu.tieba.t.icon_vip_sign);
+                this.mProgress.setClickable(false);
+                if (this.bJS) {
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_vip_sign);
                 } else {
-                    this.d.setImageResource(z ? com.baidu.tieba.t.icon_all_sign_1 : com.baidu.tieba.t.icon_all_sign);
+                    aw.c(this.bLw, com.baidu.tieba.u.icon_all_sign);
                 }
-                this.c.setBackgroundResource(z ? com.baidu.tieba.t.bg_all_sign_conduct_1 : com.baidu.tieba.t.bg_all_sign_conduct);
-                this.e.setText(com.baidu.tieba.x.can_not_sign);
+                aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_conduct);
+                this.atC.setText(com.baidu.tieba.y.can_not_sign);
                 return;
             default:
                 return;
@@ -127,99 +128,99 @@ public class x extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.a;
+        return this.bLv;
     }
 
     public void setSigning(int i) {
-        if (this.a != 1 && this.a == 0) {
-            this.c.setProgress(i);
-            this.a = 1;
-            a();
+        if (this.bLv != 1 && this.bLv == 0) {
+            this.mProgress.setProgress(i);
+            this.bLv = 1;
+            nx();
         }
     }
 
-    public void b() {
-        if (this.a != 2) {
-            this.a = 2;
-            a();
+    public void adc() {
+        if (this.bLv != 2) {
+            this.bLv = 2;
+            nx();
         }
     }
 
     public ProgressBar getProgressBar() {
-        return this.c;
+        return this.mProgress;
     }
 
     public ImageView getIcon() {
-        return this.d;
+        return this.bLw;
     }
 
     public TextView getmStatus() {
-        return this.e;
+        return this.atC;
     }
 
     public TextView getMessage1() {
-        return this.f;
+        return this.bLx;
     }
 
     public TextView getMessage2() {
-        return this.g;
+        return this.bLy;
     }
 
     public int getProgress() {
-        return this.c.getProgress();
+        return this.mProgress.getProgress();
     }
 
     public void setDuration(int i) {
-        this.i = i;
+        this.duration = i;
     }
 
     public void setmCurrentStatus(int i) {
-        this.a = i;
-        a();
+        this.bLv = i;
+        nx();
     }
 
     public void setmContext(Context context) {
-        this.b = context;
+        this.mContext = context;
     }
 
     public void setmProgress(ProgressBar progressBar) {
-        this.c = progressBar;
+        this.mProgress = progressBar;
     }
 
     public void setmIcon(ImageView imageView) {
-        this.d = imageView;
+        this.bLw = imageView;
     }
 
     public void setmStatus(TextView textView) {
-        this.e = textView;
+        this.atC = textView;
     }
 
     public void setmMessage1(TextView textView) {
-        this.f = textView;
+        this.bLx = textView;
     }
 
     public void setmMessage2(TextView textView) {
-        this.g = textView;
+        this.bLy = textView;
     }
 
     public void setmScroller(Scroller scroller) {
-        this.h = scroller;
+        this.mScroller = scroller;
     }
 
     public void setHasPrivilege(boolean z) {
-        this.j = z;
-        a();
+        this.bJS = z;
+        nx();
     }
 
     public void setProgressAnimation(Runnable runnable) {
-        this.k = runnable;
+        this.bLz = runnable;
     }
 
     public void setCheckRunnable(Runnable runnable) {
-        this.l = runnable;
+        this.bLA = runnable;
     }
 
     public void setChangeSizeRunnable(Runnable runnable) {
-        this.m = runnable;
+        this.bLB = runnable;
     }
 }

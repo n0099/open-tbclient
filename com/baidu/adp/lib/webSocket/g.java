@@ -3,19 +3,19 @@ package com.baidu.adp.lib.webSocket;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 interface g {
-    int a(ByteBuffer byteBuffer);
+    void close();
 
-    void a();
+    String fQ();
 
-    int b(ByteBuffer byteBuffer);
+    long fR();
 
-    boolean b();
+    String fv();
 
-    String c();
+    String fw();
 
-    long d();
+    boolean isConnected();
 
-    String e();
+    int read(ByteBuffer byteBuffer);
 
-    String f();
+    int write(ByteBuffer byteBuffer);
 }

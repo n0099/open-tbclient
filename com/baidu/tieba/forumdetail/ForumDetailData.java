@@ -1,112 +1,75 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForumDetailData implements Serializable {
+public class ForumDetailData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = -7426602976779355011L;
-    @SerializedName("errno")
-    public int errorNo = 0;
-    @SerializedName("errmsg")
-    public String errorMsg = "";
-    @SerializedName("forum_info")
-    public ForumInfo forumInfo = null;
-    @SerializedName("badges")
+    public int errno = 0;
+    public String errmsg = "";
+    public ForumInfo forum_info = null;
     public BadgeInfo[] badges = new BadgeInfo[0];
-    @SerializedName("forum_dir")
-    public ForumDirInfo forumDir = null;
-    @SerializedName("thread_list")
-    public ThreadInfo[] threads = new ThreadInfo[0];
+    public ForumDirInfo forum_dir = null;
+    public ThreadInfo[] thread_list = new ThreadInfo[0];
 
     /* loaded from: classes.dex */
-    public class BadgeInfo implements Serializable {
+    public class BadgeInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("badge_id")
-        public long badgeID = 0;
-        @SerializedName("badge_url")
-        public String badgeURL = "";
+        public long badge_id = 0;
+        public String badge_url = "";
     }
 
     /* loaded from: classes.dex */
-    public class ForumContent implements Serializable {
+    public class ForumContent extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("type")
         public int type = 0;
-        @SerializedName("text")
         public String text = "";
     }
 
     /* loaded from: classes.dex */
-    public class ForumDirInfo implements Serializable {
+    public class ForumDirInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("hot_value")
-        public long hotValue;
-        @SerializedName("rank")
+        public long hot_value;
         public int rank = 0;
-        @SerializedName("level_1_name")
-        public String levelOneName = "";
-        @SerializedName("level_1_menu_type")
-        public long levelOneMenuType = 0;
-        @SerializedName("level_1_menu_id")
-        public long levelOneMenuID = 0;
-        @SerializedName("level_2_name")
-        public String levelTwoName = "";
-        @SerializedName("level_2_menu_type")
-        public long levelTwoMenuType = 0;
-        @SerializedName("level_2_menu_id")
-        public long levelTwoMenuID = 0;
+        public String level_1_name = "";
+        public long level_1_menu_type = 0;
+        public long level_1_menu_id = 0;
+        public String level_2_name = "";
+        public long level_2_menu_type = 0;
+        public long level_2_menu_id = 0;
     }
 
     /* loaded from: classes.dex */
-    public class ForumInfo implements Serializable {
+    public class ForumInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
-        public int forumID = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME)
-        public String forumName = "";
-        @SerializedName("member_count")
-        public long memberCount = 0;
-        @SerializedName("thread_count")
-        public long threadCount = 0;
-        @SerializedName("is_like")
-        public int isLike = 0;
-        @SerializedName("avatar")
+        public int forum_id = 0;
+        public String forum_name = "";
+        public long member_count = 0;
+        public long thread_count = 0;
+        public int is_like = 0;
         public String avatar = "";
-        @SerializedName("slogan")
         public String slogan = "";
-        @SerializedName("content")
-        public ForumContent[] contents = new ForumContent[0];
+        public ForumContent[] content = new ForumContent[0];
     }
 
     /* loaded from: classes.dex */
-    public class ThreadAbstract implements Serializable {
+    public class ThreadAbstract extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("type")
         public int type = 0;
-        @SerializedName("text")
         public String text = "";
     }
 
     /* loaded from: classes.dex */
-    public class ThreadInfo implements Serializable {
+    public class ThreadInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("id")
         public long id = 0;
-        @SerializedName("tid")
-        public long tId = 0;
-        @SerializedName("title")
+        public long tid = 0;
         public String title = "";
-        @SerializedName("reply_num")
-        public long replyNum = 0;
-        @SerializedName("view_num")
-        public long viewNum = 0;
+        public long reply_num = 0;
+        public long view_num = 0;
         public String forumName = "";
         public String postAuthor = "";
-        @SerializedName("last_time")
-        public String lastTime = "";
-        @SerializedName("last_time_int")
-        public long lastTimeStamp = 0;
-        @SerializedName("abstract")
-        public ThreadAbstract[] abstracts = new ThreadAbstract[0];
+        public String last_time = "";
+        public long last_time_int = 0;
+        public ThreadAbstract[] Abstract = new ThreadAbstract[0];
     }
 }

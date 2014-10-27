@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class ai extends aa {
-    public int a;
-    public String b;
+    public int mStatusCode;
+    public String pV;
 
     public ai(int i, String str) {
-        this.a = i;
-        this.b = str;
+        this.mStatusCode = i;
+        this.pV = str;
     }
 }

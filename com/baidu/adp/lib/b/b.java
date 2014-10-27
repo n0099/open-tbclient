@@ -1,7 +1,15 @@
 package com.baidu.adp.lib.b;
-
-import android.view.View;
 /* loaded from: classes.dex */
-public interface b {
-    void b(View view, int i, int i2, long j);
+class b implements d {
+    final /* synthetic */ a hP;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.hP = aVar;
+    }
+
+    @Override // com.baidu.adp.lib.b.d
+    public void a(String str, int i, boolean z) {
+        this.hP.changeSettingByType(i);
+    }
 }

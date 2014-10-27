@@ -8,11 +8,11 @@ import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.ba;
-import com.baidu.tbadk.core.atomData.by;
-import com.baidu.tbadk.core.atomData.bz;
-import com.baidu.tbadk.core.atomData.s;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tieba.hao123.IHao123ServerService;
 /* loaded from: classes.dex */
 public class Hao123ServerService extends Service {
@@ -26,21 +26,21 @@ public class Hao123ServerService extends Service {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new s(Hao123ServerService.this).a((String) message.obj, "from_hao123", true, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(Hao123ServerService.this).createBackSpecialCfg((String) message.obj, "from_hao123", true, false)));
             } else if (message.what == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ba(Hao123ServerService.this, ba.d)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(Hao123ServerService.this, NotLoginGuideActivityConfig.FROM_HAO123)));
             } else if (message.what == 2) {
                 if (TbadkApplication.isLogin()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new bz(Hao123ServerService.this, "from_hao123", true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new SquareSearchActivityConfig(Hao123ServerService.this, "from_hao123", true)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ba(Hao123ServerService.this, ba.d)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(Hao123ServerService.this, NotLoginGuideActivityConfig.FROM_HAO123)));
                 }
             } else if (message.what == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new at(Hao123ServerService.this).a(1)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(Hao123ServerService.this).createNormalCfg(1)));
             } else if (message.what == 4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2010010, new by(Hao123ServerService.this, "from_hao123", true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2010010, new SingleSquareActivityConfig(Hao123ServerService.this, "from_hao123", true)));
             } else if (message.what == 5) {
-                TbadkApplication.m252getInst().setTiebaHelperOpen(((Boolean) message.obj).booleanValue());
+                TbadkApplication.m251getInst().setTiebaHelperOpen(((Boolean) message.obj).booleanValue());
             }
         }
     };

@@ -1,48 +1,71 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bh;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Color;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ay;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aq extends ClickableSpan {
-    final /* synthetic */ an a;
-    private String b;
-    private String c;
-    private Context d;
+public class aq {
+    private String ala;
+    private String tid = null;
+    private String Lh = null;
+    private String title = null;
+    private boolean amr = false;
+    private long time = 0;
+    private final UserData amq = new UserData();
+    private String content = null;
+    private boolean ams = true;
 
-    public aq(an anVar, Context context, String str, String str2) {
-        this.a = anVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = context;
+    public boolean Ap() {
+        return this.ams;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.d != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.r.common_link_text_1));
-            } else {
-                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.r.common_link_text));
+    public String getPid() {
+        return this.Lh;
+    }
+
+    public String getTid() {
+        return this.tid;
+    }
+
+    public String Aq() {
+        return this.ala;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public long getTime() {
+        return this.time;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.tid = jSONObject.optString("tid");
+                this.title = jSONObject.optString("title");
+                this.Lh = jSONObject.optString("pid");
+                this.amr = jSONObject.optInt("is_floor", 0) != 0;
+                this.time = jSONObject.optLong("time", 0L) * 1000;
+                this.amq.parserJson(jSONObject.optJSONObject("author"));
+                this.content = jSONObject.optString("content");
+                this.ala = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                this.title = ay.a(this.title, (Color) null);
+                String a = ay.a(this.content, (Color) null);
+                if (!a.equals(this.content)) {
+                    this.content = a;
+                    this.ams = false;
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-        }
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.d, this.c, this.b, null, "pb_floor")));
         }
     }
 }

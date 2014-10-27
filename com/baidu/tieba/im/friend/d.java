@@ -1,27 +1,28 @@
 package com.baidu.tieba.im.friend;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements DialogInterface.OnClickListener {
-    final /* synthetic */ IMBlackListActivity a;
+    final /* synthetic */ IMBlackListActivity aVt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(IMBlackListActivity iMBlackListActivity) {
-        this.a = iMBlackListActivity;
+        this.aVt = iMBlackListActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tieba.im.data.a aVar;
-        com.baidu.tieba.im.model.b bVar;
+        BlackListModel blackListModel;
         com.baidu.tieba.im.data.a aVar2;
-        aVar = this.a.c;
+        aVar = this.aVt.aVs;
         if (aVar != null) {
-            this.a.d();
-            bVar = this.a.a;
-            aVar2 = this.a.c;
-            bVar.b(aVar2.a());
+            this.aVt.MS();
+            blackListModel = this.aVt.aVq;
+            aVar2 = this.aVt.aVs;
+            blackListModel.removeFromBlackList(aVar2.getUserId());
         }
     }
 }

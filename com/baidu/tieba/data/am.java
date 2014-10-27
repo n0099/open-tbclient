@@ -1,74 +1,37 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import com.baidu.tieba.pb.main.PbActivity;
 /* loaded from: classes.dex */
-public class am {
-    private ArrayList<UserData> a = new ArrayList<>();
-    private ArrayList<UserData> b = new ArrayList<>();
-    private com.baidu.tbadk.core.data.l c = new com.baidu.tbadk.core.data.l();
-    private int d = 0;
-    private int e = 0;
+class am extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ al amn;
+    private final /* synthetic */ com.baidu.tbadk.widget.m amo;
+    private final /* synthetic */ Context val$context;
 
-    public void a(com.baidu.tbadk.core.data.l lVar) {
-        this.c = lVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(al alVar, com.baidu.tbadk.widget.m mVar, Context context) {
+        this.amn = alVar;
+        this.amo = mVar;
+        this.val$context = context;
     }
 
-    public com.baidu.tbadk.core.data.l a() {
-        return this.c;
-    }
-
-    public ArrayList<UserData> b() {
-        return this.a;
-    }
-
-    public ArrayList<UserData> c() {
-        return this.b;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
-                    }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        ak akVar;
+        ListAdapter adapter;
+        super.a((am) aVar, str, i);
+        if (aVar != null && aVar.hm()) {
+            akVar = this.amn.aml;
+            this.amo.setDrawable(akVar.e(aVar));
+            if (this.val$context instanceof PbActivity) {
+                PbActivity pbActivity = (PbActivity) this.val$context;
+                if (!pbActivity.isFinishing() && (adapter = pbActivity.getListView().getAdapter()) != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.b.add(userData2);
-                    }
-                }
-                this.c.a(jSONObject.optJSONObject("page"));
-                this.d = jSONObject.optInt("tafriendnum", 0);
-                this.e = jSONObject.optInt("commonfriendnum", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
     }

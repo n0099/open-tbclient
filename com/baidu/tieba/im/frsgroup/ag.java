@@ -1,20 +1,23 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ af a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.a = afVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MembersActivity membersActivity;
-        membersActivity = this.a.a;
-        membersActivity.finish();
-    }
+class ag {
+    TextView aWu;
+    ImageView aXX;
+    HeadImageView aXY;
+    ImageView aXZ;
+    TextView aYa;
+    TextView aYb;
+    View aYc;
+    LinearLayout ayZ;
+    TextView aza;
+    ProgressBar azb;
+    UserIconBox azj = null;
 }

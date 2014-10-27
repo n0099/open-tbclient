@@ -5,136 +5,135 @@ import android.os.HandlerThread;
 import android.os.Message;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class o implements k {
-    protected Handler a;
-    protected volatile an b;
-    protected volatile aq c;
-    protected g d;
-    protected am e;
-    private URI f;
-    private String g;
-    private String h;
-    private int i;
-    private String j;
-    private String k;
-    private String[] l;
-    private List<BasicNameValuePair> m;
-    private l n;
-    private boolean o = false;
-    private boolean p = false;
-    private volatile boolean q = false;
-    private long r = 0;
-    private d s = null;
+    private String pA;
+    private int pB;
+    private String pC;
+    private String pD;
+    private l pE;
+    protected am pF;
+    private boolean pG = false;
+    private boolean pH = false;
+    private volatile boolean pI = false;
+    private long pJ = 0;
+    private d pK = null;
+    private List<BasicNameValuePair> pl;
+    private String[] po;
+    protected Handler pu;
+    protected volatile an pv;
+    protected volatile aq pw;
+    protected g px;
+    private URI py;
+    private String pz;
 
     public o() {
-        a();
+        gd();
     }
 
-    public boolean a(d dVar) {
+    public boolean sendMessage(d dVar) {
         if (dVar == null) {
             return false;
         }
-        if (this.s != null || !f()) {
-            p();
+        if (this.pK != null || !isOpen()) {
+            fY();
             if (dVar != null) {
-                dVar.a(1);
+                dVar.i(1);
                 return false;
             }
             return false;
         }
-        this.s = dVar;
-        return b(this.s);
+        this.pK = dVar;
+        return d(this.pK);
     }
 
-    private boolean b(d dVar) {
-        if (this.c == null) {
-            b(new y(new Exception("mWriter = null")));
+    private boolean d(d dVar) {
+        if (this.pw == null) {
+            l(new y(new Exception("mWriter = null")));
             return false;
         }
-        return this.c.a((Object) new ab(dVar));
+        return this.pw.o(new ab(dVar));
     }
 
-    public void a(int i, String str) {
-        this.o = false;
-        this.q = true;
-        if (this.b != null) {
-            this.b.a();
-            this.b = null;
+    public void close(int i, String str) {
+        this.pG = false;
+        this.pI = true;
+        if (this.pv != null) {
+            this.pv.quit();
+            this.pv = null;
         }
-        if (this.c != null) {
-            this.c.a();
-            this.c = null;
+        if (this.pw != null) {
+            this.pw.quit();
+            this.pw = null;
         }
-        if (this.d != null) {
+        if (this.px != null) {
             try {
-                this.d.a();
-            } catch (IOException e) {
-                if (p()) {
-                    e.printStackTrace();
+                this.px.close();
+            } catch (Throwable th) {
+                if (fY()) {
+                    th.printStackTrace();
                 }
             }
-            this.d = null;
+            this.px = null;
         }
-        l lVar = this.n;
-        this.n = null;
+        l lVar = this.pE;
+        this.pE = null;
         if (lVar != null) {
             try {
-                lVar.a(i, str);
-            } catch (Exception e2) {
-                if (p()) {
-                    BdLog.d(e2.getMessage());
+                lVar.b(i, str);
+            } catch (Exception e) {
+                if (fY()) {
+                    BdLog.d(e.getMessage());
                 }
             }
         }
     }
 
     public void a(String str, String[] strArr, l lVar, am amVar, List<BasicNameValuePair> list) {
-        this.p = true;
-        if (this.d != null && this.d.b()) {
+        this.pH = true;
+        if (this.px != null && this.px.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.f = new URI(str);
-            if (!this.f.getScheme().equals("ws") && !this.f.getScheme().equals("wss")) {
+            this.py = new URI(str);
+            if (!this.py.getScheme().equals("ws") && !this.py.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.f.getScheme().equals("wss")) {
+            if (this.py.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.g = this.f.getScheme();
-            if (this.f.getPort() == -1) {
-                if (this.g.equals("ws")) {
-                    this.i = 80;
+            this.pz = this.py.getScheme();
+            if (this.py.getPort() == -1) {
+                if (this.pz.equals("ws")) {
+                    this.pB = 80;
                 } else {
-                    this.i = 443;
+                    this.pB = 443;
                 }
             } else {
-                this.i = this.f.getPort();
+                this.pB = this.py.getPort();
             }
-            if (this.f.getHost() == null) {
+            if (this.py.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.h = this.f.getHost();
-            if (this.f.getPath() == null || this.f.getPath().equals("")) {
-                this.j = "/";
+            this.pA = this.py.getHost();
+            if (this.py.getPath() == null || this.py.getPath().equals("")) {
+                this.pC = "/";
             } else {
-                this.j = this.f.getPath();
+                this.pC = this.py.getPath();
             }
-            if (this.f.getQuery() == null || this.f.getQuery().equals("")) {
-                this.k = null;
+            if (this.py.getQuery() == null || this.py.getQuery().equals("")) {
+                this.pD = null;
             } else {
-                this.k = this.f.getQuery();
+                this.pD = this.py.getQuery();
             }
-            this.l = strArr;
-            this.m = list;
-            this.n = lVar;
-            this.e = new am(amVar);
+            this.po = strArr;
+            this.pl = list;
+            this.pE = lVar;
+            this.pF = new am(amVar);
             new q(this, null).start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -142,104 +141,104 @@ public class o implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Object obj) {
-        Message obtainMessage = this.a.obtainMessage();
+    public void l(Object obj) {
+        Message obtainMessage = this.pu.obtainMessage();
         obtainMessage.obj = obj;
-        this.a.sendMessage(obtainMessage);
+        this.pu.sendMessage(obtainMessage);
     }
 
-    protected void a() {
-        this.a = new p(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Object obj) {
+    protected void gd() {
+        this.pu = new p(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public void m(Object obj) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void ge() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.c = new aq(handlerThread.getLooper(), this.a, this.d, this.e);
+        this.pw = new aq(handlerThread.getLooper(), this.pu, this.px, this.pF);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        this.b = new an(this.a, this.d, this.e, "WebSocketReader");
-        this.b.start();
+    public void gf() {
+        this.pv = new an(this.pu, this.px, this.pF, "WebSocketReader");
+        this.pv.start();
     }
 
-    public boolean d() {
-        return this.s != null;
+    public boolean gg() {
+        return this.pK != null;
     }
 
-    public boolean e() {
-        return this.p;
+    public boolean fX() {
+        return this.pH;
     }
 
-    public boolean f() {
-        return this.o;
+    public boolean isOpen() {
+        return this.pG;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean p() {
+    public boolean fY() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void g() {
-        if (this.c != null) {
-            this.c.b();
+    public void fZ() {
+        if (this.pw != null) {
+            this.pw.fZ();
         }
     }
 
-    public long h() {
-        if (this.c != null) {
-            return this.c.c();
-        }
-        return 0L;
-    }
-
-    public void i() {
-        if (this.b != null) {
-            this.b.b();
-        }
-    }
-
-    public long j() {
-        if (this.b != null) {
-            return this.b.c();
+    public long getUpFlowSize() {
+        if (this.pw != null) {
+            return this.pw.getUpFlowSize();
         }
         return 0L;
     }
 
-    public long k() {
-        if (this.d != null) {
-            return this.d.d();
+    public void ga() {
+        if (this.pv != null) {
+            this.pv.ga();
+        }
+    }
+
+    public long getDownFlowSize() {
+        if (this.pv != null) {
+            return this.pv.getDownFlowSize();
         }
         return 0L;
     }
 
-    public String l() {
-        if (this.d != null) {
-            return this.d.c();
+    public long gh() {
+        if (this.px != null) {
+            return this.px.fR();
+        }
+        return 0L;
+    }
+
+    public String gi() {
+        if (this.px != null) {
+            return this.px.fQ();
         }
         return null;
     }
 
-    public long m() {
-        return this.r;
+    public long gj() {
+        return this.pJ;
     }
 
-    public String n() {
-        if (this.d != null) {
-            return this.d.e();
+    public String fv() {
+        if (this.px != null) {
+            return this.px.fv();
         }
         return null;
     }
 
-    public String o() {
-        if (this.d != null) {
-            return this.d.f();
+    public String fw() {
+        if (this.px != null) {
+            return this.px.fw();
         }
         return null;
     }

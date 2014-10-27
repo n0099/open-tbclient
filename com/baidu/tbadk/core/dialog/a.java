@@ -15,145 +15,152 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bp;
-import com.baidu.tbadk.core.util.br;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
-    protected final Activity a;
-    private String c;
-    private View d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private d i;
-    private d j;
-    private d k;
-    private DialogInterface.OnCancelListener l;
-    private AlertDialog m;
-    private final ViewGroup n;
-    private int b = -1;
-    private boolean o = false;
-    private boolean p = true;
+    private String AX;
+    private String AY;
+    private String AZ;
+    private String Ba;
+    private d Bb;
+    private d Bc;
+    private d Bd;
+    private DialogInterface.OnCancelListener Be;
+    private AlertDialog Bf;
+    private ViewGroup Bg;
+    protected final Activity mActivity;
+    private View mContentView;
+    private final ViewGroup mRootView;
+    private String mTitle;
+    private int AW = -1;
+    private boolean Bh = false;
+    private boolean Bi = true;
 
-    public a a(String str) {
-        this.c = str;
+    public a bf(String str) {
+        this.mTitle = str;
         return this;
     }
 
-    public a a(int i) {
-        a(this.a.getResources().getString(i));
+    public a aW(int i) {
+        bf(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a b(String str) {
-        this.e = str;
+    public a bg(String str) {
+        this.AX = str;
         return this;
     }
 
-    public a a(View view) {
-        this.d = view;
+    public a j(View view) {
+        this.mContentView = view;
         return this;
     }
 
     public a a(String str, d dVar) {
-        this.f = str;
-        this.i = dVar;
+        this.AY = str;
+        this.Bb = dVar;
         return this;
     }
 
     public a b(String str, d dVar) {
-        this.g = str;
-        this.j = dVar;
+        this.AZ = str;
+        this.Bc = dVar;
         return this;
     }
 
-    public a b(int i) {
-        if (this.a != null) {
-            this.e = this.a.getResources().getString(i);
+    public a aX(int i) {
+        if (this.mActivity != null) {
+            this.AX = this.mActivity.getResources().getString(i);
         }
         return this;
     }
 
     public a a(int i, d dVar) {
-        if (this.a != null) {
-            this.f = this.a.getResources().getString(i);
-            this.i = dVar;
+        if (this.mActivity != null) {
+            this.AY = this.mActivity.getResources().getString(i);
+            this.Bb = dVar;
         }
         return this;
     }
 
     public a b(int i, d dVar) {
-        if (this.a != null) {
-            this.g = this.a.getResources().getString(i);
-            this.j = dVar;
+        if (this.mActivity != null) {
+            this.AZ = this.mActivity.getResources().getString(i);
+            this.Bc = dVar;
         }
         return this;
     }
 
-    public a a(boolean z) {
-        this.p = z;
+    public a P(boolean z) {
+        this.Bi = z;
         return this;
     }
 
     public a(Activity activity) {
-        this.a = activity;
-        this.n = (ViewGroup) com.baidu.adp.lib.e.b.a().a(activity, v.dialog_bdalert, null);
+        this.mActivity = activity;
+        this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(activity, w.dialog_bdalert, null);
+        this.Bg = (ViewGroup) this.mRootView.findViewById(v.real_view);
     }
 
-    public a a() {
+    public void a(LinearLayout.LayoutParams layoutParams) {
+        if (this.Bg != null) {
+            this.Bg.setLayoutParams(layoutParams);
+        }
+    }
+
+    public a kT() {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (!this.o) {
-            this.o = true;
-            e();
-            TextView textView = (TextView) this.n.findViewById(u.title);
-            LinearLayout linearLayout = (LinearLayout) this.n.findViewById(u.content);
-            TextView textView2 = (TextView) this.n.findViewById(u.message);
-            Button button = (Button) this.n.findViewById(u.yes);
-            Button button2 = (Button) this.n.findViewById(u.no);
-            Button button3 = (Button) this.n.findViewById(u.cancel);
-            if (!TextUtils.isEmpty(this.c)) {
-                textView.setText(this.c);
+        if (!this.Bh) {
+            this.Bh = true;
+            kU();
+            TextView textView = (TextView) this.mRootView.findViewById(v.title);
+            LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(v.content);
+            TextView textView2 = (TextView) this.mRootView.findViewById(v.message);
+            Button button = (Button) this.mRootView.findViewById(v.yes);
+            Button button2 = (Button) this.mRootView.findViewById(v.no);
+            Button button3 = (Button) this.mRootView.findViewById(v.cancel);
+            if (!TextUtils.isEmpty(this.mTitle)) {
+                textView.setText(this.mTitle);
             } else {
                 textView.setVisibility(8);
             }
-            if (this.d != null) {
+            if (this.mContentView != null) {
                 linearLayout.removeAllViews();
-                linearLayout.addView(this.d);
+                linearLayout.addView(this.mContentView);
             }
-            if (!TextUtils.isEmpty(this.e)) {
-                textView2.setText(this.e);
+            if (!TextUtils.isEmpty(this.AX)) {
+                textView2.setText(this.AX);
             }
-            if (TextUtils.isEmpty(this.f)) {
+            if (TextUtils.isEmpty(this.AY)) {
                 z = false;
             } else {
-                button.setText(this.f);
-                if (this.i != null) {
-                    button.setOnClickListener(new c(this, this, this.i));
+                button.setText(this.AY);
+                if (this.Bb != null) {
+                    button.setOnClickListener(new c(this, this, this.Bb));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.g)) {
+            if (TextUtils.isEmpty(this.AZ)) {
                 z2 = false;
             } else {
-                button2.setText(this.g);
-                if (this.j != null) {
-                    button2.setOnClickListener(new c(this, this, this.j));
+                button2.setText(this.AZ);
+                if (this.Bc != null) {
+                    button2.setOnClickListener(new c(this, this, this.Bc));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.h)) {
+            if (TextUtils.isEmpty(this.Ba)) {
                 z3 = false;
             } else {
-                button3.setText(this.h);
-                if (this.k != null) {
-                    button3.setOnClickListener(new c(this, this, this.k));
+                button3.setText(this.Ba);
+                if (this.Bd != null) {
+                    button3.setOnClickListener(new c(this, this, this.Bd));
                 }
             }
             a(z, z2, z3, button, button2, button3);
@@ -161,16 +168,16 @@ public class a {
         return this;
     }
 
-    private void e() {
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        if (this.a instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) this.a;
-            baseActivity.getLayoutMode().a(skinType == 1);
-            baseActivity.getLayoutMode().a((View) this.n);
-        } else if (this.a instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.a;
-            baseFragmentActivity.c().a(skinType == 1);
-            baseFragmentActivity.c().a((View) this.n);
+    private void kU() {
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (this.mActivity instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) this.mActivity;
+            baseActivity.getLayoutMode().L(skinType == 1);
+            baseActivity.getLayoutMode().h(this.mRootView);
+        } else if (this.mActivity instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.mActivity;
+            baseFragmentActivity.getLayoutMode().L(skinType == 1);
+            baseFragmentActivity.getLayoutMode().h(this.mRootView);
         }
     }
 
@@ -215,50 +222,50 @@ public class a {
 
     private void a(Button button, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
-        layoutParams.width = a(this.a, i);
+        layoutParams.width = b(this.mActivity, i);
         layoutParams.rightMargin = i2;
         layoutParams.weight = 1.0f;
         button.setLayoutParams(layoutParams);
     }
 
-    public a b() {
-        return b(false);
+    public a kV() {
+        return Q(false);
     }
 
-    private a b(boolean z) {
-        if (!this.o) {
+    private a Q(boolean z) {
+        if (!this.Bh) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.m != null) {
+        if (this.Bf != null) {
             if (z) {
-                com.baidu.adp.lib.e.e.a(this.m, this.a);
+                com.baidu.adp.lib.g.j.a(this.Bf, this.mActivity);
             } else {
-                this.m.show();
+                this.Bf.show();
             }
         } else {
-            this.m = new AlertDialog.Builder(this.a).create();
-            this.m.setCanceledOnTouchOutside(this.p);
-            if (this.l != null) {
-                this.m.setOnCancelListener(this.l);
+            this.Bf = new AlertDialog.Builder(this.mActivity).create();
+            this.Bf.setCanceledOnTouchOutside(this.Bi);
+            if (this.Be != null) {
+                this.Bf.setOnCancelListener(this.Be);
             }
             if (z) {
-                com.baidu.adp.lib.e.e.a(this.m, this.a);
+                com.baidu.adp.lib.g.j.a(this.Bf, this.mActivity);
             } else {
-                this.m.show();
+                this.Bf.show();
             }
-            Window window = this.m.getWindow();
-            if (this.b == -1) {
-                this.b = 17;
+            Window window = this.Bf.getWindow();
+            if (this.AW == -1) {
+                this.AW = 17;
             }
-            window.setGravity(this.b);
+            window.setGravity(this.AW);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
             window.addFlags(2);
             window.setLayout(-2, -2);
-            window.setContentView(this.n);
+            window.setContentView(this.mRootView);
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bp.a(this.n, false, (br) new b(this, atomicBoolean));
+            bn.a(this.mRootView, false, new b(this, atomicBoolean));
             if (atomicBoolean.get()) {
                 window.clearFlags(131080);
             }
@@ -266,17 +273,17 @@ public class a {
         return this;
     }
 
-    public a c() {
-        return b(true);
+    public a kW() {
+        return Q(true);
     }
 
-    public void d() {
-        if (this.m != null) {
-            com.baidu.adp.lib.e.e.b(this.m, this.a);
+    public void dismiss() {
+        if (this.Bf != null) {
+            com.baidu.adp.lib.g.j.b(this.Bf, this.mActivity);
         }
     }
 
-    private int a(Context context, float f) {
+    private int b(Context context, float f) {
         return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 }

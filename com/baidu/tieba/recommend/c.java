@@ -8,19 +8,19 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ DailyClassicalActivity a;
-    private ae b;
-    private String c;
+    final /* synthetic */ DailyClassicalActivity bHR;
+    private String boq;
+    private ac mNetWork;
 
     private c(DailyClassicalActivity dailyClassicalActivity) {
-        this.a = dailyClassicalActivity;
-        this.b = null;
+        this.bHR = dailyClassicalActivity;
+        this.mNetWork = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,37 +31,36 @@ public class c extends BdAsyncTask<Object, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public String doInBackground(Object... objArr) {
         String str;
         boolean z;
         long j;
-        this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
-        this.b.a().a().a().g = false;
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.b.a("night_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        this.mNetWork = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
+        this.mNetWork.mc().na().nd().Gm = false;
+        if (TbadkApplication.m251getInst().getSkinType() == 1) {
+            this.mNetWork.k("night_type", "1");
         }
-        ae aeVar = this.b;
-        str = this.a.q;
-        aeVar.a("pn", str);
-        this.b.a("_version_more", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        this.b.a("platform", "android");
-        z = DailyClassicalActivity.o;
+        ac acVar = this.mNetWork;
+        str = this.bHR.bHQ;
+        acVar.k("pn", str);
+        this.mNetWork.k("_version_more", "1");
+        this.mNetWork.k("platform", "android");
+        z = DailyClassicalActivity.bHP;
         if (z) {
-            DailyClassicalActivity.o = false;
-            this.b.a("msg_click", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            ae aeVar2 = this.b;
-            j = DailyClassicalActivity.p;
-            aeVar2.a("message_id", String.valueOf(j));
+            DailyClassicalActivity.bHP = false;
+            this.mNetWork.k("msg_click", "1");
+            ac acVar2 = this.mNetWork;
+            j = DailyClassicalActivity.bwJ;
+            acVar2.k("message_id", String.valueOf(j));
         }
-        Address b = com.baidu.adp.lib.c.a.a().b(false);
-        if (b != null && ai.c().m()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
+        Address address = com.baidu.adp.lib.d.a.dE().getAddress(false);
+        if (address != null && aj.wk().wu()) {
+            this.mNetWork.k("lbs", String.valueOf(String.valueOf(address.getLatitude())) + "," + String.valueOf(address.getLongitude()));
         }
         try {
-            this.c = this.b.h();
-            if (this.b.b()) {
-                return this.c;
+            this.boq = this.mNetWork.lA();
+            if (this.mNetWork.mf()) {
+                return this.boq;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -71,17 +70,16 @@ public class c extends BdAsyncTask<Object, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
-        this.a.n = false;
+        this.bHR.aRl = false;
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(String str) {
         LinearLayout linearLayout;
         TextView textView;
@@ -91,27 +89,27 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        this.a.i = null;
-        linearLayout = this.a.h;
+        this.bHR.bHK = null;
+        linearLayout = this.bHR.bHJ;
         linearLayout.setOnClickListener(null);
-        if (this.b != null && this.b.b() && str != null && str.length() > 0) {
-            baseWebView2 = this.a.f;
+        if (this.mNetWork != null && this.mNetWork.mf() && str != null && str.length() > 0) {
+            baseWebView2 = this.bHR.mWebView;
             baseWebView2.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            textView2 = this.a.l;
+            textView2 = this.bHR.bHN;
             textView2.setVisibility(8);
-            baseWebView3 = this.a.f;
+            baseWebView3 = this.bHR.mWebView;
             baseWebView3.setVisibility(0);
         } else {
-            this.a.k = false;
-            textView = this.a.l;
+            this.bHR.bHM = false;
+            textView = this.bHR.bHN;
             textView.setVisibility(0);
-            baseWebView = this.a.f;
+            baseWebView = this.bHR.mWebView;
             baseWebView.setVisibility(8);
-            linearLayout2 = this.a.h;
-            onClickListener = this.a.e;
+            linearLayout2 = this.bHR.bHJ;
+            onClickListener = this.bHR.bHI;
             linearLayout2.setOnClickListener(onClickListener);
         }
-        this.a.j = true;
-        this.a.e();
+        this.bHR.bHL = true;
+        this.bHR.abG();
     }
 }

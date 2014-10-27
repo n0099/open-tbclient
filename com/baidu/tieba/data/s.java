@@ -7,28 +7,28 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private int c;
-    private HashMap<String, MetaData> a = new HashMap<>();
-    private List<FriendFeedThreadData> b = new ArrayList();
-    private List<UserData> d = new ArrayList();
+    private int hasMore;
+    private HashMap<String, MetaData> userMap = new HashMap<>();
+    private List<FriendFeedThreadData> akD = new ArrayList();
+    private List<UserData> akE = new ArrayList();
 
-    public HashMap<String, MetaData> a() {
-        return this.a;
+    public HashMap<String, MetaData> getUserMap() {
+        return this.userMap;
     }
 
-    public List<FriendFeedThreadData> b() {
-        return this.b;
+    public List<FriendFeedThreadData> zf() {
+        return this.akD;
     }
 
-    public void a(List<FriendFeedThreadData> list) {
-        this.b = list;
+    public void z(List<FriendFeedThreadData> list) {
+        this.akD = list;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void setHasMore(int i) {
+        this.hasMore = i;
     }
 
-    public boolean c() {
-        return this.c == 1;
+    public boolean isHasMore() {
+        return this.hasMore == 1;
     }
 }

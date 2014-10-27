@@ -1,32 +1,33 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
+import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ l a;
+public class m implements View.OnTouchListener {
+    final /* synthetic */ CarouselRecommendView bMm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.a = lVar;
+    public m(CarouselRecommendView carouselRecommendView) {
+        this.bMm = carouselRecommendView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        w wVar;
-        String str;
-        String str2;
-        Object tag = view.getTag();
-        if ((tag instanceof n) && (wVar = ((n) tag).b) != null) {
-            Activity b = this.a.b();
-            String str3 = wVar.b;
-            String str4 = wVar.c;
-            String str5 = wVar.a;
-            str = this.a.d;
-            str2 = this.a.e;
-            ForumListActivity.a(b, str3, str4, str5, str, str2);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ViewPager viewPager;
+        viewPager = this.bMm.mPager;
+        if (view == viewPager) {
+            if (motionEvent.getAction() == 0) {
+                this.bMm.stopMarqueen();
+                return false;
+            } else if (motionEvent.getAction() == 1) {
+                this.bMm.startMarqueen();
+                return false;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
 }

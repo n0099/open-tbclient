@@ -1,0 +1,19 @@
+package com.baidu.tieba.shareSDK;
+
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+/* loaded from: classes.dex */
+class g implements com.baidu.tbadk.core.dialog.h {
+    final /* synthetic */ WriteShareActivity bJq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(WriteShareActivity writeShareActivity) {
+        this.bJq = writeShareActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void onClick(com.baidu.tbadk.core.dialog.e eVar) {
+        eVar.dismiss();
+        com.baidu.tbadk.core.b.b.a(this.bJq, Constants.MEDIA_INFO, false);
+        this.bJq.finish();
+    }
+}

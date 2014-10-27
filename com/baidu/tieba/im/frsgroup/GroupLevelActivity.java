@@ -6,19 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.im.model.GroupLevelModel;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends BaseActivity {
-    private com.baidu.tieba.im.model.l a;
-    private n b;
-    private com.baidu.tbadk.core.dialog.a c;
-    private com.baidu.tbadk.core.dialog.d d = new k(this);
-    private com.baidu.tbadk.core.dialog.d e = new l(this);
-    private com.baidu.adp.framework.listener.d f = new m(this, 0);
+    private GroupLevelModel aXi;
+    private q aXj;
+    private com.baidu.tbadk.core.dialog.a aXk;
+    private com.baidu.tbadk.core.dialog.d aXl = new n(this);
+    private com.baidu.tbadk.core.dialog.d aXm = new o(this);
+    private com.baidu.adp.framework.listener.e ayJ = new p(this, 0);
 
     public static void a(Context context, long j, boolean z) {
         Intent intent = new Intent(context, GroupLevelActivity.class);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
-        intent.putExtra("is_mem", z);
+        intent.putExtra("group_id", j);
+        intent.putExtra(GroupLevelModel.IS_MEM, z);
         ((Activity) context).startActivity(intent);
     }
 
@@ -26,31 +27,31 @@ public class GroupLevelActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.core.f.b(this, "im_group_level_visit");
-        a(bundle);
-        b(bundle);
-        a();
+        com.baidu.tbadk.core.i.m(this, "im_group_level_visit");
+        d(bundle);
+        e(bundle);
+        startLoading();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        this.b.a(true);
-        this.a.a(this.a.a(), getUniqueId());
+    public void startLoading() {
+        this.aXj.cX(true);
+        this.aXi.sendMessage(this.aXi.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.a.b(bundle);
+        this.aXi.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b.a()) {
+        if (view == this.aXj.Nw()) {
             closeActivity();
-        } else if (view == this.b.b()) {
-            com.baidu.tbadk.core.f.a(this, "im_group_level_upgrade_mem");
-            this.c.c();
+        } else if (view == this.aXj.Nx()) {
+            com.baidu.tbadk.core.i.l(this, "im_group_level_upgrade_mem");
+            this.aXk.kW();
         }
     }
 
@@ -58,7 +59,7 @@ public class GroupLevelActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.a(i);
+        this.aXj.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,23 +68,23 @@ public class GroupLevelActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    public void a(Bundle bundle) {
-        this.a = new com.baidu.tieba.im.model.l(this);
+    public void d(Bundle bundle) {
+        this.aXi = new GroupLevelModel(this);
         if (bundle == null) {
-            this.a.a(getIntent());
+            this.aXi.initWithIntent(getIntent());
         } else {
-            this.a.a(bundle);
+            this.aXi.initWithBundle(bundle);
         }
-        registerListener(103006, this.f);
-        registerListener(103105, this.f);
+        registerListener(103006, this.ayJ);
+        registerListener(103105, this.ayJ);
     }
 
-    private void b(Bundle bundle) {
-        this.b = new n(this, this.a.b());
-        this.c = new com.baidu.tbadk.core.dialog.a(this);
-        this.c.b(com.baidu.tieba.x.upgrade_mem_group_if_up);
-        this.c.a(com.baidu.tieba.x.alert_yes_btn, this.d);
-        this.c.b(com.baidu.tieba.x.alert_no_button, this.e);
-        this.c.a();
+    private void e(Bundle bundle) {
+        this.aXj = new q(this, this.aXi.isMem());
+        this.aXk = new com.baidu.tbadk.core.dialog.a(this);
+        this.aXk.aX(com.baidu.tieba.y.upgrade_mem_group_if_up);
+        this.aXk.a(com.baidu.tieba.y.alert_yes_btn, this.aXl);
+        this.aXk.b(com.baidu.tieba.y.alert_no_button, this.aXm);
+        this.aXk.kT();
     }
 }

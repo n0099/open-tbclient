@@ -5,22 +5,23 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TiebaDatabase;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u a = new u();
+    private static u Sh = new u();
 
-    public static u a() {
-        return a;
+    public static u rw() {
+        return Sh;
     }
 
     private u() {
     }
 
     public boolean a(EmotionGroupData emotionGroupData) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        SQLiteDatabase a2 = b.a();
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        SQLiteDatabase P = mainDBDatabaseManager.P();
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("groupId", emotionGroupData.groupId);
@@ -34,64 +35,64 @@ public class u {
             contentValues.put("bytesLength", Integer.valueOf(emotionGroupData.bytesLength));
             contentValues.put("bytesReceived", Integer.valueOf(emotionGroupData.bytesReceived));
             contentValues.put("downloadUrl", emotionGroupData.downloadUrl);
-            a2.insert("emotion_group", null, contentValues);
+            P.insert("emotion_group", null, contentValues);
             return true;
         } catch (Throwable th) {
-            b.a(th, "EmotionsDBManager.addEmotionGroup");
+            mainDBDatabaseManager.a(th, "EmotionsDBManager.addEmotionGroup");
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4] */
-    public EmotionGroupData a(String str) {
+    public EmotionGroupData db(String str) {
         Cursor cursor;
         EmotionGroupData emotionGroupData = null;
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
+            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {
-                cursor = b.a().rawQuery("SELECT * FROM emotion_group where groupId = ? ", new String[]{str});
+                cursor = mainDBDatabaseManager.P().rawQuery("SELECT * FROM emotion_group where groupId = ? ", new String[]{str});
             } catch (Throwable th) {
                 th = th;
                 cursor = null;
             }
             try {
                 if (cursor.moveToNext()) {
-                    emotionGroupData = a(cursor);
+                    emotionGroupData = b(cursor);
                 }
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    b.a(th, "EmotionsDBManager.getEmotionGroup");
+                    mainDBDatabaseManager.a(th, "EmotionsDBManager.getEmotionGroup");
                     return emotionGroupData;
                 } finally {
-                    com.baidu.adp.lib.util.m.a(cursor);
+                    com.baidu.adp.lib.util.p.a(cursor);
                 }
             }
         }
         return emotionGroupData;
     }
 
-    public List<EmotionGroupData> a(int i) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        SQLiteDatabase a2 = b.a();
+    public List<EmotionGroupData> cI(int i) {
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        SQLiteDatabase P = mainDBDatabaseManager.P();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
-            cursor = a2.rawQuery("SELECT * FROM emotion_group where status = ? ", new String[]{String.valueOf(i)});
+            cursor = P.rawQuery("SELECT * FROM emotion_group where status = ? ", new String[]{String.valueOf(i)});
             while (cursor.moveToNext()) {
-                linkedList.add(a(cursor));
+                linkedList.add(b(cursor));
             }
         } catch (Throwable th) {
             try {
-                b.a(th, "EmotionsDBManager.listAllEmotionGroups");
+                mainDBDatabaseManager.a(th, "EmotionsDBManager.listAllEmotionGroups");
             } finally {
-                com.baidu.adp.lib.util.m.a(cursor);
+                com.baidu.adp.lib.util.p.a(cursor);
             }
         }
         return linkedList;
     }
 
-    protected EmotionGroupData a(Cursor cursor) {
+    protected EmotionGroupData b(Cursor cursor) {
         EmotionGroupData emotionGroupData = new EmotionGroupData();
         emotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
         emotionGroupData.groupName = cursor.getString(cursor.getColumnIndex("groupName"));
@@ -107,7 +108,7 @@ public class u {
         return emotionGroupData;
     }
 
-    public boolean a(String str, String str2, int i) {
+    public boolean b(String str, String str2, int i) {
         EmotionData emotionData = new EmotionData();
         emotionData.sharpText = str;
         emotionData.groupId = str2;
@@ -116,42 +117,42 @@ public class u {
     }
 
     public boolean a(EmotionData emotionData) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        SQLiteDatabase a2 = b.a();
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        SQLiteDatabase P = mainDBDatabaseManager.P();
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("sharpText", emotionData.sharpText);
             contentValues.put("groupId", emotionData.groupId);
             contentValues.put("orderId", Integer.valueOf(emotionData.orderId));
-            a2.insert("emotions", null, contentValues);
+            P.insert("emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            b.a(th, "EmotionsDBManager.addEmotion");
+            mainDBDatabaseManager.a(th, "EmotionsDBManager.addEmotion");
             return false;
         }
     }
 
-    public List<EmotionData> b(String str) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        SQLiteDatabase a2 = b.a();
+    public List<EmotionData> dc(String str) {
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        SQLiteDatabase P = mainDBDatabaseManager.P();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
-            cursor = a2.rawQuery("SELECT * FROM emotions where groupId = ? order by orderId asc ", new String[]{String.valueOf(str)});
+            cursor = P.rawQuery("SELECT * FROM emotions where groupId = ? order by orderId asc ", new String[]{String.valueOf(str)});
             while (cursor.moveToNext()) {
-                linkedList.add(b(cursor));
+                linkedList.add(c(cursor));
             }
         } catch (Throwable th) {
             try {
-                b.a(th, "EmotionsDBManager.listEmotionByGroup");
+                mainDBDatabaseManager.a(th, "EmotionsDBManager.listEmotionByGroup");
             } finally {
-                com.baidu.adp.lib.util.m.a(cursor);
+                com.baidu.adp.lib.util.p.a(cursor);
             }
         }
         return linkedList;
     }
 
-    protected EmotionData b(Cursor cursor) {
+    protected EmotionData c(Cursor cursor) {
         EmotionData emotionData = new EmotionData();
         emotionData.sharpText = cursor.getString(cursor.getColumnIndex("sharpText"));
         emotionData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
@@ -163,18 +164,18 @@ public class u {
         if (TextUtils.isEmpty(str) || emotionGroupData == null) {
             return false;
         }
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        SQLiteDatabase a2 = b.a();
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        SQLiteDatabase P = mainDBDatabaseManager.P();
         try {
-            a2.delete("user_emotions", "uid = ? and groupId = ?", new String[]{str, emotionGroupData.groupId});
+            P.delete("user_emotions", "uid = ? and groupId = ?", new String[]{str, emotionGroupData.groupId});
             ContentValues contentValues = new ContentValues();
             contentValues.put(SapiAccountManager.SESSION_UID, str);
             contentValues.put("groupId", emotionGroupData.groupId);
             contentValues.put("updateTime", Long.valueOf(System.currentTimeMillis()));
-            a2.insert("user_emotions", null, contentValues);
+            P.insert("user_emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            b.a(th, "EmotionsDBManager.addToMyEmotion");
+            mainDBDatabaseManager.a(th, "EmotionsDBManager.addToMyEmotion");
             return false;
         }
     }

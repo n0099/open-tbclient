@@ -7,7 +7,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 /* loaded from: classes.dex */
-public abstract class e {
+public abstract class e extends com.baidu.adp.lib.a.b.a.a.i {
     public static final int MODE_INVALID = 0;
     protected int mErrorCode;
     protected String mErrorString;
@@ -19,18 +19,16 @@ public abstract class e {
 
     public abstract boolean cancelLoadData();
 
-    public int getLoadDataMode() {
-        return this.mLoadDataMode;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Deprecated
     public e() {
         this.mLoadDataMode = 0;
         this.unique_id = null;
         this.mLoadDataCallBack = null;
         this.mErrorCode = 0;
         this.mErrorString = null;
+    }
+
+    public int getLoadDataMode() {
+        return this.mLoadDataMode;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,6 +43,8 @@ public abstract class e {
                 this.unique_id = ((BdBaseActivity) context).getUniqueId();
             } else if (context instanceof BdBaseFragmentActivity) {
                 this.unique_id = ((BdBaseFragmentActivity) context).getUniqueId();
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                throw new IllegalArgumentException("the constructor parameter of BdBaseModel must be a instance of Activity");
             }
         }
     }
@@ -71,6 +71,10 @@ public abstract class e {
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
+    }
+
+    public BdUniqueId getUniqueId() {
+        return this.unique_id;
     }
 
     public void sendMessage(Message<?> message) {
@@ -114,16 +118,16 @@ public abstract class e {
 
     public void registerListener(com.baidu.adp.framework.listener.a aVar) {
         check();
-        if (aVar != null && aVar.c() == null) {
-            aVar.a(this.unique_id);
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.unique_id);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
     public void registerListener(int i, com.baidu.adp.framework.listener.a aVar) {
         check();
-        if (aVar != null && aVar.c() == null) {
-            aVar.a(this.unique_id);
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.unique_id);
         }
         MessageManager.getInstance().registerListener(i, aVar);
     }

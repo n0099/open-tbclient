@@ -1,51 +1,74 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.LiveCardData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class bs {
-    private Activity a;
-    private Animation b;
-    private Animation c;
-    private Handler d = new Handler();
+class bs {
+    final /* synthetic */ bp aCe;
+    private List<LiveCardData> aCj;
+    private List<LiveCardData> aCk;
+    private final boolean aCl;
 
-    public bs(Activity activity) {
-        this.a = activity;
-        this.b = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.frs_like);
-        this.c = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.frs_sign);
+    public bs(bp bpVar, List<LiveCardData> list) {
+        this.aCe = bpVar;
+        this.aCj = list;
+        if (list != null && list.size() > 1) {
+            this.aCl = true;
+        } else {
+            this.aCl = false;
+        }
+        this.aCk = E(this.aCj);
     }
 
-    public void a(View view) {
-        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.frs_like_cover, null);
-        Button button = (Button) a.findViewById(com.baidu.tieba.u.btn_love);
-        TextView textView = (TextView) a.findViewById(com.baidu.tieba.u.tv_love);
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_like_1, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tieba.r.frs_like_shadow_1);
-            button.setBackgroundResource(com.baidu.tieba.t.frs_btn_like_1);
-            textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.frs_like_txt_1));
-        } else {
-            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.t.icon_like, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tieba.r.frs_like_shadow);
-            button.setBackgroundResource(com.baidu.tieba.t.frs_btn_like);
-            textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.frs_like_txt));
+    private List<LiveCardData> E(List<LiveCardData> list) {
+        ArrayList arrayList = new ArrayList();
+        if (list != null) {
+            arrayList.addAll(list);
+            if (this.aCl && list.size() >= 1) {
+                arrayList.add(0, list.get(list.size() - 1));
+                arrayList.add(list.get(0));
+            }
         }
-        button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-        com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-        gVar.a(false);
-        gVar.b(com.baidu.tieba.u.love).a(0).b(true);
-        gVar.a(new bt(this, a));
-        com.baidu.adp.lib.guide.d a2 = gVar.a();
-        a2.a(this.a);
-        a.setAnimation(this.b);
-        this.b.start();
-        this.b.setAnimationListener(new bu(this, a2));
+        return arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int eL(int i) {
+        if (this.aCl) {
+            int size = this.aCk.size();
+            if (i == 0) {
+                return size - 2;
+            }
+            if (i == size - 1) {
+                return 1;
+            }
+            return i;
+        }
+        return i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int eM(int i) {
+        if (this.aCl) {
+            return i - 1;
+        }
+        return i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int FR() {
+        if (this.aCj == null) {
+            return 0;
+        }
+        return this.aCj.size();
+    }
+
+    public int FS() {
+        return this.aCl ? 1 : 0;
+    }
+
+    public List<LiveCardData> FT() {
+        return this.aCk;
     }
 }

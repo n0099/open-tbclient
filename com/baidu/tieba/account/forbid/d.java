@@ -3,15 +3,15 @@ package com.baidu.tieba.account.forbid;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements n {
-    final /* synthetic */ ForbidActivity a;
+    final /* synthetic */ ForbidActivity agi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ForbidActivity forbidActivity) {
-        this.a = forbidActivity;
+        this.agi = forbidActivity;
     }
 
     @Override // com.baidu.tieba.account.forbid.n
@@ -20,21 +20,21 @@ public class d implements n {
         String str;
         BdListView bdListView;
         e eVar;
-        textView = this.a.h;
-        str = this.a.g;
+        textView = this.agi.agf;
+        str = this.agi.mUserName;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.a.findViewById(u.radio_forbid_3).setVisibility(0);
-            this.a.findViewById(u.radio_forbid_10).setVisibility(0);
+            this.agi.findViewById(v.radio_forbid_3).setVisibility(0);
+            this.agi.findViewById(v.radio_forbid_10).setVisibility(0);
         }
-        this.a.j = new e(forbidTplData.reason);
-        bdListView = this.a.i;
-        eVar = this.a.j;
+        this.agi.agg = new e(forbidTplData.reason);
+        bdListView = this.agi.vl;
+        eVar = this.agi.agg;
         bdListView.setAdapter((ListAdapter) eVar);
     }
 
     @Override // com.baidu.tieba.account.forbid.n
     public void b(ForbidTplData forbidTplData) {
-        this.a.showToast(forbidTplData.error.b);
+        this.agi.showToast(forbidTplData.error.errMsg);
     }
 }

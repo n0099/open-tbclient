@@ -1,21 +1,14 @@
 package com.baidu.adp.widget.ListView;
 
-import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class m implements Runnable {
-    final /* synthetic */ BdListView a;
+public class m {
+    public Object data;
+    public boolean isSelectable;
+    final /* synthetic */ j uF;
+    public View view;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(BdListView bdListView) {
-        this.a = bdListView;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context = this.a.getContext();
-        if (context != null) {
-            ((com.baidu.adp.base.i) context).onPreLoad(this.a);
-        }
+    public m(j jVar) {
+        this.uF = jVar;
     }
 }

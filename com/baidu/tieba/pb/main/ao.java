@@ -1,46 +1,42 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.Intent;
-import com.baidu.tieba.data.MarkData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ MarkData b;
-    private final /* synthetic */ MarkData c;
+class ao implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PbActivity pbActivity, MarkData markData, MarkData markData2) {
-        this.a = pbActivity;
-        this.b = markData;
-        this.c = markData2;
+    public ao(PbActivity pbActivity) {
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.model.ai aiVar;
-        com.baidu.tieba.model.ai aiVar2;
-        com.baidu.tieba.model.ai aiVar3;
-        com.baidu.tieba.model.ai aiVar4;
-        com.baidu.tieba.model.ai aiVar5;
-        com.baidu.tieba.model.ai aiVar6;
-        aiVar = this.a.z;
-        if (aiVar.a()) {
-            aiVar5 = this.a.z;
-            aiVar5.e();
-            aiVar6 = this.a.z;
-            aiVar6.a(false);
-        }
-        aiVar2 = this.a.z;
-        aiVar2.a(this.b);
-        aiVar3 = this.a.z;
-        aiVar3.a(true);
-        aiVar4 = this.a.z;
-        aiVar4.d();
-        this.c.setPostId(this.b.getPostId());
-        Intent intent = new Intent();
-        intent.putExtra("mark", this.c);
-        this.a.setResult(-1, intent);
-        this.a.y();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Wv */
+    public View ee() {
+        return new PlayVoiceBnt(this.bvg, PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: S */
+    public void i(View view) {
+        ((PlayVoiceBnt) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: T */
+    public View j(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: U */
+    public View k(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

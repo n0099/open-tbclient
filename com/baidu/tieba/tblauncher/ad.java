@@ -1,53 +1,74 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.at;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.core.b.a {
-    private h a;
+class ad extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new at(context).a(i)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context) {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            a(context, 1);
-        } else {
-            a(context, 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x002a, code lost:
+        if (r1 <= 0) goto L9;
+     */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        int i;
+        TextView textView;
+        boolean z2;
+        TextView textView2;
+        MainTabActivity mainTabActivity;
+        TextView textView3;
+        Drawable drawable;
+        ImageView imageView;
+        boolean z3;
+        int i2;
+        int i3;
+        boolean z4 = false;
+        this.this$0.bOS = 0;
+        this.this$0.bOX = false;
+        z = this.this$0.bOY;
+        if (!z) {
+            z3 = this.this$0.adx;
+            if (!z3) {
+                i2 = this.this$0.bOR;
+                if (i2 <= 0) {
+                    i3 = this.this$0.bOT;
+                }
+            }
         }
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new at(context).b(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public Class<?> a() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public String b() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public int c() {
-        if (this.a != null) {
-            return this.a.a();
+        z4 = true;
+        if (!z4) {
+            imageView = this.this$0.bOL;
+            imageView.setVisibility(8);
         }
-        return -1;
-    }
-
-    public void a(h hVar) {
-        this.a = hVar;
+        i = this.this$0.bOR;
+        if (i > 0) {
+            z2 = this.this$0.bOV;
+            if (z2) {
+                textView2 = this.this$0.bOx;
+                mainTabActivity = this.this$0.bOO;
+                textView2.setCompoundDrawablePadding(com.baidu.adp.lib.util.m.dip2px(mainTabActivity, 4.0f));
+                textView3 = this.this$0.bOx;
+                drawable = this.this$0.bOy;
+                textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
+                return;
+            }
+        }
+        textView = this.this$0.bOx;
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 }

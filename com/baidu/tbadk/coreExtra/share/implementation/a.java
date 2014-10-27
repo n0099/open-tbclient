@@ -3,52 +3,55 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.tbadk.coreExtra.share.h;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.coreExtra.share.b {
-    private Context a;
-    private BdSocialShareSdkDelegate b;
-    private c c;
+    private BdSocialShareSdkDelegate Nf;
+    private c Ng;
+    private Context mContext;
 
     public a(Context context, com.baidu.tbadk.coreExtra.share.a aVar) {
-        this.a = null;
-        this.b = null;
-        this.a = context;
-        com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("BdSocialShareSdk");
-        if (a != null) {
-            this.b = (BdSocialShareSdkDelegate) a.a(BdSocialShareSdkDelegate.class);
+        this.mContext = null;
+        this.Nf = null;
+        this.mContext = context;
+        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_SOCIAL_SHARE);
+        if (pluginByName != null) {
+            this.Nf = (BdSocialShareSdkDelegate) pluginByName.getClassInstance(BdSocialShareSdkDelegate.class);
         }
-        if (this.b == null) {
+        if (this.Nf == null) {
             Log.e("ShareTool", "Social Share Plugin Invalid");
         } else {
-            this.c = new c(aVar);
+            this.Ng = new c(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.b
     public void a(h hVar, int i, boolean z) {
-        if (this.b == null) {
+        if (this.Nf == null) {
             Log.e("ShareTool", "Social Share Plugin Invalid");
             return;
         }
         switch (i) {
             case 2:
-                this.b.shareToWexinTimeline(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToWexinTimeline(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             case 3:
-                this.b.shareToWeixinFriend(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToWeixinFriend(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             case 4:
-                this.b.shareToQZone(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToQZone(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             case 5:
-                this.b.shareToQQWeibo(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToQQWeibo(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             case 6:
-                this.b.shareToSinaWeibo(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToSinaWeibo(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             case 7:
-                this.b.shareToRenren(hVar.a, hVar.b, hVar.c, hVar.d, hVar.e, this.a, z, new d(this, hVar, i));
+                this.Nf.shareToRenren(hVar.title, hVar.content, hVar.MW, hVar.MX, hVar.MY, this.mContext, z, new d(this, hVar, i));
                 return;
             default:
                 Log.e("ShareTool", "Invalid type recevied");

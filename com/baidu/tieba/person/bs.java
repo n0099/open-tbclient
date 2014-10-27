@@ -1,21 +1,30 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class bs implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class bs {
+    TextView auD;
+    TextView avZ;
+    HeadImageView azk;
+    ImageView bCD;
+    LinearLayout bCE;
+    TextView bCF;
+    ViewGroup bCY;
+    TextView bCZ;
+    final /* synthetic */ br bDa;
+    ProgressBar mProgress;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    private bs(br brVar) {
+        this.bDa = brVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.c;
-        com.baidu.adp.lib.e.e.a(alertDialog, this.a);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bs(br brVar, bs bsVar) {
+        this(brVar);
     }
 }

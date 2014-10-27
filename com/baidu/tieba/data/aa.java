@@ -1,50 +1,100 @@
 package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.model.Hao123Model;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aa {
-    private ArrayList<z> a = new ArrayList<>();
-    private boolean b;
-    private int c;
+    private int alq;
+    private int alr;
+    private int cur_score;
+    private String fid;
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private int user_level;
 
-    public ArrayList<z> a() {
-        return this.a;
+    public aa() {
+        setLike(0);
+        this.alq = 0;
+        this.alr = 0;
+        this.user_level = 0;
+        setLevelName("");
+        setCurScore(0);
+        setLevelupScore(0);
     }
 
-    public void a(int i) {
-        this.c = i;
+    public String getFid() {
+        return this.fid;
     }
 
-    public boolean b() {
-        return this.b;
+    public void et(String str) {
+        this.fid = str;
     }
 
-    public void c() {
-        Iterator<z> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().a(0);
+    public int zz() {
+        return this.user_level;
+    }
+
+    public void ed(int i) {
+        if (i >= 0) {
+            this.user_level = i;
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                Hao123Model.setHao123Cache(Hao123Model.getHao123JosnStr(Hao123Model.parserLikeForums(jSONArray)));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    z zVar = new z();
-                    zVar.a(jSONArray.getJSONObject(i));
-                    if (zVar.d() >= this.c) {
-                        this.b = true;
-                    }
-                    this.a.add(zVar);
-                }
+                setLike(jSONObject.optInt("is_like", 0));
+                this.alq = jSONObject.optInt("is_black", 0);
+                this.alr = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
+    }
+
+    public void setLike(int i) {
+        this.is_like = i;
+    }
+
+    public int isLike() {
+        return this.is_like;
+    }
+
+    public void setLevelName(String str) {
+        this.level_name = str;
+    }
+
+    public String getLevelName() {
+        return this.level_name;
+    }
+
+    public void setCurScore(int i) {
+        this.cur_score = i;
+    }
+
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
     }
 }

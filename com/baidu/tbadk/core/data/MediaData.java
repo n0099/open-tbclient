@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
 /* loaded from: classes.dex */
-public class MediaData implements Serializable {
+public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private int type = -1;
     private String pic_url = null;
     private String video_url = null;

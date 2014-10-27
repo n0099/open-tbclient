@@ -6,17 +6,16 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j> {
-    final /* synthetic */ Register2Activity a;
-    private ae b;
+    final /* synthetic */ Register2Activity afJ;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private z(Register2Activity register2Activity) {
-        this.a = register2Activity;
-        this.b = null;
+        this.afJ = register2Activity;
+        this.mNetWork = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,39 +26,39 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
-        this.a.O = null;
-        progressBar = this.a.D;
+        this.afJ.afF = null;
+        progressBar = this.afJ.mProgressBar;
         progressBar.setVisibility(8);
-        this.a.l();
+        this.afJ.xk();
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: n */
     public com.baidu.tbadk.core.data.j doInBackground(String... strArr) {
-        RegistData m;
+        RegistData xl;
         com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
         try {
-            m = this.a.m();
-            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            this.b.a("un", m.getName());
-            this.b.a("phonenum", m.getPhone());
-            this.b.a("passwd", m.getPsw());
-            if (m.getVcode() != null) {
-                this.b.a("vcode", m.getVcode());
+            xl = this.afJ.xl();
+            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            this.mNetWork.k("un", xl.getName());
+            this.mNetWork.k("phonenum", xl.getPhone());
+            this.mNetWork.k("passwd", xl.getPsw());
+            if (xl.getVcode() != null) {
+                this.mNetWork.k("vcode", xl.getVcode());
             }
-            if (m.getVcodeMd5() != null) {
-                this.b.a("vcode_md5", m.getVcodeMd5());
+            if (xl.getVcodeMd5() != null) {
+                this.mNetWork.k("vcode_md5", xl.getVcodeMd5());
             }
-            String h = this.b.h();
-            if ((this.b.b() && (this.b.c() == 0 || this.b.c() == 36)) || this.b.c() == 5) {
+            String lA = this.mNetWork.lA();
+            if ((this.mNetWork.mf() && (this.mNetWork.mg() == 0 || this.mNetWork.mg() == 36)) || this.mNetWork.mg() == 5) {
                 com.baidu.tbadk.core.data.j jVar2 = new com.baidu.tbadk.core.data.j();
-                jVar2.a(h);
+                jVar2.parserJson(lA);
                 return jVar2;
             }
             return jVar;
@@ -75,42 +74,42 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
     /* renamed from: a */
     public void onPostExecute(com.baidu.tbadk.core.data.j jVar) {
         ProgressBar progressBar;
-        RegistData m;
+        RegistData xl;
         int i;
         int i2;
         int i3;
         super.onPostExecute(jVar);
-        this.a.O = null;
-        progressBar = this.a.D;
+        this.afJ.afF = null;
+        progressBar = this.afJ.mProgressBar;
         progressBar.setVisibility(8);
-        this.a.l();
-        this.a.P = jVar;
-        if (!this.b.b()) {
-            this.a.K = -1;
-            this.a.L = this.b.e();
-            this.a.k();
-        } else if (this.b.c() == 36) {
-            this.a.a(jVar.c());
-            Register2Activity register2Activity = this.a;
-            i3 = Register2Activity.d;
-            register2Activity.K = i3;
-            this.a.L = this.b.e();
-            this.a.k();
-        } else if (this.b.c() == 5) {
-            Register2Activity register2Activity2 = this.a;
-            i2 = Register2Activity.g;
-            register2Activity2.K = i2;
-            this.a.a(true);
-        } else if (this.b.c() == 0) {
-            m = this.a.m();
-            Register2Activity register2Activity3 = this.a;
-            i = Register2Activity.c;
-            ActivationActivity.a(register2Activity3, m, i);
-            this.a.a(false);
+        this.afJ.xk();
+        this.afJ.afG = jVar;
+        if (!this.mNetWork.mf()) {
+            this.afJ.afC = -1;
+            this.afJ.mErrorString = this.mNetWork.getErrorString();
+            this.afJ.xj();
+        } else if (this.mNetWork.mg() == 36) {
+            this.afJ.i(jVar.ka());
+            Register2Activity register2Activity = this.afJ;
+            i3 = Register2Activity.afc;
+            register2Activity.afC = i3;
+            this.afJ.mErrorString = this.mNetWork.getErrorString();
+            this.afJ.xj();
+        } else if (this.mNetWork.mg() == 5) {
+            Register2Activity register2Activity2 = this.afJ;
+            i2 = Register2Activity.aff;
+            register2Activity2.afC = i2;
+            this.afJ.bg(true);
+        } else if (this.mNetWork.mg() == 0) {
+            xl = this.afJ.xl();
+            Register2Activity register2Activity3 = this.afJ;
+            i = Register2Activity.afb;
+            ActivationActivity.a(register2Activity3, xl, i);
+            this.afJ.bg(false);
         } else {
-            this.a.K = this.b.c();
-            this.a.L = this.b.e();
-            this.a.k();
+            this.afJ.afC = this.mNetWork.mg();
+            this.afJ.mErrorString = this.mNetWork.getErrorString();
+            this.afJ.xj();
         }
     }
 
@@ -121,17 +120,17 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.a.D;
+        progressBar = this.afJ.mProgressBar;
         progressBar.setVisibility(0);
-        this.a.i();
-        this.a.K = -1;
-        this.a.L = null;
-        this.a.k();
-        linearLayout = this.a.z;
+        this.afJ.xh();
+        this.afJ.afC = -1;
+        this.afJ.mErrorString = null;
+        this.afJ.xj();
+        linearLayout = this.afJ.afv;
         linearLayout.setVisibility(8);
-        textView = this.a.s;
+        textView = this.afJ.KJ;
         textView.setVisibility(4);
-        textView2 = this.a.s;
+        textView2 = this.afJ.KJ;
         textView2.setText((CharSequence) null);
         super.onPreExecute();
     }

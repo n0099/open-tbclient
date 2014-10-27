@@ -1,26 +1,30 @@
 package com.baidu.tbadk.cdnOptimize;
 
+import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.stats.p;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e {
-    private String b = "c/s/checkcdn";
-    private i c = null;
-    public String a = String.valueOf(TbConfig.SERVER_ADDRESS) + this.b;
-    private HttpMessageListener d = new h(this, 1002100);
+    public static final String ya = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
+    private i xZ;
+    private HttpMessageListener yb;
 
-    public g() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002100, this.a);
+    public g(Context context) {
+        super(context);
+        this.xZ = null;
+        this.yb = new h(this, CmdConfigHttp.CDN_IPLIST_CMD);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, ya);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.d);
-        MessageManager.getInstance().registerListener(this.d);
+        MessageManager.getInstance().unRegisterListener(this.yb);
+        MessageManager.getInstance().registerListener(this.yb);
     }
 
     @Override // com.baidu.adp.base.e
@@ -34,63 +38,56 @@ public class g extends com.baidu.adp.base.e {
     }
 
     public void a(i iVar) {
-        this.c = iVar;
+        this.xZ = iVar;
     }
 
-    public void a() {
-        sendMessage(new HttpMessage(1002100));
+    public void iU() {
+        sendMessage(new HttpMessage(CmdConfigHttp.CDN_IPLIST_CMD));
     }
 
     public boolean a(String str, String str2, String str3, String str4, boolean z) {
-        boolean z2;
         int i;
+        boolean z2 = true;
         if (str == null || str2 == null || str3 == null || str4 == null) {
             return false;
         }
-        boolean z3 = false;
         int indexOf = str.indexOf("hiphotos");
-        if (indexOf > 0 && indexOf < 20) {
-            z3 = true;
+        if (indexOf <= 0 || indexOf >= 20) {
+            z2 = false;
         }
-        if (!z3) {
-            return false;
-        }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-            ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
-            eVar.a().a(str);
-            imgHttpClient.a(str2, str3, 1);
-            byte[] bArr = eVar.b().g;
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            boolean a = eVar.b().a();
-            String str5 = "";
-            if (bArr != null) {
-                int length = bArr.length;
-                String a2 = p.a(bArr);
-                if (str4.equals(a2)) {
-                    z2 = a;
-                    i = length;
+        if (z2) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
+                ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
+                eVar.dQ().setUrl(str);
+                imgHttpClient.a(str2, str3, 1);
+                byte[] bArr = eVar.dR().kG;
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                boolean dW = eVar.dR().dW();
+                String str5 = "";
+                if (bArr != null) {
+                    i = bArr.length;
+                    String n = u.n(bArr);
+                    if (!str4.equals(n)) {
+                        str5 = "MD5Error_" + n + "_" + str4;
+                    }
                 } else {
-                    str5 = "MD5Error_" + a2 + "_" + str4;
-                    z2 = false;
-                    i = length;
+                    str5 = "downSizeZero";
+                    i = 0;
                 }
-            } else {
-                str5 = "downSizeZero";
-                z2 = false;
-                i = 0;
+                v.a(dW, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
+                return dW;
+            } catch (Exception e) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append("class");
+                stringBuffer.append(e.getClass());
+                stringBuffer.append(" message");
+                stringBuffer.append(e.getMessage());
+                v.a(false, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
+                return false;
             }
-            w.a(z2, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
-            return z2;
-        } catch (Exception e) {
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("class");
-            stringBuffer.append(e.getClass());
-            stringBuffer.append(" message");
-            stringBuffer.append(e.getMessage());
-            w.a(false, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
-            return false;
         }
+        return false;
     }
 }

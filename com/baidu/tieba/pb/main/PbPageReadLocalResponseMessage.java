@@ -8,7 +8,7 @@ import tbclient.PbPage.PbPageResIdl;
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     private Context context;
     private boolean markCache;
-    private com.baidu.tieba.data.aj pbData;
+    private com.baidu.tieba.data.ah pbData;
     private String postId;
     private int updateType;
 
@@ -20,12 +20,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         this.updateType = i;
     }
 
-    public com.baidu.tieba.data.aj getPbData() {
+    public com.baidu.tieba.data.ah getPbData() {
         return this.pbData;
     }
 
-    public void setPbData(com.baidu.tieba.data.aj ajVar) {
-        this.pbData = ajVar;
+    public void setPbData(com.baidu.tieba.data.ah ahVar) {
+        this.pbData = ahVar;
     }
 
     public void setPostId(String str) {
@@ -54,12 +54,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
             setError(pbPageResIdl.error.errorno.intValue());
             setErrorString(pbPageResIdl.error.usermsg);
             if (getError() == 0 && pbPageResIdl.data != null) {
-                this.pbData = new com.baidu.tieba.data.aj();
+                this.pbData = new com.baidu.tieba.data.ah();
                 try {
                     this.pbData.a(pbPageResIdl.data, this.context);
-                    if (!this.pbData.b()) {
+                    if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.j() != null && !this.pbData.j().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.zO() != null && !this.pbData.zO().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

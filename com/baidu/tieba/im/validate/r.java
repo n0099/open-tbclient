@@ -7,78 +7,79 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.f {
-    private View a;
-    private ImageView b;
-    private ValidateActivity c;
-    private BdListView d;
-    private g e;
-    private ProgressBar f;
-    private NavigationBar g;
+    private View aGI;
+    private ProgressBar bcm;
+    private ValidateActivity biS;
+    private ImageView bjb;
+    private BdListView bjc;
+    private g bjd;
+    private NavigationBar mNavigationBar;
 
     public r(ValidateActivity validateActivity) {
         super(validateActivity);
-        this.c = validateActivity;
-        a();
-        this.e = new g(this.c);
-        this.d.setAdapter((ListAdapter) this.e);
-        this.d.setOnSrollToBottomListener(this.c);
+        this.biS = validateActivity;
+        nu();
+        this.bjd = new g(this.biS);
+        this.bjc.setAdapter((ListAdapter) this.bjd);
+        this.bjc.setOnSrollToBottomListener(this.biS);
     }
 
-    void a() {
-        this.a = View.inflate(this.c, v.validate_activity, null);
-        this.c.setContentView(this.a);
-        this.g = (NavigationBar) this.c.findViewById(u.view_navigation_bar);
-        this.g.a(this.c.getString(x.validate));
-        this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));
-        this.d = (BdListView) this.a.findViewById(u.validate_list);
-        this.f = (ProgressBar) this.a.findViewById(u.pro_load);
-        a(false);
+    void nu() {
+        this.aGI = View.inflate(this.biS, w.validate_activity, null);
+        this.biS.setContentView(this.aGI);
+        this.mNavigationBar = (NavigationBar) this.biS.findViewById(v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.biS.getString(y.validate));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));
+        this.bjc = (BdListView) this.aGI.findViewById(v.validate_list);
+        this.bcm = (ProgressBar) this.aGI.findViewById(v.pro_load);
+        dg(false);
     }
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
         super.destroy();
-        if (this.e != null) {
-            this.e.a();
-            this.e = null;
+        if (this.bjd != null) {
+            this.bjd.destroy();
+            this.bjd = null;
         }
-        this.c = null;
+        this.biS = null;
     }
 
-    public void a(List<ValidateItemData> list) {
-        if (this.e != null) {
-            this.e.a(list);
+    public void setData(List<ValidateItemData> list) {
+        if (this.bjd != null) {
+            this.bjd.setData(list);
         }
     }
 
-    public void a(boolean z) {
-        this.f.setVisibility(z ? 0 : 8);
+    public void dg(boolean z) {
+        this.bcm.setVisibility(z ? 0 : 8);
     }
 
-    public void a(int i) {
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.a);
-        this.g.c(i);
+    public void onChangeSkinType(int i) {
+        this.biS.getLayoutMode().L(i == 1);
+        this.biS.getLayoutMode().h(this.aGI);
+        this.mNavigationBar.onChangeSkinType(i);
         if (i == 1) {
-            this.d.setDivider(new ColorDrawable(this.c.getResources().getColor(com.baidu.tieba.r.night_divider)));
-            this.d.setDividerHeight(this.c.getResources().getDimensionPixelSize(com.baidu.tieba.s.onedip));
+            this.bjc.setDivider(new ColorDrawable(this.biS.getResources().getColor(com.baidu.tieba.s.night_divider)));
+            this.bjc.setDividerHeight(this.biS.getResources().getDimensionPixelSize(t.onedip));
             return;
         }
-        this.d.setDivider(new ColorDrawable(this.c.getResources().getColor(com.baidu.tieba.r.day_divider)));
-        this.d.setDividerHeight(this.c.getResources().getDimensionPixelSize(com.baidu.tieba.s.onedip));
+        this.bjc.setDivider(new ColorDrawable(this.biS.getResources().getColor(com.baidu.tieba.s.day_divider)));
+        this.bjc.setDividerHeight(this.biS.getResources().getDimensionPixelSize(t.onedip));
     }
 
-    public ImageView b() {
-        return this.b;
+    public ImageView RR() {
+        return this.bjb;
     }
 
-    public g c() {
-        return this.e;
+    public g RS() {
+        return this.bjd;
     }
 }

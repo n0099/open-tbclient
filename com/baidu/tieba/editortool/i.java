@@ -1,75 +1,25 @@
 package com.baidu.tieba.editortool;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class i extends RelativeLayout {
-    private Context a;
+class i extends CustomMessageListener {
+    final /* synthetic */ EditorInfoContainer aqj;
 
-    public i(Context context) {
-        super(context);
-        this.a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(EditorInfoContainer editorInfoContainer, int i) {
+        super(i);
+        this.aqj = editorInfoContainer;
     }
 
-    public i(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.a = context;
-    }
-
-    public i(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.a = context;
-    }
-
-    private boolean d() {
-        return TbadkApplication.m252getInst().getSkinType() == 1;
-    }
-
-    public TextView a(EditorToolButton editorToolButton, boolean z) {
-        TextView textView = new TextView(this.a);
-        textView.setTextSize(10.0f);
-        textView.setTextColor(this.a.getResources().getColor(d() ? com.baidu.tieba.r.top_msg_num_night : com.baidu.tieba.r.top_msg_num_day));
-        textView.setGravity(17);
-        if (z) {
-            textView.setBackgroundResource(d() ? com.baidu.tieba.t.icon_news_head_prompt_one_1 : com.baidu.tieba.t.icon_news_head_prompt_one);
-        } else {
-            textView.setBackgroundResource(d() ? com.baidu.tieba.t.icon_news_list_prompt_1 : com.baidu.tieba.t.icon_news_list_prompt);
-        }
-        editorToolButton.a(textView);
-        addView(textView);
-        return textView;
-    }
-
-    public void a() {
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).c();
-            }
-        }
-    }
-
-    public void b() {
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).d();
-            }
-        }
-    }
-
-    public void c() {
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).i();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof ba) {
+                this.aqj.a((ba) data);
             }
         }
     }

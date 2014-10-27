@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class MsgLocalData implements Serializable {
+public class MsgLocalData extends i implements Serializable {
     private static final long serialVersionUID = -6687040214263261976L;
     private long errno;
     private long retry;

@@ -1,22 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ MainTabActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2 = this.a;
-        mainTabActivity = this.a.I;
-        mainTabActivity2.a(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
+public class p implements CustomMessageTask.CustomRunnable<Void> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+        if (customMessage == null) {
+            return null;
+        }
+        TbadkApplication.m251getInst().setFriendFeedNew(true);
+        return new CustomResponsedMessage<>(2012118);
     }
 }

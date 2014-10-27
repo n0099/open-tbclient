@@ -4,18 +4,18 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.coreExtra.view.x {
-    final /* synthetic */ FillUProfileActivity a;
+public class u implements com.baidu.tbadk.coreExtra.view.w {
+    final /* synthetic */ FillUProfileActivity Ki;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FillUProfileActivity fillUProfileActivity) {
-        this.a = fillUProfileActivity;
+        this.Ki = fillUProfileActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.x
-    public void a(AccountData accountData) {
+    @Override // com.baidu.tbadk.coreExtra.view.w
+    public void f(AccountData accountData) {
         com.baidu.tbadk.core.account.a.a(accountData);
-        TbadkApplication.setCurrentAccount(accountData, this.a.getBaseContext());
-        this.a.b();
+        TbadkApplication.setCurrentAccount(accountData, this.Ki.getBaseContext());
+        this.Ki.ob();
     }
 }

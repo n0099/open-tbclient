@@ -1,63 +1,38 @@
 package com.baidu.tieba.model;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class ad extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ ac a;
-    private String b;
+public class ad extends com.baidu.adp.base.e {
+    private ae boT;
+    private String boU;
 
-    public ad(ac acVar, String str) {
-        this.a = acVar;
-        this.b = null;
-        this.b = str;
+    public ad(Context context) {
+        super(context);
+        this.boT = null;
+        this.boU = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Bitmap doInBackground(Object... objArr) {
-        if (this.b != null && !this.b.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-            com.baidu.tbadk.core.util.s.e("photos/" + this.b, TbConfig.IMAGE_RESIZED_FILE);
+    public boolean gS(String str) {
+        this.boU = str;
+        return LoadData();
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        if (this.boT != null) {
+            this.boT.cancel();
         }
-        return com.baidu.tbadk.core.util.d.a(com.baidu.tbadk.core.util.d.b(com.baidu.tbadk.core.util.s.c(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
+        this.boT = new ae(this, this.boU);
+        this.boT.execute(new Object[0]);
+        return true;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
-        if (hVar != null) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(null);
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.boT != null) {
+            this.boT.cancel();
+            return true;
         }
-        super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onCancelled() {
-        super.onCancelled();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Bitmap bitmap) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        super.onPostExecute(bitmap);
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
-        if (hVar != null) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(bitmap);
-        }
+        return true;
     }
 }

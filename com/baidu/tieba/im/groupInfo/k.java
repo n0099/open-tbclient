@@ -1,39 +1,31 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
-import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-class k implements ac {
-    final /* synthetic */ GroupInfoActivity a;
+class k implements DialogInterface.OnClickListener {
+    final /* synthetic */ GroupInfoActivity ban;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(GroupInfoActivity groupInfoActivity) {
-        this.a = groupInfoActivity;
+        this.ban = groupInfoActivity;
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.ac
-    public void a(DialogInterface dialogInterface, int i, Object obj, int i2) {
-        r rVar;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
         if (i == 0) {
-            if (i2 == 0) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.has_set_portrait));
-                return;
-            }
-            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
-            this.a.a(obj);
+            av.h(this.ban);
         } else if (i == 1) {
-            if (i2 == 0) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.group_portrait_cant_del));
-                return;
-            }
-            com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
-            if (obj != null && (obj instanceof PhotoUrlData)) {
-                this.a.a((PhotoUrlData) obj);
-            }
-        } else if (i == 2) {
-            rVar = this.a.b;
-            rVar.u();
+            GroupInfoActivity groupInfoActivity = this.ban;
+            writeImagesInfo = this.ban.writeImagesInfo;
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(groupInfoActivity, writeImagesInfo.toJsonString());
+            albumActivityConfig.setRequestCode(12002);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
         }
     }
 }

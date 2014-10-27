@@ -1,334 +1,278 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.adp.base.BdBaseApplication;
+import android.graphics.Color;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 /* loaded from: classes.dex */
-public class ay {
-    private static String a = "skinType not support";
+public class ay extends com.baidu.adp.lib.util.l {
+    private static long EZ = 86400000;
+    private static long Fa = 3600000;
+    private static long Fb = TbConfig.USE_TIME_INTERVAL;
+    private static long Fc = 1000;
+    private static String Fd = TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_hour_before);
+    private static String Fe = TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_min_before);
+    private static String Ff = TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_sec_before);
+    private static Date Fg = new Date();
 
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_button_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.white));
+    static {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        if (timeZone != null) {
+            na.setTimeZone(timeZone);
+            nb.setTimeZone(timeZone);
+            nc.setTimeZone(timeZone);
+            nd.setTimeZone(timeZone);
+            ne.setTimeZone(timeZone);
+            nf.setTimeZone(timeZone);
+            ng.setTimeZone(timeZone);
+            nh.setTimeZone(timeZone);
+            ni.setTimeZone(timeZone);
+            nj.setTimeZone(timeZone);
+        }
+    }
+
+    public static String e(Date date) {
+        String format;
+        synchronized (nh) {
+            format = nh.format(date);
+        }
+        return format;
+    }
+
+    public static String mB() {
+        String format;
+        Date date = new Date();
+        synchronized (ni) {
+            format = ni.format(date);
+        }
+        return format;
+    }
+
+    public static String l(int i, int i2, int i3) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1, i);
+        calendar.set(2, i2);
+        calendar.set(5, i3);
+        switch (calendar.get(7)) {
+            case 1:
+                return String.valueOf("周") + "日";
+            case 2:
+                return String.valueOf("周") + "一";
+            case 3:
+                return String.valueOf("周") + "二";
+            case 4:
+                return String.valueOf("周") + "三";
+            case 5:
+                return String.valueOf("周") + "四";
+            case 6:
+                return String.valueOf("周") + "五";
+            case 7:
+                return String.valueOf("周") + "六";
+            default:
+                return "周";
+        }
+    }
+
+    public static int mC() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(5) + 0 + (calendar.get(1) * TbConfig.BIG_IMAGE_MIN_CAPACITY) + ((calendar.get(2) + 1) * 100);
+    }
+
+    public static String f(Date date) {
+        return date == null ? "" : a(new Date(), date);
+    }
+
+    public static String a(Date date, Date date2) {
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
             }
-        }
-    }
-
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.black));
+            return d(date2);
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
+            if (time < j) {
+                return "半分钟前";
             }
-        }
-    }
-
-    public static void c(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.gray_night_1));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.search_text_content));
+            long j2 = j * 60;
+            if (time < j2) {
+                return String.valueOf(String.valueOf((time * 60) / j2)) + "分钟前";
             }
-        }
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.backgroundcolor));
+            long j3 = j2 * 24;
+            if (time < j3) {
+                if (day == 0) {
+                    return b(date2);
+                }
+                return "1天前";
             }
-        }
-    }
-
-    public static void b(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.t.common_bg_1);
-            } else {
-                view.setBackgroundResource(com.baidu.tieba.t.common_bg);
+            long j4 = j3 * 31;
+            if (time < j4) {
+                return String.valueOf(String.valueOf((time * 31) / j4)) + "天前";
             }
-        }
-    }
-
-    public static void c(View view, int i) {
-        if (view != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.login_bg_color));
+            if (time < j4 + 86400000) {
+                return "1个月前";
             }
+            return d(date2);
+        } else {
+            return "刚刚";
         }
     }
 
-    public static void d(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_color));
-            } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.r.white));
+    public static String g(Date date) {
+        return b(new Date(), date);
+    }
+
+    public static String b(Date date, Date date2) {
+        String format;
+        String format2;
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
             }
-        }
-    }
-
-    public static void d(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.t.titlebar_bg_1);
-            } else {
-                view.setBackgroundResource(com.baidu.tieba.t.titlebar_bg);
+            return d(date2);
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
+            if (time < j) {
+                return "半分钟前";
             }
-            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
-    }
-
-    public static void e(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.t.title_comm_1);
-            } else {
-                e((View) textView, com.baidu.tieba.t.title_comm);
+            long j2 = j * 60;
+            if (time < j2) {
+                return String.valueOf(String.valueOf((time * 60) / j2)) + "分钟前";
             }
-        }
-        d(textView, i);
-    }
-
-    public static void f(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.t.title_comm_hilite_1);
-            } else {
-                e((View) textView, com.baidu.tieba.t.title_comm_hilite);
+            long j3 = j2 * 24;
+            if (time < j3) {
+                if (day == 0) {
+                    return b(date2);
+                }
+                return "1天前";
             }
-        }
-        d(textView, i);
-    }
-
-    public static void g(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.t.navi_done_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.t.navi_done_text_bg);
+            long j4 = j3 * 31;
+            if (time < j4) {
+                return String.valueOf(String.valueOf((time * 31) / j4)) + "天前";
             }
-        }
-        h(textView, i);
-    }
-
-    public static void h(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_done_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_done_text));
+            if (time < j4 + 86400000) {
+                return "1个月前";
             }
-        }
-    }
-
-    public static void i(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.t.navi_op_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.t.navi_op_text_bg);
+            if (date.getYear() == date2.getYear()) {
+                synchronized (nj) {
+                    format2 = nj.format(date2);
+                }
+                return format2;
             }
-        }
-        j(textView, i);
-    }
-
-    public static void j(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_op_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_op_text));
+            synchronized (nf) {
+                format = nf.format(date2);
             }
+            return format;
+        } else {
+            return "刚刚";
         }
     }
 
-    public static void k(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, com.baidu.tieba.t.navi_del_text_bg_1);
-            } else {
-                e((View) textView, com.baidu.tieba.t.navi_del_text_bg);
+    public static String i(long j) {
+        long abs = Math.abs(System.currentTimeMillis() - (1000 * j));
+        if (abs <= 120000) {
+            return "刚刚";
+        }
+        if (abs >= Long.MAX_VALUE) {
+            return "一个月前";
+        }
+        if (abs / EZ != 0) {
+            if (abs / EZ > 30) {
+                return "一个月前";
             }
+            return String.valueOf(abs / EZ) + "天前";
+        } else if (abs / Fa != 0) {
+            return String.valueOf(abs / Fa) + "小时前";
+        } else {
+            return String.valueOf(abs / Fb) + "分钟前";
         }
-        l(textView, i);
     }
 
-    public static void l(TextView textView, int i) {
-        if (textView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_del_text_1));
-            } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.r.navi_del_text));
+    public static String a(String str, Color color) {
+        String str2;
+        Exception exc;
+        String replaceAll;
+        if (str == null) {
+            return "";
+        }
+        try {
+            replaceAll = str.replaceAll("<em>", "<font color='#007bd1'>");
+        } catch (Exception e) {
+            str2 = null;
+            exc = e;
+        }
+        try {
+            return replaceAll.replaceAll("</em>", "</font>");
+        } catch (Exception e2) {
+            str2 = replaceAll;
+            exc = e2;
+            BdLog.e(exc.toString());
+            return str2;
+        }
+    }
+
+    public static String j(long j) {
+        String h;
+        synchronized (Fg) {
+            Fg.setTime(j);
+            h = h(Fg);
+        }
+        return h;
+    }
+
+    private static String h(Date date) {
+        if (date == null) {
+            return "";
+        }
+        long time = new Date().getTime() - date.getTime();
+        if (time < EZ && time > 0) {
+            if (time < Fa) {
+                if (time < Fb) {
+                    long j = time / Fc;
+                    if (j == 0) {
+                        j = 1;
+                    }
+                    return String.valueOf(String.valueOf(j)) + Ff;
+                }
+                return String.valueOf(String.valueOf(time / Fb)) + Fe;
             }
+            return String.valueOf(String.valueOf(time / Fa)) + Fd;
         }
+        return d(date);
     }
 
-    public static void a(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.t.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.t.icon_return_old_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(com.baidu.tieba.t.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.t.icon_return_old_n);
+    public static String k(long j) {
+        String valueOf;
+        Date date = new Date(j);
+        if (date.getMinutes() < 10) {
+            valueOf = "0" + date.getMinutes();
+        } else {
+            valueOf = String.valueOf(date.getMinutes());
         }
+        return date.getHours() > 12 ? TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
     }
 
-    public static void b(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.t.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.t.icon_refresh_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(com.baidu.tieba.t.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.t.icon_refresh_n);
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
+    public static String bB(int i) {
+        if (i > 9999) {
+            return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
-    }
-
-    public static int a(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.r.skin_1_common_color);
+        if (i < 0) {
+            return "0";
         }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int b(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.r.skin_1_second_common_color);
-        }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int c(int i) {
-        if (i == 1) {
-            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.r.skin_1_third_common_color);
-        }
-        throw new IllegalArgumentException(a);
-    }
-
-    public static int d(int i) {
-        Application app = BdBaseApplication.getInst().getApp();
-        return i == 1 ? app.getResources().getColor(com.baidu.tieba.r.skin_1_common_bg) : app.getResources().getColor(com.baidu.tieba.r.backgroundcolor);
-    }
-
-    public static void e(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            view.setBackgroundResource(i);
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    public static final int a(Context context, int i) {
-        String resourceName;
-        if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
-            int identifier = context.getResources().getIdentifier(String.valueOf(resourceName) + "_1", null, null);
-            if (identifier == 0) {
-                BdLog.e("cannot find res:" + resourceName + "_1");
-                return i;
-            }
-            return identifier;
-        }
-        return i;
-    }
-
-    public static void c(ImageView imageView, int i) {
-        if (imageView != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                i = a(imageView.getContext(), i);
-            }
-            imageView.setImageResource(i);
-        }
-    }
-
-    public static void f(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                view.setBackgroundResource(a(view.getContext(), i));
-            } else {
-                view.setBackgroundResource(i);
-            }
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    public static void a(View view, int i, int i2) {
-        if (view != null) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                i = a(view.getContext(), i);
-            }
-            ColorStateList colorStateList = BdBaseApplication.getInst().getApp().getResources().getColorStateList(i);
-            if (i2 == 1) {
-                ((TextView) view).setTextColor(colorStateList);
-            } else if (i2 == 2) {
-                ((EditText) view).setTextColor(colorStateList);
-            } else if (i2 == 3) {
-                ((Button) view).setTextColor(colorStateList);
-            }
-        }
-    }
-
-    public static void a(ListView listView, int i) {
-        if (listView != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.skin_1_common_bg));
-                listView.setCacheColorHint(app.getResources().getColor(17170445));
-                listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.t.list_divider_1));
-                listView.setSelector(com.baidu.tieba.t.list_selector_1);
-                return;
-            }
-            listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.r.backgroundcolor));
-            listView.setCacheColorHint(app.getResources().getColor(17170445));
-            listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.t.list_divider));
-            listView.setSelector(com.baidu.tieba.t.list_selector);
-        }
+        return new StringBuilder().append(i).toString();
     }
 }

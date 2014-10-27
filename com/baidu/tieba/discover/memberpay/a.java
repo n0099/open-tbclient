@@ -7,18 +7,18 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ MemberPayActivity a;
+    final /* synthetic */ MemberPayActivity aoq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(MemberPayActivity memberPayActivity, int i) {
         super(i);
-        this.a = memberPayActivity;
+        this.aoq = memberPayActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
+    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         int i;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505) {
@@ -28,10 +28,10 @@ class a extends HttpMessageListener {
             if (statusCode == 200 && error == 0 && responseGetPayinfoMessage.getPayInfoResultData() != null) {
                 if (responseGetPayinfoMessage.getPayInfoResultData().getPay_status() == 0) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    i = this.a.f;
+                    i = this.aoq.aon;
                     messageManager.dispatchResponsedMessageToUI(new CustomResponsedMessage(2001200, Integer.valueOf(i)));
-                    this.a.a();
-                    this.a.setResult(-1);
+                    this.aoq.AQ();
+                    this.aoq.setResult(-1);
                     return;
                 }
                 if (responseGetPayinfoMessage.getPayInfoResultData().getPay_status() == 1 || responseGetPayinfoMessage.getPayInfoResultData().getPay_status() == 3) {

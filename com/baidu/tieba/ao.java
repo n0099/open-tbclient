@@ -3,15 +3,21 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements CustomMessageTask.CustomRunnable<AccountData> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().a(true);
-        com.baidu.tieba.util.k.l();
-        return null;
+        if (com.baidu.adp.lib.util.m.fu()) {
+            aj.a(customMessage.getData(), TbadkApplication.m251getInst());
+            return null;
+        } else if (aj.wk() != null) {
+            aj.wk().handler.post(new ap(this, customMessage));
+            return null;
+        } else {
+            return null;
+        }
     }
 }

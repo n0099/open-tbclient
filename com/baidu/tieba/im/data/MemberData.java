@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MemberData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = 6241193622633380508L;
@@ -34,9 +34,9 @@ public class MemberData extends com.baidu.tbadk.core.util.a implements Serializa
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.portrait);
-        return linkedList;
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(this.portrait);
+        return arrayList;
     }
 }

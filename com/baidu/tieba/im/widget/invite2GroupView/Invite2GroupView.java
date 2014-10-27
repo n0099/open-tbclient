@@ -9,36 +9,36 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.groupInfo.y;
-import com.baidu.tieba.r;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.groupInfo.z;
+import com.baidu.tieba.s;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView a;
-    private HeadImageView b;
-    private TextView c;
-    private Button d;
-    private InviteMsgData e;
+    private TextView QG;
+    private HeadImageView bjZ;
+    private TextView bka;
+    private Button bkb;
+    private InviteMsgData bkc;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a();
+        initUI();
     }
 
     public Invite2GroupView(Context context) {
         super(context);
-        a();
+        initUI();
     }
 
-    private void a() {
-        com.baidu.adp.lib.e.b.a().a(getContext(), v.invite_to_group_view, this);
+    private void initUI() {
+        com.baidu.adp.lib.g.b.ek().inflate(getContext(), w.invite_to_group_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(u.chat_title);
-        this.b = (HeadImageView) findViewById(u.chat_group_img);
-        this.c = (TextView) findViewById(u.chat_group_desc);
-        this.d = (Button) findViewById(u.invite_btn);
+        this.QG = (TextView) findViewById(v.chat_title);
+        this.bjZ = (HeadImageView) findViewById(v.chat_group_img);
+        this.bka = (TextView) findViewById(v.chat_group_desc);
+        this.bkb = (Button) findViewById(v.invite_btn);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -47,29 +47,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void setData(InviteMsgData inviteMsgData) {
-        this.e = inviteMsgData;
-        b();
+        this.bkc = inviteMsgData;
+        nx();
     }
 
-    private void b() {
-        this.d.setEnabled(true);
-        this.d.setTag(String.valueOf(this.e.getGroupId()));
-        this.d.setText(x.i_want_attent);
-        this.d.setTextColor(getContext().getResources().getColor(r.group_info_bottom_text));
-        this.d.setOnClickListener(new a(this));
-        this.a.setText(this.e.getTitle());
-        this.b.setTag(this.e.getPortrait());
-        this.b.a(this.e.getPortrait(), 10, false);
-        this.c.setText(this.e.getNotice());
+    private void nx() {
+        this.bkb.setEnabled(true);
+        this.bkb.setTag(String.valueOf(this.bkc.getGroupId()));
+        this.bkb.setText(y.i_want_attent);
+        this.bkb.setTextColor(getContext().getResources().getColor(s.group_info_bottom_text));
+        this.bkb.setOnClickListener(new a(this));
+        this.QG.setText(this.bkc.getTitle());
+        this.bjZ.setTag(this.bkc.getPortrait());
+        this.bjZ.c(this.bkc.getPortrait(), 10, false);
+        this.bka.setText(this.bkc.getNotice());
         setOnClickListener(new b(this));
-        if (com.baidu.tieba.im.memorycache.c.b().a(String.valueOf(this.e.getGroupId()), 1) != null) {
-            if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                this.d.setText(x.i_want_talk);
-                this.d.setOnClickListener(new c(this));
+        if (com.baidu.tieba.im.memorycache.c.PK().B(String.valueOf(this.bkc.getGroupId()), 1) != null) {
+            if (String.valueOf(this.bkc.getGroupId()).equals(this.bkb.getTag())) {
+                this.bkb.setText(y.i_want_talk);
+                this.bkb.setOnClickListener(new c(this));
                 return;
             }
             return;
         }
-        y.a().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this));
+        z.Pb().a(TbadkApplication.getCurrentAccount(), String.valueOf(this.bkc.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this));
     }
 }

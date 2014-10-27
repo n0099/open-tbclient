@@ -1,29 +1,62 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
 import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.webkit.WebViewClient;
 /* loaded from: classes.dex */
-public class e implements g {
-    final /* synthetic */ BaseWebView a;
+public class e extends WebViewClient {
+    final /* synthetic */ BaseWebView Ny;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(BaseWebView baseWebView) {
-        this.a = baseWebView;
+        this.Ny = baseWebView;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.g
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        Context context;
-        if (str != null) {
-            try {
-                context = this.a.mContext;
-                com.baidu.tbadk.browser.a.c(context, str);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        h hVar;
+        h hVar2;
+        super.onPageStarted(webView, str, bitmap);
+        hVar = this.Ny.mOnPageStartedListener;
+        if (hVar != null) {
+            hVar2 = this.Ny.mOnPageStartedListener;
+            hVar2.a(webView, str);
         }
-        return true;
+        Log.d("BaseWebView", "@onPageStarted = " + str);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
+        super.onLoadResource(webView, str);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        g gVar;
+        g gVar2;
+        super.onPageFinished(webView, str);
+        gVar = this.Ny.mOnPageFinishedListener;
+        if (gVar != null) {
+            gVar2 = this.Ny.mOnPageFinishedListener;
+            gVar2.onPageFinished(webView, str);
+        }
+        Log.d("BaseWebView", "@onPageFinished = " + str);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        f fVar;
+        f fVar2;
+        fVar = this.Ny.mOnLoadUrlListener;
+        if (fVar != null) {
+            fVar2 = this.Ny.mOnLoadUrlListener;
+            return fVar2.shouldOverrideUrlLoading(webView, str);
+        }
+        return super.shouldOverrideUrlLoading(webView, str);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        super.onReceivedError(webView, i, str, str2);
     }
 }

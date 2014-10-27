@@ -3,16 +3,16 @@ package com.baidu.tieba.flist;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-class i implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ ForumListActivity a;
+class i implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ ForumListActivity avP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+        this.avP = forumListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
         p pVar;
         p pVar2;
         boolean z2;
@@ -23,38 +23,38 @@ class i implements com.baidu.adp.widget.ListView.d {
         r rVar;
         ForumListModel.RequestParams requestParams3;
         r rVar2;
-        pVar = this.a.A;
-        if (!pVar.c()) {
-            pVar2 = this.a.B;
-            if (!pVar2.c()) {
-                z2 = this.a.v;
+        pVar = this.avP.avC;
+        if (!pVar.DR()) {
+            pVar2 = this.avP.avD;
+            if (!pVar2.DR()) {
+                z2 = this.avP.avw;
                 if (z2) {
-                    requestParams = this.a.x;
+                    requestParams = this.avP.avz;
                     requestParams.recommend_type = 0;
-                    requestParams2 = this.a.x;
+                    requestParams2 = this.avP.avz;
                     requestParams2.rn = Constants.MEDIA_INFO;
-                    rVar = this.a.D;
-                    requestParams3 = this.a.x;
+                    rVar = this.avP.avF;
+                    requestParams3 = this.avP.avz;
                     rVar.a(requestParams3);
-                    rVar2 = this.a.D;
+                    rVar2 = this.avP.avF;
                     rVar2.LoadData();
-                    this.a.v = false;
-                } else if (this.a.c.d.getCurrentItem() == 0) {
-                    z4 = this.a.y;
+                    this.avP.avw = false;
+                } else if (this.avP.avy.Ct.getCurrentItem() == 0) {
+                    z4 = this.avP.avA;
                     if (z4) {
-                        this.a.m = 50;
+                        this.avP.avo = 50;
                     } else {
-                        this.a.m = Constants.MEDIA_INFO;
+                        this.avP.avo = Constants.MEDIA_INFO;
                     }
-                    new o(this.a, null).execute(new Void[0]);
-                } else if (this.a.c.d.getCurrentItem() == 1) {
-                    z3 = this.a.z;
+                    new o(this.avP, null).execute(new Void[0]);
+                } else if (this.avP.avy.Ct.getCurrentItem() == 1) {
+                    z3 = this.avP.avB;
                     if (z3) {
-                        this.a.n = 50;
+                        this.avP.avp = 50;
                     } else {
-                        this.a.n = Constants.MEDIA_INFO;
+                        this.avP.avp = Constants.MEDIA_INFO;
                     }
-                    new n(this.a, null).execute(new Void[0]);
+                    new n(this.avP, null).execute(new Void[0]);
                 }
             }
         }

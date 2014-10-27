@@ -4,39 +4,39 @@ import android.content.DialogInterface;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    void a();
+    boolean LL();
 
-    void a(int i);
+    View LV();
 
-    void a(DialogInterface.OnClickListener onClickListener);
+    View Li();
 
-    void a(String str);
+    void Mh();
 
-    void a(boolean z);
+    String RI();
 
-    String b();
+    View RJ();
 
-    void b(int i);
+    void RK();
 
-    void b(DialogInterface.OnClickListener onClickListener);
+    int RL();
 
-    View c();
+    boolean RM();
 
-    View d();
+    void c(DialogInterface.OnClickListener onClickListener);
 
-    View e();
+    void clearText();
 
-    void f();
+    void d(DialogInterface.OnClickListener onClickListener);
 
-    void g();
+    void gE(String str);
 
-    int h();
+    int getGroupId();
 
-    boolean i();
+    String getText();
 
-    int j();
+    void onChangeSkinType(int i);
 
-    String k();
+    void setGroupId(int i);
 
-    boolean l();
+    void setIsLoading(boolean z);
 }

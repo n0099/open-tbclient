@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private com.baidu.tieba.data.am data;
+    private com.baidu.tieba.data.aj data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +22,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new com.baidu.tieba.data.am();
+        this.data = new com.baidu.tieba.data.aj();
     }
 
-    public void setPersonListData(com.baidu.tieba.data.am amVar) {
-        this.data = amVar;
+    public void setPersonListData(com.baidu.tieba.data.aj ajVar) {
+        this.data = ajVar;
     }
 
-    public com.baidu.tieba.data.am getPersonListData() {
+    public com.baidu.tieba.data.aj getPersonListData() {
         return this.data;
     }
 
@@ -48,14 +48,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.resultString = jSONObject.toString();
             this.errCode = jSONObject.optInt("error_code");
-            this.data.a(jSONObject);
+            this.data.parserJson(jSONObject);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.t<String> b;
+        com.baidu.adp.lib.cache.t<String> bd;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -65,8 +65,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (b = com.baidu.tbadk.core.a.a.a().b("tb.my_pages")) != null) {
-                        b.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages")) != null) {
+                        bd.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

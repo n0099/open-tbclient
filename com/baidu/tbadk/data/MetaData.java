@@ -1,9 +1,9 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.e.c;
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,7 +11,7 @@ import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class MetaData implements Serializable {
+public class MetaData extends i implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
     private int gender;
     private int is_myfriend;
@@ -23,8 +23,8 @@ public class MetaData implements Serializable {
     private String name_show = null;
     private String portrait = null;
     private String portraith = null;
-    private LinkedList<IconData> mIconInfo = new LinkedList<>();
-    private LinkedList<IconData> mTShowIconInfo = new LinkedList<>();
+    private ArrayList<IconData> mIconInfo = new ArrayList<>();
+    private ArrayList<IconData> mTShowIconInfo = new ArrayList<>();
     private int is_bawu = 0;
     private String bawu_type = null;
 
@@ -49,7 +49,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return c.a(this.userId, 0L);
+        return com.baidu.adp.lib.g.c.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -104,20 +104,20 @@ public class MetaData implements Serializable {
         return this.portraith;
     }
 
-    public LinkedList<IconData> getIconInfo() {
+    public ArrayList<IconData> getIconInfo() {
         return this.mIconInfo;
     }
 
-    public void setIconInfo(LinkedList<IconData> linkedList) {
-        this.mIconInfo = linkedList;
+    public void setIconInfo(ArrayList<IconData> arrayList) {
+        this.mIconInfo = arrayList;
     }
 
-    public LinkedList<IconData> getTShowInfo() {
+    public ArrayList<IconData> getTShowInfo() {
         return this.mTShowIconInfo;
     }
 
-    public void setTShowInfo(LinkedList<IconData> linkedList) {
-        this.mTShowIconInfo = linkedList;
+    public void setTShowInfo(ArrayList<IconData> arrayList) {
+        this.mTShowIconInfo = arrayList;
     }
 
     public int getLevel_id() {
@@ -180,6 +180,7 @@ public class MetaData implements Serializable {
             this.portraith = user.portraith;
             List<Icon> list = user.iconinfo;
             List<TshowInfo> list2 = user.tshow_icon;
+            this.mIconInfo.clear();
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
                     IconData iconData = new IconData();
@@ -187,6 +188,7 @@ public class MetaData implements Serializable {
                     this.mIconInfo.add(iconData);
                 }
             }
+            this.mTShowIconInfo.clear();
             if (list2 != null) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
                     IconData iconData2 = new IconData();

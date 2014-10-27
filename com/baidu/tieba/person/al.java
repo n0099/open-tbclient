@@ -1,26 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.ViewTreeObserver;
-import com.baidu.tbadk.core.view.UserIconBox;
+import android.app.AlertDialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ ak a;
+public class al implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar) {
-        this.a = akVar;
+    public al(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        UserIconBox userIconBox;
-        UserIconBox userIconBox2;
-        userIconBox = this.a.v;
-        userIconBox.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-        ak akVar = this.a;
-        userIconBox2 = this.a.v;
-        akVar.z = userIconBox2.getMeasuredWidth();
-        this.a.g();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlertDialog alertDialog;
+        alertDialog = this.bCm.ayG;
+        com.baidu.adp.lib.g.j.a(alertDialog, this.bCm);
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.aa;
 /* loaded from: classes.dex */
-class f implements x {
-    final /* synthetic */ DailyRecommendActivity a;
+class f implements aa {
+    final /* synthetic */ DailyRecommendActivity bHW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(DailyRecommendActivity dailyRecommendActivity) {
-        this.a = dailyRecommendActivity;
+        this.bHW = dailyRecommendActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        this.a.a();
+    @Override // com.baidu.adp.widget.ListView.aa
+    public void hQ() {
+        this.bHW.abI();
     }
 }

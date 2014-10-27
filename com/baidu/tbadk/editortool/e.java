@@ -1,15 +1,15 @@
 package com.baidu.tbadk.editortool;
 /* loaded from: classes.dex */
 public abstract class e implements Comparable<e> {
-    public abstract int a();
-
     public abstract void a(f fVar);
 
-    protected abstract void b();
+    public abstract int getIndex();
+
+    protected abstract void op();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e() {
-        b();
+        op();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,6 +19,6 @@ public abstract class e implements Comparable<e> {
         if (eVar == null) {
             return 1;
         }
-        return a() - eVar.a();
+        return getIndex() - eVar.getIndex();
     }
 }

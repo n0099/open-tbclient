@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 public abstract class e extends h<byte[]> {
     public abstract void a(int i, BdUniqueId bdUniqueId);
 
-    public abstract void a(BdUniqueId bdUniqueId);
+    public abstract void b(BdUniqueId bdUniqueId);
 
     public e(int i) {
         super(i);

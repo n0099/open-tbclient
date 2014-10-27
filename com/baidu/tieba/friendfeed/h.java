@@ -1,40 +1,27 @@
 package com.baidu.tieba.friendfeed;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.message.ResponseFriendFeedLocalMessage;
-import com.baidu.tieba.model.ab;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
-    final /* synthetic */ FriendFeedActivity a;
+public class h extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ FriendFeedActivity ayL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(FriendFeedActivity friendFeedActivity, int i) {
-        super(i);
-        this.a = friendFeedActivity;
+    public h(FriendFeedActivity friendFeedActivity) {
+        this.ayL = friendFeedActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        t tVar;
-        ab abVar;
-        com.baidu.tieba.data.s friendFeedData;
-        ab abVar2;
-        this.a.a(true);
-        tVar = this.a.c;
-        l c = tVar.c();
-        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseFriendFeedLocalMessage)) {
-            ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = (ResponseFriendFeedLocalMessage) customResponsedMessage;
-            abVar = this.a.d;
-            if (!abVar.b() && (friendFeedData = responseFriendFeedLocalMessage.getFriendFeedData()) != null) {
-                abVar2 = this.a.d;
-                abVar2.a(true);
-                c.a(friendFeedData);
-                c.notifyDataSetChanged();
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.ayL.ayx;
+        com.baidu.tbadk.core.util.s.m(new File(append.append(str).toString()));
+        return null;
     }
 }

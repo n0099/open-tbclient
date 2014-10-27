@@ -1,30 +1,23 @@
 package com.baidu.tieba.discover.memberprivilege;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class h {
-    public k a = new k();
-    public List<i> b = new ArrayList();
+class h extends CustomMessageListener {
+    final /* synthetic */ MemberPrivilegeActivity apy;
 
-    public List<i> a() {
-        return this.b;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
+        super(i);
+        this.apy = memberPrivilegeActivity;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.a.a(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("menu_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    i iVar = new i();
-                    iVar.a(optJSONArray.getJSONObject(i));
-                    this.b.add(iVar);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && ((Integer) customResponsedMessage.getData()) != null) {
+            this.apy.AX();
         }
     }
 }

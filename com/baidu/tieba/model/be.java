@@ -1,70 +1,74 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.CombineDownload;
-import com.baidu.tieba.data.VersionData;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be {
-    private int f;
-    private int g = 0;
-    private VersionData a = new VersionData();
-    private com.baidu.tieba.data.d b = new com.baidu.tieba.data.d();
-    private com.baidu.tieba.data.f c = new com.baidu.tieba.data.f();
-    private CombineDownload d = new CombineDownload();
-    private ah e = new ah();
+public class be extends BdAsyncTask<Integer, Integer, Integer> {
+    private String Go;
+    private WeakReference<bd> bpP;
+    private long mForumId;
+    private String mForumName;
+    private com.baidu.tbadk.core.util.ac yV = null;
 
-    public void a(String str) {
+    public be(String str, long j, String str2, bd bdVar) {
+        this.mForumName = null;
+        this.mForumId = 0L;
+        this.bpP = null;
+        this.mForumName = str;
+        this.mForumId = j;
+        this.bpP = new WeakReference<>(bdVar);
+        this.Go = str2;
+        setPriority(3);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public Integer doInBackground(Integer... numArr) {
         try {
-            a(new JSONObject(str));
+            if (this.mForumId != 0 && this.mForumName != null) {
+                this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.yV.k(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
+                this.yV.k("kw", this.mForumName);
+                this.yV.k("favo_type", "1");
+                this.yV.k("st_type", this.Go);
+                this.yV.mc().na().mIsNeedTbs = true;
+                this.yV.lA();
+            }
+            return 1;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+            return 0;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("version"));
-                this.b.a(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.b.a.a().a(jSONObject.optJSONObject("ad_config"));
-                com.baidu.tbadk.core.util.j.a(jSONObject.optString("client_ip", null));
-                this.c.a(jSONObject.optJSONObject("config"));
-                this.d.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.e.a(jSONObject.optJSONObject("mainbar"));
-                this.g = jSONObject.optInt("sync_active", 0);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001145, jSONObject));
-                this.f = jSONObject.optInt("faceshop_version");
-                if (this.f > TbadkApplication.m252getInst().getFaceShopVersion()) {
-                    TbadkApplication.m252getInst().setTempFaceShopVersion(this.f);
-                    TbadkApplication.m252getInst().setFaceShopNew(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Integer num) {
+        bd bdVar;
+        super.onPostExecute(num);
+        if (this.bpP != null && (bdVar = this.bpP.get()) != null) {
+            if (this.yV != null) {
+                if (this.yV.mc().nb().jq()) {
+                    if (num.intValue() == 1) {
+                        com.baidu.tieba.aj.wk().dX(this.mForumName);
+                        bdVar.d(this.mForumName, this.mForumId);
+                        return;
+                    }
+                    bdVar.e(this.mForumName, this.mForumId);
+                    return;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
-                if (optJSONObject != null) {
-                    com.baidu.tieba.ai.c().l(optJSONObject.toString());
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                bdVar.e(this.mForumName, this.mForumId);
+                return;
             }
+            bdVar.e(this.mForumName, this.mForumId);
         }
-    }
-
-    public com.baidu.tieba.data.f a() {
-        return this.c;
-    }
-
-    public CombineDownload b() {
-        return this.d;
-    }
-
-    public VersionData c() {
-        return this.a;
-    }
-
-    public com.baidu.tieba.data.d d() {
-        return this.b;
     }
 }

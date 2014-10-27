@@ -7,34 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private UpdatesActivity a;
-    private List<UpdatesItemData> b = new ArrayList();
+    private List<UpdatesItemData> aJN = new ArrayList();
+    private UpdatesActivity bbW;
 
     public h(UpdatesActivity updatesActivity) {
-        this.a = updatesActivity;
+        this.bbW = updatesActivity;
     }
 
-    public void a() {
-        this.a = null;
+    public void destroy() {
+        this.bbW = null;
     }
 
-    public List<UpdatesItemData> b() {
-        return this.b;
+    public List<UpdatesItemData> getDatas() {
+        return this.aJN;
     }
 
-    public void a(List<UpdatesItemData> list) {
+    public void setData(List<UpdatesItemData> list) {
         if (list != null) {
-            this.b = list;
+            this.aJN = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.b == null) {
+        if (this.aJN == null) {
             return 0;
         }
-        return this.b.size();
+        return this.aJN.size();
     }
 
     @Override // android.widget.Adapter
@@ -43,14 +43,14 @@ public class h extends BaseAdapter {
         if (view != null) {
             iVar = (i) view.getTag();
         }
-        i iVar2 = iVar == null ? new i(this.a) : iVar;
-        iVar2.a(this.b.get(i));
-        return iVar2.a();
+        i iVar2 = iVar == null ? new i(this.bbW) : iVar;
+        iVar2.b(this.aJN.get(i));
+        return iVar2.O();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.b.get(i);
+        return this.aJN.get(i);
     }
 
     @Override // android.widget.Adapter

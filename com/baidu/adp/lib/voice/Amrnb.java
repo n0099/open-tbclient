@@ -1,6 +1,4 @@
 package com.baidu.adp.lib.voice;
-
-import com.baidu.adp.lib.util.f;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary;
@@ -27,14 +25,14 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = f.a().a("amrnb", 2, new a());
+        bLoadLibrary = com.baidu.adp.lib.util.g.eW().a("amrnb", 2, new k());
         if (bLoadLibrary) {
             try {
                 native_init();
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                com.baidu.adp.lib.stats.f.c().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+                com.baidu.adp.lib.stats.f.er().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
             }
         }
     }

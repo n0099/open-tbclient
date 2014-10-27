@@ -4,10 +4,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatSwitchData;
 /* loaded from: classes.dex */
 class s extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-    final /* synthetic */ ImageProblemActivity a;
+    final /* synthetic */ ImageProblemActivity bqH;
 
     private s(ImageProblemActivity imageProblemActivity) {
-        this.a = imageProblemActivity;
+        this.bqH = imageProblemActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ class s extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.a.b();
+        this.bqH.bqE.start();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,19 +27,19 @@ class s extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
     /* renamed from: a */
     public BdStatSwitchData doInBackground(Object... objArr) {
         publishProgress(0);
-        this.a.b.a();
+        this.bqH.bqF.UC();
         publishProgress(1);
-        this.a.b.b();
+        this.bqH.bqF.UD();
         publishProgress(2);
-        this.a.b.c();
+        this.bqH.bqF.UE();
         publishProgress(3);
-        this.a.b.d();
+        this.bqH.bqF.UF();
         publishProgress(4);
-        this.a.b.e();
+        this.bqH.bqF.UG();
         publishProgress(5);
-        this.a.b.f();
+        this.bqH.bqF.UH();
         publishProgress(6);
-        this.a.b.g();
+        this.bqH.bqF.UI();
         publishProgress(7);
         return null;
     }
@@ -47,20 +47,20 @@ class s extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onProgressUpdate(Integer... numArr) {
         super.onProgressUpdate(numArr);
-        this.a.a.a(numArr[0].intValue(), this.a.b.a);
+        this.bqH.bqE.b(numArr[0].intValue(), this.bqH.bqF.bqJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
         super.onPostExecute(bdStatSwitchData);
-        this.a.a.a().setText(this.a.getResources().getText(com.baidu.tieba.x.diagnose));
-        this.a.a.c();
-        this.a.c = null;
+        this.bqH.bqE.UK().setText(this.bqH.getResources().getText(com.baidu.tieba.y.diagnose));
+        this.bqH.bqE.complete();
+        this.bqH.bqG = null;
     }
 }

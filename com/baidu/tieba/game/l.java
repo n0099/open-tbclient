@@ -1,26 +1,35 @@
 package com.baidu.tieba.game;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bi;
-/* JADX INFO: Access modifiers changed from: package-private */
+import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
-public class l implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public boolean a(Context context, String[] strArr) {
-        if (strArr == null || strArr.length == 0 || !strArr[0].equals("gamecenter:")) {
-            return false;
+public class l {
+    private static l aGV;
+    private Game aGW;
+    private boolean aGX;
+
+    private l() {
+    }
+
+    public static synchronized l Hi() {
+        l lVar;
+        synchronized (l.class) {
+            if (aGV == null) {
+                aGV = new l();
+            }
+            lVar = aGV;
         }
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(context)));
-            return true;
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.v(context)));
-            return true;
-        } else {
-            return false;
-        }
+        return lVar;
+    }
+
+    public void a(Game game) {
+        this.aGW = game;
+    }
+
+    public Game Hj() {
+        return this.aGW;
+    }
+
+    public void cm(boolean z) {
+        this.aGX = z;
     }
 }

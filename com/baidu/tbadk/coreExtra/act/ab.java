@@ -6,25 +6,25 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements TextView.OnEditorActionListener {
-    final /* synthetic */ Login2Activity a;
+    final /* synthetic */ Login2Activity KT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(Login2Activity login2Activity) {
-        this.a = login2Activity;
+        this.KT = login2Activity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         View view;
         View view2;
-        view = this.a.B;
+        view = this.KT.KE;
         if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.a.B;
+            view2 = this.KT.KE;
             if (view2.getVisibility() != 0 || i != 6) {
                 return false;
             }
         }
-        this.a.g();
+        this.KT.oh();
         return true;
     }
 }

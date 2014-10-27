@@ -1,36 +1,58 @@
 package com.baidu.tieba.game;
+
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.download.DownloadData;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class e {
-    final /* synthetic */ b a;
-    private String b;
-    private String c;
-    private String d;
+class e extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.a>, List<DownloadData>, List<DownloadData>> {
+    ArrayList<com.baidu.tbadk.core.data.a> Rd;
+    final /* synthetic */ c aGH;
 
-    public e(b bVar) {
-        this.a = bVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public List<DownloadData> doInBackground(ArrayList<com.baidu.tbadk.core.data.a>... arrayListArr) {
+        ArrayList<com.baidu.tbadk.core.data.a> arrayList = arrayListArr[0];
+        LinkedList linkedList = new LinkedList();
+        if (arrayList == null) {
+            return linkedList;
+        }
+        this.Rd = arrayList;
+        Iterator<com.baidu.tbadk.core.data.a> it = arrayList.iterator();
+        while (it.hasNext()) {
+            com.baidu.tbadk.core.data.a next = it.next();
+            String str = next.zl;
+            if (com.baidu.tbadk.core.util.s.br(this.aGH.getFileOfUrl(next.zk)) != null) {
+                DownloadData downloadData = new DownloadData(str);
+                downloadData.setStatus(3);
+                linkedList.add(downloadData);
+            }
+        }
+        return linkedList;
     }
 
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String a() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.d = str;
-    }
-
-    public String c() {
-        return this.d;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: i */
+    public void onPostExecute(List<DownloadData> list) {
+        super.onPostExecute(list);
+        if (list == null) {
+            list = new LinkedList<>();
+        }
+        for (DownloadData downloadData : com.baidu.tbadk.download.g.rk().rm()) {
+            Iterator<com.baidu.tbadk.core.data.a> it = this.Rd.iterator();
+            while (it.hasNext()) {
+                if (TextUtils.equals(it.next().zl, downloadData.getId())) {
+                    list.add(downloadData);
+                }
+            }
+        }
+        this.aGH.h(list);
     }
 }

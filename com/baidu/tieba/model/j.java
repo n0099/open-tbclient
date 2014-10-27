@@ -10,95 +10,95 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private boolean h;
-    private l b = null;
-    private m c = null;
-    private k d = null;
-    private int f = 0;
-    private int g = 0;
-    protected BaseActivity.LoadDataCallBack a = null;
-    private ArrayList<MarkData> e = new ArrayList<>();
+    private boolean awM;
+    private l boi = null;
+    private m boj = null;
+    private k bok = null;
+    private int bom = 0;
+    private int bon = 0;
+    protected BaseActivity.LoadDataCallBack atj = null;
+    private ArrayList<MarkData> bol = new ArrayList<>();
 
     public j() {
-        this.h = false;
-        this.h = true;
+        this.awM = false;
+        this.awM = true;
     }
 
-    public int a() {
-        if (this.e == null) {
+    public int getOffset() {
+        if (this.bol == null) {
             return 0;
         }
-        return this.e.size();
+        return this.bol.size();
     }
 
-    public int b() {
-        return this.g;
+    public int Th() {
+        return this.bon;
     }
 
-    public void a(int i) {
-        this.g = i;
+    public void gA(int i) {
+        this.bon = i;
     }
 
-    public boolean c() {
-        return this.f >= 20;
+    public boolean hasMore() {
+        return this.bom >= 20;
     }
 
-    public void d() {
-        this.g = 0;
-        this.f = 0;
-        this.h = true;
+    public void reset() {
+        this.bon = 0;
+        this.bom = 0;
+        this.awM = true;
     }
 
-    public boolean e() {
-        return this.h;
+    public boolean isFirst() {
+        return this.awM;
     }
 
-    public ArrayList<MarkData> f() {
-        return this.e;
+    public ArrayList<MarkData> Ti() {
+        return this.bol;
     }
 
-    public void a(ArrayList<MarkData> arrayList) {
-        this.e = arrayList;
+    public void y(ArrayList<MarkData> arrayList) {
+        this.bol = arrayList;
     }
 
-    public void b(ArrayList<MarkData> arrayList) {
-        if (this.e != null && arrayList != null) {
-            this.e.addAll(arrayList);
-            m();
+    public void z(ArrayList<MarkData> arrayList) {
+        if (this.bol != null && arrayList != null) {
+            this.bol.addAll(arrayList);
+            HC();
         }
     }
 
     public void a(MarkData markData) {
-        this.e.add(markData);
+        this.bol.add(markData);
     }
 
-    public int g() {
-        if (this.e == null) {
+    public int getCount() {
+        if (this.bol == null) {
             return 0;
         }
-        return this.e.size();
+        return this.bol.size();
     }
 
-    public int h() {
-        return this.f;
+    public int Tj() {
+        return this.bom;
     }
 
-    public void i() {
-        ArrayList<MarkData> j = com.baidu.tieba.util.k.j();
-        if (j != null) {
-            a(j);
+    public void Tk() {
+        ArrayList<MarkData> aeF = com.baidu.tieba.util.j.aeF();
+        if (aeF != null) {
+            y(aeF);
         }
     }
 
-    public String a(int i, int i2) {
+    public String T(int i, int i2) {
         JSONArray jSONArray;
         int i3;
-        if (this.e == null) {
+        if (this.bol == null) {
             return null;
         }
-        if (i >= this.e.size()) {
-            i2 -= (i - this.e.size()) - 1;
-            i = this.e.size() - 1;
+        if (i >= this.bol.size()) {
+            i2 -= (i - this.bol.size()) - 1;
+            i = this.bol.size() - 1;
         }
         JSONArray jSONArray2 = new JSONArray();
         int i4 = 0;
@@ -112,7 +112,7 @@ public class j {
                 break;
             } else {
                 try {
-                    JSONObject json = this.e.get(i5).toJson();
+                    JSONObject json = this.bol.get(i5).toJson();
                     if (json == null || i4 < 0) {
                         i3 = i4;
                     } else {
@@ -133,16 +133,16 @@ public class j {
         return jSONArray.toString();
     }
 
-    public void a(String str) {
+    public void gQ(String str) {
         try {
-            a(new JSONObject(str));
+            paserJson(new JSONObject(str));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> b(String str) {
+    public ArrayList<MarkData> gR(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -163,14 +163,14 @@ public class j {
         return null;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void paserJson(JSONObject jSONObject) {
         try {
             if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     MarkData markData = new MarkData();
                     markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.e.add(markData);
+                    this.bol.add(markData);
                 }
             }
         } catch (Exception e) {
@@ -178,65 +178,65 @@ public class j {
         }
     }
 
-    public void a(Boolean bool) {
-        if (this.b != null) {
-            this.b.cancel();
+    public void g(Boolean bool) {
+        if (this.boi != null) {
+            this.boi.cancel();
         }
-        this.b = new l(this, a());
-        this.b.setPriority(3);
-        this.b.execute(bool);
+        this.boi = new l(this, getOffset());
+        this.boi.setPriority(3);
+        this.boi.execute(bool);
     }
 
-    public void j() {
-        if (this.c != null) {
-            this.c.cancel();
+    public void startSync() {
+        if (this.boj != null) {
+            this.boj.cancel();
         }
-        this.c = new m(this, null);
-        this.c.setPriority(2);
-        this.c.execute(new j[0]);
+        this.boj = new m(this, null);
+        this.boj.setPriority(2);
+        this.boj.execute(new j[0]);
     }
 
-    public boolean b(int i) {
-        if (this.d != null) {
-            this.d.cancel();
+    public boolean gB(int i) {
+        if (this.bok != null) {
+            this.bok.cancel();
         }
-        if (i >= this.e.size() || this.e.get(i) == null || this.e.get(i).getId() == null) {
+        if (i >= this.bol.size() || this.bol.get(i) == null || this.bol.get(i).getId() == null) {
             return false;
         }
-        this.d = new k(this, this.e.get(i).getId(), i);
-        this.d.setPriority(2);
-        this.d.execute(new Boolean[0]);
+        this.bok = new k(this, this.bol.get(i).getId(), i);
+        this.bok.setPriority(2);
+        this.bok.execute(new Boolean[0]);
         return true;
     }
 
-    public int k() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("uploac_mark_offset", 399);
+    public int Tl() {
+        return com.baidu.tbadk.core.sharedPref.b.lk().getInt("uploac_mark_offset", 399);
     }
 
-    public void c(int i) {
-        com.baidu.tbadk.core.sharedPref.b.a().b("uploac_mark_offset", i);
+    public void gC(int i) {
+        com.baidu.tbadk.core.sharedPref.b.lk().putInt("uploac_mark_offset", i);
     }
 
-    public void l() {
-        if (this.b != null) {
-            this.b.cancel();
+    public void onDestroy() {
+        if (this.boi != null) {
+            this.boi.cancel();
         }
-        if (this.c != null) {
-            this.c.cancel();
+        if (this.boj != null) {
+            this.boj.cancel();
         }
-        if (this.d != null) {
-            this.d.cancel();
+        if (this.bok != null) {
+            this.bok.cancel();
         }
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.a = loadDataCallBack;
+        this.atj = loadDataCallBack;
     }
 
-    private void m() {
-        if (this.e != null) {
+    private void HC() {
+        if (this.bol != null) {
             HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.e.iterator();
+            Iterator<MarkData> it = this.bol.iterator();
             while (it.hasNext()) {
                 if (!hashSet.add(it.next().getId())) {
                     it.remove();

@@ -4,38 +4,38 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.im.chat.dh;
+import com.baidu.tieba.im.chat.dm;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad extends BaseAdapter {
-    Context a;
-    private View.OnClickListener b = new ae(this);
-    private List<bb> c;
+    private List<az> Wx;
+    private View.OnClickListener aRo = new ae(this);
+    Context mContext;
 
     public ad(Context context) {
-        this.a = context;
+        this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.c == null) {
+        if (this.Wx == null) {
             return 0;
         }
-        return this.c.size();
+        return this.Wx.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.c == null || i >= getCount()) {
+        if (this.Wx == null || i >= getCount()) {
             return null;
         }
-        return this.c.get(i);
+        return this.Wx.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.c == null || i >= this.c.size()) {
+        if (this.Wx == null || i >= this.Wx.size()) {
             return 0L;
         }
         return i;
@@ -43,10 +43,10 @@ public class ad extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.c == null || i >= this.c.size()) {
+        if (this.Wx == null || i >= this.Wx.size()) {
             return 0;
         }
-        switch (this.c.get(i).b) {
+        switch (this.Wx.get(i).type) {
             case 1:
                 return 0;
             case 2:
@@ -65,51 +65,51 @@ public class ad extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(i, view, viewGroup);
+        return d(i, view, viewGroup);
     }
 
-    private View a(int i, View view, ViewGroup viewGroup) {
-        bb bbVar = (bb) getItem(i);
-        if (bbVar != null && bbVar.c != null) {
+    private View d(int i, View view, ViewGroup viewGroup) {
+        az azVar = (az) getItem(i);
+        if (azVar != null && azVar.content != null) {
             switch (getItemViewType(i)) {
                 case 0:
-                    View aVar = view == null ? new a(this.a) : view;
+                    View aVar = view == null ? new a(this.mContext) : view;
                     a aVar2 = (a) aVar;
                     aVar2.setClickable(false);
-                    aVar2.setTime(bbVar.a);
+                    aVar2.setTime(azVar.time);
                     ChatMessage chatMessage = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$2
                         @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                         protected Object encode() {
                             return null;
                         }
                     };
-                    chatMessage.setContent(bbVar.c);
-                    chatMessage.setMsgType(bbVar.b);
-                    dh.a(this.a, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
+                    chatMessage.setContent(azVar.content);
+                    chatMessage.setMsgType(azVar.type);
+                    dm.a(this.mContext, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
                     return aVar;
                 case 1:
-                    View aVar3 = view == null ? new a(this.a) : view;
+                    View aVar3 = view == null ? new a(this.mContext) : view;
                     a aVar4 = (a) aVar3;
                     aVar4.setClickable(false);
-                    aVar4.setTime(bbVar.a);
+                    aVar4.setTime(azVar.time);
                     ChatMessage chatMessage2 = new ChatMessage(501126) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$3
                         @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
                         protected Object encode() {
                             return null;
                         }
                     };
-                    chatMessage2.setContent("[" + bbVar.c + "]");
-                    chatMessage2.setMsgType(bbVar.b);
-                    dh.a(this.a, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    chatMessage2.setContent("[" + azVar.content + "]");
+                    chatMessage2.setMsgType(azVar.type);
+                    dm.a(this.mContext, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
-                    aVar4.getImageView().setOnClickListener(this.b);
+                    aVar4.getImageView().setOnClickListener(this.aRo);
                     return aVar3;
                 case 2:
-                    View aVar5 = view == null ? new a(this.a) : view;
-                    MultiContentView multiContentView = new MultiContentView(this.a);
-                    multiContentView.setTime(bbVar.a);
-                    multiContentView.a(o.a(bbVar.c, ""), viewGroup);
-                    ((a) aVar5).a(multiContentView);
+                    View aVar5 = view == null ? new a(this.mContext) : view;
+                    MultiContentView multiContentView = new MultiContentView(this.mContext);
+                    multiContentView.setTime(azVar.time);
+                    multiContentView.a(o.ak(azVar.content, ""), viewGroup);
+                    ((a) aVar5).J(multiContentView);
                     return aVar5;
                 default:
                     return view;
@@ -118,8 +118,8 @@ public class ad extends BaseAdapter {
         return view;
     }
 
-    public void a(List<bb> list) {
-        this.c = list;
+    public void setData(List<az> list) {
+        this.Wx = list;
         notifyDataSetChanged();
     }
 }

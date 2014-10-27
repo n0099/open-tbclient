@@ -1,23 +1,17 @@
 package com.baidu.tbadk.core.voice;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
-    final /* synthetic */ VoiceManager a;
+public interface n {
+    void onDeletedVoice(String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(VoiceManager voiceManager) {
-        this.a = voiceManager;
-    }
+    void onSendVoice(String str, int i);
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        if (this.a.recordView == null) {
-            return;
-        }
-        i = this.a.currRecordState;
-        if (i == 2) {
-            this.a.recordView.b();
-        }
-    }
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z);
+
+    void onStopingRecorder();
 }

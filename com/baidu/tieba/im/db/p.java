@@ -12,7 +12,6 @@ public class p extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
             com.baidu.tieba.im.e.a(new q(this, customResponsedMessage), new r(this));

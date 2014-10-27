@@ -1,29 +1,26 @@
 package com.baidu.tbadk.distribute;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ a a;
+public class c extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ a QU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(a aVar, int i) {
-        super(i);
-        this.a = aVar;
+    public c(a aVar, int i, int i2) {
+        super(i, i2);
+        this.QU = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if ((socketResponsedMessage instanceof ResponseDistributeMessage) && socketResponsedMessage.getCmd() == 303101) {
-            Message<?> orginalMessage = socketResponsedMessage.getOrginalMessage();
-            if (!socketResponsedMessage.hasError() || !(orginalMessage instanceof RequestDistributeMessage)) {
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage != null && responsedMessage.hasError()) {
+            Object extra = responsedMessage.getOrginalMessage().getExtra();
+            if (!(extra instanceof DistributeRequest)) {
                 return;
             }
-            this.a.a(((RequestDistributeMessage) orginalMessage).getAdReqList());
+            this.QU.g(((DistributeRequest) extra).getAdReqList());
         }
     }
 }

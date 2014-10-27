@@ -1,18 +1,20 @@
 package com.baidu.tieba.im.group;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class f implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ d a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.a = dVar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* loaded from: classes.dex */
+class f {
+    public HeadImageView QF;
+    public TextView QG;
+    public TextView QH;
+    final /* synthetic */ b aYs;
+
+    private f(b bVar) {
+        this.aYs = bVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
-        DiscoverGroupActivity discoverGroupActivity;
-        discoverGroupActivity = this.a.a;
-        discoverGroupActivity.a().a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(b bVar, f fVar) {
+        this(bVar);
     }
 }

@@ -1,35 +1,56 @@
 package com.baidu.tieba.person;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    final /* synthetic */ u a;
+    final /* synthetic */ PersonChangeActivity bCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(u uVar) {
-        this.a = uVar;
+    public aa(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ad adVar;
-        ad adVar2;
-        PersonBarActivity g;
-        PersonBarActivity g2;
-        int intValue = ((Integer) view.getTag()).intValue();
-        if (intValue >= 0) {
-            adVar = this.a.c;
-            if (intValue < adVar.getCount()) {
-                adVar2 = this.a.c;
-                ForumData forumData = (ForumData) adVar2.getItem(intValue);
-                g = this.a.g();
-                if (g != null) {
-                    g2 = this.a.g();
-                    this.a.a(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(g2, com.baidu.adp.lib.e.c.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+        com.baidu.tieba.model.au auVar;
+        int i;
+        boolean z;
+        com.baidu.tieba.model.au auVar2;
+        com.baidu.tieba.model.au auVar3;
+        Boolean bool;
+        com.baidu.tieba.model.au auVar4;
+        com.baidu.tieba.model.au auVar5;
+        Dialog dialog;
+        auVar = this.bCm.bCd;
+        int sex = auVar.TT().getSex();
+        i = this.bCm.mSex;
+        if (sex != i) {
+            this.bCm.JU = true;
+        }
+        z = this.bCm.JU;
+        if (!z) {
+            auVar2 = this.bCm.bCd;
+            if (auVar2 != null) {
+                auVar3 = this.bCm.bCd;
+                if (auVar3.TT().getPhotoChanged()) {
+                    Intent intent = new Intent();
+                    bool = this.bCm.bBQ;
+                    if (bool.booleanValue()) {
+                        auVar5 = this.bCm.bCd;
+                        intent.putExtra("person_change_data", auVar5.TT());
+                    } else {
+                        auVar4 = this.bCm.bCd;
+                        intent.putExtra("data", auVar4.TT());
+                    }
+                    this.bCm.setResult(-1, intent);
                 }
             }
+            this.bCm.finish();
+            return;
         }
+        dialog = this.bCm.bCi;
+        com.baidu.adp.lib.g.j.a(dialog, this.bCm);
     }
 }

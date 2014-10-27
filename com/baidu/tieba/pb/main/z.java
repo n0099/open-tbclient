@@ -1,29 +1,31 @@
 package com.baidu.tieba.pb.main;
+
+import com.baidu.tieba.account.forbid.ForbidActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class z implements com.baidu.tbadk.core.view.r {
-    final /* synthetic */ PbActivity a;
+public class z implements bf {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r
-    public void a(boolean z) {
-        boolean z2;
-        bl blVar;
-        bl blVar2;
-        bs bsVar;
-        z2 = this.a.f;
-        if (!z2 && z) {
-            blVar = this.a.y;
-            if (!blVar.p()) {
-                blVar2 = this.a.y;
-                if (blVar2.v()) {
-                    bsVar = this.a.E;
-                    bsVar.u();
-                }
-            }
-        }
+    @Override // com.baidu.tieba.pb.main.bf
+    public void a(Object obj) {
+        bn bnVar;
+        bn bnVar2;
+        bn bnVar3;
+        bn bnVar4;
+        bnVar = this.bvg.buG;
+        String valueOf = String.valueOf(bnVar.getPbData().getUserData().getUserId());
+        String valueOf2 = String.valueOf(((Object[]) obj)[1]);
+        PbActivity pbActivity = this.bvg;
+        bnVar2 = this.bvg.buG;
+        String id = bnVar2.getPbData().zJ().getId();
+        bnVar3 = this.bvg.buG;
+        String name = bnVar3.getPbData().zJ().getName();
+        bnVar4 = this.bvg.buG;
+        ForbidActivity.startActivity(pbActivity, id, name, bnVar4.getPbData().zK().getId(), valueOf, valueOf2);
     }
 }

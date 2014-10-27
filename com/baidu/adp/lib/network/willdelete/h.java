@@ -2,9 +2,8 @@ package com.baidu.adp.lib.network.willdelete;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.telephony.TelephonyManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -13,18 +12,13 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static boolean a(String str) {
-        return str == null || str.trim().length() == 0;
-    }
-
-    public static boolean a() {
+    public static boolean dZ() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.a().b().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dY().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 1) {
+                if (activeNetworkInfo.getType() == 0) {
                     return true;
                 }
             }
@@ -33,37 +27,51 @@ public class h {
         return false;
     }
 
-    public static boolean b() {
-        try {
-            NetworkInfo[] allNetworkInfo = ((ConnectivityManager) e.a().b().getSystemService("connectivity")).getAllNetworkInfo();
-            if (allNetworkInfo != null) {
-                boolean z = false;
-                for (int i = 0; i < allNetworkInfo.length; i++) {
-                    if (allNetworkInfo[i].isConnected() && allNetworkInfo[i].isAvailable()) {
-                        z = true;
-                    }
-                }
-                return z;
+    public static int ea() {
+        if (dZ()) {
+            try {
+                return F(((ConnectivityManager) e.dY().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
+            } catch (Exception e) {
+                return 0;
             }
-            return false;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return true;
+        }
+        return 0;
+    }
+
+    public static boolean eb() {
+        return 1 == ea();
+    }
+
+    public static int F(int i) {
+        switch (i) {
+            case 1:
+            case 2:
+            case 4:
+            case 7:
+            case 11:
+                return 1;
+            case 3:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:
+            case 12:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 15:
+                return 2;
+            case 13:
+                return 3;
+            default:
+                return 0;
         }
     }
 
-    public static boolean b(String str) {
-        if (Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8).matcher(str).find()) {
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean c(String str) {
+    public static boolean Y(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static String d(String str) {
+    public static String Z(String str) {
         String[] split;
         if (str == null) {
             return "utf-8";
@@ -80,44 +88,8 @@ public class h {
         return "utf-8";
     }
 
-    public static boolean c() {
-        return (a() || d() == 1 || a(Proxy.getDefaultHost())) ? false : true;
-    }
-
-    public static int d() {
-        int i;
-        String networkOperator = ((TelephonyManager) e.a().b().getSystemService("phone")).getNetworkOperator();
-        if (a(networkOperator)) {
-            return 0;
-        }
-        String substring = networkOperator.substring(0, 3);
-        if (substring == null || !substring.equals("460")) {
-            return 0;
-        }
-        try {
-            i = Integer.parseInt(networkOperator.substring(3));
-        } catch (NumberFormatException e) {
-            i = 0;
-        }
-        switch (i) {
-            case 0:
-            case 2:
-            case 7:
-                return 1;
-            case 1:
-            case 6:
-                return 2;
-            case 3:
-            case 5:
-                return 3;
-            case 4:
-            default:
-                return 0;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [245=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0049 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0048 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0018 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
@@ -147,25 +119,25 @@ public class h {
                     try {
                         randomAccessFile.seek(j);
                         randomAccessFile.write(bArr, i, i2);
-                        com.baidu.adp.lib.e.a.a(randomAccessFile);
+                        com.baidu.adp.lib.g.a.a(randomAccessFile);
                         exists = randomAccessFile;
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         e.printStackTrace();
-                        com.baidu.adp.lib.e.a.a(randomAccessFile);
+                        com.baidu.adp.lib.g.a.a(randomAccessFile);
                         exists = randomAccessFile;
                         return true;
                     } catch (IOException e3) {
                         e = e3;
                         closeable = randomAccessFile;
                         e.printStackTrace();
-                        com.baidu.adp.lib.e.a.a(closeable);
+                        com.baidu.adp.lib.g.a.a(closeable);
                         return true;
                     }
                 } catch (Throwable th) {
                     th = th;
                     closeable = exists;
-                    com.baidu.adp.lib.e.a.a(closeable);
+                    com.baidu.adp.lib.g.a.a(closeable);
                     throw th;
                 }
             } catch (FileNotFoundException e4) {
@@ -180,7 +152,7 @@ public class h {
         }
     }
 
-    public static byte[] a(ArrayList<byte[]> arrayList) {
+    public static byte[] c(ArrayList<byte[]> arrayList) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             Iterator<byte[]> it = arrayList.iterator();
@@ -194,7 +166,7 @@ public class h {
         }
     }
 
-    public static int e() {
-        return a() ? 500000 : 200000;
+    public static int ec() {
+        return j.fi() ? 500000 : 200000;
     }
 }

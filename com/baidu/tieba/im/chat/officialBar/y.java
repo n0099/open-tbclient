@@ -4,19 +4,19 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class y extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ OfficialBarChatActivity a;
-    private final /* synthetic */ UserData b;
+    private final /* synthetic */ UserData aPM;
+    final /* synthetic */ OfficialBarChatActivity aRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
-        this.a = officialBarChatActivity;
-        this.b = userData;
+        this.aRf = officialBarChatActivity;
+        this.aPM = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(az.a().c(TbadkApplication.getCurrentAccount(), String.valueOf(this.b.getUserId())));
+    public Boolean doInBackground() {
+        return Boolean.valueOf(ax.KA().av(TbadkApplication.getCurrentAccount(), String.valueOf(this.aPM.getUserId())));
     }
 }

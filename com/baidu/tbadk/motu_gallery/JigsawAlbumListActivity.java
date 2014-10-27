@@ -18,35 +18,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class JigsawAlbumListActivity extends BaseActivity implements AbsListView.OnScrollListener {
-    private static volatile int j = 0;
-    private static volatile int k = 0;
-    private static boolean q = false;
-    private static boolean r = true;
-    u a;
-    r b;
-    q c;
-    private GridView i;
-    private LinearLayout m;
-    private HorizontalScrollView n;
-    private TextView o;
-    private final int f = 50;
-    private final int g = 20;
-    private ViewphotoLinkedHashMap h = new ViewphotoLinkedHashMap(50);
-    private NavigationBar l = null;
-    int d = 0;
-    int e = 0;
-    private boolean p = false;
-    private Handler s = new m(this);
+    private GridView WF;
+    r WG;
+    private HorizontalScrollView WI;
+    q WJ;
+    u Wi;
+    private TextView Wr;
+    private LinearLayout Ws;
+    private static volatile int currentPosition = 0;
+    private static volatile int WH = 0;
+    private static boolean Wk = false;
+    private static boolean Wl = true;
+    private final int WC = 50;
+    private final int WD = 20;
+    private ViewphotoLinkedHashMap WE = new ViewphotoLinkedHashMap(50);
+    private NavigationBar mNavigationBar = null;
+    int WK = 0;
+    int WL = 0;
+    private boolean WM = false;
+    private Handler mHandler = new m(this);
 
-    public boolean a() {
-        return q;
+    public boolean sF() {
+        return Wk;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (a() || this.a.b() == 0) {
-            q = false;
+        if (sF() || this.Wi.getCount() == 0) {
+            Wk = false;
             finish();
         }
     }
@@ -55,137 +55,137 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.v.motu_albums_list_activity);
+        setContentView(com.baidu.tieba.w.motu_albums_list_activity);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int i = displayMetrics.widthPixels;
-        this.o = (TextView) findViewById(com.baidu.tieba.u.jigsaw_selected_text);
-        this.e = (int) getResources().getDimension(com.baidu.tieba.s.onedip);
-        this.d = (i - (this.e * 16)) / 3;
-        this.a = u.a();
-        this.b = new r(this, this);
-        this.i = (GridView) findViewById(com.baidu.tieba.u.jigsaw_grid);
-        this.i.setAdapter((ListAdapter) this.b);
-        this.i.setOnScrollListener(this);
-        this.l = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
-        ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_textbtn, new o(this))).setText(com.baidu.tieba.x.jigsaw_start);
-        this.m = (LinearLayout) findViewById(com.baidu.tieba.u.selected_ll);
-        this.n = (HorizontalScrollView) findViewById(com.baidu.tieba.u.hsv);
-        this.l.a(this.a.d());
+        this.Wr = (TextView) findViewById(com.baidu.tieba.v.jigsaw_selected_text);
+        this.WL = (int) getResources().getDimension(com.baidu.tieba.t.onedip);
+        this.WK = (i - (this.WL * 16)) / 3;
+        this.Wi = u.sM();
+        this.WG = new r(this, this);
+        this.WF = (GridView) findViewById(com.baidu.tieba.v.jigsaw_grid);
+        this.WF.setAdapter((ListAdapter) this.WG);
+        this.WF.setOnScrollListener(this);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
+        ((Button) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_textbtn, new o(this))).setText(com.baidu.tieba.y.jigsaw_start);
+        this.Ws = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
+        this.WI = (HorizontalScrollView) findViewById(com.baidu.tieba.v.hsv);
+        this.mNavigationBar.setTitleText(this.Wi.sN());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.p = true;
-        r = true;
-        this.c = new q(this);
-        Thread thread = new Thread(this.c);
+        this.WM = true;
+        Wl = true;
+        this.WJ = new q(this);
+        Thread thread = new Thread(this.WJ);
         thread.setDaemon(true);
         thread.start();
-        this.o.setText(this.a.e(this));
-        d();
+        this.Wr.setText(this.Wi.E(this));
+        sG();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.l.c(i);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.h.clear();
+        this.WE.clear();
         super.onDestroy();
     }
 
-    private void d() {
-        this.m.removeAllViews();
-        for (Uri uri : this.a.c(this)) {
+    private void sG() {
+        this.Ws.removeAllViews();
+        for (Uri uri : this.Wi.C(this)) {
             x xVar = new x(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.s.jigsawSelectedHeight));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
             xVar.setLayoutParams(layoutParams);
-            if (xVar.a(uri)) {
-                this.m.addView(xVar);
+            if (xVar.g(uri)) {
+                this.Ws.addView(xVar);
                 xVar.setOnClickListener(new p(this, xVar));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Uri uri) {
+    public void d(Uri uri) {
         a aVar;
         if (uri != null) {
-            for (int i = 0; i < this.m.getChildCount(); i++) {
-                View childAt = this.m.getChildAt(i);
+            for (int i = 0; i < this.Ws.getChildCount(); i++) {
+                View childAt = this.Ws.getChildAt(i);
                 if ((childAt instanceof x) && uri.equals(((x) childAt).getUri())) {
-                    this.m.removeView(childAt);
+                    this.Ws.removeView(childAt);
                 }
             }
-            int a = this.a.a(uri);
-            if (a >= 0 && (aVar = (a) this.h.get((Object) Integer.valueOf(a))) != null) {
+            int e = this.Wi.e(uri);
+            if (e >= 0 && (aVar = (a) this.WE.get((Object) Integer.valueOf(e))) != null) {
                 aVar.setIsSelected(false);
             }
-            this.a.b(this, uri);
-            this.o.setText(this.a.e(this));
+            this.Wi.b(this, uri);
+            this.Wr.setText(this.Wi.E(this));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.c.a();
-        e();
+        this.WJ.sL();
+        sI();
         System.gc();
-        if (this.c != null) {
-            this.c.a();
+        if (this.WJ != null) {
+            this.WJ.sL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, Bitmap bitmap) {
         ImageView imageView;
-        if (this.h.containsKey(Integer.valueOf(i))) {
-            imageView = this.h.get((Object) Integer.valueOf(i));
-            this.h.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
+        if (this.WE.containsKey(Integer.valueOf(i))) {
+            imageView = this.WE.get((Object) Integer.valueOf(i));
+            this.WE.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
         } else {
             imageView = new ImageView(this);
             imageView.setImageBitmap(bitmap);
-            this.h.put(Integer.valueOf(i), imageView);
+            this.WE.put(Integer.valueOf(i), imageView);
         }
         imageView.setTag("bitmap");
     }
 
-    private void e() {
-        int b = j + 20 > this.a.b() ? this.a.b() - j : 20;
-        if (this.h.size() != 0) {
-            for (int i = j; i < j + b; i++) {
-                if (this.h.containsKey(Integer.valueOf(i))) {
-                    this.h.get((Object) Integer.valueOf(i)).setImageDrawable(null);
-                    this.h.get((Object) Integer.valueOf(i)).setTag("");
+    private void sI() {
+        int count = currentPosition + 20 > this.Wi.getCount() ? this.Wi.getCount() - currentPosition : 20;
+        if (this.WE.size() != 0) {
+            for (int i = currentPosition; i < currentPosition + count; i++) {
+                if (this.WE.containsKey(Integer.valueOf(i))) {
+                    this.WE.get((Object) Integer.valueOf(i)).setImageDrawable(null);
+                    this.WE.get((Object) Integer.valueOf(i)).setTag("");
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (u.a().c(this).size() >= 2) {
-            if (r) {
-                r = false;
+    public void sH() {
+        if (u.sM().C(this).size() >= 2) {
+            if (Wl) {
+                Wl = false;
                 setResult(2);
                 finish();
                 return;
             }
             return;
         }
-        y.a(com.baidu.tieba.x.jigsaw_2_least);
+        y.dc(com.baidu.tieba.y.jigsaw_2_least);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        j = i;
+        currentPosition = i;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

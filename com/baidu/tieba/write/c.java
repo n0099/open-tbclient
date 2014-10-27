@@ -3,50 +3,50 @@ package com.baidu.tieba.write;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements TextWatcher {
-    final /* synthetic */ AtListActivity a;
+    final /* synthetic */ AtListActivity bSE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtListActivity atListActivity) {
-        this.a = atListActivity;
+        this.bSE = atListActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         String str;
-        Button button;
-        Button button2;
+        TextView textView;
+        TextView textView2;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        String a = com.baidu.adp.lib.util.i.a(editable, (String) null);
+        String a = com.baidu.adp.lib.util.l.a(editable, null);
         if (a != null) {
-            str = this.a.m;
+            str = this.bSE.bSy;
             if (!a.equals(str)) {
-                handler = this.a.h;
-                runnable = this.a.x;
+                handler = this.bSE.mHandler;
+                runnable = this.bSE.bSD;
                 handler.removeCallbacks(runnable);
-                handler2 = this.a.h;
-                runnable2 = this.a.x;
+                handler2 = this.bSE.mHandler;
+                runnable2 = this.bSE.bSD;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                button2 = this.a.c;
-                button2.setVisibility(0);
+                textView2 = this.bSE.bSs;
+                textView2.setVisibility(0);
                 return;
             }
-            button = this.a.c;
-            button.setVisibility(8);
+            textView = this.bSE.bSs;
+            textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.m = com.baidu.adp.lib.util.i.a(charSequence, (String) null);
+        this.bSE.bSy = com.baidu.adp.lib.util.l.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher

@@ -5,41 +5,41 @@ import android.app.Dialog;
 import android.view.View;
 import android.view.animation.ScaleAnimation;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.af;
-import com.baidu.tieba.model.bf;
-import com.baidu.tieba.y;
+import com.baidu.tieba.model.ag;
+import com.baidu.tieba.model.bc;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    private NewUserGuideActivity a;
-    private InterestFrsData.Tag b;
-    private a c;
-    private af d;
-    private bf e;
+    private NewUserGuideActivity aLI;
+    private a aLJ;
+    private bc aLK;
+    private InterestFrsData.Tag aLe;
+    private ag avr;
 
     public t(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, p pVar) {
-        this.a = newUserGuideActivity;
-        this.b = tag;
+        this.aLI = newUserGuideActivity;
+        this.aLe = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.c = new r(this.a, y.NewUserDialog);
+            this.aLJ = new r(this.aLI, z.NewUserDialog);
         } else if (btype == 2) {
-            this.c = new e(this.a, y.NewUserDialog);
+            this.aLJ = new e(this.aLI, z.NewUserDialog);
         } else if (btype == 3) {
-            this.c = new i(this.a, y.NewUserDialog);
+            this.aLJ = new i(this.aLI, z.NewUserDialog);
         }
-        this.d = new af();
-        this.d.setLoadDataCallBack(new u(this));
-        this.e = new bf();
-        this.e.a(new v(this));
-        this.c.a(this);
-        this.c.a(this.b);
-        ((Dialog) this.c).setOnDismissListener(new w(this, pVar));
+        this.avr = new ag(newUserGuideActivity);
+        this.avr.setLoadDataCallBack(new u(this));
+        this.aLK = new bc();
+        this.aLK.a(new v(this));
+        this.aLJ.setOnClickListener(this);
+        this.aLJ.a(this.aLe);
+        ((Dialog) this.aLJ).setOnDismissListener(new w(this, pVar));
     }
 
-    public void a(int i, boolean z) {
-        for (int i2 = 0; i2 < this.b.getCard_list().size(); i2++) {
-            if (this.b.getCard_list().get(i2).getFid() == i) {
-                this.b.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+    public void n(int i, boolean z) {
+        for (int i2 = 0; i2 < this.aLe.getCard_list().size(); i2++) {
+            if (this.aLe.getCard_list().get(i2).getFid() == i) {
+                this.aLe.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -47,24 +47,24 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.u.box_close_layout) {
-            this.c.hide();
-        } else if ((view.getId() == com.baidu.tieba.u.ll_like || view.getId() == com.baidu.tieba.u.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
+        if (view.getId() == com.baidu.tieba.v.box_close_layout) {
+            this.aLJ.hide();
+        } else if ((view.getId() == com.baidu.tieba.v.ll_like || view.getId() == com.baidu.tieba.v.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.e.a(card.getFname(), card.getFid());
+                this.aLK.g(card.getFname(), card.getFid());
             } else {
-                this.d.a(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.avr.o(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
-    public void a() {
-        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.a)) {
+    public void show() {
+        if (!(this.aLI instanceof Activity) || com.baidu.adp.lib.g.j.e(this.aLI)) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.c.a().setAnimation(scaleAnimation);
-            this.c.show();
+            this.aLJ.getRootView().setAnimation(scaleAnimation);
+            this.aLJ.show();
         }
     }
 }

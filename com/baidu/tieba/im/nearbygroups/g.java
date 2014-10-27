@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.nearbygroups;
 
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.aa;
 /* loaded from: classes.dex */
-class g implements x {
-    final /* synthetic */ NearbyGroupsActivity a;
+class g implements aa {
+    final /* synthetic */ NearbyGroupsActivity bgc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.a = nearbyGroupsActivity;
+        this.bgc = nearbyGroupsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public void g_() {
-        this.a.a();
+    @Override // com.baidu.adp.widget.ListView.aa
+    public void hQ() {
+        this.bgc.Eh();
     }
 }

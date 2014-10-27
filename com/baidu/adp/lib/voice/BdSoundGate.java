@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public class BdSoundGate {
-    private static BdSoundGate c;
-    private int a = -1;
-    private int b;
+    private static BdSoundGate oC;
+    private int iE;
+    private int oB = -1;
 
     private native void close(int i);
 
@@ -15,37 +15,37 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate a() {
-        if (c == null) {
-            c = new BdSoundGate();
+    public static BdSoundGate fI() {
+        if (oC == null) {
+            oC = new BdSoundGate();
         }
-        return c;
+        return oC;
     }
 
     private BdSoundGate() {
     }
 
-    public void a(int i, int i2) {
-        a().a(i, 0.0f, d.a(i2), 0.0f);
+    public void b(int i, int i2) {
+        fI().a(i, 0.0f, o.V(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {
-        this.b = i;
-        this.a = getChanger(i, f, f2, f3);
+        this.iE = i;
+        this.oB = getChanger(i, f, f2, f3);
     }
 
-    public int b() {
-        return this.b;
+    public int getBlockSize() {
+        return this.iE;
     }
 
-    public void c() {
-        if (this.a > 0) {
-            close(this.a);
-            this.a = -1;
+    public void release() {
+        if (this.oB > 0) {
+            close(this.oB);
+            this.oB = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.a, sArr, sArr2);
+        throughMono(this.oB, sArr, sArr2);
     }
 }

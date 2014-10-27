@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public interface a {
-    View a();
-
-    void a(int i);
-
-    void a(View.OnClickListener onClickListener);
-
     void a(InterestFrsData.Tag tag);
 
-    void b(int i);
+    void fk(int i);
+
+    void fl(int i);
+
+    View getRootView();
 
     void hide();
+
+    void setOnClickListener(View.OnClickListener onClickListener);
 
     void show();
 }

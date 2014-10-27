@@ -1,60 +1,66 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e {
-    private ArrayList<com.baidu.tbadk.core.data.n> b;
-    private p a = null;
-    private int c = 0;
+    private p bSL;
+    private ArrayList<com.baidu.tbadk.core.data.q> bSM;
+    private Context mContext;
+    private int mErrCode;
 
-    public o() {
-        this.b = null;
-        this.b = new ArrayList<>();
+    public o(Context context) {
+        super(context);
+        this.bSL = null;
+        this.bSM = null;
+        this.mErrCode = 0;
+        this.mContext = context;
+        this.bSM = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.n> a() {
-        return this.b;
+    public ArrayList<com.baidu.tbadk.core.data.q> afc() {
+        return this.bSM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int b() {
-        return this.c;
+    public int getErrCode() {
+        return this.mErrCode;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str) {
-        if (this.a == null) {
-            this.a = new p(this, null);
-            this.a.setPriority(3);
-            this.a.execute(str);
+    public void hJ(String str) {
+        if (this.bSL == null) {
+            this.bSL = new p(this, null);
+            this.bSL.setPriority(3);
+            this.bSL.execute(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(String str) {
+    public void parserJson(String str) {
         try {
-            a(new JSONObject(str));
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    void a(JSONObject jSONObject) {
+    void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.c = jSONObject.optInt("error_code", 0);
+                this.mErrCode = jSONObject.optInt("error_code", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-                            nVar.a(jSONObject2);
-                            this.b.add(nVar);
+                            com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
+                            qVar.parserJson(jSONObject2);
+                            this.bSM.add(qVar);
                         }
                     }
                 }
@@ -71,8 +77,8 @@ public class o extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.bSL != null) {
+            this.bSL.cancel();
             return true;
         }
         return true;

@@ -1,38 +1,31 @@
 package com.baidu.tbadk.core.util;
 
-import android.database.Cursor;
+import android.os.Handler;
 import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class u {
-    public static ArrayList<String> a() {
-        Cursor cursor = null;
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        ArrayList<String> arrayList = new ArrayList<>();
-        try {
-            cursor = b.a("select * from frs_image_forums", (String[]) null);
-            while (cursor.moveToNext()) {
-                arrayList.add(cursor.getString(0));
-            }
-        } catch (Exception e) {
-            b.a(e, "getAllFrsImageForums");
-        } finally {
-            com.baidu.adp.lib.e.a.a(cursor);
-        }
-        return arrayList;
-    }
+public interface u {
+    void a(BasicNameValuePair basicNameValuePair);
 
-    public static void a(String str) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        if (str != null && b != null) {
-            b.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
-            b.a("Insert into frs_image_forums(forum_name) values(?)", new Object[]{str});
-        }
-    }
+    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    public static void b(String str) {
-        com.baidu.adp.base.a.c b = com.baidu.tbadk.j.a().b();
-        if (str != null && b != null) {
-            b.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
-        }
-    }
+    void dM();
+
+    void e(String str, byte[] bArr);
+
+    void h(ArrayList<BasicNameValuePair> arrayList);
+
+    void k(String str, String str2);
+
+    String lA();
+
+    byte[] lB();
+
+    String lC();
+
+    String lD();
+
+    ArrayList<BasicNameValuePair> ly();
+
+    boolean lz();
 }

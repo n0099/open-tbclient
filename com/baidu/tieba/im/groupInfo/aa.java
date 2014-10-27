@@ -1,25 +1,30 @@
 package com.baidu.tieba.im.groupInfo;
-
-import com.baidu.gson.Gson;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ y a;
-    private final /* synthetic */ GroupSettingItemData b;
-    private final /* synthetic */ String c;
+public class aa extends com.baidu.tieba.im.b<Boolean> {
+    private final /* synthetic */ String aNZ;
+    private final /* synthetic */ long bbA;
+    final /* synthetic */ z bby;
+    private final /* synthetic */ String bbz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y yVar, GroupSettingItemData groupSettingItemData, String str) {
-        this.a = yVar;
-        this.b = groupSettingItemData;
-        this.c = str;
+    public aa(z zVar, String str, String str2, long j) {
+        this.bby = zVar;
+        this.aNZ = str;
+        this.bbz = str2;
+        this.bbA = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        this.a.c().a(this.c, new Gson().toJson(this.b));
-        return null;
+    public Boolean doInBackground() {
+        GroupSettingItemData am = this.bby.am(this.aNZ, this.bbz);
+        if (am != null && am.isAlreadyApply()) {
+            if (System.currentTimeMillis() - am.getLastApplyTimeStamp() <= this.bbA) {
+                return false;
+            }
+        }
+        return true;
     }
 }

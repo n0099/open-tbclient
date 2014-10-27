@@ -1,36 +1,22 @@
 package com.baidu.tieba.tblauncher;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity a;
+public class v implements View.OnClickListener {
+    final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.a = mainTabActivity;
+    public v(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TextView textView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
-            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
-                BdLog.e("transform error");
-            } else if (MainTabActivity.d) {
-                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
-                MainTabActivity mainTabActivity = this.a;
-                textView = this.a.E;
-                mainTabActivity.a(textView, msgReplyme);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2 = this.this$0;
+        mainTabActivity = this.this$0.bOO;
+        mainTabActivity2.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

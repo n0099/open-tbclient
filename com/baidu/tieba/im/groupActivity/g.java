@@ -2,17 +2,17 @@ package com.baidu.tieba.im.groupActivity;
 
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 class g implements DatePickerDialog.OnDateSetListener {
-    final /* synthetic */ f a;
-    private final /* synthetic */ Calendar b;
+    private final /* synthetic */ Calendar aYV;
+    final /* synthetic */ f aYW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, Calendar calendar) {
-        this.a = fVar;
-        this.b = calendar;
+        this.aYW = fVar;
+        this.aYV = calendar;
     }
 
     @Override // android.app.DatePickerDialog.OnDateSetListener
@@ -26,27 +26,27 @@ class g implements DatePickerDialog.OnDateSetListener {
         DatePickerDialog datePickerDialog;
         e eVar6;
         e eVar7;
-        int i4 = this.b.get(1);
-        int i5 = this.b.get(2);
-        int i6 = this.b.get(5);
+        int i4 = this.aYV.get(1);
+        int i5 = this.aYV.get(2);
+        int i6 = this.aYV.get(5);
         if (i < i4 || ((i == i4 && i2 < i5) || (i == i4 && i2 == i5 && i3 < i6))) {
-            eVar = this.a.a;
-            createGroupActivityActivity = eVar.a;
-            createGroupActivityActivity.c(x.group_activity_time_val);
+            eVar = this.aYW.aYU;
+            createGroupActivityActivity = eVar.aYD;
+            createGroupActivityActivity.showToast(y.group_activity_time_val);
             return;
         }
-        eVar2 = this.a.a;
-        eVar2.o = i;
-        eVar3 = this.a.a;
-        eVar3.p = i2;
-        eVar4 = this.a.a;
-        eVar4.q = i3;
-        eVar5 = this.a.a;
-        datePickerDialog = eVar5.l;
+        eVar2 = this.aYW.aYU;
+        eVar2.aYO = i;
+        eVar3 = this.aYW.aYU;
+        eVar3.aYP = i2;
+        eVar4 = this.aYW.aYU;
+        eVar4.aYQ = i3;
+        eVar5 = this.aYW.aYU;
+        datePickerDialog = eVar5.aYL;
         datePickerDialog.dismiss();
-        eVar6 = this.a.a;
-        eVar6.j();
-        eVar7 = this.a.a;
-        eVar7.t = true;
+        eVar6 = this.aYW.aYU;
+        eVar6.Oa();
+        eVar7 = this.aYW.aYU;
+        eVar7.aYT = true;
     }
 }

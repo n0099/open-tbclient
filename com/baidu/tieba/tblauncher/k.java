@@ -1,17 +1,27 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.at;
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.message.AppUploadMessage;
 /* loaded from: classes.dex */
-class k implements CustomMessageTask.CustomRunnable<at> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<at> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MainTabActivity.class);
-            customMessage.getData().startActivity();
+class k implements Runnable {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Runnable runnable;
+        if (TbadkApplication.m251getInst().isAppUploadOpen()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
+            handler = this.this$0.mHandler;
+            runnable = this.this$0.bPg;
+            handler.postDelayed(runnable, 18000000L);
         }
-        return null;
     }
 }

@@ -12,7 +12,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     private Context context;
     private boolean hasNetworkError;
     private boolean isFromMark;
-    private com.baidu.tieba.data.aj pbData;
+    private com.baidu.tieba.data.ah pbData;
     private int updateType;
 
     public pbPageSocketResponseMessage() {
@@ -52,7 +52,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public com.baidu.tieba.data.aj getPbData() {
+    public com.baidu.tieba.data.ah getPbData() {
         return this.pbData;
     }
 
@@ -63,7 +63,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0) {
-            this.pbData = new com.baidu.tieba.data.aj();
+            this.pbData = new com.baidu.tieba.data.ah();
             this.pbData.a(pbPageResIdl.data, this.context);
             BdLog.detailException(null);
         }
@@ -74,10 +74,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bk.a().a(this.cacheKey, this.isFromMark, bArr);
+                bm.WB().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bk.a().a(this.cacheKey, bArr);
+                bm.WB().j(this.cacheKey, bArr);
                 return;
             default:
                 return;

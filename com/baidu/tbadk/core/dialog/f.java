@@ -1,25 +1,26 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.EditText;
+import com.baidu.tbadk.core.util.bp;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ e a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ TextView c;
+class f implements bp {
+    private final /* synthetic */ AtomicBoolean Bk;
+    final /* synthetic */ e Bt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, int i, TextView textView) {
-        this.a = eVar;
-        this.b = i;
-        this.c = textView;
+    public f(e eVar, AtomicBoolean atomicBoolean) {
+        this.Bt = eVar;
+        this.Bk = atomicBoolean;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        h hVar;
-        hVar = this.a.c;
-        hVar.a(this.a, this.b, this.c);
+    @Override // com.baidu.tbadk.core.util.bp
+    public boolean k(View view) {
+        if (view instanceof EditText) {
+            this.Bk.set(true);
+            return true;
+        }
+        return false;
     }
 }

@@ -7,5 +7,5 @@ import android.graphics.RectF;
 public interface k {
     Path a(RectF rectF);
 
-    void a(Canvas canvas);
+    void b(Canvas canvas);
 }

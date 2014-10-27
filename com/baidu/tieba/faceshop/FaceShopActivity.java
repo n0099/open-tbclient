@@ -9,92 +9,93 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.FaceShopActivityConfig;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.download.DownloadData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class FaceShopActivity extends BaseActivity {
-    private bp a;
-    private bn b;
-    private x c;
-    private final HashMap<String, DownloadData> d = new HashMap<>();
-    private final com.baidu.tbadk.core.view.r e = new bb(this);
-    private final com.baidu.adp.base.h f = new bc(this);
-    private final CustomMessageListener g = new bd(this, 0);
+    private x atd;
+    private bq aul;
+    private bo aum;
+    private final HashMap<String, DownloadData> aun = new HashMap<>();
+    private final com.baidu.tbadk.core.view.u ati = new bc(this);
+    private final com.baidu.adp.base.h mLoadDataCallBack = new bd(this);
+    private final CustomMessageListener Sc = new be(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.p.class, FaceShopActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(FaceShopActivityConfig.class, FaceShopActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        a(bundle);
-        this.a.c();
+        initUI();
+        d(bundle);
+        this.aul.DA();
     }
 
-    private void b() {
-        this.a = new bp(this);
-        this.a.a(new be(this));
-        this.a.a(new bf(this));
-        this.a.a(this);
-        d();
-        registerListener(2001122, this.g);
-        registerListener(2001120, this.g);
-        g.a();
+    private void initUI() {
+        this.aul = new bq(this);
+        this.aul.b(new bf(this));
+        this.aul.a(new bg(this));
+        this.aul.a(this);
+        CS();
+        registerListener(2001122, this.Sc);
+        registerListener(2001120, this.Sc);
+        g.CH();
     }
 
-    private void a(Bundle bundle) {
-        String a;
-        this.b = new bn(this);
+    private void d(Bundle bundle) {
+        String st_type;
+        this.aum = new bo(this);
         if (bundle != null) {
-            a = com.baidu.tbadk.core.atomData.p.a(bundle);
+            st_type = FaceShopActivityConfig.getST_TYPE(bundle);
         } else {
-            a = com.baidu.tbadk.core.atomData.p.a(getIntent());
-            com.baidu.tbadk.core.f.a(this, a);
+            st_type = FaceShopActivityConfig.getST_TYPE(getIntent());
+            com.baidu.tbadk.core.i.l(this, st_type);
         }
-        this.b.a(a);
-        this.b.setLoadDataCallBack(this.f);
+        this.aum.eV(st_type);
+        this.aum.setLoadDataCallBack(this.mLoadDataCallBack);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (UtilHelper.isNetOk()) {
+    public void bE(boolean z) {
+        if (com.baidu.adp.lib.util.j.fh()) {
             if (z) {
                 showProgressBar();
             }
-            this.b.a(1);
+            this.aum.ey(1);
             return;
         }
-        this.a.b();
+        this.aul.Dv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.b != null && this.a != null && this.b.b()) {
-            this.a.d();
-            this.b.a(2);
+    public void Dw() {
+        if (this.aum != null && this.aul != null && this.aum.getHasMore()) {
+            this.aul.DB();
+            this.aum.ey(2);
         }
     }
 
-    private void d() {
-        this.a.a(this.e);
+    private void CS() {
+        this.aul.c(this.ati);
     }
 
-    private void e() {
-        this.a.b(this.e);
+    private void CT() {
+        this.aul.d(this.ati);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bh a;
+        bi Dz;
         FacePackageData facePackageData;
-        if (this.b != null && this.a != null && (a = this.a.a()) != null) {
-            if (i < a.getCount() && i >= 0 && (facePackageData = (FacePackageData) a.getItem(i)) != null) {
-                sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this, String.valueOf(facePackageData.pid), facePackageData.downloading == 1, "face_shop")));
+        if (this.aum != null && this.aul != null && (Dz = this.aul.Dz()) != null) {
+            if (i < Dz.getCount() && i >= 0 && (facePackageData = (FacePackageData) Dz.getItem(i)) != null) {
+                sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this, String.valueOf(facePackageData.pid), facePackageData.downloading == 1, "face_shop")));
             }
             super.onItemClick(adapterView, view, i, j);
         }
@@ -102,13 +103,13 @@ public class FaceShopActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.a != null) {
-            if (view == this.a.k()) {
+        if (this.aul != null) {
+            if (view == this.aul.DE()) {
                 if (!TbadkApplication.isLogin()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11037);
                     return;
                 }
-                EmotionManageActivity.a(this);
+                EmotionManageActivity.S(this);
             }
             super.onClick(view);
         }
@@ -118,24 +119,24 @@ public class FaceShopActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.b != null) {
-            this.b.cancelLoadData();
+        if (this.aum != null) {
+            this.aum.cancelLoadData();
         }
-        if (this.a != null) {
-            this.a.a().b();
+        if (this.aul != null) {
+            this.aul.Dz().onDestroy();
         }
-        if (this.c != null) {
-            this.c.cancelLoadData();
+        if (this.atd != null) {
+            this.atd.cancelLoadData();
         }
-        e();
+        CT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.a != null) {
-            this.a.g();
+        if (this.aul != null) {
+            this.aul.onResume();
         }
     }
 
@@ -143,53 +144,53 @@ public class FaceShopActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.a != null) {
-            this.a.a(i);
+        if (this.aul != null) {
+            this.aul.onChangeSkinType(i);
         }
     }
 
-    public void a(int i) {
+    public void eu(int i) {
         FacePackageData facePackageData;
-        if (this.a != null && this.a.a() != null && (facePackageData = (FacePackageData) this.a.a().getItem(i)) != null) {
-            this.a.j();
-            facePackageData.buyStatus = 1;
-            facePackageData.canDownload = 1;
-            this.a.a().notifyDataSetChanged();
-            this.a.a().a(i);
+        if (this.aul != null && this.aul.Dz() != null && (facePackageData = (FacePackageData) this.aul.Dz().getItem(i)) != null) {
+            this.aul.Dl();
+            facePackageData.buy_status = 1;
+            facePackageData.can_download = 1;
+            this.aul.Dz().notifyDataSetChanged();
+            this.aul.Dz().ev(i);
         }
     }
 
-    public void a() {
-        this.a.i();
+    public void CX() {
+        this.aul.Dk();
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && this.a != null && this.a.a() != null) {
+        if (i2 == -1 && this.aul != null && this.aul.Dz() != null) {
             if (i == 10000) {
                 int intExtra = intent.getIntExtra("tag_position", -1);
                 String stringExtra = intent.getStringExtra("tag_order_id");
-                FacePackageData facePackageData = (FacePackageData) this.a.a().getItem(intExtra);
+                FacePackageData facePackageData = (FacePackageData) this.aul.Dz().getItem(intExtra);
                 if (facePackageData != null) {
-                    String str = com.baidu.tbadk.core.util.ba.c(stringExtra) ? facePackageData.orderId : stringExtra;
-                    this.a.h();
-                    this.c = new x(this);
-                    this.c.setLoadDataCallBack(new bg(this, intExtra));
-                    this.c.b(str);
+                    String str = com.baidu.tbadk.core.util.ay.aA(stringExtra) ? facePackageData.orderId : stringExtra;
+                    this.aul.Dj();
+                    this.atd = new x(this);
+                    this.atd.setLoadDataCallBack(new bh(this, intExtra));
+                    this.atd.eP(str);
                 }
             } else if (i == 11003) {
-                bh a = this.a.a();
-                int a2 = a.a();
-                if (a2 >= 0) {
-                    if (((FacePackageData) a.getItem(a2)).canDownload == 1) {
-                        a.a(a2);
+                bi Dz = this.aul.Dz();
+                int Dx = Dz.Dx();
+                if (Dx >= 0) {
+                    if (((FacePackageData) Dz.getItem(Dx)).can_download == 1) {
+                        Dz.ev(Dx);
                     } else {
-                        a.c(a2);
+                        Dz.ex(Dx);
                     }
                 }
             } else if (i == 11037) {
-                EmotionManageActivity.a(this);
+                EmotionManageActivity.S(this);
             }
         }
     }

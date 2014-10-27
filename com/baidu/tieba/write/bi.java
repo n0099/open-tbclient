@@ -1,65 +1,42 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import java.util.Date;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.selectpoi.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-public class bi implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+class bi extends CustomMessageListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi(WriteActivity writeActivity, int i) {
+        super(i);
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        z = this.a.z;
-        if (!z) {
-            i = this.a.A;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.a.g;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.y;
-                    if (z2) {
-                        bitmap = this.a.q;
-                        if (bitmap != null) {
-                            bitmap2 = this.a.q;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                b = this.a.b(str);
-                                if (b) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.a.setResult(0, new Intent());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.location.d dVar;
+        com.baidu.tieba.editortool.j jVar;
+        com.baidu.tieba.location.d dVar2;
+        com.baidu.tieba.location.d dVar3;
+        com.baidu.tieba.editortool.j jVar2;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                dVar2 = this.bTX.ays;
+                dVar2.dx(false);
+                dVar3 = this.bTX.ays;
+                dVar3.gL(responsedSelectLocation.getName());
+                jVar2 = this.bTX.bTE;
+                jVar2.j(2, responsedSelectLocation.getName());
+                return;
             }
-        } else {
-            this.a.setResult(0, new Intent());
+            dVar = this.bTX.ays;
+            dVar.dx(true);
+            jVar = this.bTX.bTE;
+            jVar.setLocationInfoViewState(0);
         }
-        this.a.finish();
     }
 }

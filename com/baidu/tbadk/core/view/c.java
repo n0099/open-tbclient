@@ -8,13 +8,13 @@ import android.widget.TextView;
 class c extends LinearLayout {
     public c(Context context, String str) {
         super(context);
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.floatview_item_layout, this);
+        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.w.floatview_item_layout, this);
         setGravity(17);
-        ((TextView) findViewById(com.baidu.tieba.u.floatview_item_tv)).setText(str);
+        ((TextView) findViewById(com.baidu.tieba.v.floatview_item_tv)).setText(str);
         setTag(str);
     }
 
-    public static LinearLayout.LayoutParams a() {
+    public static LinearLayout.LayoutParams nr() {
         return new LinearLayout.LayoutParams(-2, -1);
     }
 }

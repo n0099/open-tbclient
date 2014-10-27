@@ -2,76 +2,77 @@ package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.f {
-    NavigationBar a;
-    View b;
-    Button c;
-    Button d;
-    TextView e;
-    TextView f;
-    CreateGroupMainActivity g;
-    private int h;
+public class e implements y {
+    private CreateGroupStepActivity aSP;
+    private TbImageView aTc;
+    private Button aTd;
+    private int mIndex;
+    private View mView;
 
-    public int a() {
-        return this.h;
+    public e(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
+        this.aSP = createGroupStepActivity;
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(createGroupStepActivity, com.baidu.tieba.w.create_group_lbs_tips, null);
+        this.aTd = (Button) this.mView.findViewById(com.baidu.tieba.v.create_group_tips_btn);
+        this.aTc = (TbImageView) this.mView.findViewById(com.baidu.tieba.v.create_group_tips_image);
+        this.mIndex = i;
+        this.aTd.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.y.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.aSP, c.aSV, TbadkApplication.m251getInst().getSkinType() == 1);
+        c.b(this.aSP, c.aSY, TbadkApplication.m251getInst().getSkinType() == 1);
+        c.b(this.aSP, c.aSW, TbadkApplication.m251getInst().getSkinType() == 1);
     }
 
-    public View b() {
-        return this.c;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public void KV() {
+        this.aTc.setBackgroundDrawable(null);
     }
 
-    public View c() {
-        return this.d;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public void KW() {
+        boolean z = TbadkApplication.m251getInst().getSkinType() == 1;
+        this.aSP.getLayoutMode().L(z);
+        this.aSP.getLayoutMode().h(this.mView);
+        this.aTc.c(c.a(this.aSP, c.aSX, z), 29, false);
     }
 
-    public e(CreateGroupMainActivity createGroupMainActivity) {
-        super(createGroupMainActivity);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = 0;
-        b(createGroupMainActivity);
-        a(createGroupMainActivity);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public View getView() {
+        return this.mView;
     }
 
-    private void a(CreateGroupMainActivity createGroupMainActivity) {
-        this.c.setOnClickListener(createGroupMainActivity);
-        this.d.setOnClickListener(createGroupMainActivity);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public int KP() {
+        return this.mIndex;
     }
 
-    public void a(boolean z, boolean z2, String str, String str2, int i) {
-        this.c.setEnabled(z2);
-        this.d.setEnabled(z);
-        this.e.setText(str2);
-        this.f.setText(str);
-        this.h = i;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String getTitle() {
+        return this.aSP.getString(com.baidu.tieba.y.group_create_tips_lbs);
     }
 
-    private void b(CreateGroupMainActivity createGroupMainActivity) {
-        this.g = createGroupMainActivity;
-        createGroupMainActivity.setContentView(com.baidu.tieba.v.create_group_main_activity);
-        this.b = createGroupMainActivity.findViewById(com.baidu.tieba.u.parent);
-        this.c = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group1);
-        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group2);
-        this.e = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group1_text);
-        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.u.create_group2_text);
-        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.a.a(createGroupMainActivity.getResources().getString(com.baidu.tieba.x.group_create));
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String KY() {
+        return "";
     }
 
-    public void a(int i) {
-        this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a(this.b);
-        ay.a(this.b, i);
-        this.a.c(i);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public boolean KZ() {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String getErrMsg() {
+        return null;
+    }
+
+    public Button Le() {
+        return this.aTd;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.y
+    public boolean La() {
+        return false;
     }
 }

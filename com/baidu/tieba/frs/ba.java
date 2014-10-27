@@ -1,55 +1,64 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-class ba extends CustomMessageListener {
-    final /* synthetic */ FrsActivity a;
+class ba implements com.baidu.tieba.location.i {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba(FrsActivity frsActivity, int i) {
-        super(i);
-        this.a = frsActivity;
+    public ba(FrsActivity frsActivity) {
+        this.aBk = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Integer num;
-        g gVar;
-        g gVar2;
-        cv cvVar;
-        String str;
-        String str2;
-        cv cvVar2;
-        cv cvVar3;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            gVar = this.a.N;
-            if (gVar != null) {
-                gVar2 = this.a.N;
-                UserData k = gVar2.k();
-                if (k != null) {
-                    k.setIsMem(num.intValue());
-                    if (num.intValue() != 0) {
-                        cvVar = this.a.B;
-                        cvVar.i(num.intValue());
-                        str = this.a.T;
-                        if ("frs_page".equals(str)) {
-                            cvVar3 = this.a.B;
-                            cvVar3.N();
-                            return;
-                        }
-                        str2 = this.a.T;
-                        if ("normal_page".equals(str2)) {
-                            cvVar2 = this.a.B;
-                            cvVar2.M();
-                        }
-                    }
-                }
+    @Override // com.baidu.tieba.location.i
+    public void EG() {
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        buVar = this.aBk.aAv;
+        if (buVar.EO() != null) {
+            buVar2 = this.aBk.aAv;
+            if (buVar2.EO().getLocationViewVisibility() == 0) {
+                this.aBk.showToast(com.baidu.tieba.y.no_network_guide);
             }
+            buVar3 = this.aBk.aAv;
+            buVar3.EO().setLocationInfoViewState(0);
         }
+    }
+
+    @Override // com.baidu.tieba.location.i
+    public void eY(String str) {
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        buVar = this.aBk.aAv;
+        if (buVar.EO() != null) {
+            buVar2 = this.aBk.aAv;
+            if (buVar2.EO().getLocationViewVisibility() == 0) {
+                FrsActivity frsActivity = this.aBk;
+                if (StringUtils.isNull(str)) {
+                    str = this.aBk.getString(com.baidu.tieba.y.location_fail);
+                }
+                frsActivity.showToast(str);
+            }
+            buVar3 = this.aBk.aAv;
+            buVar3.EO().setLocationInfoViewState(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.location.i
+    public void a(com.baidu.tieba.location.a aVar) {
+        bu buVar;
+        bu buVar2;
+        if (aVar != null && !StringUtils.isNull(aVar.Sl())) {
+            buVar = this.aBk.aAv;
+            if (buVar.EO() != null) {
+                buVar2 = this.aBk.aAv;
+                buVar2.EO().j(2, aVar.Sl());
+                return;
+            }
+            return;
+        }
+        eY(null);
     }
 }

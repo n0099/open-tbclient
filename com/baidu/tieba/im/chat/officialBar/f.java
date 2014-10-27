@@ -9,12 +9,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class f extends RelativeLayout {
-    private Context a;
-    private TbImageView b;
-    private TextView c;
-    private TextView d;
-    private com.baidu.adp.lib.b.b e;
-    private int f;
+    private TextView JM;
+    private int Uy;
+    private com.baidu.adp.lib.c.b aOL;
+    private TbImageView aQP;
+    private TextView auh;
+    private Context mContext;
 
     public f(Context context) {
         this(context, null);
@@ -26,70 +26,66 @@ public class f extends RelativeLayout {
 
     public f(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.e = null;
-        this.a = context;
-        b();
+        this.aOL = null;
+        this.mContext = context;
+        nu();
     }
 
-    private void b() {
-        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.msg_multi_pic_text_top_view, this, true);
-        this.b = (TbImageView) findViewById(com.baidu.tieba.u.top_content_pic);
-        this.c = (TextView) findViewById(com.baidu.tieba.u.top_title);
-        this.d = (TextView) findViewById(com.baidu.tieba.u.show_time);
+    private void nu() {
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_top_view, this, true);
+        this.aQP = (TbImageView) findViewById(com.baidu.tieba.v.top_content_pic);
+        this.JM = (TextView) findViewById(com.baidu.tieba.v.top_title);
+        this.auh = (TextView) findViewById(com.baidu.tieba.v.show_time);
         setOnLongClickListener(new g(this));
     }
 
     public void a(p pVar, View view) {
-        setPadding((int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_top_padding_bottom));
+        setPadding((int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_padding_left_right), (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_padding_left_right), (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_padding_left_right), (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_top_padding_bottom));
         if (pVar != null) {
             String str = "";
-            if (!TextUtils.isEmpty(pVar.a)) {
-                str = pVar.a;
+            if (!TextUtils.isEmpty(pVar.title)) {
+                str = pVar.title;
             }
-            this.c.setText(str);
-            if (!TextUtils.isEmpty(pVar.d)) {
+            this.JM.setText(str);
+            if (!TextUtils.isEmpty(pVar.url)) {
                 setOnClickListener(new h(this, pVar));
             }
-            if (!TextUtils.isEmpty(pVar.c)) {
-                this.b.setTag(pVar.c);
-                this.b.a(pVar.c, 10, false);
+            if (!TextUtils.isEmpty(pVar.src)) {
+                this.aQP.setTag(pVar.src);
+                this.aQP.c(pVar.src, 10, false);
             }
         }
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.d.setVisibility(8);
-            this.d.setText("");
+            this.auh.setVisibility(8);
+            this.auh.setText("");
             return;
         }
-        this.d.setVisibility(0);
-        this.d.setText(str);
+        this.auh.setVisibility(0);
+        this.auh.setText(str);
     }
 
-    public void a() {
-        this.c.setText("");
-        this.b.setBackgroundDrawable(null);
-        this.b.setImageDrawable(null);
-        this.d.setVisibility(8);
-        this.d.setText("");
+    public void reset() {
+        this.JM.setText("");
+        this.aQP.setBackgroundDrawable(null);
+        this.aQP.setImageDrawable(null);
+        this.auh.setVisibility(8);
+        this.auh.setText("");
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.e = bVar;
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
+        this.aOL = bVar;
     }
 
     public void setPosition(int i) {
-        this.f = i;
+        this.Uy = i;
     }
 
-    public void a(boolean z) {
-        if (z) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_top_text_1));
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.r.official_time_text_1));
-            return;
-        }
-        this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_top_text));
-        this.d.setTextColor(getResources().getColor(com.baidu.tieba.r.official_time_text));
+    public void cG(boolean z) {
+        int i = z ? 1 : 0;
+        com.baidu.tbadk.core.util.aw.a(this.JM, com.baidu.tieba.s.official_msg_top_text, 1, i);
+        com.baidu.tbadk.core.util.aw.a(this.auh, com.baidu.tieba.s.official_time_text, 1, i);
     }
 }

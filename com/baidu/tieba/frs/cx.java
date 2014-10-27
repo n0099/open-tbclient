@@ -1,20 +1,30 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class cx implements com.baidu.tbadk.core.view.m {
-    final /* synthetic */ cv a;
+class cx {
+    LinearLayout aDR;
+    LinearLayout aDS;
+    cy aDT;
+    TextView aDU;
+    TextView aDV;
+    TextView aDW;
+    TextView aDX;
+    TbImageView aDY;
+    TbImageView aDZ;
+    TbImageView aEa;
+    LinearLayout aEb;
+    LinearLayout aEc;
+    View aEd;
+
+    private cx() {
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cv cvVar) {
-        this.a = cvVar;
-    }
-
-    @Override // com.baidu.tbadk.core.view.m
-    public void a() {
-        this.a.a();
-    }
-
-    @Override // com.baidu.tbadk.core.view.m
-    public void b() {
+    public /* synthetic */ cx(cx cxVar) {
+        this();
     }
 }

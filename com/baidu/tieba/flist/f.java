@@ -1,16 +1,18 @@
 package com.baidu.tieba.flist;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.model.af;
+import com.baidu.tieba.model.ag;
 /* loaded from: classes.dex */
 class f implements s {
-    final /* synthetic */ ForumListActivity a;
+    final /* synthetic */ ForumListActivity avP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+        this.avP = forumListActivity;
     }
 
     @Override // com.baidu.tieba.flist.s
@@ -25,104 +27,105 @@ class f implements s {
         int i4;
         p pVar;
         p pVar2;
-        af afVar;
+        ag agVar;
         p pVar3;
         p pVar4;
         p pVar5;
-        af afVar2;
+        ag agVar2;
         p pVar6;
-        int i5;
-        int i6;
+        Drawable drawable;
+        Drawable drawable2;
         p pVar7;
         ForumListModel.RequestParams requestParams5;
         if (!z) {
-            pVar7 = this.a.A;
-            if (pVar7.a() == null) {
-                this.a.showToast(str);
-                this.a.c.d();
-                this.a.c.c();
-                requestParams5 = this.a.x;
+            pVar7 = this.avP.avC;
+            if (pVar7.DP() == null) {
+                this.avP.showToast(str);
+                this.avP.avy.DV();
+                this.avP.avy.DU();
+                requestParams5 = this.avP.avz;
                 if (requestParams5.menu_type == 2 && !z2) {
-                    this.a.finish();
+                    this.avP.finish();
                 }
-                this.a.c.B.setVisibility(8);
+                this.avP.avy.mProgressBar.setVisibility(8);
                 return;
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            requestParams = this.a.x;
+            requestParams = this.avP.avz;
             if (requestParams.menu_type == 2 && !z2) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.no_forum_data));
-                this.a.finish();
+                this.avP.showToast(this.avP.getString(com.baidu.tieba.y.no_forum_data));
+                this.avP.finish();
             } else {
-                this.a.showToast(str);
-                this.a.c.c();
-                requestParams2 = this.a.x;
-                i2 = this.a.t;
+                this.avP.showToast(str);
+                this.avP.avy.DU();
+                requestParams2 = this.avP.avz;
+                i2 = this.avP.avu;
                 requestParams2.recommend_type = i2;
-                requestParams3 = this.a.x;
-                i3 = this.a.u;
+                requestParams3 = this.avP.avz;
+                i3 = this.avP.avv;
                 requestParams3.rn = i3;
             }
-            this.a.c.B.setVisibility(8);
+            this.avP.avy.mProgressBar.setVisibility(8);
             return;
         }
-        this.a.c.B.setVisibility(8);
-        z3 = this.a.s;
+        this.avP.avy.mProgressBar.setVisibility(8);
+        z3 = this.avP.avt;
         if (z3) {
-            this.a.c.n.setText(this.a.getString(com.baidu.tieba.x.flist_expand_list));
-            ImageView imageView = this.a.c.o;
-            i5 = this.a.k;
-            imageView.setImageResource(i5);
-            this.a.c.q.setText(this.a.getString(com.baidu.tieba.x.flist_expand_list));
-            ImageView imageView2 = this.a.c.r;
-            i6 = this.a.k;
-            imageView2.setImageResource(i6);
-            this.a.s = false;
+            this.avP.avy.aws.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
+            ImageView imageView = this.avP.avy.awt;
+            drawable = this.avP.avm;
+            imageView.setImageDrawable(drawable);
+            this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
+            ImageView imageView2 = this.avP.avy.aww;
+            drawable2 = this.avP.avm;
+            imageView2.setImageDrawable(drawable2);
+            this.avP.avt = false;
         }
-        TextView textView = this.a.c.h;
-        requestParams4 = this.a.x;
+        TextView textView = this.avP.avy.atA;
+        requestParams4 = this.avP.avz;
         textView.setText(requestParams4.menu_name);
-        a aVar = this.a.c.y;
-        i4 = this.a.r;
-        aVar.a(i4);
-        int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.a.a.forum_list.length);
-        int min2 = Math.min(forumListModel.recommend_list_right.forum_list.length, this.a.b.forum_list.length);
-        System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.a.a.forum_list, 0, min);
-        System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.a.b.forum_list, 0, min2);
-        pVar = this.a.A;
-        pVar.a(min);
-        pVar2 = this.a.A;
-        afVar = this.a.p;
-        pVar2.a(afVar);
-        pVar3 = this.a.A;
-        pVar3.a(this.a.a.forum_list);
-        this.a.c.i.setSelection(1);
+        this.avP.avy.mNavigationBar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+        a aVar = this.avP.avy.awD;
+        i4 = this.avP.menu_choose;
+        aVar.ez(i4);
+        int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.avP.recommend_list_left.forum_list.length);
+        int min2 = Math.min(forumListModel.recommend_list_right.forum_list.length, this.avP.recommend_list_right.forum_list.length);
+        System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.avP.recommend_list_left.forum_list, 0, min);
+        System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.avP.recommend_list_right.forum_list, 0, min2);
+        pVar = this.avP.avC;
+        pVar.eA(min);
+        pVar2 = this.avP.avC;
+        agVar = this.avP.avr;
+        pVar2.a(agVar);
+        pVar3 = this.avP.avC;
+        pVar3.a(this.avP.recommend_list_left.forum_list);
+        this.avP.avy.awn.setSelection(1);
         if (forumListModel.recommend_list_left.has_more == 1) {
-            this.a.c.b.setVisibility(0);
+            this.avP.avy.awj.setVisibility(0);
         } else {
-            this.a.c.b.setVisibility(8);
+            this.avP.avy.awj.setVisibility(8);
         }
-        this.a.c.k.setText(forumListModel.forum_class[0]);
-        pVar4 = this.a.B;
-        pVar4.a(min2);
-        pVar5 = this.a.B;
-        afVar2 = this.a.p;
-        pVar5.a(afVar2);
-        pVar6 = this.a.B;
-        pVar6.a(this.a.b.forum_list);
-        this.a.c.j.setSelection(1);
+        this.avP.avy.awp.setText(forumListModel.forum_class[0]);
+        pVar4 = this.avP.avD;
+        pVar4.eA(min2);
+        pVar5 = this.avP.avD;
+        agVar2 = this.avP.avr;
+        pVar5.a(agVar2);
+        pVar6 = this.avP.avD;
+        pVar6.a(this.avP.recommend_list_right.forum_list);
+        this.avP.avy.awo.setSelection(1);
         if (forumListModel.recommend_list_right.has_more == 1) {
-            this.a.c.c.setVisibility(0);
+            this.avP.avy.awk.setVisibility(0);
         } else {
-            this.a.c.c.setVisibility(8);
+            this.avP.avy.awk.setVisibility(8);
         }
-        this.a.c.l.setText(forumListModel.forum_class[1]);
-        this.a.findViewById(com.baidu.tieba.u.item_root).setVisibility(0);
-        this.a.c.c();
-        if (this.a.c.y.getCount() > 0) {
-            this.a.c.z.setClickable(true);
-            this.a.c.z.setOnClickListener(this.a);
+        this.avP.avy.awq.setText(forumListModel.forum_class[1]);
+        this.avP.findViewById(com.baidu.tieba.v.item_root).setVisibility(0);
+        this.avP.avy.DU();
+        if (this.avP.avy.awD.getCount() > 0) {
+            this.avP.avy.awE.setClickable(true);
+            this.avP.avy.awE.setOnClickListener(this.avP);
         }
     }
 }

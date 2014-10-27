@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+public class av extends BdAsyncTask<String, Integer, String> {
+    private av() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        ab abVar;
-        z = this.a.a;
-        if (z) {
-            this.a.b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ av(av avVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: h */
+    public String doInBackground(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = aj.adS;
+        synchronized (bArr) {
+            aj.adT = Boolean.valueOf(com.baidu.tieba.util.q.aeL());
+            bArr2 = aj.adS;
+            bArr2.notifyAll();
         }
-        abVar = this.a.h;
-        abVar.dismiss();
-        this.a.finish();
+        return null;
     }
 }

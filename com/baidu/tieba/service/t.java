@@ -1,163 +1,212 @@
 package com.baidu.tieba.service;
 
+import android.app.Application;
+import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.plugins.Hao123Plugin;
+import com.baidu.tieba.UpdateDialog;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.bc;
+import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.model.bb;
+import java.util.Date;
+import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ TiebaUpdateService a;
-    private ae b;
-    private volatile boolean c;
+public class t extends BdAsyncTask<String, Integer, bb> {
+    final /* synthetic */ TiebaSyncService bIS;
+    ac mNetWork;
 
-    private t(TiebaUpdateService tiebaUpdateService) {
-        this.a = tiebaUpdateService;
-        this.b = null;
-        this.c = false;
+    private t(TiebaSyncService tiebaSyncService) {
+        this.bIS = tiebaSyncService;
+        this.mNetWork = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(TiebaUpdateService tiebaUpdateService, t tVar) {
-        this(tiebaUpdateService);
+    public /* synthetic */ t(TiebaSyncService tiebaSyncService, t tVar) {
+        this(tiebaSyncService);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0097, code lost:
-        r0 = r7.a.mHasTieba;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x009d, code lost:
-        if (r0 != false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009f, code lost:
-        r0 = r7.a.mHasAs;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00a5, code lost:
-        if (r0 == false) goto L29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00a7, code lost:
-        r0 = r7.a.mIsMainApkDone;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00ad, code lost:
-        if (r0 == false) goto L29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
-        r7.a.sendBroadcast("action_update_progress_interrupted", true);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b8, code lost:
-        r0 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x0009, code lost:
-        r0 = r1;
-     */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(String... strArr) {
-        Boolean bool;
+    /* renamed from: x */
+    public bb doInBackground(String... strArr) {
+        bb bbVar;
         Exception e;
         String str;
         String str2;
-        String str3;
-        Handler handler;
-        boolean z;
-        long j;
-        Boolean bool2 = false;
-        while (true) {
-            try {
-                if (this.c) {
-                    break;
-                }
-                str2 = this.a.mOtherApkUrl;
-                this.b = new ae(str2);
-                ae aeVar = this.b;
-                str3 = this.a.mOtherApkFileName;
-                String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.a.mOtherApkHandler;
-                bool2 = Boolean.valueOf(aeVar.a(str4, handler, 0));
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.b.c() == -2) {
-                    bool = bool2;
-                    break;
-                } else {
-                    if (!this.b.a().b().c()) {
-                        try {
-                            Thread.sleep(10000L);
-                        } catch (Exception e2) {
-                        }
-                    }
-                    z = TiebaUpdateService.sHasStart;
-                    if (z && UtilHelper.isNetOk()) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        j = this.a.mOtherTaskWaitingTimestamp;
-                        if (currentTimeMillis - j > 20000) {
-                            break;
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
-            }
-        }
         try {
-            if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.a;
-                str = this.a.mOtherApkFileName;
-                tiebaUpdateService.renameFile(str);
+            this.mNetWork = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.mNetWork.k("_os_version", Build.VERSION.RELEASE);
+            StringBuffer stringBuffer = new StringBuffer(15);
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.n(aj.wk().getApp())));
+            stringBuffer.append(",");
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.o(aj.wk().getApp())));
+            this.mNetWork.k("_phone_screen", stringBuffer.toString());
+            this.mNetWork.k("scr_w", String.valueOf(com.baidu.adp.lib.util.m.n(aj.wk().getApp())));
+            this.mNetWork.k("scr_h", String.valueOf(com.baidu.adp.lib.util.m.o(aj.wk().getApp())));
+            this.mNetWork.k("scr_dip", String.valueOf(com.baidu.adp.lib.util.m.p(aj.wk().getApp())));
+            if (TbadkApplication.m251getInst().getMsgFrequency() > 0) {
+                this.mNetWork.k("_msg_status", "0");
+            } else {
+                this.mNetWork.k("_msg_status", "1");
             }
-        } catch (Exception e4) {
-            e = e4;
-            BdLog.e(e.getMessage());
-            return bool;
+            String wK = aj.wk().wK();
+            if (wK != null) {
+                if (wK.length() < 1) {
+                    wK = "0";
+                }
+                this.mNetWork.k("_active", wK);
+            }
+            this.mNetWork.k("_pic_quality", String.valueOf(TbadkApplication.m251getInst().getViewImageQuality()));
+            str = TiebaSyncService.mStatistics;
+            if (str != null) {
+                ac acVar = this.mNetWork;
+                str2 = TiebaSyncService.mStatistics;
+                acVar.k("_msg_type", str2);
+            }
+            String packageName = TbadkApplication.m251getInst().getPackageName();
+            this.mNetWork.k("package", packageName);
+            this.mNetWork.k("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m251getInst().getVersionCode())).toString());
+            this.mNetWork.k("signmd5", ba.a(TbadkApplication.m251getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.mNetWork.k("md5", bc.xa());
+            String lA = this.mNetWork.lA();
+            if (this.mNetWork.mf()) {
+                aj.wk().wM();
+            }
+            if (this.mNetWork.mc().nb().jq()) {
+                bbVar = new bb();
+                try {
+                    bbVar.parserJson(lA);
+                    if (TbadkApplication.getClientId() == null && bbVar.Ub().getClientId() != null && bbVar.Ub().getClientId().length() > 0) {
+                        TbadkApplication.saveClientId(this.bIS, bbVar.Ub().getClientId());
+                        TbadkApplication.setClientId(bbVar.Ub().getClientId());
+                    }
+                    if (bbVar.TX() != null) {
+                        com.baidu.tbadk.core.sharedPref.b.lk().putInt("aladin_port", bbVar.TX().yB());
+                        com.baidu.tbadk.core.sharedPref.b.lk().putInt("crash_limit_count", bbVar.TX().yA());
+                    }
+                    TiebaSyncService.mStatistics = null;
+                    return bbVar;
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    return bbVar;
+                }
+            }
+            return null;
+        } catch (Exception e3) {
+            bbVar = null;
+            e = e3;
         }
-        return bool;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel(true);
-        this.a.mDowndOtherApkTask = null;
-        this.c = true;
-        if (this.b != null) {
-            this.b.f();
+        this.bIS.mSyncTask = null;
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        boolean z;
-        boolean z2;
+    public void onPostExecute(bb bbVar) {
+        int i;
+        int i2;
         Handler handler;
+        Runnable runnable;
         Handler handler2;
-        boolean z3;
-        super.onPostExecute(bool);
-        this.a.mDowndOtherApkTask = null;
-        if (bool.booleanValue()) {
-            this.a.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
-        }
-        z = this.a.mHasTieba;
-        if (!z) {
-            z3 = this.a.mHasAs;
-            if (!z3) {
+        Runnable runnable2;
+        bb bbVar2;
+        Hao123Plugin hao123Plugin;
+        int wF;
+        bb bbVar3;
+        bb bbVar4;
+        bb bbVar5;
+        bb bbVar6;
+        bb bbVar7;
+        bb bbVar8;
+        bb bbVar9;
+        bb bbVar10;
+        bb bbVar11;
+        super.onPostExecute(bbVar);
+        this.bIS.mSyncTask = null;
+        if (bbVar != null) {
+            com.baidu.tbadk.util.a.uR().uS();
+            this.bIS.mModel = bbVar;
+            bbVar2 = this.bIS.mModel;
+            if (bbVar2.Ua().hasNewVer()) {
+                aj wk = aj.wk();
+                bbVar3 = this.bIS.mModel;
+                wk.a(bbVar3.Ua());
+                this.bIS.broadcastNewVersion();
+                bbVar4 = this.bIS.mModel;
+                if (bbVar4.Ua().forceUpdate()) {
+                    bbVar9 = this.bIS.mModel;
+                    if (bbVar9.TX() != null) {
+                        Application app = aj.wk().getApp();
+                        bbVar10 = this.bIS.mModel;
+                        VersionData Ua = bbVar10.Ua();
+                        bbVar11 = this.bIS.mModel;
+                        UpdateDialog.a(app, Ua, bbVar11.TZ());
+                    }
+                } else if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkApplication.m251getInst().getUpdateNotifyTime()).longValue() > 86400000) {
+                    bbVar5 = this.bIS.mModel;
+                    if (bbVar5.Ua().getStrategy() == 0) {
+                        bbVar6 = this.bIS.mModel;
+                        if (bbVar6.TX() != null) {
+                            Application app2 = aj.wk().getApp();
+                            bbVar7 = this.bIS.mModel;
+                            VersionData Ua2 = bbVar7.Ua();
+                            bbVar8 = this.bIS.mModel;
+                            UpdateDialog.a(app2, Ua2, bbVar8.TZ());
+                        }
+                    }
+                }
+            }
+            aj.wk().wN();
+            int nextInt = new Random().nextInt(TbConfig.BIG_IMAGE_MIN_CAPACITY) + 1;
+            int yz = bbVar.TX().yz();
+            if (yz > 0 && nextInt % yz == 0 && (wF = aj.wk().wF()) < 10) {
+                aj.wk().dC(wF + 1);
+                com.baidu.tieba.util.q.ak(this.bIS);
+            }
+            if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen() && TbadkApplication.m251getInst().isTiebaHelperOpen()) {
+                TbadkApplication.m251getInst().setTiebaHelperOpen(false);
+                Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
+                if (pluginByName != null && (hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
+                    hao123Plugin.closeFloating(this.bIS);
+                    return;
+                }
                 return;
             }
-        }
-        z2 = this.a.mMainApkInstallEnable;
-        if (!z2) {
-            this.a.mMainApkInstallEnable = true;
             return;
         }
-        handler = this.a.mOtherApkHandler;
-        handler2 = this.a.mOtherApkHandler;
-        handler.sendMessageDelayed(handler2.obtainMessage(2, null), 100L);
+        TiebaSyncService tiebaSyncService = this.bIS;
+        i = tiebaSyncService.mHaveRetry;
+        tiebaSyncService.mHaveRetry = i + 1;
+        i2 = this.bIS.mHaveRetry;
+        if (i2 < 10) {
+            handler = this.bIS.mHandler;
+            runnable = this.bIS.mRunnable;
+            handler.removeCallbacks(runnable);
+            handler2 = this.bIS.mHandler;
+            runnable2 = this.bIS.mRunnable;
+            handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
+        }
     }
 }

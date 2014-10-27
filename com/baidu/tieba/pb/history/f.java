@@ -1,26 +1,30 @@
 package com.baidu.tieba.pb.history;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bc;
-import com.baidu.tieba.data.ak;
+import android.app.Activity;
+import com.baidu.tieba.data.ai;
 /* loaded from: classes.dex */
-class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PbHistoryActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(PbHistoryActivity pbHistoryActivity) {
-        this.a = pbHistoryActivity;
+public class f extends com.baidu.tbadk.mvc.model.a<ai> {
+    public f(Activity activity) {
+        super(activity);
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        g gVar;
-        gVar = this.a.e;
-        ak item = gVar.getItem(i);
-        if (item != null) {
-            this.a.sendMessage(new CustomMessage(2004001, new bc(this.a).a(item.b(), item.f(), item.g(), item.h(), null)));
-        }
+    @Override // com.baidu.tbadk.mvc.a.b
+    public Class<ai> sT() {
+        return ai.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int sU() {
+        return 2001190;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int sV() {
+        return 2001191;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public String sW() {
+        return "tb.pb_history";
     }
 }

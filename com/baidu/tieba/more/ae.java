@@ -1,20 +1,31 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.squareup.wire.Wire;
+import tbclient.Profile.ProfileResIdl;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ ac a;
+class ae implements com.baidu.adp.lib.cache.u<byte[]> {
+    final /* synthetic */ ac bqY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar) {
-        this.a = acVar;
+        this.bqY = acVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        r rVar;
-        rVar = this.a.b;
-        rVar.a(12);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.cache.u
+    /* renamed from: i */
+    public void d(String str, byte[] bArr) {
+        boolean z;
+        if (bArr != null) {
+            try {
+                this.bqY.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                z = true;
+            } catch (Exception e) {
+                z = false;
+            }
+            if (z) {
+                this.bqY.mUIHandler.post(new af(this));
+            }
+        }
     }
 }

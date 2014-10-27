@@ -10,97 +10,93 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t {
-    final /* synthetic */ r a;
-    private FrameLayout b;
-    private TbImageView c;
-    private ProgressBar d;
-    private com.baidu.tbadk.img.e e;
-    private int f;
+    private FrameLayout bSW;
+    private TbImageView bSX;
+    private com.baidu.tbadk.img.e bSY;
+    final /* synthetic */ r bSZ;
+    private int index;
+    private ProgressBar xM;
 
     public t(r rVar, int i) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        this.a = rVar;
-        this.d = null;
-        this.f = -1;
-        this.f = i;
-        com.baidu.adp.lib.e.b a = com.baidu.adp.lib.e.b.a();
-        baseActivity = rVar.a;
-        this.b = (FrameLayout) a.a(baseActivity, com.baidu.tieba.v.progress_tb_imageview, null);
-        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.u.progress_tb_imageview);
-        this.c.setClickable(true);
-        this.c.setDefaultResource(0);
-        this.c.setNightDefaultResource(0);
-        this.c.setDefaultBgResource(0);
-        this.c.setNightDefaultBgResource(0);
-        this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        baseActivity2 = rVar.a;
-        this.e = new com.baidu.tbadk.img.e(baseActivity2);
-        this.c.setOnClickListener(new u(this));
-        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.u.progress_tb_imageview_progress);
-        this.d.setVisibility(8);
+        this.bSZ = rVar;
+        this.xM = null;
+        this.index = -1;
+        this.index = i;
+        com.baidu.adp.lib.g.b ek = com.baidu.adp.lib.g.b.ek();
+        baseActivity = rVar.On;
+        this.bSW = (FrameLayout) ek.inflate(baseActivity, com.baidu.tieba.w.progress_tb_imageview, null);
+        this.bSX = (TbImageView) this.bSW.findViewById(com.baidu.tieba.v.progress_tb_imageview);
+        this.bSX.setClickable(true);
+        this.bSX.setDefaultResource(0);
+        this.bSX.setDefaultBgResource(0);
+        this.bSX.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        baseActivity2 = rVar.On;
+        this.bSY = new com.baidu.tbadk.img.e(baseActivity2);
+        this.bSX.setOnClickListener(new u(this));
+        this.xM = (ProgressBar) this.bSW.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
+        this.xM.setVisibility(8);
     }
 
-    public View a() {
-        return this.b;
+    public View getView() {
+        return this.bSW;
     }
 
-    public void a(ImageFileInfo imageFileInfo) {
-        b();
-        this.c.setDefaultResource(0);
-        this.c.setNightDefaultResource(0);
-        this.c.setDefaultBgResource(0);
-        this.c.setNightDefaultBgResource(0);
-        com.baidu.adp.widget.a.a a = this.e.a(imageFileInfo, false);
+    public void h(ImageFileInfo imageFileInfo) {
+        adn();
+        this.bSX.setDefaultResource(0);
+        this.bSX.setDefaultBgResource(0);
+        com.baidu.adp.widget.a.a a = this.bSY.a(imageFileInfo, false);
         if (a != null) {
-            a.a(this.c);
+            a.a(this.bSX);
             return;
         }
-        a(false);
-        this.e.a(imageFileInfo, new v(this), false);
+        eL(false);
+        this.bSY.a(imageFileInfo, new v(this), false);
     }
 
-    public void b() {
-        if (this.e != null) {
-            this.e.b();
+    public void adn() {
+        if (this.bSY != null) {
+            this.bSY.so();
         }
-        if (this.c != null) {
-            this.c.setImageDrawable(null);
+        if (this.bSX != null) {
+            this.bSX.setImageDrawable(null);
         }
     }
 
-    public boolean c() {
-        return this.d.getVisibility() != 0;
+    public boolean afi() {
+        return this.xM.getVisibility() != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
+    public void eL(boolean z) {
         s sVar;
-        com.baidu.tbadk.coreExtra.view.k[] kVarArr;
+        com.baidu.tbadk.coreExtra.view.j[] jVarArr;
         s sVar2;
         s sVar3;
-        com.baidu.tbadk.coreExtra.view.k[] kVarArr2;
+        com.baidu.tbadk.coreExtra.view.j[] jVarArr2;
         s sVar4;
         if (z) {
-            if (this.d.getVisibility() != 8) {
-                sVar3 = this.a.d;
+            if (this.xM.getVisibility() != 8) {
+                sVar3 = this.bSZ.bSR;
                 if (sVar3 != null) {
-                    sVar4 = this.a.d;
-                    sVar4.c();
+                    sVar4 = this.bSZ.bSR;
+                    sVar4.afh();
                 }
-                this.d.setVisibility(8);
-                kVarArr2 = this.a.h;
-                kVarArr2[this.f].setCanbeClick(true);
+                this.xM.setVisibility(8);
+                jVarArr2 = this.bSZ.bST;
+                jVarArr2[this.index].setCanbeClick(true);
             }
-        } else if (this.d.getVisibility() != 0) {
-            sVar = this.a.d;
+        } else if (this.xM.getVisibility() != 0) {
+            sVar = this.bSZ.bSR;
             if (sVar != null) {
-                sVar2 = this.a.d;
-                sVar2.b();
+                sVar2 = this.bSZ.bSR;
+                sVar2.afg();
             }
-            this.d.setVisibility(0);
-            kVarArr = this.a.h;
-            kVarArr[this.f].setCanbeClick(false);
+            this.xM.setVisibility(0);
+            jVarArr = this.bSZ.bST;
+            jVarArr[this.index].setCanbeClick(false);
         }
     }
 }

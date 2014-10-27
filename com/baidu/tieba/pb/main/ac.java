@@ -1,64 +1,32 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PbActivity a;
+public class ac implements com.baidu.tbadk.core.dialog.d {
+    private final /* synthetic */ long bih;
+    private final /* synthetic */ String bii;
+    final /* synthetic */ PbActivity bvg;
+    private final /* synthetic */ cy bvj;
+    private final /* synthetic */ ShareFromPBMsgData bvk;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public ac(PbActivity pbActivity, long j, String str, String str2, cy cyVar, ShareFromPBMsgData shareFromPBMsgData) {
+        this.bvg = pbActivity;
+        this.bih = j;
+        this.val$name = str;
+        this.bii = str2;
+        this.bvj = cyVar;
+        this.bvk = shareFromPBMsgData;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void a(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        bl blVar;
-        String str5;
-        String str6;
-        String str7;
-        bl blVar2;
-        String str8;
-        if (i == 0) {
-            TiebaStatic.eventStat(this.a, "pb_phone_call", "call");
-            PbActivity pbActivity = this.a;
-            str6 = this.a.J;
-            pbActivity.J = str6.trim();
-            PbActivity pbActivity2 = this.a;
-            str7 = this.a.J;
-            com.baidu.tieba.util.r.a(pbActivity2, str7);
-            blVar2 = this.a.y;
-            String g = blVar2.g();
-            str8 = this.a.J;
-            new a(g, str8, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
-            eVar.c();
-        } else if (i == 1) {
-            TiebaStatic.eventStat(this.a, "pb_phone_sms", "sms");
-            PbActivity pbActivity3 = this.a;
-            str3 = this.a.J;
-            pbActivity3.J = str3.trim();
-            PbActivity pbActivity4 = this.a;
-            str4 = this.a.J;
-            com.baidu.tieba.util.r.b(pbActivity4, str4);
-            blVar = this.a.y;
-            String g2 = blVar.g();
-            str5 = this.a.J;
-            new a(g2, str5, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT).start();
-            eVar.c();
-        } else if (i == 2) {
-            PbActivity pbActivity5 = this.a;
-            str = this.a.J;
-            pbActivity5.J = str.trim();
-            PbActivity pbActivity6 = this.a;
-            str2 = this.a.J;
-            com.baidu.tieba.util.r.c(pbActivity6, str2);
-            eVar.c();
-        }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.bvg, this.bih, this.val$name, this.bii, 0, this.bvj.getLeaveMsg(), this.bvk.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

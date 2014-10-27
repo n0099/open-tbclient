@@ -1,6 +1,15 @@
 package com.baidu.adp.widget;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
-public interface y {
-    void a(int i);
+abstract class y {
+    public static final Interpolator sInterpolator = new z();
+    public static final Interpolator rL = new aa();
+
+    public static int a(float f, float f2, boolean z) {
+        if (z) {
+            return (int) (f - (sInterpolator.getInterpolation(f2 / (f2 - f)) * f));
+        }
+        return (int) (sInterpolator.getInterpolation(f2 / f) * f);
+    }
 }

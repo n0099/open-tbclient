@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.b;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    Class<?> a();
-
-    void a(Context context);
-
-    void a(Context context, int i);
-
     void a(Context context, int i, boolean z);
 
-    String b();
+    void d(Context context, int i);
 
-    int c();
+    int getCurrentTabType();
+
+    Class<?> ld();
+
+    String le();
+
+    void t(Context context);
 }

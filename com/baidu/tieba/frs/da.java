@@ -1,18 +1,62 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class da implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ cv a;
-    private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cv cvVar, com.baidu.tbadk.editortool.w wVar) {
-        this.a = cvVar;
-        this.b = wVar;
+import android.graphics.drawable.BitmapDrawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes.dex */
+public class da extends bm<com.baidu.tbadk.core.data.q> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public da(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
+        super(frsActivity, bdUniqueId);
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void a(int i, Object obj) {
-        this.b.a(i, obj);
+    @Override // com.baidu.adp.widget.ListView.a
+    protected View a(ViewGroup viewGroup) {
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_top_item, null);
+        db dbVar = new db(null);
+        dbVar.aBK = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_top_item);
+        dbVar.JM = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_top_title);
+        inflate.setTag(dbVar);
+        return inflate;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View b(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.q qVar) {
+        BitmapDrawable bitmapDrawable;
+        super.b(i, view, viewGroup, qVar);
+        db dbVar = (db) view.getTag();
+        this.aBp.getLayoutMode().L(this.mSkinType == 1);
+        this.aBp.getLayoutMode().h(view);
+        if (qVar == null) {
+            return null;
+        }
+        dbVar.JM.setText(qVar.getTitle());
+        com.baidu.tieba.util.o wJ = com.baidu.tieba.aj.wk().wJ();
+        if (wJ != null && wJ.hH(qVar.getId())) {
+            com.baidu.tbadk.core.util.aw.b(dbVar.JM, com.baidu.tieba.s.listview_item_thread_read, 1);
+        }
+        if (qVar.getIs_top() == 1) {
+            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_top);
+        } else {
+            bitmapDrawable = qVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_notice) : null;
+        }
+        com.baidu.tbadk.core.util.aw.h(dbVar.aBK, com.baidu.tieba.u.frs_top_item_bg);
+        if (bitmapDrawable != null) {
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+        }
+        dbVar.JM.setCompoundDrawables(bitmapDrawable, null, null, null);
+        return view;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public boolean d(View view) {
+        return super.d(view) || !(view.getTag() instanceof db);
     }
 }

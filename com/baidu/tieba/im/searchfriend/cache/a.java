@@ -17,11 +17,11 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        String a = com.baidu.tbadk.core.a.a.a().b("tb.recommend_friend").a(currentAccount);
+        String str = com.baidu.tbadk.core.a.a.kS().bd("tb.recommend_friend").get(currentAccount);
         com.baidu.tieba.im.searchfriend.a.a aVar = new com.baidu.tieba.im.searchfriend.a.a();
-        if (!TextUtils.isEmpty(a)) {
+        if (!TextUtils.isEmpty(str)) {
             try {
-                aVar.a(new JSONObject(a));
+                aVar.g(new JSONObject(str));
             } catch (Exception e) {
             }
         }

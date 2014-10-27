@@ -1,43 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class s implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity a;
+class s implements View.OnClickListener {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        cv cvVar;
-        cv cvVar2;
-        cv cvVar3;
-        cv cvVar4;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        cv cvVar5;
-        if (i == 0) {
-            cvVar4 = this.a.B;
-            onItemLongClickListener = this.a.au;
-            cvVar4.a(onItemLongClickListener);
-            cvVar5 = this.a.B;
-            cvVar5.f(false);
-            this.a.Y = false;
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bu buVar;
+        int intValue = ((Integer) view.getTag()).intValue();
+        buVar = this.aBk.aAv;
+        com.baidu.adp.widget.ListView.al ai = buVar.GH().ai(intValue);
+        if (ai instanceof com.baidu.tbadk.core.data.a) {
+            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) ai;
+            int i = aVar.zf;
+            if (i == 0) {
+                if (com.baidu.adp.lib.util.j.fh() && !com.baidu.adp.lib.util.j.fi()) {
+                    this.aBk.a(aVar, intValue);
+                } else {
+                    this.aBk.a(aVar, "btn_download");
+                    this.aBk.b(aVar, "download");
+                    this.aBk.b((com.baidu.tbadk.core.data.a) ai, intValue);
+                }
+            } else if (i == 2) {
+                com.baidu.tieba.frs.a.a.x(this.aBk, aVar.zl);
+            }
+            TiebaStatic.eventStat(this.aBk, "frs_tb_btc", "");
         }
-        cvVar = this.a.B;
-        cvVar.a((AdapterView.OnItemLongClickListener) null);
-        cvVar2 = this.a.B;
-        cvVar2.f(true);
-        this.a.Y = true;
-        cvVar3 = this.a.B;
-        cvVar3.U();
     }
 }

@@ -7,38 +7,35 @@ import com.baidu.tbadk.TbadkApplication;
 public abstract class MsglistActivity extends TalkableActivity implements bt {
     protected abstract boolean a(bt btVar);
 
-    protected abstract boolean c(Bundle bundle);
+    protected abstract boolean h(Bundle bundle);
 
-    protected abstract void o();
+    protected abstract void nu();
 
     @Override // com.baidu.tieba.im.chat.bt
-    public void f_() {
-        p();
+    public void JU() {
+        Ju();
     }
 
-    public void p() {
+    public void Ju() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        try {
-            if (!c(bundle)) {
-                finish();
-                return;
-            }
-            o();
-            if (this.e != null) {
-                this.e.a(this.k);
-            }
-            r();
-            if (a((bt) this)) {
-                q();
-                m();
-                dh.a = com.baidu.tbadk.b.c.a();
-            }
-        } catch (Exception e) {
+        if (!h(bundle)) {
+            finish();
+            return;
+        }
+        nu();
+        if (this.aPQ != null) {
+            this.aPQ.setImageUploadUIProgressCallback(this.aPW);
+        }
+        Kc();
+        if (a((bt) this)) {
+            loadDraft();
+            nY();
+            dm.aPO = com.baidu.tbadk.util.e.uZ();
         }
     }
 
@@ -46,18 +43,15 @@ public abstract class MsglistActivity extends TalkableActivity implements bt {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        try {
-            setIntent(intent);
-            if (!c(null)) {
-                finish();
-            } else {
-                o();
-                r();
-                if (a((bt) this)) {
-                    q();
-                }
-            }
-        } catch (Exception e) {
+        setIntent(intent);
+        if (!h(null)) {
+            finish();
+            return;
+        }
+        nu();
+        Kc();
+        if (a((bt) this)) {
+            loadDraft();
         }
     }
 
@@ -65,8 +59,8 @@ public abstract class MsglistActivity extends TalkableActivity implements bt {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.d != null) {
-            this.d.a(i);
+        if (this.aPP != null) {
+            this.aPP.onChangeSkinType(i);
         }
     }
 
@@ -74,37 +68,37 @@ public abstract class MsglistActivity extends TalkableActivity implements bt {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.d != null) {
-            this.d.a(TbadkApplication.m252getInst().getSkinType());
-            c();
+        if (this.aPP != null) {
+            this.aPP.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+            Jq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        if (TbadkApplication.m252getInst().isHeadsetModeOn()) {
-            this.d.L();
+    public void Jq() {
+        if (TbadkApplication.m251getInst().isHeadsetModeOn()) {
+            this.aPP.showReceiver();
         } else {
-            this.d.K();
+            this.aPP.closeReceiver();
         }
     }
 
-    protected boolean q() {
-        return this.e.e();
+    protected boolean loadDraft() {
+        return this.aPQ.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        n();
+        Jt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m() {
+    public void nY() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void n() {
+    public void Jt() {
     }
 }

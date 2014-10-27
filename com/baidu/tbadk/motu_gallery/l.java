@@ -7,34 +7,34 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends Thread {
-    final /* synthetic */ JigsawAlbumActivity a;
+    final /* synthetic */ JigsawAlbumActivity Wv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.a = jigsawAlbumActivity;
+        this.Wv = jigsawAlbumActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         byte[] bArr;
         ArrayList arrayList;
-        c b;
+        c cZ;
         Map map;
         u uVar;
         Map map2;
-        bArr = this.a.s;
+        bArr = this.Wv.Wp;
         synchronized (bArr) {
             try {
-                arrayList = this.a.f;
+                arrayList = this.Wv.We;
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    b = this.a.b(((c) it.next()).a);
-                    map = this.a.h;
-                    if (!map.containsKey(b.b)) {
-                        uVar = this.a.k;
-                        Bitmap a = uVar.a(this.a, b, this.a.a(70.0f));
-                        map2 = this.a.h;
-                        map2.put(b.b, a);
+                    cZ = this.Wv.cZ(((c) it.next()).type);
+                    map = this.Wv.Wf;
+                    if (!map.containsKey(cZ.path)) {
+                        uVar = this.Wv.Wi;
+                        Bitmap a = uVar.a(this.Wv, cZ, this.Wv.s(70.0f));
+                        map2 = this.Wv.Wf;
+                        map2.put(cZ.path, a);
                     }
                 }
             } catch (Exception e) {

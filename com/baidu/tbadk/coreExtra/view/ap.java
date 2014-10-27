@@ -1,37 +1,31 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
 /* loaded from: classes.dex */
-public class ap implements com.baidu.tbadk.widget.e {
-    final /* synthetic */ MultiImageView a;
+class ap extends TbCountDownTimer {
+    final /* synthetic */ ProgressCountDownView OW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.OW = progressCountDownView;
     }
 
-    @Override // com.baidu.tbadk.widget.e
-    public void a(com.baidu.tbadk.widget.a aVar) {
-        q qVar;
-        boolean z;
-        q qVar2;
-        q qVar3;
-        qVar = this.a.e;
-        if (aVar == qVar.getCurrentView()) {
-            z = this.a.l;
-            if (z) {
-                qVar2 = this.a.e;
-                int childCount = qVar2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    qVar3 = this.a.e;
-                    View childAt = qVar3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof av) && ((av) childAt).getImageView() != aVar) {
-                        ((av) childAt).d();
-                    }
-                }
-            }
-            aVar.e();
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onTick(long j) {
+        this.OW.refreshPregress(j);
+        this.OW.refreshText(j);
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onFinish() {
+        aq aqVar;
+        aq aqVar2;
+        aqVar = this.OW.mListerner;
+        if (aqVar != null) {
+            aqVar2 = this.OW.mListerner;
+            aqVar2.onFinish();
         }
     }
 }

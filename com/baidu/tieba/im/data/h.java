@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.data;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 /* loaded from: classes.dex */
-public class h extends i {
-    private String a;
-
-    public h() {
-        a(0);
+class h implements Parcelable.Creator<RandChatRoomData> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: g */
+    public RandChatRoomData createFromParcel(Parcel parcel) {
+        return new RandChatRoomData(parcel, null);
     }
 
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: fA */
+    public RandChatRoomData[] newArray(int i) {
+        return new RandChatRoomData[i];
     }
 }

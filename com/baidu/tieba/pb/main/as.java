@@ -1,24 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Dialog;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
+public class as implements DialogInterface.OnClickListener {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.a.d != null) {
-            this.a.d.d();
-            this.a.d = null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (dialogInterface instanceof Dialog) {
+            com.baidu.adp.lib.g.j.b((Dialog) dialogInterface, this.bvg);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bu(this.a, 23007)));
     }
 }

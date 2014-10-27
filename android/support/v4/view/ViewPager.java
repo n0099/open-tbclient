@@ -132,8 +132,9 @@ public class ViewPager extends ViewGroup {
     interface Decor {
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    interface OnAdapterChangeListener {
+    public interface OnAdapterChangeListener {
         void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 
@@ -662,7 +663,7 @@ public class ViewPager extends ViewGroup {
         populate(this.mCurItem);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0104, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ff, code lost:
         if (r2.position == r17.mCurItem) goto L29;
      */
     /*
@@ -1885,7 +1886,8 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    protected boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int scrollX = view.getScrollX();
@@ -2174,8 +2176,9 @@ public class ViewPager extends ViewGroup {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    class PagerObserver extends DataSetObserver {
+    public class PagerObserver extends DataSetObserver {
         private PagerObserver() {
         }
 

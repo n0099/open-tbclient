@@ -6,18 +6,18 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends PagerAdapter {
-    final /* synthetic */ EmotionTabContentView a;
-    private ArrayList<View> b;
+    final /* synthetic */ EmotionTabContentView RE;
+    private ArrayList<View> RI;
 
     public l(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
-        this.a = emotionTabContentView;
-        this.b = new ArrayList<>();
-        this.b = arrayList;
+        this.RE = emotionTabContentView;
+        this.RI = new ArrayList<>();
+        this.RI = arrayList;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.b.size();
+        return this.RI.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -27,12 +27,12 @@ public class l extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.b.get(i));
+        viewGroup.removeView(this.RI.get(i));
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.b.get(i);
+        View view = this.RI.get(i);
         viewGroup.addView(view);
         return view;
     }

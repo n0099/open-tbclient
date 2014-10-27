@@ -16,85 +16,83 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private EditMarkActivity a;
-    private ArrayList<MarkData> b;
-    private int c;
-    private boolean d;
-    private boolean e;
-    private boolean f = false;
-    private ArrayList<ProgressBar> g = null;
-    private View.OnClickListener h = null;
-    private boolean i = false;
-    private boolean j = true;
-    private boolean k = true;
+    private EditMarkActivity bAX;
+    private boolean bBc;
+    private boolean bBd;
+    private int mSize;
+    private final ArrayList<MarkData> aew = new ArrayList<>();
+    private boolean aev = false;
+    private ArrayList<ProgressBar> bmb = null;
+    private View.OnClickListener bBe = null;
+    private boolean bBf = false;
+    private boolean hasMore = true;
+    private boolean bBg = true;
 
     public j(EditMarkActivity editMarkActivity) {
-        this.a = editMarkActivity;
-        d(true);
-        b();
+        this.bAX = editMarkActivity;
+        es(true);
+        ZG();
     }
 
-    public void a() {
-        if (this.g != null) {
-            Iterator<ProgressBar> it = this.g.iterator();
+    public void Sy() {
+        if (this.bmb != null) {
+            Iterator<ProgressBar> it = this.bmb.iterator();
             while (it.hasNext()) {
                 it.next().setVisibility(8);
             }
         }
     }
 
-    public void a(boolean z) {
-        this.j = z;
+    public void setHasMore(boolean z) {
+        this.hasMore = z;
     }
 
-    public void b() {
-        this.d = false;
-        if (this.b == null) {
-            this.c = 0;
+    public void ZG() {
+        this.bBc = false;
+        if (this.aew == null) {
+            this.mSize = 0;
         } else {
-            int size = this.b.size();
+            int size = this.aew.size();
             if (size == 0) {
-                if (this.e) {
-                    this.c = 0;
-                    this.d = true;
+                if (this.bBd) {
+                    this.mSize = 0;
+                    this.bBc = true;
                 } else {
-                    this.c = 0;
+                    this.mSize = 0;
                 }
             } else {
-                this.c = size;
+                this.mSize = size;
             }
         }
         notifyDataSetChanged();
     }
 
-    public void b(boolean z) {
-        this.i = z;
+    public void eq(boolean z) {
+        this.bBf = z;
     }
 
-    public void a(ArrayList<MarkData> arrayList) {
-        this.b = arrayList;
-        b();
+    public void setData(ArrayList<MarkData> arrayList) {
+        this.aew.clear();
+        if (arrayList != null) {
+            this.aew.addAll(arrayList);
+        }
+        ZG();
         notifyDataSetChanged();
-    }
-
-    @Override // android.widget.BaseAdapter
-    public void notifyDataSetChanged() {
-        this.a.runOnUiThread(new k(this));
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.b == null || this.b.size() == 0) {
-            return this.c;
+        if (this.aew.size() == 0) {
+            return this.mSize;
         }
-        if (this.k) {
-            return this.c + 1;
+        if (this.bBg) {
+            return this.mSize + 1;
         }
-        return this.c;
+        return this.mSize;
     }
 
-    public void c(boolean z) {
-        this.k = z;
+    public void er(boolean z) {
+        this.bBg = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -104,35 +102,35 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (getItemId(i) >= 0 || this.d) ? 0 : 1;
+        return (getItemId(i) >= 0 || this.bBc) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int size;
-        if (!this.d && (size = this.b.size()) > 0 && i < size) {
-            return this.b.get(i);
+        if (!this.bBc && (size = this.aew.size()) > 0 && i < size) {
+            return this.aew.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.b == null || i < this.b.size()) {
+        if (this.aew == null || i < this.aew.size()) {
             return i;
         }
         return -1L;
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0275: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:72:0x0274 */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0219: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:63:0x0218 */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
         View view3;
-        m mVar;
+        l lVar;
         View view4;
-        l lVar = null;
+        k kVar = null;
         try {
         } catch (Exception e) {
             exc = e;
@@ -140,123 +138,107 @@ public class j extends BaseAdapter {
         }
         try {
             if (getItemViewType(i) == 0) {
-                if (view == null || !(view.getTag() instanceof m)) {
-                    view4 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.home_mark_item, null);
-                    mVar = new m(this, null);
-                    mVar.b = (TextView) view4.findViewById(com.baidu.tieba.u.home_lv_markitem_reply);
-                    mVar.c = (LinearLayout) view4.findViewById(com.baidu.tieba.u.home_lv_markitem_content);
-                    mVar.d = (TextView) view4.findViewById(com.baidu.tieba.u.home_lv_markitem_title);
-                    mVar.h = (Button) view4.findViewById(com.baidu.tieba.u.home_lv_markitem_delete);
-                    mVar.a = (ImageView) view4.findViewById(com.baidu.tieba.u.mark_comment_icon);
-                    mVar.f = (ImageView) view4.findViewById(com.baidu.tieba.u.new_mark_mention_fack);
-                    mVar.g = (LinearLayout) view4.findViewById(com.baidu.tieba.u.new_mark);
-                    mVar.e = (TextView) view4.findViewById(com.baidu.tieba.u.home_lv_markitem_forum_name);
-                    view4.setTag(mVar);
+                if (view == null || !(view.getTag() instanceof l)) {
+                    view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bAX, com.baidu.tieba.w.home_mark_item, null);
+                    lVar = new l(this, null);
+                    lVar.azp = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_reply);
+                    lVar.aKU = (LinearLayout) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_content);
+                    lVar.JM = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_title);
+                    lVar.bBl = (Button) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_delete);
+                    lVar.bBi = (ImageView) view4.findViewById(com.baidu.tieba.v.mark_comment_icon);
+                    lVar.bBj = (ImageView) view4.findViewById(com.baidu.tieba.v.new_mark_mention_fack);
+                    lVar.bBk = (LinearLayout) view4.findViewById(com.baidu.tieba.v.new_mark);
+                    lVar.axq = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_forum_name);
+                    view4.setTag(lVar);
                 } else {
-                    mVar = (m) view.getTag();
+                    lVar = (l) view.getTag();
                     view4 = view;
                 }
             } else if (getItemViewType(i) != 1) {
-                mVar = null;
+                lVar = null;
                 view4 = view;
-            } else if (view == null || !(view.getTag() instanceof l)) {
-                l lVar2 = new l(this, null);
-                view4 = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.page_item, null);
-                lVar2.a = (TextView) view4.findViewById(com.baidu.tieba.u.page_text);
-                lVar2.b = (ProgressBar) view4.findViewById(com.baidu.tieba.u.progress);
-                if (this.g == null) {
-                    this.g = new ArrayList<>();
+            } else if (view == null || !(view.getTag() instanceof k)) {
+                k kVar2 = new k(this, null);
+                view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bAX, com.baidu.tieba.w.page_item, null);
+                kVar2.bnv = (TextView) view4.findViewById(com.baidu.tieba.v.page_text);
+                kVar2.mProgress = (ProgressBar) view4.findViewById(com.baidu.tieba.v.progress);
+                if (this.bmb == null) {
+                    this.bmb = new ArrayList<>();
                 }
-                this.g.add(lVar2.b);
-                view4.setTag(lVar2);
-                mVar = null;
-                lVar = lVar2;
+                this.bmb.add(kVar2.mProgress);
+                view4.setTag(kVar2);
+                lVar = null;
+                kVar = kVar2;
             } else {
-                mVar = null;
+                lVar = null;
                 view4 = view;
-                lVar = (l) view.getTag();
+                kVar = (k) view.getTag();
             }
-            int skinType = TbadkApplication.m252getInst().getSkinType();
-            this.a.getLayoutMode().a(skinType == 1);
-            this.a.getLayoutMode().a(view4);
+            this.bAX.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+            this.bAX.getLayoutMode().h(view4);
             if (getItemViewType(i) == 1) {
-                if (this.i) {
-                    lVar.b.setVisibility(0);
-                    lVar.a.setText(this.a.getString(com.baidu.tieba.x.loading));
-                    if (skinType == 1) {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_more_txt_1));
-                        view2 = view4;
-                    } else {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_more_txt));
-                        view2 = view4;
-                    }
-                } else if (!this.j) {
-                    lVar.b.setVisibility(8);
-                    lVar.a.setText(this.a.getString(com.baidu.tieba.x.no_more_mark));
-                    if (skinType == 1) {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_list_morebutton_nomore_text_1));
-                        view2 = view4;
-                    } else {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_list_morebutton_nomore_text));
-                        view2 = view4;
-                    }
+                if (this.bBf) {
+                    kVar.mProgress.setVisibility(0);
+                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.loading));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_more_txt, 1);
+                    view2 = view4;
+                } else if (!this.hasMore) {
+                    kVar.mProgress.setVisibility(8);
+                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.no_more_mark));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_list_morebutton_nomore_text, 1);
+                    view2 = view4;
                 } else {
-                    lVar.b.setVisibility(8);
-                    lVar.a.setText(this.a.getString(com.baidu.tieba.x.loading));
-                    if (skinType == 1) {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_more_txt_1));
-                        view2 = view4;
-                    } else {
-                        lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.pb_more_txt));
-                        view2 = view4;
-                    }
+                    kVar.mProgress.setVisibility(8);
+                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.loading));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_more_txt, 1);
+                    view2 = view4;
                 }
             } else {
-                if (this.d) {
-                    mVar.b.setVisibility(8);
-                    mVar.c.setVisibility(8);
-                    mVar.h.setVisibility(8);
-                    a(mVar, false);
+                if (this.bBc) {
+                    lVar.azp.setVisibility(8);
+                    lVar.aKU.setVisibility(8);
+                    lVar.bBl.setVisibility(8);
+                    a(lVar, false);
                 } else {
-                    mVar.b.setVisibility(0);
-                    mVar.c.setVisibility(0);
-                    if (this.f) {
-                        mVar.h.setVisibility(0);
+                    lVar.azp.setVisibility(0);
+                    lVar.aKU.setVisibility(0);
+                    if (this.aev) {
+                        lVar.bBl.setVisibility(0);
                     } else {
-                        mVar.h.setVisibility(8);
+                        lVar.bBl.setVisibility(8);
                     }
                 }
                 Object item = getItem(i);
                 if (item != null) {
                     MarkData markData = (MarkData) item;
                     if (markData.getNewCounts() > 0) {
-                        a(mVar, true);
+                        a(lVar, true);
                     } else {
-                        a(mVar, false);
+                        a(lVar, false);
                     }
                     int replyNum = markData.getReplyNum();
                     if (replyNum < 0) {
-                        mVar.b.setVisibility(8);
-                        mVar.a.setVisibility(8);
+                        lVar.azp.setVisibility(8);
+                        lVar.bBi.setVisibility(8);
                     } else {
-                        mVar.a.setVisibility(0);
-                        mVar.b.setVisibility(0);
-                        mVar.b.setText(String.valueOf(replyNum));
+                        lVar.bBi.setVisibility(0);
+                        lVar.azp.setVisibility(0);
+                        lVar.azp.setText(String.valueOf(replyNum));
                     }
                     String title = markData.getTitle();
                     if (!TextUtils.isEmpty(title)) {
-                        mVar.d.setText(title);
+                        lVar.JM.setText(title);
                     } else {
-                        mVar.d.setText("");
+                        lVar.JM.setText("");
                     }
                     if (!TextUtils.isEmpty(markData.getForumName())) {
-                        mVar.e.setText(String.valueOf(markData.getForumName()) + this.a.getString(com.baidu.tieba.x.bar));
+                        lVar.axq.setText(String.valueOf(markData.getForumName()) + this.bAX.getString(com.baidu.tieba.y.bar));
                     } else {
-                        mVar.e.setText("");
+                        lVar.axq.setText("");
                     }
-                    mVar.h.setOnClickListener(this.h);
-                    mVar.h.setFocusable(false);
-                    mVar.h.setTag(Integer.valueOf(i));
+                    lVar.bBl.setOnClickListener(this.bBe);
+                    lVar.bBl.setFocusable(false);
+                    lVar.bBl.setTag(Integer.valueOf(i));
                     view2 = view4;
                 } else {
                     return view4;
@@ -273,37 +255,37 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.d || (!this.j && getItemViewType(i) == 1)) {
+        if (this.bBc || (!this.hasMore && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
-    public void d(boolean z) {
-        this.e = z;
+    public void es(boolean z) {
+        this.bBd = z;
     }
 
-    public void e(boolean z) {
-        this.f = z;
+    public void setEditState(boolean z) {
+        this.aev = z;
     }
 
-    public boolean c() {
-        return this.f;
+    public boolean xd() {
+        return this.aev;
     }
 
-    public void a(View.OnClickListener onClickListener) {
-        this.h = onClickListener;
+    public void w(View.OnClickListener onClickListener) {
+        this.bBe = onClickListener;
     }
 
-    private void a(m mVar, boolean z) {
-        if (mVar != null && mVar.g != null && mVar.f != null) {
+    private void a(l lVar, boolean z) {
+        if (lVar != null && lVar.bBk != null && lVar.bBj != null) {
             if (z) {
-                mVar.g.setVisibility(0);
-                mVar.f.setVisibility(4);
+                lVar.bBk.setVisibility(0);
+                lVar.bBj.setVisibility(4);
                 return;
             }
-            mVar.g.setVisibility(8);
-            mVar.f.setVisibility(8);
+            lVar.bBk.setVisibility(8);
+            lVar.bBj.setVisibility(8);
         }
     }
 }

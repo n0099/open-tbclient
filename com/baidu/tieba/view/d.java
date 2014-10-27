@@ -1,5 +1,5 @@
 package com.baidu.tieba.view;
 /* loaded from: classes.dex */
 public interface d {
-    void a(int i);
+    void eK(int i);
 }

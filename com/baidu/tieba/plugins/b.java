@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class b {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    View e;
-    View f;
-    ImageView g;
+    HeadImageView aBM;
+    TextView atC;
+    TextView avZ;
+    TextView bGI;
+    View bGJ;
+    View bGK;
+    ImageView bGL;
 
     private b() {
     }

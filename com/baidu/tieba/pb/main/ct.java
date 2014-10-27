@@ -1,29 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ct implements Animation.AnimationListener {
-    final /* synthetic */ bs a;
+class ct implements View.OnClickListener {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(bs bsVar) {
-        this.a = bsVar;
+    public ct(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.a.G;
-        relativeLayout.setVisibility(4);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.v.tag_del_post_id))) {
+                this.byI.W(view);
+            } else {
+                this.byI.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
+            }
+        }
     }
 }

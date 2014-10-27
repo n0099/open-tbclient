@@ -1,158 +1,181 @@
 package com.baidu.tieba.more;
 
-import android.app.AlertDialog;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.BaseActivity;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.person.PersonPostListData;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileRequestMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import tbclient.Profile.DataRes;
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.base.f {
-    private BaseActivity a;
-    private r b;
-    private NavigationBar c;
-    private AlertDialog d;
-    private SettingTextImageView e;
-    private TbSettingTextTipView f;
-    private TbSettingTextTipView g;
-    private TbSettingTextTipView h;
-    private TbSettingTextTipView i;
-    private SettingTextVersionView j;
-    private TbSettingTextTipView k;
-    private TbSettingTextTipView l;
-    private View m;
-    private TbSettingTextNewDotView n;
-    private TbSettingTextTipView o;
-    private RelativeLayout p;
-    private View q;
+public class ac extends com.baidu.adp.base.e {
+    private boolean Tu;
+    private com.baidu.tieba.b.a aAE;
+    private com.baidu.adp.framework.listener.a bqX;
+    private final Context mContext;
+    private String mId;
+    Handler mUIHandler;
+    private UserData mUser;
 
-    public ac(BaseActivity baseActivity, r rVar) {
-        super(baseActivity);
-        this.a = baseActivity;
-        this.b = rVar;
-        this.a.setContentView(com.baidu.tieba.v.more_activity);
-        e();
+    public ac(Context context) {
+        super(context);
+        this.mUIHandler = null;
+        this.aAE = null;
+        this.Tu = false;
+        this.bqX = new ad(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.mUser = null;
+        this.mContext = context;
+        this.mUIHandler = new Handler(Looper.getMainLooper());
+        this.aAE = new com.baidu.tieba.b.a("profileStat");
+        registerListener(this.bqX);
     }
 
-    public void a() {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            this.e.setVisibility(8);
-        } else {
-            this.e.setVisibility(0);
+    public UserData getUser() {
+        return this.mUser;
+    }
+
+    public void setUser(UserData userData) {
+        this.mUser = userData;
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public void c(boolean z, boolean z2) {
+        cancelMessage();
+        d(z, z2);
+    }
+
+    public void d(boolean z, boolean z2) {
+        if (!this.Tu) {
+            this.Tu = true;
+            ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
+            if (TbadkApplication.getCurrentAccount() != null) {
+                profileRequestMessage.set_uid(Integer.valueOf(TbadkApplication.getCurrentAccount()));
+            }
+            if (z) {
+                SV();
+            }
+            profileRequestMessage.set_has_plist(0);
+            profileRequestMessage.set_from_db(z);
+            profileRequestMessage.set_error_hint(z2);
+            profileRequestMessage.setSelf(true);
+            UW();
+            sendMessage(profileRequestMessage);
         }
     }
 
-    public void a(String str, boolean z) {
-        if (str == null || str.length() <= 0) {
-            if (this.e != null) {
-                this.e.a();
-                return;
+    public void a(boolean z, String str, boolean z2, boolean z3) {
+        if (!z) {
+            if (z2) {
+                AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    if (getUser() != null && !TextUtils.isEmpty(getUser().getPortrait())) {
+                        com.baidu.tbadk.core.account.a.y(currentAccountObj.getAccount(), getUser().getPortrait());
+                        currentAccountObj.setPortrait(getUser().getPortrait());
+                    }
+                } else {
+                    return;
+                }
             }
+            UserData user = getUser();
+            if (user != null) {
+                setUser(user);
+            }
+            this.mLoadDataMode = 1;
+            this.mLoadDataCallBack.a(true);
             return;
         }
-        this.e.b();
-        this.e.a(str, z);
-    }
-
-    public void b() {
-        if (this.j != null) {
-            this.j.a();
-        }
-        if (this.n != null) {
-            this.n.a();
-        }
-    }
-
-    public void c() {
-        this.e.c();
-        this.f.d();
-        this.g.d();
-        this.h.d();
-        this.i.d();
-        this.j.d();
-        this.k.d();
-        this.l.d();
-        this.o.d();
-    }
-
-    public void a(int i) {
-        b(i);
-    }
-
-    public void b(int i) {
-        this.c.c(i);
-        this.e.a(i);
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.p);
-        this.c.c(i);
-        b();
-    }
-
-    private void e() {
-        View.OnClickListener g = g();
-        this.p = (RelativeLayout) this.a.findViewById(com.baidu.tieba.u.parent);
-        this.c = (NavigationBar) this.a.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.q = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.a.getString(com.baidu.tieba.x.setup));
-        this.e = (SettingTextImageView) this.a.findViewById(com.baidu.tieba.u.personInfo);
-        this.f = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.accountManager);
-        this.g = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.browseSetting);
-        this.h = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.messageSetting);
-        this.i = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.secretSetting);
-        this.j = (SettingTextVersionView) this.a.findViewById(com.baidu.tieba.u.versionInfo);
-        this.k = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.feedBack);
-        this.l = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.recommend);
-        this.m = this.a.findViewById(com.baidu.tieba.u.line_recommend_layout);
-        if (!com.baidu.tieba.ai.c().n()) {
-            this.l.setVisibility(8);
-            this.m.setVisibility(8);
+        if (z3) {
+            setErrorString(str);
         } else {
-            this.l.setVisibility(0);
-            this.m.setVisibility(0);
+            setErrorString(this.mContext.getString(com.baidu.tieba.y.neterror));
         }
-        this.n = (TbSettingTextNewDotView) this.a.findViewById(com.baidu.tieba.u.systemhelpsetting);
-        this.o = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.u.quit);
-        b();
-        a();
-        this.e.a();
-        b(TbadkApplication.m252getInst().getSkinType());
-        a(g);
-        f();
+        this.mLoadDataMode = 1;
+        this.mLoadDataCallBack.a(false);
     }
 
-    private void f() {
-        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.quit_dialog, null);
-        ((LinearLayout) a.findViewById(com.baidu.tieba.u.id_close_ll)).setOnClickListener(new ad(this));
-        ((LinearLayout) a.findViewById(com.baidu.tieba.u.id_quit_ll)).setOnClickListener(new ae(this));
-        this.d = new AlertDialog.Builder(this.mContext).create();
-        this.d.setView(a, 0, 0, 0, 0);
-    }
-
-    private void a(View.OnClickListener onClickListener) {
-        this.q.setOnClickListener(onClickListener);
-        this.e.setOnClickListener(onClickListener);
-        this.f.setOnClickListener(onClickListener);
-        this.g.setOnClickListener(onClickListener);
-        this.h.setOnClickListener(onClickListener);
-        this.i.setOnClickListener(onClickListener);
-        this.j.setOnClickListener(onClickListener);
-        this.k.setOnClickListener(onClickListener);
-        this.l.setOnClickListener(onClickListener);
-        this.n.setOnClickListener(onClickListener);
-        this.o.setOnClickListener(onClickListener);
-    }
-
-    private View.OnClickListener g() {
-        return new af(this);
-    }
-
-    public void d() {
-        if (this.d != null) {
-            com.baidu.adp.lib.e.e.a(this.d, this.a);
+    public void a(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        this.Tu = false;
+        if (profileSocketResponseMessage != null) {
+            b(profileSocketResponseMessage);
+            a(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
         }
+    }
+
+    public void a(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        this.Tu = false;
+        if (profileHttpResponseMessage != null) {
+            b(profileHttpResponseMessage);
+            a(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
+        }
+    }
+
+    public void b(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        if (profileSocketResponseMessage != null) {
+            try {
+                this.mUser = new UserData();
+                this.mUser.parserProtobuf(profileSocketResponseMessage.GetUser());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+            new PersonPostListData().parserData(profileSocketResponseMessage);
+        }
+    }
+
+    public void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        if (profileHttpResponseMessage != null) {
+            try {
+                this.mUser = new UserData();
+                this.mUser.parserProtobuf(profileHttpResponseMessage.GetUser());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+            new PersonPostListData().parserData(profileHttpResponseMessage);
+        }
+    }
+
+    public void SV() {
+        wO().a("profile_cache_key", new ae(this));
+    }
+
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            try {
+                this.mUser = new UserData();
+                this.mUser.parserProtobuf(dataRes.user);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    private com.baidu.adp.lib.cache.t<byte[]> wO() {
+        return com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName());
+    }
+
+    private void UW() {
+        if (this.aAE == null) {
+            this.aAE = new com.baidu.tieba.b.a("profileStat");
+            this.aAE.start();
+        }
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

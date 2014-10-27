@@ -1,44 +1,44 @@
 package com.baidu.tieba.forumdetail;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.data.ab;
-import com.baidu.tieba.model.af;
-import com.baidu.tieba.x;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.data.aa;
+import com.baidu.tieba.model.ag;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.h {
-    final /* synthetic */ ItemFootNavView a;
-    private final /* synthetic */ af b;
-    private final /* synthetic */ BaseActivity c;
-    private final /* synthetic */ boolean d;
+    final /* synthetic */ ItemFootNavView axj;
+    private final /* synthetic */ BaseActivity axk;
+    private final /* synthetic */ ag axm;
+    private final /* synthetic */ boolean axn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(ItemFootNavView itemFootNavView, af afVar, BaseActivity baseActivity, boolean z) {
-        this.a = itemFootNavView;
-        this.b = afVar;
-        this.c = baseActivity;
-        this.d = z;
+    public h(ItemFootNavView itemFootNavView, ag agVar, BaseActivity baseActivity, boolean z) {
+        this.axj = itemFootNavView;
+        this.axm = agVar;
+        this.axk = baseActivity;
+        this.axn = z;
     }
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         ForumDetailData forumDetailData;
-        if (this.b.getErrorCode() == 22) {
-            this.c.showToast(this.c.getString(x.like_success));
-            this.a.b(true);
-            this.a.a(this.d);
-        } else if (this.b.getErrorCode() != 0) {
-            this.c.showToast(this.b.getErrorString());
-        } else if (((ab) obj) != null) {
-            this.c.showToast(this.c.getString(x.like_success));
-            ai c = ai.c();
-            forumDetailData = this.a.f;
-            c.d(forumDetailData.forumInfo.forumName);
-            this.a.b(true);
-            this.a.a(this.d);
+        if (this.axm.getErrorCode() == 22) {
+            this.axk.showToast(this.axk.getString(y.like_success));
+            this.axj.bI(true);
+            this.axj.bH(this.axn);
+        } else if (this.axm.getErrorCode() != 0) {
+            this.axk.showToast(this.axm.getErrorString());
+        } else if (((aa) obj) != null) {
+            this.axk.showToast(this.axk.getString(y.like_success));
+            aj wk = aj.wk();
+            forumDetailData = this.axj.awZ;
+            wk.dW(forumDetailData.forum_info.forum_name);
+            this.axj.bI(true);
+            this.axj.bH(this.axn);
         } else {
-            this.c.showToast(this.c.getString(x.neterror));
+            this.axk.showToast(this.axk.getString(y.neterror));
         }
     }
 }

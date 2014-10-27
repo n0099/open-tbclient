@@ -1,0 +1,14 @@
+package com.baidu.tbadk.c;
+
+import android.view.View;
+import android.widget.LinearLayout;
+/* loaded from: classes.dex */
+public class e implements c {
+    @Override // com.baidu.tbadk.c.c
+    public void a(View view, View view2, boolean z) {
+        ((LinearLayout) view).addView(view2);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
+        layoutParams.gravity = 1;
+        view2.setLayoutParams(layoutParams);
+    }
+}

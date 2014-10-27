@@ -1,26 +1,40 @@
 package com.baidu.tieba.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class an implements Runnable {
-    final /* synthetic */ PbActivity a;
+class an implements com.baidu.adp.lib.e.c<GifView> {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        bsVar = this.a.E;
-        if (!bsVar.E()) {
-            bsVar3 = this.a.E;
-            bsVar3.b(false);
-            return;
-        }
-        bsVar2 = this.a.E;
-        bsVar2.b(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Wu */
+    public GifView ee() {
+        return new GifView(this.bvg);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: f */
+    public void i(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public GifView j(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public GifView k(GifView gifView) {
+        return gifView;
     }
 }

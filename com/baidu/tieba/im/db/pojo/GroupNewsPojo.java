@@ -59,8 +59,6 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_event_info";
             } else if (str.equals("124")) {
                 str2 = "group_activitys_change";
-            } else if (str.equals("306")) {
-                str2 = "live_room_info_change";
             } else if (str.equals("301")) {
                 str2 = "live_notify";
             } else if (str.equals("311")) {
@@ -98,7 +96,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            a();
+            MR();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -111,18 +109,18 @@ public class GroupNewsPojo implements Serializable {
                 }
             }
             if (str2.equals("apply_join_group")) {
-                a(l.a(this));
+                b(l.g(this));
             }
         }
     }
 
-    private void a() {
-        UpdatesItemData a;
+    private void MR() {
+        UpdatesItemData f;
         if (!TextUtils.isEmpty(getCmd())) {
-            if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && (a = p.a(this)) != null) {
+            if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && (f = p.f(this)) != null) {
                 String currentAccount = TbadkApplication.getCurrentAccount();
                 if (!TextUtils.isEmpty(currentAccount)) {
-                    String authorId = a.getAuthorId();
+                    String authorId = f.getAuthorId();
                     if (!TextUtils.isEmpty(authorId)) {
                         if (currentAccount.equals(authorId)) {
                             setContent_status(2);
@@ -136,10 +134,10 @@ public class GroupNewsPojo implements Serializable {
     }
 
     public GroupNewsPojo(ValidateItemData validateItemData) {
-        a(validateItemData);
+        b(validateItemData);
     }
 
-    private void a(ValidateItemData validateItemData) {
+    private void b(ValidateItemData validateItemData) {
         if (validateItemData != null) {
             setCmd("apply_join_group");
             this.notice_id = validateItemData.getNotice_id();

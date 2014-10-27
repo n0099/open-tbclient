@@ -5,15 +5,16 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* loaded from: classes.dex */
 public class LivePlayingImageView extends ImageView {
-    private static /* synthetic */ int[] c;
-    private String a;
-    private ai b;
+    private static /* synthetic */ int[] OD;
+    private ah OC;
+    private String mStatisticsKey;
 
-    static /* synthetic */ int[] a() {
-        int[] iArr = c;
+    static /* synthetic */ int[] qd() {
+        int[] iArr = OD;
         if (iArr == null) {
             iArr = new int[LivePlayingStatusMgr.LivePlayingStatus.valuesCustom().length];
             try {
@@ -36,45 +37,45 @@ public class LivePlayingImageView extends ImageView {
                 iArr[LivePlayingStatusMgr.LivePlayingStatus.PLAYING.ordinal()] = 3;
             } catch (NoSuchFieldError e5) {
             }
-            c = iArr;
+            OD = iArr;
         }
         return iArr;
     }
 
     public String getStatisticsKey() {
-        return this.a;
+        return this.mStatisticsKey;
     }
 
     public void setStatisticsKey(String str) {
-        this.a = str;
+        this.mStatisticsKey = str;
     }
 
-    public ai getVisibleChangeCallback() {
-        return this.b;
+    public ah getVisibleChangeCallback() {
+        return this.OC;
     }
 
-    public void setVisibleChangeCallback(ai aiVar) {
-        this.b = aiVar;
+    public void setVisibleChangeCallback(ah ahVar) {
+        this.OC = ahVar;
     }
 
     public LivePlayingImageView(Context context) {
         super(context);
-        b();
+        init();
     }
 
     public LivePlayingImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        b();
+        init();
     }
 
     public LivePlayingImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        b();
+        init();
     }
 
-    private void b() {
-        setOnClickListener(new ah(this));
-        a(LivePlayingStatusMgr.a().b());
+    private void init() {
+        setOnClickListener(new ag(this));
+        a(LivePlayingStatusMgr.qe().qf());
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -88,30 +89,30 @@ public class LivePlayingImageView extends ImageView {
                 ((AnimationDrawable) drawable).stop();
             }
         }
-        if (this.b != null) {
-            this.b.a(i);
+        if (this.OC != null) {
+            this.OC.ct(i);
         }
     }
 
     public void a(LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus) {
-        switch (a()[livePlayingStatus.ordinal()]) {
+        switch (qd()[livePlayingStatus.ordinal()]) {
             case 1:
                 setVisibility(8);
                 return;
             case 2:
-                setImageResource(com.baidu.tieba.t.icon_live_play_default);
+                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
                 setVisibility(0);
                 return;
             case 3:
-                setImageResource(com.baidu.tieba.t.live_play);
+                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.live_play));
                 setVisibility(0);
                 return;
             case 4:
-                setImageResource(com.baidu.tieba.t.icon_live_play_default);
+                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
                 setVisibility(0);
                 return;
             case 5:
-                setImageResource(com.baidu.tieba.t.icon_live_play_default);
+                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
                 setVisibility(0);
                 return;
             default:
@@ -122,12 +123,12 @@ public class LivePlayingImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LivePlayingStatusMgr.a().a(this);
+        LivePlayingStatusMgr.qe().a(this);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LivePlayingStatusMgr.a().b(this);
+        LivePlayingStatusMgr.qe().b(this);
     }
 }

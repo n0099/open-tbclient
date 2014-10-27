@@ -1,40 +1,34 @@
 package com.baidu.tieba.pb.main;
 
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.editortool.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnClickListener {
-    final /* synthetic */ bs a;
+public class cp implements com.baidu.tieba.c.e {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(bs bsVar) {
-        this.a = bsVar;
+    public cp(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        View view3;
-        View view4;
-        PbActivity pbActivity;
-        com.baidu.tieba.bubble.t tVar;
-        if (this.a.h != null) {
-            this.a.h.n();
-            this.a.z();
-            this.a.aQ = false;
-            pbActivity = this.a.k;
-            PbEditor pbEditor = this.a.h;
-            tVar = this.a.aY;
-            com.baidu.tieba.bubble.h.a(pbActivity, pbEditor, false, tVar);
-        }
-        view2 = this.a.aK;
-        if (view2 != null) {
-            view3 = this.a.aK;
-            view3.setVisibility(8);
-            view4 = this.a.aJ;
-            view4.setVisibility(8);
-            this.a.aQ = false;
-        }
+    @Override // com.baidu.tieba.c.e
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.byI.ef(false);
+        this.byI.V(view);
+        this.byI.ef(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.c.e
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.c.e
+    public boolean c(View view, MotionEvent motionEvent) {
+        this.byI.Xh();
+        this.byI.Yd();
+        return false;
     }
 }

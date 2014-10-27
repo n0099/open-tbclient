@@ -4,17 +4,17 @@ import java.util.Comparator;
 import java.util.Map;
 /* loaded from: classes.dex */
 class d implements Comparator<Map.Entry<String, Integer>> {
-    final /* synthetic */ c a;
+    final /* synthetic */ c Pr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.a = cVar;
+        this.Pr = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-        return (int) (com.baidu.adp.lib.e.c.a(String.valueOf(entry.getValue()), 0) - com.baidu.adp.lib.e.c.a(String.valueOf(entry2.getValue()), 0));
+        return (int) (com.baidu.adp.lib.g.c.f(String.valueOf(entry.getValue()), 0) - com.baidu.adp.lib.g.c.f(String.valueOf(entry2.getValue()), 0));
     }
 }

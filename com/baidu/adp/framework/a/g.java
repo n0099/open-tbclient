@@ -11,7 +11,7 @@ public abstract class g<T extends ResponsedMessage<?>> extends h<T> {
 
     public T b(T t) {
         if (t != null) {
-            if (a() == 0 || a() == t.getCmd()) {
+            if (getCmd() == 0 || getCmd() == t.getCmd()) {
                 return a(t);
             }
             return t;

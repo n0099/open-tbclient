@@ -15,11 +15,11 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         String str = "friend_feed_data" + TbadkApplication.getCurrentAccount();
-        t<byte[]> a = com.baidu.tbadk.core.a.a.a().a("tb.friend_feed");
-        byte[] a2 = a != null ? a.a(str) : null;
+        t<byte[]> bc = com.baidu.tbadk.core.a.a.kS().bc("tb.friend_feed");
+        byte[] bArr = bc != null ? bc.get(str) : null;
         ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = new ResponseFriendFeedLocalMessage();
         try {
-            responseFriendFeedLocalMessage.decodeInBackGround(2001172, a2);
+            responseFriendFeedLocalMessage.decodeInBackGround(2001172, bArr);
         } catch (Exception e) {
             e.printStackTrace();
         }

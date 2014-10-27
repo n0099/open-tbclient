@@ -1,36 +1,30 @@
 package com.baidu.tbadk.core.voice;
 
-import android.os.Handler;
+import com.baidu.tbadk.core.data.VoiceData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a {
-    private static c b;
-    private static String c;
-    private static j d;
-    private static int a = 0;
-    private static Handler e = new Handler(new b());
+public class a implements Runnable {
+    final /* synthetic */ VoiceManager this$0;
 
-    public static boolean a(String str, j jVar, int i) {
-        if (a == 0) {
-            if (b == null) {
-                b = new c(e, i);
-            } else {
-                b.a(i);
-            }
-            c = str;
-            d = jVar;
-            b.a(str);
-            a = 2;
-            new Thread(b).start();
-            return true;
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(VoiceManager voiceManager) {
+        this.this$0 = voiceManager;
     }
 
-    public static void a() {
-        if (b != null) {
-            b.c();
-        } else {
-            a = 0;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        VoiceData.VoiceModel voiceModel;
+        m mVar;
+        VoiceData.VoiceModel voiceModel2;
+        VoiceManager voiceManager = this.this$0;
+        voiceModel = this.this$0.mNewClickModel;
+        voiceManager.mCurPlayModel = voiceModel;
+        VoiceManager voiceManager2 = this.this$0;
+        mVar = this.this$0.sNewPlayView;
+        voiceManager2.sPlayView = mVar;
+        this.this$0.sNewPlayView = null;
+        VoiceManager voiceManager3 = this.this$0;
+        voiceModel2 = this.this$0.mCurPlayModel;
+        voiceManager3.setDownloading(voiceModel2);
     }
 }

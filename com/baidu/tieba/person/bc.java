@@ -1,25 +1,28 @@
 package com.baidu.tieba.person;
 
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class bc {
-    LinearLayout a;
-    RelativeLayout b;
-    RelativeLayout c;
-    RelativeLayout d;
-    RelativeLayout e;
-    TextView f;
-    TextView g;
-    TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    final /* synthetic */ ba l;
+    TextView auD;
+    TextView avZ;
+    HeadImageView azk;
+    ImageView bCD;
+    LinearLayout bCE;
+    TextView bCF;
+    final /* synthetic */ bb bCG;
+    ImageView bfO;
+    ProgressBar mProgress;
+
+    private bc(bb bbVar) {
+        this.bCG = bbVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ba baVar) {
-        this.l = baVar;
+    public /* synthetic */ bc(bb bbVar, bc bcVar) {
+        this(bbVar);
     }
 }

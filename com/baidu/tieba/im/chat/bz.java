@@ -12,43 +12,42 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bz extends com.baidu.adp.base.d<ChatMessage> {
-    private TextView b;
-    private LinearLayout c;
-    private TextView d;
-    private TextView e;
+    private TextView aOP;
+    private LinearLayout aOQ;
+    private TextView aOR;
+    private TextView aOS;
 
     public bz(Context context) {
-        super(context, com.baidu.tieba.v.msg_msgmid_view);
-        this.b = null;
-        b();
+        super(context, com.baidu.tieba.w.msg_msgmid_view);
+        this.aOP = null;
+        nu();
     }
 
-    private void b() {
-        this.b = (TextView) a(com.baidu.tieba.u.tex_msgcontent);
-        this.b.setMovementMethod(LinkMovementMethod.getInstance());
-        this.c = (LinearLayout) a(com.baidu.tieba.u.lay_add_friend);
-        this.d = (TextView) a(com.baidu.tieba.u.btn_add_friend);
-        this.e = (TextView) a(com.baidu.tieba.u.text_add_friend);
-        this.c.setVisibility(8);
+    private void nu() {
+        this.aOP = (TextView) findViewById(com.baidu.tieba.v.tex_msgcontent);
+        this.aOP.setMovementMethod(LinkMovementMethod.getInstance());
+        this.aOQ = (LinearLayout) findViewById(com.baidu.tieba.v.lay_add_friend);
+        this.aOR = (TextView) findViewById(com.baidu.tieba.v.btn_add_friend);
+        this.aOS = (TextView) findViewById(com.baidu.tieba.v.text_add_friend);
+        this.aOQ.setVisibility(8);
     }
 
-    public void a(ChatMessage chatMessage) {
-        this.c.setVisibility(8);
-        this.c.setVisibility(8);
+    public void setData(ChatMessage chatMessage) {
+        this.aOQ.setVisibility(8);
         if (chatMessage == null) {
-            this.b.setText("");
-        } else if (!b(chatMessage)) {
-            this.b.setVisibility(0);
-            String i = com.baidu.tieba.im.d.j.i(chatMessage);
-            if (!TextUtils.isEmpty(i)) {
-                this.b.setText(i);
+            this.aOP.setText("");
+        } else if (!g(chatMessage)) {
+            this.aOP.setVisibility(0);
+            String w = com.baidu.tieba.im.util.i.w(chatMessage);
+            if (!TextUtils.isEmpty(w)) {
+                this.aOP.setText(w);
             } else {
-                this.b.setText("");
+                this.aOP.setText("");
             }
         }
     }
 
-    private boolean b(ChatMessage chatMessage) {
+    private boolean g(ChatMessage chatMessage) {
         JSONObject jSONObject;
         String optString;
         UserData toUserInfo;
@@ -68,8 +67,8 @@ public class bz extends com.baidu.adp.base.d<ChatMessage> {
             return false;
         }
         if (optString.equals("406")) {
-            this.c.setVisibility(0);
-            this.b.setVisibility(8);
+            this.aOQ.setVisibility(0);
+            this.aOP.setVisibility(8);
             String optString2 = jSONObject.optString("userMsg");
             JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
             if (optJSONObject == null) {
@@ -85,11 +84,11 @@ public class bz extends com.baidu.adp.base.d<ChatMessage> {
             }
             String userName = toUserInfo.getUserName();
             String portrait = toUserInfo.getPortrait();
-            this.e.setText(optString2);
+            this.aOS.setText(optString2);
             if (optInt == 1) {
-                this.d.setVisibility(0);
-                this.d.setText(optString3);
-                this.d.setOnClickListener(new ca(this, optLong, userName, portrait));
+                this.aOR.setVisibility(0);
+                this.aOR.setText(optString3);
+                this.aOR.setOnClickListener(new ca(this, optLong, userName, portrait));
                 return true;
             }
         }

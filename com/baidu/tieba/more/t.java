@@ -15,47 +15,46 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private Context c;
-    private com.baidu.tbadk.cdnOptimize.f e;
-    private StringBuilder f;
-    public ArrayList<u> a = new ArrayList<>();
-    public boolean b = false;
-    private com.baidu.tbadk.cdnOptimize.g d = new com.baidu.tbadk.cdnOptimize.g();
+    private com.baidu.tbadk.cdnOptimize.f bqI;
+    public ArrayList<u> bqJ = new ArrayList<>();
+    public boolean bqK = false;
+    private Context mContext;
+    private StringBuilder mM;
 
     public t(Context context) {
         String[] strArr;
-        this.c = context;
-        for (String str : new String[]{context.getString(com.baidu.tieba.x.img_assistant_title_1), context.getString(com.baidu.tieba.x.img_assistant_title_2), context.getString(com.baidu.tieba.x.img_assistant_title_3), context.getString(com.baidu.tieba.x.img_assistant_title_4), context.getString(com.baidu.tieba.x.img_assistant_title_5), context.getString(com.baidu.tieba.x.img_assistant_title_6)}) {
+        this.mContext = context;
+        for (String str : new String[]{context.getString(com.baidu.tieba.y.img_assistant_title_1), context.getString(com.baidu.tieba.y.img_assistant_title_2), context.getString(com.baidu.tieba.y.img_assistant_title_3), context.getString(com.baidu.tieba.y.img_assistant_title_4), context.getString(com.baidu.tieba.y.img_assistant_title_5), context.getString(com.baidu.tieba.y.img_assistant_title_6)}) {
             u uVar = new u(this);
-            uVar.a = str;
-            this.a.add(uVar);
+            uVar.title = str;
+            this.bqJ.add(uVar);
         }
     }
 
-    public void a() {
-        this.f = new StringBuilder();
-        Iterator<u> it = this.a.iterator();
+    public void UC() {
+        this.mM = new StringBuilder();
+        Iterator<u> it = this.bqJ.iterator();
         while (it.hasNext()) {
-            it.next().c = "";
+            it.next().bqM = "";
         }
         u uVar = null;
         try {
-            u uVar2 = this.a.get(0);
+            u uVar2 = this.bqJ.get(0);
             try {
-                if (com.baidu.adp.lib.util.j.c()) {
-                    uVar2.b = 0;
+                if (com.baidu.adp.lib.util.m.isNetOk()) {
+                    uVar2.bqL = 0;
                 } else {
-                    uVar2.b = 2;
-                    uVar2.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_1);
-                    if (this.f != null) {
-                        this.f.append("1:failed");
+                    uVar2.bqL = 2;
+                    uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_1);
+                    if (this.mM != null) {
+                        this.mM.append("1:failed");
                     }
                 }
             } catch (Exception e) {
                 uVar = uVar2;
                 e = e;
                 if (uVar != null) {
-                    uVar.b = 0;
+                    uVar.bqL = 0;
                 }
                 BdLog.e(e);
             }
@@ -64,20 +63,20 @@ public class t {
         }
     }
 
-    public void b() {
+    public void UD() {
         u uVar = null;
         try {
-            u uVar2 = this.a.get(1);
+            u uVar2 = this.bqJ.get(1);
             try {
                 DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
                 String[] strArr = {"8.8.8.8", "4.4.4.4", "8.8.4.4"};
-                if (this.f != null) {
-                    this.f.append("_2:" + a(dhcpInfo.dns1) + "," + a(dhcpInfo.dns2));
+                if (this.mM != null) {
+                    this.mM.append("_2:" + intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2));
                 }
                 for (String str : strArr) {
-                    if (a(dhcpInfo.dns1).equals(str) || a(dhcpInfo.dns2).equals(str)) {
-                        uVar2.b = 1;
-                        uVar2.c = String.valueOf(this.c.getString(com.baidu.tieba.x.img_assistant_helptext_2_1)) + a(dhcpInfo.dns1) + "," + a(dhcpInfo.dns2) + this.c.getString(com.baidu.tieba.x.img_assistant_helptext_2_2);
+                    if (intToIp(dhcpInfo.dns1).equals(str) || intToIp(dhcpInfo.dns2).equals(str)) {
+                        uVar2.bqL = 1;
+                        uVar2.bqM = String.valueOf(this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_2_1)) + intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2) + this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_2_2);
                         return;
                     }
                 }
@@ -85,7 +84,7 @@ public class t {
                 uVar = uVar2;
                 e = e;
                 if (uVar != null) {
-                    uVar.b = 0;
+                    uVar.bqL = 0;
                 }
                 BdLog.e(e);
             }
@@ -94,44 +93,44 @@ public class t {
         }
     }
 
-    public void c() {
+    public void UE() {
         String str;
         String str2;
         u uVar = null;
         try {
-            u uVar2 = this.a.get(2);
+            u uVar2 = this.bqJ.get(2);
             try {
                 String property = System.getProperty("http.proxyHost");
                 String property2 = System.getProperty("http.proxyPort");
                 try {
                     if (TextUtils.isEmpty(property)) {
-                        property = Proxy.getHost(this.c);
+                        property = Proxy.getHost(this.mContext);
                     }
                 } catch (Exception e) {
                 }
                 if (TextUtils.isEmpty(property2)) {
                     str = property;
-                    str2 = String.valueOf(Proxy.getPort(this.c));
+                    str2 = String.valueOf(Proxy.getPort(this.mContext));
                     if (str == null && str2 != null && str.length() > 0) {
-                        uVar2.b = 1;
-                        uVar2.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_3);
-                        if (this.f != null) {
-                            this.f.append("_3:" + str + ":" + str2);
+                        uVar2.bqL = 1;
+                        uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_3);
+                        if (this.mM != null) {
+                            this.mM.append("_3:" + str + ":" + str2);
                         }
                     } else {
-                        uVar2.b = 0;
+                        uVar2.bqL = 0;
                     }
                 }
                 str = property;
                 str2 = property2;
                 if (str == null) {
                 }
-                uVar2.b = 0;
+                uVar2.bqL = 0;
             } catch (Exception e2) {
                 uVar = uVar2;
                 e = e2;
                 if (uVar != null) {
-                    uVar.b = 0;
+                    uVar.bqL = 0;
                 }
                 BdLog.e(e);
             }
@@ -140,26 +139,26 @@ public class t {
         }
     }
 
-    public void d() {
+    public void UF() {
         u uVar = null;
         try {
-            u uVar2 = this.a.get(3);
+            u uVar2 = this.bqJ.get(3);
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (a("http://www.baidu.com/", null)) {
-                    uVar2.b = 0;
+                if (aA("http://www.baidu.com/", null)) {
+                    uVar2.bqL = 0;
                 } else {
-                    uVar2.b = 2;
-                    uVar2.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_4);
-                    if (this.f != null) {
-                        this.f.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    uVar2.bqL = 2;
+                    uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_4);
+                    if (this.mM != null) {
+                        this.mM.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
                     }
                 }
             } catch (Exception e) {
                 uVar = uVar2;
                 e = e;
                 if (uVar != null) {
-                    uVar.b = 0;
+                    uVar.bqL = 0;
                 }
                 BdLog.e(e);
             }
@@ -168,25 +167,25 @@ public class t {
         }
     }
 
-    public void e() {
+    public void UG() {
         u uVar = null;
         try {
-            u uVar2 = this.a.get(4);
+            u uVar2 = this.bqJ.get(4);
             try {
-                if (com.baidu.tbadk.core.sharedPref.b.a().a("show_images", true)) {
-                    uVar2.b = 0;
+                if (com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("show_images", true)) {
+                    uVar2.bqL = 0;
                 } else {
-                    uVar2.b = 2;
-                    uVar2.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_5);
-                    if (this.f != null) {
-                        this.f.append("_5:failed");
+                    uVar2.bqL = 2;
+                    uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_5);
+                    if (this.mM != null) {
+                        this.mM.append("_5:failed");
                     }
                 }
             } catch (Exception e) {
                 uVar = uVar2;
                 e = e;
                 if (uVar != null) {
-                    uVar.b = 0;
+                    uVar.bqL = 0;
                 }
                 BdLog.e(e);
             }
@@ -195,83 +194,81 @@ public class t {
         }
     }
 
-    public void f() {
-        u uVar;
-        u uVar2 = null;
+    public void UH() {
+        u uVar = null;
         try {
-            uVar = this.a.get(5);
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            String h = new com.baidu.tbadk.core.util.ae(this.d.a).h();
-            if (!TextUtils.isEmpty(h)) {
-                JSONObject jSONObject = new JSONObject(h);
-                this.e = new com.baidu.tbadk.cdnOptimize.f();
-                this.e.a(jSONObject);
-                boolean a = a(this.e.c, null);
-                boolean a2 = a("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                boolean a3 = a("http://ww2.sinaimg.cn/thumbnail/7131f451jw1eisq3v228jj20dk08at9k.jpg", null);
-                boolean a4 = a("http://c.tieba.baidu.com/c/p/img?src=" + this.e.c, null);
-                if (!a2 && !a3 && !a4) {
-                    uVar.b = 2;
-                    uVar.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_6_1);
-                    if (this.f != null) {
-                        this.f.append("_6:failed1");
-                        return;
-                    }
-                    return;
-                } else if (!a) {
-                    if (a4) {
-                        uVar.b = 1;
-                        uVar.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_6_2);
-                        if (this.f != null) {
-                            this.f.append("_6:warning");
+            u uVar2 = this.bqJ.get(5);
+            try {
+                String lA = new com.baidu.tbadk.core.util.ac(com.baidu.tbadk.cdnOptimize.g.ya).lA();
+                if (!TextUtils.isEmpty(lA)) {
+                    JSONObject jSONObject = new JSONObject(lA);
+                    this.bqI = new com.baidu.tbadk.cdnOptimize.f();
+                    this.bqI.parseJson(jSONObject);
+                    boolean aA = aA(this.bqI.imageUrl, null);
+                    boolean aA2 = aA("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
+                    boolean aA3 = aA("http://c.tieba.baidu.com/c/p/img?src=" + this.bqI.imageUrl, null);
+                    if (!aA2 && !aA3) {
+                        uVar2.bqL = 2;
+                        uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_6_1);
+                        if (this.mM != null) {
+                            this.mM.append("_6:failed1");
+                            return;
                         }
-                        this.b = true;
+                        return;
+                    } else if (aA && aA2 && aA3) {
+                        uVar2.bqL = 0;
+                        this.bqK = true;
+                        return;
+                    } else if (aA3) {
+                        uVar2.bqL = 1;
+                        uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_6_2);
+                        if (this.mM != null) {
+                            this.mM.append("_6:warning");
+                        }
+                        this.bqK = true;
+                        return;
+                    } else {
+                        uVar2.bqL = 2;
+                        uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_6_3);
+                        if (this.mM != null) {
+                            this.mM.append("_6:failed2");
+                            return;
+                        }
                         return;
                     }
-                    uVar.b = 2;
-                    uVar.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_6_3);
-                    if (this.f != null) {
-                        this.f.append("_6:failed2");
-                        return;
-                    }
-                    return;
-                } else {
-                    uVar.b = 0;
-                    return;
                 }
-            }
-            uVar.b = 2;
-            uVar.c = this.c.getString(com.baidu.tieba.x.img_assistant_helptext_6_1);
-            if (this.f != null) {
-                this.f.append("_6:failed:iplist");
+                uVar2.bqL = 2;
+                uVar2.bqM = this.mContext.getString(com.baidu.tieba.y.img_assistant_helptext_6_1);
+                if (this.mM != null) {
+                    this.mM.append("_6:failed:iplist");
+                }
+            } catch (Exception e) {
+                uVar = uVar2;
+                e = e;
+                if (uVar != null) {
+                    uVar.bqL = 0;
+                }
+                BdLog.e(e);
             }
         } catch (Exception e2) {
-            uVar2 = uVar;
             e = e2;
-            if (uVar2 != null) {
-                uVar2.b = 0;
-            }
-            BdLog.e(e);
         }
     }
 
-    public void g() {
-        com.baidu.tbadk.core.util.w.a(this.f.toString());
-        if (this.b) {
+    public void UI() {
+        com.baidu.tbadk.core.util.v.bD(this.mM.toString());
+        if (this.bqK) {
             try {
-                com.baidu.tbadk.core.util.ae aeVar = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
-                aeVar.a("ab_img_m", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                aeVar.h();
+                com.baidu.tbadk.core.util.ac acVar = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
+                acVar.k("ab_img_m", "1");
+                acVar.lA();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    private boolean a(String str, String str2) {
+    private boolean aA(String str, String str2) {
         boolean z = false;
         try {
             if (TextUtils.isEmpty(str)) {
@@ -279,13 +276,13 @@ public class t {
             }
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
-            eVar.a().a(str);
+            eVar.dQ().setUrl(str);
             if (str2 != null && str2.length() > 0) {
                 imgHttpClient.a(str2, "tbcdn.hiphotos.baidu.com", 1);
             } else {
-                imgHttpClient.a((String) null, (String) null, 1);
+                imgHttpClient.a(null, null, 1);
             }
-            z = eVar.b().a();
+            z = eVar.dR().dW();
             return z;
         } catch (Exception e) {
             BdLog.e(e);
@@ -293,7 +290,7 @@ public class t {
         }
     }
 
-    private static String a(int i) {
+    private static String intToIp(int i) {
         return String.valueOf(i & MotionEventCompat.ACTION_MASK) + "." + ((i >> 8) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 16) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 24) & MotionEventCompat.ACTION_MASK);
     }
 }

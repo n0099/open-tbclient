@@ -23,9 +23,15 @@ public class BdStatLog extends BdNormalStatBase {
     @Override // com.baidu.adp.lib.stats.BdNormalStatBase, com.baidu.adp.lib.stats.BdStatBase
     public void uploadSucc(ArrayList<s> arrayList) {
         super.uploadSucc(arrayList);
-        r a = f.c().a();
-        if (a != null) {
-            a.a(this.mLastUploadTime);
+        r ep = f.er().ep();
+        if (ep != null) {
+            ep.d(this.mLastUploadTime);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.stats.BdStatBase
+    public int getLogFilesMaxSize() {
+        return 0;
     }
 }

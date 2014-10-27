@@ -1,32 +1,23 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements j {
-    final /* synthetic */ s a;
+public class t implements View.OnClickListener {
+    final /* synthetic */ s aWf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.a = sVar;
+        this.aWf = sVar;
     }
 
-    @Override // com.baidu.tieba.im.friend.j
-    public void a(View view, Object obj) {
-        BdListView bdListView;
-        if (obj != null) {
-            if (obj instanceof com.baidu.tbadk.core.view.u) {
-                ((com.baidu.tbadk.core.view.u) obj).setChecked(false);
-            }
-            bdListView = this.a.e;
-            View findViewWithTag = bdListView.findViewWithTag(obj);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
-                ((TbCheckBox) findViewWithTag).setChecked(false);
-            } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.b) {
-                this.a.b((com.baidu.tbadk.coreExtra.relationship.b) obj);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InviteFriendListActivity inviteFriendListActivity;
+        inviteFriendListActivity = this.aWf.aVV;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(inviteFriendListActivity)));
     }
 }

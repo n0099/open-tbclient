@@ -9,66 +9,66 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 class f {
-    final /* synthetic */ e a;
-    private View b;
-    private TextView c;
-    private TextView d;
-    private TextView e;
-    private ImageView f;
-    private TbImageView g;
-    private LinearLayout h;
+    private ImageView aKX;
+    private TbImageView aKY;
+    private LinearLayout aKZ;
+    final /* synthetic */ e aLa;
+    private TextView apR;
+    private TextView avZ;
+    private TextView awc;
+    private View mView;
 
-    public View a() {
-        return this.b;
+    public View getView() {
+        return this.mView;
     }
 
     public f(e eVar, InterestFrsData.Card card, View.OnClickListener onClickListener) {
         Context context;
-        this.a = eVar;
-        com.baidu.adp.lib.e.b a = com.baidu.adp.lib.e.b.a();
-        context = eVar.a;
-        this.b = a.a(context, com.baidu.tieba.v.new_user_rich_item, null);
-        this.b.setTag(Integer.valueOf(card.getFid()));
+        this.aLa = eVar;
+        com.baidu.adp.lib.g.b ek = com.baidu.adp.lib.g.b.ek();
+        context = eVar.mContext;
+        this.mView = ek.inflate(context, com.baidu.tieba.w.new_user_rich_item, null);
+        this.mView.setTag(Integer.valueOf(card.getFid()));
         a(card, onClickListener);
     }
 
     public f(e eVar, View view) {
-        this.a = eVar;
-        this.b = view;
-        b();
+        this.aLa = eVar;
+        this.mView = view;
+        initUI();
     }
 
-    public void b() {
-        this.c = (TextView) this.b.findViewById(com.baidu.tieba.u.tv_fname);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.u.tv_cdesc);
-        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.u.iv_like);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.u.tv_slogan);
-        this.g = (TbImageView) this.b.findViewById(com.baidu.tieba.u.img);
-        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.u.ll_like);
+    public void initUI() {
+        this.avZ = (TextView) this.mView.findViewById(com.baidu.tieba.v.tv_fname);
+        this.apR = (TextView) this.mView.findViewById(com.baidu.tieba.v.tv_cdesc);
+        this.aKX = (ImageView) this.mView.findViewById(com.baidu.tieba.v.iv_like);
+        this.awc = (TextView) this.mView.findViewById(com.baidu.tieba.v.tv_slogan);
+        this.aKY = (TbImageView) this.mView.findViewById(com.baidu.tieba.v.img);
+        this.aKZ = (LinearLayout) this.mView.findViewById(com.baidu.tieba.v.ll_like);
     }
 
-    public void a(boolean z) {
+    public void cs(boolean z) {
         Context context;
         Context context2;
         if (!z) {
-            ImageView imageView = this.f;
-            context2 = this.a.a;
-            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.t.icon_startpage2_add_ba_n));
+            ImageView imageView = this.aKX;
+            context2 = this.aLa.mContext;
+            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_n));
             return;
         }
-        ImageView imageView2 = this.f;
-        context = this.a.a;
-        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.t.icon_startpage2_add_ba_s));
+        ImageView imageView2 = this.aKX;
+        context = this.aLa.mContext;
+        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
     }
 
     private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
-        b();
-        this.h.setOnClickListener(onClickListener);
-        this.h.setTag(card);
-        this.c.setText(card.getFname());
-        this.d.setText(card.getCdesc());
-        this.e.setText(card.getSlogan());
-        this.g.setTag(card.getAvatar());
-        a(card.getIs_like() != 0);
+        initUI();
+        this.aKZ.setOnClickListener(onClickListener);
+        this.aKZ.setTag(card);
+        this.avZ.setText(card.getFname());
+        this.apR.setText(card.getCdesc());
+        this.awc.setText(card.getSlogan());
+        this.aKY.setTag(card.getAvatar());
+        cs(card.getIs_like() != 0);
     }
 }

@@ -11,12 +11,11 @@ class c extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Object data;
         if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
             return;
         }
-        a.l = ((Boolean) data).booleanValue();
+        a.Lx = ((Boolean) data).booleanValue();
     }
 }

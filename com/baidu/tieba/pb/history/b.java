@@ -1,25 +1,24 @@
 package com.baidu.tieba.pb.history;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.y;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
-    final /* synthetic */ PbHistoryActivity a;
+public class b implements View.OnClickListener {
+    final /* synthetic */ PbHistoryActivity bul;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(PbHistoryActivity pbHistoryActivity, int i) {
-        super(i);
-        this.a = pbHistoryActivity;
+    public b(PbHistoryActivity pbHistoryActivity) {
+        this.bul = pbHistoryActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponsePbHistoryWriteMessage)) {
-            return;
-        }
-        this.a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bul);
+        aVar.aW(y.editor_dialog_title);
+        aVar.aX(y.pb_history_clear_tip);
+        aVar.a(y.confirm, new c(this));
+        aVar.b(y.cancel, new d(this));
+        aVar.kT().kW();
     }
 }

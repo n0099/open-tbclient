@@ -1,36 +1,29 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+class bh implements View.OnClickListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public bh(WriteActivity writeActivity) {
+        this.bTX = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.a.p;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.a.p;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.a.m;
-            linearLayout2.setVisibility(8);
-            return;
+        com.baidu.tieba.editortool.j jVar;
+        jVar = this.bTX.bTE;
+        switch (jVar.getLocationInfoViewState()) {
+            case 0:
+                this.bTX.Ex();
+                return;
+            case 1:
+            default:
+                return;
+            case 2:
+                this.bTX.Ew();
+                return;
         }
-        navigationBar2 = this.a.p;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.a.m;
-        linearLayout.setVisibility(0);
     }
 }

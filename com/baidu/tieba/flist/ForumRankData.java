@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForumRankData implements Serializable {
+public class ForumRankData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 6536045499676911895L;
     public NewErrorData error;
     public int error_code;

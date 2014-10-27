@@ -3,28 +3,28 @@ package com.baidu.tieba.pb.sub;
 import com.baidu.tbadk.editortool.w;
 /* loaded from: classes.dex */
 class k implements w {
-    final /* synthetic */ i a;
-    private final /* synthetic */ w b;
+    private final /* synthetic */ w arn;
+    final /* synthetic */ i bAp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, w wVar) {
-        this.a = iVar;
-        this.b = wVar;
+        this.bAp = iVar;
+        this.arn = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
-    public void a(int i, Object obj) {
+    public void handleAction(int i, Object obj) {
         if (i == 0) {
-            this.b.a(26, obj);
+            this.arn.handleAction(26, obj);
         } else if (i == 10) {
-            this.b.a(27, obj);
+            this.arn.handleAction(27, obj);
         } else if (i == 33) {
-            this.a.M.d();
-            this.b.a(33, obj);
+            this.bAp.azA.Ca();
+            this.arn.handleAction(33, obj);
         } else if (i == 34) {
-            this.a.s.setEnabled(true);
+            this.bAp.bAw.setEnabled(true);
         } else {
-            this.b.a(i, obj);
+            this.arn.handleAction(i, obj);
         }
     }
 }

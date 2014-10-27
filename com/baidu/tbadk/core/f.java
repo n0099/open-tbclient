@@ -1,14 +1,17 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class f {
-    public static void a(Context context, String str) {
-        TiebaStatic.eventStat(context, str, "click", 1, new Object[0]);
+class f implements DialogInterface.OnCancelListener {
+    final /* synthetic */ BaseFragmentActivity yG;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(BaseFragmentActivity baseFragmentActivity) {
+        this.yG = baseFragmentActivity;
     }
 
-    public static void b(Context context, String str) {
-        TiebaStatic.eventStat(context, str, "visit", 1, new Object[0]);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.yG.mWaitingDialog = null;
     }
 }

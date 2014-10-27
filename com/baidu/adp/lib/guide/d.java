@@ -9,80 +9,80 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener, View.OnKeyListener {
-    static final /* synthetic */ boolean a;
-    private Configuration b;
-    private i c;
-    private b[] d;
-    private h e;
+    static final /* synthetic */ boolean ju;
+    private Configuration jq;
+    private i jr;
+    private b[] js;
+    private h jt;
 
     static {
-        a = !d.class.desiredAssertionStatus();
+        ju = !d.class.desiredAssertionStatus();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Configuration configuration) {
-        this.b = configuration;
+        this.jq = configuration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b[] bVarArr) {
-        this.d = bVarArr;
+        this.js = bVarArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(h hVar) {
-        this.e = hVar;
+        this.jt = hVar;
     }
 
-    public void a(Activity activity) {
-        if (this.c == null) {
-            this.c = b(activity);
+    public void c(Activity activity) {
+        if (this.jr == null) {
+            this.jr = d(activity);
         }
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-        if (this.c.getParent() == null) {
-            viewGroup.addView(this.c);
-            if (this.b.j != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.j);
-                if (!a && loadAnimation == null) {
+        if (this.jr.getParent() == null) {
+            viewGroup.addView(this.jr);
+            if (this.jq.jo != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.jq.jo);
+                if (!ju && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new e(this));
-                this.c.startAnimation(loadAnimation);
-            } else if (this.e != null) {
-                this.e.a();
+                this.jr.startAnimation(loadAnimation);
+            } else if (this.jt != null) {
+                this.jt.dB();
             }
         }
     }
 
-    public void a() {
+    public void dismiss() {
         ViewGroup viewGroup;
-        if (this.c != null && (viewGroup = (ViewGroup) this.c.getParent()) != null) {
-            if (this.b.k != -1) {
-                Context context = this.c.getContext();
-                if (!a && context == null) {
+        if (this.jr != null && (viewGroup = (ViewGroup) this.jr.getParent()) != null) {
+            if (this.jq.jp != -1) {
+                Context context = this.jr.getContext();
+                if (!ju && context == null) {
                     throw new AssertionError();
                 }
-                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.k);
-                if (!a && loadAnimation == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.jq.jp);
+                if (!ju && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new f(this, viewGroup));
-                this.c.startAnimation(loadAnimation);
+                this.jr.startAnimation(loadAnimation);
                 return;
             }
-            viewGroup.removeView(this.c);
-            if (this.e != null) {
-                this.e.b();
+            viewGroup.removeView(this.jr);
+            if (this.jt != null) {
+                this.jt.onDismiss();
             }
-            b();
+            onDestroy();
         }
     }
 
-    private i b(Activity activity) {
+    private i d(Activity activity) {
         i iVar = new i(activity);
-        iVar.b(activity.getResources().getColor(this.b.f));
-        iVar.a(this.b.c);
-        iVar.a(this.b.h);
+        iVar.D(activity.getResources().getColor(this.jq.jk));
+        iVar.C(this.jq.jh);
+        iVar.t(this.jq.jm);
         iVar.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
@@ -107,45 +107,45 @@ public class d implements View.OnClickListener, View.OnKeyListener {
                 e7.printStackTrace();
             }
         }
-        if (this.b.a != null) {
-            iVar.a(a.a(this.b.a, 0, i));
+        if (this.jq.jf != null) {
+            iVar.a(a.a(this.jq.jf, 0, i));
         } else {
-            View findViewById = activity.findViewById(this.b.e);
+            View findViewById = activity.findViewById(this.jq.jj);
             if (findViewById != null) {
                 iVar.a(a.a(findViewById, 0, i));
             }
         }
-        View findViewById2 = activity.findViewById(this.b.d);
+        View findViewById2 = activity.findViewById(this.jq.ji);
         if (findViewById2 != null) {
             iVar.b(a.a(findViewById2, 0, i));
         }
-        if (this.b.b) {
+        if (this.jq.jg) {
             iVar.setClickable(false);
         } else {
             iVar.setOnClickListener(this);
         }
-        for (b bVar : this.d) {
+        for (b bVar : this.js) {
             iVar.addView(a.a(activity.getLayoutInflater(), bVar));
         }
         return iVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.c.removeAllViews();
-        this.c = null;
+    public void onDestroy() {
+        this.jq = null;
+        this.js = null;
+        this.jt = null;
+        this.jr.removeAllViews();
+        this.jr = null;
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getAction() == 1) {
-            if (this.b == null || !this.b.g) {
+            if (this.jq == null || !this.jq.jl) {
                 return false;
             }
-            a();
+            dismiss();
             return true;
         }
         return false;
@@ -153,8 +153,8 @@ public class d implements View.OnClickListener, View.OnKeyListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b != null && this.b.g) {
-            a();
+        if (this.jq != null && this.jq.jl) {
+            dismiss();
         }
     }
 }

@@ -1,22 +1,29 @@
 package com.baidu.tieba.faceshop;
 
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.FaceShopActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax {
-    TbImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    final /* synthetic */ aw e;
-
-    private ax(aw awVar) {
-        this.e = awVar;
-    }
+public class ax implements View.OnClickListener {
+    final /* synthetic */ aw aug;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(aw awVar, ax axVar) {
-        this(awVar);
+    public ax(aw awVar) {
+        this.aug = awVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aug.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(context, "faceshop_from_more")));
+        context2 = this.aug.mContext;
+        ((BaseActivity) context2).finish();
     }
 }

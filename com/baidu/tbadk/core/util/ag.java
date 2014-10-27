@@ -6,11 +6,11 @@ import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ NetWorkCoreByBdHttp a;
+    final /* synthetic */ af Eq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.a = netWorkCoreByBdHttp;
+    public ag(af afVar) {
+        this.Eq = afVar;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
@@ -26,8 +26,8 @@ public class ag implements com.baidu.adp.lib.network.willdelete.d {
                     if (headerField == null || headerField.length() <= 0) {
                         z = false;
                     }
-                    eVar = this.a.d;
-                    if (eVar.a().a().e || z) {
+                    eVar = this.Eq.Ed;
+                    if (eVar.na().nd().mIsBDImage || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
                         if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
@@ -35,12 +35,12 @@ public class ag implements com.baidu.adp.lib.network.willdelete.d {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        eVar3 = this.a.d;
-                        eVar3.b().e = true;
+                        eVar3 = this.Eq.Ed;
+                        eVar3.nb().ee = true;
                         return;
                     }
-                    eVar2 = this.a.d;
-                    eVar2.b().e = false;
+                    eVar2 = this.Eq.Ed;
+                    eVar2.nb().ee = false;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -57,6 +57,6 @@ public class ag implements com.baidu.adp.lib.network.willdelete.d {
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
-    public void a() {
+    public void dX() {
     }
 }

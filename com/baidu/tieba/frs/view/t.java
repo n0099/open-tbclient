@@ -1,30 +1,32 @@
 package com.baidu.tieba.frs.view;
 
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ n a;
-    private final /* synthetic */ PopupWindow b;
+    final /* synthetic */ r aGk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(n nVar, PopupWindow popupWindow) {
-        this.a = nVar;
-        this.b = popupWindow;
+    public t(r rVar) {
+        this.aGk = rVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        String str;
         Activity activity;
         Activity activity2;
-        this.b.dismiss();
-        activity = this.a.B;
-        String string = activity.getResources().getString(com.baidu.tieba.x.experion_speed);
-        activity2 = this.a.B;
-        TbWebViewActivity.startActivity(activity2, string, String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, false, true, true, null);
+        String str2;
+        str = this.aGk.aFN;
+        if (!TextUtils.isEmpty(str)) {
+            activity = this.aGk.aBF;
+            activity2 = this.aGk.aBF;
+            String string = activity2.getString(com.baidu.tieba.y.frs_badge_intro);
+            str2 = this.aGk.aFN;
+            TbWebViewActivity.startActivity(activity, string, str2);
+        }
     }
 }

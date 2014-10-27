@@ -7,23 +7,23 @@ import com.baidu.tbadk.TbConfig;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class e {
-    private final String a = TbConfig.getTempDirName();
-    private f b;
-    private g c;
-    private final Context d;
+    private final String ahw = TbConfig.getTempDirName();
+    private f ahx;
+    private g ahy;
+    private final Context mContext;
 
     public e(Context context) {
-        this.d = context;
+        this.mContext = context;
     }
 
     public boolean a(o oVar) {
         if (oVar == null) {
             return false;
         }
-        a();
-        this.b = new f(this, oVar);
-        this.b.setPriority(3);
-        this.b.execute(new Object[0]);
+        xQ();
+        this.ahx = new f(this, oVar);
+        this.ahx.setPriority(3);
+        this.ahx.execute(new Object[0]);
         return true;
     }
 
@@ -31,36 +31,36 @@ public class e {
         if (alVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        b();
-        this.c = new g(this, str, alVar);
-        this.c.setPriority(3);
-        this.c.execute(new Object[0]);
+        xR();
+        this.ahy = new g(this, str, alVar);
+        this.ahy.setPriority(3);
+        this.ahy.execute(new Object[0]);
         return true;
     }
 
-    public void a() {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+    public void xQ() {
+        if (this.ahx != null) {
+            this.ahx.cancel();
+            this.ahx = null;
         }
     }
 
-    public void b() {
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+    public void xR() {
+        if (this.ahy != null) {
+            this.ahy.cancel();
+            this.ahy = null;
         }
     }
 
-    public String a(String str) {
-        String b = b(str);
-        if (b == null) {
+    public String en(String str) {
+        String fileExtensionFromUrl = getFileExtensionFromUrl(str);
+        if (fileExtensionFromUrl == null) {
             return null;
         }
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(b.toLowerCase(Locale.getDefault()));
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl.toLowerCase(Locale.getDefault()));
     }
 
-    private String b(String str) {
+    private String getFileExtensionFromUrl(String str) {
         int lastIndexOf;
         if (!TextUtils.isEmpty(str)) {
             int lastIndexOf2 = str.lastIndexOf(35);

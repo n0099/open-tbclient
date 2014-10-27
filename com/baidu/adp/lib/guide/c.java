@@ -6,21 +6,21 @@ import android.os.Parcelable;
 class c implements Parcelable.Creator<Configuration> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
+    /* renamed from: c */
     public Configuration createFromParcel(Parcel parcel) {
         Configuration configuration = new Configuration();
-        configuration.c = parcel.readInt();
-        configuration.d = parcel.readInt();
-        configuration.e = parcel.readInt();
-        configuration.f = parcel.readInt();
-        configuration.g = parcel.readByte() == 1;
-        configuration.h = parcel.readByte() == 1;
+        configuration.jh = parcel.readInt();
+        configuration.ji = parcel.readInt();
+        configuration.jj = parcel.readInt();
+        configuration.jk = parcel.readInt();
+        configuration.jl = parcel.readByte() == 1;
+        configuration.jm = parcel.readByte() == 1;
         return configuration;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
+    /* renamed from: z */
     public Configuration[] newArray(int i) {
         return new Configuration[i];
     }

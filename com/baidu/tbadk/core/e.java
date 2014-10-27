@@ -1,65 +1,33 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.ae;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.ViewTreeObserver;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    protected ae a;
-    protected NewErrorData b = null;
+public class e implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ BaseFragmentActivity yG;
 
-    public e() {
-        this.a = null;
-        this.a = new ae();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(BaseFragmentActivity baseFragmentActivity) {
+        this.yG = baseFragmentActivity;
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.f();
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        Rect rect = new Rect();
+        this.yG.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int height = this.yG.getWindow().getDecorView().getRootView().getHeight();
+        int i = height - (rect.bottom - rect.top);
+        Context applicationContext = this.yG.getApplicationContext();
+        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (identifier > 0) {
+            i -= applicationContext.getResources().getDimensionPixelSize(identifier);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
-        this.a.a(str);
-    }
-
-    public void a(String str, String str2) {
-        this.a.a(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String b() {
-        String h = this.a.h();
-        this.b = new NewErrorData();
-        this.b.parserJson(h);
-        return h;
-    }
-
-    public boolean c() {
-        if (this.a != null) {
-            return this.a.a().b().b();
+        if (TbadkApplication.m251getInst().isKeyboardHeightCanSet(i) && i < (height * 2) / 3 && TbadkApplication.m251getInst().getKeyboardHeight() != i) {
+            TbadkApplication.m251getInst().setKeyboardHeight(i);
+            this.yG.onKeyboardHeightChanged(i);
         }
-        return false;
-    }
-
-    public String d() {
-        if (this.a != null) {
-            return this.a.e();
-        }
-        return null;
-    }
-
-    public int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return -1;
-    }
-
-    public String f() {
-        if (this.b != null) {
-            return this.b.getErrorMsg();
-        }
-        return null;
     }
 }

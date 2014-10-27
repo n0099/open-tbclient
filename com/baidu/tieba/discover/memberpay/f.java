@@ -3,13 +3,13 @@ package com.baidu.tieba.discover.memberpay;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public g a = new g();
-    public e b = new e();
+    public g aow = new g();
+    public e aox = new e();
 
-    public void a(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.a.a(jSONObject.optJSONObject("member"));
-            this.b.a(jSONObject.optJSONObject("adv_member"));
+            this.aow.parseJson(jSONObject.optJSONObject("member"));
+            this.aox.parseJson(jSONObject.optJSONObject("adv_member"));
         }
     }
 }

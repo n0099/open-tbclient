@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.account;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class i implements g {
-    final /* synthetic */ h a;
+    final /* synthetic */ h yY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.a = hVar;
+        this.yY = hVar;
     }
 
     @Override // com.baidu.tbadk.core.account.g

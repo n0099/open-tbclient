@@ -7,39 +7,39 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.relationship.n;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.coreExtra.relationship.o;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 public class AssortView extends View {
-    private Paint a;
-    private int b;
-    private a c;
+    private int Uy;
+    private a ahj;
+    private Paint gs;
 
     public AssortView(Context context) {
         super(context);
-        this.b = -1;
-        a();
+        this.Uy = -1;
+        init();
     }
 
     public AssortView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = -1;
-        a();
+        this.Uy = -1;
+        init();
     }
 
     public AssortView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = -1;
-        a();
+        this.Uy = -1;
+        init();
     }
 
-    private void a() {
-        this.a = new Paint();
+    private void init() {
+        this.gs = new Paint();
     }
 
     public void setOnTouchListener(a aVar) {
-        this.c = aVar;
+        this.ahj = aVar;
     }
 
     @Override // android.view.View
@@ -48,19 +48,15 @@ public class AssortView extends View {
         int height = getHeight();
         int width = getWidth();
         float f = (float) (width / 48.0d);
-        int length = height / n.a.length;
-        int length2 = n.a.length;
+        int length = height / o.Mu.length;
+        int length2 = o.Mu.length;
         for (int i = 0; i < length2; i++) {
-            this.a.setAntiAlias(true);
-            this.a.setTypeface(Typeface.DEFAULT_BOLD);
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                this.a.setColor(getResources().getColor(r.cp_cont_c_1));
-            } else {
-                this.a.setColor(getResources().getColor(r.cp_cont_c));
-            }
-            this.a.setTextSize(26.0f * f);
-            canvas.drawText(n.a[i], (width / 2) - (this.a.measureText(n.a[i]) / 2.0f), (length * i) + length, this.a);
-            this.a.reset();
+            this.gs.setAntiAlias(true);
+            this.gs.setTypeface(Typeface.DEFAULT_BOLD);
+            this.gs.setColor(aw.getColor(s.cp_cont_c));
+            this.gs.setTextSize(26.0f * f);
+            canvas.drawText(o.Mu[i], (width / 2) - (this.gs.measureText(o.Mu[i]) / 2.0f), (length * i) + length, this.gs);
+            this.gs.reset();
         }
     }
 
@@ -72,27 +68,27 @@ public class AssortView extends View {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * n.a.length);
-        if (y >= 0 && y < n.a.length) {
+        int y = (int) ((motionEvent.getY() / getHeight()) * o.Mu.length);
+        if (y >= 0 && y < o.Mu.length) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.b = y;
-                    if (this.c != null) {
-                        this.c.c(n.a[this.b]);
+                    this.Uy = y;
+                    if (this.ahj != null) {
+                        this.ahj.eg(o.Mu[this.Uy]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.c != null) {
-                        this.c.a();
+                    if (this.ahj != null) {
+                        this.ahj.xx();
                     }
-                    this.b = -1;
+                    this.Uy = -1;
                     return true;
                 case 2:
-                    if (this.b != y) {
-                        this.b = y;
-                        if (this.c != null) {
-                            this.c.c(n.a[this.b]);
+                    if (this.Uy != y) {
+                        this.Uy = y;
+                        if (this.ahj != null) {
+                            this.ahj.eg(o.Mu[this.Uy]);
                             return true;
                         }
                         return true;
@@ -102,9 +98,9 @@ public class AssortView extends View {
                     return true;
             }
         }
-        this.b = -1;
-        if (this.c != null) {
-            this.c.a();
+        this.Uy = -1;
+        if (this.ahj != null) {
+            this.ahj.xx();
             return true;
         }
         return true;

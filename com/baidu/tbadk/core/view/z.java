@@ -1,46 +1,20 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.adp.lib.d.c<TbImageView> {
-    private final /* synthetic */ Context a;
+public class z implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ UserIconBox Iz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(Context context) {
-        this.a = context;
+    public z(UserIconBox userIconBox) {
+        this.Iz = userIconBox;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public TbImageView a() {
-        return new TbImageView(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TbImageView b(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TbImageView c(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str != null) {
+            bn.a(this.Iz, false, new aa(this, str));
+        }
     }
 }

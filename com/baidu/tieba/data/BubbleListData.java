@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BubbleListData implements Serializable, Cloneable {
+public class BubbleListData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable, Cloneable {
     private static final long serialVersionUID = -4612117445868668894L;
     private List<BubbleData> b_info = new ArrayList();
     private String error_code;
@@ -14,28 +14,16 @@ public class BubbleListData implements Serializable, Cloneable {
         return this.error_code;
     }
 
-    public void setError_code(String str) {
-        this.error_code = str;
-    }
-
     public String getError_msg() {
         return this.error_msg;
-    }
-
-    public void setError_msg(String str) {
-        this.error_msg = str;
     }
 
     public List<BubbleData> getB_info() {
         return this.b_info;
     }
 
-    public void setB_info(List<BubbleData> list) {
-        this.b_info = list;
-    }
-
     /* loaded from: classes.dex */
-    public class BubbleData implements Serializable {
+    public class BubbleData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1540726255641451917L;
         private String b_url;
         private int bcode;
@@ -59,16 +47,8 @@ public class BubbleListData implements Serializable, Cloneable {
             return this.b_url;
         }
 
-        public void setB_url(String str) {
-            this.b_url = str;
-        }
-
         public String getIcon_url() {
             return this.icon_url;
-        }
-
-        public void setIcon_url(String str) {
-            this.icon_url = str;
         }
 
         public int getCan_use() {
@@ -91,10 +71,6 @@ public class BubbleListData implements Serializable, Cloneable {
             return this.is_free;
         }
 
-        public void setIs_free(int i) {
-            this.is_free = i;
-        }
-
         public boolean canUse() {
             return this.can_use == 1;
         }
@@ -111,30 +87,18 @@ public class BubbleListData implements Serializable, Cloneable {
             return this.bname;
         }
 
-        public void setBname(String str) {
-            this.bname = str;
-        }
-
         public String getLevel_name() {
             return this.level_name;
-        }
-
-        public void setLevel_name(String str) {
-            this.level_name = str;
         }
 
         public int getTime_interval() {
             return this.time_interval;
         }
-
-        public void setTime_interval(int i) {
-            this.time_interval = i;
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m253clone() {
+    public BubbleListData m252clone() {
         try {
             Object clone = super.clone();
             if (clone instanceof BubbleListData) {

@@ -1,84 +1,81 @@
 package com.baidu.tbadk.editortool;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private EmotionTabHorizonScrollView a;
-    private ImageView b;
-    private w c;
+    private w RC;
+    private EmotionTabHorizonScrollView Se;
+    private ImageView Sf;
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a(context);
+        init(context);
     }
 
     public EmotionTabWidgetView(Context context) {
         super(context);
-        a(context);
+        init(context);
     }
 
-    private void a(Context context) {
+    private void init(Context context) {
         removeAllViews();
-        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.emotion_tab_widget, this, true);
-        this.a = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.u.face_tab_scroll_view);
-        this.b = (ImageView) findViewById(com.baidu.tieba.u.face_tab_delete);
-        this.b.setOnClickListener(new s(this));
+        com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.emotion_tab_widget, this, true);
+        this.Se = (EmotionTabHorizonScrollView) findViewById(com.baidu.tieba.v.face_tab_scroll_view);
+        this.Sf = (ImageView) findViewById(com.baidu.tieba.v.face_tab_delete);
+        this.Sf.setOnClickListener(new s(this));
     }
 
     public void setFrom(int i) {
-        if (this.a != null) {
-            this.a.setFrom(i);
+        if (this.Se != null) {
+            this.Se.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<ad> arrayList) {
-        this.a.setDatas(arrayList);
+        this.Se.setDatas(arrayList);
     }
 
-    public void a(ad adVar) {
-        this.a.a(adVar);
+    public void d(ad adVar) {
+        this.Se.d(adVar);
     }
 
     public void setCurrentTab(int i) {
-        this.a.setCurrentTab(i);
+        this.Se.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(t tVar) {
-        this.a.setOnTabSelectedListener(tVar);
+        this.Se.setOnTabSelectedListener(tVar);
     }
 
-    public void a() {
-        this.a.b();
+    public void reset() {
+        this.Se.reset();
     }
 
-    public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.r.editor_tool_container_bg_1 : com.baidu.tieba.r.editor_tool_container_bg));
-        Resources resources = getContext().getResources();
-        this.a.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.t.but_face_close_1 : com.baidu.tieba.t.but_face_close;
-        int i3 = i == 1 ? com.baidu.tieba.r.emotion_delete_bg_1 : com.baidu.tieba.r.emotion_delete_bg;
-        this.b.setImageResource(i2);
-        this.b.setBackgroundColor(resources.getColor(i3));
+    public void onChangeSkinType(int i) {
+        aw.d(this, com.baidu.tieba.s.editor_tool_container_bg, i);
+        this.Se.bN(i);
+        aw.a(this.Sf, com.baidu.tieba.u.but_face_close, i);
+        aw.d(this.Sf, com.baidu.tieba.s.emotion_delete_bg, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.b.setVisibility(0);
+            this.Sf.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.Sf.setVisibility(8);
         }
     }
 
-    public void a(int i, boolean z) {
-        this.a.a(i, z);
+    public void f(int i, boolean z) {
+        this.Se.f(i, z);
     }
 
     public void setOnDataSelected(w wVar) {
-        this.c = wVar;
+        this.RC = wVar;
     }
 }

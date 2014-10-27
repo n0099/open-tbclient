@@ -5,29 +5,29 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+    private final /* synthetic */ String Ka;
+    final /* synthetic */ EditHeadActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EditHeadActivity editHeadActivity, String str, int i) {
-        this.a = editHeadActivity;
-        this.b = str;
-        this.c = i;
+        this.this$0 = editHeadActivity;
+        this.Ka = str;
+        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ProgressBar progressBar;
         String str;
-        progressBar = this.a.n;
+        progressBar = this.this$0.mProgress;
         if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.a.B;
+            String str2 = this.Ka;
+            str = this.this$0.JS;
             if (!str2.equals(str)) {
-                this.a.a(this.b);
-                this.a.b(this.b);
-                this.a.z = this.c;
+                this.this$0.ck(this.Ka);
+                this.this$0.cl(this.Ka);
+                this.this$0.JQ = this.val$id;
             }
         }
     }

@@ -3,11 +3,11 @@ package com.baidu.tieba.img.view;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ DragHorizonScrollView a;
+    final /* synthetic */ DragHorizonScrollView blz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(DragHorizonScrollView dragHorizonScrollView) {
-        this.a = dragHorizonScrollView;
+        this.blz = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
@@ -18,29 +18,29 @@ class b implements Runnable {
         int max;
         Scroller scroller2;
         Scroller scroller3;
-        i = this.a.f;
+        i = this.blz.blc;
         if (i == 0) {
-            scroller3 = this.a.m;
+            scroller3 = this.blz.blg;
             scroller3.forceFinished(true);
             return;
         }
-        scroller = this.a.m;
+        scroller = this.blz.blg;
         boolean computeScrollOffset = scroller.computeScrollOffset();
         int currX = scroller.getCurrX();
-        i2 = this.a.B;
+        i2 = this.blz.blr;
         int i3 = i2 - currX;
         if (i3 > 0) {
-            max = Math.min(((this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight()) - 1, i3);
+            max = Math.min(((this.blz.getWidth() - this.blz.getPaddingLeft()) - this.blz.getPaddingRight()) - 1, i3);
         } else {
-            max = Math.max(-(((this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight()) - 1), i3);
+            max = Math.max(-(((this.blz.getWidth() - this.blz.getPaddingLeft()) - this.blz.getPaddingRight()) - 1), i3);
         }
-        this.a.b(-max);
+        this.blz.gq(-max);
         if (!computeScrollOffset) {
-            scroller2 = this.a.m;
+            scroller2 = this.blz.blg;
             scroller2.forceFinished(true);
             return;
         }
-        this.a.B = currX;
-        this.a.post(this);
+        this.blz.blr = currX;
+        this.blz.post(this);
     }
 }

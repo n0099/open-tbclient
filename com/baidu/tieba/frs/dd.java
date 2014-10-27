@@ -1,21 +1,9 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd implements com.baidu.tbadk.coreExtra.view.c {
-    final /* synthetic */ cv a;
+public interface dd {
+    void a(int i, boolean z, e eVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(cv cvVar) {
-        this.a = cvVar;
-    }
+    void eH(int i);
 
-    @Override // com.baidu.tbadk.coreExtra.view.c
-    public void a() {
-        this.a.af();
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.c
-    public void b() {
-        this.a.L();
-    }
+    void g(b bVar);
 }

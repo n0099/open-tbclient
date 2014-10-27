@@ -1,102 +1,84 @@
 package com.baidu.tieba.editortool;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements View.OnClickListener {
-    final /* synthetic */ q a;
-    private final /* synthetic */ FrameLayout b;
+public class t extends BaseAdapter {
+    final /* synthetic */ EditorToolComponetContainer aqU;
+    private final WriteImagesInfo aqX;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar, FrameLayout frameLayout) {
-        this.a = qVar;
-        this.b = frameLayout;
+    public t(EditorToolComponetContainer editorToolComponetContainer, WriteImagesInfo writeImagesInfo) {
+        this.aqU = editorToolComponetContainer;
+        this.aqX = writeImagesInfo;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        WriteImagesInfo writeImagesInfo;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteImagesInfo writeImagesInfo2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditorToolComponetContainer editorToolComponetContainer3;
-        EditorToolComponetContainer editorToolComponetContainer4;
-        EditorToolComponetContainer editorToolComponetContainer5;
-        WriteImagesInfo writeImagesInfo3;
-        EditorToolComponetContainer editorToolComponetContainer6;
-        EditorToolComponetContainer editorToolComponetContainer7;
-        WriteImagesInfo writeImagesInfo4;
-        EditorToolComponetContainer editorToolComponetContainer8;
-        EditorToolComponetContainer editorToolComponetContainer9;
-        EditorToolComponetContainer editorToolComponetContainer10;
-        EditorToolComponetContainer editorToolComponetContainer11;
-        com.baidu.tbadk.editortool.w wVar;
-        EditorToolComponetContainer editorToolComponetContainer12;
-        EditorToolComponetContainer editorToolComponetContainer13;
-        EditorToolComponetContainer editorToolComponetContainer14;
-        EditorToolComponetContainer editorToolComponetContainer15;
-        EditorToolComponetContainer editorToolComponetContainer16;
-        WriteImagesInfo writeImagesInfo5;
-        EditorToolComponetContainer editorToolComponetContainer17;
-        EditorToolComponetContainer editorToolComponetContainer18;
-        com.baidu.tbadk.editortool.w wVar2;
-        writeImagesInfo = this.a.b;
-        editorToolComponetContainer = this.a.a;
-        writeImagesInfo2 = editorToolComponetContainer.w;
-        if (writeImagesInfo == writeImagesInfo2) {
-            editorToolComponetContainer13 = this.a.a;
-            if (!editorToolComponetContainer13.l.e()) {
-                editorToolComponetContainer14 = this.a.a;
-                editorToolComponetContainer14.j.a(this.b);
-                editorToolComponetContainer15 = this.a.a;
-                int a = editorToolComponetContainer15.l.a(this.b);
-                editorToolComponetContainer16 = this.a.a;
-                writeImagesInfo5 = editorToolComponetContainer16.w;
-                ImageFileInfo remove = writeImagesInfo5.getChosedFiles().remove(a);
-                if (remove.isTempFile()) {
-                    this.a.a(remove.getFilePath());
-                }
-                editorToolComponetContainer17 = this.a.a;
-                editorToolComponetContainer17.b.e();
-                editorToolComponetContainer18 = this.a.a;
-                wVar2 = editorToolComponetContainer18.x;
-                wVar2.a(51, null);
-                return;
-            }
-            return;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.aqX == null) {
+            return 0;
         }
-        editorToolComponetContainer2 = this.a.a;
-        if (!editorToolComponetContainer2.i.e()) {
-            editorToolComponetContainer3 = this.a.a;
-            editorToolComponetContainer3.g.a(this.b);
-            editorToolComponetContainer4 = this.a.a;
-            int a2 = editorToolComponetContainer4.i.a(this.b);
-            editorToolComponetContainer5 = this.a.a;
-            writeImagesInfo3 = editorToolComponetContainer5.v;
-            ImageFileInfo remove2 = writeImagesInfo3.getChosedFiles().remove(a2);
-            if (remove2.isTempFile()) {
-                this.a.a(remove2.getFilePath());
+        return this.aqX.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.aqX.getChosedFiles().get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        int i2;
+        int i3;
+        com.baidu.tbadk.img.e eVar;
+        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.g.b.ek().inflate(this.aqU.mContext, com.baidu.tieba.w.editor_muti_image_item, null) : view;
+        TbadkApplication.m251getInst().getSkinType();
+        ImageFileInfo imageFileInfo = this.aqX.getChosedFiles().get(i);
+        int measuredWidth = viewGroup.getMeasuredWidth();
+        i2 = this.aqU.aqP;
+        int i4 = measuredWidth - (i2 * 2);
+        i3 = this.aqU.padding;
+        int i5 = i4 + i3;
+        FrameLayout frameLayout2 = (FrameLayout) frameLayout;
+        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.v.iv_container);
+        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(com.baidu.tieba.v.shadow_container);
+        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(com.baidu.tieba.v.iv);
+        if (i5 > 0) {
+            int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
+            int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
+            com.baidu.tbadk.core.util.aw.h(frameLayout3, com.baidu.tieba.u.bg_add_photo);
+            frameLayout3.setForeground(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.bg_add_photo_foregroundselector));
+            imageFileInfo.clearPageActions();
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.w(paddingRight, measuredHeight));
+            tbImageView.setTag(imageFileInfo.toCachedKey(true));
+            eVar = this.aqU.aqT;
+            if (eVar.a(imageFileInfo, new u(this, viewGroup), true) != null) {
+                tbImageView.invalidate();
             }
-            editorToolComponetContainer6 = this.a.a;
-            int maxItemNum = editorToolComponetContainer6.i.getMaxItemNum();
-            editorToolComponetContainer7 = this.a.a;
-            writeImagesInfo4 = editorToolComponetContainer7.v;
-            int size = writeImagesInfo4.size();
-            editorToolComponetContainer8 = this.a.a;
-            String string = editorToolComponetContainer8.getResources().getString(com.baidu.tieba.x.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
-            editorToolComponetContainer9 = this.a.a;
-            editorToolComponetContainer9.m.setText(string);
-            editorToolComponetContainer10 = this.a.a;
-            editorToolComponetContainer10.b.a(new StringBuilder(String.valueOf(size)).toString());
-            if (size == 0) {
-                editorToolComponetContainer12 = this.a.a;
-                editorToolComponetContainer12.b.a();
-            }
-            editorToolComponetContainer11 = this.a.a;
-            wVar = editorToolComponetContainer11.x;
-            wVar.a(13, null);
         }
+        frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
+        frameLayout2.setOnClickListener(new v(this, viewGroup));
+        ImageView imageView = (ImageView) frameLayout2.findViewById(com.baidu.tieba.v.delete);
+        com.baidu.tbadk.core.util.aw.c(imageView, com.baidu.tieba.u.btn_add_photo_close_n);
+        imageView.setOnClickListener(new w(this, frameLayout2));
+        return frameLayout2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void eH(String str) {
+        new x(this, str).execute(new Void[0]);
     }
 }

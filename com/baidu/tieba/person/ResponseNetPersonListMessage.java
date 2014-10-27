@@ -7,10 +7,10 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.data.am data;
+    private com.baidu.tieba.data.aj data;
     private int mErrCode;
     private String mErrMsg;
-    private dt mModel;
+    private bt mModel;
 
     public ResponseNetPersonListMessage(int i) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
@@ -26,12 +26,12 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public com.baidu.tieba.data.am getData() {
+    public com.baidu.tieba.data.aj getData() {
         return this.data;
     }
 
-    public void setModel(dt dtVar) {
-        this.mModel = dtVar;
+    public void setModel(bt btVar) {
+        this.mModel = btVar;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -41,8 +41,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new com.baidu.tieba.data.am();
-            this.data.a(jSONObject);
+            this.data = new com.baidu.tieba.data.aj();
+            this.data.parserJson(jSONObject);
         }
     }
 
@@ -50,13 +50,13 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (getError() == 0 && this.mModel != null && this.mModel.a() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+        if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(dt.b);
+            boolean z = tag != null && tag.equals(bt.bDc);
             String str = new String(bArr);
-            com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.my_pages");
-            if (b != null) {
-                b.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.b(), str, 604800000L);
+            com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages");
+            if (bd != null) {
+                bd.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, 604800000L);
             }
         }
     }

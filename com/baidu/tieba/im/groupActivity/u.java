@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupActivity;
 
 import android.os.Handler;
 import android.os.Message;
-import android.widget.TextView;
 /* loaded from: classes.dex */
 class u extends Handler {
     private u() {
@@ -18,9 +17,9 @@ class u extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                if (s.e() != null) {
-                    s.e().setVisibility(8);
-                    s.a((TextView) null);
+                if (s.Kk() != null) {
+                    s.Kk().setVisibility(8);
+                    s.g(null);
                     return;
                 }
                 return;

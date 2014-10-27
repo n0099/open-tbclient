@@ -1,23 +1,46 @@
 package com.baidu.tieba.editortool;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ EditorToolComponetContainer a;
-    private final /* synthetic */ com.baidu.tbadk.editortool.w b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(EditorToolComponetContainer editorToolComponetContainer, com.baidu.tbadk.editortool.w wVar) {
-        this.a = editorToolComponetContainer;
-        this.b = wVar;
+import android.view.View;
+/* loaded from: classes.dex */
+public class j {
+    private EditorInfoContainer aqk;
+
+    public j(EditorInfoContainer editorInfoContainer) {
+        this.aqk = editorInfoContainer;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void a(int i, Object obj) {
-        if (i == 46) {
-            this.a.b.c();
-        } else if (i == 47) {
-            this.a.b.d();
+    public void sB() {
+        if (this.aqk != null) {
+            this.aqk.sB();
         }
-        this.b.a(i, obj);
+    }
+
+    public void g(View.OnClickListener onClickListener) {
+        if (this.aqk != null && this.aqk.aqd != null) {
+            this.aqk.aqd.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void j(int i, String str) {
+        if (this.aqk != null && this.aqk.aqd != null) {
+            this.aqk.aqd.k(i, str);
+        }
+    }
+
+    public void setLocationInfoViewState(int i) {
+        j(i, null);
+    }
+
+    public int getLocationInfoViewState() {
+        if (this.aqk == null || this.aqk.aqd == null) {
+            return 0;
+        }
+        return this.aqk.aqd.getState();
+    }
+
+    public void destroy() {
+        if (this.aqk != null) {
+            this.aqk.setVisibility(8);
+        }
     }
 }

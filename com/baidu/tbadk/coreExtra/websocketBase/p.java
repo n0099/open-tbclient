@@ -4,42 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private static /* synthetic */ int[] c;
-    private boolean a = false;
-    private int b = 0;
+    private boolean PR = false;
+    private int PS = 0;
 
-    static /* synthetic */ int[] c() {
-        int[] iArr = c;
-        if (iArr == null) {
-            iArr = new int[UtilHelper.NetworkStateInfo.valuesCustom().length];
-            try {
-                iArr[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 4;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 3;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.UNAVAIL.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 2;
-            } catch (NoSuchFieldError e4) {
-            }
-            c = iArr;
-        }
-        return iArr;
-    }
-
-    public void a(String str) {
+    public void cS(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -47,8 +19,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.a = false;
-        this.b = 0;
+        this.PR = false;
+        this.PS = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -73,11 +45,11 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.e.c.a(String.valueOf(str3), (int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), d());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.f(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), qG());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.a = true;
+                                this.PR = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -89,50 +61,50 @@ public class p {
                             } catch (Exception e4) {
                                 BdLog.e(e4.getMessage());
                             }
-                        } catch (Throwable th) {
+                        } catch (Exception e5) {
+                            i = i3;
+                            i2 = i5;
+                            BdLog.e(e5.getMessage());
                             try {
                                 socket.close();
-                            } catch (Exception e5) {
-                                BdLog.e(e5.getMessage());
+                            } catch (Exception e6) {
+                                BdLog.e(e6.getMessage());
                             }
-                            throw th;
                         }
-                    } catch (Exception e6) {
-                        i = i3;
-                        i2 = i5;
-                        BdLog.e(e6.getMessage());
+                        i4++;
+                        i5 = i2;
+                        i3 = i;
+                    } catch (Throwable th) {
                         try {
                             socket.close();
                         } catch (Exception e7) {
                             BdLog.e(e7.getMessage());
                         }
+                        throw th;
                     }
-                    i4++;
-                    i5 = i2;
-                    i3 = i;
                 }
-                if (this.a && i3 > 0) {
-                    this.b = i5 / i3;
+                if (this.PR && i3 > 0) {
+                    this.PS = i5 / i3;
                 }
             }
         }
     }
 
-    public boolean a() {
-        return this.a;
+    public boolean isSucc() {
+        return this.PR;
     }
 
-    public int b() {
-        return this.b;
+    public int qF() {
+        return this.PS;
     }
 
-    private int d() {
-        switch (c()[UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()).ordinal()]) {
-            case 2:
+    private int qG() {
+        switch (com.baidu.adp.lib.util.j.fm()) {
+            case 1:
                 return 3000;
-            case 3:
+            case 2:
                 return TbConfig.BIG_IMAGE_MIN_CAPACITY;
-            case 4:
+            case 3:
             default:
                 return 5000;
         }

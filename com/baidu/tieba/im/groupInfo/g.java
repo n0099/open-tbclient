@@ -1,56 +1,40 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.support.v4.view.ViewPager;
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GroupImageActivity a;
+public class g implements DialogInterface.OnClickListener {
+    final /* synthetic */ GroupImageActivity bah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(GroupImageActivity groupImageActivity) {
-        this.a = groupImageActivity;
+        this.bah = groupImageActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        int i2;
-        GroupImageActivity groupImageActivity = this.a;
-        i2 = this.a.c;
-        groupImageActivity.a(i2, i);
-        this.a.c = i;
-        this.a.b();
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        long j;
-        ArrayList arrayList;
-        int i2;
-        ArrayList arrayList2;
-        HashMap hashMap;
-        ArrayList arrayList3;
-        int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.a.s;
-            if (nanoTime - j > 300000000) {
-                arrayList = this.a.b;
-                if (arrayList != null) {
-                    i2 = this.a.c;
-                    arrayList2 = this.a.b;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.a.t;
-                        arrayList3 = this.a.b;
-                        i3 = this.a.c;
-                        hashMap.put((String) arrayList3.get(i3), true);
-                    }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog listMenu;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        j jVar;
+        listMenu = this.bah.getListMenu();
+        if (dialogInterface == listMenu && i == 0) {
+            try {
+                multiImageView = this.bah.aNr;
+                byte[] currentImageData = multiImageView.getCurrentImageData();
+                if (currentImageData != null) {
+                    multiImageView2 = this.bah.aNr;
+                    String currentImageUrl = multiImageView2.getCurrentImageUrl();
+                    this.bah.bag = new j(this.bah, currentImageUrl, currentImageData);
+                    jVar = this.bah.bag;
+                    jVar.execute(new String[0]);
+                    this.bah.showProgressBarWithOffset(0, 0);
+                } else {
+                    this.bah.showToast(this.bah.getString(com.baidu.tieba.y.no_data));
                 }
+            } catch (Exception e) {
             }
         }
     }

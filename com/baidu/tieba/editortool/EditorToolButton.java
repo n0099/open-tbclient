@@ -7,139 +7,139 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] h = {com.baidu.tieba.q.custom_state_focused};
-    protected static final int[] i = {com.baidu.tieba.q.custom_state_skin};
-    protected TextView a;
-    protected Context b;
-    protected boolean c;
-    protected boolean d;
-    protected boolean e;
-    protected boolean f;
-    protected int g;
+    protected static final int[] aqs = {com.baidu.tieba.r.custom_state_focused};
+    protected static final int[] aqt = {com.baidu.tieba.r.custom_state_skin};
+    protected TextView Hl;
+    protected boolean aqo;
+    protected boolean aqp;
+    protected boolean aqq;
+    protected boolean aqr;
+    protected Context mContext;
+    protected int mSkinType;
 
     @Override // android.view.View
-    protected void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        super.onLayout(z, i2, i3, i4, i5);
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
     }
 
     public EditorToolButton(Context context) {
         super(context);
-        this.c = false;
-        this.d = true;
-        this.e = false;
-        this.f = false;
-        this.g = 0;
-        this.b = context;
+        this.aqo = false;
+        this.aqp = true;
+        this.aqq = false;
+        this.aqr = false;
+        this.mSkinType = 0;
+        this.mContext = context;
     }
 
     public EditorToolButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = false;
-        this.d = true;
-        this.e = false;
-        this.f = false;
-        this.g = 0;
-        this.b = context;
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.custom_state);
-        this.c = obtainStyledAttributes.getBoolean(1, false);
+        this.aqo = false;
+        this.aqp = true;
+        this.aqq = false;
+        this.aqr = false;
+        this.mSkinType = 0;
+        this.mContext = context;
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.custom_state);
+        this.aqo = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public int[] onCreateDrawableState(int i2) {
-        int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 1);
-        if (this.c) {
-            mergeDrawableStates(onCreateDrawableState, h);
+    public int[] onCreateDrawableState(int i) {
+        int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
+        if (this.aqo) {
+            mergeDrawableStates(onCreateDrawableState, aqs);
         }
         return onCreateDrawableState;
     }
 
-    public void a() {
-        if (!this.f) {
+    public void Ba() {
+        if (!this.aqr) {
             setVisibility(0);
         }
     }
 
     public TextView getTip() {
-        return this.a;
+        return this.Hl;
     }
 
-    public void b() {
+    public void hide() {
         setVisibility(8);
     }
 
-    public void c() {
+    public void enable() {
         setEnabled(true);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
-        if (!this.e) {
+        if (!this.aqq) {
             super.setEnabled(z);
         }
     }
 
-    public void d() {
+    public void disable() {
         setEnabled(false);
     }
 
-    public void a(TextView textView) {
-        this.a = textView;
+    public void f(TextView textView) {
+        this.Hl = textView;
     }
 
-    public void e() {
-        if (this.a != null) {
-            this.a.setVisibility(0);
+    public void qj() {
+        if (this.Hl != null) {
+            this.Hl.setVisibility(0);
         }
     }
 
-    public void a(String str) {
-        if (this.a != null) {
-            this.a.setVisibility(0);
-            this.a.setText(str);
+    public void eG(String str) {
+        if (this.Hl != null) {
+            this.Hl.setVisibility(0);
+            this.Hl.setText(str);
         }
     }
 
-    public void f() {
-        if (this.a != null) {
-            this.a.setVisibility(8);
+    public void qk() {
+        if (this.Hl != null) {
+            this.Hl.setVisibility(8);
         }
     }
 
     @Override // android.view.View
     public void setFocusable(boolean z) {
-        this.d = z;
+        this.aqp = z;
         if (!z) {
-            i();
+            Bd();
         }
     }
 
-    public boolean g() {
-        return this.d;
+    public boolean Bb() {
+        return this.aqp;
     }
 
     public void setHardDisabled(boolean z) {
-        this.e = z;
-        d();
+        this.aqq = z;
+        disable();
     }
 
     public void setHardInvisible(boolean z) {
-        this.f = z;
-        b();
+        this.aqr = z;
+        hide();
     }
 
-    public void h() {
-        this.c = true;
+    public void Bc() {
+        this.aqo = true;
         refreshDrawableState();
     }
 
     @Override // android.view.View
     public boolean isFocused() {
-        return this.c;
+        return this.aqo;
     }
 
-    public void i() {
-        this.c = false;
+    public void Bd() {
+        this.aqo = false;
         refreshDrawableState();
     }
 }

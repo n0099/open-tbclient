@@ -18,7 +18,7 @@ import protobuf.UserInfo;
 public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     private static final String CACHE_KEY_PREFIX = "group_info";
     private QueryGroupDetailResIdl mResData;
-    private j selfData;
+    private i selfData;
 
     public ResponseGroupInfoMessage() {
         super(103004);
@@ -30,7 +30,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         this.mResData = null;
     }
 
-    public j getData() {
+    public i getData() {
         return this.selfData;
     }
 
@@ -39,22 +39,22 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
         ActivityInfo activityInfo;
         Wire wire = new Wire(new Class[0]);
-        this.selfData = new j();
+        this.selfData = new i();
         this.mResData = (QueryGroupDetailResIdl) wire.parseFrom(bArr, QueryGroupDetailResIdl.class);
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.b(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.b(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.c(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.a(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.a(this.mResData.data.joinGroupNum.intValue());
-            this.selfData.d(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.e(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.fW(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.dk(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.dl(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.dj(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.fV(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
+            this.selfData.dm(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
-            this.selfData.a(groupData);
+            this.selfData.setGroup(groupData);
             List<UserInfo> list = this.mResData.data.member;
             LinkedList linkedList = new LinkedList();
             if (list != null) {
@@ -64,7 +64,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList.add(memberData);
                 }
             }
-            this.selfData.a(linkedList);
+            this.selfData.Y(linkedList);
             List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
             if (list2 != null) {
@@ -74,7 +74,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
                     linkedList2.add(photoUrlData);
                 }
             }
-            this.selfData.b(linkedList2);
+            this.selfData.Z(linkedList2);
             List<ActivityInfo> list3 = this.mResData.data.activity;
             if (list3 != null && list3.size() > 0 && (activityInfo = list3.get(0)) != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();
@@ -140,7 +140,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.b().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.kS().bc("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
         }
     }
 }

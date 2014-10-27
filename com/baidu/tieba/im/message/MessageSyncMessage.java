@@ -12,14 +12,50 @@ public class MessageSyncMessage extends TbSocketMessage {
     private int height;
     private boolean isForTimer;
     private SparseArray<Long> mMids;
+    private String notifyMaxTime;
+    private String notifyMinTime;
+    private String processType;
     private String pushTimes;
     private int smallHeight;
     private int smallWidth;
+    private String syncTypeString;
     private int width;
 
     public MessageSyncMessage() {
         super(202003);
         this.mMids = null;
+    }
+
+    public String getNotifyMinTime() {
+        return this.notifyMinTime;
+    }
+
+    public void setNotifyMinTime(String str) {
+        this.notifyMinTime = str;
+    }
+
+    public String getNotifyMaxTime() {
+        return this.notifyMaxTime;
+    }
+
+    public void setNotifyMaxTime(String str) {
+        this.notifyMaxTime = str;
+    }
+
+    public String getSyncTypeString() {
+        return this.syncTypeString;
+    }
+
+    public void setSyncTypeString(String str) {
+        this.syncTypeString = str;
+    }
+
+    public String getProcessType() {
+        return this.processType;
+    }
+
+    public void setProcessType(String str) {
+        this.processType = str;
     }
 
     public int getWidth() {
@@ -78,6 +114,10 @@ public class MessageSyncMessage extends TbSocketMessage {
         builder.smallHeight = Integer.valueOf(getSmallHeight());
         builder.smallWidth = Integer.valueOf(getSmallWidth());
         builder.pushTimes = getPushTimes();
+        builder.min_time = getNotifyMinTime();
+        builder.max_time = getNotifyMaxTime();
+        builder.gettype = getSyncTypeString();
+        builder.process_type = getProcessType();
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }

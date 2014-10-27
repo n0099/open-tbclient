@@ -3,17 +3,17 @@ package com.baidu.tbadk.browser;
 import android.view.View;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity a;
+    final /* synthetic */ WebTbActivity xR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(WebTbActivity webTbActivity) {
-        this.a = webTbActivity;
+        this.xR = webTbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.a.a.canGoForward()) {
-            this.a.a.goForward();
+        if (this.xR.xG.canGoBack()) {
+            this.xR.xG.goBack();
         }
     }
 }

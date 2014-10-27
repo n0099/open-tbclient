@@ -6,34 +6,34 @@ import android.widget.Toast;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class m {
-    private static Toast a;
-    private static Handler b = new Handler();
-    private static String c = null;
-    private static Runnable d = new n();
+    private static Toast nr;
+    private static Handler mHandler = new Handler();
+    private static String Dm = null;
+    private static Runnable Dk = new n();
 
     public static void a(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            b.removeCallbacks(d);
-            if (a != null) {
-                if (!str.equals(c)) {
-                    c = str;
-                    a.setText(str);
+            mHandler.removeCallbacks(Dk);
+            if (nr != null) {
+                if (!str.equals(Dm)) {
+                    Dm = str;
+                    nr.setText(str);
                 }
             } else {
-                c = str;
-                a = Toast.makeText(context, str, 0);
-                a.setGravity(17, 0, com.baidu.adp.lib.util.j.a(context, 100.0f));
+                Dm = str;
+                nr = Toast.makeText(context, str, 0);
+                nr.setGravity(17, 0, com.baidu.adp.lib.util.m.dip2px(context, 100.0f));
             }
-            b.postDelayed(d, i);
-            a.show();
+            mHandler.postDelayed(Dk, i);
+            nr.show();
         }
     }
 
-    public static void a(Context context, String str) {
+    public static void showToast(Context context, String str) {
         a(context, str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
     }
 
-    public static void a(Context context, int i) {
-        a(context, context.getResources().getString(i));
+    public static void showToast(Context context, int i) {
+        showToast(context, context.getResources().getString(i));
     }
 }

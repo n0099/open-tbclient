@@ -5,31 +5,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e {
-    private ArrayList<b> a = new ArrayList<>();
-    private Context b;
+    private ArrayList<b> VW = new ArrayList<>();
+    private Context mContext;
 
     public e(Context context) {
-        this.b = context;
+        this.mContext = context;
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.b() != null) {
-            Iterator<b> it = this.a.iterator();
+        if (bVar != null && bVar.sD() != null) {
+            Iterator<b> it = this.VW.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.b() != null && next.b().c == bVar.b().c) {
+                if (next != null && next.sD() != null && next.sD().type == bVar.sD().type) {
                     return;
                 }
             }
-            this.a.add(bVar);
+            this.VW.add(bVar);
         }
     }
 
-    public ArrayList<b> a() {
-        return this.a;
+    public ArrayList<b> sE() {
+        return this.VW;
     }
 
-    public Context b() {
-        return this.b;
+    public Context getContext() {
+        return this.mContext;
     }
 }

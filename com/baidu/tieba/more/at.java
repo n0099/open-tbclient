@@ -3,19 +3,15 @@ package com.baidu.tieba.more;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class at implements DialogInterface.OnClickListener {
-    final /* synthetic */ SystemHelpSettingActivity a;
+    final /* synthetic */ SystemHelpSettingActivity bsJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.a = systemHelpSettingActivity;
+        this.bsJ = systemHelpSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        av avVar;
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.deleting));
-        avVar = this.a.b;
-        avVar.b();
         dialogInterface.cancel();
     }
 }

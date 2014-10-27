@@ -2,44 +2,43 @@ package com.baidu.tieba.account.appeal;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ay;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<String, Object, AppealData> {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private WeakReference<h> e;
+    private String afX;
+    private String afY;
+    private String afZ;
+    private String aga;
+    private WeakReference<h> agb;
 
     public g(String str, String str2, String str3, String str4, h hVar) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = new WeakReference<>(hVar);
+        this.afX = str;
+        this.afY = str2;
+        this.afZ = str3;
+        this.aga = str4;
+        this.agb = new WeakReference<>(hVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: o */
     public AppealData doInBackground(String... strArr) {
         String str;
-        str = f.a;
-        ae aeVar = new ae(str);
-        aeVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
-        aeVar.a(com.baidu.tbadk.core.frameworkData.a.USER_NAME, this.c);
-        aeVar.a("content", this.d);
-        String h = aeVar.h();
-        if (aeVar.a().b().b()) {
+        str = f.afW;
+        ac acVar = new ac(str);
+        acVar.k("forum_id", this.afX);
+        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.afY);
+        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_NAME, this.afZ);
+        acVar.k("content", this.aga);
+        String lA = acVar.lA();
+        if (acVar.mc().nb().jq()) {
             try {
-                return (AppealData) new GsonBuilder().create().fromJson(h, (Class<Object>) AppealData.class);
+                return (AppealData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, AppealData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 AppealData appealData = new AppealData();
@@ -48,20 +47,20 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
             }
         }
         AppealData appealData2 = new AppealData();
-        appealData2.errNo = aeVar.c();
-        appealData2.errMsg = aeVar.e();
+        appealData2.errNo = acVar.mg();
+        appealData2.errMsg = acVar.getErrorString();
         return appealData2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(AppealData appealData) {
         super.onPostExecute(appealData);
-        h hVar = this.e.get();
+        h hVar = this.agb.get();
         if (hVar != null) {
-            if (appealData.errNo == 0 && ba.c(appealData.errMsg)) {
+            if (appealData.errNo == 0 && ay.aA(appealData.errMsg)) {
                 hVar.a(appealData);
             } else {
                 hVar.b(appealData);

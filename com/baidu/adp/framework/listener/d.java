@@ -1,9 +1,7 @@
 package com.baidu.adp.framework.listener;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.Message;
 /* loaded from: classes.dex */
-public abstract class d extends MessageListener<SocketResponsedMessage> {
-    public d(int i) {
-        super(i);
-    }
+public interface d<T extends Message<?>> {
+    boolean a(T t);
 }

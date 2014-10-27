@@ -1,15 +1,23 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-class cx implements Runnable {
-    final /* synthetic */ PersonalChatActivity a;
+class cx implements v {
+    final /* synthetic */ PersonalChatActivity aPI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cx(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+        this.aPI = personalChatActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.y();
+    @Override // com.baidu.tieba.im.chat.v
+    public void c(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.aPI.aPQ.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.v
+    public void BV() {
     }
 }

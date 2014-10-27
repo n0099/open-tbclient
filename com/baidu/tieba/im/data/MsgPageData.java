@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class MsgPageData implements Serializable {
+public class MsgPageData extends i implements Serializable {
     private static final long serialVersionUID = -7666708726763728750L;
     private boolean isNewAdd = false;
     private int newAddNum = 0;

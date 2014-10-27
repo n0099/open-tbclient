@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animation.AnimationListener {
-    final /* synthetic */ d a;
+    final /* synthetic */ d jv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.a = dVar;
+        this.jv = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,10 +19,10 @@ public class e implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         h hVar;
         h hVar2;
-        hVar = this.a.e;
+        hVar = this.jv.jt;
         if (hVar != null) {
-            hVar2 = this.a.e;
-            hVar2.a();
+            hVar2 = this.jv.jt;
+            hVar2.dB();
         }
     }
 

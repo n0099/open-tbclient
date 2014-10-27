@@ -1,43 +1,104 @@
 package com.baidu.tieba.pb.main;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm extends CustomMessageListener {
-    final /* synthetic */ bl a;
+public class bm {
+    private static bm bwr;
+    private com.baidu.adp.lib.cache.t<byte[]> bws = null;
+    private com.baidu.adp.lib.cache.t<byte[]> bwt = null;
+    private long bwu = 0;
+    private long bwv = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bm(bl blVar, int i) {
-        super(i);
-        this.a = blVar;
+    public static synchronized bm WB() {
+        bm bmVar;
+        synchronized (bm.class) {
+            if (bwr == null) {
+                bwr = new bm();
+            }
+            bmVar = bwr;
+        }
+        return bmVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        BdUniqueId bdUniqueId2;
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
-        com.baidu.tieba.data.aj pbData;
-        bn bnVar;
-        bn bnVar2;
-        bdUniqueId = this.a.unique_id;
-        if (bdUniqueId == customResponsedMessage.getOrginalMessage().getTag() && customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId2 = this.a.unique_id;
-            if (tag != bdUniqueId2 || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
-                return;
+    private bm() {
+        WC();
+    }
+
+    private void WC() {
+        if (this.bws == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.bws = com.baidu.tbadk.core.a.a.kS().bc("tb.pb_mark");
+            this.bwv = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.bwt == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.bwt = com.baidu.tbadk.core.a.a.kS().bc("tb.pb_normal");
+            this.bwu = System.currentTimeMillis() - currentTimeMillis2;
+        }
+    }
+
+    public void y(String str, boolean z) {
+        if (z) {
+            if (this.bws != null && str != null) {
+                this.bws.b(str, new byte[0], 0L);
             }
-            this.a.a(pbData);
-            bnVar = this.a.y;
-            if (bnVar != null && pbData != null) {
-                bnVar2 = this.a.y;
-                bnVar2.a(true, 0, pbPageReadLocalResponseMessage.getUpdateType(), 0, pbData, pbPageReadLocalResponseMessage.getErrorString(), 0);
+        } else if (this.bwt != null && str != null) {
+            this.bwt.b(str, new byte[0], 0L);
+        }
+    }
+
+    public byte[] z(String str, boolean z) {
+        com.baidu.adp.lib.cache.v<byte[]> G;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.bws != null && str != null) {
+                G = this.bws.G(str);
+                j = this.bwv;
             }
+            G = null;
+        } else {
+            if (this.bwt != null && str != null) {
+                G = this.bwt.G(str);
+                j = this.bwu;
+            }
+            G = null;
+        }
+        if (G == null || G.value == null) {
+            return null;
+        }
+        com.baidu.tbadk.performanceLog.p pVar = new com.baidu.tbadk.performanceLog.p();
+        pVar.dm(1001);
+        pVar.Zd = (System.currentTimeMillis() - currentTimeMillis) + j;
+        pVar.uJ();
+        return G.value;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            WC();
+            if (z) {
+                this.bws.a(str, bArr, 604800000L);
+            } else {
+                this.bwt.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.p pVar = new com.baidu.tbadk.performanceLog.p();
+            pVar.dm(1001);
+            pVar.Ze = currentTimeMillis2;
+            pVar.uK();
+        }
+    }
+
+    public void j(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            WC();
+            this.bws.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.p pVar = new com.baidu.tbadk.performanceLog.p();
+            pVar.dm(1001);
+            pVar.Ze = currentTimeMillis2;
+            pVar.uK();
         }
     }
 }

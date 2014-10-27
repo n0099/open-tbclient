@@ -1,32 +1,32 @@
 package com.baidu.tieba.write;
 
-import android.widget.EditText;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tieba.editortool.TbEditorToolButtonContainer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements Runnable {
-    final /* synthetic */ WriteActivity a;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        ch chVar;
+        TbEditorToolButtonContainer tbEditorToolButtonContainer;
         EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText3;
-        editText = this.a.f;
-        if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.a.C;
-            editText3 = this.a.f;
-            editorToolComponetContainer2.c(editText3);
-            return;
-        }
-        editorToolComponetContainer = this.a.C;
-        editText2 = this.a.i;
-        editorToolComponetContainer.c(editText2);
+        textView = this.bTX.bJx;
+        textView.setSelected(true);
+        chVar = this.bTX.bJy;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(chVar, view, 0, com.baidu.adp.lib.util.m.dip2px(this.bTX, 1.0f));
+        tbEditorToolButtonContainer = this.bTX.bTF;
+        tbEditorToolButtonContainer.Bg();
+        editorToolComponetContainer = this.bTX.are;
+        editorToolComponetContainer.BC();
     }
 }

@@ -5,46 +5,46 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
         super(i);
-        this.a = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.message.h data;
+        com.baidu.tieba.im.message.g data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016004 && (customResponsedMessage instanceof MemoryModifyVisibilityMessage) && (data = ((MemoryModifyVisibilityMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo a = c.b().a(data.a, data.b);
-            int i = data.c ? 0 : 1;
-            if (a != null && i != a.getIs_hidden()) {
-                if (data.b == 2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().b(data.a);
-                } else if (data.b == 4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().f();
-                } else if (data.b == -3) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(2);
-                } else if (data.b == -4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(1);
-                } else if (data.b == -5) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(3);
+            ImMessageCenterPojo B = c.PK().B(data.id, data.customGroupType);
+            int i = data.Ro ? 0 : 1;
+            if (B != null && i != B.getIs_hidden()) {
+                if (data.customGroupType == 2) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().cq(data.id);
+                } else if (data.customGroupType == 4) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().oH();
+                } else if (data.customGroupType == -3) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().bY(2);
+                } else if (data.customGroupType == -4) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().bY(1);
+                } else if (data.customGroupType == -5) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().bY(3);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(data.a);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.oB().cp(data.id);
                 }
-                c.b().b(data.a, data.b, data.c);
-                a.setIs_hidden(i);
-                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aj(this, a));
-                customMessageTask.setParallel(com.baidu.tbadk.k.b());
+                c.PK().e(data.id, data.customGroupType, data.Ro);
+                B.setIs_hidden(i);
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aj(this, B));
+                customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                 customMessageTask.setPriority(4);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001000, data), customMessageTask);

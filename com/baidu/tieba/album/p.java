@@ -5,95 +5,95 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private WriteImagesInfo a;
-    private String b;
-    private List<ImageFileInfo> c;
-    private int d;
+    private int RK;
+    private WriteImagesInfo ahS;
+    private String ahT;
+    private List<ImageFileInfo> ahU;
 
-    public void a(ImageFileInfo imageFileInfo) {
-        if (this.a == null) {
-            this.a = new WriteImagesInfo();
+    public void addChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.ahS == null) {
+            this.ahS = new WriteImagesInfo();
         }
-        this.a.addChooseFile(imageFileInfo);
+        this.ahS.addChooseFile(imageFileInfo);
     }
 
-    public void b(ImageFileInfo imageFileInfo) {
-        if (this.a != null) {
-            this.a.delChooseFile(imageFileInfo);
+    public void delChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.ahS != null) {
+            this.ahS.delChooseFile(imageFileInfo);
         }
     }
 
-    public boolean c(ImageFileInfo imageFileInfo) {
-        if (this.a == null) {
+    public boolean isAdded(ImageFileInfo imageFileInfo) {
+        if (this.ahS == null) {
             return false;
         }
-        return this.a.isAdded(imageFileInfo);
+        return this.ahS.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> a() {
-        if (this.a != null) {
-            return this.a.getChosedFiles();
+    public List<ImageFileInfo> xT() {
+        if (this.ahS != null) {
+            return this.ahS.getChosedFiles();
         }
         return null;
     }
 
-    public WriteImagesInfo b() {
-        return this.a;
+    public WriteImagesInfo getWriteImagesInfo() {
+        return this.ahS;
     }
 
-    public void a(WriteImagesInfo writeImagesInfo) {
-        this.a = writeImagesInfo;
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        this.ahS = writeImagesInfo;
     }
 
-    public String c() {
-        if (this.a != null) {
-            return this.a.getLastAlbumId();
+    public String getLastAlbumId() {
+        if (this.ahS != null) {
+            return this.ahS.getLastAlbumId();
         }
         return null;
     }
 
-    public void a(String str) {
-        if (this.a == null) {
-            this.a = new WriteImagesInfo();
+    public void setLastAlbumId(String str) {
+        if (this.ahS == null) {
+            this.ahS = new WriteImagesInfo();
         }
-        this.a.setLastAlbumId(str);
+        this.ahS.setLastAlbumId(str);
     }
 
-    public int d() {
-        if (this.a != null) {
-            return this.a.getMaxImagesAllowed();
+    public int getMaxImagesAllowed() {
+        if (this.ahS != null) {
+            return this.ahS.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String e() {
-        return this.b;
+    public String xU() {
+        return this.ahT;
     }
 
-    public void b(String str) {
-        this.b = str;
+    public void eo(String str) {
+        this.ahT = str;
     }
 
-    public List<ImageFileInfo> f() {
-        return this.c;
+    public List<ImageFileInfo> xV() {
+        return this.ahU;
     }
 
-    public void a(List<ImageFileInfo> list) {
-        this.c = list;
+    public void y(List<ImageFileInfo> list) {
+        this.ahU = list;
     }
 
-    public int g() {
-        return this.d;
+    public int getCurrentIndex() {
+        return this.RK;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public void dP(int i) {
+        this.RK = i;
     }
 
-    public int h() {
-        if (this.a == null) {
+    public int size() {
+        if (this.ahS == null) {
             return 0;
         }
-        return this.a.size();
+        return this.ahS.size();
     }
 }

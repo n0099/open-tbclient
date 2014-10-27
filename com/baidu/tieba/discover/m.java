@@ -2,55 +2,55 @@ package com.baidu.tieba.discover;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ay;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Object, p> {
-    private final WeakReference<n> a;
+    private final WeakReference<n> agb;
 
     public m(n nVar) {
-        this.a = new WeakReference<>(nVar);
+        this.agb = new WeakReference<>(nVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: s */
     public p doInBackground(String... strArr) {
         String str;
-        str = l.a;
-        ae aeVar = new ae(str);
-        String h = aeVar.h();
-        if (aeVar.a().b().b()) {
+        str = l.anS;
+        ac acVar = new ac(str);
+        String lA = acVar.lA();
+        if (acVar.mc().nb().jq()) {
             try {
-                return DiscoverResponsedMessage.parseJson(new JSONObject(h));
+                return DiscoverResponsedMessage.parseJson(new JSONObject(lA));
             } catch (Exception e) {
                 BdLog.detailException(e);
                 p pVar = new p();
-                pVar.a = -1000;
-                pVar.b = "网络异常";
+                pVar.aeV = -1000;
+                pVar.mErrMsg = "网络异常";
                 return pVar;
             }
         }
         p pVar2 = new p();
-        pVar2.a = aeVar.c();
-        pVar2.b = aeVar.e();
+        pVar2.aeV = acVar.mg();
+        pVar2.mErrMsg = acVar.getErrorString();
         return pVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(p pVar) {
         super.onPostExecute(pVar);
-        n nVar = this.a.get();
+        n nVar = this.agb.get();
         if (nVar != null) {
-            if (ba.c(pVar.b)) {
+            if (ay.aA(pVar.mErrMsg)) {
                 nVar.a(pVar);
             } else {
                 nVar.b(pVar);

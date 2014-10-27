@@ -22,12 +22,12 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        SharedPreferences a;
+        SharedPreferences sharedPreferences;
         String lastPathSegment = uri.getLastPathSegment();
-        if (lastPathSegment == null || lastPathSegment.length() <= 0 || (a = a()) == null) {
+        if (lastPathSegment == null || lastPathSegment.length() <= 0 || (sharedPreferences = getSharedPreferences()) == null) {
             return null;
         }
-        return a.getString(lastPathSegment, null);
+        return sharedPreferences.getString(lastPathSegment, null);
     }
 
     @Override // android.content.ContentProvider
@@ -35,13 +35,13 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (contentValues != null && contentValues.size() > 0) {
             String lastPathSegment = uri.getLastPathSegment();
             String asString = contentValues.getAsString(lastPathSegment);
-            SharedPreferences a = a();
-            if (a != null) {
-                SharedPreferences.Editor edit = a.edit();
+            SharedPreferences sharedPreferences = getSharedPreferences();
+            if (sharedPreferences != null) {
+                SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (a(lastPathSegment)) {
-                    a(lastPathSegment, asString);
+                if (bi(lastPathSegment)) {
+                    G(lastPathSegment, asString);
                     return null;
                 }
                 return null;
@@ -53,14 +53,14 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        SharedPreferences a;
+        SharedPreferences sharedPreferences;
         String lastPathSegment = uri.getLastPathSegment();
-        if (lastPathSegment != null && lastPathSegment.length() > 0 && (a = a()) != null) {
-            SharedPreferences.Editor edit = a.edit();
+        if (lastPathSegment != null && lastPathSegment.length() > 0 && (sharedPreferences = getSharedPreferences()) != null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (a(lastPathSegment)) {
-                a(lastPathSegment, null);
+            if (bi(lastPathSegment)) {
+                G(lastPathSegment, null);
                 return 0;
             }
             return 0;
@@ -73,31 +73,31 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void a(String str, String str2) {
+    private void G(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TbadkApplication.m252getInst().getApp().sendBroadcast(intent);
+        TbadkApplication.m251getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean a(String str) {
+    private boolean bi(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.e.length;
+        int length = a.Cf.length;
         for (int i = 0; i < length; i++) {
-            if (a.e[i].equals(str)) {
+            if (a.Cf[i].equals(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    private SharedPreferences a() {
+    private SharedPreferences getSharedPreferences() {
         try {
-            if (TbadkApplication.m252getInst().getApp() != null) {
-                return TbadkApplication.m252getInst().getApp().getSharedPreferences("common_settings", 0);
+            if (TbadkApplication.m251getInst().getApp() != null) {
+                return TbadkApplication.m251getInst().getApp().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

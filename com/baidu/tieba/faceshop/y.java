@@ -2,19 +2,17 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
-import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-    final /* synthetic */ x a;
-    private com.baidu.tbadk.core.util.ae b;
-    private volatile boolean c;
+    final /* synthetic */ x asU;
+    private volatile boolean kJ;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private y(x xVar) {
-        this.a = xVar;
-        this.c = false;
+        this.asU = xVar;
+        this.kJ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,24 +23,23 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: k */
     public FaceBuyQueryData doInBackground(Object... objArr) {
         int i;
         int i2 = 0;
         FaceBuyQueryData faceBuyQueryData = null;
         String obj = objArr[0].toString();
-        if (!com.baidu.tbadk.core.util.ba.c(obj)) {
-            Gson create = new GsonBuilder().create();
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/querybuyresult");
-            this.b.a("order_id", obj);
-            while (!this.c) {
-                i = this.a.c;
+        if (!com.baidu.tbadk.core.util.ay.aA(obj)) {
+            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.QUERY_BUY_RESULT_URL);
+            this.mNetWork.k("order_id", obj);
+            while (!this.kJ) {
+                i = this.asU.asT;
                 if (i2 >= i) {
                     break;
                 }
-                faceBuyQueryData = (FaceBuyQueryData) create.fromJson(this.b.h(), (Class<Object>) FaceBuyQueryData.class);
-                if (faceBuyQueryData != null && faceBuyQueryData.buyResult != null) {
-                    if (faceBuyQueryData.buyResult.status == 2) {
+                faceBuyQueryData = (FaceBuyQueryData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.mNetWork.lA(), FaceBuyQueryData.class);
+                if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
+                    if (faceBuyQueryData.buy_result.status == 2) {
                         break;
                     }
                     try {
@@ -71,9 +68,9 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
         com.baidu.adp.base.h hVar;
         super.onPostExecute(faceBuyQueryData);
-        this.a.b = null;
-        this.c = true;
-        hVar = this.a.mLoadDataCallBack;
+        this.asU.asS = null;
+        this.kJ = true;
+        hVar = this.asU.mLoadDataCallBack;
         hVar.a(faceBuyQueryData);
     }
 
@@ -81,11 +78,11 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     public void cancel() {
         com.baidu.adp.base.h hVar;
         super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
-        this.a.b = null;
-        hVar = this.a.mLoadDataCallBack;
+        this.asU.asS = null;
+        hVar = this.asU.mLoadDataCallBack;
         hVar.a(null);
     }
 }

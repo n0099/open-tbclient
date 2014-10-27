@@ -1,12 +1,24 @@
 package com.baidu.adp.gif;
+
+import android.os.Build;
 /* loaded from: classes.dex */
-class f implements a {
-    @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.a.a a(String str) {
-        NSGif a = NSGif.a(str);
-        if (a == null) {
-            return null;
+public class f {
+    public static final String[] dx = {"ZTE-T U880", "U880"};
+
+    public static boolean o(String str) {
+        for (String str2 : dx) {
+            if (str2.equals(str)) {
+                return false;
+            }
         }
-        return new com.baidu.adp.widget.a.a(a);
+        return true;
+    }
+
+    private static boolean bk() {
+        return Build.VERSION.SDK_INT > 7;
+    }
+
+    public static boolean bl() {
+        return o(Build.MODEL) && bk() && NSGif.ds;
     }
 }

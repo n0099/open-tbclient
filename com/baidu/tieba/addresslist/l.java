@@ -1,40 +1,20 @@
 package com.baidu.tieba.addresslist;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements TextWatcher {
-    final /* synthetic */ QuickSearchActivity a;
-
-    private l(QuickSearchActivity quickSearchActivity) {
-        this.a = quickSearchActivity;
-    }
+public class l implements View.OnFocusChangeListener {
+    final /* synthetic */ QuickSearchActivity agP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(QuickSearchActivity quickSearchActivity, l lVar) {
-        this(quickSearchActivity);
+    public l(QuickSearchActivity quickSearchActivity) {
+        this.agP = quickSearchActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        if (charSequence.toString().trim().length() != 0) {
-            QuickSearchActivity.a(this.a, charSequence.toString());
-            return;
-        }
-        QuickSearchActivity.a(this.a).setVisibility(8);
-        QuickSearchActivity.b(this.a).setVisibility(8);
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        if (editable.toString().trim().length() == 0) {
-            QuickSearchActivity.c(this.a).setVisibility(8);
-        } else {
-            QuickSearchActivity.c(this.a).setVisibility(0);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.util.m.b(this.agP, view);
         }
     }
 }

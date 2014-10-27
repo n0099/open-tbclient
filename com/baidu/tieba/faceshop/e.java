@@ -12,25 +12,25 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class e {
-    public static boolean a(String str, String str2, InputStream inputStream) {
+    public static boolean b(String str, String str2, InputStream inputStream) {
         return com.baidu.tbadk.core.util.s.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
     }
 
-    public static byte[] a(String str, String str2) {
-        return com.baidu.tbadk.core.util.s.d(".emotions/" + str, str2);
+    public static byte[] ad(String str, String str2) {
+        return com.baidu.tbadk.core.util.s.L(".emotions/" + str, str2);
     }
 
-    public static boolean a(String str) {
-        Bitmap b = com.baidu.tbadk.editortool.aa.a().b(str, "panel.png");
-        if (b == null) {
+    public static boolean eK(String str) {
+        Bitmap U = com.baidu.tbadk.editortool.aa.rz().U(str, "panel.png");
+        if (U == null) {
             return false;
         }
-        b.recycle();
+        U.recycle();
         return true;
     }
 
-    public static boolean a(String str, String str2, String str3) {
-        String str4 = com.baidu.tbadk.core.util.s.a + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/";
+    public static boolean k(String str, String str2, String str3) {
+        String str4 = com.baidu.tbadk.core.util.s.mI + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/";
         File file = new File(str4, str2);
         if (!file.exists()) {
             return false;
@@ -40,15 +40,15 @@ public class e {
             if (file2.delete() && file.renameTo(file2)) {
                 return true;
             }
-            return com.baidu.tbadk.core.util.s.e(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.s.M(file.getAbsolutePath(), file2.getAbsolutePath());
         } else if (file.renameTo(file2)) {
             return true;
         } else {
-            return com.baidu.tbadk.core.util.s.e(file.getAbsolutePath(), file2.getAbsolutePath());
+            return com.baidu.tbadk.core.util.s.M(file.getAbsolutePath(), file2.getAbsolutePath());
         }
     }
 
-    public static List<String> a(String str, InputStream inputStream) {
+    public static List<String> b(String str, InputStream inputStream) {
         ZipInputStream zipInputStream;
         try {
             zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
@@ -58,21 +58,21 @@ public class e {
                     if (nextEntry == null) {
                         break;
                     } else if (!nextEntry.isDirectory()) {
-                        a(str, nextEntry.getName(), zipInputStream);
+                        b(str, nextEntry.getName(), zipInputStream);
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.adp.lib.util.m.a((InputStream) zipInputStream);
+                    com.baidu.adp.lib.util.p.a((InputStream) zipInputStream);
                     throw th;
                 }
             }
             zipInputStream.close();
-            com.baidu.adp.lib.util.m.a((InputStream) zipInputStream);
-            byte[] a = a(str, "map.txt");
-            if (a == null) {
+            com.baidu.adp.lib.util.p.a((InputStream) zipInputStream);
+            byte[] ad = ad(str, "map.txt");
+            if (ad == null) {
                 throw new FileNotFoundException("map.txt file not exsit!");
             }
-            String str2 = new String(a, "UTF-8");
+            String str2 = new String(ad, "UTF-8");
             LinkedList linkedList = new LinkedList();
             for (String str3 : str2.split("\n")) {
                 String trim = str3.trim();
@@ -81,8 +81,8 @@ public class e {
                     if (split.length == 2) {
                         String trim2 = split[0].trim();
                         String trim3 = split[1].trim();
-                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.aa.a().a(trim2, false));
-                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.aa.a().a(trim2, true));
+                        k(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.aa.rz().m(trim2, false));
+                        k(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.aa.rz().m(trim2, true));
                         linkedList.add(trim2);
                     }
                 }

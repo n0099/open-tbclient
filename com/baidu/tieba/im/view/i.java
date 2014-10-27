@@ -1,24 +1,30 @@
 package com.baidu.tieba.im.view;
 
-import android.view.animation.Animation;
+import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
 /* loaded from: classes.dex */
-class i implements Animation.AnimationListener {
-    final /* synthetic */ HorizontalPanelView a;
+class i extends TbCountDownTimer {
+    final /* synthetic */ NumCountDownView bjr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(HorizontalPanelView horizontalPanelView) {
-        this.a = horizontalPanelView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(NumCountDownView numCountDownView, long j, long j2) {
+        super(j, j2);
+        this.bjr = numCountDownView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onTick(long j) {
+        this.bjr.refreshText(j);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
+    public void onFinish() {
+        j jVar;
+        j jVar2;
+        jVar = this.bjr.mListerner;
+        if (jVar != null) {
+            jVar2 = this.bjr.mListerner;
+            jVar2.onFinish();
+        }
     }
 }

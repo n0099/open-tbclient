@@ -1,58 +1,58 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class d {
-    private String a;
-    private String b;
-    private String c;
-    private EmotionGroupType d;
-    private int e;
-    private int f;
+    private String Lh;
+    private EmotionGroupType Li;
+    private int height;
+    private String name;
+    private String pname;
+    private int width;
 
-    public String a() {
-        return this.a;
+    public String getName() {
+        return this.name;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public EmotionGroupType b() {
-        return this.d;
+    public EmotionGroupType oy() {
+        return this.Li;
     }
 
     public void a(EmotionGroupType emotionGroupType) {
-        this.d = emotionGroupType;
+        this.Li = emotionGroupType;
     }
 
-    public String c() {
-        return this.b;
+    public String oz() {
+        return this.pname;
     }
 
-    public void b(String str) {
-        this.b = str;
+    public void co(String str) {
+        this.pname = str;
     }
 
-    public String d() {
-        return this.c;
+    public String getPid() {
+        return this.Lh;
     }
 
-    public void c(String str) {
-        this.c = str;
+    public void setPid(String str) {
+        this.Lh = str;
     }
 
-    public int e() {
-        return this.e;
+    public int getWidth() {
+        return this.width;
     }
 
-    public void a(int i) {
-        this.e = i;
+    public void setWidth(int i) {
+        this.width = i;
     }
 
-    public int f() {
-        return this.f;
+    public int getHeight() {
+        return this.height;
     }
 
-    public void b(int i) {
-        this.f = i;
+    public void setHeight(int i) {
+        this.height = i;
     }
 }

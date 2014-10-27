@@ -3,9 +3,10 @@ package com.baidu.tbadk.core.frameworkData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class a {
+public class a extends i {
     public static final String CMD = "cmd";
     public static final String DATAS = "datas";
     public static final String FORUM_ID = "forum_id";
@@ -47,12 +48,19 @@ public class a {
     public static final String USER_SEX = "user_sex";
     private Context mContext;
     private Intent mIntent;
-    private IntentAction mIntentAction = IntentAction.Activity;
+    private IntentAction mIntentAction;
     private int mRequestCode;
+
+    public a() {
+        this.mContext = null;
+        this.mIntent = null;
+        this.mIntentAction = IntentAction.Activity;
+    }
 
     public a(Context context) {
         this.mContext = null;
         this.mIntent = null;
+        this.mIntentAction = IntentAction.Activity;
         if (context == null) {
             throw new InvalidParameterException("ActivitySwitch context null");
         }

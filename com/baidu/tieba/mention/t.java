@@ -1,53 +1,37 @@
 package com.baidu.tieba.mention;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends FragmentPagerAdapter {
-    private com.baidu.tbadk.core.d[] a;
-    private int[] b;
-    private int c;
-    private CustomMessageListener d;
+public class t implements View.OnClickListener {
+    final /* synthetic */ r bnF;
 
-    public t(FragmentManager fragmentManager, boolean z) {
-        super(fragmentManager);
-        this.d = new u(this, 2008002);
-        if (!z) {
-            a();
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(r rVar) {
+        this.bnF = rVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        imageView = this.bnF.ajm;
+        if (view == imageView && TbadkApplication.isLogin()) {
+            baseFragmentActivity = this.bnF.axV;
+            TiebaStatic.eventStat(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
+            TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
+            MessageManager messageManager = MessageManager.getInstance();
+            baseFragmentActivity2 = this.bnF.axV;
+            messageManager.sendMessage(new CustomMessage(2002001, new AtListActivityConfig(baseFragmentActivity2, 12011, false)));
         }
-        MessageManager.getInstance().registerListener(this.d);
-        boolean sendMessage = MessageManager.getInstance().sendMessage(new CustomMessage(2008002));
-        MessageManager.getInstance().unRegisterListener(this.d);
-        if (!sendMessage) {
-            a();
-        }
-    }
-
-    private void a() {
-        this.a = new com.baidu.tbadk.core.d[]{new al(), new a()};
-        this.b = new int[]{1, 2};
-        this.c = this.a.length;
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i < 0 || i >= this.c) {
-            return null;
-        }
-        return this.a[i];
-    }
-
-    public int a(int i) {
-        return this.b[i];
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.c;
     }
 }

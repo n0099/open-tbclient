@@ -1,24 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-class t implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsActivity a;
+class t implements AdapterView.OnItemClickListener {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        cv cvVar;
-        cv cvVar2;
-        cvVar = this.a.B;
-        if (cvVar.n().d()) {
-            cvVar2 = this.a.B;
-            cvVar2.n().b(false);
-            this.a.E();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bu buVar;
+        if (i >= 0) {
+            buVar = this.aBk.aAv;
+            buVar.eJ(i);
+            this.aBk.aAD = true;
+            this.aBk.aAC = ((com.baidu.tbadk.core.data.h) ((GridView) adapterView).getAdapter().getItem(i)).jX();
+            this.aBk.aAp = 1;
+            this.aBk.eF(3);
         }
     }
 }

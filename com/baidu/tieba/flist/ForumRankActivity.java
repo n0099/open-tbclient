@@ -9,124 +9,121 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
-import com.baidu.tieba.model.af;
+import com.baidu.tieba.model.ag;
 /* loaded from: classes.dex */
 public class ForumRankActivity extends BaseActivity {
-    private BdListView a = null;
-    private ac b = null;
-    private p c = null;
-    private NavigationBar d = null;
-    private TbImageView e = null;
-    private af f = null;
-    private LinearLayout g = null;
-    private com.baidu.tbadk.core.view.v h = null;
-    private FrameLayout i = null;
-    private String j = null;
-    private boolean k = false;
-    private final com.baidu.adp.base.h l = new y(this);
-    private final com.baidu.tbadk.core.util.aa m = new z(this);
+    private BdListView vl = null;
+    private ac awI = null;
+    private p awJ = null;
+    private NavigationBar mNavigationBar = null;
+    private TbImageView atZ = null;
+    private ag avr = null;
+    private LinearLayout awr = null;
+    private com.baidu.tbadk.core.view.y Yc = null;
+    private FrameLayout awK = null;
+    private String awL = null;
+    private boolean awM = false;
+    private final com.baidu.adp.base.h awN = new y(this);
+    private final com.baidu.tbadk.core.util.z awO = new z(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.q.class, ForumRankActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(ForumRankActivityConfig.class, ForumRankActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
-        a(bundle);
+        initUI();
+        d(bundle);
     }
 
-    private void a() {
-        setContentView(com.baidu.tieba.v.forum_rank_activity);
-        this.e = new TbImageView(this);
-        this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (BdListView) findViewById(com.baidu.tieba.u.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.j.b(this), (int) (com.baidu.adp.lib.util.j.b(this) * 0.5d)));
-        this.e.setVisibility(8);
-        this.g = (LinearLayout) com.baidu.adp.lib.e.b.a().a(this, com.baidu.tieba.v.forum_list_forum_footer, null);
-        this.g.setOnClickListener(new aa(this));
-        this.h = new com.baidu.tbadk.core.view.v(this);
-        this.a.setPullRefresh(this.h);
-        this.h.a(new ab(this));
-        this.i = (FrameLayout) findViewById(com.baidu.tieba.u.empty_textview_container);
+    private void initUI() {
+        setContentView(com.baidu.tieba.w.forum_rank_activity);
+        this.atZ = new TbImageView(this);
+        this.atZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText("");
+        this.vl = (BdListView) findViewById(com.baidu.tieba.v.list);
+        this.atZ.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.m.n(this), (int) (com.baidu.adp.lib.util.m.n(this) * 0.5d)));
+        this.atZ.setVisibility(8);
+        this.awr = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(this, com.baidu.tieba.w.forum_list_forum_footer, null);
+        this.awr.setOnClickListener(new aa(this));
+        this.Yc = new com.baidu.tbadk.core.view.y(this);
+        this.vl.setPullRefresh(this.Yc);
+        this.Yc.a(new ab(this));
+        this.awK = (FrameLayout) findViewById(com.baidu.tieba.v.empty_textview_container);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.b.a(bundle);
+        this.awI.saveToBundle(bundle);
     }
 
-    private void a(Bundle bundle) {
+    private void d(Bundle bundle) {
         if (bundle != null) {
-            this.b = new ac(bundle);
+            this.awI = new ac(bundle);
         } else {
-            this.b = new ac(getIntent());
+            this.awI = new ac(getIntent());
         }
-        this.k = true;
-        this.b.setLoadDataCallBack(this.l);
-        this.c = new p(this, 0);
-        this.c.a(100);
-        this.c.a((Boolean) true);
-        this.c.a(ForumDetailActivity.FromType.BAR_RANK);
-        this.a.setAdapter((ListAdapter) this.c);
-        if (this.b.LoadData()) {
-            this.c.a(100);
+        this.awM = true;
+        this.awI.setLoadDataCallBack(this.awN);
+        this.awJ = new p(this, 0);
+        this.awJ.eA(100);
+        this.awJ.e(true);
+        this.awJ.a(ForumDetailActivity.FromType.BAR_RANK);
+        this.vl.setAdapter((ListAdapter) this.awJ);
+        if (this.awI.LoadData()) {
+            this.awJ.eA(100);
             showProgressBar();
         }
-        this.f = new af();
-        this.c.a(this.f);
+        this.avr = new ag(this);
+        this.awJ.a(this.avr);
     }
 
-    private void b() {
-        ForumInfoData[] a = this.c.a();
-        for (int i = 0; i < a.length; i++) {
-            int c = ai.c().c(a[i].forum_name);
-            if (c == 1) {
-                a[i].is_like = 1;
-            } else if (c == -1) {
-                a[i].is_like = 0;
+    private void DQ() {
+        ForumInfoData[] DP = this.awJ.DP();
+        for (int i = 0; i < DP.length; i++) {
+            int dV = aj.wk().dV(DP[i].forum_name);
+            if (dV == 1) {
+                DP[i].is_like = 1;
+            } else if (dV == -1) {
+                DP[i].is_like = 0;
             }
         }
-        this.c.a(a);
+        this.awJ.a(DP);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b();
+        DQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.d.c(i);
+        this.mNavigationBar.onChangeSkinType(i);
         if (i == 1) {
-            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.r.skin_1_common_bg));
-            this.c.a(true);
+            this.vl.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
+            this.awJ.bG(true);
         } else {
-            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.r.backgroundcolor));
-            this.c.a(false);
+            this.vl.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.backgroundcolor));
+            this.awJ.bG(false);
         }
-        ay.b(findViewById(com.baidu.tieba.u.root_view), i);
-        this.h.a(i);
-        if (i == 1) {
-            this.c.a(com.baidu.tieba.t.btn_add_end_1, com.baidu.tieba.t.btn_add_1);
-            this.g.setBackgroundResource(com.baidu.tieba.t.bg_black_banner_down_1);
-            return;
-        }
-        this.c.a(com.baidu.tieba.t.btn_add_end, com.baidu.tieba.t.btn_add);
-        this.g.setBackgroundResource(com.baidu.tieba.t.bg_black_banner_down);
+        aw.e(findViewById(com.baidu.tieba.v.root_view), i);
+        this.Yc.bM(i);
+        this.awJ.H(com.baidu.tieba.u.btn_add_end, com.baidu.tieba.u.btn_add);
+        aw.h(this.awr, com.baidu.tieba.u.bg_black_banner_down);
     }
 }

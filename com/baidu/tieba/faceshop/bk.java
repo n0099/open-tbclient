@@ -1,23 +1,17 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk extends com.baidu.adp.base.h {
-    final /* synthetic */ bh a;
-    private final /* synthetic */ BaseActivity b;
-    private final /* synthetic */ FacePackageData c;
-    private final /* synthetic */ int d;
+    final /* synthetic */ bi auv;
+    private final /* synthetic */ FacePackageData auw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bh bhVar, BaseActivity baseActivity, FacePackageData facePackageData, int i) {
-        this.a = bhVar;
-        this.b = baseActivity;
-        this.c = facePackageData;
-        this.d = i;
+    public bk(bi biVar, FacePackageData facePackageData) {
+        this.auv = biVar;
+        this.auw = facePackageData;
     }
 
     @Override // com.baidu.adp.base.h
@@ -25,36 +19,21 @@ public class bk extends com.baidu.adp.base.h {
         Context context;
         Context context2;
         Context context3;
-        Context context4;
-        Context context5;
-        this.b.hideProgressBar();
-        if (obj == null || !(obj instanceof FaceBuyData)) {
-            context = this.a.c;
-            UtilHelper.showToast(context, com.baidu.tieba.x.neterror);
+        if (obj == null || !(obj instanceof FacePackageDownloadData)) {
+            context = this.auv.mContext;
+            UtilHelper.showToast(context, cb.neterror);
             return;
         }
-        FaceBuyData faceBuyData = (FaceBuyData) obj;
-        if (faceBuyData.errno == 0 && faceBuyData.usermsg != null) {
-            String str = faceBuyData.buyInfo.buyUrl;
-            String str2 = faceBuyData.buyInfo.returnUrl;
-            if (faceBuyData.buyInfo.buyStatus == 2) {
-                context4 = this.a.c;
-                UtilHelper.showToast(context4, com.baidu.tieba.x.has_buy2);
-                this.c.buyStatus = 1;
-                this.c.canDownload = 1;
-                this.a.notifyDataSetChanged();
-                return;
-            }
-            this.c.orderId = faceBuyData.buyInfo.orderId;
-            BaseActivity baseActivity = this.b;
-            context5 = this.a.c;
-            FaceBuyWebViewActivity.a(baseActivity, str, str2, context5.getString(com.baidu.tieba.x.buy_package), this.d, TbConfig.BIG_IMAGE_MIN_CAPACITY);
-        } else if (faceBuyData.usermsg != null) {
-            context3 = this.a.c;
-            UtilHelper.showToast(context3, faceBuyData.usermsg);
+        FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
+        if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
+            this.auw.pack_url = facePackageDownloadData.pack_url;
+            g.CH().l(String.valueOf(this.auw.pid), this.auw.pname, this.auw.pack_url);
+        } else if (facePackageDownloadData.usermsg != null) {
+            context3 = this.auv.mContext;
+            UtilHelper.showToast(context3, facePackageDownloadData.usermsg);
         } else {
-            context2 = this.a.c;
-            UtilHelper.showToast(context2, com.baidu.tieba.x.neterror);
+            context2 = this.auv.mContext;
+            UtilHelper.showToast(context2, cb.neterror);
         }
     }
 }

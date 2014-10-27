@@ -1,4 +1,6 @@
 package com.baidu.sapi2.utils.enums;
+
+import android.text.TextUtils;
 /* loaded from: classes.dex */
 public enum LoginShareStrategy {
     DISABLED("disabled"),
@@ -9,6 +11,9 @@ public enum LoginShareStrategy {
 
     public static LoginShareStrategy mapStrToValue(String str) {
         LoginShareStrategy[] values;
+        if (TextUtils.isEmpty(str)) {
+            return getDefault();
+        }
         for (LoginShareStrategy loginShareStrategy : values()) {
             if (str.equals(loginShareStrategy.getStrValue())) {
                 return loginShareStrategy;

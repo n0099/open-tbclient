@@ -8,26 +8,26 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class y extends ad {
     public y() {
-        b();
+        init();
     }
 
-    private void b() {
-        super.b(7);
-        super.c(3);
-        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkApplication.m252getInst().getApp().getResources(), com.baidu.tieba.t.icon_face_original_s), false);
+    private void init() {
+        super.cJ(7);
+        super.cK(3);
+        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkApplication.m251getInst().getApp().getResources(), com.baidu.tieba.u.icon_face_original_s), false);
+        super.c(aVar);
         super.b(aVar);
-        super.a(aVar);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String a(int i) {
+    public String cG(int i) {
         int i2;
-        if (i < 0 || i >= v.b.size()) {
+        if (i < 0 || i >= v.Sj.size()) {
             i2 = 0;
         } else {
-            i2 = v.b.get(i).intValue();
+            i2 = v.Sj.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : v.c.entrySet()) {
+        for (Map.Entry<String, Integer> entry : v.Sk.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -36,57 +36,57 @@ public class y extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean a(String str) {
-        return v.c.get(str) != null;
+    public boolean cY(String str) {
+        return v.Sk.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a b(String str) {
+    public com.baidu.adp.widget.a.a cZ(String str) {
         Bitmap a;
-        Integer num = v.c.get(str);
-        if (num != null && (a = com.baidu.adp.lib.util.b.a().a(TbadkApplication.m252getInst().getApp(), num.intValue())) != null) {
+        Integer num = v.Sk.get(str);
+        if (num != null && (a = com.baidu.adp.lib.util.c.eS().a(TbadkApplication.m251getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(a, false, str);
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int d() {
-        return v.b.size();
+    public int getEmotionsCount() {
+        return v.Sj.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a c(String str) {
-        return b(str);
+    public com.baidu.adp.widget.a.a da(String str) {
+        return cZ(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType c() {
+    public EmotionGroupType rr() {
         return EmotionGroupType.LOCAL;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String e() {
+    public String getGroupId() {
         return "_local";
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String f() {
+    public String getGroupName() {
         return "_local";
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int g() {
+    public int getWidth() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int h() {
+    public int getHeight() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean i() {
+    public boolean rs() {
         return true;
     }
 }

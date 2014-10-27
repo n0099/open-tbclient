@@ -1,25 +1,26 @@
 package com.baidu.tieba.im.friend;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements DialogInterface.OnCancelListener {
-    final /* synthetic */ IMBlackListActivity a;
+    final /* synthetic */ IMBlackListActivity aVt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(IMBlackListActivity iMBlackListActivity) {
-        this.a = iMBlackListActivity;
+        this.aVt = iMBlackListActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.im.model.b bVar;
-        com.baidu.tieba.im.model.b bVar2;
-        bVar = this.a.a;
-        if (bVar != null) {
-            bVar2 = this.a.a;
-            bVar2.cancelLoadData();
-            this.a.c = null;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        blackListModel = this.aVt.aVq;
+        if (blackListModel != null) {
+            blackListModel2 = this.aVt.aVq;
+            blackListModel2.cancelLoadData();
+            this.aVt.aVs = null;
         }
     }
 }

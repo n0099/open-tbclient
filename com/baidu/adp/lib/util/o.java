@@ -1,61 +1,35 @@
 package com.baidu.adp.lib.util;
 
-import android.database.Cursor;
-import com.baidu.adp.lib.cache.t;
-import com.baidu.adp.lib.cache.v;
-import com.baidu.adp.lib.cache.w;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import android.graphics.Rect;
+import android.view.TouchDelegate;
+import android.view.View;
 /* loaded from: classes.dex */
-public class o {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
-    public static List<v<String>> a(t<String> tVar) {
-        Cursor cursor;
-        LinkedList linkedList = new LinkedList();
-        try {
-            cursor = b(tVar);
-        } catch (Throwable th) {
-            th = th;
-            cursor = null;
-        }
-        if (cursor == null) {
-            return null;
-        }
-        while (cursor.moveToNext()) {
-            try {
-                v vVar = new v();
-                vVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                vVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                vVar.d = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                vVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
-                linkedList.add(vVar);
-            } catch (Throwable th2) {
-                th = th2;
-                try {
-                    BdLog.e(th);
-                    com.baidu.adp.lib.e.a.a(cursor);
-                    Collections.sort(linkedList, new p(null));
-                    return linkedList;
-                } finally {
-                    com.baidu.adp.lib.e.a.a(cursor);
-                }
-            }
-        }
-        Collections.sort(linkedList, new p(null));
-        return linkedList;
+class o implements Runnable {
+    private final /* synthetic */ View nt;
+    private final /* synthetic */ int nu;
+    private final /* synthetic */ int nv;
+    private final /* synthetic */ int nw;
+    private final /* synthetic */ int nx;
+    private final /* synthetic */ View ny;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(View view, int i, int i2, int i3, int i4, View view2) {
+        this.nt = view;
+        this.nu = i;
+        this.nv = i2;
+        this.nw = i3;
+        this.nx = i4;
+        this.ny = view2;
     }
 
-    private static Cursor b(t<?> tVar) {
-        if (tVar != null && (tVar instanceof w)) {
-            w wVar = (w) tVar;
-            if (wVar.b() instanceof com.baidu.adp.lib.cache.p) {
-                com.baidu.adp.lib.cache.c b = ((com.baidu.adp.lib.cache.p) wVar.b()).b();
-                return b.b(b.d().a(), wVar.a());
-            }
-            return null;
-        }
-        return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        Rect rect = new Rect();
+        this.nt.getHitRect(rect);
+        rect.right += this.nu;
+        rect.left -= this.nv;
+        rect.bottom += this.nw;
+        rect.top -= this.nx;
+        this.ny.setTouchDelegate(new TouchDelegate(rect, this.nt));
     }
 }

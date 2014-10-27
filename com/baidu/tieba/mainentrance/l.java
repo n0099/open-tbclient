@@ -1,16 +1,23 @@
 package com.baidu.tieba.mainentrance;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class l implements com.baidu.tieba.view.u {
-    final /* synthetic */ SquareSearchActivity a;
+class l implements Runnable {
+    final /* synthetic */ SquareSearchActivity bmO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+        this.bmO = squareSearchActivity;
     }
 
-    @Override // com.baidu.tieba.view.u
-    public void a(boolean z) {
-        this.a.H = z;
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditText editText2;
+        editText = this.bmO.bmh;
+        editText.requestFocus();
+        SquareSearchActivity squareSearchActivity = this.bmO;
+        editText2 = this.bmO.bmh;
+        com.baidu.adp.lib.util.m.c(squareSearchActivity, editText2);
     }
 }

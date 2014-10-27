@@ -11,33 +11,33 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.atomData.au;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.u;
-import com.baidu.tieba.x;
+import com.baidu.tieba.v;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
-    private int b;
-    private String c;
-    private l d;
-    private int f;
-    private int e = 1;
-    private HttpMessageListener g = new a(this, CmdConfigHttp.GETPAYINFO_CMD);
-    public HttpMessageListener a = new b(this, CmdConfigHttp.MEMBER_PAY_CMD);
+    private int aoj;
+    private String aok;
+    private l aol;
+    private int aon;
+    private int aom = 1;
+    private HttpMessageListener aoo = new a(this, CmdConfigHttp.GETPAYINFO_CMD);
+    public HttpMessageListener aop = new b(this, CmdConfigHttp.MEMBER_PAY_CMD);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(au.class, MemberPayActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(MemberPayActivityConfig.class, MemberPayActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d dVar) {
         if (dVar != null) {
-            this.d.setMemberPayData(dVar);
+            this.aol.setMemberPayData(dVar);
         }
     }
 
@@ -46,32 +46,32 @@ public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageC
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getExtras() != null) {
-            this.b = getIntent().getExtras().getInt("member_type");
-            this.c = getIntent().getExtras().getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
+            this.aoj = getIntent().getExtras().getInt(MemberPayActivityConfig.MEMBER_TYPE);
+            this.aok = getIntent().getExtras().getString("st_type");
         }
-        c();
-        registerListener(this.a);
-        registerListener(this.g);
-        showLoadingDialog(getString(x.flist_loading));
-        b();
-        a();
+        AP();
+        registerListener(this.aop);
+        registerListener(this.aoo);
+        showLoadingDialog(getString(y.flist_loading));
+        rY();
+        AQ();
     }
 
-    private void b() {
-        this.d = new l(this, this.b);
+    private void rY() {
+        this.aol = new l(this, this.aoj);
     }
 
-    private void c() {
+    private void AP() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MEMBER_PAY_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MEMBER_PAY);
         tbHttpMessageTask.setResponsedClass(ResponseMemberPayMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void a() {
+    public void AQ() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PAY_CMD);
-        if (this.c != null) {
-            httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
+        if (this.aok != null) {
+            httpMessage.addParam("st_type", this.aok);
         }
         sendMessage(httpMessage);
     }
@@ -79,21 +79,21 @@ public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageC
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.d.a(i);
+        this.aol.onChangeSkinType(i);
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (this.d != null) {
-            this.d.d();
-            if (i == u.btn_price1) {
-                this.e = 0;
+        if (this.aol != null) {
+            this.aol.AT();
+            if (i == v.btn_price1) {
+                this.aom = 0;
             }
-            if (i == u.btn_price2) {
-                this.e = 1;
+            if (i == v.btn_price2) {
+                this.aom = 1;
             }
-            if (i == u.btn_price3) {
-                this.e = 2;
+            if (i == v.btn_price3) {
+                this.aom = 2;
             }
         }
     }
@@ -110,73 +110,73 @@ public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageC
         String valueOf5;
         String valueOf6;
         super.onClick(view);
-        if (view.getId() == u.buy_btn) {
-            if (this.d != null && (showType = this.d.getShowType()) >= 0 && showType <= 2) {
-                g gVar = this.d.f;
-                e eVar = this.d.g;
+        if (view.getId() == v.buy_btn) {
+            if (this.aol != null && (showType = this.aol.getShowType()) >= 0 && showType <= 2) {
+                g gVar = this.aol.aoW;
+                e eVar = this.aol.aoX;
                 Intent intent = new Intent(this, DealIntentService.class);
                 if (showType == 2) {
-                    if (eVar != null && eVar.a != null) {
-                        List<h> list = eVar.a;
-                        if (list.size() <= 3 && list.size() >= 0 && this.e <= 2 && this.e >= 0 && this.e < list.size() && (hVar2 = list.get(this.e)) != null) {
-                            long j = hVar2.g;
+                    if (eVar != null && eVar.aou != null) {
+                        List<h> list = eVar.aou;
+                        if (list.size() <= 3 && list.size() >= 0 && this.aom <= 2 && this.aom >= 0 && this.aom < list.size() && (hVar2 = list.get(this.aom)) != null) {
+                            long j = hVar2.aoC;
                             if (j >= 0 && j != 0 && (valueOf4 = String.valueOf(j)) != null) {
-                                long j2 = hVar2.e;
+                                long j2 = hVar2.aoA;
                                 if (j2 >= 0 && (valueOf5 = String.valueOf(j2 / 100)) != null) {
-                                    long j3 = hVar2.d;
+                                    long j3 = hVar2.aoz;
                                     if (j3 >= 0 && j3 != 0 && (valueOf6 = String.valueOf(j3)) != null) {
                                         intent.putExtra("class", 15);
-                                        intent.putExtra(PayActivityConfig.PAY_TYPE, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                                        intent.putExtra("pay_type", "1");
                                         intent.putExtra(PayActivityConfig.PROPS_ID, valueOf6);
-                                        intent.putExtra(PayActivityConfig.QUAN_NUM, valueOf5);
+                                        intent.putExtra("quan_num", valueOf5);
                                         intent.putExtra(PayActivityConfig.IS_LEFT, "0");
                                         intent.putExtra(PayActivityConfig.PROPS_MON, valueOf4);
                                         UtilHelper.commenDealIntent(this, intent);
-                                        this.f = showType;
+                                        this.aon = showType;
                                     }
                                 }
                             }
                         }
                     }
-                } else if ((showType == 0 || showType == 1) && gVar != null && gVar.a != null) {
-                    List<h> list2 = gVar.a;
-                    if (list2.size() <= 3 && list2.size() >= 0 && this.e <= 2 && this.e >= 0 && this.e < list2.size() && (hVar = list2.get(this.e)) != null) {
-                        long j4 = hVar.g;
+                } else if ((showType == 0 || showType == 1) && gVar != null && gVar.aou != null) {
+                    List<h> list2 = gVar.aou;
+                    if (list2.size() <= 3 && list2.size() >= 0 && this.aom <= 2 && this.aom >= 0 && this.aom < list2.size() && (hVar = list2.get(this.aom)) != null) {
+                        long j4 = hVar.aoC;
                         if (j4 >= 0 && j4 != 0 && (valueOf = String.valueOf(j4)) != null) {
-                            long j5 = hVar.e;
+                            long j5 = hVar.aoA;
                             if (j5 >= 0 && (valueOf2 = String.valueOf(j5 / 100)) != null) {
-                                long j6 = hVar.d;
+                                long j6 = hVar.aoz;
                                 if (j6 >= 0 && j6 != 0 && (valueOf3 = String.valueOf(j6)) != null) {
                                     intent.putExtra("class", 15);
-                                    intent.putExtra(PayActivityConfig.PAY_TYPE, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                                    intent.putExtra("pay_type", "1");
                                     intent.putExtra(PayActivityConfig.PROPS_ID, valueOf3);
-                                    intent.putExtra(PayActivityConfig.QUAN_NUM, valueOf2);
+                                    intent.putExtra("quan_num", valueOf2);
                                     intent.putExtra(PayActivityConfig.IS_LEFT, "0");
                                     intent.putExtra(PayActivityConfig.PROPS_MON, valueOf);
                                     UtilHelper.commenDealIntent(this, intent);
-                                    this.f = showType;
+                                    this.aon = showType;
                                 }
                             }
                         }
                     }
                 }
             }
-        } else if (view.getId() == u.arrowadv) {
-            if (this.d != null && this.d.a != null) {
-                this.d.a.setCurrentItem(1);
-                this.d.h = 1;
-                this.d.e();
-                this.d.f();
-                this.d.c();
-                this.d.d();
+        } else if (view.getId() == v.arrowadv) {
+            if (this.aol != null && this.aol.Ct != null) {
+                this.aol.Ct.setCurrentItem(1);
+                this.aol.apa = 1;
+                this.aol.AU();
+                this.aol.AV();
+                this.aol.AS();
+                this.aol.AT();
             }
-        } else if (view.getId() == u.arrowcommon && this.d != null && this.d.a != null) {
-            this.d.a.setCurrentItem(0);
-            this.d.h = 2;
-            this.d.e();
-            this.d.f();
-            this.d.c();
-            this.d.d();
+        } else if (view.getId() == v.arrowcommon && this.aol != null && this.aol.Ct != null) {
+            this.aol.Ct.setCurrentItem(0);
+            this.aol.apa = 2;
+            this.aol.AU();
+            this.aol.AV();
+            this.aol.AS();
+            this.aol.AT();
         }
     }
 
@@ -190,20 +190,20 @@ public class MemberPayActivity extends BaseActivity implements ViewPager.OnPageC
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (this.d != null) {
+        if (this.aol != null) {
             if (1 == i) {
-                this.d.h = 1;
-                this.d.e();
-                this.d.f();
-                this.d.c();
-                this.d.d();
+                this.aol.apa = 1;
+                this.aol.AU();
+                this.aol.AV();
+                this.aol.AS();
+                this.aol.AT();
                 return;
             }
-            this.d.h = 2;
-            this.d.e();
-            this.d.f();
-            this.d.c();
-            this.d.d();
+            this.aol.apa = 2;
+            this.aol.AU();
+            this.aol.AV();
+            this.aol.AS();
+            this.aol.AT();
         }
     }
 }

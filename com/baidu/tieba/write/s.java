@@ -1,11 +1,11 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
 public interface s {
-    void a();
+    void a(com.baidu.tbadk.coreExtra.view.j jVar, int i);
 
-    void a(com.baidu.tbadk.coreExtra.view.k kVar, int i);
+    void aff();
 
-    void b();
+    void afg();
 
-    void c();
+    void afh();
 }

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.t;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.u;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView c;
+    private static ImageView agt;
 
     static {
         a aVar = new a(2007002);
@@ -23,34 +23,33 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    public boolean c() {
+    public boolean isAvailable() {
         return true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d a() {
-        if (c()) {
+    public com.baidu.tbadk.mainTab.d sC() {
+        if (isAvailable()) {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-            dVar.a = new d();
-            dVar.c = 4;
-            dVar.b = x.contacts;
+            dVar.VU = new d();
+            dVar.type = 4;
+            dVar.VV = y.contacts;
             return dVar;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) com.baidu.adp.lib.e.b.a().a(context, v.fragmenttabindicator, null);
-        c = new ImageView(context);
+    public FragmentTabIndicator z(Context context) {
+        this.VM = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, w.fragmenttabindicator, null);
+        agt = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.h = this.b;
-        cVar.c = com.baidu.adp.lib.util.j.a(context, 7.0f);
-        cVar.a = c;
-        cVar.d = t.icon_news_down_bar_one;
-        cVar.e = t.icon_news_down_bar_one_1;
-        c.setVisibility(8);
-        this.b.a("addresslist", cVar);
-        return this.b;
+        cVar.VT = this.VM;
+        cVar.jI = com.baidu.adp.lib.util.m.dip2px(context, 7.0f);
+        cVar.view = agt;
+        cVar.VR = u.icon_news_down_bar_one;
+        agt.setVisibility(8);
+        this.VM.a("addresslist", cVar);
+        return this.VM;
     }
 }

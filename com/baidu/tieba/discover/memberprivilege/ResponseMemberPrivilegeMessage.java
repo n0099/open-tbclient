@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
-    public h mData;
+    public a mData;
 
     public ResponseMemberPrivilegeMessage(int i) {
         super(i);
@@ -15,8 +15,8 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mData = new h();
-            this.mData.a(jSONObject);
+            this.mData = new a();
+            this.mData.parseJson(jSONObject);
         }
     }
 }

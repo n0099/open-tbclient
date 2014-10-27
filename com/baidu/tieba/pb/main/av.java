@@ -1,21 +1,25 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.h b;
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.h hVar) {
-        this.a = pbActivity;
-        this.b = hVar;
+    public av(PbActivity pbActivity) {
+        this.bvg = pbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.a.a(this.b.c);
-        com.baidu.adp.lib.util.j.a(view.getContext(), view.getResources().getString(com.baidu.tieba.x.copy_pb_url_success));
+        if (this.bvg.aIb != null) {
+            this.bvg.aIb.dismiss();
+            this.bvg.aIb = null;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(this.bvg, 23003)));
     }
 }

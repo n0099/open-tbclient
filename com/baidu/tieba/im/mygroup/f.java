@@ -1,37 +1,18 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ MyGroupFragment a;
+public class f implements View.OnClickListener {
+    final /* synthetic */ PersonGroupActivity bfC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(MyGroupFragment myGroupFragment, int i) {
-        super(i);
-        this.a = myGroupFragment;
+    public f(PersonGroupActivity personGroupActivity) {
+        this.bfC = personGroupActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        switch (socketResponsedMessage.getCmd()) {
-            case 103101:
-            case 103102:
-            case 103104:
-            case 103105:
-            case 103112:
-            case 2001109:
-                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
-                    this.a.c = true;
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bfC.finish();
     }
 }

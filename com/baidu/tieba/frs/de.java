@@ -1,50 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class de implements View.OnTouchListener {
-    final /* synthetic */ cv a;
+public class de extends PagerAdapter {
+    private ArrayList<View> zO;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public de(cv cvVar) {
-        this.a = cvVar;
+    public de(ArrayList<View> arrayList) {
+        this.zO = arrayList;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int i;
-        ImageView imageView;
-        ImageView imageView2;
-        int i2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (view.getId() == com.baidu.tieba.u.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.a.O;
-                if (i == 1) {
-                    imageView2 = this.a.q;
-                    imageView2.setImageResource(com.baidu.tieba.t.pic_fresh_n_1);
-                } else {
-                    imageView = this.a.q;
-                    imageView.setImageResource(com.baidu.tieba.t.pic_fresh_n);
-                }
-            }
-            if (motionEvent.getAction() == 0) {
-                i2 = this.a.O;
-                if (i2 == 1) {
-                    imageView4 = this.a.q;
-                    imageView4.setImageResource(com.baidu.tieba.t.pic_fresh_s_1);
-                    return false;
-                }
-                imageView3 = this.a.q;
-                imageView3.setImageResource(com.baidu.tieba.t.pic_fresh_s);
-                return false;
-            }
-            return false;
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        if (this.zO == null) {
+            return 0;
         }
-        return false;
+        return this.zO.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (this.zO == null) {
+            return null;
+        }
+        viewGroup.addView(this.zO.get(i));
+        return this.zO.get(i);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        if (this.zO != null) {
+            viewGroup.removeView(this.zO.get(i));
+        }
     }
 }

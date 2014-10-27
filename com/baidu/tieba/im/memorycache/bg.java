@@ -1,30 +1,38 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements com.baidu.tieba.im.chat.receiveChatMsgHandler.b {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+public class bg extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.a = imMemoryCacheRegisterStatic;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.b().a(imMessageCenterPojo);
-        c.b().a(-1, imMessageCenterPojo.getPulled_msgId(), String.valueOf(com.baidu.tieba.im.chat.w.a));
-        if (z) {
-            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterPojo B;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (B = c.PK().B("-1002", -3)) != null) {
+            Object data = customResponsedMessage.getData();
+            if (data == null) {
+                B.setUnread_count(0);
+                B.setIs_hidden(1);
+                this.this$0.k(B);
+            } else if (data instanceof ImMessageCenterPojo) {
+                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
+                B.setLast_content(imMessageCenterPojo.getLast_content());
+                B.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                B.setUnread_count(0);
+                B.setIs_hidden(0);
+                this.this$0.k(B);
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
-    public void a(String str, List<CommonMsgPojo> list) {
     }
 }

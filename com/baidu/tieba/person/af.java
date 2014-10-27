@@ -1,68 +1,26 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.app.Dialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.base.e {
-    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask b = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, a);
-    private t c = new t();
-    private boolean d;
-    private String e;
-    private int f;
+public class af implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bCm;
 
-    static {
-        b.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(b);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
-    public af(boolean z) {
-        this.d = z;
-    }
-
-    public void a(String str) {
-        this.e = str;
-    }
-
-    public String a() {
-        return this.e;
-    }
-
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public t b() {
-        return this.c;
-    }
-
-    public void c() {
-        super.sendMessage(new PersonBarByUidLocalMessage());
-    }
-
-    public void a(boolean z, String str) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
-        if (!z) {
-            httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
-            httpMessage.addParam("friend_uid", str);
-            httpMessage.addParam("is_guest", String.valueOf(1));
-            httpMessage.setExtra(str);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        Dialog dialog2;
+        dialog = this.bCm.bCi;
+        if (dialog != null) {
+            dialog2 = this.bCm.bCi;
+            com.baidu.adp.lib.g.j.b(dialog2, this.bCm);
         }
-        super.sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+        this.bCm.ZV();
     }
 }

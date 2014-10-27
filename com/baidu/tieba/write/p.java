@@ -1,15 +1,16 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, o, o> {
-    final /* synthetic */ o a;
-    private com.baidu.tbadk.core.util.ae b;
+    final /* synthetic */ o bSN;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private p(o oVar) {
-        this.a = oVar;
+        this.bSN = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,38 +21,40 @@ public class p extends BdAsyncTask<Object, o, o> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: A */
     public o doInBackground(Object... objArr) {
+        Context context;
         String obj = objArr[0].toString();
-        this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-        this.b.a("kw", obj);
-        String h = this.b.h();
-        if (!this.b.a().b().b()) {
-            return null;
+        this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.mNetWork.k("kw", obj);
+        String lA = this.mNetWork.lA();
+        if (this.mNetWork.mc().nb().jq()) {
+            context = this.bSN.mContext;
+            o oVar = new o(context);
+            oVar.parserJson(lA);
+            return oVar;
         }
-        o oVar = new o();
-        oVar.b(h);
-        return oVar;
+        return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(o oVar) {
         com.baidu.adp.base.h hVar;
         super.onPostExecute(oVar);
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
+        this.bSN.bSL = null;
+        hVar = this.bSN.mLoadDataCallBack;
         hVar.a(oVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.a.a = null;
-        if (this.b != null) {
-            this.b.f();
+        this.bSN.bSL = null;
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
     }
 }

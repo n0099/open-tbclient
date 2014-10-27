@@ -3,15 +3,15 @@ package com.baidu.tieba.faceshop;
 import android.view.View;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ EmotionImageActivity a;
+    final /* synthetic */ EmotionImageActivity ass;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(EmotionImageActivity emotionImageActivity) {
-        this.a = emotionImageActivity;
+        this.ass = emotionImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        this.ass.finish();
     }
 }

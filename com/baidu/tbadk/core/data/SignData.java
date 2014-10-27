@@ -8,6 +8,7 @@ public class SignData implements Serializable {
     private static final long serialVersionUID = -7905612002845096083L;
     private String forumId;
     private String forumName;
+    private int levelup_score;
     private int is_signed = 0;
     private int user_sign_rank = 0;
     private int count_sign_num = 0;
@@ -84,6 +85,14 @@ public class SignData implements Serializable {
         this.forumName = str;
     }
 
+    public int getLevelUpScore() {
+        return this.levelup_score;
+    }
+
+    public void setLevelUpScore(int i) {
+        this.levelup_score = i;
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
@@ -101,6 +110,7 @@ public class SignData implements Serializable {
                 this.count_sign_num = optJSONObject.getInt("cont_sign_num");
                 this.count_total_sign_num = optJSONObject.getInt("cout_total_sing_num");
                 this.sign_bonus_point = optJSONObject.getInt("sign_bonus_point");
+                this.levelup_score = optJSONObject.getInt("levelup_score");
             }
         } catch (JSONException e) {
             e.printStackTrace();

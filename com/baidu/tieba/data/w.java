@@ -8,84 +8,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private String a;
-    private String b;
-    private int c;
-    private AntiData d;
-    private Context e;
-    private LinkedList<v> f;
-    private String g;
-    private String h;
-    private String i;
-    private String j;
-    private int k;
+    private AntiData alc;
+    private LinkedList<v> ald;
+    private String ala = null;
+    private String fid = null;
+    private int alb = 0;
+    private Context mContext = null;
+    private String ale = null;
+    private String alf = null;
+    private String tid = null;
+    private String title = null;
+    private int akp = 0;
 
-    public w(Context context) {
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = 0;
-        this.e = context;
-        this.f = new LinkedList<>();
-        this.d = new AntiData();
+    public String zr() {
+        return this.ale;
     }
 
-    public boolean a() {
-        return this.c > 0 && this.c <= this.f.size();
-    }
-
-    public boolean b() {
-        return (this.g == null || this.g.length() == 0 || this.h == null || this.h.length() == 0) ? false : true;
-    }
-
-    public void a(String str) {
-        this.i = str;
-    }
-
-    public void b(String str) {
-        this.j = str;
-    }
-
-    public String c() {
-        return this.i;
-    }
-
-    public String d() {
-        return this.j;
-    }
-
-    public String e() {
-        return this.g;
-    }
-
-    public String f() {
-        return this.h;
+    public String zs() {
+        return this.alf;
     }
 
     public w() {
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = 0;
-        this.f = new LinkedList<>();
-        this.d = new AntiData();
+        this.alc = null;
+        this.ald = null;
+        this.ald = new LinkedList<>();
+        this.alc = new AntiData();
     }
 
-    public void a(String str, boolean z) {
+    public void s(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -93,76 +43,52 @@ public class w {
         }
     }
 
-    public LinkedList<v> g() {
-        return this.f;
+    public LinkedList<v> zt() {
+        return this.ald;
     }
 
-    public void c(String str) {
-        this.a = str;
-    }
-
-    public String h() {
-        return this.a;
-    }
-
-    public String i() {
-        return this.b;
-    }
-
-    public int j() {
-        return this.c;
-    }
-
-    public String k() {
-        return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
+    public int zu() {
+        return this.alb;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                a(jSONObject.optInt("is_new_url", 0));
+                this.akp = jSONObject.optInt("is_new_url", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.a = optJSONObject.optString("name");
-                    this.b = optJSONObject.optString("id");
+                    this.ala = optJSONObject.optString("name");
+                    this.fid = optJSONObject.optString("id");
                 }
-                this.c = jSONObject.optInt("pic_amount", 0);
+                this.alb = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            v vVar = new v(this.e);
-                            vVar.a(optJSONArray.optJSONObject(i));
-                            int h = vVar.h();
-                            if (h >= 1 && h <= this.c) {
-                                this.f.addLast(vVar);
+                            v vVar = new v(this.mContext);
+                            vVar.paserJson(optJSONArray.optJSONObject(i));
+                            int index = vVar.getIndex();
+                            if (index >= 1 && index <= this.alb) {
+                                this.ald.addLast(vVar);
                             }
                         }
                     } else {
                         for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                            v vVar2 = new v(this.e);
-                            vVar2.a(optJSONArray.getJSONObject(length));
-                            int h2 = vVar2.h();
-                            if (h2 >= 1 && h2 <= this.c) {
-                                this.f.addFirst(vVar2);
+                            v vVar2 = new v(this.mContext);
+                            vVar2.paserJson(optJSONArray.getJSONObject(length));
+                            int index2 = vVar2.getIndex();
+                            if (index2 >= 1 && index2 <= this.alb) {
+                                this.ald.addFirst(vVar2);
                             }
                         }
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
-                this.g = optJSONObject2.optString("tid");
-                this.h = optJSONObject2.optString("title");
+                this.ale = optJSONObject2.optString("tid");
+                this.alf = optJSONObject2.optString("title");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-    }
-
-    public int l() {
-        return this.k;
-    }
-
-    public void a(int i) {
-        this.k = i;
     }
 }

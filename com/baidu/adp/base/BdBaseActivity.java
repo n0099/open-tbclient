@@ -13,14 +13,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.m;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
+public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
     private final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
-    protected final Handler mHandler = new Handler();
+    public final Handler mHandler = new Handler(this);
     private final Runnable preLoadRunnable = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +28,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.a().a(this);
+        a.M().a(this);
     }
 
     @Override // android.app.Activity
@@ -65,7 +65,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     }
 
     public void showToast(String str) {
-        j.a(getApplicationContext(), str);
+        m.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -99,15 +99,15 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     }
 
     public void registerListener(com.baidu.adp.framework.listener.a aVar) {
-        if (aVar != null && aVar.c() == null) {
-            aVar.a(this.mId);
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
     public void registerListener(int i, com.baidu.adp.framework.listener.a aVar) {
-        if (aVar != null && aVar.c() == null) {
-            aVar.a(this.mId);
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(i, aVar);
     }
@@ -137,8 +137,8 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.resourceLoader.d.a().a(this.mId);
-        a.a().b(this);
+        com.baidu.adp.lib.f.d.ef().d(this.mId);
+        a.M().b(this);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -146,7 +146,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.resourceLoader.d.a().b(this.mId);
+        com.baidu.adp.lib.f.d.ef().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,7 +163,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.c();
+            onGetPreLoadListView.hM();
         }
     }
 
@@ -198,7 +198,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     private void refreshImage(View view) {
         if (view != null) {
             if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).b();
+                ((com.baidu.adp.newwidget.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
@@ -208,5 +208,10 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
                 }
             }
         }
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(android.os.Message message) {
+        return false;
     }
 }

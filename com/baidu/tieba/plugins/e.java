@@ -5,11 +5,11 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class e implements DialogInterface.OnKeyListener {
-    final /* synthetic */ PluginDownloadActivity a;
+    final /* synthetic */ PluginDownloadActivity bGV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginDownloadActivity pluginDownloadActivity) {
-        this.a = pluginDownloadActivity;
+        this.bGV = pluginDownloadActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -26,28 +26,28 @@ class e implements DialogInterface.OnKeyListener {
         LinearLayout linearLayout4;
         g gVar6;
         LinearLayout linearLayout5;
-        z = this.a.d;
+        z = this.bGV.bGU;
         if (!z) {
-            gVar = this.a.a;
+            gVar = this.bGV.bGT;
             gVar.dismiss();
             return true;
         } else if (i == 4 && keyEvent.getAction() == 1) {
-            gVar2 = this.a.a;
-            linearLayout = gVar2.i;
+            gVar2 = this.bGV.bGT;
+            linearLayout = gVar2.adh;
             if (linearLayout.getVisibility() == 0) {
-                gVar5 = this.a.a;
-                linearLayout4 = gVar5.i;
+                gVar5 = this.bGV.bGT;
+                linearLayout4 = gVar5.adh;
                 linearLayout4.setVisibility(8);
-                gVar6 = this.a.a;
-                linearLayout5 = gVar6.b;
+                gVar6 = this.bGV.bGT;
+                linearLayout5 = gVar6.bGW;
                 linearLayout5.setVisibility(0);
                 return true;
             }
-            gVar3 = this.a.a;
-            linearLayout2 = gVar3.i;
+            gVar3 = this.bGV.bGT;
+            linearLayout2 = gVar3.adh;
             linearLayout2.setVisibility(0);
-            gVar4 = this.a.a;
-            linearLayout3 = gVar4.b;
+            gVar4 = this.bGV.bGT;
+            linearLayout3 = gVar4.bGW;
             linearLayout3.setVisibility(8);
             return true;
         } else {

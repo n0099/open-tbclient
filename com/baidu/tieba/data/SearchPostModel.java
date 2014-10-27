@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
     private static final long serialVersionUID = 1;
-    private ArrayList<at> datas;
+    private ArrayList<aq> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -20,7 +20,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<at> getData() {
+    public ArrayList<aq> getData() {
         return this.datas;
     }
 
@@ -60,9 +60,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    at atVar = new at();
-                    atVar.a(optJSONObject2);
-                    this.datas.add(atVar);
+                    aq aqVar = new aq();
+                    aqVar.parserJson(optJSONObject2);
+                    this.datas.add(aqVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");

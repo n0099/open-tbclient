@@ -1,25 +1,37 @@
 package com.baidu.tieba.pb.history;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.data.ai;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    final /* synthetic */ PbHistoryActivity a;
+class a implements com.baidu.tbadk.mvc.model.d<ai> {
+    final /* synthetic */ PbHistoryActivity bul;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(PbHistoryActivity pbHistoryActivity, int i) {
-        super(i);
-        this.a = pbHistoryActivity;
+    public a(PbHistoryActivity pbHistoryActivity) {
+        this.bul = pbHistoryActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponsePbHistoryReadMessage)) {
+    @Override // com.baidu.tbadk.mvc.model.d
+    public void a(ReadCacheRespMsg<List<ai>> readCacheRespMsg, ReadCacheMessage<ai> readCacheMessage) {
+        if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.a.a(((ResponsePbHistoryReadMessage) customResponsedMessage).datas);
+        this.bul.ah(readCacheRespMsg.getData());
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.d
+    public void a(WriteCacheRespMsg<List<ai>> writeCacheRespMsg, WriteCacheMessage<ai> writeCacheMessage) {
+        if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
+            if (!writeCacheMessage.isClear()) {
+                this.bul.VX();
+            } else {
+                this.bul.ah(new ArrayList());
+            }
+        }
     }
 }

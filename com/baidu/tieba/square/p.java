@@ -1,77 +1,60 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
+import android.support.v4.view.ViewPager;
 /* loaded from: classes.dex */
-public class p extends BaseAdapter implements com.baidu.tieba.view.s {
-    private t a = null;
-    private ArrayList<ap> b = new ArrayList<>();
-    private q c;
+class p implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ CarouselRecommendView bMm;
 
-    public p(Context context) {
-        this.c = null;
-        this.c = new q(context, false);
+    private p(CarouselRecommendView carouselRecommendView) {
+        this.bMm = carouselRecommendView;
     }
 
-    public void a(ArrayList<ap> arrayList) {
-        this.b = arrayList;
-        this.c.a(arrayList);
-        this.a = this.c.getPagerAdapter();
-        notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(CarouselRecommendView carouselRecommendView, p pVar) {
+        this(carouselRecommendView);
     }
 
-    public void a() {
-        if (this.c != null) {
-            this.c.a();
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        if (CarouselRecommendView.access$10(this.bMm) != null && CarouselRecommendView.access$1(this.bMm) != null && CarouselRecommendView.access$2(this.bMm).size() > 1) {
+            int count = CarouselRecommendView.access$1(this.bMm).getCount();
+            if (i == 0) {
+                CarouselRecommendView.access$10(this.bMm).setPosition((count - 3) + f);
+            } else if (i == count - 1) {
+                CarouselRecommendView.access$10(this.bMm).setPosition(f);
+            } else {
+                CarouselRecommendView.access$10(this.bMm).setPosition((i - 1) + f);
+            }
         }
     }
 
-    public void c() {
-        if (this.c != null) {
-            this.c.b();
-        }
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return (this.b != null ? this.b.size() + 0 : 0) > 0 ? 1 : 0;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.c;
-    }
-
-    @Override // com.baidu.tieba.view.s
-    public void b() {
-        if (this.a != null) {
-            this.a.b();
-        }
-    }
-
-    @Override // com.baidu.tieba.view.s
-    public void a(View view, int i, int i2) {
-        if (this.a != null) {
-            this.a.a(this.c, 0, 0);
-        }
-    }
-
-    public void a(int i) {
-        if (this.c != null) {
-            this.c.a(i);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        if (CarouselRecommendView.access$0(this.bMm) != null && CarouselRecommendView.access$1(this.bMm) != null) {
+            if (i == 0) {
+                if (CarouselRecommendView.access$2(this.bMm).size() > 1) {
+                    int currentItem = CarouselRecommendView.access$0(this.bMm).getCurrentItem();
+                    if (currentItem < 1) {
+                        CarouselRecommendView.access$0(this.bMm).setCurrentItem(CarouselRecommendView.access$1(this.bMm).getCount() - 2, false);
+                        CarouselRecommendView.access$0(this.bMm).invalidate();
+                    } else if (currentItem > CarouselRecommendView.access$1(this.bMm).getCount() - 2) {
+                        CarouselRecommendView.access$0(this.bMm).setCurrentItem(1, false);
+                        CarouselRecommendView.access$0(this.bMm).invalidate();
+                        CarouselRecommendView.access$11(this.bMm).removeMessages(0);
+                        CarouselRecommendView.access$11(this.bMm).sendEmptyMessageDelayed(0, CarouselRecommendView.access$12());
+                    } else {
+                        CarouselRecommendView.access$11(this.bMm).removeMessages(0);
+                        CarouselRecommendView.access$11(this.bMm).sendEmptyMessageDelayed(0, CarouselRecommendView.access$12());
+                    }
+                }
+                CarouselRecommendView.access$0(this.bMm).requestDisallowInterceptTouchEvent(false);
+            } else if (i == 1) {
+                CarouselRecommendView.access$0(this.bMm).requestDisallowInterceptTouchEvent(true);
+            }
         }
     }
 }

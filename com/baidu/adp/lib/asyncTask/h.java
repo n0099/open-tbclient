@@ -1,16 +1,19 @@
 package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.base.BdBaseApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ f a;
+    final /* synthetic */ f fb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.a = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(f fVar, Looper looper) {
+        super(looper);
+        this.fb = fVar;
     }
 
     @Override // android.os.Handler
@@ -20,9 +23,9 @@ public class h extends Handler {
             if (message.obj == null || !(message.obj instanceof j)) {
                 return;
             }
-            this.a.c((j) message.obj);
+            this.fb.b((j) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
-            this.a.a((j) message.obj);
+            this.fb.e((j) message.obj);
             BdBaseApplication.getInst().isDebugMode();
         }
     }

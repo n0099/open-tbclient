@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import com.baidu.gson.Gson;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = -6859992224160576142L;
@@ -25,7 +24,7 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
     private String updatesType;
 
     public String toJsonString() {
-        return new Gson().toJson(this).toString();
+        return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this);
     }
 
     public GroupNewsPojo toGroupNewsPojo() {
@@ -110,17 +109,17 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(getGroupHeadUrl());
-        return linkedList;
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getGroupHeadUrl());
+        return arrayList;
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(getGroupHeadUrl());
-        return linkedList;
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getGroupHeadUrl());
+        return arrayList;
     }
 
     public String getTitle() {

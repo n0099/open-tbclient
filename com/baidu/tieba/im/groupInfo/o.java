@@ -1,38 +1,23 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public boolean a(Context context, String[] strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        String str = strArr[0];
-        if (str.contains("tieba.baidu.com/group/index?id=")) {
-            int indexOf = str.indexOf("tieba.baidu.com/group/index?id=") + "tieba.baidu.com/group/index?id=".length();
-            int lastIndexOf = str.lastIndexOf(38);
-            if (lastIndexOf == -1 || lastIndexOf < indexOf) {
-                lastIndexOf = str.length();
-            }
-            long a = com.baidu.adp.lib.e.c.a(str.substring(indexOf, lastIndexOf), 0L);
-            if (a <= 0) {
-                return false;
-            }
-            com.baidu.tbadk.core.atomData.z zVar = new com.baidu.tbadk.core.atomData.z(context, a, 0);
-            if (context instanceof BaseActivity) {
-                ((BaseActivity) context).sendMessage(new CustomMessage(2008011, zVar));
-                return true;
-            } else if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).a(new CustomMessage(2008011, zVar));
-                return true;
+public class o implements CustomMessageTask.CustomRunnable<GroupInfoActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), GroupInfoActivity.class);
+            int intExtra = customMessage.getData().getIntent().getIntExtra(GroupInfoActivityConfig.REQUEST_CODE, -1);
+            if (intExtra != -1) {
+                customMessage.getData().startActivityForResult(intExtra);
+            } else {
+                customMessage.getData().startActivity();
             }
         }
-        return false;
+        return null;
     }
 }

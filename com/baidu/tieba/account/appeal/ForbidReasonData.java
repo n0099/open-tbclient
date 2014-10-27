@@ -1,13 +1,10 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForbidReasonData implements Serializable {
+public class ForbidReasonData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 3978400869191734600L;
-    @SerializedName("error")
     public i error;
-    @SerializedName("reason")
     public String reason = null;
 
     public ForbidReasonData() {

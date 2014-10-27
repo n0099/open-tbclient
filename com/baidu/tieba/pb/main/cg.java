@@ -1,34 +1,27 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
+import android.app.Dialog;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cg implements Animation.AnimationListener {
-    final /* synthetic */ bs a;
-    private final /* synthetic */ com.baidu.tieba.data.au b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
+public class cg implements View.OnClickListener {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(bs bsVar, com.baidu.tieba.data.au auVar, boolean z, String str, String str2) {
-        this.a = bsVar;
-        this.b = auVar;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
+    public cg(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ch(this, this.b, this.c, this.d, this.e));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.byI.byc;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.byI.byc;
+            pbActivity = this.byI.bwQ;
+            com.baidu.adp.lib.g.j.b(dialog2, pbActivity);
+        }
     }
 }

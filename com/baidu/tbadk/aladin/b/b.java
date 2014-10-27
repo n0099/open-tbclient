@@ -4,14 +4,14 @@ import java.net.InetAddress;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class b {
-    private static final HashSet<String> a = new HashSet<>();
+    private static final HashSet<String> xn = new HashSet<>();
 
     static {
-        a.add("127.0.0.1");
+        xn.add("127.0.0.1");
     }
 
     public static final boolean a(InetAddress inetAddress) {
         String hostAddress;
-        return (inetAddress == null || (hostAddress = inetAddress.getHostAddress()) == null || !a.contains(hostAddress)) ? false : true;
+        return (inetAddress == null || (hostAddress = inetAddress.getHostAddress()) == null || !xn.contains(hostAddress)) ? false : true;
     }
 }

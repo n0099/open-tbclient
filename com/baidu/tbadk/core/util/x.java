@@ -1,21 +1,16 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 class x {
-    int a;
-    boolean b;
-    y c;
-    y d;
-    y e;
-    y f;
-    y g;
+    int DO;
+    int DP;
+    int num;
+    long time;
 
     private x() {
-        this.a = 0;
-        this.c = new y(null);
-        this.d = new y(null);
-        this.e = new y(null);
-        this.f = new y(null);
-        this.g = new y(null);
+        this.num = 0;
+        this.DO = 0;
+        this.time = 0L;
+        this.DP = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,16 +18,10 @@ class x {
         this();
     }
 
-    public int a() {
-        return this.c.a + this.d.a + this.e.a + this.f.a + this.g.a;
-    }
-
-    public void b() {
-        this.a = 0;
-        this.c.a();
-        this.d.a();
-        this.e.a();
-        this.f.a();
-        this.g.a();
+    public void reset() {
+        this.num = 0;
+        this.DO = 0;
+        this.time = 0L;
+        this.DP = 0;
     }
 }

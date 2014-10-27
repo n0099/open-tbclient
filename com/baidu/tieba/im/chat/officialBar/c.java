@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private Context a;
-    private TbImageView b;
-    private TextView c;
-    private com.baidu.adp.lib.b.b d;
-    private int e;
+    private TextView JM;
+    private int Uy;
+    private com.baidu.adp.lib.c.b aOL;
+    private TbImageView aQP;
+    private Context mContext;
 
     public c(Context context) {
         this(context, null);
@@ -21,55 +21,51 @@ public class c extends LinearLayout {
 
     public c(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = null;
-        this.a = context;
-        b();
+        this.aOL = null;
+        this.mContext = context;
+        nu();
         setOnLongClickListener(new d(this));
     }
 
-    private void b() {
+    private void nu() {
         setOrientation(0);
-        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.msg_multi_pic_text_bottom_view, this, true);
-        this.b = (TbImageView) findViewById(com.baidu.tieba.u.bottom_content_pic);
-        this.c = (TextView) findViewById(com.baidu.tieba.u.bottom_title);
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_bottom_view, this, true);
+        this.aQP = (TbImageView) findViewById(com.baidu.tieba.v.bottom_content_pic);
+        this.JM = (TextView) findViewById(com.baidu.tieba.v.bottom_title);
     }
 
     public void a(p pVar, View view) {
         if (pVar != null) {
             String str = "";
-            if (!TextUtils.isEmpty(pVar.a)) {
-                str = pVar.a;
+            if (!TextUtils.isEmpty(pVar.title)) {
+                str = pVar.title;
             }
-            this.c.setText(str);
-            if (!TextUtils.isEmpty(pVar.d)) {
+            this.JM.setText(str);
+            if (!TextUtils.isEmpty(pVar.url)) {
                 setOnClickListener(new e(this, pVar));
             }
-            if (!TextUtils.isEmpty(pVar.c)) {
-                this.b.setTag(pVar.c);
-                this.b.a(pVar.c, 10, false);
+            if (!TextUtils.isEmpty(pVar.src)) {
+                this.aQP.setTag(pVar.src);
+                this.aQP.c(pVar.src, 10, false);
             }
         }
     }
 
-    public void a() {
-        this.c.setText("");
-        this.b.setBackgroundDrawable(null);
-        this.b.setImageDrawable(null);
+    public void reset() {
+        this.JM.setText("");
+        this.aQP.setBackgroundDrawable(null);
+        this.aQP.setImageDrawable(null);
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.d = bVar;
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
+        this.aOL = bVar;
     }
 
     public void setPosition(int i) {
-        this.e = i;
+        this.Uy = i;
     }
 
-    public void a(boolean z) {
-        if (z) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text_1));
-        } else {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.r.official_msg_bottom_text));
-        }
+    public void cG(boolean z) {
+        com.baidu.tbadk.core.util.aw.a(this.JM, com.baidu.tieba.s.official_msg_bottom_text, 1, z ? 1 : 0);
     }
 }

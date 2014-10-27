@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ g a;
+    final /* synthetic */ AbsMsglistView aNB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(g gVar) {
-        this.a = gVar;
+    public q(AbsMsglistView absMsglistView) {
+        this.aNB = absMsglistView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.f();
-        this.a.X();
-        this.a.S();
+        this.aNB.sendmsgCloseSoftkey();
+        this.aNB.sendmsgShowMore();
+        this.aNB.sendmsgShowText();
     }
 }

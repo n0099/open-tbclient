@@ -5,14 +5,15 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.adp.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ c a;
+    final /* synthetic */ c hm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.a = cVar;
+        this.hm = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,26 +28,26 @@ public class f implements View.OnClickListener {
         Context context6;
         Context context7;
         Context context8;
-        if (!com.baidu.adp.lib.debug.d.e) {
-            com.baidu.adp.lib.debug.d.e = true;
-            textView2 = this.a.j;
-            context5 = this.a.k;
-            textView2.setText(((Activity) context5).getText(com.baidu.adp.f.item_open));
-            context6 = this.a.k;
-            context7 = this.a.k;
-            StringBuilder sb = new StringBuilder(String.valueOf(context7.getText(com.baidu.adp.f.capture_package_swtich).toString()));
-            context8 = this.a.k;
-            Toast.makeText(context6, sb.append(context8.getText(com.baidu.adp.f.item_open).toString()).toString(), 1).show();
+        if (!com.baidu.adp.lib.debug.d.gj) {
+            com.baidu.adp.lib.debug.d.gj = true;
+            textView2 = this.hm.hd;
+            context5 = this.hm.mContext;
+            textView2.setText(((Activity) context5).getText(R.string.item_open));
+            context6 = this.hm.mContext;
+            context7 = this.hm.mContext;
+            StringBuilder sb = new StringBuilder(String.valueOf(context7.getText(R.string.capture_package_swtich).toString()));
+            context8 = this.hm.mContext;
+            Toast.makeText(context6, sb.append(context8.getText(R.string.item_open).toString()).toString(), 1).show();
             return;
         }
-        com.baidu.adp.lib.debug.d.e = false;
-        textView = this.a.j;
-        context = this.a.k;
-        textView.setText(((Activity) context).getText(com.baidu.adp.f.item_close));
-        context2 = this.a.k;
-        context3 = this.a.k;
-        StringBuilder sb2 = new StringBuilder(String.valueOf(context3.getText(com.baidu.adp.f.capture_package_swtich).toString()));
-        context4 = this.a.k;
-        Toast.makeText(context2, sb2.append(context4.getText(com.baidu.adp.f.item_close).toString()).toString(), 1).show();
+        com.baidu.adp.lib.debug.d.gj = false;
+        textView = this.hm.hd;
+        context = this.hm.mContext;
+        textView.setText(((Activity) context).getText(R.string.item_close));
+        context2 = this.hm.mContext;
+        context3 = this.hm.mContext;
+        StringBuilder sb2 = new StringBuilder(String.valueOf(context3.getText(R.string.capture_package_swtich).toString()));
+        context4 = this.hm.mContext;
+        Toast.makeText(context2, sb2.append(context4.getText(R.string.item_close).toString()).toString(), 1).show();
     }
 }

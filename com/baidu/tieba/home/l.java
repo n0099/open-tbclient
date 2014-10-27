@@ -1,21 +1,21 @@
 package com.baidu.tieba.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
+public class l implements Runnable {
+    final /* synthetic */ f aMo;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(int i) {
-        super(i);
+    public l(f fVar) {
+        this.aMo = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (TbadkApplication.isLogin()) {
-            new com.baidu.tieba.model.n().a(true);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        r rVar;
+        BdLog.d("First enter , startPullRefresh after loadCache !");
+        rVar = this.aMo.aMd;
+        rVar.hO();
     }
 }

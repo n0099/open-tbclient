@@ -1,10 +1,8 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-class bm implements DialogInterface.OnClickListener {
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
-    }
+public class bm {
+    public UtilHelper.NativePageType Fu = UtilHelper.NativePageType.NONE;
+    public String id;
 }

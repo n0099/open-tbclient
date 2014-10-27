@@ -1,5 +1,5 @@
 package com.baidu.tieba.person.post;
 /* loaded from: classes.dex */
 public interface r {
-    void a(PersonPostModel personPostModel, boolean z);
+    void b(PersonPostModel personPostModel, boolean z);
 }

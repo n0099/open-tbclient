@@ -3,22 +3,22 @@ package com.baidu.tieba.flist;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ ForumRankActivity a;
+public class ab implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ ForumRankActivity awP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(ForumRankActivity forumRankActivity) {
-        this.a = forumRankActivity;
+        this.awP = forumRankActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
         ac acVar;
         BdListView bdListView;
-        acVar = this.a.b;
+        acVar = this.awP.awI;
         if (!acVar.LoadData()) {
-            bdListView = this.a.a;
-            bdListView.d();
+            bdListView = this.awP.vl;
+            bdListView.hN();
         }
     }
 }

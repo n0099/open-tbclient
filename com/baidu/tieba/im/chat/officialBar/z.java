@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.chat.officialBar;
+
+import com.baidu.tieba.im.chat.AbsMsglistView;
 /* loaded from: classes.dex */
 class z implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ OfficialBarChatActivity a;
+    final /* synthetic */ OfficialBarChatActivity aRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(OfficialBarChatActivity officialBarChatActivity) {
-        this.a = officialBarChatActivity;
+        this.aRf = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        com.baidu.tieba.im.chat.g gVar;
-        com.baidu.tieba.im.chat.g gVar2;
+    public void onReturnDataInUI(Boolean bool) {
+        AbsMsglistView absMsglistView;
+        AbsMsglistView absMsglistView2;
         if (bool != null) {
             if (bool.booleanValue()) {
-                gVar2 = this.a.d;
-                gVar2.M();
+                absMsglistView2 = this.aRf.aPP;
+                absMsglistView2.closeNotNotify();
                 return;
             }
-            gVar = this.a.d;
-            gVar.N();
+            absMsglistView = this.aRf.aPP;
+            absMsglistView.showNotNotfiy();
         }
     }
 }

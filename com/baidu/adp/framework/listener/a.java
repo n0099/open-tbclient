@@ -5,37 +5,37 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class a {
-    private HttpMessageListener a = null;
-    private d b = null;
+    private HttpMessageListener cD = null;
+    private e cE = null;
 
-    public abstract void a(ResponsedMessage<?> responsedMessage);
+    public abstract void onMessage(ResponsedMessage<?> responsedMessage);
 
     public a(int i, int i2) {
-        a(i, i2, 0);
+        b(i, i2, 0);
     }
 
-    private void a(int i, int i2, int i3) {
-        this.a = new b(this, i);
-        this.b = new c(this, i2);
+    private void b(int i, int i2, int i3) {
+        this.cD = new b(this, i);
+        this.cE = new c(this, i2);
     }
 
-    public HttpMessageListener a() {
-        return this.a;
+    public HttpMessageListener aO() {
+        return this.cD;
     }
 
-    public d b() {
-        return this.b;
+    public e aP() {
+        return this.cE;
     }
 
-    public BdUniqueId c() {
-        if (this.a.getTag() != this.b.getTag()) {
+    public BdUniqueId getTag() {
+        if (this.cD.getTag() != this.cE.getTag()) {
             throw new InvalidParameterException("tag invalid");
         }
-        return this.a.getTag();
+        return this.cD.getTag();
     }
 
-    public void a(BdUniqueId bdUniqueId) {
-        this.a.setTag(bdUniqueId);
-        this.b.setTag(bdUniqueId);
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.cD.setTag(bdUniqueId);
+        this.cE.setTag(bdUniqueId);
     }
 }

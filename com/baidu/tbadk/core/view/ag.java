@@ -1,11 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.widget.ListView;
+import android.content.Context;
 /* loaded from: classes.dex */
-public interface ag {
-    ListView a();
+class ag implements com.baidu.adp.lib.e.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
-    int b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(Context context) {
+        this.val$context = context;
+    }
 
-    com.baidu.adp.lib.d.b<HeadImageView> c();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: nE */
+    public HeadImageView ee() {
+        return new HeadImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void i(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public HeadImageView j(HeadImageView headImageView) {
+        return headImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public HeadImageView k(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
+    }
 }

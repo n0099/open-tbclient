@@ -554,7 +554,7 @@ public final class ProtoSchemaParser {
         throw unexpected("unterminated string");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0027, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0026, code lost:
         throw unexpected("expected a digit after \\x or \\X");
      */
     /*

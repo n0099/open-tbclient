@@ -7,128 +7,129 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.BubbleListData;
 /* loaded from: classes.dex */
-public class a extends ai {
-    public CustomMessageListener a;
-    private com.baidu.tieba.model.e b;
-    private BubbleListData c;
-    private Context d;
-    private int e;
-    private String f;
-    private boolean g;
-    private com.baidu.tieba.model.h h;
-    private com.baidu.tieba.model.i i;
-    private View.OnClickListener j;
-    private com.baidu.tieba.bubble.s k;
-    private com.baidu.tieba.bubble.s l;
+public class a extends an {
+    private com.baidu.tieba.model.h aiV;
+    private com.baidu.tieba.model.i aiW;
+    private com.baidu.tieba.bubble.s aiX;
+    private com.baidu.tieba.bubble.s aiY;
+    public CustomMessageListener aiZ;
+    private com.baidu.tieba.model.e apW;
+    private BubbleListData apX;
+    private int apY;
+    private String apZ;
+    private boolean aqa;
+    private View.OnClickListener aqb;
+    private Context mContext;
 
-    public a(an anVar) {
-        super(anVar);
-        this.e = 0;
-        this.g = false;
-        this.h = new b(this);
-        this.i = new c(this);
-        this.a = new d(this, 2010040);
-        this.j = new e(this);
-        this.k = new f(this);
-        this.l = new g(this);
+    public a(at atVar) {
+        super(atVar);
+        this.apY = 0;
+        this.aqa = false;
+        this.aiV = new b(this);
+        this.aiW = new c(this);
+        this.aiZ = new d(this, 2010040);
+        this.aqb = new e(this);
+        this.aiX = new f(this);
+        this.aiY = new g(this);
     }
 
-    @Override // com.baidu.tieba.editortool.ai
-    public void a(Context context) {
-        if (this.g) {
-            if (i() != null) {
-                i().a(this);
+    @Override // com.baidu.tieba.editortool.an
+    public void init(Context context) {
+        if (this.aqa) {
+            if (Cu() != null) {
+                Cu().b(this);
                 return;
             }
             return;
         }
-        this.g = true;
-        this.d = context;
-        ak akVar = new ak();
-        akVar.a = com.baidu.tieba.t.icon_bubble;
-        akVar.b = 0;
-        c(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.s.ds26));
-        d(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.s.ds30));
-        a(akVar);
-        a(2);
-        b(2);
+        this.aqa = true;
+        this.mContext = context;
+        ap apVar = new ap();
+        apVar.arE = com.baidu.tieba.u.icon_bubble;
+        apVar.arF = 0;
+        setVerticalSpacing(TbadkApplication.m251getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26));
+        setHorizontalSpacing(TbadkApplication.m251getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds30));
+        a(apVar);
+        es(2);
+        et(2);
         a(new h(this, context));
-        if (this.b == null) {
-            this.b = new com.baidu.tieba.model.e();
+        this.apZ = TbadkApplication.m251getInst().getDefaultBubble();
+        if (this.apW == null) {
+            this.apW = new com.baidu.tieba.model.e(this.mContext);
         }
-        this.b.a(this.h);
-        this.b.a(this.i);
-        this.b.a(this.a);
-        this.b.c();
-        this.b.d();
-        if (i() != null) {
-            i().a();
+        this.apW.a(this.aiV);
+        this.apW.a(this.aiW);
+        this.apW.a(this.aiZ);
+        this.apW.Tf();
+        this.apW.Tg();
+        if (Cu() != null) {
+            Cu().Cx();
         }
-        this.b.a(0, 50, com.baidu.adp.lib.util.j.b(this.d), com.baidu.adp.lib.util.j.c(this.d));
+        this.apW.h(0, 50, com.baidu.adp.lib.util.m.n(this.mContext), com.baidu.adp.lib.util.m.o(this.mContext));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(int i) {
-        this.b.a(i, com.baidu.adp.lib.util.j.b(this.d), com.baidu.adp.lib.util.j.c(this.d));
-        this.b.a(i);
-        if (i() != null) {
-            i().a();
+    public void dU(int i) {
+        this.apW.p(i, com.baidu.adp.lib.util.m.n(this.mContext), com.baidu.adp.lib.util.m.o(this.mContext));
+        this.apW.gy(i);
+        if (Cu() != null) {
+            Cu().Cx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void AZ() {
         int i = 0;
-        if (this.c != null && this.c.getB_info() != null && this.c.getB_info().size() > 0) {
+        if (this.apX != null && this.apX.getB_info() != null && this.apX.getB_info().size() > 0) {
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
-            if (this.c.getB_info().get(0).getBcode() != 0) {
-                this.c.getB_info().add(0, bubbleData);
+            if (this.apX.getB_info().get(0).getBcode() != 0) {
+                this.apX.getB_info().add(0, bubbleData);
             }
-            this.e = 0;
+            this.apY = 0;
             while (true) {
-                if (i >= this.c.getB_info().size()) {
+                if (i >= this.apX.getB_info().size()) {
                     break;
-                } else if (!this.c.getB_info().get(i).isDef()) {
+                } else if (!this.apX.getB_info().get(i).isDef()) {
                     i++;
                 } else {
-                    this.e = i;
+                    this.apY = i;
                     break;
                 }
             }
         }
-        if (j() != null) {
-            if (this.e == 0 || TextUtils.isEmpty(this.f)) {
-                j().a(47, null);
+        if (Cv() != null) {
+            if (this.apY == 0 || TextUtils.isEmpty(this.apZ)) {
+                Cv().handleAction(47, null);
             } else {
-                j().a(46, this.f);
+                Cv().handleAction(46, this.apZ);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public BubbleListData.BubbleData f(int i) {
-        if (i < 0 || i >= a() || this.c == null) {
+    public BubbleListData.BubbleData dW(int i) {
+        if (i < 0 || i >= getCount() || this.apX == null) {
             return null;
         }
-        return this.c.getB_info().get(i);
+        return this.apX.getB_info().get(i);
     }
 
-    @Override // com.baidu.tieba.editortool.ai
-    public int a() {
-        if (this.c == null || this.c.getB_info() == null) {
+    @Override // com.baidu.tieba.editortool.an
+    public int getCount() {
+        if (this.apX == null || this.apX.getB_info() == null) {
             return 0;
         }
-        return this.c.getB_info().size();
+        return this.apX.getB_info().size();
     }
 
-    @Override // com.baidu.tieba.editortool.ai
-    public void b() {
-        if (this.b != null) {
-            this.b.e();
-            this.b.b(this.a);
-            this.b = null;
-            this.g = false;
+    @Override // com.baidu.tieba.editortool.an
+    public void exit() {
+        if (this.apW != null) {
+            this.apW.unRegisterListener();
+            this.apW.b(this.aiZ);
+            this.apW = null;
+            this.aqa = false;
         }
     }
 }

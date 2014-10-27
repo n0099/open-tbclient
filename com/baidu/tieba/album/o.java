@@ -3,7 +3,7 @@ package com.baidu.tieba.album;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface o {
-    void a();
+    void hL();
 
-    void a(List<a> list);
+    void x(List<a> list);
 }

@@ -4,28 +4,21 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.CaptureActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public class x implements View.OnClickListener {
+    final /* synthetic */ w bRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public x(w wVar) {
+        this.bRE = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        String str;
-        Activity activity2;
-        if (view.getId() == com.baidu.tieba.u.search_bg_layout) {
-            activity = this.a.a;
-            str = this.a.b;
-            TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);
-            MessageManager messageManager = MessageManager.getInstance();
-            activity2 = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
-        }
+        activity = this.bRE.mCurrentActivity;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(activity, 16003)));
     }
 }

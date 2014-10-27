@@ -2,6 +2,8 @@ package com.baidu.sapi2.shell;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.f;
 import java.io.ByteArrayInputStream;
 import java.security.Key;
@@ -77,5 +79,25 @@ public class b {
         Cipher cipher = Cipher.getInstance(a);
         cipher.init(1, key);
         return cipher.doFinal(bArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String c(String str) {
+        try {
+            return new String(new f().a(Base64.decode(str.getBytes()), new StringBuffer(e.F).reverse().toString(), e.F), "UTF-8").trim();
+        } catch (Throwable th) {
+            L.e(th);
+            return "";
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String d(String str) {
+        try {
+            return Base64.encode(new f().a(str, new StringBuffer(e.F).reverse().toString(), e.F), "UTF-8");
+        } catch (Throwable th) {
+            L.e(th);
+            return "";
+        }
     }
 }

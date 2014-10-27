@@ -13,28 +13,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class q {
-    private static q a;
-    private BroadcastReceiver c;
-    private ContentObserver d;
-    private Handler b = new Handler(Looper.getMainLooper());
-    private ArrayList<u> e = new ArrayList<>();
-    private Handler f = new Handler();
-    private Runnable g = new r(this);
+    private static q ahV;
+    private BroadcastReceiver ahW;
+    private ContentObserver ahX;
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private ArrayList<u> ahY = new ArrayList<>();
+    private Handler handler = new Handler();
+    private Runnable ahZ = new r(this);
 
-    public static q a() {
-        if (a == null) {
-            a = new q();
-            a.a(com.baidu.tieba.ai.c().d());
+    public static q xW() {
+        if (ahV == null) {
+            ahV = new q();
+            ahV.init(com.baidu.tieba.aj.wk().getApp());
         }
-        return a;
+        return ahV;
     }
 
     private q() {
     }
 
-    private void a(Context context) {
-        this.c = new s(this);
-        this.d = new t(this, this.b);
+    private void init(Context context) {
+        this.ahW = new s(this);
+        this.ahX = new t(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -42,48 +42,48 @@ public class q {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.c, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.d);
+        context.registerReceiver(this.ahW, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.ahX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Intent intent) {
+    public void d(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            a(true);
+            bk(true);
             return;
         }
-        this.f.removeCallbacks(this.g);
-        this.f.postDelayed(this.g, 2000L);
+        this.handler.removeCallbacks(this.ahZ);
+        this.handler.postDelayed(this.ahZ, 2000L);
     }
 
-    public void a(boolean z) {
-        Iterator<u> it = this.e.iterator();
+    public void bk(boolean z) {
+        Iterator<u> it = this.ahY.iterator();
         while (it.hasNext()) {
-            it.next().a(z);
+            it.next().bl(z);
         }
     }
 
     public void a(u uVar) {
-        if (uVar != null && !this.e.contains(uVar)) {
-            this.e.add(uVar);
+        if (uVar != null && !this.ahY.contains(uVar)) {
+            this.ahY.add(uVar);
         }
     }
 
     public void b(u uVar) {
-        if (this.e.contains(uVar)) {
-            this.e.remove(uVar);
+        if (this.ahY.contains(uVar)) {
+            this.ahY.remove(uVar);
         }
     }
 
-    public void b() {
-        this.e.clear();
+    public void xX() {
+        this.ahY.clear();
     }
 
-    public void c() {
-        b();
-        Application d = com.baidu.tieba.ai.c().d();
-        d.unregisterReceiver(this.c);
-        d.getContentResolver().unregisterContentObserver(this.d);
-        a = null;
+    public void xY() {
+        xX();
+        Application app = com.baidu.tieba.aj.wk().getApp();
+        app.unregisterReceiver(this.ahW);
+        app.getContentResolver().unregisterContentObserver(this.ahX);
+        ahV = null;
     }
 }

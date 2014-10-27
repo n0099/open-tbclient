@@ -28,23 +28,11 @@ public class BannerData extends com.baidu.tbadk.core.data.e implements Serializa
         return this.mOpen;
     }
 
-    public void setOpen(int i) {
-        this.mOpen = i;
-    }
-
     public String getUrl() {
         return this.mUrl;
     }
 
-    public void setUrl(String str) {
-        this.mUrl = str;
-    }
-
     public String getResultUrl() {
         return this.mResultUrl;
-    }
-
-    public void setResultUrl(String str) {
-        this.mResultUrl = str;
     }
 }

@@ -4,6 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -11,23 +12,22 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+public class ak extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
         super(i);
-        this.a = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ImMessageCenterPojo a;
+        ImMessageCenterPojo B;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-            this.a.a(socketResponsedMessage);
+            this.this$0.f(socketResponsedMessage);
             ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
             ChatMessage chatMessage = (ChatMessage) responseCommitPersonalMessage.getOrginalMessage();
             if (socketResponsedMessage.hasError()) {
@@ -38,24 +38,24 @@ public class ak extends com.baidu.adp.framework.listener.d {
                 chatMessage.setMsgId(msgId);
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
-                com.baidu.tieba.im.chat.w.a(com.baidu.adp.lib.e.c.a(responseCommitPersonalMessage.getGroupId(), 0));
+                com.baidu.tieba.im.chat.w.fm(com.baidu.adp.lib.g.c.f(responseCommitPersonalMessage.getGroupId(), 0));
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                c.b().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.PK().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.b().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.PK().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                a = c.b().a(String.valueOf(com.baidu.tieba.im.d.j.a(chatMessage)), 2);
+                B = c.PK().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                a = c.b().a(String.valueOf(com.baidu.tieba.im.d.j.a(chatMessage)), 4);
+                B = c.PK().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
             } else {
                 return;
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, a, chatMessage, socketResponsedMessage));
-            customMessageTask.setParallel(com.baidu.tbadk.k.b());
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, B, chatMessage, socketResponsedMessage));
+            customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);
             MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);

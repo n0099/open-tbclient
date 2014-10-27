@@ -1,103 +1,165 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.content.Context;
-import android.graphics.PointF;
-import android.view.MotionEvent;
-import com.baidu.tbadk.core.view.BaseViewPager;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.Gallery;
+import android.widget.TextView;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class q extends BaseViewPager {
-    private PointF a;
-    private com.baidu.tbadk.widget.a b;
-    private com.baidu.tbadk.widget.a c;
+public class q extends PagerAdapter {
+    private ArrayList<String> NT;
+    private com.baidu.tbadk.widget.e NW;
+    private boolean Od;
+    private Context mContext;
+    private View.OnClickListener mOnClickListener = null;
+    private View.OnLongClickListener NU = null;
+    private com.baidu.tbadk.widget.f NV = null;
+    private int NX = 0;
+    private boolean NY = false;
+    private String NZ = null;
+    private int Oa = 0;
+    private boolean Ob = false;
+    private boolean Oc = false;
 
-    public q(Context context) {
-        super(context);
+    public q(Context context, ArrayList<String> arrayList, com.baidu.tbadk.widget.e eVar) {
+        this.mContext = null;
+        this.NT = null;
+        this.NW = null;
+        this.mContext = context;
+        this.NT = arrayList;
+        this.NW = eVar;
     }
 
-    public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.b = aVar;
+    public void setData(ArrayList<String> arrayList) {
+        this.NT = arrayList;
+        notifyDataSetChanged();
     }
 
-    public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.b;
+    public void setNextTitle(String str) {
+        this.NZ = str;
     }
 
-    private float[] a(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
-            case 1:
-            case 2:
-                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.a.x, pointF.y - this.a.y};
-            case 0:
-                this.a = new PointF(motionEvent.getX(), motionEvent.getY());
-                break;
-        }
-        return null;
+    public void setHasNext(boolean z) {
+        this.NY = z;
+        notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tbadk.core.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onTouchEvent(motionEvent);
-            if (this.b != null) {
-                this.b.a();
+    public boolean getHasNext() {
+        return this.NY;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        int i = 0;
+        if (this.NT != null) {
+            i = this.NT.size();
+            if (this.NY) {
+                i++;
             }
         }
-        if (this.b == null) {
-            return super.onTouchEvent(motionEvent);
+        return i + this.Oa;
+    }
+
+    public void setTempSize(int i) {
+        this.Oa = i;
+        notifyDataSetChanged();
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
+    }
+
+    public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        this.NU = onLongClickListener;
+    }
+
+    public void setGifMaxUseableMem(int i) {
+        this.NX = i;
+    }
+
+    public void a(com.baidu.tbadk.widget.f fVar) {
+        this.NV = fVar;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        ((ViewPager) viewGroup).removeView((View) obj);
+        if (obj instanceof au) {
+            ((au) obj).onDestroy();
         }
-        float[] a = a(motionEvent);
-        if (this.b.b()) {
-            return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (i == this.NT.size()) {
+            View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.big_image_next, null);
+            ((TextView) inflate.findViewById(com.baidu.tieba.v.thread_name)).setText(this.NZ);
+            viewGroup.addView(inflate);
+            inflate.setOnClickListener(this.mOnClickListener);
+            inflate.setOnLongClickListener(this.NU);
+            return inflate;
         }
-        if (a != null && this.b.h() && a[0] < 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (a != null && this.b.i() && a[0] > 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (a == null) {
-            if (this.b.i() || this.b.h()) {
-                return super.onTouchEvent(motionEvent);
+        au auVar = new au(this.mContext);
+        String str = i < this.NT.size() ? this.NT.get(i) : null;
+        auVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        auVar.setImageOnClickListener(this.mOnClickListener);
+        auVar.setImageOnLongClickListener(this.NU);
+        auVar.setIsCdn(this.Ob);
+        auVar.setOnSizeChangedListener(this.NV);
+        ((ViewPager) viewGroup).addView(auVar, 0);
+        auVar.k(str, this.Oc);
+        auVar.setGifMaxUseableMem(this.NX);
+        auVar.setTag(String.valueOf(i));
+        auVar.setGifSetListener(this.NW);
+        auVar.setHeadImage(this.Od);
+        return auVar;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
+        if (obj instanceof au) {
+            p pVar = (p) viewGroup;
+            com.baidu.tbadk.widget.a imageView = ((au) obj).getImageView();
+            if (pVar.getSelectedView() == null) {
+                pVar.setSelectedView(imageView);
+                ViewParent parent = pVar.getParent();
+                if (parent != null && (parent instanceof MultiImageView)) {
+                    ((MultiImageView) parent).setZoomButton(imageView);
+                }
             }
-            return false;
-        }
-        return false;
-    }
-
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onInterceptTouchEvent(motionEvent);
-        }
-        float[] a = a(motionEvent);
-        if (this.b == null) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (this.b.b()) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a != null && this.b.h() && a[0] < 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a != null && this.b.i() && a[0] > 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (a == null) {
-            if (this.b.i() || this.b.h()) {
-                return super.onInterceptTouchEvent(motionEvent);
+            com.baidu.tbadk.widget.a currentView = pVar.getCurrentView();
+            if (imageView != currentView) {
+                if (currentView != null) {
+                    currentView.vo();
+                }
+                ((au) obj).al(this.Oc);
+                pVar.setCurrentView(imageView);
+                if (((au) obj).getImageType() == 1) {
+                    this.NW.a(imageView);
+                }
             }
-            return false;
         }
-        return false;
     }
 
-    public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.c = aVar;
+    public void setAllowLocalUrl(boolean z) {
+        this.Oc = z;
     }
 
-    public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.c;
+    public void setIsCdn(boolean z) {
+        this.Ob = z;
+    }
+
+    public void setHeadImage(boolean z) {
+        this.Od = z;
     }
 }

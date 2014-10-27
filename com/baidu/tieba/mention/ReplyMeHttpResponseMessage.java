@@ -8,19 +8,19 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class ReplyMeHttpResponseMessage extends TbHttpResponsedMessage {
     private boolean hasNetworkError;
-    private com.baidu.tieba.model.al model;
+    private com.baidu.tieba.model.am model;
     private int updateType;
 
     public int getUpdateType() {
         return this.updateType;
     }
 
-    public com.baidu.tieba.model.al getModel() {
+    public com.baidu.tieba.model.am getModel() {
         return this.model;
     }
 
-    public void setModel(com.baidu.tieba.model.al alVar) {
-        this.model = alVar;
+    public void setModel(com.baidu.tieba.model.am amVar) {
+        this.model = amVar;
     }
 
     public boolean hasNetworkError() {
@@ -56,7 +56,7 @@ public class ReplyMeHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (this.updateType != 4) {
-            com.baidu.tbadk.core.a.a.a().a("tb_user_profile", TbadkApplication.getCurrentAccountName()).a("replyme_cache", (String) bArr);
+            com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName()).b("replyme_cache", bArr);
         }
     }
 }

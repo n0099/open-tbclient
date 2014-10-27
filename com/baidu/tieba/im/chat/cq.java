@@ -1,27 +1,17 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements View.OnTouchListener {
-    final /* synthetic */ MsgleftView a;
+class cq implements View.OnClickListener {
+    final /* synthetic */ MsgleftView aPq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cq(MsgleftView msgleftView) {
-        this.a = msgleftView;
+        this.aPq = msgleftView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        TouchType touchType;
-        TouchType touchType2;
-        touchType = this.a.x;
-        if (touchType.get() && motionEvent.getAction() == 1) {
-            this.a.c.b(view, 2, this.a.d, 0L);
-            touchType2 = this.a.x;
-            touchType2.set(false);
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aPq.aOK.a(view, 2, this.aPq.Uy, 0L);
     }
 }

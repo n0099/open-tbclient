@@ -12,10 +12,9 @@ class d extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-            h.a().b(((Integer) customResponsedMessage.getData()).intValue());
+            h.qz().cx(((Integer) customResponsedMessage.getData()).intValue());
         }
     }
 }

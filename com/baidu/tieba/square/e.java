@@ -4,8 +4,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 public class e {
-    public BarImageView a;
-    public TextView b;
-    public BestStringsFitTextView c;
-    public w d;
+    public TextView UD;
+    public BarImageView bLZ;
+    public BestStringsFitTextView bMa;
+    public q bMb;
 }

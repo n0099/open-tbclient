@@ -8,24 +8,23 @@ import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends CustomMessageListener {
-    final /* synthetic */ CommonGroupChatActiviy a;
+    final /* synthetic */ CommonGroupChatActiviy aOa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public az(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.a = commonGroupChatActiviy;
+        this.aOa = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         GroupNewsPojo p;
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case 2001109:
-                    this.a.d.j();
+                    this.aOa.aPP.refresh();
                     return;
                 case 2001130:
                 case 2001132:
@@ -37,20 +36,20 @@ public class az extends CustomMessageListener {
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.a.d.j();
+                            this.aOa.aPP.refresh();
                             if (!cmd.equals("apply_join_success")) {
                                 if (!cmd.equals("kick_out")) {
                                     if (!cmd.equals("group_name_change")) {
                                         if (!cmd.equals("dismiss_group")) {
                                             return;
                                         }
-                                        this.a.c(p);
+                                        this.aOa.c(p);
                                         return;
                                     }
-                                    this.a.b(p);
+                                    this.aOa.b(p);
                                     return;
                                 }
-                                this.a.a(p);
+                                this.aOa.a(p);
                                 return;
                             }
                             return;

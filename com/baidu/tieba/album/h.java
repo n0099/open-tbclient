@@ -11,29 +11,29 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class h extends PagerAdapter {
-    private AlbumActivity a;
-    private com.baidu.tbadk.img.e b;
-    private List<ImageFileInfo> c;
-    private int d;
-    private int e;
-    private Map<Integer, Boolean> f = new HashMap();
+    private List<ImageFileInfo> Wx;
+    private Map<Integer, Boolean> ahE = new HashMap();
+    private com.baidu.tbadk.img.e ahn;
+    private AlbumActivity ahq;
+    private int mMaxHeight;
+    private int rd;
 
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
-        this.a = albumActivity;
-        this.b = eVar;
-        this.d = com.baidu.adp.lib.util.j.b(this.a);
-        this.e = com.baidu.adp.lib.util.j.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.s.album_bottom_height));
+        this.ahq = albumActivity;
+        this.ahn = eVar;
+        this.rd = com.baidu.adp.lib.util.m.n(this.ahq);
+        this.mMaxHeight = com.baidu.adp.lib.util.m.o(this.ahq) - ((int) this.ahq.getResources().getDimension(com.baidu.tieba.t.album_bottom_height));
     }
 
-    public void a(List<ImageFileInfo> list) {
-        this.c = list;
+    public void setData(List<ImageFileInfo> list) {
+        this.Wx = list;
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.c != null) {
-            return this.c.size();
+        if (this.Wx != null) {
+            return this.Wx.size();
         }
         return 0;
     }
@@ -48,43 +48,41 @@ public class h extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo a(int i) {
+    public ImageFileInfo dM(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.c.get(i);
+        return this.Wx.get(i);
     }
 
-    public boolean b(int i) {
-        if (this.f.get(Integer.valueOf(i)) == null) {
+    public boolean dN(int i) {
+        if (this.ahE.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.f.get(Integer.valueOf(i)).booleanValue();
+        return this.ahE.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View a = com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.album_big_image_item, null);
-        TbImageView tbImageView = (TbImageView) a.findViewById(com.baidu.tieba.u.big_image);
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.ahq, com.baidu.tieba.w.album_big_image_item, null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.v.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
-        tbImageView.setNightDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
-        tbImageView.setNightDefaultBgResource(0);
-        ImageFileInfo a2 = a(i);
-        this.f.put(Integer.valueOf(i), false);
-        if (a2 != null) {
-            a2.clearPageActions();
-            a2.addPageAction(com.baidu.tbadk.img.effect.d.a(this.d, this.e));
-            tbImageView.setTag(a2.toCachedKey(false));
-            if (this.b.a(a2, false) != null) {
+        ImageFileInfo dM = dM(i);
+        this.ahE.put(Integer.valueOf(i), false);
+        if (dM != null) {
+            dM.clearPageActions();
+            dM.addPageAction(com.baidu.tbadk.img.effect.d.w(this.rd, this.mMaxHeight));
+            tbImageView.setTag(dM.toCachedKey(false));
+            if (this.ahn.a(dM, false) != null) {
                 tbImageView.invalidate();
-                this.f.put(Integer.valueOf(i), true);
+                this.ahE.put(Integer.valueOf(i), true);
             } else {
-                this.b.a(a2, new i(this, viewGroup, i), false);
+                this.ahn.a(dM, new i(this, viewGroup, i), false);
             }
         }
-        ((ViewPager) viewGroup).addView(a, 0);
-        return a;
+        ((ViewPager) viewGroup).addView(inflate, 0);
+        return inflate;
     }
 }

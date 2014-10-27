@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.util.httpNet;
 
-import android.annotation.SuppressLint;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
@@ -8,7 +7,7 @@ import android.os.Looper;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.cdnOptimize.TbCDNTachometerService;
 import java.io.ByteArrayInputStream;
@@ -16,86 +15,79 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public class a {
-    private static Object n = new Object();
-    private static volatile a o;
-    private d i;
-    private long a = 0;
-    private boolean b = false;
-    private int c = 0;
-    private final int d = -1;
-    private final int e = 1;
-    private final int f = 2;
-    private final int g = 10;
-    private CdnCacheItem h = null;
-    private final long j = 3600000;
-    private final long k = 604800000;
-    private final long l = TbConfig.NOTIFY_SOUND_INTERVAL;
-    private final int m = 1003;
-    @SuppressLint({"HandlerLeak"})
-    private final Handler p = new b(this, Looper.getMainLooper());
-    private final CustomMessageListener q = new c(this, 2001121);
+    private static volatile a FM;
+    private d FH;
+    private long FD = 0;
+    private boolean FE = false;
+    private final float FF = 100.0f;
+    private CdnCacheItem FG = null;
+    private final long FI = 3600000;
+    private final long FJ = 604800000;
+    private final long FK = 10000;
+    private final int FL = 1003;
+    private final Handler handler = new b(this, Looper.getMainLooper());
+    private final CustomMessageListener FN = new c(this, 2001121);
 
-    public static a a() {
-        if (o == null) {
+    public static a mT() {
+        if (FM == null) {
             synchronized (a.class) {
-                if (o == null) {
-                    o = new a();
+                if (FM == null) {
+                    FM = new a();
                 }
             }
         }
-        return o;
+        return FM;
     }
 
     public a() {
-        this.i = null;
+        this.FH = null;
         try {
-            g();
-            this.i = new d(this, null);
+            mU();
+            this.FH = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
-            TbadkApplication.m252getInst().getApp().registerReceiver(this.i, intentFilter);
-            if (TbadkApplication.m252getInst().isMainProcess(true) && com.baidu.adp.lib.util.j.b()) {
-                MessageManager.getInstance().unRegisterListener(this.q);
-                MessageManager.getInstance().registerListener(this.q);
+            TbadkApplication.m251getInst().getApp().registerReceiver(this.FH, intentFilter);
+            if (TbadkApplication.m251getInst().isMainProcess(true) && m.fu()) {
+                MessageManager.getInstance().unRegisterListener(this.FN);
+                MessageManager.getInstance().registerListener(this.FN);
             }
-            this.p.sendEmptyMessageDelayed(1003, TbConfig.NOTIFY_SOUND_INTERVAL);
+            this.handler.sendEmptyMessageDelayed(1003, 10000L);
         } catch (Exception e) {
             BdLog.e(e);
         }
     }
 
-    private void g() {
-        CdnCacheItem h = h();
+    private void mU() {
+        CdnCacheItem mY = mY();
         long currentTimeMillis = System.currentTimeMillis();
-        if (h != null && h.firstUseIpTime > 0 && currentTimeMillis - h.firstUseIpTime < 604800000) {
-            this.h = h;
+        if (mY != null && mY.firstUseIpTime > 0 && currentTimeMillis - mY.firstUseIpTime < 604800000) {
+            this.FG = mY;
         }
-        if (this.h == null) {
-            this.h = new CdnCacheItem();
-            this.h.firstUseIpTime = currentTimeMillis;
-            this.h.ssid = e();
+        if (this.FG == null) {
+            this.FG = new CdnCacheItem();
+            this.FG.firstUseIpTime = currentTimeMillis;
+            this.FG.ssid = mZ();
         }
-        if (0 == this.h.firstUseIpTime) {
-            this.h.firstUseIpTime = currentTimeMillis;
+        if (0 == this.FG.firstUseIpTime) {
+            this.FG.firstUseIpTime = currentTimeMillis;
         }
     }
 
-    public void b() {
+    public void mV() {
         long currentTimeMillis = System.currentTimeMillis();
-        String e = e();
-        boolean z = (this.h.ssid == null || e == null || this.h.ssid.equals(e)) ? false : true;
-        if (this.h.lastTachometerTime == 0 || z || (this.h.isUsedIp && currentTimeMillis - this.h.lastTachometerTime > 3600000)) {
-            this.h.lastTachometerTime = currentTimeMillis;
-            this.h.ssid = e;
-            TbCDNTachometerService.startTachometerService(TbadkApplication.m252getInst().getApp(), true, false);
+        String mZ = mZ();
+        boolean z = (this.FG.ssid == null || mZ == null || this.FG.ssid.equals(mZ)) ? false : true;
+        if (this.FG.lastTachometerTime == 0 || z || (this.FG.getIsUsedIp() && currentTimeMillis - this.FG.lastTachometerTime > 3600000)) {
+            this.FG.lastTachometerTime = currentTimeMillis;
+            this.FG.ssid = mZ;
+            TbCDNTachometerService.startTachometerService(TbadkApplication.m251getInst().getApp(), true, false);
         }
     }
 
-    public HttpGet a(String str, String str2, String str3) {
+    public HttpGet g(String str, String str2, String str3) {
         if (str == null || str.length() == 0 || str2 == null || str2.length() == 0 || str3 == null || str3.length() == 0) {
             return null;
         }
@@ -113,20 +105,18 @@ public class a {
         return null;
     }
 
-    public HttpGet a(String str) {
+    public HttpGet o(String str, int i) {
+        String ipString;
         int indexOf;
-        ArrayList<String> arrayList = this.h.ipList;
-        int i = this.h.currentUseIpPos;
-        if (arrayList != null && arrayList.size() > i && this.h.isUsedIp) {
-            if (System.currentTimeMillis() - this.a > 3600000) {
-                c();
+        if (this.FG.getIsUsedIp() && (ipString = this.FG.getIpString(i)) != null) {
+            if (System.currentTimeMillis() - this.FG.lastTachometerTime > 3600000) {
+                mW();
             }
-            String str2 = arrayList.get(i);
-            if (str2 != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20) {
+            if (ipString != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20) {
                 try {
                     System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
                     URL url = new URL(str);
-                    HttpGet httpGet = new HttpGet(String.valueOf(url.getProtocol()) + "://" + str2 + url.getPath());
+                    HttpGet httpGet = new HttpGet(String.valueOf(url.getProtocol()) + "://" + ipString + url.getPath());
                     httpGet.addHeader("Host", "tbcdn.hiphotos.baidu.com");
                     return httpGet;
                 } catch (Exception e) {
@@ -136,71 +126,48 @@ public class a {
         return new HttpGet(str);
     }
 
-    public void c() {
-        this.a = System.currentTimeMillis();
-        this.h.lastTachometerTime = this.a;
-        TbCDNTachometerService.startTachometerService(TbadkApplication.m252getInst().getApp(), false, false);
+    public void mW() {
+        this.FD = System.currentTimeMillis();
+        this.FG.lastTachometerTime = this.FD;
+        TbCDNTachometerService.startTachometerService(TbadkApplication.m251getInst().getApp(), false, false);
     }
 
-    public void b(String str) {
-        int i = 0;
-        synchronized (n) {
-            if (this.h.ipList != null && str != null) {
-                int i2 = -1;
-                int size = this.h.ipList.size();
-                while (i < size) {
-                    int i3 = str.equals(this.h.ipList.get(i)) ? i : i2;
-                    i++;
-                    i2 = i3;
-                }
-                if (i2 + 1 < size) {
-                    c();
-                    this.h.currentUseIpPos = i2 + 1;
-                } else {
-                    c();
-                    this.h.ipList.clear();
-                    this.h.isUsedIp = false;
-                    b(this.h);
-                }
-            }
-        }
-    }
-
-    public boolean a(String str, String str2, boolean z, boolean z2) {
+    public void b(String str, String str2, boolean z, boolean z2) {
+        int i;
         if (z2 || !z) {
             if (z2) {
-                this.c++;
-            } else {
-                this.c += 2;
-            }
-            if (this.c >= 10) {
-                if (str2 != null) {
-                    b(str2);
+                if (com.baidu.tbadk.core.util.e.lq().lr() != null) {
+                    i = com.baidu.tbadk.core.util.e.lq().lr().jP();
                 } else {
-                    c();
-                    this.h.isUsedIp = true;
-                    b(this.h);
+                    i = 10;
                 }
+            } else if (com.baidu.tbadk.core.util.e.lq().lr() != null) {
+                i = com.baidu.tbadk.core.util.e.lq().lr().jO();
+            } else {
+                i = 25;
             }
+        } else if (com.baidu.tbadk.core.util.e.lq().lr() != null) {
+            i = -com.baidu.tbadk.core.util.e.lq().lr().jN();
         } else {
-            this.c--;
-            if (this.c < 0) {
-                this.c = 0;
-            }
+            i = -25;
         }
-        return this.b;
+        if (str2 != null && str2.length() > 0) {
+            if (this.FG.setIPRank(i, 100.0f, str2) >= 100.0f) {
+                mW();
+                b(this.FG);
+            }
+        } else if (this.FG.setCdnDomainRank(i, 100.0f) >= 100.0f) {
+            mW();
+            b(this.FG);
+        }
     }
 
-    public String d() {
-        if (this.h != null && this.h.isUsedIp) {
-            ArrayList<String> arrayList = this.h.ipList;
-            int i = this.h.currentUseIpPos;
-            if (arrayList == null || arrayList.size() <= i) {
-                return null;
-            }
-            return arrayList.get(i);
-        }
-        return null;
+    public boolean mX() {
+        return this.FE;
+    }
+
+    public String bD(int i) {
+        return this.FG.getIpString(i);
     }
 
     private byte[] a(CdnCacheItem cdnCacheItem) {
@@ -220,7 +187,7 @@ public class a {
         return null;
     }
 
-    private CdnCacheItem a(byte[] bArr) {
+    private CdnCacheItem x(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             return null;
         }
@@ -239,13 +206,13 @@ public class a {
         return null;
     }
 
-    private CdnCacheItem h() {
-        String a = com.baidu.tbadk.core.sharedPref.b.a().a("cdn_iplist_cache_key", "");
-        if (a == null || a.length() == 0) {
+    private CdnCacheItem mY() {
+        String string = com.baidu.tbadk.core.sharedPref.b.lk().getString("cdn_iplist_cache_key_one", "");
+        if (string == null || string.length() == 0) {
             return null;
         }
         try {
-            return a(com.baidu.tbadk.core.util.b.a(a));
+            return x(com.baidu.tbadk.core.util.b.decode(string));
         } catch (Exception e) {
             BdLog.e(e);
             return null;
@@ -254,11 +221,11 @@ public class a {
 
     public void b(CdnCacheItem cdnCacheItem) {
         byte[] a;
-        if (TbadkApplication.m252getInst().isMainProcess(true) && (a = a(cdnCacheItem)) != null && a.length > 0) {
+        if (TbadkApplication.m251getInst().isMainProcess(true) && (a = a(cdnCacheItem)) != null && a.length > 0) {
             try {
-                String a2 = com.baidu.tbadk.core.util.b.a(a);
-                if (a2 != null) {
-                    com.baidu.tbadk.core.sharedPref.b.a().b("cdn_iplist_cache_key", a2);
+                String encode = com.baidu.tbadk.core.util.b.encode(a);
+                if (encode != null) {
+                    com.baidu.tbadk.core.sharedPref.b.lk().putString("cdn_iplist_cache_key_one", encode);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -266,15 +233,15 @@ public class a {
         }
     }
 
-    public String e() {
+    public String mZ() {
         try {
-            return ((WifiManager) TbadkApplication.m252getInst().getSystemService("wifi")).getConnectionInfo().getSSID();
+            return ((WifiManager) TbadkApplication.m251getInst().getSystemService("wifi")).getConnectionInfo().getSSID();
         } catch (Error | Exception e) {
             return null;
         }
     }
 
-    public boolean f() {
-        return this.c > 0 || (this.h != null && this.h.isUsedIp) || this.b;
+    public boolean hasImageProblem() {
+        return (this.FG != null ? this.FG.hasImageProblem() : false) || this.FE;
     }
 }

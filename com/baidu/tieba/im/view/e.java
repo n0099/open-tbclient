@@ -1,95 +1,34 @@
 package com.baidu.tieba.im.view;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-public class e extends Dialog implements View.OnClickListener {
-    private Context a;
-    private Button b;
-    private Button c;
-    private TextView d;
-    private EditText e;
-    private d f;
-    private String g;
-    private String h;
-    private final int i;
-    @SuppressLint({"HandlerLeak"})
-    private final Handler j;
+class e implements TextWatcher {
+    final /* synthetic */ ChatterboxEditDialog bji;
 
-    public void a(String str) {
-        this.g = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(ChatterboxEditDialog chatterboxEditDialog) {
+        this.bji = chatterboxEditDialog;
     }
 
-    public void b(String str) {
-        this.h = str;
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    public e(Context context, int i) {
-        super(context, i);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = 0;
-        this.j = new f(this);
-        this.a = context;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    public void a(d dVar) {
-        this.f = dVar;
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(com.baidu.tieba.v.chatterbox_edit_dialog);
-        this.b = (Button) findViewById(com.baidu.tieba.u.chatterbox_edit_confirm);
-        this.c = (Button) findViewById(com.baidu.tieba.u.chatterbox_edit_cancel);
-        this.c.setOnClickListener(this);
-        this.b.setOnClickListener(this);
-        this.d = (TextView) findViewById(com.baidu.tieba.u.size_tip);
-        this.e = (EditText) findViewById(com.baidu.tieba.u.chat_editText);
-        this.d.setText(MessageFormat.format(this.a.getResources().getString(x.chat_custom_default_text), "0"));
-        this.e.addTextChangedListener(new g(this));
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        if (!(this.a instanceof Activity) || com.baidu.adp.lib.e.e.a((Activity) this.a)) {
-            super.show();
-            this.j.sendEmptyMessage(0);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view != this.c && view == this.b) {
-            this.g = this.e.getText().toString().trim().replace("\n", "").replace("\t", "");
-            this.h = null;
-            if (TextUtils.isEmpty(this.g)) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp().getApplicationContext(), x.chat_input);
-                return;
-            } else if (this.f != null) {
-                this.f.a(this.g, this.h, false);
-            }
-        }
-        cancel();
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        TextView textView;
+        Context context;
+        textView = this.bji.mSizeTip;
+        context = this.bji.mContextt;
+        textView.setText(MessageFormat.format(context.getResources().getString(y.chat_custom_default_text), Integer.valueOf(editable.length())));
     }
 }

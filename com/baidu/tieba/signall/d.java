@@ -1,144 +1,144 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.av;
-import java.util.LinkedList;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
+import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d implements av {
-    private int a;
-    private String b;
-    private String c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private int h;
-    private boolean i;
-    private boolean j;
-    private boolean k;
-    private boolean l;
-    private int m;
-    private String n;
+public class d implements at {
+    private String avatar;
+    private int bKo;
+    private int bKp;
+    private int bKq;
+    private int bKr;
+    private int bKs;
+    private boolean bKt;
+    private boolean bKu;
+    private boolean bKv;
+    private boolean bKw;
+    private int bKx;
+    private String errorMsg;
+    private int forumId;
+    private String forumName;
 
-    public int b() {
-        return this.a;
+    public int getForumId() {
+        return this.forumId;
     }
 
-    public String c() {
-        return this.b;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public String d() {
-        return this.c;
+    public String getAvatar() {
+        return this.avatar;
     }
 
-    public int e() {
-        return this.d;
+    public int acI() {
+        return this.bKo;
     }
 
-    public int f() {
-        return this.e;
+    public int acJ() {
+        return this.bKp;
     }
 
-    public int g() {
-        return this.f;
+    public int zz() {
+        return this.bKq;
     }
 
-    public int h() {
-        return this.g;
+    public int acK() {
+        return this.bKr;
     }
 
-    public int i() {
-        return this.h;
+    public int acL() {
+        return this.bKs;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public void hk(int i) {
+        this.bKo = i;
     }
 
-    public void b(int i) {
-        this.e = i;
+    public void hl(int i) {
+        this.bKp = i;
     }
 
-    public void c(int i) {
-        this.f = i;
+    public void ed(int i) {
+        this.bKq = i;
     }
 
-    public boolean j() {
-        return this.i;
+    public boolean acM() {
+        return this.bKt;
     }
 
-    public void a(boolean z) {
-        this.i = z;
-        this.d = 1;
+    public void eD(boolean z) {
+        this.bKt = z;
+        this.bKo = 1;
     }
 
-    public boolean k() {
-        return this.k;
+    public boolean acN() {
+        return this.bKv;
     }
 
-    public void b(boolean z) {
-        this.k = z;
-        this.d = 0;
+    public void eE(boolean z) {
+        this.bKv = z;
+        this.bKo = 0;
     }
 
-    public boolean l() {
-        return this.l;
+    public boolean acO() {
+        return this.bKw;
     }
 
-    public void c(boolean z) {
-        this.l = z;
+    public void eF(boolean z) {
+        this.bKw = z;
     }
 
-    public int m() {
-        return this.m;
+    public int acP() {
+        return this.bKx;
     }
 
-    public void d(int i) {
-        this.m = i;
+    public void hm(int i) {
+        this.bKx = i;
     }
 
-    public String n() {
-        return this.n;
+    public String getErrorMsg() {
+        return this.errorMsg;
     }
 
-    public void a(String str) {
-        this.n = str;
+    public void setErrorMsg(String str) {
+        this.errorMsg = str;
     }
 
-    public boolean o() {
-        return this.j;
+    public boolean acQ() {
+        return this.bKu;
     }
 
-    public void d(boolean z) {
-        this.j = z;
+    public void eG(boolean z) {
+        this.bKu = z;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-            this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-            this.c = jSONObject.optString("avatar");
-            this.d = jSONObject.optInt("is_sign_in");
-            this.e = jSONObject.optInt("cont_sign_num");
-            this.f = jSONObject.optInt("user_level");
-            this.g = jSONObject.optInt("user_exp");
-            this.h = jSONObject.optInt("need_exp");
-            if (this.d != 0) {
-                this.i = true;
-                this.k = false;
+            this.forumId = jSONObject.optInt("forum_id");
+            this.forumName = jSONObject.optString("forum_name");
+            this.avatar = jSONObject.optString("avatar");
+            this.bKo = jSONObject.optInt("is_sign_in");
+            this.bKp = jSONObject.optInt("cont_sign_num");
+            this.bKq = jSONObject.optInt("user_level");
+            this.bKr = jSONObject.optInt("user_exp");
+            this.bKs = jSONObject.optInt("need_exp");
+            if (this.bKo != 0) {
+                this.bKt = true;
+                this.bKv = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.av
-    public LinkedList<au> getImages() {
-        LinkedList<au> linkedList = new LinkedList<>();
-        au auVar = new au();
-        auVar.a = this.c;
-        auVar.d = 10;
-        linkedList.add(auVar);
-        return linkedList;
+    @Override // com.baidu.tbadk.core.util.at
+    public ArrayList<as> getImages() {
+        ArrayList<as> arrayList = new ArrayList<>();
+        as asVar = new as();
+        asVar.AI = this.avatar;
+        asVar.ER = 10;
+        arrayList.add(asVar);
+        return arrayList;
     }
 }

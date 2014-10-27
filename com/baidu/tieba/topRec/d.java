@@ -3,23 +3,24 @@ package com.baidu.tieba.topRec;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tieba.ai;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, String> {
-    int a;
-    int b;
-    TRForumListData.TRForum c;
-    final /* synthetic */ TopRecActivity d;
-    private ae e;
+    final /* synthetic */ TopRecActivity bPw;
+    TRForumListData.TRForum bPx;
+    int id;
+    int position;
+    private ac yV;
 
     private d(TopRecActivity topRecActivity) {
-        this.d = topRecActivity;
-        this.e = null;
-        this.a = -1;
-        this.b = 0;
+        this.bPw = topRecActivity;
+        this.yV = null;
+        this.position = -1;
+        this.id = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,24 +33,24 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(Integer... numArr) {
-        int a;
+        int hu;
         TRForumListData tRForumListData;
-        this.b = numArr[0].intValue();
-        a = this.d.a(this.b);
-        this.a = a;
-        if (this.a >= 0) {
-            tRForumListData = this.d.f;
-            this.c = tRForumListData.forum_list[this.a];
+        this.id = numArr[0].intValue();
+        hu = this.bPw.hu(this.id);
+        this.position = hu;
+        if (this.position >= 0) {
+            tRForumListData = this.bPw.bPq;
+            this.bPx = tRForumListData.forum_list[this.position];
         }
         try {
-            if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
-                this.e.a("fid", String.valueOf(this.c.forum_id));
-                this.e.a("kw", this.c.forum_name);
-                this.e.a("favo_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                this.e.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, "from_topRec");
-                this.e.a().a().a = true;
-                this.e.h();
+            if (this.bPx != null && this.bPx.forum_id != 0 && this.bPx.forum_name != null) {
+                this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.yV.k(ImageViewerConfig.FORUM_ID, String.valueOf(this.bPx.forum_id));
+                this.yV.k("kw", this.bPx.forum_name);
+                this.yV.k("favo_type", "1");
+                this.yV.k("st_type", "from_topRec");
+                this.yV.mc().na().mIsNeedTbs = true;
+                this.yV.lA();
                 return null;
             }
             return null;
@@ -62,32 +63,31 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(String str) {
-        super.onPostExecute(str);
-        this.d.e = null;
-        if (this.e == null) {
-            this.d.a(this.a, this.c.forum_id);
-        } else if (!this.e.a().b().b()) {
-            this.d.a(this.a, this.c.forum_id);
+        super.onPostExecute((d) str);
+        this.bPw.bPp = null;
+        if (this.yV == null) {
+            this.bPw.W(this.position, this.bPx.forum_id);
+        } else if (!this.yV.mc().nb().jq()) {
+            this.bPw.W(this.position, this.bPx.forum_id);
         } else if (str == null) {
-            this.d.a(this.a, this.c.forum_id);
+            this.bPw.W(this.position, this.bPx.forum_id);
         } else {
-            ai.c().e(this.c.forum_name);
-            this.d.d();
+            aj.wk().dX(this.bPx.forum_name);
+            this.bPw.aep();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         g gVar;
-        if (this.e != null) {
-            this.e.f();
-            this.e = null;
+        if (this.yV != null) {
+            this.yV.dM();
+            this.yV = null;
         }
-        gVar = this.d.a;
-        gVar.a(false);
-        this.d.e = null;
+        gVar = this.bPw.bPm;
+        gVar.da(false);
+        this.bPw.bPp = null;
         super.cancel(true);
     }
 }

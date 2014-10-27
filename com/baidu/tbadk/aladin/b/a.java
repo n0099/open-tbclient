@@ -3,17 +3,18 @@ package com.baidu.tbadk.aladin.b;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* loaded from: classes.dex */
 public class a {
-    public boolean a(Intent intent) {
+    public boolean b(Intent intent) {
         if (intent != null) {
             String stringExtra = intent.getStringExtra("type");
             if (stringExtra == null) {
-                if (com.baidu.tbadk.core.b.b.a() != null) {
+                if (com.baidu.tbadk.core.b.b.ld() != null) {
                     return true;
                 }
             } else if (stringExtra.equals("web")) {
-                if (!TextUtils.isEmpty(intent.getStringExtra("url"))) {
+                if (!TextUtils.isEmpty(intent.getStringExtra(ImageViewerConfig.URL))) {
                     return true;
                 }
             } else if (stringExtra.equals("pb")) {
@@ -21,7 +22,7 @@ public class a {
                     return true;
                 }
             } else if (stringExtra.equals("frs")) {
-                if (!TextUtils.isEmpty(intent.getStringExtra("fname"))) {
+                if (!TextUtils.isEmpty(intent.getStringExtra(ImageViewerConfig.FORUM_NAME))) {
                     return true;
                 }
             } else if (stringExtra.equals("groupinfo")) {
@@ -29,7 +30,7 @@ public class a {
                     return true;
                 }
             } else if (stringExtra.equals("pay")) {
-                if (TbadkApplication.m252getInst().isDQShouldOpen()) {
+                if (TbadkApplication.m251getInst().isDQShouldOpen()) {
                     return true;
                 }
             } else if (stringExtra.equals("livegroup")) {

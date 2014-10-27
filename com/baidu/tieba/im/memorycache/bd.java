@@ -1,38 +1,44 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+public class bd extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bd(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
         super(i);
-        this.a = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo a;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (a = c.b().a("-1002", -3)) != null) {
-            Object data = customResponsedMessage.getData();
-            if (data == null) {
-                a.setUnread_count(0);
-                a.setIs_hidden(1);
-                this.a.a(a);
-            } else if (data instanceof ImMessageCenterPojo) {
-                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
-                a.setLast_content(imMessageCenterPojo.getLast_content());
-                a.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                a.setUnread_count(0);
-                a.setIs_hidden(0);
-                this.a.a(a);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ResponseGroupInfoMessage responseGroupInfoMessage;
+        String valueOf;
+        ImMessageCenterPojo B;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103004 && (responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage) != null && responseGroupInfoMessage.getData() != null) {
+            com.baidu.tieba.im.message.i data = responseGroupInfoMessage.getData();
+            if (data.getGroup() != null && (B = c.PK().B((valueOf = String.valueOf(data.getGroup().getGroupId())), 1)) != null) {
+                if (TextUtils.isEmpty(B.getGroup_head()) || TextUtils.isEmpty(B.getGroup_name())) {
+                    String name = data.getGroup().getName();
+                    c.PK().as(valueOf, data.getGroup().getPortrait());
+                    c.PK().at(valueOf, name);
+                    CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, B));
+                    customMessageTask.setParallel(TiebaIMConfig.getParallel());
+                    customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+                    customMessageTask.setPriority(4);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
+                }
             }
         }
     }

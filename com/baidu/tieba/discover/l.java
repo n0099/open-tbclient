@@ -3,14 +3,14 @@ package com.baidu.tieba.discover;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class l {
-    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/found";
-    private final n b;
+    private static final String anS = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/found";
+    private final n anT;
 
     public l(n nVar) {
-        this.b = nVar;
+        this.anT = nVar;
     }
 
-    public void a() {
-        new m(this.b).execute(new String[0]);
+    public void AO() {
+        new m(this.anT).execute(new String[0]);
     }
 }

@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class j {
-    public static String a() {
+    public static String getNetType() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkApplication.m252getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkApplication.m251getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
@@ -21,7 +21,7 @@ public class j {
                         return TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT;
                     }
                 }
-                return TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
+                return "1";
             }
             return null;
         } catch (Exception e) {

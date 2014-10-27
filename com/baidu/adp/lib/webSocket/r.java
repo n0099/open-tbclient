@@ -4,23 +4,23 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class r implements l {
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a(Map<String, String> map) {
+    public void c(Map<String, String> map) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a(int i, String str) {
+    public void b(int i, String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a(String str) {
+    public void j(String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void b(byte[] bArr) {
+    public void s(byte[] bArr) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a(byte[] bArr) {
+    public void h(byte[] bArr) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
@@ -28,7 +28,7 @@ public class r implements l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a() {
+    public void fS() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l

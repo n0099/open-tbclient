@@ -6,19 +6,17 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
-    public static final float[] a = {0.5f, 0.33f, 0.25f};
-    private static int g;
-    public TbImageView b;
-    public TbImageView c;
-    public TbImageView d;
-    public Object[] e;
-    public final int f;
-    private int h;
+    private static int bEo;
+    public TbImageView bEk;
+    public TbImageView bEl;
+    public TbImageView bEm;
+    public Object[] bEn;
+    private int bEp;
+    public final int mPadding;
 
     public TripleTbImageView(Context context) {
         this(context, null);
@@ -26,60 +24,50 @@ public class TripleTbImageView extends ViewGroup {
 
     public TripleTbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = new TbImageView(context);
-        this.c = new TbImageView(context);
-        this.d = new TbImageView(context);
-        this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.b);
-        addView(this.c);
-        addView(this.d);
-        this.f = com.baidu.adp.lib.util.j.a(context, 6.0f);
+        this.bEk = new TbImageView(context);
+        this.bEl = new TbImageView(context);
+        this.bEm = new TbImageView(context);
+        this.bEk.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bEl.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bEm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.bEk);
+        addView(this.bEl);
+        addView(this.bEm);
+        this.mPadding = com.baidu.adp.lib.util.m.dip2px(context, 6.0f);
     }
 
     public void setTags(Object[] objArr) {
-        this.e = objArr;
+        this.bEn = objArr;
         if (objArr == null) {
-            this.b.setTag(null);
-            this.c.setTag(null);
-            this.d.setTag(null);
+            this.bEk.setTag(null);
+            this.bEl.setTag(null);
+            this.bEm.setTag(null);
             requestLayout();
             invalidate();
             return;
         }
         int length = objArr.length;
         if (length == 0) {
-            this.b.setTag(null);
-            this.c.setTag(null);
-            this.d.setTag(null);
+            this.bEk.setTag(null);
+            this.bEl.setTag(null);
+            this.bEm.setTag(null);
             requestLayout();
             invalidate();
             return;
         }
-        switch (length) {
-            case 1:
-                this.h = 480;
-                break;
-            case 2:
-                this.h = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
-                break;
-            case 3:
-                this.h = Constants.MEDIA_INFO;
-                break;
-        }
+        this.bEp = Constants.MEDIA_INFO;
         if (length == 1) {
-            a((PersonPostModel.Media) objArr[0], this.b);
-            this.c.setTag(null);
-            this.d.setTag(null);
+            a((PersonPostModel.Media) objArr[0], this.bEk);
+            this.bEl.setTag(null);
+            this.bEm.setTag(null);
         } else if (length == 2) {
-            a((PersonPostModel.Media) objArr[0], this.b);
-            a((PersonPostModel.Media) objArr[1], this.c);
-            this.d.setTag(null);
+            a((PersonPostModel.Media) objArr[0], this.bEk);
+            a((PersonPostModel.Media) objArr[1], this.bEl);
+            this.bEm.setTag(null);
         } else if (length == 3) {
-            a((PersonPostModel.Media) objArr[0], this.b);
-            a((PersonPostModel.Media) objArr[1], this.c);
-            a((PersonPostModel.Media) objArr[2], this.d);
+            a((PersonPostModel.Media) objArr[0], this.bEk);
+            a((PersonPostModel.Media) objArr[1], this.bEl);
+            a((PersonPostModel.Media) objArr[2], this.bEm);
         }
         requestLayout();
         invalidate();
@@ -88,98 +76,67 @@ public class TripleTbImageView extends ViewGroup {
     private void a(PersonPostModel.Media media, TbImageView tbImageView) {
         if (media != null && tbImageView != null) {
             if (media.type == 3) {
-                tbImageView.setDefaultResource(com.baidu.tieba.t.img_default_100);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.t.img_default_100_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.u.img_default_100);
             } else if (media.type == 5) {
-                tbImageView.setDefaultResource(com.baidu.tieba.t.pic_video);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.t.pic_video_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.u.pic_video);
             }
             tbImageView.setTag(media.big_pic);
-            tbImageView.a(media.big_pic, 10, this.h, this.h, false);
+            tbImageView.a(media.big_pic, 10, this.bEp, this.bEp, false);
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3 = 1073741823 & i;
-        if (g == 0) {
-            g = i3;
+        if (bEo == 0) {
+            bEo = i3;
         }
-        if (this.e == null || this.e.length == 0) {
+        if (this.bEn == null || this.bEn.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        setMeasuredDimension(i3, (int) ((i3 * a[this.e.length - 1]) + 0.5f));
-        switch (this.e.length) {
-            case 1:
-                measureChild(this.b, i3 + 1073741824, ((int) ((i3 * a[0]) + 0.5f)) + 1073741824);
-                measureChild(this.c, 0, 0);
-                measureChild(this.d, 0, 0);
-                return;
-            case 2:
-                int i4 = ((i3 - (this.f * 3)) >> 1) + 1073741824;
-                int i5 = ((int) ((i4 * a[1]) + 0.5f)) + 1073741824;
-                measureChild(this.b, i4, i5);
-                measureChild(this.c, i4, i5);
-                measureChild(this.d, 0, 0);
-                break;
-            case 3:
-                break;
-            default:
-                return;
-        }
-        int i6 = ((i3 - (this.f * 4)) / 3) + 1073741824;
-        int i7 = ((int) ((i6 * a[2]) + 0.5f)) + 1073741824;
-        measureChild(this.b, i6, i7);
-        measureChild(this.c, i6, i7);
-        measureChild(this.d, i6, i7);
+        setMeasuredDimension(i3, (int) ((i3 * 0.33f) + 0.5f));
+        int i4 = ((i3 - (this.mPadding * 4)) / 3) + 1073741824;
+        int i5 = ((int) ((i4 * 0.33f) + 0.5f)) + 1073741824;
+        measureChild(this.bEk, i4, i5);
+        measureChild(this.bEl, i4, i5);
+        measureChild(this.bEm, i4, i5);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int min = Math.min(i4, getHeight());
-        if (this.e != null && this.e.length != 0) {
-            switch (this.e.length) {
-                case 1:
-                    this.b.layout(0, 0, i3 - this.f, min);
-                    this.c.layout(0, 0, 0, 0);
-                    this.d.layout(0, 0, 0, 0);
-                    return;
-                case 2:
-                    int measuredWidth = (getMeasuredWidth() - (this.f * 3)) >> 1;
-                    this.b.layout(this.f, 0, this.f + measuredWidth, min);
-                    this.c.layout((this.f * 2) + measuredWidth, 0, (measuredWidth * 2) + (this.f * 2), min);
-                    this.d.layout(0, 0, 0, 0);
-                    return;
-                case 3:
-                    int measuredWidth2 = (getMeasuredWidth() - (this.f * 4)) / 3;
-                    this.b.layout(this.f, 0, this.f + measuredWidth2, min);
-                    this.c.layout((this.f * 2) + measuredWidth2, 0, (measuredWidth2 * 2) + (this.f * 2), min);
-                    this.d.layout((measuredWidth2 * 2) + (this.f * 3), 0, (measuredWidth2 * 3) + (this.f * 3), min);
-                    return;
-                default:
-                    return;
+        if (this.bEn != null && this.bEn.length != 0) {
+            int measuredWidth = (getMeasuredWidth() - (this.mPadding * 4)) / 3;
+            this.bEk.layout(this.mPadding, this.mPadding + 0, measuredWidth + this.mPadding, min > this.mPadding ? min - this.mPadding : min);
+            this.bEl.layout(measuredWidth + (this.mPadding * 2), this.mPadding + 0, (this.mPadding * 2) + (measuredWidth * 2), min > this.mPadding ? min - this.mPadding : min);
+            TbImageView tbImageView = this.bEm;
+            int i5 = (measuredWidth * 2) + (this.mPadding * 3);
+            int i6 = this.mPadding + 0;
+            int i7 = (measuredWidth * 3) + (this.mPadding * 3);
+            if (min > this.mPadding) {
+                min -= this.mPadding;
             }
+            tbImageView.layout(i5, i6, i7, min);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.e != null && this.e.length != 0) {
+        if (this.bEn != null && this.bEn.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.e.length) {
+            switch (this.bEn.length) {
                 case 1:
-                    drawChild(canvas, this.b, drawingTime);
+                    drawChild(canvas, this.bEk, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.b, drawingTime);
-                    drawChild(canvas, this.c, drawingTime);
+                    drawChild(canvas, this.bEk, drawingTime);
+                    drawChild(canvas, this.bEl, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.b, drawingTime);
-                    drawChild(canvas, this.c, drawingTime);
-                    drawChild(canvas, this.d, drawingTime);
+                    drawChild(canvas, this.bEk, drawingTime);
+                    drawChild(canvas, this.bEl, drawingTime);
+                    drawChild(canvas, this.bEm, drawingTime);
                     return;
                 default:
                     return;

@@ -1,58 +1,29 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
-
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class j {
-    private static /* synthetic */ int[] d;
-    private m a;
-    private l b;
-    private k c;
-
-    static /* synthetic */ int[] a() {
-        int[] iArr = d;
-        if (iArr == null) {
-            iArr = new int[UtilHelper.NetworkStateInfo.valuesCustom().length];
-            try {
-                iArr[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 4;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 3;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.UNAVAIL.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 2;
-            } catch (NoSuchFieldError e4) {
-            }
-            d = iArr;
-        }
-        return iArr;
-    }
+    private m PE;
+    private l PF;
+    private k PG;
 
     public j(String str, l lVar) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = new m(this);
-        this.b = lVar;
-        this.a.sendEmptyMessageDelayed(0, 50000L);
-        this.c = new k(this, null);
-        this.c.setSelfExecute(true);
-        this.c.execute(String.valueOf(b()) + str);
+        this.PE = null;
+        this.PF = null;
+        this.PG = null;
+        this.PE = new m(this);
+        this.PF = lVar;
+        this.PE.sendEmptyMessageDelayed(0, 50000L);
+        this.PG = new k(this, null);
+        this.PG.setSelfExecute(true);
+        this.PG.execute(String.valueOf(qA()) + str);
     }
 
-    private String b() {
-        switch (a()[UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()).ordinal()]) {
-            case 2:
+    private String qA() {
+        switch (com.baidu.adp.lib.util.j.fm()) {
+            case 1:
                 return "ping -c 3 -w 3000 ";
-            case 3:
+            case 2:
                 return "ping -c 3 -w 10000 ";
-            case 4:
+            case 3:
                 return "ping -c 3 -w 5000 ";
             default:
                 return "ping -c 3 -w 5000 ";
@@ -60,12 +31,12 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.c != null) {
-            this.c.cancel(true);
+    public void qB() {
+        if (this.PG != null) {
+            this.PG.cancel(true);
         }
-        if (this.a != null) {
-            this.a.removeMessages(0);
+        if (this.PE != null) {
+            this.PE.removeMessages(0);
         }
     }
 }

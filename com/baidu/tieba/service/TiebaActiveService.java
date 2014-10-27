@@ -15,27 +15,27 @@ import java.io.FileWriter;
 public class TiebaActiveService extends Service {
     private static final int ACTIVE_FAIL = 1;
     private static final int ACTIVE_SUCC = 2;
-    private p mActiveTask = null;
+    private q mActiveTask = null;
     private int mHaveRetry = 0;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new o(this);
+    private Runnable mRunnable = new p(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
+        return com.baidu.tbadk.core.sharedPref.b.lk().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.lk().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File d = com.baidu.tbadk.core.util.s.d(TbConfig.CHANNEL_FILE);
-            if (d != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
+            File br = com.baidu.tbadk.core.util.s.br(TbConfig.CHANNEL_FILE);
+            if (br != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(br));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -51,9 +51,9 @@ public class TiebaActiveService extends Service {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = com.baidu.tbadk.core.util.s.f(TbConfig.CHANNEL_FILE);
-                if (f != null) {
-                    FileWriter fileWriter = new FileWriter(f);
+                File bt = com.baidu.tbadk.core.util.s.bt(TbConfig.CHANNEL_FILE);
+                if (bt != null) {
+                    FileWriter fileWriter = new FileWriter(bt);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -96,7 +96,7 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.lk().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -118,7 +118,7 @@ public class TiebaActiveService extends Service {
         if (this.mActiveTask != null) {
             this.mActiveTask.cancel();
         }
-        this.mActiveTask = new p(this, null);
+        this.mActiveTask = new q(this, null);
         this.mActiveTask.execute(new String[0]);
     }
 }

@@ -1,12 +1,9 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class m extends CustomMessageListener {
+class m extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(int i) {
         super(i);
@@ -14,23 +11,11 @@ class m extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
-            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
-            if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                b bVar = new b();
-                bVar.d(responseNewFriendUpdateUiMsg.getKey());
-                bVar.c(responseNewFriendUpdateUiMsg.getQuanping());
-                bVar.a(responseNewFriendUpdateUiMsg.getFriendId());
-                bVar.a(responseNewFriendUpdateUiMsg.getName());
-                bVar.b(responseNewFriendUpdateUiMsg.getPortrait());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001183, bVar));
-            } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                b bVar2 = new b();
-                bVar2.a(responseNewFriendUpdateUiMsg.getFriendId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001184, bVar2));
-            }
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+            a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+            com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), false);
+            new p(addressListData).execute(new Void[0]);
         }
     }
 }

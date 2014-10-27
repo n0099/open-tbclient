@@ -2,7 +2,7 @@ package com.baidu.tieba.im.searchfriend;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import protobuf.RecommendFriend.RecommendFriendResIdl;
+import tbclient.RecommendFriend.RecommendFriendResIdl;
 /* loaded from: classes.dex */
 public class ResponsedRecommendMessage extends SocketResponsedMessage {
     private com.baidu.tieba.im.searchfriend.a.a recommendFriends;

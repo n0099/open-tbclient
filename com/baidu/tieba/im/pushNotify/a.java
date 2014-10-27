@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.pushNotify;
+
+import com.baidu.adp.lib.a.b.a.a.i;
 /* loaded from: classes.dex */
-public class a {
+public class a extends i {
     protected String draft;
     protected boolean isAcceptNotify;
 

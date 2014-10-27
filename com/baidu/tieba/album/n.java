@@ -1,56 +1,55 @@
 package com.baidu.tieba.album;
 
-import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements o {
-    final /* synthetic */ m a;
+    final /* synthetic */ m ahR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.a = mVar;
+        this.ahR = mVar;
     }
 
     @Override // com.baidu.tieba.album.o
-    public void a() {
+    public void hL() {
     }
 
     @Override // com.baidu.tieba.album.o
-    public void a(List<a> list) {
+    public void x(List<a> list) {
         j jVar;
         p pVar;
         p pVar2;
         p pVar3;
         BdListView bdListView;
-        LinearLayout linearLayout;
+        com.baidu.tbadk.core.view.o oVar;
         BdListView bdListView2;
-        LinearLayout linearLayout2;
+        com.baidu.tbadk.core.view.o oVar2;
         a aVar;
         a aVar2;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        jVar = this.a.g;
-        List<a> a = jVar.a();
-        pVar = this.a.j;
+        jVar = this.ahR.ahP;
+        List<a> data = jVar.getData();
+        pVar = this.ahR.ahk;
         if (pVar == null) {
-            albumActivity = this.a.h;
+            albumActivity = this.ahR.ahq;
             if (albumActivity != null) {
-                m mVar = this.a;
-                albumActivity2 = this.a.h;
-                mVar.j = albumActivity2.h();
+                m mVar = this.ahR;
+                albumActivity2 = this.ahR.ahq;
+                mVar.ahk = albumActivity2.xH();
             }
         }
-        pVar2 = this.a.j;
+        pVar2 = this.ahR.ahk;
         if (pVar2 != null) {
-            pVar3 = this.a.j;
-            String e = pVar3.e();
-            if (e != null) {
-                if (a != null) {
-                    for (a aVar3 : a) {
-                        if (aVar3.a().equals(e)) {
+            pVar3 = this.ahR.ahk;
+            String xU = pVar3.xU();
+            if (xU != null) {
+                if (data != null) {
+                    for (a aVar3 : data) {
+                        if (aVar3.getAlbumId().equals(xU)) {
                             aVar = aVar3;
                             break;
                         }
@@ -61,28 +60,28 @@ public class n implements o {
                     Iterator<a> it = list.iterator();
                     while (it.hasNext()) {
                         aVar2 = it.next();
-                        if (aVar2.a().equals(e)) {
+                        if (aVar2.getAlbumId().equals(xU)) {
                             break;
                         }
                     }
                 }
                 aVar2 = null;
-                if (aVar2 == null || aVar == null || !aVar2.c().equals(aVar.c())) {
-                    q.a().a(false);
+                if (aVar2 == null || aVar == null || !aVar2.xL().equals(aVar.xL())) {
+                    q.xW().bk(false);
                 }
             }
             if (list == null || list.size() == 0) {
-                bdListView = this.a.c;
+                bdListView = this.ahR.vl;
                 bdListView.setVisibility(8);
-                linearLayout = this.a.f;
-                linearLayout.setVisibility(0);
+                oVar = this.ahR.ahO;
+                oVar.setVisibility(0);
                 return;
             }
-            bdListView2 = this.a.c;
+            bdListView2 = this.ahR.vl;
             bdListView2.setVisibility(0);
-            linearLayout2 = this.a.f;
-            linearLayout2.setVisibility(8);
-            this.a.a(list);
+            oVar2 = this.ahR.ahO;
+            oVar2.setVisibility(8);
+            this.ahR.setData(list);
         }
     }
 }

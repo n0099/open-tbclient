@@ -36,8 +36,8 @@ public final class DeviceId {
             this.CAN_READ_AND_WRITE_SYSTEM_SETTINGS = z;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
-        /* JADX WARN: Removed duplicated region for block: B:8:0x001a A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:12:0x0024  */
+        /* JADX WARN: Removed duplicated region for block: B:8:0x0019 A[ORIG_RETURN, RETURN] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -60,7 +60,7 @@ public final class DeviceId {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:17:0x004c  */
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0045  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

@@ -4,94 +4,95 @@ import android.graphics.Bitmap;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MotionEventCompat;
+import com.baidu.tbadk.BaseActivity;
 import java.io.InputStream;
 import java.util.Vector;
 /* loaded from: classes.dex */
 public class g {
-    protected Bitmap A;
-    protected int H;
-    protected short[] I;
-    protected byte[] J;
-    protected byte[] K;
-    protected byte[] L;
-    protected Vector<h> M;
-    protected int N;
-    private int Q;
-    protected InputStream a;
-    protected int b;
-    protected int c;
-    protected int d;
-    protected boolean e;
-    protected int f;
-    protected int[] h;
-    protected int[] i;
-    protected int[] j;
-    protected int k;
-    protected int l;
-    protected int m;
-    protected int n;
-    protected boolean o;
-    protected boolean p;
-    protected int q;
-    protected int r;
-    protected int s;
-    protected int t;
-    protected int u;
-    protected int v;
-    protected int w;
-    protected int x;
-    protected int y;
-    protected Bitmap z;
-    protected int g = 1;
-    protected byte[] B = new byte[256];
-    protected int C = 0;
-    protected int D = 0;
-    protected int E = 0;
-    protected boolean F = false;
-    protected int G = 0;
-    protected int O = 0;
-    private volatile boolean P = false;
+    protected Bitmap aaE;
+    protected Vector<h> aaF;
+    private int aaH;
+    protected int bgColor;
+    protected boolean hY;
+    protected int hZ;
+    protected int height;
+    protected int iI;
+    protected short[] iJ;
+    protected byte[] iK;
+    protected byte[] iL;
+    protected byte[] iM;
+    protected int iO;
+    protected int[] ib;
+    protected int[] ic;
+    protected int[] ie;
+    protected int ig;
+    protected int ih;
+    protected int ii;
+    protected boolean ij;
+    protected boolean ik;
+    protected int il;
+    protected int im;
+    protected InputStream in;
+    protected int iq;
+    protected int ir;
+    protected int is;
+    protected int iu;
+    protected int iw;
+    protected int ix;
+    protected int iy;
+    protected Bitmap iz;
+    protected int status;
+    protected int width;
+    protected int ia = 1;
+    protected byte[] iD = new byte[256];
+    protected int iE = 0;
+    protected int iF = 0;
+    protected int iG = 0;
+    protected boolean iH = false;
+    protected int delay = 0;
+    protected int aaG = 0;
+    private volatile boolean interrupted = false;
 
     public g(int i) {
-        this.Q = GravityCompat.RELATIVE_LAYOUT_DIRECTION;
-        this.Q = i;
+        this.aaH = GravityCompat.RELATIVE_LAYOUT_DIRECTION;
+        this.aaH = i;
     }
 
-    public boolean a() {
-        return this.P;
+    public boolean isInterrupted() {
+        return this.interrupted;
     }
 
-    public int a(int i) {
-        this.G = -1;
-        if (i >= 0 && i < this.N) {
-            this.G = this.M.elementAt(i).b;
+    public int ds(int i) {
+        this.delay = -1;
+        if (i >= 0 && i < this.iO && this.aaF != null && i < this.aaF.size()) {
+            this.delay = this.aaF.elementAt(i).delay;
         }
-        return this.G;
+        return this.delay;
     }
 
-    public int b() {
-        return this.N;
+    public int bj() {
+        return this.iO;
     }
 
-    protected void c() {
+    protected void df() {
         int i;
-        int[] iArr = new int[this.c * this.d];
-        if (this.E > 0) {
-            if (this.E == 3) {
-                int i2 = this.N - 2;
+        int[] iArr = new int[this.width * this.height];
+        if (this.iG > 0) {
+            if (this.iG == 3) {
+                int i2 = this.iO - 2;
                 if (i2 > 0) {
-                    this.A = b(i2 - 1);
+                    this.aaE = dt(i2 - 1);
                 } else {
-                    this.A = null;
+                    this.aaE = null;
                 }
             }
-            if (this.A != null) {
-                this.A.getPixels(iArr, 0, this.c, 0, 0, this.c, this.d);
-                if (this.E == 2) {
-                    int i3 = !this.F ? this.m : 0;
-                    for (int i4 = 0; i4 < this.y; i4++) {
-                        int i5 = ((this.w + i4) * this.c) + this.v;
-                        int i6 = this.x + i5;
+            if (this.aaE != null) {
+                this.aaE.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
+                if (this.iG == 2) {
+                    int i3 = !this.iH ? this.ih : 0;
+                    for (int i4 = 0; i4 < this.iy; i4++) {
+                        int i5 = ((this.iw + i4) * this.width) + this.iu;
+                        int i6 = this.ix + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
                             i5++;
@@ -103,9 +104,9 @@ public class g {
         int i7 = 8;
         int i8 = 1;
         int i9 = 0;
-        for (int i10 = 0; i10 < this.u; i10++) {
-            if (this.p) {
-                if (i9 >= this.u) {
+        for (int i10 = 0; i10 < this.is; i10++) {
+            if (this.ik) {
+                if (i9 >= this.is) {
                     i8++;
                     switch (i8) {
                         case 2:
@@ -127,19 +128,19 @@ public class g {
             } else {
                 i = i10;
             }
-            int i12 = i + this.s;
-            if (i12 < this.d) {
-                int i13 = this.c * i12;
-                int i14 = i13 + this.r;
-                int i15 = this.t + i14;
-                if (this.c + i13 < i15) {
-                    i15 = this.c + i13;
+            int i12 = i + this.iq;
+            if (i12 < this.height) {
+                int i13 = this.width * i12;
+                int i14 = i13 + this.im;
+                int i15 = this.ir + i14;
+                if (this.width + i13 < i15) {
+                    i15 = this.width + i13;
                 }
-                int i16 = this.t * i10;
+                int i16 = this.ir * i10;
                 int i17 = i14;
                 while (i17 < i15) {
                     int i18 = i16 + 1;
-                    int i19 = this.j[this.L[i16] & 255];
+                    int i19 = this.ie[this.iM[i16] & BaseActivity.KEYBOARD_STATE_INIT];
                     if (i19 != 0) {
                         iArr[i17] = i19;
                     }
@@ -148,35 +149,36 @@ public class g {
                 }
             }
         }
-        this.z = Bitmap.createBitmap(iArr, this.c, this.d, Bitmap.Config.ARGB_4444);
+        this.iz = Bitmap.createBitmap(iArr, this.width, this.height, Bitmap.Config.ARGB_4444);
     }
 
-    public Bitmap b(int i) {
-        if (this.N <= 0) {
-            return null;
+    public Bitmap dt(int i) {
+        int i2;
+        if (this.iO > 0 && (i2 = i % this.iO) < this.aaF.size()) {
+            return this.aaF.elementAt(i2).iz;
         }
-        return this.M.elementAt(i % this.N).a;
+        return null;
     }
 
-    public int a(InputStream inputStream) {
-        if (this.P) {
+    public int d(InputStream inputStream) {
+        if (this.interrupted) {
             return 4;
         }
-        f();
+        init();
         if (inputStream != null) {
-            this.a = inputStream;
-            k();
-            if (!e()) {
-                i();
-                if (this.O >= this.Q) {
+            this.in = inputStream;
+            dp();
+            if (!dk()) {
+                dm();
+                if (this.aaG >= this.aaH) {
                     return 3;
                 }
-                if (this.N < 0) {
-                    this.b = 1;
+                if (this.iO < 0) {
+                    this.status = 1;
                 }
             }
         } else {
-            this.b = 2;
+            this.status = 2;
         }
         if (inputStream != null) {
             try {
@@ -184,16 +186,16 @@ public class g {
             } catch (Exception e) {
             }
         }
-        if (this.P) {
+        if (this.interrupted) {
             return 4;
         }
-        return this.b;
+        return this.status;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
-    protected void d() {
+    protected void vt() {
         int i;
         int i2;
         int i3;
@@ -204,28 +206,28 @@ public class g {
         int i8;
         int i9;
         short s;
-        int i10 = this.t * this.u;
-        if (this.L == null || this.L.length < i10) {
-            this.L = new byte[i10];
+        int i10 = this.ir * this.is;
+        if (this.iM == null || this.iM.length < i10) {
+            this.iM = new byte[i10];
         }
-        if (this.I == null) {
-            this.I = new short[4096];
+        if (this.iJ == null) {
+            this.iJ = new short[4096];
         }
-        if (this.J == null) {
-            this.J = new byte[4096];
+        if (this.iK == null) {
+            this.iK = new byte[4096];
         }
-        if (this.K == null) {
-            this.K = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
+        if (this.iL == null) {
+            this.iL = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
-        int g = g();
-        int i11 = 1 << g;
+        int read = read();
+        int i11 = 1 << read;
         int i12 = i11 + 1;
         int i13 = i11 + 2;
-        int i14 = g + 1;
+        int i14 = read + 1;
         int i15 = (1 << i14) - 1;
         for (int i16 = 0; i16 < i11; i16++) {
-            this.I[i16] = 0;
-            this.J[i16] = (byte) i16;
+            this.iJ[i16] = 0;
+            this.iK[i16] = (byte) i16;
         }
         int i17 = 0;
         int i18 = 0;
@@ -248,13 +250,13 @@ public class g {
                 i8 = i13;
             } else if (i23 < i14) {
                 if (i22 == 0) {
-                    i22 = h();
+                    i22 = dl();
                     if (i22 <= 0) {
                         break;
                     }
                     i25 = 0;
                 }
-                i20 += (this.B[i25] & 255) << i23;
+                i20 += (this.iD[i25] & BaseActivity.KEYBOARD_STATE_INIT) << i23;
                 i23 += 8;
                 i25++;
                 i22--;
@@ -265,37 +267,37 @@ public class g {
                 if (i26 > i13 || i26 == i12) {
                     break;
                 } else if (i26 == i11) {
-                    i14 = g + 1;
+                    i14 = read + 1;
                     i15 = (1 << i14) - 1;
                     i13 = i11 + 2;
                     i24 = -1;
                 } else if (i24 == -1) {
-                    this.K[i18] = this.J[i26];
+                    this.iL[i18] = this.iK[i26];
                     i18++;
                     i24 = i26;
                     i19 = i26;
                 } else {
                     if (i26 == i13) {
                         i9 = i18 + 1;
-                        this.K[i18] = (byte) i19;
+                        this.iL[i18] = (byte) i19;
                         s = i24;
                     } else {
                         i9 = i18;
                         s = i26;
                     }
                     while (s > i11) {
-                        this.K[i9] = this.J[s];
-                        s = this.I[s];
+                        this.iL[i9] = this.iK[s];
+                        s = this.iJ[s];
                         i9++;
                     }
-                    int i27 = this.J[s] & 255;
+                    int i27 = this.iK[s] & BaseActivity.KEYBOARD_STATE_INIT;
                     if (i13 >= 4096) {
                         break;
                     }
                     int i28 = i9 + 1;
-                    this.K[i9] = (byte) i27;
-                    this.I[i13] = (short) i24;
-                    this.J[i13] = (byte) i27;
+                    this.iL[i9] = (byte) i27;
+                    this.iJ[i13] = (short) i24;
+                    this.iK[i13] = (byte) i27;
                     i8 = i13 + 1;
                     if ((i8 & i15) == 0 && i8 < 4096) {
                         i14++;
@@ -311,7 +313,7 @@ public class g {
                 }
             }
             int i29 = i5 - 1;
-            this.L[i17] = this.K[i29];
+            this.iM[i17] = this.iL[i29];
             i21++;
             i17++;
             i14 = i4;
@@ -325,39 +327,39 @@ public class g {
             i24 = i30;
         }
         for (int i31 = i17; i31 < i10; i31++) {
-            this.L[i31] = 0;
+            this.iM[i31] = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean e() {
-        return this.b != 0;
+    public boolean dk() {
+        return this.status != 0;
     }
 
-    protected void f() {
-        this.b = 0;
-        this.N = 0;
-        this.M = new Vector<>();
-        this.h = null;
-        this.i = null;
+    protected void init() {
+        this.status = 0;
+        this.iO = 0;
+        this.aaF = new Vector<>();
+        this.ib = null;
+        this.ic = null;
     }
 
-    protected int g() {
+    protected int read() {
         try {
-            return this.a.read();
+            return this.in.read();
         } catch (Exception e) {
-            this.b = 1;
+            this.status = 1;
             return 0;
         }
     }
 
-    protected int h() {
-        this.C = g();
+    protected int dl() {
+        this.iE = read();
         int i = 0;
-        if (this.C > 0) {
-            while (i < this.C) {
+        if (this.iE > 0) {
+            while (i < this.iE) {
                 try {
-                    int read = this.a.read(this.B, i, this.C - i);
+                    int read = this.in.read(this.iD, i, this.iE - i);
                     if (read == -1) {
                         break;
                     }
@@ -366,26 +368,26 @@ public class g {
                     e.printStackTrace();
                 }
             }
-            if (i < this.C) {
-                this.b = 1;
+            if (i < this.iE) {
+                this.status = 1;
             }
         }
         return i;
     }
 
-    protected int[] c(int i) {
+    protected int[] y(int i) {
         int i2;
         int i3 = i * 3;
         int[] iArr = null;
         byte[] bArr = new byte[i3];
         try {
-            i2 = this.a.read(bArr);
+            i2 = this.in.read(bArr);
         } catch (Exception e) {
             e.printStackTrace();
             i2 = 0;
         }
         if (i2 < i3) {
-            this.b = 1;
+            this.status = 1;
         } else {
             iArr = new int[256];
             int i4 = 0;
@@ -393,54 +395,54 @@ public class g {
                 int i6 = i4 + 1;
                 int i7 = i6 + 1;
                 i4 = i7 + 1;
-                iArr[i5] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i6] & 255) << 8) | (bArr[i7] & 255);
+                iArr[i5] = ((bArr[i4] & BaseActivity.KEYBOARD_STATE_INIT) << 16) | (-16777216) | ((bArr[i6] & BaseActivity.KEYBOARD_STATE_INIT) << 8) | (bArr[i7] & BaseActivity.KEYBOARD_STATE_INIT);
             }
         }
         return iArr;
     }
 
-    protected void i() {
+    protected void dm() {
         boolean z = false;
-        while (!z && !e() && !this.P) {
-            int g = g();
-            if (this.O < this.Q) {
-                switch (g) {
+        while (!z && !dk() && !this.interrupted) {
+            int read = read();
+            if (this.aaG < this.aaH) {
+                switch (read) {
                     case 33:
-                        switch (g()) {
+                        switch (read()) {
                             case 1:
-                                q();
+                                dv();
                                 continue;
                             case 249:
-                                j();
+                                dn();
                                 continue;
                             case 254:
-                                q();
+                                dv();
                                 continue;
                             case MotionEventCompat.ACTION_MASK /* 255 */:
-                                h();
+                                dl();
                                 StringBuffer stringBuffer = new StringBuffer();
                                 for (int i = 0; i < 11; i++) {
-                                    stringBuffer.append((char) this.B[i]);
+                                    stringBuffer.append((char) this.iD[i]);
                                 }
                                 if (stringBuffer.toString().equals("NETSCAPE2.0")) {
-                                    n();
+                                    ds();
                                     break;
                                 } else {
-                                    q();
+                                    dv();
                                     continue;
                                 }
                             default:
-                                q();
+                                dv();
                                 continue;
                         }
                     case 44:
-                        l();
+                        vu();
                         break;
                     case 59:
                         z = true;
                         break;
                     default:
-                        this.b = 1;
+                        this.status = 1;
                         break;
                 }
             } else {
@@ -449,138 +451,138 @@ public class g {
         }
     }
 
-    protected void j() {
-        g();
-        int g = g();
-        this.D = (g & 28) >> 2;
-        if (this.D == 0) {
-            this.D = 1;
+    protected void dn() {
+        read();
+        int read = read();
+        this.iF = (read & 28) >> 2;
+        if (this.iF == 0) {
+            this.iF = 1;
         }
-        this.F = (g & 1) != 0;
-        this.G = o() * 10;
-        this.G = this.G < 15 ? 100 : this.G;
-        this.H = g();
-        g();
+        this.iH = (read & 1) != 0;
+        this.delay = dt() * 10;
+        this.delay = this.delay < 15 ? 100 : this.delay;
+        this.iI = read();
+        read();
     }
 
-    protected void k() {
+    protected void dp() {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 6; i++) {
-            stringBuffer.append((char) g());
+            stringBuffer.append((char) read());
         }
         if (!stringBuffer.toString().startsWith("GIF")) {
-            this.b = 1;
+            this.status = 1;
             return;
         }
-        m();
-        if (this.e && !e()) {
-            this.h = c(this.f);
-            this.l = this.h[this.k];
+        dr();
+        if (this.hY && !dk()) {
+            this.ib = y(this.hZ);
+            this.bgColor = this.ib[this.ig];
         }
     }
 
-    protected void l() {
+    protected void vu() {
         int i = 0;
-        this.r = o();
-        this.s = o();
-        this.t = o();
-        this.u = o();
-        int g = g();
-        this.o = (g & 128) != 0;
-        this.q = (int) Math.pow(2.0d, (g & 7) + 1);
-        this.p = (g & 64) != 0;
-        if (this.o) {
-            this.i = c(this.q);
-            this.j = this.i;
+        this.im = dt();
+        this.iq = dt();
+        this.ir = dt();
+        this.is = dt();
+        int read = read();
+        this.ij = (read & 128) != 0;
+        this.il = (int) Math.pow(2.0d, (read & 7) + 1);
+        this.ik = (read & 64) != 0;
+        if (this.ij) {
+            this.ic = y(this.il);
+            this.ie = this.ic;
         } else {
-            this.j = this.h;
-            if (this.k == this.H) {
-                this.l = 0;
+            this.ie = this.ib;
+            if (this.ig == this.iI) {
+                this.bgColor = 0;
             }
         }
-        if (this.F) {
-            int i2 = this.j[this.H];
-            this.j[this.H] = 0;
+        if (this.iH) {
+            int i2 = this.ie[this.iI];
+            this.ie[this.iI] = 0;
             i = i2;
         }
-        if (this.j == null) {
-            this.b = 1;
+        if (this.ie == null) {
+            this.status = 1;
         }
-        if (!e()) {
-            d();
-            q();
-            if (!e()) {
-                this.N++;
-                this.z = Bitmap.createBitmap(this.c, this.d, Bitmap.Config.ARGB_4444);
-                c();
-                this.M.addElement(new h(this.z, this.G));
-                this.O += this.c * this.d * 2;
-                if (this.F) {
-                    this.j[this.H] = i;
+        if (!dk()) {
+            vt();
+            dv();
+            if (!dk()) {
+                this.iO++;
+                this.iz = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
+                df();
+                this.aaF.addElement(new h(this.iz, this.delay));
+                this.aaG += this.width * this.height * 2;
+                if (this.iH) {
+                    this.ie[this.iI] = i;
                 }
-                p();
+                du();
             }
         }
     }
 
-    protected void m() {
-        this.c = o();
-        this.d = o();
-        int g = g();
-        this.e = (g & 128) != 0;
-        this.f = 2 << (g & 7);
-        this.k = g();
-        this.n = g();
+    protected void dr() {
+        this.width = dt();
+        this.height = dt();
+        int read = read();
+        this.hY = (read & 128) != 0;
+        this.hZ = 2 << (read & 7);
+        this.ig = read();
+        this.ii = read();
     }
 
-    protected void n() {
+    protected void ds() {
         do {
-            h();
-            if (this.B[0] == 1) {
-                this.g = (this.B[1] & 255) | ((this.B[2] & 255) << 8);
+            dl();
+            if (this.iD[0] == 1) {
+                this.ia = (this.iD[1] & BaseActivity.KEYBOARD_STATE_INIT) | ((this.iD[2] & BaseActivity.KEYBOARD_STATE_INIT) << 8);
             }
-            if (this.C <= 0) {
+            if (this.iE <= 0) {
                 return;
             }
-        } while (!e());
+        } while (!dk());
     }
 
-    protected int o() {
-        return g() | (g() << 8);
+    protected int dt() {
+        return read() | (read() << 8);
     }
 
-    protected void p() {
-        this.E = this.D;
-        this.v = this.r;
-        this.w = this.s;
-        this.x = this.t;
-        this.y = this.u;
-        this.A = this.z;
-        this.m = this.l;
-        this.D = 0;
-        this.F = false;
-        this.G = 0;
-        this.i = null;
+    protected void du() {
+        this.iG = this.iF;
+        this.iu = this.im;
+        this.iw = this.iq;
+        this.ix = this.ir;
+        this.iy = this.is;
+        this.aaE = this.iz;
+        this.ih = this.bgColor;
+        this.iF = 0;
+        this.iH = false;
+        this.delay = 0;
+        this.ic = null;
     }
 
-    protected void q() {
+    protected void dv() {
         do {
-            h();
-            if (this.C <= 0) {
+            dl();
+            if (this.iE <= 0) {
                 return;
             }
-        } while (!e());
+        } while (!dk());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void r() {
-        this.P = true;
-        if (this.M != null) {
+    public void vf() {
+        this.interrupted = true;
+        if (this.aaF != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.M.size()) {
-                    this.M.get(i2).a = null;
+                if (i2 < this.aaF.size()) {
+                    this.aaF.get(i2).iz = null;
                     i = i2 + 1;
                 } else {
                     return;

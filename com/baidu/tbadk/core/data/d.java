@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -10,21 +11,21 @@ import tbclient.App;
 import tbclient.BannerList;
 /* loaded from: classes.dex */
 public class d {
-    private ArrayList<a> a = new ArrayList<>();
+    private ArrayList<a> zC = new ArrayList<>();
 
-    public ArrayList<a> a() {
-        return this.a;
+    public ArrayList<a> jL() {
+        return this.zC;
     }
 
-    public String b() {
-        if (this.a == null || this.a.size() <= 0) {
+    public String jM() {
+        if (this.zC == null || this.zC.size() <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        int size = this.a.size();
+        int size = this.zC.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.a.get(i).b)) {
-                sb.append(this.a.get(i).b);
+            if (!TextUtils.isEmpty(this.zC.get(i).zg)) {
+                sb.append(this.zC.get(i).zg);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -33,10 +34,10 @@ public class d {
         return sb.toString();
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("app");
+                JSONArray optJSONArray = jSONObject.optJSONArray(SapiUtils.QR_LOGIN_LP_APP);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                     }
@@ -57,7 +58,7 @@ public class d {
                     if (list.get(i2) != null) {
                         a aVar = new a();
                         aVar.a(list.get(i2));
-                        this.a.add(aVar);
+                        this.zC.add(aVar);
                     }
                     i = i2 + 1;
                 } else {

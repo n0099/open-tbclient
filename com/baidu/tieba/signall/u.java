@@ -7,74 +7,74 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.e {
-    private static String f;
-    private static u g;
-    public boolean a;
-    private w b;
-    private s c;
-    private v d;
-    private b e;
+    private static u bLs;
+    private static String userId;
+    private w bLo;
+    private s bLp;
+    private v bLq;
+    private b bLr;
+    public boolean cs;
 
-    public static u a(Context context) {
+    public static u ai(Context context) {
         String currentAccount = TbadkApplication.getCurrentAccount();
-        if (g == null) {
-            g = new u(context);
-        } else if (!TextUtils.isEmpty(f) && !TextUtils.equals(f, currentAccount)) {
-            g = new u(context);
+        if (bLs == null) {
+            bLs = new u(context);
+        } else if (!TextUtils.isEmpty(userId) && !TextUtils.equals(userId, currentAccount)) {
+            bLs = new u(context);
         }
-        return g;
+        return bLs;
     }
 
     private u(Context context) {
         super(context);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        f = TbadkApplication.getCurrentAccount();
-        this.c = new s();
+        this.bLo = null;
+        this.bLp = null;
+        this.bLq = null;
+        userId = TbadkApplication.getCurrentAccount();
+        this.bLp = new s();
     }
 
     public void a(v vVar) {
-        this.d = vVar;
+        this.bLq = vVar;
     }
 
-    public void a(b bVar) {
-        this.e = bVar;
+    public void c(b bVar) {
+        this.bLr = bVar;
     }
 
-    public b a() {
-        return this.e;
+    public b ada() {
+        return this.bLr;
     }
 
-    private String b() {
-        ArrayList<d> l = this.e.l();
-        if (l == null) {
+    private String adb() {
+        ArrayList<d> acA = this.bLr.acA();
+        if (acA == null) {
             return "";
         }
-        if (!this.e.m()) {
+        if (!this.bLr.acB()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = l.iterator();
+            Iterator<d> it = acA.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.g() < this.e.a()) {
+                if (next.zz() < this.bLr.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            l.removeAll(arrayList);
+            acA.removeAll(arrayList);
         }
-        int size = l.size();
+        int size = acA.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = l.get(i);
-            if (dVar.k()) {
-                if (!dVar.l()) {
-                    dVar.c(true);
+            d dVar = acA.get(i);
+            if (dVar.acN()) {
+                if (!dVar.acO()) {
+                    dVar.eF(true);
                 }
             }
             if (i > 0) {
                 sb.append(",");
             }
-            sb.append(dVar.b());
+            sb.append(dVar.getForumId());
         }
         return sb.toString();
     }
@@ -82,19 +82,19 @@ public class u extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.b != null) {
+        if (this.bLo != null) {
             return false;
         }
-        String b = b();
-        this.b = new w(this);
-        this.b.execute(b);
+        String adb = adb();
+        this.bLo = new w(this);
+        this.bLo.execute(adb);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
+        if (this.bLo != null) {
+            this.bLo.cancel();
             return true;
         }
         return false;

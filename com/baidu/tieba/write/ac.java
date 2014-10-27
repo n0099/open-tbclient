@@ -1,77 +1,47 @@
 package com.baidu.tieba.write;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ce;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.util.AntiHelper;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* loaded from: classes.dex */
-class ac implements com.baidu.tieba.model.as {
-    final /* synthetic */ WriteActivity a;
+class ac extends HttpMessageListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(WriteActivity writeActivity, int i) {
+        super(i);
+        this.bTX = writeActivity;
     }
 
-    @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.e eVar, WriteData writeData, AntiData antiData) {
-        WriteData writeData2;
-        WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        WriteData writeData6;
-        WriteData writeData7;
-        WriteData writeData8;
-        WriteData writeData9;
-        this.a.D();
-        this.a.closeLoadingDialog();
-        if (!z) {
-            if (eVar != null && writeData != null && eVar.b() != null) {
-                if (!AntiHelper.c(antiData)) {
-                    writeData.setVcodeMD5(eVar.a());
-                    writeData.setVcodeUrl(eVar.b());
-                    if (eVar.c().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.az(this.a, 12006, writeData, false)));
-                        return;
-                    } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ce(this.a, writeData, 12006)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: b */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        BubbleListData bubbleListData;
+        String str;
+        String str2;
+        if ((httpResponsedMessage instanceof ResponseBubbleListMessage) && httpResponsedMessage.getError() == 0 && (bubbleListData = ((ResponseBubbleListMessage) httpResponsedMessage).getBubbleListData()) != null && bubbleListData.getB_info() != null && bubbleListData.getB_info().size() > 0) {
+            for (BubbleListData.BubbleData bubbleData : bubbleListData.getB_info()) {
+                if (bubbleData.getIs_free() == 1) {
+                    String b_url = bubbleData.getB_url();
+                    if (b_url != null) {
+                        str = this.bTX.apZ;
+                        if (!b_url.equals(str)) {
+                            this.bTX.apZ = b_url;
+                            this.bTX.eM(true);
+                            TbadkApplication m251getInst = TbadkApplication.m251getInst();
+                            str2 = this.bTX.apZ;
+                            m251getInst.setDefaultBubble(str2);
+                            return;
+                        }
                         return;
                     }
+                    return;
                 }
-                this.a.a(antiData, str);
-                return;
-            }
-            this.a.a(antiData, str);
-            return;
-        }
-        this.a.a(antiData, str);
-        writeData2 = this.a.a;
-        if (writeData2.getType() == 0) {
-            writeData7 = this.a.a;
-            if (writeData7.getLiveCardData() == null) {
-                writeData9 = this.a.a;
-                com.baidu.tieba.util.m.a(writeData9.getForumId(), (WriteData) null);
-            } else {
-                writeData8 = this.a.a;
-                com.baidu.tieba.util.m.a(writeData8.getLiveCardData().getGroupId(), (WriteData) null);
-            }
-        } else {
-            writeData3 = this.a.a;
-            if (writeData3.getType() == 1) {
-                writeData4 = this.a.a;
-                com.baidu.tieba.util.m.b(writeData4.getThreadId(), (WriteData) null);
             }
         }
-        writeData5 = this.a.a;
-        if (writeData5.getLiveCardData() != null) {
-            WriteActivity writeActivity = this.a;
-            com.baidu.tbadk.core.atomData.s sVar = new com.baidu.tbadk.core.atomData.s(this.a);
-            writeData6 = this.a.a;
-            writeActivity.sendMessage(new CustomMessage(2003001, sVar.c(writeData6.getForumName(), "post live's thread")));
-        }
-        this.a.setResult(-1);
-        this.a.finish();
     }
 }

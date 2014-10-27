@@ -3,13 +3,13 @@ package com.baidu.tieba.faceshop;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 class af extends BaseActivity.LoadDataCallBack {
-    final /* synthetic */ FacePackageDetailActivity a;
+    final /* synthetic */ FacePackageDetailActivity atk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(FacePackageDetailActivity facePackageDetailActivity, BaseActivity baseActivity) {
         super();
-        this.a = facePackageDetailActivity;
+        this.atk = facePackageDetailActivity;
     }
 
     @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
@@ -17,34 +17,34 @@ class af extends BaseActivity.LoadDataCallBack {
         am amVar;
         am amVar2;
         ak akVar;
-        this.a.hideProgressBar();
+        this.atk.hideProgressBar();
         Object obj = objArr[0];
         Boolean bool = (Boolean) objArr[1];
         if (obj != null && (obj instanceof FacePackageDetailData)) {
-            amVar = this.a.b;
+            amVar = this.atk.atb;
             if (amVar != null) {
                 FacePackageDetailData facePackageDetailData = (FacePackageDetailData) obj;
                 if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
-                    amVar2 = this.a.b;
-                    akVar = this.a.a;
-                    amVar2.a(akVar);
+                    amVar2 = this.atk.atb;
+                    akVar = this.atk.ata;
+                    amVar2.g(akVar);
                     if (!bool.booleanValue()) {
-                        this.a.e = true;
+                        this.atk.atg = true;
                         return;
                     } else {
-                        this.a.showProgressBar();
+                        this.atk.showProgressBar();
                         return;
                     }
                 } else if (facePackageDetailData.usermsg != null) {
-                    this.a.showToast(facePackageDetailData.usermsg);
+                    this.atk.showToast(facePackageDetailData.usermsg);
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.x.neterror);
+                    this.atk.showToast(cb.neterror);
                     return;
                 }
             }
             return;
         }
-        this.a.showToast(com.baidu.tieba.x.neterror);
+        this.atk.showToast(cb.neterror);
     }
 }

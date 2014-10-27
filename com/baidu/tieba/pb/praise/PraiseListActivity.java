@@ -1,132 +1,67 @@
 package com.baidu.tieba.pb.praise;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bc;
-import com.baidu.tbadk.core.atomData.bh;
-import java.util.List;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
+import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
-public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, g {
-    private h a = null;
-    private e b = null;
+public class PraiseListActivity extends MvcActivity<h, e> implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.mvc.c.a {
+    private h bzl = null;
+    private e bzm = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002007, new c());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, String str, String str2, String str3, boolean z) {
-        if (!i.c(str2)) {
-            Intent intent = new Intent(context, PraiseListActivity.class);
-            intent.putExtra("KeyIntentThreadId", str);
-            intent.putExtra("KeyIntentPostId", str2);
-            intent.putExtra("KeyIntentPostDesc", str3);
-            intent.putExtra("KeyIntentIsFromPb", z);
-            if (!(context instanceof Activity)) {
-                intent.setFlags(268435456);
-            }
-            context.startActivity(intent);
-        }
+        TbadkApplication.m251getInst().RegisterIntent(PraiseListActivityConfig.class, PraiseListActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (bundle != null) {
-            this.b = new e(bundle.getString("KeyIntentThreadId"), bundle.getString("KeyIntentPostId"), bundle.getString("KeyIntentPostDesc"), bundle.getBoolean("KeyIntentIsFromPb", true), this);
-            this.b.a(bundle.getInt("KeyIntentPraiseId"));
-        } else if (getIntent() != null) {
-            this.b = new e(getIntent().getStringExtra("KeyIntentThreadId"), getIntent().getStringExtra("KeyIntentPostId"), getIntent().getStringExtra("KeyIntentPostDesc"), getIntent().getBooleanExtra("KeyIntentIsFromPb", true), this);
-        }
-        if (this.b == null) {
-            this.b = new e();
-        }
-        this.a = new h(this, this.b.d());
-        this.a.a(false);
-        this.b.e();
+        sY().addEventDelegate(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.e()) {
-            a();
-            if (this.b.b()) {
-                finish();
-                return;
+        if (view == tk().YF()) {
+            if (!tj().bzr.Yz()) {
+                com.baidu.tbadk.util.f.a(2004001, new PbActivityConfig(this).createNormalCfg(tj().bzr.getThreadId(), null, "praise_list"));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this).a(this.b.a(), null, "praise_list")));
             finish();
-        } else if (view == this.a.f() && !this.a.c()) {
-            this.a.a(true);
-            this.b.e();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a b = this.b.b(i);
-        if (b != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this, b.a(), b.d(), null, "favor_list")));
+        a aVar;
+        if (i >= 0 && i < tj().bzq.Yy().size() && (aVar = tj().bzq.Yy().get(i)) != null) {
+            com.baidu.tbadk.util.f.a(2002003, new PersonInfoActivityConfig(this, aVar.getUserId(), aVar.Ys(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void a() {
-        if (this.b != null) {
-            this.b.c();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        this.b.a(bundle, "KeyIntentIsFromPb");
-        this.b.b(bundle, "KeyIntentThreadId");
-        this.b.c(bundle, "KeyIntentPostId");
-        this.b.d(bundle, "KeyIntentPostDesc");
-        this.b.e(bundle, "KeyIntentPraiseId");
-    }
-
-    @Override // com.baidu.tieba.pb.praise.g
-    public void a(String str) {
-        if (!i.c(str)) {
-            showToast(str, true);
-        }
-        this.a.b();
-    }
-
-    @Override // com.baidu.tieba.pb.praise.g
-    public void a(int i, List<a> list, int i2, int i3) {
-        this.a.a(i, list, i2, i3);
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.a.a();
+    @Override // com.baidu.tbadk.mvc.core.MvcActivity
+    /* renamed from: Yu */
+    public e tj() {
+        if (this.bzm == null) {
+            this.bzm = new e(this);
+        }
+        return this.bzm;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.a.a(getLayoutMode(), i);
-    }
-
-    public void changSkinType(View view) {
-        getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        getLayoutMode().a(view);
+    @Override // com.baidu.tbadk.mvc.core.MvcActivity
+    /* renamed from: Yv */
+    public h tk() {
+        if (this.bzl == null) {
+            this.bzl = new h(this);
+        }
+        return this.bzl;
     }
 }

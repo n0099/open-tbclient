@@ -1,10 +1,13 @@
 package com.baidu.adp.lib.util;
 
+import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class StringUtils {
+    private static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
     private static final String TIMEFORMAT = "yyyy-MM-dd HH:mm";
     public static final String lineSeparator = System.getProperty("line.separator");
 
@@ -94,5 +97,29 @@ public class StringUtils {
 
     public static boolean isChinese(char c) {
         return Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find();
+    }
+
+    public static boolean isJSONArray(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            if (jSONArray.length() > 0) {
+                return jSONArray.getJSONObject(0) != null;
+            }
+            return false;
+        } catch (Error e) {
+            return false;
+        } catch (Exception e2) {
+            return false;
+        }
+    }
+
+    public static boolean isValidPassWord(String str) {
+        if (TextUtils.isEmpty(str) || str.contains(" ")) {
+            return false;
+        }
+        return str.matches(PASSWORD_PREFIX);
     }
 }

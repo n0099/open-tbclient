@@ -1,13 +1,13 @@
 package com.baidu.tieba.d.a;
 /* loaded from: classes.dex */
 public interface e {
-    String f();
+    String abl();
 
-    String j_();
+    String abm();
 
-    String k_();
+    String abn();
 
-    String l_();
+    String abo();
 
-    long m_();
+    long abp();
 }

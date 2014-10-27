@@ -7,22 +7,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tbadk.plugins.MotuPlugin;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Void, Bitmap> {
-    final /* synthetic */ EditHeadActivity a;
-    private String b;
-    private Bitmap c;
-    private Boolean d;
-    private Boolean e;
+    private String Kb;
+    private Bitmap Kc;
+    private Boolean Kd;
+    private Boolean Ke;
+    final /* synthetic */ EditHeadActivity this$0;
 
     private j(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
-        this.d = false;
-        this.e = false;
+        this.this$0 = editHeadActivity;
+        this.Kd = false;
+        this.Ke = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,40 +39,40 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
     public void onPreExecute() {
         Handler handler;
         Intent intent;
-        ConfigInfos.PluginConfig b;
+        ConfigInfos.PluginConfig netConfigInfo;
         Handler handler2;
         ProgressBar progressBar;
         TextView textView;
-        if (com.baidu.tbadk.pluginArch.d.a().a("motu") != null) {
-            progressBar = this.a.n;
+        if (PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_MOTUSDK) != null) {
+            progressBar = this.this$0.mProgress;
             progressBar.setVisibility(0);
-            textView = this.a.j;
+            textView = this.this$0.JB;
             textView.setEnabled(false);
             return;
         }
         try {
-            intent = new Intent(this.a, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
-            b = com.baidu.tbadk.pluginArch.d.a().b("motu");
+            intent = new Intent(this.this$0, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
+            netConfigInfo = PluginCenter.getInstance().getNetConfigInfo(PluginNameList.NAME_MOTUSDK);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (b == null) {
-            this.a.showToast("插件安装失败");
-            handler2 = this.a.J;
+        if (netConfigInfo == null) {
+            this.this$0.showToast("插件安装失败");
+            handler2 = this.this$0.mHandler;
             handler2.postDelayed(new k(this), 500L);
             return;
         }
-        intent.putExtra("plugin_config", b);
-        this.a.startActivity(intent);
+        intent.putExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG, netConfigInfo);
+        this.this$0.startActivity(intent);
         cancel();
-        handler = this.a.J;
+        handler = this.this$0.mHandler;
         handler.postDelayed(new l(this), 500L);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: j */
     public Bitmap doInBackground(String... strArr) {
         Bitmap bitmap;
         Bitmap bitmap2;
@@ -80,46 +84,46 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap7;
         Bitmap bitmap8;
         Bitmap bitmap9;
-        this.b = strArr[0];
-        bitmap = this.a.h;
+        this.Kb = strArr[0];
+        bitmap = this.this$0.mBitmap;
         if (bitmap == null) {
-            bitmap9 = this.a.w;
+            bitmap9 = this.this$0.JN;
             if (bitmap9 == null) {
                 return null;
             }
         }
-        if (this.b.equals("0") || this.b.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
-            this.d = true;
-        } else if (this.b.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT) || this.b.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-            this.e = true;
+        if (this.Kb.equals("0") || this.Kb.equals("1")) {
+            this.Kd = true;
+        } else if (this.Kb.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT) || this.Kb.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+            this.Ke = true;
         }
-        if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap7 = this.a.h;
-            bitmap8 = this.a.h;
-            this.c = bitmap7.copy(bitmap8.getConfig(), true);
+        if (!this.Kd.booleanValue() && !this.Ke.booleanValue()) {
+            bitmap7 = this.this$0.mBitmap;
+            bitmap8 = this.this$0.mBitmap;
+            this.Kc = bitmap7.copy(bitmap8.getConfig(), true);
         } else {
-            bitmap2 = this.a.w;
+            bitmap2 = this.this$0.JN;
             if (bitmap2 == null) {
-                bitmap3 = this.a.h;
-                bitmap4 = this.a.h;
-                this.c = bitmap3.copy(bitmap4.getConfig(), true);
+                bitmap3 = this.this$0.mBitmap;
+                bitmap4 = this.this$0.mBitmap;
+                this.Kc = bitmap3.copy(bitmap4.getConfig(), true);
             } else {
-                bitmap5 = this.a.w;
-                bitmap6 = this.a.w;
-                this.c = bitmap5.copy(bitmap6.getConfig(), true);
+                bitmap5 = this.this$0.JN;
+                bitmap6 = this.this$0.JN;
+                this.Kc = bitmap5.copy(bitmap6.getConfig(), true);
             }
         }
-        if (this.d.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.d.d(this.c, Integer.parseInt(this.b));
-        } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tbadk.core.util.d.f(this.c, Integer.parseInt(this.b));
+        if (this.Kd.booleanValue()) {
+            this.Kc = com.baidu.tbadk.core.util.d.d(this.Kc, Integer.parseInt(this.Kb));
+        } else if (this.Ke.booleanValue()) {
+            this.Kc = com.baidu.tbadk.core.util.d.f(this.Kc, Integer.parseInt(this.Kb));
         } else {
-            com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("motu");
-            if (a != null && (motuPlugin = (MotuPlugin) a.a(MotuPlugin.class)) != null) {
-                this.c = motuPlugin.createOneKeyFilterAndApply(this.a, this.b, this.c);
+            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_MOTUSDK);
+            if (pluginByName != null && (motuPlugin = (MotuPlugin) pluginByName.getClassInstance(MotuPlugin.class)) != null) {
+                this.Kc = motuPlugin.createOneKeyFilterAndApply(this.this$0, this.Kb, this.Kc);
             }
         }
-        return this.c;
+        return this.Kc;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -127,16 +131,16 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         ProgressBar progressBar;
         TextView textView;
         Bitmap bitmap;
-        if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.w;
-            if (bitmap != this.c) {
-                this.c.recycle();
+        if (this.Kc != null && !this.Kc.isRecycled()) {
+            bitmap = this.this$0.JN;
+            if (bitmap != this.Kc) {
+                this.Kc.recycle();
             }
         }
-        this.c = null;
-        progressBar = this.a.n;
+        this.Kc = null;
+        progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        textView = this.a.j;
+        textView = this.this$0.JB;
         textView.setClickable(true);
         super.cancel(true);
     }
@@ -147,7 +151,7 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         if (r0.getHeight() > 750) goto L28;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: e */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -165,46 +169,46 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadsImageView editHeadsImageView2;
-        progressBar = this.a.n;
+        progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        textView = this.a.j;
+        textView = this.this$0.JB;
         textView.setClickable(true);
-        textView2 = this.a.j;
+        textView2 = this.this$0.JB;
         textView2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.a.D = true;
-            if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadsImageView = this.a.g;
+            this.this$0.JU = true;
+            if (this.Kd.booleanValue() || this.Ke.booleanValue()) {
+                editHeadsImageView = this.this$0.Jz;
                 editHeadsImageView.setImageBitmap(bitmap);
-                bitmap2 = this.a.h;
+                bitmap2 = this.this$0.mBitmap;
                 if (bitmap2.getWidth() <= 750) {
-                    bitmap6 = this.a.h;
+                    bitmap6 = this.this$0.mBitmap;
                 }
-                EditHeadActivity editHeadActivity = this.a;
-                bitmap3 = this.a.h;
-                editHeadActivity.h = com.baidu.tbadk.core.util.d.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
-                if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.a;
-                    bitmap5 = this.a.h;
-                    editHeadActivity2.h = com.baidu.tbadk.core.util.d.d(bitmap5, Integer.parseInt(this.b));
-                } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.a;
-                    bitmap4 = this.a.h;
-                    editHeadActivity3.h = com.baidu.tbadk.core.util.d.f(bitmap4, Integer.parseInt(this.b));
+                EditHeadActivity editHeadActivity = this.this$0;
+                bitmap3 = this.this$0.mBitmap;
+                editHeadActivity.mBitmap = com.baidu.tbadk.core.util.d.a(bitmap3, (int) TbConfig.POST_IMAGE_MIDDLE);
+                if (this.Kd.booleanValue()) {
+                    EditHeadActivity editHeadActivity2 = this.this$0;
+                    bitmap5 = this.this$0.mBitmap;
+                    editHeadActivity2.mBitmap = com.baidu.tbadk.core.util.d.d(bitmap5, Integer.parseInt(this.Kb));
+                } else if (this.Ke.booleanValue()) {
+                    EditHeadActivity editHeadActivity3 = this.this$0;
+                    bitmap4 = this.this$0.mBitmap;
+                    editHeadActivity3.mBitmap = com.baidu.tbadk.core.util.d.f(bitmap4, Integer.parseInt(this.Kb));
                 }
             } else {
-                editHeadsImageView2 = this.a.g;
-                editHeadsImageView2.a(bitmap);
+                editHeadsImageView2 = this.this$0.Jz;
+                editHeadsImageView2.g(bitmap);
             }
-            bitmap7 = this.a.w;
+            bitmap7 = this.this$0.JN;
             if (bitmap7 != null) {
-                bitmap8 = this.a.w;
+                bitmap8 = this.this$0.JN;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.a.w;
+                    bitmap9 = this.this$0.JN;
                     bitmap9.recycle();
                 }
             }
-            this.a.w = bitmap;
+            this.this$0.JN = bitmap;
         }
     }
 }

@@ -1,33 +1,32 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ ApplyJoinGroupActivity a;
+    final /* synthetic */ ApplyJoinGroupActivity bad;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ApplyJoinGroupActivity applyJoinGroupActivity) {
-        this.a = applyJoinGroupActivity;
+        this.bad = applyJoinGroupActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view.equals(this.a.f)) {
-                if (!UtilHelper.isNetOk()) {
-                    this.a.showToast(com.baidu.tieba.x.neterror);
+            if (view.equals(this.bad.aZV)) {
+                if (!com.baidu.adp.lib.util.j.fh()) {
+                    this.bad.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
                 RequestJoinGroupMessage requestJoinGroupMessage = new RequestJoinGroupMessage();
-                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.e.c.a(this.a.k, 0));
-                requestJoinGroupMessage.setUserMsg(this.a.b.getText().toString());
-                requestJoinGroupMessage.setJoinType(this.a.p);
-                requestJoinGroupMessage.setInviteUserId(this.a.n);
-                this.a.f.setEnabled(false);
-                this.a.sendMessage(requestJoinGroupMessage);
-            } else if (view.equals(this.a.e)) {
-                this.a.finish();
+                requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.g.c.f(this.bad.aZZ, 0));
+                requestJoinGroupMessage.setUserMsg(this.bad.aZR.getText().toString());
+                requestJoinGroupMessage.setJoinType(this.bad.joinType);
+                requestJoinGroupMessage.setInviteUserId(this.bad.inviteUserId);
+                this.bad.aZV.setEnabled(false);
+                this.bad.sendMessage(requestJoinGroupMessage);
+            } else if (view.equals(this.bad.aZU)) {
+                this.bad.finish();
             }
         }
     }

@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout implements b {
-    private TextView a;
-    private ProgressBar b;
+    private ProgressBar mProgress;
+    private TextView vT;
 
     public a(Context context) {
         this(context, null);
@@ -17,31 +18,31 @@ public class a extends RelativeLayout implements b {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        inflate(context, com.baidu.adp.e.adp_detault_footer_layout, this);
-        this.a = (TextView) findViewById(com.baidu.adp.d.foot_layout_text);
-        this.b = (ProgressBar) findViewById(com.baidu.adp.d.foot_layout_progress);
+        inflate(context, R.layout.adp_detault_footer_layout, this);
+        this.vT = (TextView) findViewById(R.id.foot_layout_text);
+        this.mProgress = (ProgressBar) findViewById(R.id.foot_layout_progress);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void a_() {
-        this.a.setText(getResources().getString(com.baidu.adp.f.adp_pull_up_to_get_more));
+    public void ib() {
+        this.vT.setText(getResources().getString(R.string.adp_pull_up_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void e() {
-        this.a.setText(getResources().getString(com.baidu.adp.f.adp_release_to_get_more));
+    public void hE() {
+        this.vT.setText(getResources().getString(R.string.adp_release_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void f() {
-        this.a.setText(getResources().getString(com.baidu.adp.f.adp_refreshing));
-        this.b.setVisibility(0);
+    public void hF() {
+        this.vT.setText(getResources().getString(R.string.adp_refreshing));
+        this.mProgress.setVisibility(0);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void b_() {
-        this.a.setText(getResources().getString(com.baidu.adp.f.adp_pull_up_to_get_more));
-        this.b.setVisibility(8);
+    public void ic() {
+        this.vT.setText(getResources().getString(R.string.adp_pull_up_to_get_more));
+        this.mProgress.setVisibility(8);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b

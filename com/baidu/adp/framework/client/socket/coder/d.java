@@ -1,51 +1,51 @@
 package com.baidu.adp.framework.client.socket.coder;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.r;
+import com.baidu.adp.lib.util.w;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d a = null;
-    private SecretKey b = null;
-    private byte[] c = null;
+    private static d co = null;
+    private SecretKey cp = null;
+    private byte[] cq = null;
 
-    public static d a() {
-        if (a == null) {
+    public static d aL() {
+        if (co == null) {
             synchronized (d.class) {
-                if (a == null) {
-                    a = new d();
+                if (co == null) {
+                    co = new d();
                 }
             }
         }
-        return a;
+        return co;
     }
 
-    public void a(byte[] bArr) {
+    public void g(byte[] bArr) {
         try {
-            PublicKey a2 = r.a(bArr);
-            String a3 = r.a(32);
-            byte[] bArr2 = new byte[a3.length()];
-            for (int i = 0; i < a3.length(); i++) {
-                bArr2[i] = (byte) a3.charAt(i);
+            PublicKey p = w.p(bArr);
+            String O = w.O(32);
+            byte[] bArr2 = new byte[O.length()];
+            for (int i = 0; i < O.length(); i++) {
+                bArr2[i] = (byte) O.charAt(i);
             }
-            this.b = r.a(a3);
-            this.c = r.a(a2, bArr2);
+            this.cp = w.aF(O);
+            this.cq = w.a(p, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.b = null;
-            this.c = new byte[0];
+            this.cp = null;
+            this.cq = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] b() {
-        return this.c;
+    public byte[] aM() {
+        return this.cq;
     }
 
-    public SecretKey c() {
-        return this.b;
+    public SecretKey getSecretKey() {
+        return this.cp;
     }
 }

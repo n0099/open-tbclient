@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
-class as implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ NewFriendsActivity a;
+class as implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ NewFriendsActivity bgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(NewFriendsActivity newFriendsActivity) {
-        this.a = newFriendsActivity;
+        this.bgY = newFriendsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
         if (!z) {
-            this.a.b();
+            this.bgY.Rh();
         }
     }
 }

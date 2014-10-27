@@ -6,11 +6,11 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends AuthorizationListener {
-    final /* synthetic */ SapiFastRegActivity a;
+    final /* synthetic */ SapiFastRegActivity afL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SapiFastRegActivity sapiFastRegActivity) {
-        this.a = sapiFastRegActivity;
+        this.afL = sapiFastRegActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -21,7 +21,7 @@ public class ac extends AuthorizationListener {
             String str = session.username;
             String str2 = session.bduss;
             String str3 = session.ptoken;
-            gVar = this.a.c;
+            gVar = this.afL.BW;
             com.baidu.tbadk.core.account.f.a(str, str2, str3, gVar);
         }
     }
@@ -29,10 +29,10 @@ public class ac extends AuthorizationListener {
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         if (str != null && !"".equals(str)) {
-            this.a.showToast(str);
+            this.afL.showToast(str);
         } else {
-            this.a.showToast(com.baidu.tieba.x.data_load_error);
+            this.afL.showToast(com.baidu.tieba.y.data_load_error);
         }
-        this.a.finish();
+        this.afL.finish();
     }
 }

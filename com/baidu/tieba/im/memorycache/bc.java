@@ -1,36 +1,35 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.ResponseMemoryNotifyUpdataGroupMessage;
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tieba.im.chat.receiveChatMsgHandler.b {
-    final /* synthetic */ ImMemoryCacheRegisterStatic a;
+class bc implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bdK;
+    final /* synthetic */ bb bec;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.a = imMemoryCacheRegisterStatic;
+    public bc(bb bbVar, ImMessageCenterPojo imMessageCenterPojo) {
+        this.bec = bbVar;
+        this.bdK = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.b().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
-        if (z) {
-            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
-    public void a(String str, List<CommonMsgPojo> list) {
-        if (list != null && list.size() != 0) {
-            for (CommonMsgPojo commonMsgPojo : list) {
-                if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
-                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.a(commonMsgPojo.getContent());
-                }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        try {
+            com.baidu.tieba.im.db.g.MA().MB();
+            com.baidu.tieba.im.db.k.MF().a(this.bdK);
+            if (this.bdK.getCustomGroupType() == 1) {
+                com.baidu.tieba.im.db.c.Mw().fX(this.bdK.getGid());
             }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        } finally {
+            com.baidu.tieba.im.db.g.MA().endTransaction();
         }
+        return new ResponseMemoryNotifyUpdataGroupMessage(this.bdK);
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tbadk.img.effect;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public abstract class b {
-    public abstract Bitmap a(Bitmap bitmap, boolean z);
+    public abstract Bitmap b(Bitmap bitmap, boolean z);
 
-    public abstract String a();
+    public abstract void dw(String str);
 
-    public abstract void b(String str);
+    public abstract String sp();
 
-    public Bitmap c(String str) {
-        return a(com.baidu.tbadk.core.util.d.a(str), true);
+    public Bitmap dx(String str) {
+        return b(com.baidu.tbadk.core.util.d.bk(str), true);
     }
 }

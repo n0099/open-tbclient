@@ -4,13 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface b {
-    int a();
-
     View a(LayoutInflater layoutInflater);
 
-    int b();
+    int dy();
 
-    int c();
+    int dz();
 
-    int d();
+    int getXOffset();
+
+    int getYOffset();
 }

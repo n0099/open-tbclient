@@ -12,7 +12,7 @@ public abstract class f<T extends Message<?>, M extends MessageTask> extends h<T
 
     public T b(T t, M m) {
         if (t != null) {
-            if (a() == 0 || a() == t.getCmd()) {
+            if (getCmd() == 0 || getCmd() == t.getCmd()) {
                 return a(t, m);
             }
             return t;

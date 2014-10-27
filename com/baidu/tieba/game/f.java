@@ -1,27 +1,45 @@
 package com.baidu.tieba.game;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* loaded from: classes.dex */
-class f extends CustomMessageListener {
-    final /* synthetic */ GameCenterHomeActivity a;
+public class f {
+    final /* synthetic */ c aGH;
+    private String key;
+    private String name;
+    private String tag;
+    private String url;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(GameCenterHomeActivity gameCenterHomeActivity, int i) {
-        super(i);
-        this.a = gameCenterHomeActivity;
+    public f(c cVar) {
+        this.aGH = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        n nVar;
-        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage) && ((NetWorkChangeMessage) customResponsedMessage).mState == 2) {
-            nVar = this.a.a;
-            nVar.f();
-        }
+    public void setKey(String str) {
+        this.key = str;
+    }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getTag() {
+        return this.tag;
+    }
+
+    public void setTag(String str) {
+        this.tag = str;
     }
 }

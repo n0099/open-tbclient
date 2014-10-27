@@ -1,6 +1,6 @@
 package com.baidu.tieba.message;
 
-import com.baidu.gson.Gson;
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.data.BubbleListData;
 import org.json.JSONObject;
@@ -19,7 +19,7 @@ public class ResponseBubbleListMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.bubbleListData = (BubbleListData) new Gson().fromJson(jSONObject.toString(), (Class<Object>) BubbleListData.class);
+            this.bubbleListData = (BubbleListData) i.objectWithJsonStr(jSONObject.toString(), BubbleListData.class);
         }
     }
 }

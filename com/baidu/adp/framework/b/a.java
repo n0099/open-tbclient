@@ -8,48 +8,43 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.framework.a.b, CustomResponsedMessage<?>> {
-    private com.baidu.adp.framework.client.b c;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.adp.framework.b.c
-    public /* bridge */ /* synthetic */ CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return b2((CustomMessage) customMessage, customMessageTask);
-    }
+    private com.baidu.adp.framework.client.b cG;
 
     public a(MessageManager messageManager) {
         super(messageManager);
-        this.c = null;
-        this.c = new com.baidu.adp.framework.client.b(messageManager);
-        this.b = com.baidu.adp.framework.c.a.a();
+        this.cG = null;
+        this.cG = new com.baidu.adp.framework.client.b(messageManager);
+        this.cL = com.baidu.adp.framework.c.a.aU();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a
-    public void a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-        this.c.a(customMessage, customMessageTask);
+    /* renamed from: a */
+    public void sendMessage(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        this.cG.sendMessage(customMessage, customMessageTask);
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public CustomMessage b2(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-        return this.a.getController().a(customMessage, customMessageTask);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.b.c
+    public CustomMessage<?> c(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        return this.aH.getController().b(customMessage, customMessageTask);
     }
 
-    public void a(BdUniqueId bdUniqueId) {
-        this.c.a(bdUniqueId);
-    }
-
-    @Override // com.baidu.adp.framework.a
-    public void a(int i, BdUniqueId bdUniqueId) {
-        this.c.a(i, bdUniqueId);
-    }
-
-    public LinkedList<CustomMessage<?>> b(BdUniqueId bdUniqueId) {
-        return this.c.b(bdUniqueId);
+    public void removeMessage(BdUniqueId bdUniqueId) {
+        this.cG.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> b(int i, BdUniqueId bdUniqueId) {
-        return this.c.b(i, bdUniqueId);
+    public void removeMessage(int i, BdUniqueId bdUniqueId) {
+        this.cG.removeMessage(i, bdUniqueId);
+    }
+
+    public LinkedList<CustomMessage<?>> a(BdUniqueId bdUniqueId) {
+        return this.cG.a(bdUniqueId);
+    }
+
+    @Override // com.baidu.adp.framework.a
+    public LinkedList<CustomMessage<?>> findMessage(int i, BdUniqueId bdUniqueId) {
+        return this.cG.findMessage(i, bdUniqueId);
     }
 }

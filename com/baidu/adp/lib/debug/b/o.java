@@ -3,31 +3,32 @@ package com.baidu.adp.lib.debug.b;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import com.baidu.adp.R;
 /* loaded from: classes.dex */
 class o implements View.OnTouchListener {
-    final /* synthetic */ m a;
+    final /* synthetic */ m hO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.a = mVar;
+        this.hO = mVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.a.w && motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch_bk));
-            this.a.m.setVisibility(8);
-            this.a.m.setClickable(false);
-            this.a.b.setVisibility(8);
-            this.a.w = false;
-            this.a.c.setVisibility(0);
+        if (this.hO.hN && motionEvent.getAction() == 0) {
+            ((ImageButton) view).setBackgroundDrawable(this.hO.getResources().getDrawable(R.drawable.adp_debug_switch_bk));
+            this.hO.hD.setVisibility(8);
+            this.hO.hD.setClickable(false);
+            this.hO.hx.setVisibility(8);
+            this.hO.hN = false;
+            this.hO.hy.setVisibility(0);
         } else if (motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch));
-            this.a.m.setVisibility(0);
-            this.a.m.setClickable(true);
-            this.a.b.setVisibility(0);
-            this.a.c.setVisibility(8);
-            this.a.w = true;
+            ((ImageButton) view).setBackgroundDrawable(this.hO.getResources().getDrawable(R.drawable.adp_debug_switch));
+            this.hO.hD.setVisibility(0);
+            this.hO.hD.setClickable(true);
+            this.hO.hx.setVisibility(0);
+            this.hO.hy.setVisibility(8);
+            this.hO.hN = true;
         }
         return false;
     }
